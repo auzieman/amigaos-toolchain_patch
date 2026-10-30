@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-30",
+  "board_repository": "/home/auzieman/Projects/tabor-linux-forge",
+  "board_repository_head": "4006216e5b7247baa3c7663d5a0d4b772fb24a80",
+  "linux_baseline_commit": "4f5cafb5cb8471e54afdc9054d973535614f7675",
+  "vendor_patch_apply_check": "passed against local unchanged upstream baseline; no source mutation",
+  "files": [
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/SHA256SUMS",
+      "sha256": "34c3f364748f9c71193048e932cde433db941fc94774f6fad9deb6ba2e23e371"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor-5.4-rc3.config",
+      "sha256": "c13ca6ce2eb6d21292d92328df05b2e31ac8bca7c209d3efe48013c666fb608d"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor3.dts",
+      "sha256": "3cfe02e041ffac688a32319493be93d1889d252e97793d25cad4f02fab3a9055"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor_5.4-1.patch",
+      "sha256": "3875573de864520981b38c458ec1e7f75829405f77297104b6f131fc002e29fa"
+    }
+  ],
+  "gcc_glibc_restoration_patch_found": false,
+  "modern_versions_selected": false,
+  "hyperion_kernel_source_available": false,
+  "build_completed": false
+}
