@@ -1,0 +1,6 @@
+# Supply the retained kernel-tools image ID/digest from an accepted build.
+ARG KERNEL_TOOLS_IMAGE
+FROM ${KERNEL_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends qemu-system-ppc \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3", "/project/scripts/qemu-boot-smoke.py"]

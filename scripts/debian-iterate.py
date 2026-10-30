@@ -18,6 +18,7 @@ def main():
  p.add_argument('--mode',choices=['prepare','configure','build'],default='prepare')
  p.add_argument('--image-id',required=True)
  p.add_argument('--jobs',type=int,default=2)
+ p.add_argument('--kernel-profile',choices=['tabor','qemu-smoke'],default='tabor')
  a=p.parse_args();project=a.project.resolve();cache=a.cache.resolve();work=a.work.resolve()
  if not re.search(r'(?:^|@)sha256:[0-9a-f]{64}$',a.image_id):p.error('image digest required')
  if not 1<=a.jobs<=32:p.error('invalid job count')
@@ -33,7 +34,7 @@ def main():
    patches.append(patch)
  # Refuse reuse; never reset a reference source or silently resume an iteration.
  work.mkdir(parents=True,exist_ok=False)
- receipt={'component':a.component,'version':component['version'],'image_id':a.image_id,'status':'started','mode':a.mode,'lock_sha256':sha(project/'profiles/debian-trixie.lock.json'),'series_sha256':sha(series),'patches':{x.name:sha(x) for x in patches},'commands':[],'boot_tested':False,'spe_userspace_validated':False}
+ receipt={'component':a.component,'version':component['version'],'image_id':a.image_id,'status':'started','mode':a.mode,'lock_sha256':sha(project/'profiles/debian-trixie.lock.json'),'series_sha256':sha(series),'patches':{x.name:sha(x) for x in patches},'commands':[],'kernel_profile':a.kernel_profile,'boot_tested':False,'spe_userspace_validated':False}
  def interrupted(signum,frame):raise RuntimeError('Iteration interrupted by signal '+str(signum))
  signal.signal(signal.SIGTERM,interrupted)
  with (work/'build.log').open('w') as log:
@@ -69,17 +70,25 @@ def main():
     run(['dpkg-query','-W']);run(['powerpc-linux-gnu-gcc','--version']);run(['powerpc-linux-gnu-ld','--version'])
     if a.component=='linux':
      make=['make','-C',str(source),'O='+str(output),'ARCH=powerpc','CROSS_COMPILE=powerpc-linux-gnu-']
-     run(make+['mpc85xx_smp_defconfig'])
+     if a.kernel_profile=='qemu-smoke':
+      seed=project/'profiles/qemu/e500v2-smoke.config'
+      receipt['config_seed_sha256']=sha(seed)
+      run(make+['KCONFIG_ALLCONFIG='+str(seed),'allnoconfig'])
+     else:run(make+['mpc85xx_smp_defconfig'])
      run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--enable','DEBUG_INFO_NONE','--disable','DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
      run(make+['olddefconfig'])
      config=(output/'.config').read_text().splitlines()
      for key in ['CONFIG_PPC=y','CONFIG_BOOKE=y','CONFIG_SPE=y','CONFIG_TABOR=y','CONFIG_DEBUG_INFO_NONE=y']:
       if key not in config:raise ValueError('Required configuration missing: '+key)
+     if a.kernel_profile=='qemu-smoke':
+      for key in ['CONFIG_PPC_QEMU_E500=y','CONFIG_SMP=y','CONFIG_BLK_DEV_INITRD=y','CONFIG_BINFMT_ELF=y','CONFIG_SERIAL_8250_CONSOLE=y']:
+       if key not in config:raise ValueError('Required QEMU configuration missing: '+key)
      receipt['config_sha256']=sha(output/'.config');receipt['status']='configured'
      if a.mode=='build':
       # Catch board/DTS defects before spending time on the whole kernel.
       run(make+['-j'+str(a.jobs),'arch/powerpc/platforms/85xx/tabor.o','fsl/tabor-a1222.dtb'])
-      run(make+['-j'+str(a.jobs),'vmlinux','modules','dtbs'])
+      targets=['vmlinux'] if a.kernel_profile=='qemu-smoke' else ['vmlinux','modules','dtbs']
+      run(make+['-j'+str(a.jobs)]+targets)
       receipt['status']='compiled'
     else:
      # Do not build a generic PowerPC libc and mislabel it as SPE.

@@ -1,2 +1,4 @@
 # Patch payloads retain upstream context indentation and blank context lines.
 patches/**/*.patch whitespace=-blank-at-eol,-space-before-tab
+# Keep captured serial bytes/hash; CRLF is emitted by the guest console.
+docs/builds/*-serial.log -text whitespace=-blank-at-eol,cr-at-eol

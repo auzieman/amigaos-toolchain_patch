@@ -1,0 +1,179 @@
+{
+  "run_id": "b57b3f7b-cc3c-43b4-95a7-31b11186478b",
+  "linux": {
+    "component": "linux",
+    "version": "6.12.113-1",
+    "image_id": "sha256:2e1d8fff82133132d0e2af14a9757c533133b5c2a8d763c58cd06baebed90931",
+    "status": "compiled",
+    "mode": "build",
+    "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+    "series_sha256": "1d231e0e0ae8cb5d8108344685962fbfe69fc66fb7e96321f3ef1e0fd0d3f7b6",
+    "patches": {
+      "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4"
+    },
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/cache/linux_6.12.113-1.dsc",
+        "/work/linux-001/source"
+      ],
+      [
+        "git",
+        "apply",
+        "--check",
+        "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+      ],
+      [
+        "git",
+        "apply",
+        "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+      ],
+      [
+        "dpkg-query",
+        "-W"
+      ],
+      [
+        "powerpc-linux-gnu-gcc",
+        "--version"
+      ],
+      [
+        "powerpc-linux-gnu-ld",
+        "--version"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "mpc85xx_smp_defconfig"
+      ],
+      [
+        "/work/linux-001/source/scripts/config",
+        "--file",
+        "/work/linux-001/output/.config",
+        "--enable",
+        "TABOR",
+        "--enable",
+        "SPE",
+        "--enable",
+        "DEVTMPFS",
+        "--enable",
+        "DEVTMPFS_MOUNT",
+        "--enable",
+        "DEBUG_INFO_NONE",
+        "--disable",
+        "DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT",
+        "--disable",
+        "DEBUG_INFO",
+        "--disable",
+        "DEBUG_INFO_BTF"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "olddefconfig"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "-j2",
+        "arch/powerpc/platforms/85xx/tabor.o",
+        "fsl/tabor-a1222.dtb"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "-j2",
+        "vmlinux",
+        "modules",
+        "dtbs"
+      ]
+    ],
+    "boot_tested": false,
+    "spe_userspace_validated": false,
+    "config_sha256": "aa808703917b70881d8b1297f3bc8a157178912223d183f333e9b64b8a7e41bb",
+    "artifacts": {
+      "vmlinux": "03dfb9dc6f00a2b6a649d00f4b0db7062b654ca81b7e1ac5dcded4025c32515a",
+      "System.map": "31fb5154fd66a25a3edd30636cf961447cdf8335d89610708b456c1d7ae846fe",
+      ".config": "aa808703917b70881d8b1297f3bc8a157178912223d183f333e9b64b8a7e41bb",
+      "arch/powerpc/boot/dts/fsl/tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+    },
+    "cache_reverified": true
+  },
+  "glibc": {
+    "component": "glibc",
+    "version": "2.41-12+deb13u4",
+    "image_id": "sha256:2e1d8fff82133132d0e2af14a9757c533133b5c2a8d763c58cd06baebed90931",
+    "status": "failed",
+    "mode": "build",
+    "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+    "series_sha256": "066a3c1566db4b64dd4da13a40808822c08aeec6ae6ee8ef1fabe9136c8c5e93",
+    "patches": {
+      "0001-restore-historical-e500-sysdeps.patch": "141c17f4275a0e70c863702edb23ba743d7c72a40d812107f7ca2d6bd5ab08c8"
+    },
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/cache/glibc_2.41-12+deb13u4.dsc",
+        "/work/glibc-001/source"
+      ],
+      [
+        "git",
+        "apply",
+        "--check",
+        "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+      ],
+      [
+        "git",
+        "apply",
+        "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+      ],
+      [
+        "dpkg-query",
+        "-W"
+      ],
+      [
+        "powerpc-linux-gnu-gcc",
+        "--version"
+      ],
+      [
+        "powerpc-linux-gnu-ld",
+        "--version"
+      ],
+      [
+        "powerpc-linux-gnu-gcc",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-c",
+        "/work/glibc-001/spe-probe.c",
+        "-o",
+        "/work/glibc-001/spe-probe.o"
+      ]
+    ],
+    "boot_tested": false,
+    "spe_userspace_validated": false,
+    "error": "Command failed (1): ['powerpc-linux-gnu-gcc', '-mcpu=8548', '-mabi=spe', '-mspe', '-mfloat-gprs=double', '-c', '/work/glibc-001/spe-probe.c', '-o', '/work/glibc-001/spe-probe.o']"
+  },
+  "collection_sha256_verified": true,
+  "interpretation": "Full Tabor vmlinux/modules/dtbs compile passed. No boot or SPE userspace acceptance. glibc preflight still fails on missing compiler SPE flags."
+}

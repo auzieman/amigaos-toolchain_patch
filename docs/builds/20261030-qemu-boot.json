@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-30",
+  "edge_attempt": "attempt-005",
+  "retained_manifest_verified": true,
+  "linux_build": {
+    "component": "linux",
+    "version": "6.12.113-1",
+    "image_id": "sha256:2e1d8fff82133132d0e2af14a9757c533133b5c2a8d763c58cd06baebed90931",
+    "status": "compiled",
+    "mode": "build",
+    "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+    "series_sha256": "1d231e0e0ae8cb5d8108344685962fbfe69fc66fb7e96321f3ef1e0fd0d3f7b6",
+    "patches": {
+      "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4"
+    },
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/cache/linux_6.12.113-1.dsc",
+        "/work/linux-001/source"
+      ],
+      [
+        "git",
+        "apply",
+        "--check",
+        "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+      ],
+      [
+        "git",
+        "apply",
+        "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+      ],
+      [
+        "dpkg-query",
+        "-W"
+      ],
+      [
+        "powerpc-linux-gnu-gcc",
+        "--version"
+      ],
+      [
+        "powerpc-linux-gnu-ld",
+        "--version"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "KCONFIG_ALLCONFIG=/project/profiles/qemu/e500v2-smoke.config",
+        "allnoconfig"
+      ],
+      [
+        "/work/linux-001/source/scripts/config",
+        "--file",
+        "/work/linux-001/output/.config",
+        "--enable",
+        "TABOR",
+        "--enable",
+        "SPE",
+        "--enable",
+        "DEVTMPFS",
+        "--enable",
+        "DEVTMPFS_MOUNT",
+        "--enable",
+        "DEBUG_INFO_NONE",
+        "--disable",
+        "DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT",
+        "--disable",
+        "DEBUG_INFO",
+        "--disable",
+        "DEBUG_INFO_BTF"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "olddefconfig"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "-j2",
+        "arch/powerpc/platforms/85xx/tabor.o",
+        "fsl/tabor-a1222.dtb"
+      ],
+      [
+        "make",
+        "-C",
+        "/work/linux-001/source",
+        "O=/work/linux-001/output",
+        "ARCH=powerpc",
+        "CROSS_COMPILE=powerpc-linux-gnu-",
+        "-j2",
+        "vmlinux"
+      ]
+    ],
+    "kernel_profile": "qemu-smoke",
+    "boot_tested": false,
+    "spe_userspace_validated": false,
+    "config_seed_sha256": "cfcc3566fa62c0b19538de254dfa6a58448b546fbc917cc9936ab45684f11a78",
+    "config_sha256": "f316e8bdddbcb69feeff5bb906da880303e9c44f13a55b03eb294a1e02d3fb93",
+    "artifacts": {
+      "vmlinux": "4ba9bf38274c0c56f7fc0ebd785d3ab3b236695f2ae37f233e07724e068568f3",
+      "System.map": "04cd33fa3cf14935d549b6ff297ab6b218b4009adb1bdff3268cbc007e3351c4",
+      ".config": "f316e8bdddbcb69feeff5bb906da880303e9c44f13a55b03eb294a1e02d3fb93",
+      "arch/powerpc/boot/dts/fsl/tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+    },
+    "cache_reverified": true
+  },
+  "boot": {
+    "image_id": "sha256:1edaa6e8e928eff4be7f7fa14aa20f1ed14deb95d653724fd1bf0a7f9843d3b2",
+    "kernel_sha256": "4ba9bf38274c0c56f7fc0ebd785d3ab3b236695f2ae37f233e07724e068568f3",
+    "init_source_sha256": "9c944e4f2ed1164568110292291244015752eb70661d5e55442fc953af3dfa84",
+    "spe_validated": false,
+    "glibc_validated": false,
+    "real_board_boot": false,
+    "status": "passed",
+    "init_sha256": "21df677a9a3d34b483dd74ca55a16329dcaccff00e8413c23392076aafac61a7",
+    "initramfs_sha256": "64720ca7814b146abb9a8e82f697795c68d7026bbf15d8b3de73232532ee8c02",
+    "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)\nCopyright (c) 2003-2025 Fabrice Bellard and the QEMU Project developers\n",
+    "command": [
+      "qemu-system-ppc",
+      "-M",
+      "ppce500",
+      "-cpu",
+      "e500v2",
+      "-accel",
+      "tcg",
+      "-smp",
+      "2",
+      "-m",
+      "512M",
+      "-display",
+      "none",
+      "-serial",
+      "stdio",
+      "-monitor",
+      "none",
+      "-nic",
+      "none",
+      "-no-reboot",
+      "-kernel",
+      "/work/linux-001/output/vmlinux",
+      "-initrd",
+      "/results/boot-001/initramfs.cpio",
+      "-append",
+      "console=ttyS0,115200 rdinit=/init panic=-1"
+    ],
+    "termination": "bounded-test-timeout",
+    "serial_sha256": "062fd98b300533970105ededef75e9960684e322690ad88b90eb9d78e41186f6",
+    "init_reached": true,
+    "panic_seen": false
+  },
+  "previous_silent_boot": {
+    "image_id": "sha256:1edaa6e8e928eff4be7f7fa14aa20f1ed14deb95d653724fd1bf0a7f9843d3b2",
+    "kernel_sha256": "8888998c3db5e5c2d0f2553720df7b382a197ede09e543b7dae455167a042858",
+    "init_source_sha256": "9c944e4f2ed1164568110292291244015752eb70661d5e55442fc953af3dfa84",
+    "spe_validated": false,
+    "glibc_validated": false,
+    "real_board_boot": false,
+    "status": "failed",
+    "init_sha256": "21df677a9a3d34b483dd74ca55a16329dcaccff00e8413c23392076aafac61a7",
+    "initramfs_sha256": "64720ca7814b146abb9a8e82f697795c68d7026bbf15d8b3de73232532ee8c02",
+    "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)\nCopyright (c) 2003-2025 Fabrice Bellard and the QEMU Project developers\n",
+    "command": [
+      "qemu-system-ppc",
+      "-M",
+      "ppce500",
+      "-cpu",
+      "e500v2",
+      "-accel",
+      "tcg",
+      "-smp",
+      "2",
+      "-m",
+      "512M",
+      "-display",
+      "none",
+      "-serial",
+      "stdio",
+      "-monitor",
+      "none",
+      "-nic",
+      "none",
+      "-no-reboot",
+      "-kernel",
+      "/work/linux-001/output/vmlinux",
+      "-initrd",
+      "/results/boot-001/initramfs.cpio",
+      "-append",
+      "console=ttyS0,115200 rdinit=/init panic=-1"
+    ],
+    "termination": "bounded-test-timeout",
+    "serial_sha256": "5c29197d973e8095f943e53565afc0fcfed97cea117ff06c526c114163b8ac49",
+    "init_reached": false,
+    "panic_seen": false
+  },
+  "interpretation": "QEMU kernel entry, two CPUs and freestanding PPC32 init verified. This is a separate minimal config of the same pinned patched Debian source, not a boot test of the full Tabor build artifact. No SPE arithmetic, restored glibc, SDL/OpenGL or physical A1222 boot acceptance."
+}

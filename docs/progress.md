@@ -19,7 +19,7 @@ contract; the current results concern Linux/SPE on A1222.
 | `23fa71a4-4dbb-49a3-9249-8333c3312e4b` | Apply patches to real Debian sources and cross-compile board targets | Tabor object and DTB passed; object is 32-bit big-endian PowerPC ELF. Full kernel interrupted because olddefconfig re-enabled DWARF. glibc patch applied but compiler rejected SPE flags. |
 | `02cf5eb` | Select DEBUG_INFO_NONE explicitly and retain evidence before deleting disposable trees | Seven tests passed. Exact scoped artifact hashes: [first iteration receipt](builds/20261030-first-debian-iteration.json). |
 | `4c8d17fa-5380-402a-ab11-42e9a528e19f` | Fresh retry with corrected config | Initial 4 GiB free-space guard stopped kernel extraction because duplicate staged archives consumed space. This is infrastructure, not a patch failure. |
-| `b57b3f7b-cc3c-43b4-95a7-31b11186478b` | Replay from the canonical verified archive cache using a 150 KB project bundle | Fresh Debian extraction, local patches, DEBUG_INFO_NONE assertion and scoped board/DTB checks passed. Full vmlinux/modules/dtbs compile is ongoing at this checkpoint; no final link/boot/ABI acceptance yet. |
+| `b57b3f7b-cc3c-43b4-95a7-31b11186478b` | Replay from the canonical verified archive cache using a 150 KB project bundle | Fresh Debian extraction, local patches, DEBUG_INFO_NONE assertion and scoped board/DTB checks passed. Full vmlinux/modules/dtbs compile passed; collected artifact hashes verified. glibc compiler preflight remains failed. No board boot/ABI acceptance. |
 
 The archive cache is now deduplicated independently of small project/patch
 bundles. Cached archives remain hash-checked and read-only in containers;
@@ -36,6 +36,24 @@ out; no partially copied file is used as a verified cache entry.
 - The compiler prerequisite: current Debian GCC rejects `-mabi=spe`, `-mspe`
   and `-mfloat-gprs=double`; modern SPE userspace is not working yet.
 
-Next: full kernel compile with no debug information, then GCC SPE restoration
+Full compile evidence: [Debian kernel receipt](builds/20261030-full-debian-kernel.json).
+
+Next: QEMU e500v2 boot smoke test, then GCC SPE restoration
 and the remaining glibc shared-state/configuration work. Kernel boot wrapping,
 real A1222 serial boot, audio/power controls and runtime ABI tests remain pending.
+
+## 2026-10-30 — QEMU boot accepted
+
+Full Tabor kernel compilation passed independently. The initial minimal QEMU
+profile required configuration dependency fixes; its first linked kernel was
+silent because PHYS_64BIT/SERIAL_OF_PLATFORM were missing. Fresh attempt-005
+with both enabled booted Linux 6.12.113 under QEMU 10.0.13/e500v2, brought up
+two CPUs and reached freestanding PPC32 init. No panic during 60 seconds.
+[Boot receipt](builds/20261030-qemu-boot.json) and
+[serial proof](builds/20261030-qemu-serial.log) retain exact evidence. Artifact
+manifest, kernel/config/init hashes verified; seven workflow tests pass.
+
+Two desktop-4 capture windows show build/serial and an ANSI edge CPU/RAM
+monitor. Guest metrics are explicitly pending. [E-Trixie follow-up](e-trixie-follow-up.md)
+records the laptop-style live USB intent and direct SPE → SDL software →
+SDL/GL → real A1222 AMD validation gates. No distribution image is built yet.

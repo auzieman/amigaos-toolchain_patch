@@ -26,14 +26,16 @@ Start with the [engineering progress log](progress.md) for commit/run context.
 - patches/gcc and patches/binutils: no accepted restoration patches yet.
 
 Targets: Debian linux 6.12.113-1 and glibc 2.41-12+deb13u4. Source pins, patch
-origins and initial checks are recorded; no completed modern kernel compile,
-restored libc ABI or real A1222 boot is claimed at this review checkpoint.
-The first BKC attempt built its tools image but was stopped during slow NFS
-extraction. The local-disk retry compiled Tabor board object and DTB; the full
-kernel was interrupted to correct re-enabled debug information. The glibc patch
-applied, then the Debian compiler rejected SPE flags. See
-[actual iteration evidence](builds/20261030-first-debian-iteration.json). A fresh
-full-kernel retry will use explicit DEBUG_INFO_NONE; docs/task.md retains failures.
+origins and checks are recorded. The full modern Tabor vmlinux/modules/dtbs
+cross-compile passed in BKC run b57b3f7b-cc3c-43b4-95a7-31b11186478b;
+returned hashes verified. See [full build evidence](builds/20261030-full-debian-kernel.json).
+The glibc patch applied, then Debian GCC rejected SPE flags: no restored libc
+ABI is claimed. A separate minimal QEMU configuration booted with two e500v2 CPUs and reached
+freestanding PPC32 init;
+see [emulator recipe and limits](qemu-boot.md). Actual A1222 boot remains pending.
+Earlier infrastructure/configuration failures remain in docs/task.md.
+The proposed [E-Trixie image follow-up](e-trixie-follow-up.md) records the
+remaining compiler/ABI, rescue rootfs, real-board and graphics gates.
 
 Seven local tests pass, including source isolation, independent patch replay,
 cache rejection and refusal to reuse a run directory. Fixture tests do not

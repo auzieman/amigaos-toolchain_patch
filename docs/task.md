@@ -129,3 +129,60 @@ seven local tests pass. Review evidence is docs/builds/20261030-first-debian-ite
 User requested useful commit notes for Hyperion reviewers. Added CONTRIBUTING.md, a local commit template and an engineering progress log backfilling the significant commits/runs without rewriting published history. The third run stopped at the initial disk guard because archive copies consumed local space; archive caches are now deduplicated and project bundles will exclude archives. No partially copied NFS file is treated as verified input.
 
 Current BKC checkpoint: b57b3f7b-cc3c-43b4-95a7-31b11186478b successfully uses the canonical verified source cache and approximately 150 KB project bundle. Fresh Debian extraction, patch application, explicit DEBUG_INFO_NONE and scoped Tabor object/DTB checks passed; full vmlinux/modules/dtbs cross-compilation remains running at the checkpoint. Root-disk headroom is stable around 2.8 GiB during compilation. No new source patch or compiler error observed so far; collect final receipts before claiming a complete kernel build.
+
+## Full kernel compile and edge emulator preparation — 2026-10-30
+
+BKC b57b3f7b-cc3c-43b4-95a7-31b11186478b completed the full modern
+vmlinux/modules/dtbs build. Collection verified SHA256SUMS; vmlinux is static
+32-bit big-endian PowerPC ELF. Exact receipts are in
+docs/builds/20261030-full-debian-kernel.json. glibc still fails its compiler
+SPE flag prerequisite, so overall component pipeline failure does not negate
+the kernel compile result.
+
+User authorized pulling prerequisites and booting on edge. Applied
+tabor-kernel-build. The full Tabor config disables PPC_QEMU_E500, requiring
+a separate minimal emulator configuration from freshly extracted Debian
+sources with the same patch. Initial configuration attempts stopped before
+compilation: first missing FSL_SOC_BOOKE prevented board selections, then
+DEBUG_KERNEL being disabled hid DEBUG_INFO_NONE. Both failure receipts and
+configs retained on edge; neither was a kernel compiler or boot failure.
+Corrected seed enables both dependencies. Each retry uses a new source/output
+workspace. QEMU installed into a separate container-derived tools image; host
+services, GPU, boot defaults and physical media unchanged.
+
+User requested collaborator documentation during the emulator build and
+expressed interest in E-Trixie. Added docs/e-trixie-follow-up.md with explicit
+ABI, rootfs, real-board and graphics gates. No full distribution image build
+is claimed or started; the active boot attempt continues. The third emulator
+attempt hit the initial free-space guard; two dpkg-source-created duplicate
+orig archives were compared against the canonical source cache and removed.
+The fourth fresh extraction passed configuration checks and is compiling.
+
+First emulator kernel compiled (attempt-004), but its bounded QEMU test returned
+no kernel serial output or init marker. No panic text was observed; silence is
+not a successful boot. Inspection found PHYS_64BIT and SERIAL_OF_PLATFORM
+missing in the minimal seed: QEMU ppce500 places CCSR devices above 4 GiB.
+Added both, verified resulting selections in a new fresh attempt-005, and
+changed the harness to stream stdout directly to serial.log during execution.
+Stable edge live.log follows the build and switches to the serial log.
+
+User requested screenshot-ready terminals on desktop 4 and an ANSI monitor.
+Opened two local Terminology windows, verified __E_WINDOW_DESK=(3,0) on external
+monitor zone 1: build/serial tail and edge-dashboard.py. Metrics label edge host
+and container CPU/RAM explicitly; guest metrics, SPE/glibc and physical GPU
+acceptance remain pending. User also requested the eventual live USB reflect
+the laptop's main E desktop: record it as a Trixie-based A1222 image intent,
+requiring rebuilt target packages, reviewed appearance inputs and board boot
+acceptance. No laptop rootfs clone, private-config export or media write done.
+
+Final attempt-005 passed: serial log identifies Linux 6.12.113, QEMU e500v2,
+two brought-up CPUs, initramfs unpack and /init marker. No panic observed during
+the bounded 60-second run; VM stopped normally by the harness time limit.
+Collected artifact manifest verified, boot kernel SHA matches compile receipt,
+and repository init/config seed match receipt hashes. Retained build/log/boot
+artifacts before discarding generated source/object trees. Evidence:
+docs/builds/20261030-qemu-boot.json and 20261030-qemu-serial.log. Seven local
+workflow tests pass. No SPE arithmetic, glibc ABI, graphics or physical board
+acceptance. Desktop 4 console/dashboard windows intentionally remain open.
+Next bounded action: reference SPE toolchain/runtime and direct ABI tests, then
+headless SDL/Mesa tests; E-Trixie laptop-style live image remains a follow-up.
