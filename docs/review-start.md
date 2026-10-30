@@ -9,6 +9,10 @@ Start with the [engineering progress log](progress.md) for commit/run context.
 The [matched Mandelbrot demo](../bench/README.md) includes ASCII timings,
 identical fractal images and a side-by-side graphic with explicit QEMU limits.
 
+The [minimal image package plan](minimal-package-plan.md) records the requested
+8 GiB/Radeon target, staged E/GL payload and optional browser, without claiming
+a completed target dependency solution or image.
+
 ## Prompts and workflows
 
 - [.agents/prompts](../.agents/prompts): intake, baseline kernel, kernel

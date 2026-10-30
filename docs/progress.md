@@ -80,3 +80,12 @@ Three timed trials per path after warmup; identical escape-count images.
 Raw evidence, helper provenance and [replay recipe](../bench/README.md) retained.
 This is a freestanding CPU demo, not a restored C ABI/glibc or GL/physical
 A1222 performance result. Initial failed timing probe is documented separately.
+
+## 2026-10-30 — minimal live-image package plan
+
+[Incremental seeds](minimal-package-plan.md): serial rescue -> E/Xorg ->
+GL/DRM tests, with Firefox as an optional final increment. One normal console
+login, startx and no greeter; mandatory dependencies retained, optional
+services excluded by default. Machine-readable JSON validated. All target
+runtime code requires our restored SPE compiler/glibc; source pins/dependency
+closure, RAM/firmware and exact Radeon identity remain execution gates.

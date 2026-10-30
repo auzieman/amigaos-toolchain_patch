@@ -1,0 +1,86 @@
+{
+  "name": "a1222-minimal-e-trixie",
+  "status": "candidate-source-package-plan-not-built-or-version-locked",
+  "build_policy": {
+    "distribution_source_baseline": "Debian trixie",
+    "userspace": "Fresh source builds against the restored e500v2/SPE compiler and glibc sysroot",
+    "target_tuple": "powerpc-linux-gnuspe",
+    "official_trixie_spe_binaries_assumed": false,
+    "bootstrap": "minbase-equivalent rebuilt for the selected ABI; dependency closure required",
+    "runtime_from_our_toolchain": ["libc6", "libgcc-s1", "libstdc++6"],
+    "install_recommends": false,
+    "install_suggests": false,
+    "host_toolchain_in_image": false,
+    "package_versions_and_hashes": "Pin before execution; these are source-package intent names, not an installable repository"
+  },
+  "hardware": {
+    "board": "A1222/Tabor; exact original/Plus revision to verify",
+    "cpu": "P1022 dual-core e500v2, big-endian PPC32 with SPE",
+    "requested_ram_gib": 8,
+    "ram_verified": false,
+    "gpu": "AMD Radeon; exact PCI ID required",
+    "boot": "USB-first manual trial; verified board firmware format still required",
+    "console": "serial plus local keyboard/display"
+  },
+  "login": {
+    "human_users": 1,
+    "user_name": "tabor",
+    "password": "set during image provisioning; never committed",
+    "autologin": false,
+    "display_manager": null,
+    "desktop_start": "console login, then startx -> enlightenment_start",
+    "session": "X11 via logind/PAM and user D-Bus; retain serial rescue access"
+  },
+  "stages": [
+    {
+      "id": "rescue",
+      "inherits": null,
+      "packages": ["systemd-sysv", "udev", "initramfs-tools", "kmod", "iproute2", "ifupdown", "dhcpcd-base", "procps", "pciutils", "usbutils", "less", "nano", "sudo"],
+      "project_payloads": ["board kernel/DTB and verified firmware packaging", "SPE arithmetic test", "fractal test adapted to a normal CLI command", "ASCII evidence report"],
+      "acceptance": "Serial login, storage/network enumeration, memory detection and direct SPE correctness; no GUI required"
+    },
+    {
+      "id": "e-desktop",
+      "inherits": "rescue",
+      "packages": ["xserver-xorg-core", "xserver-xorg-input-libinput", "xinit", "xauth", "dbus-user-session", "libpam-systemd", "enlightenment", "enlightenment-data", "terminology", "fonts-dejavu-core"],
+      "acceptance": "Single user logs in and starts E with terminal/input; complete required EFL/font/codec dependency closure retained"
+    },
+    {
+      "id": "gl-tests",
+      "inherits": "e-desktop",
+      "packages": ["libgl1", "libglx-mesa0", "libgl1-mesa-dri", "libegl1", "libegl-mesa0", "mesa-utils", "libdrm-tests", "htop"],
+      "acceptance": "Record DRM driver and GL_VENDOR/RENDERER/VERSION; display glxgears, retain logs and compare software/hardware rendering explicitly"
+    },
+    {
+      "id": "browser",
+      "inherits": "gl-tests",
+      "optional": true,
+      "packages": ["firefox-esr", "ca-certificates", "fonts-liberation"],
+      "acceptance": "Separate PPC32/SPE C++/Rust/JS-engine build feasibility gate; open local test page, then TLS page; no obsolete browser fallback"
+    }
+  ],
+  "hardware_overlays": {
+    "radeon": {
+      "packages": ["firmware-amd-graphics"],
+      "policy": "Include only firmware required by identified card and dependencies, respecting firmware license notices; kernel radeon/amdgpu and Mesa r600/radeonsi selected from PCI ID",
+      "xorg": "Start with core modesetting driver; add matching xserver-xorg-video-amdgpu or xserver-xorg-video-ati only if required",
+      "llvm": "Driver-dependent; do not globally remove LLVM until the selected Mesa driver is qualified"
+    },
+    "qemu": {
+      "policy": "Separate kernel/device tree and virtio 2D/software Mesa profile; no stock VirGL acceleration claim for big-endian guest"
+    }
+  },
+  "optional_tools": {
+    "lan-debug": ["openssh-server", "openssh-client"],
+    "remote-desktop": ["x11vnc"],
+    "sdl": ["libsdl2-2.0-0"]
+  },
+  "trim_policy": [
+    "One en_US.UTF-8 locale and one fallback font family initially",
+    "No desktop task/metapackage, greeter, browser or VNC in default gl-tests seed",
+    "No build toolchain, development headers, docs/manpage bulk or package archive cache in runtime",
+    "Keep license notices, required runtime data, NSS/PAM/TLS assets, kernel modules/firmware and error logs",
+    "Bound volatile logs; no default disk swap or persistence until reviewed",
+    "Do not strip or split GPU modules beyond a recorded dependency/firmware manifest"
+  ]
+}

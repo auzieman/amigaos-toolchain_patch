@@ -51,13 +51,14 @@ experiment, not proof of the real firmware format; do not ship it as validated.
 
 ## Smallest intended desktop payload
 
-Use an existing qualified SPE rootfs/toolchain when available. Add only Xorg
-with the selected modesetting/input drivers, E/EFL and necessary dependencies,
-a terminal, Mesa/libdrm/libGL, glxinfo and glxgears. Keep serial access and the
-ANSI panel. Explicitly record ABI, versions, packages, driver and firmware hashes.
-A working older reference userspace can test the modern kernel; label it as such
-rather than calling it modern trixie SPE/glibc. A soft-float alternative requires
-its own explicitly reviewed sysroot; do not silently mix ABIs.
+Build a fresh minimal userspace against our restored SPE compiler/glibc.
+The user clarified that old Tabor Linux is not the delivered rootfs: historical
+media is only a firmware/hardware reference. The canonical incremental seeds,
+login policy, hardware gates and optional browser now live in
+[the minimal package plan](minimal-package-plan.md) and
+[its machine-readable profile](../profiles/images/a1222-minimal.json).
+The first desktop target is E/Xorg/Mesa/gears with mandatory dependencies;
+Firefox is an optional later gate. Do not mix generic PowerPC and SPE ABIs.
 
 For remote capture, use a LAN-only VNC view/tunnel after the graphics guest is
 usable. QEMU's virtual display view and a physical machine's captured desktop

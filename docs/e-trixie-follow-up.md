@@ -1,5 +1,8 @@
 # E-Trixie image follow-up
 
+Current incremental package seeds and single-user policy:
+[minimal A1222 package plan](minimal-package-plan.md).
+
 User expressed interest in an E-Trixie build after the initial kernel/emulator
 work. This is a follow-up proposal, not a working image or an active full distro
 build. Establish the intended E desktop/package set before an image release.

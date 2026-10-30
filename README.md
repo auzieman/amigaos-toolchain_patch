@@ -13,6 +13,8 @@ Modern SPE/glibc ABI, physical A1222 boot and graphics remain unvalidated.
 per path, software FP versus explicit SPE (QEMU results only).
 Proposed [E-Trixie live desktop follow-up](docs/e-trixie-follow-up.md) records
 rescue rootfs, laptop appearance and SDL/GL testing goals.
+The [minimal A1222 package plan](docs/minimal-package-plan.md) defines serial,
+E, GL-test and optional Firefox increments with a single console login.
 
 Active patch objective: [restore missing e500v2/SPE support and forward-port
 A-EON/Tabor changes](docs/patch-set-plan.md), with separate compiler, libc,

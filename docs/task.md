@@ -261,3 +261,28 @@ Source/helper hashes and build flags in 20261030-fractal-inputs.json; replay
 recipe in bench/README.md. Report generator rejects failed/incomplete/mismatched
 runs before presenting results. Desktop live console switches to ASCII report.
 The image is a CPU arithmetic demo, not GPU-rendered fractals or glxgears.
+
+## Incremental minimal A1222 package seeds — 2026-10-30
+
+User requested an ultra-trim build list with E, GL tests, optional Firefox and
+one login, targeting an A1222 with 8 GiB and AMD Radeon. Created the canonical
+profiles/images/a1222-minimal.json and docs/minimal-package-plan.md. Stages:
+source-built minbase-equivalent serial rescue, E/Xorg/Terminology, GL/DRM tests
+(first desktop target), optional Firefox ESR after architecture/toolchain review.
+All runtime code must be freshly built against the restored SPE sysroot; no old
+Tabor rootfs or generic PowerPC binary mix. Required dependency closure is not
+yet solved, and this seed list is not a version/source lock or built image.
+
+Default one human tabor account, password at provisioning, console login plus
+startx, no greeter/autologin. One init/udev/logind/user-D-Bus stack. No-recommends
+policy with required EFL/Mesa runtime assets retained. SSH/VNC/SDL are explicit
+optional overlays. Target RAM/revision still require firmware/device-tree/
+HIGHMEM validation; exact Radeon PCI ID determines DRM/Mesa/firmware and LLVM
+needs. 8 GiB physical RAM does not change PPC32 per-process address limits.
+
+Checked official Debian package pages and existing lab amd64 metadata for seed
+names only; not SPE availability. mesa-utils-extra has no cached candidate and
+is omitted; AMD firmware exists in non-free-firmware. Verified JSON syntax,
+ordered inheritance, unique stage/package entries and optional browser policy.
+No runtime build, service change, media write or hardware trial in this slice.
+Updated older minimal-E notes to reflect fresh-build requirement explicitly.
