@@ -1,5 +1,15 @@
 # Active task — private Tabor SPE toolchain intake
 
+Current scope clarification: A1222/Tabor e500v2 SPE is the immediate focus.
+User reports Steven and Trevor requested this investigation; no additional
+source access or external communication authorization is inferred. Other A-EON
+platforms and the user-described Marhi board are future scope, pending precise
+hardware identification. Preserve board-profile separation without implementing
+additional platforms now. Builds use constrained BKC lab-edge jobs; the R730
+is optional and its power/cooling work is separate. After baseline/forward-port
+and boot-wrapper verification, prepare a minimal USB/rescue image with an explicit
+userspace ABI. No physical drive write, lab job or hardware trial has begun.
+
 User requests a private project supporting modern GCC/glibc SPE, initially a
 viable Linux kernel, followed by graphics and a future Hyperion SDK lane.
 Created private local project, examined existing Tabor workbench and SDK paths,

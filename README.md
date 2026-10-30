@@ -1,5 +1,17 @@
 # Tabor SPE toolchain — private development
 
+Current priority is A1222/Tabor and its e500v2 SPE support, which the user reports
+Steven and Trevor asked them to investigate. Other A-EON platforms and the
+user-described Marhi board belong to the longer-term scope; their exact hardware
+identities and requirements remain to establish. Do not expand the current
+patch/build slice to those boards. Keep reusable toolchain machinery separate
+from board-specific profiles so later support can be added deliberately.
+
+Build execution targets BKC lab-edge with constrained jobs; the R730 is optional
+and not a dependency. The intended first hardware test is a minimal USB/rescue
+image after kernel and boot-wrapper validation. Record its userspace ABI
+explicitly; boot acceptance is separate from modern SPE/glibc acceptance.
+
 Modernize the A1222/Tabor e500v2/SPE toolchain and Linux userspace, with a
 separate future AmigaOS SDK integration track. Local private repository only;
 no remote or Hyperion source imported. Collaboration interest was reported by
