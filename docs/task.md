@@ -462,3 +462,19 @@ on-board check. No drive writes or persistent boot-default changes performed.
 R730 old address10.20.0.130 responds through edge, but SSH key differs. User
 expects the resale Trixie image; no host identity inferred, known_hosts not
 changed and no build load deployed until the new OS identity is verified.
+
+## Updated QEMU result — 2026-10-30
+
+QEMU11.1.3 build completed with pinned internal libfdt. The same accepted
+kernel and fresh source-built shell passed real commands on the new emulator;
+binary hash/version and raw serial retained in builds/qemu11-20261030. A C ABI
+repeat reproduces old-emulator partial results, including fenv rounding fail
+and missing-kernel-futex skip. No full ABI acceptance inferred.
+
+Updated Sam460/ATI read-only ISO probe completed. Firmware reports VGA/VESA OK;
+no AmigaOS desktop seen. Initial screenshot targeted built-in SM501 by default;
+repeated with explicit ati0 device and ATI-head screendump, still black at60s.
+Receipt records bounded observation and no replacement guest driver loaded.
+The A1222-specific CD remains unmatched to this emulated board. No proprietary
+media/driver or screenshot committed. The Linux result is independent of this
+OS4 outcome. Seven workflow tests and Python syntax checks passed.

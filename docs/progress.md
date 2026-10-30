@@ -123,3 +123,19 @@ values without panic. [Raw evidence and receipts](builds/shell-20261030/receipt.
 retain exact hashes. Fixed BusyBox configuration/flags and removed the script
 init dependency. Full SPE ABI and real-board boot remain unvalidated. QEMU11
 replay is queued behind its corrected internal-libfdt build; old ISO guest stopped.
+
+## 2026-10-30 — updated emulator pass and physical-image gates
+
+QEMU11.1.3 now builds and [boots the fresh Linux shell](builds/qemu11-20261030/linux-receipt.json),
+with real commands and no panic. Shared terminal editing, Ctrl-C and line endings
+are fixed. Basic C ABI results are partial: arithmetic/formatting/context pass,
+fenv rounding fails in both emulator versions and pthread needs kernel futex.
+[ABI evidence](builds/abi-20261030/receipt.json) stays below full acceptance.
+The bounded updated OS4/ATI probe did not show Workbench.
+
+Source-built live image plan now includes SSH and physical-display VNC.
+Standard U-Boot board payloads pass CRC/decompression checks, but HDMI
+controller/driver and USB keyboard module inclusion still need resolution
+before writing the authorized SanDisk. User has Elgato; device is detected,
+frame reads failed. R730 is booting its expected Trixie image; changed old-address
+SSH key means OS identity is not yet verified, and no work was deployed there.

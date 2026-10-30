@@ -21,7 +21,7 @@ version = subprocess.check_output([str(a.qemu.resolve()), '--version'], text=Tru
 args = [str(a.qemu.resolve()), '-L', str(a.firmware.resolve()),
         '-machine', 'sam460ex', '-accel', 'tcg', '-m', '512',
         '-rtc', 'base=localtime', '-display', 'none', '-vga', 'none',
-        '-device', 'ati-vga,model=rv100,guest_hwcursor=on',
+        '-device', 'ati-vga,id=ati0,model=rv100,guest_hwcursor=on',
         '-vnc', '127.0.0.1:'+str(a.vnc_display), '-nic', 'none',
         '-serial', 'file:'+str(out/'serial.log'), '-monitor', 'none',
         '-qmp', 'unix:'+str(out/'qmp.sock')+',server=on,wait=off',
@@ -51,7 +51,7 @@ with (out/'qemu.log').open('w') as log:
             for command in [{'execute': 'qmp_capabilities'},
                             {'execute': 'query-status'},
                             {'execute': 'screendump', 'arguments': {
-                                'filename': str(out/'display.ppm')}}]:
+                                'filename': str(out/'display.ppm'), 'device': 'ati0'}}]:
                 f.write((json.dumps(command)+'\n').encode())
                 while True:
                     result = json.loads(f.readline())
