@@ -404,3 +404,15 @@ serial and libc/shell/boot receipts in docs/builds/shell-20261030. This is shell
 runtime acceptance, not full SPE fenv/signals/threads/unwind ABI or physical USB
 boot. New qemu-shell-smoke --qemu records executable hash/version for the queued
 QEMU11 replay. Seven existing workflow tests, Python/shell syntax checks pass.
+
+## Shared console terminal fix — 2026-10-30
+
+User observed odd terminal behavior. Fixed doubled carriage returns by clearing
+PTY output translation before QEMU starts (including ONLCR, because QEMU enables
+OPOST). Use stdio chardev signal=off so Ctrl-C reaches the guest. Native init
+acquires ttyS0 as controlling terminal; enabled BusyBox editing/history. Fresh
+shell006 boot/commands passed. Shared container tabor-spe-shared-shell-002 now
+runs that image; Up-arrow recalled a command, Ctrl-C preserved the guest, and
+CONSOLE_FIXED returned with single CRLF. Existing old container had exited on
+SIGINT; no user disks or host services changed. Seven workflow tests and Python
+syntax checks pass. Console remains shared and isolated, not a network login.
