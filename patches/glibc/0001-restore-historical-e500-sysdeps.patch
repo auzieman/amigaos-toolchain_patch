@@ -1,0 +1,1775 @@
+From: Auzieman / AuzieTek
+Subject: [PATCH] powerpc: retain historical e500 SPE sysdeps for forward port
+
+Recover deleted-only sysdeps from the parent side of upstream removal commit
+a053e878494080f7070cf92890e546057236c9c9. Preserve original notices.
+
+Preparatory source restoration only: modern configure rejection and shared
+context/state handlers are deliberately unchanged until the compiler and ABI
+port are validated. This patch does not establish working SPE support.
+
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/Makefile b/sysdeps/powerpc/powerpc32/e500/nofpu/Makefile
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/Makefile
+@@ -0,0 +1,9 @@
++ifeq ($(subdir),math)
++libm-routines += fexcepts_to_spe fexcepts_from_spe
++libm-routines += fexcepts_to_prctl fexcepts_from_prctl
++libm-routines += fe_note_change
++endif
++
++ifeq ($(subdir),soft-fp)
++sysdep_routines += fraiseexcept-soft
++endif
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c
+@@ -0,0 +1,50 @@
++/* Clear floating-point exceptions for atomic compound assignment.
++   e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library.  If not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <stdlib.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++void
++__atomic_feclearexcept (void)
++{
++  unsigned int fpescr, old_fpescr;
++
++  /* Get the current state.  */
++  old_fpescr = fpescr = fegetenv_register ();
++
++  /* Clear the relevant bits.  */
++  fpescr &= ~SPEFSCR_ALL_EXCEPT;
++
++  /* Put the new state in effect.  */
++  fesetenv_register (fpescr);
++
++  /* Let the kernel know if the "invalid" or "underflow" bit was
++     cleared.  */
++  if (old_fpescr & (SPEFSCR_FINVS | SPEFSCR_FUNFS))
++    {
++      int pflags __attribute__ ((__unused__)), r;
++      INTERNAL_SYSCALL_DECL (err);
++
++      r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
++      if (INTERNAL_SYSCALL_ERROR_P (r, err))
++	abort ();
++    }
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c
+@@ -0,0 +1,55 @@
++/* Store current floating-point environment and clear exceptions for
++   atomic compound assignment.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library.  If not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <stdlib.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++void
++__atomic_feholdexcept (fenv_t *envp)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  /* Get the current state.  */
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    abort ();
++
++  u.l[1] = fegetenv_register ();
++  *envp = u.fenv;
++
++  /* Clear everything except for the rounding mode and trapping to the
++     kernel.  */
++  u.l[0] &= ~(PR_FP_EXC_DIV
++	      | PR_FP_EXC_OVF
++	      | PR_FP_EXC_UND
++	      | PR_FP_EXC_RES
++	      | PR_FP_EXC_INV);
++  u.l[1] &= SPEFSCR_FRMC | (SPEFSCR_ALL_EXCEPT_ENABLE & ~SPEFSCR_FINXE);
++
++  /* Put the new state in effect.  */
++  fesetenv_register (u.l[1]);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			u.l[0] | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    abort ();
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c
+@@ -0,0 +1,46 @@
++/* Install given floating-point environment and raise exceptions for
++   atomic compound assignment.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library.  If not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <stdlib.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++void
++__atomic_feupdateenv (const fenv_t *envp)
++{
++  int exc;
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  /* Save the currently set exceptions.  */
++  exc = fegetenv_register () & SPEFSCR_ALL_EXCEPT;
++
++  u.fenv = *envp;
++
++  fesetenv_register (u.l[1]);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			u.l[0] | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    abort ();
++
++  /* Raise (if appropriate) saved exceptions. */
++  __feraiseexcept_soft (exc);
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fclrexcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fclrexcpt.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fclrexcpt.c
+@@ -0,0 +1,53 @@
++/* Clear given exceptions in current floating-point environment.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++#undef feclearexcept
++int
++__feclearexcept (int excepts)
++{
++  unsigned int fpescr;
++  int excepts_spe = __fexcepts_to_spe (excepts);
++
++  /* Get the current state.  */
++  fpescr = fegetenv_register ();
++
++  /* Clear the relevant bits.  */
++  fpescr &= ~excepts_spe;
++
++  /* Put the new state in effect.  */
++  fesetenv_register (fpescr);
++
++  /* Let the kernel know if the "invalid" or "underflow" bit was
++     cleared.  */
++  if (excepts & (FE_INVALID | FE_UNDERFLOW))
++    __fe_note_change ();
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__feclearexcept, __old_feclearexcept)
++compat_symbol (libm, __old_feclearexcept, feclearexcept, GLIBC_2_1);
++#endif
++
++libm_hidden_ver (__feclearexcept, feclearexcept)
++versioned_symbol (libm, __feclearexcept, feclearexcept, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c
+@@ -0,0 +1,39 @@
++/* Note a change to floating-point exceptions.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++/* Inform the kernel of a change to floating-point exceptions.  */
++
++void
++__fe_note_change (void)
++{
++  int pflags, r;
++  INTERNAL_SYSCALL_DECL (err);
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return;
++  if ((pflags & PR_FP_EXC_SW_ENABLE) == 0)
++    INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++		      pflags | PR_FP_EXC_SW_ENABLE);
++}
++
++libm_hidden_def (__fe_note_change)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c
+@@ -0,0 +1,54 @@
++/* Disable floating-point exceptions.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++fedisableexcept (int excepts)
++{
++  int result = 0, pflags, r;
++  INTERNAL_SYSCALL_DECL (err);
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  /* Save old enable bits.  */
++  result = __fexcepts_from_prctl (pflags);
++
++  pflags &= ~__fexcepts_to_prctl (excepts);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			pflags | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  /* If disabling signals for "inexact", also disable trapping to the
++     kernel.  */
++  if ((excepts & FE_INEXACT) != 0)
++    {
++      unsigned long fpescr;
++
++      fpescr = fegetenv_register ();
++      fpescr &= ~SPEFSCR_FINXE;
++      fesetenv_register (fpescr);
++    }
++
++  return result;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c
+@@ -0,0 +1,54 @@
++/* Enable floating-point exceptions.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++feenableexcept (int excepts)
++{
++  unsigned int result = 0, pflags, r;
++  INTERNAL_SYSCALL_DECL (err);
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  /* Save old enable bits.  */
++  result = __fexcepts_from_prctl (pflags);
++
++  pflags |= __fexcepts_to_prctl (excepts);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			pflags | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  /* If enabling signals for "inexact", also enable trapping to the
++     kernel.  */
++  if ((excepts & FE_INEXACT) != 0)
++    {
++      unsigned long fpescr;
++
++      fpescr = fegetenv_register ();
++      fpescr |= SPEFSCR_FINXE;
++      fesetenv_register (fpescr);
++    }
++
++  return result;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c
+@@ -0,0 +1,49 @@
++/* Store current floating-point environment.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++__fegetenv (fenv_t *envp)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  u.l[1] = fegetenv_register ();
++  *envp = u.fenv;
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__fegetenv, __old_fegetenv)
++compat_symbol (libm, __old_fegetenv, fegetenv, GLIBC_2_1);
++#endif
++libm_hidden_def (__fegetenv)
++libm_hidden_ver (__fegetenv, fegetenv)
++
++versioned_symbol (libm, __fegetenv, fegetenv, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c
+@@ -0,0 +1,36 @@
++/* Get floating-point exceptions.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++fegetexcept (void)
++{
++  int result = 0, pflags, r;
++  INTERNAL_SYSCALL_DECL (err);
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  result = __fexcepts_from_prctl (pflags);
++
++  return result;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c
+@@ -0,0 +1,37 @@
++/* Store current floating-point control modes.  e500 version.
++   Copyright (C) 2016-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++fegetmode (femode_t *modep)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  u.l[1] = fegetenv_register ();
++  *modep = u.fenv;
++  return 0;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetround.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetround.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetround.c
+@@ -0,0 +1,31 @@
++/* Return current rounding direction.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__fegetround (void)
++{
++  unsigned long fpescr;
++
++  fpescr = fegetenv_register ();
++  return fpescr & 3;
++}
++libm_hidden_def (__fegetround)
++weak_alias (__fegetround, fegetround)
++libm_hidden_weak (fegetround)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c
+@@ -0,0 +1,59 @@
++/* Store current floating-point environment and clear exceptions.
++   e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++__feholdexcept (fenv_t *envp)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  /* Get the current state.  */
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  u.l[1] = fegetenv_register ();
++  *envp = u.fenv;
++
++  /* Clear everything except for the rounding mode and trapping to the
++     kernel.  */
++  u.l[0] &= ~(PR_FP_EXC_DIV
++	      | PR_FP_EXC_OVF
++	      | PR_FP_EXC_UND
++	      | PR_FP_EXC_RES
++	      | PR_FP_EXC_INV);
++  u.l[1] &= SPEFSCR_FRMC | (SPEFSCR_ALL_EXCEPT_ENABLE & ~SPEFSCR_FINXE);
++
++  /* Put the new state in effect.  */
++  fesetenv_register (u.l[1]);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			u.l[0] | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  return 0;
++}
++libm_hidden_def (__feholdexcept)
++weak_alias (__feholdexcept, feholdexcept)
++libm_hidden_weak (feholdexcept)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_const.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_const.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_const.c
+@@ -0,0 +1,45 @@
++/* Constant floating-point environments for e500.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++/* The use of "unsigned long long" as the type to define the
++   bit-pattern explicitly, rather than the type "double" used in
++   <bits/fenv.h>, means that we cannot include <fenv_libc.h> here to
++   get the enum constants for the SPEFSCR bits to enable
++   exceptions.  */
++
++#include <sys/prctl.h>
++
++/* If the default argument is used we use this value.  */
++const unsigned long long __fe_dfl_env __attribute__ ((aligned (8))) =
++  0x3cULL;
++
++/* The same representation is used for femode_t.  */
++extern const unsigned long long __fe_dfl_mode
++  __attribute__ ((aligned (8), alias ("__fe_dfl_env")));
++
++/* Floating-point environment where none of the exceptions are masked.  */
++const unsigned long long __fe_enabled_env __attribute__ ((aligned (8))) =
++  (((unsigned long long) (PR_FP_EXC_DIV
++			  | PR_FP_EXC_OVF
++			  | PR_FP_EXC_UND
++			  | PR_FP_EXC_RES
++			  | PR_FP_EXC_INV)) << 32) | 0x7cULL;
++
++/* Non-IEEE mode.  */
++const unsigned long long __fe_nonieee_env __attribute__ ((aligned (8))) =
++  0x0ULL;
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_libc.h b/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_libc.h
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_libc.h
+@@ -0,0 +1,99 @@
++/* Internal libc stuff for floating point environment routines.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#ifndef _FENV_LIBC_H
++#define _FENV_LIBC_H	1
++
++#include <fenv.h>
++
++int __feraiseexcept_spe (int);
++libm_hidden_proto (__feraiseexcept_spe)
++
++int __feraiseexcept_soft (int);
++libc_hidden_proto (__feraiseexcept_soft)
++
++int __fexcepts_to_spe (int);
++libm_hidden_proto (__fexcepts_to_spe)
++
++int __fexcepts_from_spe (int);
++libm_hidden_proto (__fexcepts_from_spe)
++
++int __fexcepts_to_prctl (int);
++libm_hidden_proto (__fexcepts_to_prctl)
++
++int __fexcepts_from_prctl (int);
++libm_hidden_proto (__fexcepts_from_prctl)
++
++void __fe_note_change (void);
++libm_hidden_proto (__fe_note_change)
++
++/* Equivalent to fegetenv, but returns an unsigned int instead of
++   taking a pointer.  */
++#define fegetenv_register() \
++  ({ unsigned int fscr; asm volatile ("mfspefscr %0" : "=r" (fscr)); fscr; })
++
++/* Equivalent to fesetenv, but takes an unsigned int instead of a
++   pointer.  */
++#define fesetenv_register(fscr) \
++  ({ asm volatile ("mtspefscr %0" : : "r" (fscr)); })
++
++typedef union
++{
++  fenv_t fenv;
++  unsigned int l[2];
++} fenv_union_t;
++
++/* Definitions of all the SPEFSCR bit numbers.  */
++enum {
++  SPEFSCR_SOVH          = 0x80000000,
++  SPEFSCR_OVH           = 0x40000000,
++  SPEFSCR_FGH           = 0x20000000,
++  SPEFSCR_FXH           = 0x10000000,
++  SPEFSCR_FINVH         = 0x08000000,
++  SPEFSCR_FDBZH         = 0x04000000,
++  SPEFSCR_FUNFH         = 0x02000000,
++  SPEFSCR_FOVFH         = 0x01000000,
++  /* 2 unused bits.  */
++  SPEFSCR_FINXS         = 0x00200000,
++  SPEFSCR_FINVS         = 0x00100000,
++  SPEFSCR_FDBZS         = 0x00080000,
++  SPEFSCR_FUNFS         = 0x00040000,
++  SPEFSCR_FOVFS         = 0x00020000,
++  /* Combination of the exception bits.  */
++  SPEFSCR_ALL_EXCEPT    = 0x003e0000,
++  SPEFSCR_MODE          = 0x00010000,
++  SPEFSCR_SOV           = 0x00008000,
++  SPEFSCR_OV            = 0x00004000,
++  SPEFSCR_FG            = 0x00002000,
++  SPEFSCR_FX            = 0x00001000,
++  SPEFSCR_FINV          = 0x00000800,
++  SPEFSCR_FDBZ          = 0x00000400,
++  SPEFSCR_FUNF          = 0x00000200,
++  SPEFSCR_FOVF          = 0x00000100,
++  /* 1 unused bit.  */
++  SPEFSCR_FINXE         = 0x00000040,
++  SPEFSCR_FINVE         = 0x00000020,
++  SPEFSCR_FDBZE         = 0x00000010,
++  SPEFSCR_FUNFE         = 0x00000008,
++  SPEFSCR_FOVFE         = 0x00000004,
++  /* Combination of the exception trap enable bits.  */
++  SPEFSCR_ALL_EXCEPT_ENABLE = 0x0000007c,
++  SPEFSCR_FRMC          = 0x00000003
++};
++
++#endif /* fenv_libc.h */
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c
+@@ -0,0 +1,50 @@
++/* Install given floating-point environment.  e500 version.
++   Copyright (C) 1997-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++int
++__fesetenv (const fenv_t *envp)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  u.fenv = *envp;
++
++  fesetenv_register (u.l[1]);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			u.l[0] | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__fesetenv, __old_fesetenv)
++compat_symbol (libm, __old_fesetenv, fesetenv, GLIBC_2_1);
++#endif
++
++libm_hidden_def (__fesetenv)
++libm_hidden_ver (__fesetenv, fesetenv)
++versioned_symbol (libm, __fesetenv, fesetenv, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetexcept.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetexcept.c
+@@ -0,0 +1,37 @@
++/* Set given exception flags.  e500 version.
++   Copyright (C) 2016-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++fesetexcept (int excepts)
++{
++  unsigned long old_spefscr, spefscr;
++  int excepts_spe = __fexcepts_to_spe (excepts);
++
++  old_spefscr = fegetenv_register ();
++  spefscr = old_spefscr | excepts_spe;
++  fesetenv_register (spefscr);
++
++  /* If the state of the "invalid" or "underflow" flag has changed,
++     inform the kernel.  */
++  if (((spefscr ^ old_spefscr) & (SPEFSCR_FINVS | SPEFSCR_FUNFS)) != 0)
++    __fe_note_change ();
++
++  return 0;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c
+@@ -0,0 +1,43 @@
++/* Install given floating-point control modes.  e500 version.
++   Copyright (C) 2016-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sysdep.h>
++#include <sys/prctl.h>
++
++#define SPEFSCR_STATUS 0xff3eff00
++
++int
++fesetmode (const femode_t *modep)
++{
++  fenv_union_t u;
++  INTERNAL_SYSCALL_DECL (err);
++  int r;
++
++  u.fenv = *modep;
++  unsigned int spefscr = fegetenv_register ();
++  spefscr = (spefscr & SPEFSCR_STATUS) | (u.l[1] & ~SPEFSCR_STATUS);
++
++  fesetenv_register (spefscr);
++  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++			u.l[0] | PR_FP_EXC_SW_ENABLE);
++  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++    return -1;
++
++  return 0;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetround.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetround.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetround.c
+@@ -0,0 +1,37 @@
++/* Set current rounding direction.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__fesetround (int round)
++{
++  unsigned long fpescr;
++
++  if ((unsigned int) round > 3)
++    return 1;
++
++  fpescr = fegetenv_register ();
++  fpescr = (fpescr & ~SPEFSCR_FRMC) | (round & 3);
++  fesetenv_register (fpescr);
++
++  return 0;
++}
++libm_hidden_def (__fesetround)
++weak_alias (__fesetround, fesetround)
++libm_hidden_weak (fesetround)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fetestexceptflag.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fetestexceptflag.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fetestexceptflag.c
+@@ -0,0 +1,25 @@
++/* Test exception in saved exception state.  e500 version.
++   Copyright (C) 2016-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++fetestexceptflag (const fexcept_t *flagp, int excepts)
++{
++  return __fexcepts_from_spe (*flagp) & excepts & FE_ALL_EXCEPT;
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/feupdateenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/feupdateenv.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/feupdateenv.c
+@@ -0,0 +1,48 @@
++/* Install given floating-point environment and raise exceptions.
++   e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__feupdateenv (const fenv_t *envp)
++{
++  int exc;
++
++  /* Save the currently set exceptions.  */
++  exc = fegetenv_register () & SPEFSCR_ALL_EXCEPT;
++
++  /* Install new environment.  */
++  __fesetenv (envp);
++
++  /* Raise (if appropriate) saved exceptions. */
++  __feraiseexcept_spe (exc);
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__feupdateenv, __old_feupdateenv)
++compat_symbol (libm, __old_feupdateenv, feupdateenv, GLIBC_2_1);
++#endif
++
++libm_hidden_def (__feupdateenv)
++libm_hidden_ver (__feupdateenv, feupdateenv)
++versioned_symbol (libm, __feupdateenv, feupdateenv, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_prctl.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_prctl.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_prctl.c
+@@ -0,0 +1,42 @@
++/* Convert floating-point exceptions from prctl form.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sys/prctl.h>
++
++/* Convert EXCEPTS from prctl bits to FE_* form, returning the
++   converted value.  */
++
++int
++__fexcepts_from_prctl (int excepts)
++{
++  int result = 0;
++  if (excepts & PR_FP_EXC_OVF)
++    result |= FE_OVERFLOW;
++  if (excepts & PR_FP_EXC_UND)
++    result |= FE_UNDERFLOW;
++  if (excepts & PR_FP_EXC_INV)
++    result |= FE_INVALID;
++  if (excepts & PR_FP_EXC_DIV)
++    result |= FE_DIVBYZERO;
++  if (excepts & PR_FP_EXC_RES)
++    result |= FE_INEXACT;
++  return result;
++}
++
++libm_hidden_def (__fexcepts_from_prctl)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_spe.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_spe.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_from_spe.c
+@@ -0,0 +1,41 @@
++/* Convert floating-point exceptions from SPEFSCR form.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++/* Convert EXCEPTS from SPEFSCR bits to FE_* form, returning the
++   converted value.  */
++
++int
++__fexcepts_from_spe (int excepts)
++{
++  int result = 0;
++  if (excepts & SPEFSCR_FINXS)
++    result |= FE_INEXACT;
++  if (excepts & SPEFSCR_FDBZS)
++    result |= FE_DIVBYZERO;
++  if (excepts & SPEFSCR_FUNFS)
++    result |= FE_UNDERFLOW;
++  if (excepts & SPEFSCR_FOVFS)
++    result |= FE_OVERFLOW;
++  if (excepts & SPEFSCR_FINVS)
++    result |= FE_INVALID;
++  return result;
++}
++
++libm_hidden_def (__fexcepts_from_spe)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_prctl.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_prctl.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_prctl.c
+@@ -0,0 +1,42 @@
++/* Convert floating-point exceptions to prctl form.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <sys/prctl.h>
++
++/* Convert EXCEPTS from FE_* form to prctl bits, returning the
++   converted value.  */
++
++int
++__fexcepts_to_prctl (int excepts)
++{
++  int result = 0;
++  if (excepts & FE_INEXACT)
++    result |= PR_FP_EXC_RES;
++  if (excepts & FE_DIVBYZERO)
++    result |= PR_FP_EXC_DIV;
++  if (excepts & FE_UNDERFLOW)
++    result |= PR_FP_EXC_UND;
++  if (excepts & FE_OVERFLOW)
++    result |= PR_FP_EXC_OVF;
++  if (excepts & FE_INVALID)
++    result |= PR_FP_EXC_INV;
++  return result;
++}
++
++libm_hidden_def (__fexcepts_to_prctl)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_spe.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_spe.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fexcepts_to_spe.c
+@@ -0,0 +1,41 @@
++/* Convert floating-point exceptions to SPEFSCR form.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++/* Convert EXCEPTS from FE_* form to SPEFSCR bits, returning the
++   converted value.  */
++
++int
++__fexcepts_to_spe (int excepts)
++{
++  int result = 0;
++  if (excepts & FE_INEXACT)
++    result |= SPEFSCR_FINXS;
++  if (excepts & FE_DIVBYZERO)
++    result |= SPEFSCR_FDBZS;
++  if (excepts & FE_UNDERFLOW)
++    result |= SPEFSCR_FUNFS;
++  if (excepts & FE_OVERFLOW)
++    result |= SPEFSCR_FOVFS;
++  if (excepts & FE_INVALID)
++    result |= SPEFSCR_FINVS;
++  return result;
++}
++
++libm_hidden_def (__fexcepts_to_spe)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fgetexcptflg.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fgetexcptflg.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fgetexcptflg.c
+@@ -0,0 +1,41 @@
++/* Store current representation for exceptions.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__fegetexceptflag (fexcept_t *flagp, int excepts)
++{
++  unsigned long fpescr;
++
++  /* Get the current state.  */
++  fpescr = fegetenv_register ();
++
++  *flagp = fpescr & SPEFSCR_ALL_EXCEPT;
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__fegetexceptflag, __old_fegetexceptflag)
++compat_symbol (libm, __old_fegetexceptflag, fegetexceptflag, GLIBC_2_1);
++#endif
++
++versioned_symbol (libm, __fegetexceptflag, fegetexceptflag, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/flt-rounds.c b/sysdeps/powerpc/powerpc32/e500/nofpu/flt-rounds.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/flt-rounds.c
+@@ -0,0 +1,39 @@
++/* Return current rounding mode as correct value for FLT_ROUNDS.  e500
++   version.
++   Copyright (C) 2013-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library.  If not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <stdlib.h>
++
++int
++__flt_rounds (void)
++{
++  switch (fegetenv_register () & SPEFSCR_FRMC)
++    {
++    case FE_TOWARDZERO:
++      return 0;
++    case FE_TONEAREST:
++      return 1;
++    case FE_UPWARD:
++      return 2;
++    case FE_DOWNWARD:
++      return 3;
++    default:
++      abort ();
++    }
++}
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcept-soft.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcept-soft.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcept-soft.c
+@@ -0,0 +1,25 @@
++/* Raise given exceptions.  e500 version for use from soft-fp.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++   Contributed by Aldy Hernandez <aldyh@redhat.com>, 2004.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++#include <libc-symbols.h>
++
++#define __FERAISEEXCEPT_INTERNAL __feraiseexcept_soft
++#include "spe-raise.c"
++libc_hidden_def (__feraiseexcept_soft)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcpt.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fraiseexcpt.c
+@@ -0,0 +1,41 @@
++/* Raise given exceptions.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++#define __FERAISEEXCEPT_INTERNAL __feraiseexcept_spe
++#include "spe-raise.c"
++
++libm_hidden_def (__feraiseexcept_spe)
++
++#undef feraiseexcept
++int
++__feraiseexcept (int excepts)
++{
++  return __feraiseexcept_spe (__fexcepts_to_spe (excepts));
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__feraiseexcept, __old_feraiseexcept)
++compat_symbol (libm, __old_feraiseexcept, feraiseexcept, GLIBC_2_1);
++#endif
++
++libm_hidden_def (__feraiseexcept)
++libm_hidden_ver (__feraiseexcept, feraiseexcept)
++versioned_symbol (libm, __feraiseexcept, feraiseexcept, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fsetexcptflg.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fsetexcptflg.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fsetexcptflg.c
+@@ -0,0 +1,55 @@
++/* Set floating-point environment exception handling.  e500 version.
++   Copyright (C) 1997-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__fesetexceptflag (const fexcept_t *flagp, int excepts)
++{
++  unsigned long old_spefscr, spefscr;
++  fexcept_t flag;
++  int excepts_spe = __fexcepts_to_spe (excepts);
++
++  /* Get the current state.  */
++  old_spefscr = fegetenv_register ();
++
++  /* Ignore exceptions not listed in 'excepts'.  */
++  flag = *flagp & excepts_spe;
++
++  /* Replace the exception status */
++  spefscr = (old_spefscr & ~excepts_spe) | flag;
++
++  /* Store the new status word (along with the rest of the environment).  */
++  fesetenv_register (spefscr);
++
++  /* If the state of the "invalid" or "underflow" flag has changed,
++     inform the kernel.  */
++  if (((spefscr ^ old_spefscr) & (SPEFSCR_FINVS | SPEFSCR_FUNFS)) != 0)
++    __fe_note_change ();
++
++  /* Success.  */
++  return 0;
++}
++
++#include <shlib-compat.h>
++#if SHLIB_COMPAT (libm, GLIBC_2_1, GLIBC_2_2)
++strong_alias (__fesetexceptflag, __old_fesetexceptflag)
++compat_symbol (libm, __old_fesetexceptflag, fesetexceptflag, GLIBC_2_1);
++#endif
++
++versioned_symbol (libm, __fesetexceptflag, fesetexceptflag, GLIBC_2_2);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/ftestexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/ftestexcept.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/ftestexcept.c
+@@ -0,0 +1,31 @@
++/* Test exception in current environment.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++fetestexcept (int excepts)
++{
++  unsigned long f;
++
++  /* Get the current state.  */
++  f = fegetenv_register ();
++
++  return __fexcepts_from_spe (f) & excepts;
++}
++libm_hidden_def (fetestexcept)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/get-rounding-mode.h b/sysdeps/powerpc/powerpc32/e500/nofpu/get-rounding-mode.h
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/get-rounding-mode.h
+@@ -0,0 +1,4 @@
++/* The generic version of get-rounding-mode.h using fpu_control.h, not
++   the one using the software rounding mode, is correct for e500.  */
++
++#include <sysdeps/generic/get-rounding-mode.h>
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/s_fabsf.S b/sysdeps/powerpc/powerpc32/e500/nofpu/s_fabsf.S
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/s_fabsf.S
+@@ -0,0 +1,28 @@
++/* Floating-point absolute value.  e500 version.
++   Copyright (C) 2004-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <sysdep.h>
++#include <libm-alias-float.h>
++
++ENTRY (__fabsf)
++/* float [r3] fabsf (float [r3] x) ;  */
++	efsabs r3,r3
++	blr
++END (__fabsf)
++
++libm_alias_float (__fabs, fabs)
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/spe-raise.c b/sysdeps/powerpc/powerpc32/e500/nofpu/spe-raise.c
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/spe-raise.c
+@@ -0,0 +1,53 @@
++/* Raise given exceptions, given the SPEFSCR bits for those exceptions.
++   Copyright (C) 1997-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#include <fenv_libc.h>
++
++int
++__FERAISEEXCEPT_INTERNAL (int excepts)
++{
++  unsigned long f;
++
++  f = fegetenv_register ();
++  f |= (excepts & SPEFSCR_ALL_EXCEPT);
++  fesetenv_register (f);
++
++  /* Force the operations that cause the exceptions.  */
++  if ((SPEFSCR_FINVS & excepts) != 0)
++    /* 0 / 0 */
++    asm volatile ("efsdiv %0,%0,%1" : : "r" (0), "r" (0));
++
++  if ((SPEFSCR_FDBZS & excepts) != 0)
++    /* 1.0 / 0.0 */
++    asm volatile ("efsdiv %0,%0,%1" : : "r" (1.0F), "r" (0));
++
++  if ((SPEFSCR_FOVFS & excepts) != 0)
++    /* Largest normalized number plus itself.  */
++    asm volatile ("efsadd %0,%0,%1" : : "r" (0x7f7fffff), "r" (0x7f7fffff));
++
++  if ((SPEFSCR_FUNFS & excepts) != 0)
++    /* Smallest normalized number times itself.  */
++    asm volatile ("efsmul %0,%0,%1" : : "r" (0x800000), "r" (0x800000));
++
++  if ((SPEFSCR_FINXS & excepts) != 0)
++    /* Smallest normalized minus 1.0 raises the inexact flag.  */
++    asm volatile ("efssub %0,%0,%1" : : "r" (0x00800000), "r" (1.0F));
++
++  /* Success.  */
++  return 0;
++}
+diff --git a/sysdeps/unix/sysv/linux/powerpc/powerpc32/e500/nofpu/Implies b/sysdeps/unix/sysv/linux/powerpc/powerpc32/e500/nofpu/Implies
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/e500/nofpu/Implies
+@@ -0,0 +1,2 @@
++powerpc/powerpc32/e500/nofpu
++powerpc/nofpu
+diff --git a/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/context-e500.h b/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/context-e500.h
+new file mode 100644
+--- /dev/null
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/context-e500.h
+@@ -0,0 +1,144 @@
++/* getcontext/setcontext/makecontext support for e500 high parts of registers.
++   Copyright (C) 2006-2019 Free Software Foundation, Inc.
++   This file is part of the GNU C Library.
++
++   The GNU C Library is free software; you can redistribute it and/or
++   modify it under the terms of the GNU Lesser General Public
++   License as published by the Free Software Foundation; either
++   version 2.1 of the License, or (at your option) any later version.
++
++   The GNU C Library is distributed in the hope that it will be useful,
++   but WITHOUT ANY WARRANTY; without even the implied warranty of
++   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
++   Lesser General Public License for more details.
++
++   You should have received a copy of the GNU Lesser General Public
++   License along with the GNU C Library; if not, see
++   <http://www.gnu.org/licenses/>.  */
++
++#ifndef _CONTEXT_E500_H
++#define _CONTEXT_E500_H 1
++
++#if defined __SPE__ || (defined __NO_FPRS__ && !defined _SOFT_FLOAT)
++
++# define __CONTEXT_ENABLE_E500 1
++
++/* We follow the kernel's layout, which saves the high parts of the
++   SPE registers in the vregs area, immediately followed by the ACC
++   value (call-clobbered, not handled here) and the SPEFSCR value.  */
++
++.macro getcontext_e500
++	la	r10,(_UC_VREGS)(r3)
++	evstwwe	r0,(0*4)(r10)
++	evstwwe	r1,(1*4)(r10)
++	evstwwe	r2,(2*4)(r10)
++	evstwwe	r3,(3*4)(r10)
++	evstwwe	r4,(4*4)(r10)
++	evstwwe	r5,(5*4)(r10)
++	evstwwe	r6,(6*4)(r10)
++	evstwwe	r7,(7*4)(r10)
++	evstwwe	r8,(8*4)(r10)
++	evstwwe	r9,(9*4)(r10)
++	evstwwe	r10,(10*4)(r10)
++	evstwwe	r11,(11*4)(r10)
++	evstwwe	r12,(12*4)(r10)
++	evstwwe	r13,(13*4)(r10)
++	evstwwe	r14,(14*4)(r10)
++	evstwwe	r15,(15*4)(r10)
++	evstwwe	r16,(16*4)(r10)
++	evstwwe	r17,(17*4)(r10)
++	evstwwe	r18,(18*4)(r10)
++	evstwwe	r19,(19*4)(r10)
++	evstwwe	r20,(20*4)(r10)
++	evstwwe	r21,(21*4)(r10)
++	evstwwe	r22,(22*4)(r10)
++	evstwwe	r23,(23*4)(r10)
++	evstwwe	r24,(24*4)(r10)
++	evstwwe	r25,(25*4)(r10)
++	evstwwe	r26,(26*4)(r10)
++	evstwwe	r27,(27*4)(r10)
++	evstwwe	r28,(28*4)(r10)
++	evstwwe	r29,(29*4)(r10)
++	evstwwe	r30,(30*4)(r10)
++	evstwwe	r31,(31*4)(r10)
++	mfspefscr	r9
++	stw	r9,(34*4)(r10)
++.endm
++
++.macro setcontext_e500
++	lwz	r3,_UC_VREGS+(0*4)(r31)
++	evmergelo	r0,r3,r0
++	lwz	r3,_UC_VREGS+(1*4)(r31)
++	evmergelo	r1,r3,r1
++	lwz	r3,_UC_VREGS+(2*4)(r31)
++	evmergelo	r2,r3,r2
++	lwz	r3,_UC_VREGS+(1*4)(r31)
++	evmergelo	r1,r3,r1
++	lwz	r3,_UC_VREGS+(2*4)(r31)
++	evmergelo	r2,r3,r2
++	lwz	r3,_UC_VREGS+(3*4)(r31)
++	evmergelo	r3,r3,r3
++	lwz	r3,_UC_VREGS+(4*4)(r31)
++	evmergelo	r4,r3,r4
++	lwz	r3,_UC_VREGS+(5*4)(r31)
++	evmergelo	r5,r3,r5
++	lwz	r3,_UC_VREGS+(6*4)(r31)
++	evmergelo	r6,r3,r6
++	lwz	r3,_UC_VREGS+(7*4)(r31)
++	evmergelo	r7,r3,r7
++	lwz	r3,_UC_VREGS+(8*4)(r31)
++	evmergelo	r8,r3,r8
++	lwz	r3,_UC_VREGS+(9*4)(r31)
++	evmergelo	r9,r3,r9
++	lwz	r3,_UC_VREGS+(10*4)(r31)
++	evmergelo	r10,r3,r10
++	lwz	r3,_UC_VREGS+(11*4)(r31)
++	evmergelo	r11,r3,r11
++	lwz	r3,_UC_VREGS+(12*4)(r31)
++	evmergelo	r12,r3,r12
++	lwz	r3,_UC_VREGS+(13*4)(r31)
++	evmergelo	r13,r3,r13
++	lwz	r3,_UC_VREGS+(14*4)(r31)
++	evmergelo	r14,r3,r14
++	lwz	r3,_UC_VREGS+(15*4)(r31)
++	evmergelo	r15,r3,r15
++	lwz	r3,_UC_VREGS+(16*4)(r31)
++	evmergelo	r16,r3,r16
++	lwz	r3,_UC_VREGS+(17*4)(r31)
++	evmergelo	r17,r3,r17
++	lwz	r3,_UC_VREGS+(18*4)(r31)
++	evmergelo	r18,r3,r18
++	lwz	r3,_UC_VREGS+(19*4)(r31)
++	evmergelo	r19,r3,r19
++	lwz	r3,_UC_VREGS+(20*4)(r31)
++	evmergelo	r20,r3,r20
++	lwz	r3,_UC_VREGS+(21*4)(r31)
++	evmergelo	r21,r3,r21
++	lwz	r3,_UC_VREGS+(22*4)(r31)
++	evmergelo	r22,r3,r22
++	lwz	r3,_UC_VREGS+(23*4)(r31)
++	evmergelo	r23,r3,r23
++	lwz	r3,_UC_VREGS+(24*4)(r31)
++	evmergelo	r24,r3,r24
++	lwz	r3,_UC_VREGS+(25*4)(r31)
++	evmergelo	r25,r3,r25
++	lwz	r3,_UC_VREGS+(26*4)(r31)
++	evmergelo	r26,r3,r26
++	lwz	r3,_UC_VREGS+(27*4)(r31)
++	evmergelo	r27,r3,r27
++	lwz	r3,_UC_VREGS+(28*4)(r31)
++	evmergelo	r28,r3,r28
++	lwz	r3,_UC_VREGS+(29*4)(r31)
++	evmergelo	r29,r3,r29
++	lwz	r3,_UC_VREGS+(30*4)(r31)
++	evmergelo	r30,r3,r30
++	lwz	r3,_UC_VREGS+(31*4)(r31)
++	evmergelo	r31,r3,r31
++	lwz	r3,_UC_VREGS+(34*4)(r31)
++	mtspefscr	r3
++.endm
++#else
++# undef __CONTEXT_ENABLE_E500
++#endif
++
++#endif /* context-e500.h */

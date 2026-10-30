@@ -1,0 +1,17 @@
+{
+  "workflow": "tabor-debian-iteration",
+  "settings_optional": true,
+  "supports_undeploy": false,
+  "stage_plan": [
+    {
+      "name": "build",
+      "kind": "local-command",
+      "transport": "stage-execute-collect",
+      "active": "Re-extracting and patching pinned Debian sources on lab-edge",
+      "complete": "Kernel and SPE prerequisite receipts retained",
+      "command": "python3 /app/runtime/pipelines/tabor-debian-iteration/scripts/dispatch.py",
+      "timeout": 3500
+    }
+  ],
+  "complete_message": "Iteration evidence retained; ABI and boot acceptance remain separate."
+}

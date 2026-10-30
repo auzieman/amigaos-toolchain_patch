@@ -6,3 +6,7 @@ artifacts/
 private/
 __pycache__/
 *.pyc
+
+# Generated BKC run manifests and collected build artifacts.
+pipeline/**/source.json
+pipeline/**/artifacts/

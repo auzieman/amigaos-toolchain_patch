@@ -36,6 +36,9 @@ support is not a replacement for the compiler or libc ABI restoration.
    userspace ABI acceptance.
 
 No restoration patch is accepted merely because an old deletion can be reversed.
-There is no selected modern target or completed restoration patch yet. Minimal
+Selected initial targets are Debian trixie Linux 6.12.113-1 and glibc
+2.41-12+deb13u4, pinned in profiles/debian-trixie.lock.json. Initial Tabor
+machine/DTS and preparatory e500 sysdeps patches are in their component series;
+no complete userspace restoration is claimed. Minimal
 USB boot work can proceed on its kernel-only lane while userspace restoration
 is evaluated, with the rescue userspace ABI explicitly recorded.

@@ -1,10 +1,11 @@
-# Supply a reviewed digest, e.g. debian:bookworm-slim@sha256:... .
-ARG BASE_IMAGE
+# Reviewed Debian trixie base; override only with another reviewed digest.
+ARG BASE_IMAGE=debian@sha256:f6b08b09a05725f9431502d3b5714f5c4576e82c1a84fa1debe0c24a7e0c3ec4
 FROM ${BASE_IMAGE}
 RUN apt-get update && apt-get install -y --no-install-recommends \
     python3 git build-essential gcc-powerpc-linux-gnu binutils-powerpc-linux-gnu \
     bc bison flex libssl-dev libelf-dev cpio kmod rsync u-boot-tools \
-    ca-certificates xz-utils file && rm -rf /var/lib/apt/lists/*
+    ca-certificates xz-utils file dpkg-dev quilt gawk gettext texinfo && rm -rf /var/lib/apt/lists/*
 COPY scripts/kernel-build.py /opt/tabor/kernel-build.py
+COPY scripts/debian-iterate.py /opt/tabor/debian-iterate.py
 WORKDIR /work
 ENTRYPOINT ["python3", "/opt/tabor/kernel-build.py"]

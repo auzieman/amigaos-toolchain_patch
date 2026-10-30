@@ -1,0 +1,19 @@
+{
+  "target": "Debian linux 6.12.113-1",
+  "vendor_patch_sha256": "3875573de864520981b38c458ec1e7f75829405f77297104b6f131fc002e29fa",
+  "vendor_dts_sha256": "3cfe02e041ffac688a32319493be93d1889d252e97793d25cad4f02fab3a9055",
+  "modern_p1022_rdk_sha256": "20ff35a87c72f496590020ac3dfd2c4b83a66b4a86fb42986804fdd573118c32",
+  "patch": "patches/linux/0001-powerpc-tabor-initial-machine-dts.patch",
+  "scope": [
+    "Tabor machine compatible and SMP/PCI/SWIOTLB/MPIC init",
+    "vendor-derived DTS with current include location",
+    "Kconfig and build registration"
+  ],
+  "deferred": [
+    "DIU",
+    "audio machine and SSI changes",
+    "board reset/power control",
+    "firmware boot wrapper and hardware execution"
+  ],
+  "original_notices_retained": true
+}

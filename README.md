@@ -88,3 +88,13 @@ and full vendor kernel have not yet been built with this new runner.
 Deferred test environment: [Kyvos / AmigaOS provisioning](docs/future-amigaos-provisioning.md). This is separate from A1222/SPE validation and is not required for the current kernel baseline.
 
 Manufacturer references: [Freescale/NXP P1022 source intake](docs/vendor-source-intake.md). Nine historical vendor repositories are now retained under ignored sources/vendor, pinned in profiles/vendor-sources.lock.json; this is not yet a complete SDK dependency closure.
+
+## Debian iteration lane
+
+The active modern targets are Debian trixie Linux **6.12.113-1** and glibc
+**2.41-12+deb13u4**. `profiles/debian-trixie.lock.json` fixes source-package
+filenames, origins and SHA256 values. Run `scripts/fetch-debian-sources.py` to
+populate/check the archive cache, then `scripts/submit-debian-iteration.py` for
+the BKC CLI/core job. Each component/run gets a new source extraction with
+Debian patches followed by the ordered local series; source/object trees are
+never reused across iterations. See [iteration details](docs/debian-iterations.md).

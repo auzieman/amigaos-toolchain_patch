@@ -1,0 +1,311 @@
+From: Auzieman / AuzieTek
+Subject: [PATCH] powerpc/85xx: add initial Tabor machine and vendor-derived DTS
+
+Forward-port the A1222 machine identity and P1022 common initialization to
+Linux 6.12 define_machine compatible matching. Retain the vendor DTS layout
+and notices with include paths relative to its new fsl directory.
+
+This is an initial serial/PCI compilation slice. Vendor audio and board
+reset/power controls remain to port and test; no boot acceptance claimed.
+
+diff --git a/arch/powerpc/platforms/85xx/Kconfig b/arch/powerpc/platforms/85xx/Kconfig
+--- a/arch/powerpc/platforms/85xx/Kconfig
++++ b/arch/powerpc/platforms/85xx/Kconfig
+@@ -120,6 +120,14 @@
+ 	  MHz and 1600 DMIPS, additional functionality and faster interfaces
+ 	  (DDR3/3L, SATA II, and PCI  Express).
+ 
++config TABOR
++	bool "A-EON / Varisys Tabor (A1222)"
++	select DEFAULT_UIMAGE
++	select SWIOTLB
++	help
++	  Initial Tabor P1022 board enablement for serial/PCI bring-up.
++	  Board power control and audio are separate forward-port slices.
++
+ config P1022_DS
+ 	bool "Freescale P1022 DS"
+ 	select DEFAULT_UIMAGE
+diff --git a/arch/powerpc/platforms/85xx/Makefile b/arch/powerpc/platforms/85xx/Makefile
+--- a/arch/powerpc/platforms/85xx/Makefile
++++ b/arch/powerpc/platforms/85xx/Makefile
+@@ -35,3 +35,5 @@
+ obj-$(CONFIG_PPC_QEMU_E500) += qemu_e500.o
+ obj-$(CONFIG_SGY_CTS1000) += sgy_cts1000.o
+ obj-$(CONFIG_MVME2500)	  += mvme2500.o
++
++obj-$(CONFIG_TABOR) += tabor.o
+diff --git a/arch/powerpc/platforms/85xx/tabor.c b/arch/powerpc/platforms/85xx/tabor.c
+new file mode 100644
+--- /dev/null
++++ b/arch/powerpc/platforms/85xx/tabor.c
+@@ -0,0 +1,72 @@
++/*
++ * Tabor (A1222/P1022) initial board routines
++ *
++ * Copyright 2012 Freescale Semiconductor, Inc.
++ *
++ * Author: Timur Tabi <timur@freescale.com>
++ *
++ * Based on tabor.c and the A-EON 5.4-rc3 Tabor patch.
++ * Initial serial/PCI slice; no DIU, audio or board power controls yet.
++ *
++ * This file is licensed under the terms of the GNU General Public License
++ * version 2.  This program is licensed "as is" without any warranty of any
++ * kind, whether express or implied.
++ */
++
++#include <linux/fsl/guts.h>
++#include <linux/pci.h>
++#include <linux/of.h>
++#include <linux/of_address.h>
++#include <asm/div64.h>
++#include <asm/mpic.h>
++#include <asm/swiotlb.h>
++
++#include <sysdev/fsl_soc.h>
++#include <sysdev/fsl_pci.h>
++#include <asm/udbg.h>
++#include "smp.h"
++
++#include "mpc85xx.h"
++
++
++static void __init tabor_pic_init(void)
++{
++	struct mpic *mpic = mpic_alloc(NULL, 0, MPIC_BIG_ENDIAN |
++		MPIC_SINGLE_DEST_CPU,
++		0, 256, " OpenPIC  ");
++	BUG_ON(mpic == NULL);
++	mpic_init(mpic);
++}
++
++/*
++ * Setup the architecture
++ */
++static void __init tabor_setup_arch(void)
++{
++	if (ppc_md.progress)
++		ppc_md.progress("tabor_setup_arch()", 0);
++
++
++	mpc85xx_smp_init();
++
++	fsl_pci_assign_primary();
++
++	swiotlb_detect_4g();
++
++	pr_info("A-EON / Varisys Tabor\n");
++}
++
++machine_arch_initcall(tabor, mpc85xx_common_publish_devices);
++
++define_machine(tabor) {
++	.name			= "Tabor",
++	.compatible		= "fsl,tabor",
++	.setup_arch		= tabor_setup_arch,
++	.init_IRQ		= tabor_pic_init,
++#ifdef CONFIG_PCI
++	.pcibios_fixup_bus	= fsl_pcibios_fixup_bus,
++	.pcibios_fixup_phb      = fsl_pcibios_fixup_phb,
++#endif
++	.get_irq		= mpic_get_irq,
++	.progress		= udbg_progress,
++};
+diff --git a/arch/powerpc/boot/dts/fsl/tabor-a1222.dts b/arch/powerpc/boot/dts/fsl/tabor-a1222.dts
+new file mode 100644
+--- /dev/null
++++ b/arch/powerpc/boot/dts/fsl/tabor-a1222.dts
+@@ -0,0 +1,183 @@
++/*
++ * P1022 DS 36-bit Physical Address Map Device Tree Source
++ *
++ * Copyright 2012 Freescale Semiconductor Inc.
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted provided that the following conditions are met:
++ *     * Redistributions of source code must retain the above copyright
++ *       notice, this list of conditions and the following disclaimer.
++ *     * Redistributions in binary form must reproduce the above copyright
++ *       notice, this list of conditions and the following disclaimer in the
++ *       documentation and/or other materials provided with the distribution.
++ *     * Neither the name of Freescale Semiconductor nor the
++ *       names of its contributors may be used to endorse or promote products
++ *       derived from this software without specific prior written permission.
++ *
++ *
++ * ALTERNATIVELY, this software may be distributed under the terms of the
++ * GNU General Public License ("GPL") as published by the Free Software
++ * Foundation, either version 2 of that License or (at your option) any
++ * later version.
++ *
++ * THIS SOFTWARE IS PROVIDED BY Freescale Semiconductor "AS IS" AND ANY
++ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
++ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
++ * DISCLAIMED. IN NO EVENT SHALL Freescale Semiconductor BE LIABLE FOR ANY
++ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
++ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
++ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
++ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
++ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
++ * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
++ */
++
++/include/ "p1022si-pre.dtsi"
++/ {
++	model = "varisys,TABOR";
++	compatible = "varisys,TABOR";
++
++	memory {
++		device_type = "memory";
++	};
++
++	board_lbc: lbc: localbus@fffe05000 {
++		ranges = <0x0 0x0 0xf 0xe8000000 0x08000000
++			  0x1 0x0 0xf 0xe0000000 0x08000000
++			  0x2 0x0 0xf 0xff800000 0x00040000
++			  0x3 0x0 0xf 0xffdf0000 0x00008000>;
++		reg = <0xf 0xffe05000 0 0x1000>;
++	};
++
++	board_soc: soc: soc@fffe00000 {
++		ranges = <0x0 0xf 0xffe00000 0x100000>;
++		tdm@16000 {
++			status = "disabled";
++		};
++	};
++
++	pci0: pcie@fffe09000 {
++		ranges = <0x2000000 0x0 0xe0000000 0xc 0x20000000 0x0 0x20000000
++			  0x1000000 0x0 0x00000000 0xf 0xffc10000 0x0 0x10000>;
++		reg = <0xf 0xffe09000 0 0x1000>;
++		status = "disabled";
++		pcie@0 {
++			ranges = <0x2000000 0x0 0xe0000000
++				  0x2000000 0x0 0xe0000000
++				  0x0 0x20000000
++
++				  0x1000000 0x0 0x0
++				  0x1000000 0x0 0x0
++				  0x0 0x100000>;
++		};
++	};
++
++	pci1: pcie@fffe0a000 {
++		ranges = <0x2000000 0x0 0xe0000000 0xc 0x40000000 0x0 0x20000000
++			  0x1000000 0x0 0x00000000 0xf 0xffc20000 0x0 0x10000>;
++		reg = <0xf 0xffe0a000 0 0x1000>;
++		pcie@0 {
++			ranges = <0x2000000 0x0 0xe0000000
++				  0x2000000 0x0 0xe0000000
++				  0x0 0x20000000
++
++				  0x1000000 0x0 0x0
++				  0x1000000 0x0 0x0
++				  0x0 0x100000>;
++		};
++	};
++
++	pci2: pcie@fffe0b000 {
++		ranges = <0x2000000 0x0 0xe0000000 0xc 0x00000000 0x0 0x20000000
++			  0x1000000 0x0 0x00000000 0xf 0xffc00000 0x0 0x10000>;
++		reg = <0xf 0xffe0b000 0 0x1000>;
++		status = "disabled";
++		pcie@0 {
++			ranges = <0x2000000 0x0 0xe0000000
++				  0x2000000 0x0 0xe0000000
++				  0x0 0x20000000
++
++				  0x1000000 0x0 0x0
++				  0x1000000 0x0 0x0
++				  0x0 0x100000>;
++		};
++	};
++};
++
++/include/ "p1022si-post.dtsi"
++
++&board_soc {
++	i2c@3100 {
++		wm8776:codec@1a {
++			compatible = "wlf,wm8776";
++			reg = <0x1a>;
++			/*
++			 * clock-frequency will be set by U-Boot if
++			 * the clock is enabled.tabr
++			 */
++		};
++			rtc@6f {
++				compatible = "microchip,mcp7941x";
++				reg = <0x6f>;
++			};
++	};
++
++		ssi@15000 {
++		fsl,mode = "i2s-slave";
++		codec-handle = <&wm8776>;
++		fsl,ssi-asynchronous;
++	};
++
++	usb@22000 {
++		phy_type = "ulpi";
++	};
++
++	usb@23000 {
++		status = "disabled";
++	};
++
++	mdio@24000 {
++		phy0: ethernet-phy@0 {
++			reg = <0x3>;
++		};
++		phy1: ethernet-phy@1 {
++			reg = <0x7>;
++		};
++		tbi-phy@2 {
++			device_type = "tbi-phy";
++			reg = <0x2>;
++		};
++	};
++
++	ptp_timer: ptimer@b0e00 {
++		compatible = "fsl,gianfar-ptp-timer";
++		reg = <0xb0e00 0xb0>;
++		fsl,ts-to-buffer;
++		fsl,tmr-prsc = <0x2>;
++		fsl,clock-source-select = <1>;
++	};
++
++	ethernet@b0000 {
++		phy-handle = <&phy0>;
++		phy-connection-type = "rgmii-id";
++		ptimer-handle = <&ptp_timer>;
++		ranges = <>;
++	};
++
++	ethernet@b1000 {
++		phy-handle = <&phy1>;
++		phy-connection-type = "rgmii-id";
++		ptimer-handle = <&ptp_timer>;
++		ranges = <>;
++	};
++
++
++	power-controller@f200 {
++		#gpio-cells = <2>;
++		compatible = "aeon,tabor-power";
++		reg = <0xf200 0x100>;
++		gpio-controller;
++	};
++
++};
++
+diff --git a/arch/powerpc/boot/dts/fsl/Makefile b/arch/powerpc/boot/dts/fsl/Makefile
+--- a/arch/powerpc/boot/dts/fsl/Makefile
++++ b/arch/powerpc/boot/dts/fsl/Makefile
+@@ -1,3 +1,5 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+ dtb-$(CONFIG_OF_ALL_DTBS) := $(patsubst $(src)/%.dts,%.dtb, $(wildcard $(src)/*.dts))
++
++dtb-$(CONFIG_TABOR) += tabor-a1222.dtb

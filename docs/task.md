@@ -68,3 +68,32 @@ User supplied workshop notes about Kyvos v2 automated AmigaOS provisioning and e
 Applied tabor-source-intake. Confirmed P1022/e500v2 against NXP product information and local board DTS. Bounded local filename inventory did not establish a complete prior vendor SDK; no unmounted Seagate search performed. Downloaded nine clean shallow repositories from the NXP-domain-verified nxp-qoriq-yocto-sdk organization: GCC4.9.2, EGLIBC2.19, SDK1.7 Linux/U-Boot, P1022 layer, historical toolchain layer, manifest reference, boot-format and flib. Verified concrete GCC SPE backend and libc e500/fenv/context implementations. flib is SEC/crypto reference, not an SPE runtime. Recorded exact revisions/tree IDs/inspected-file hashes and per-component licensing qualifications; all repositories passed connectivity fsck and the repeatable check-only command.
 
 Vendor-source lock and docs/vendor-source-intake.md distinguish mixed historical references from a coherent SDK build. Complete binutils/Poky/recipe closure remains pending. Direct vendor PDF URLs returned 404; no downloaded manual is claimed. No compilation, reference-tree edits, bootloader execution, media writes or remote publication. Next: compare historical SPE/compiler/runtime code with last supported upstream and locate supplied Hyperion patch information before selecting restoration targets.
+
+## Debian modern-source iteration — 2026-10-30
+
+User selected recent Debian kernel/glibc and explicitly requested disposable
+re-patching on each iteration. Pinned linux 6.12.113-1 (trixie security) and
+glibc 2.41-12+deb13u4. Cache contains DSC/orig/Debian tar files with locked
+sizes/SHA256; independent archive signature-chain verification remains explicit
+as unimplemented rather than claimed. Added fresh-extraction dpkg-source runner,
+ordered per-component patches, failure receipts, and canonical BKC CLI/core
+submission/collection template. Tests prove independent re-patching and cache
+rejection (using a small extraction fixture); all five local tests passed.
+
+Initial Linux patch adds modern Tabor compatible matching and vendor-derived
+DTS, with P1022 common init from modern upstream. Linux already retains e500/SPE;
+no fake CPU restoration. Audio/DIU and board power controls remain outside the
+first serial/PCI slice. Preparatory glibc patch restores 36 deleted-only e500
+sysdeps files from upstream removal a053e878494080f7070cf92890e546057236c9c9;
+configure rejection/shared state handling are not yet restored. Exact origin
+inventories retained. Both patches pass selected upstream-file apply checks;
+Debian-integrated and compile results must be recorded separately.
+
+BKC initial run 0fce93d7-aeb9-4fdf-9165-5a7b6834c10c stages immutable bundle
+f00d02cc4336dd3d4f3835101f301e1dad5b303259d260b5ff54583294815ea2.
+This first bundle precedes the preparatory glibc source import and runner's
+scoped board precheck; later bundles include those changes. First tooling image
+built on lab-edge. Its fresh work directory was moved while empty onto existing
+shared Tabor storage to avoid exhausting the 50 GiB lab-edge root filesystem;
+canonical subsequent jobs now select shared storage directly. Runtime limited
+to 2 CPU / 4 GiB, no network. No boot media, live board or desktop changes.
