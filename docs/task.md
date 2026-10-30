@@ -416,3 +416,23 @@ runs that image; Up-arrow recalled a command, Ctrl-C preserved the guest, and
 CONSOLE_FIXED returned with single CRLF. Existing old container had exited on
 SIGINT; no user disks or host services changed. Seven workflow tests and Python
 syntax checks pass. Console remains shared and isolated, not a network login.
+
+## C ABI gate exposes remaining scope — 2026-10-30
+
+Added source-built static C checks for float/double, varargs, formatting, fenv,
+setjmp, signals, pthread/TLS and ucontext. Initial link rejected historical GCC
+64-bit long-double default against glibc2.41's IBM128 objects. Explicit
+-mlong-double-128 fixes the mismatch; the live package plan records this flag
+for every future consumer. Never suppress the linker ABI check.
+
+ABI003 on QEMU10 passes arithmetic/varargs/formatting/setjmp/signal/ucontext;
+fenv upward rounding remains 1.0 instead of nextafter(1.0). The tiny kernel
+has no FUTEX, so the pthread check is explicitly SKIP_KERNEL_FUTEX, not a libc
+thread failure. Prior002 hit libc's futex abort as PID1 and panicked; retained
+that failure in lab. ABI003 detects ENOSYS first, reaches DONE, no panic, but
+overall ABI gate remains failed. Hash-verified raw evidence in builds/abi-20261030.
+QEMU11 repetition shows identical basic results. QEMU SPE arithmetic uses
+vec_status, while spr_write_spefscr only stores the register; this suggests an
+emulator rounding limitation, not yet proof that the libc setter is wrong.
+Physical fenv validation and a futex-enabled runtime kernel remain next gates;
+C++ unwinding and broader ABI coverage are still untested.

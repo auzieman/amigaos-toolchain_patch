@@ -1,0 +1,38 @@
+{
+  "status": "failed",
+  "image_id": "sha256:14e54601943b132a398ace86e677dfe440305206f454bb951c5cdbbecdd0d2ad",
+  "source_sha256": "f54006e304e76887ecf627562d8832c2857a82af476bdaa39e8a3c0de4799c8c",
+  "full_spe_abi_validated": false,
+  "physical_boot": false,
+  "flags": [
+    "--sysroot=/sysroot",
+    "-isystem",
+    "/sysroot/usr/include",
+    "-B/sysroot/usr/lib/",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-g0",
+    "-frounding-math",
+    "-static",
+    "-pthread"
+  ],
+  "binary_sha256": "3863ad70c0377663ad537b0cd987310d00bc09f9c36017aa3320d9780d80a828",
+  "spe_single_arithmetic_present": true,
+  "spe_double_arithmetic_present": true,
+  "checks": {
+    "float32": true,
+    "float64": true,
+    "varargs": true,
+    "formatting": true,
+    "fenv": false,
+    "setjmp": true,
+    "signal": true,
+    "pthread_tls": false,
+    "ucontext": true
+  },
+  "serial_sha256": "7382f52f81cdcbd080cc61c42a47712a0bcbcfb53bec49522d956313a0e7e4e0"
+}
