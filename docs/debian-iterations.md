@@ -26,8 +26,11 @@ source tree and pretending the next iteration started clean.
 
 BKC template: pipeline/tabor-debian-iteration. Submission stages a content-hashed
 bundle, registers only this pipeline and triggers it via the existing CLI/core.
-Remote source/object trees live under the existing shared Tabor mount in a new
-per-run directory; lab-edge root storage is reserved for tooling/image overhead.
+An initial NFS extraction attempt was stopped for impractical metadata latency.
+Fresh source/object trees now use a local per-run directory with an initial
+4 GiB free-space requirement for kernel builds and a running 1 GiB free-space
+stop guard. Completed outputs can be retained on shared storage; no reference
+source is reused or edited.
 The source bundle and logs remain under per-run /var/lib/bkc Tabor directories.
 Runtime: 2 CPUs, 4 GiB, network disabled after image preparation. Result image
 ID and its base digest are retained. Apt package versions are recorded; image

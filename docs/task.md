@@ -97,3 +97,14 @@ built on lab-edge. Its fresh work directory was moved while empty onto existing
 shared Tabor storage to avoid exhausting the 50 GiB lab-edge root filesystem;
 canonical subsequent jobs now select shared storage directly. Runtime limited
 to 2 CPU / 4 GiB, no network. No boot media, live board or desktop changes.
+
+Initial run result: stopped the known build container during NFS extraction
+because only about 15 MiB had been written after several minutes and the tar
+process was I/O-blocked. No source-patch or compiler result was reached. BKC
+marked the run failed and retained tooling logs. Original runner PID1 termination
+did not create its receipt; collection is now conditional and SIGTERM records
+an interrupted iteration when possible. This is an infrastructure failure,
+not evidence against Tabor support. Subsequent runs use fresh local work,
+require 4 GiB free before kernel extraction and stop running commands below
+1 GiB free. Shared storage remains available for retained completed outputs.
+Tooling image built successfully; apt package/toolchain versions are retained.
