@@ -21,7 +21,9 @@ runs dpkg-source in a fresh location (applying Debian's source-package patches),
 then applies our component series with git apply --check and git apply. Every
 run records the lock, series and patch hashes; compiler/package versions; logs;
 configuration and selected artifact hashes; and explicit failure/boot/ABI status.
-Cache files are mounted read-only in the build container. No changing a cached
+Cache files are mounted read-only in the build container. The lab wrapper
+retains receipts, configuration, scoped board artifacts, final kernel/modules
+when available, then discards only that run's generated source/object directories. No changing a cached
 source tree and pretending the next iteration started clean.
 
 BKC template: pipeline/tabor-debian-iteration. Submission stages a content-hashed
@@ -56,7 +58,7 @@ prerequisite, not a successful glibc build.
 
 ## Verification
 
-Five local tests pass: original source-isolation tests plus archive-cache
+Seven local tests pass: source-isolation and safe artifact-retention tests plus archive-cache
 rejection and fresh-run patch replay tests. The latter use a tiny extraction
 fixture; only the lab job exercises actual Debian dpkg-source and compilation.
 Per-run evidence, including failed experiments, is recorded in docs/task.md.

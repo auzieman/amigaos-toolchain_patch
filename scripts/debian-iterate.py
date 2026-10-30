@@ -70,10 +70,10 @@ def main():
     if a.component=='linux':
      make=['make','-C',str(source),'O='+str(output),'ARCH=powerpc','CROSS_COMPILE=powerpc-linux-gnu-']
      run(make+['mpc85xx_smp_defconfig'])
-     run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
+     run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--enable','DEBUG_INFO_NONE','--disable','DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
      run(make+['olddefconfig'])
      config=(output/'.config').read_text().splitlines()
-     for key in ['CONFIG_PPC=y','CONFIG_BOOKE=y','CONFIG_SPE=y','CONFIG_TABOR=y']:
+     for key in ['CONFIG_PPC=y','CONFIG_BOOKE=y','CONFIG_SPE=y','CONFIG_TABOR=y','CONFIG_DEBUG_INFO_NONE=y']:
       if key not in config:raise ValueError('Required configuration missing: '+key)
      receipt['config_sha256']=sha(output/'.config');receipt['status']='configured'
      if a.mode=='build':

@@ -27,10 +27,13 @@ Targets: Debian linux 6.12.113-1 and glibc 2.41-12+deb13u4. Source pins, patch
 origins and initial checks are recorded; no completed modern kernel compile,
 restored libc ABI or real A1222 boot is claimed at this review checkpoint.
 The first BKC attempt built its tools image but was stopped during slow NFS
-extraction. A fresh local-workspace iteration is being started; docs/task.md
-will retain actual results, including failures.
+extraction. The local-disk retry compiled Tabor board object and DTB; the full
+kernel was interrupted to correct re-enabled debug information. The glibc patch
+applied, then the Debian compiler rejected SPE flags. See
+[actual iteration evidence](builds/20261030-first-debian-iteration.json). A fresh
+full-kernel retry will use explicit DEBUG_INFO_NONE; docs/task.md retains failures.
 
-Five local tests pass, including source isolation, independent patch replay,
+Seven local tests pass, including source isolation, independent patch replay,
 cache rejection and refusal to reuse a run directory. Fixture tests do not
 substitute for real Debian extraction, cross-compilation or hardware tests.
 

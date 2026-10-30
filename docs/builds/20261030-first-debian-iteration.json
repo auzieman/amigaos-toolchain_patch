@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-30",
+  "bkc_run": "23fa71a4-4dbb-49a3-9249-8333c3312e4b",
+  "source_bundle_sha256": "1c412019586e1773c91ddba9fb1e3d0ce0ee064189572f6af50c497c63c18c64",
+  "linux": {
+    "version": "6.12.113-1",
+    "status": "board object and DTB compiled; full kernel intentionally interrupted to fix debug-info configuration",
+    "image_id": "sha256:32ee2dc8c4bda9ad989cf82b46dff51451ab683766610b7f967f5da333793ed7",
+    "patches": {
+      "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4"
+    },
+    "proof_sha256": {
+      "tabor.o": "8b08fb7cc0ce76b3d64df9cd2ae5ed540832e0c3ac022a3e9f91dbfbaa9d27f5",
+      "tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d",
+      "kernel.config": "d4a03cf4842c121ed44560adf0b62282e9944758b44c7bf1a53a6e5c1b1318b8"
+    },
+    "full_vmlinux_compiled": false
+  },
+  "glibc": {
+    "version": "2.41-12+deb13u4",
+    "status": "source patch applied; SPE compiler preflight failed",
+    "patches": {
+      "0001-restore-historical-e500-sysdeps.patch": "141c17f4275a0e70c863702edb23ba743d7c72a40d812107f7ca2d6bd5ab08c8"
+    },
+    "error": "Debian compiler rejects -mabi=spe, -mspe and -mfloat-gprs=double",
+    "modern_spe_compiler_available": false,
+    "abi_validated": false
+  },
+  "local_tests_passed": 7,
+  "boot_tested": false,
+  "source_and_object_workspaces_discarded_after_retention": true,
+  "next": "Re-extract, reapply kernel patch, select DEBUG_INFO_NONE explicitly, then cross-build full kernel; GCC SPE backend restoration remains necessary for userspace."
+}

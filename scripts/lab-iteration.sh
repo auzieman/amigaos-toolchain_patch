@@ -23,21 +23,11 @@ for component in linux glibc; do
   printf '%s\n' failed > "$stage/results/$component-status.txt"
   status=1
  fi
- if [ -d "$stage/work/$component-001" ]; then
-  for file in build.log receipt.json; do
-   if [ -f "$stage/work/$component-001/$file" ]; then
-    cp "$stage/work/$component-001/$file" "$stage/results/$component-$file"
-   fi
-  done
+ if [ -f "$stage/work/$component-001/receipt.json" ]; then
+  python3 "$stage/project/scripts/retain-iteration.py" \
+   --run "$stage/work/$component-001" --results "$stage/results"
  fi
 done
-if [ -f "$stage/work/linux-001/output/vmlinux" ]; then
- cp "$stage/work/linux-001/output/vmlinux" "$stage/results/vmlinux"
- cp "$stage/work/linux-001/output/.config" "$stage/results/kernel.config"
-fi
-if [ -f "$stage/work/linux-001/output/arch/powerpc/boot/dts/fsl/tabor-a1222.dtb" ]; then
- cp "$stage/work/linux-001/output/arch/powerpc/boot/dts/fsl/tabor-a1222.dtb" "$stage/results/"
-fi
 cd "$stage/results"
 sha256sum ./* > SHA256SUMS
 exit "$status"

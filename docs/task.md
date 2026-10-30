@@ -110,3 +110,17 @@ require 4 GiB free before kernel extraction and stop running commands below
 Tooling image built successfully; apt package/toolchain versions are retained.
 
 Private collaboration handoff — user created auzieman/amigaos-toolchain_patch and reports inviting Steven Solie, explicitly authorizing prompts/patch publication there. GitHub metadata verified private visibility and an empty remote. Publish the development history with review-start status, source pins, prompts, patches and build logic; exclude caches/generated artifacts/media. No collaborator messaging or additional access changes requested/performed.
+
+BKC retry 23fa71a4-4dbb-49a3-9249-8333c3312e4b: local extraction and Debian
+patches succeeded; local Tabor patch applied. Real tabor.o and tabor-a1222.dtb
+compiled; tabor.o inspected as 32-bit big-endian PowerPC ELF. Full build was
+intentionally interrupted after discovering olddefconfig had re-enabled DWARF
+via its choice despite disabling the derived DEBUG_INFO symbol. Corrected the
+runner to select DEBUG_INFO_NONE and assert it after olddefconfig. glibc's
+36-file preparatory patch applied to the actual Debian source; its compiler
+preflight failed because Debian GCC does not accept SPE ABI/ISA flags. This is
+not a restored glibc result. Returned artifact hashes passed. Supplementary
+board object/config/DTB copies retained with hashes; generated source and object
+trees discarded only after evidence retention, leaving caches intact. New
+retention helper rejects symlink cleanup and has dedicated safety tests; all
+seven local tests pass. Review evidence is docs/builds/20261030-first-debian-iteration.json.
