@@ -286,3 +286,16 @@ is omitted; AMD firmware exists in non-free-firmware. Verified JSON syntax,
 ordered inheritance, unique stage/package entries and optional browser policy.
 No runtime build, service change, media write or hardware trial in this slice.
 Updated older minimal-E notes to reflect fresh-build requirement explicitly.
+
+## Shell-first edge cycle — 2026-10-30
+
+Started isolated edge cycle-001 for a source-built serial shell. GCC8.5 is a
+pinned historical SPE bootstrap/reference, not the completed modern compiler
+port. Compiler build running; pinned Linux6.12.113 UAPI export passed. Corrected
+experimental glibc patch2 changes fourteen intended selection/FPU/saved-state
+files and passed fresh Debian preparation plus exact integrated-file hashes.
+Scripts cover fetch, compiler, headers, libgcc, experimental static glibc,
+minimal static BusyBox1.37 and real serial-shell commands. Runtime excludes
+E, systemd, package management, docs and host build tools. Later stages are
+queued to stop at failure; no libc/shell boot pass is claimed at this checkpoint.
+Seven existing workflow tests, Python/shell syntax and cached source checks pass.

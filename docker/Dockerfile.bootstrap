@@ -1,0 +1,5 @@
+ARG KERNEL_TOOLS_IMAGE
+FROM ${KERNEL_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libgmp-dev libmpfr-dev libmpc-dev && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

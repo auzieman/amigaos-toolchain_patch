@@ -1,0 +1,385 @@
+From: A1222 toolchain experiment
+Subject: [PATCH 2/2] powerpc: restore experimental SPE selection and saved state
+
+Candidate forward port for glibc 2.41. Shared SPE-specific FPU/state branches
+are recovered from upstream removal a053e878494080f7070cf92890e546057236c9c9;
+selected inverse hunks apply cleanly to 2.41 without replacing newer generic
+PowerPC code. Update preconfigure source/generated fragments consistently.
+Requires the deleted-only sysdeps import and full build/ABI validation.
+
+--- a/sysdeps/powerpc/fpu_control.h
++++ b/sysdeps/powerpc/fpu_control.h
+@@ -19,10 +19,6 @@
+ #ifndef _FPU_CONTROL_H
+ #define _FPU_CONTROL_H
+ 
+-#if defined __SPE__ || (defined __NO_FPRS__ && !defined _SOFT_FLOAT)
+-# error "SPE/e500 is no longer supported"
+-#endif
+-
+ #ifdef _SOFT_FLOAT
+ 
+ # define _FPU_RESERVED 0xffffffff
+@@ -30,6 +26,41 @@
+ typedef unsigned int fpu_control_t;
+ # define _FPU_GETCW(cw) (cw) = 0
+ # define _FPU_SETCW(cw) (void) (cw)
++extern fpu_control_t __fpu_control;
++
++#elif defined __NO_FPRS__ /* e500 */
++
++/* rounding control */
++# define _FPU_RC_NEAREST 0x00   /* RECOMMENDED */
++# define _FPU_RC_DOWN    0x03
++# define _FPU_RC_UP      0x02
++# define _FPU_RC_ZERO    0x01
++
++/* masking of interrupts */
++# define _FPU_MASK_ZM  0x10 /* zero divide */
++# define _FPU_MASK_OM  0x04 /* overflow */
++# define _FPU_MASK_UM  0x08 /* underflow */
++# define _FPU_MASK_XM  0x40 /* inexact */
++# define _FPU_MASK_IM  0x20 /* invalid operation */
++
++# define _FPU_RESERVED 0x00c10080 /* These bits are reserved and not changed. */
++
++/* Correct IEEE semantics require traps to be enabled at the hardware
++   level; the kernel then does the emulation and determines whether
++   generation of signals from those traps was enabled using prctl.  */
++# define _FPU_DEFAULT  0x0000003c /* Default value.  */
++# define _FPU_IEEE     _FPU_DEFAULT
++
++/* Type of the control word.  */
++typedef unsigned int fpu_control_t;
++
++/* Macros for accessing the hardware control word.  */
++# define _FPU_GETCW(cw) \
++  __asm__ volatile ("mfspefscr %0" : "=r" (cw))
++# define _FPU_SETCW(cw) \
++  __asm__ volatile ("mtspefscr %0" : : "r" (cw))
++
++/* Default control word set at startup.  */
+ extern fpu_control_t __fpu_control;
+ 
+ #else /* PowerPC 6xx floating-point.  */
+--- a/sysdeps/powerpc/powerpc32/__longjmp-common.S
++++ b/sysdeps/powerpc/powerpc32/__longjmp-common.S
+@@ -26,6 +26,12 @@
+ # include <jmpbuf-offsets.h>
+ #endif
+ 
++#if defined __SPE__ || (defined __NO_FPRS__ && !defined _SOFT_FLOAT)
++# define LOAD_GP(N)	evldd r##N,((JB_FPRS+((N)-14)*2)*4)(r3)
++#else
++# define LOAD_GP(N)	lwz r##N,((JB_GPRS+(N)-14)*4)(r3)
++#endif
++
+ ENTRY (__longjmp_symbol)
+ 
+ #if defined PTR_DEMANGLE || defined CHECK_SP
+@@ -41,13 +47,13 @@
+ 	lwz r1,(JB_GPR1*4)(r3)
+ #endif
+ 	lwz r0,(JB_LR*4)(r3)
+-	lwz r14,((JB_GPRS+14-14)*4)(r3)
+-	lwz r15,((JB_GPRS+15-14)*4)(r3)
+-	lwz r16,((JB_GPRS+16-14)*4)(r3)
+-	lwz r17,((JB_GPRS+17-14)*4)(r3)
+-	lwz r18,((JB_GPRS+18-14)*4)(r3)
+-	lwz r19,((JB_GPRS+19-14)*4)(r3)
+-	lwz r20,((JB_GPRS+20-14)*4)(r3)
++	LOAD_GP (14)
++	LOAD_GP (15)
++	LOAD_GP (16)
++	LOAD_GP (17)
++	LOAD_GP (18)
++	LOAD_GP (19)
++	LOAD_GP (20)
+ #ifdef PTR_DEMANGLE
+ # ifndef CHECK_SP
+ 	PTR_DEMANGLE3 (r1, r24, r25)
+@@ -58,19 +64,19 @@
+ 	   second argument (-4@4), and target address (4@0), respectively.  */
+ 	LIBC_PROBE (longjmp, 3, 4@3, -4@4, 4@0)
+ 	mtlr r0
+-	lwz r21,((JB_GPRS+21-14)*4)(r3)
+-	lwz r22,((JB_GPRS+22-14)*4)(r3)
++	LOAD_GP (21)
++	LOAD_GP (22)
+ 	lwz r5,(JB_CR*4)(r3)
+-	lwz r23,((JB_GPRS+23-14)*4)(r3)
+-	lwz r24,((JB_GPRS+24-14)*4)(r3)
+-	lwz r25,((JB_GPRS+25-14)*4)(r3)
++	LOAD_GP (23)
++	LOAD_GP (24)
++	LOAD_GP (25)
+ 	mtcrf 0xFF,r5
+-	lwz r26,((JB_GPRS+26-14)*4)(r3)
+-	lwz r27,((JB_GPRS+27-14)*4)(r3)
+-	lwz r28,((JB_GPRS+28-14)*4)(r3)
+-	lwz r29,((JB_GPRS+29-14)*4)(r3)
+-	lwz r30,((JB_GPRS+30-14)*4)(r3)
+-	lwz r31,((JB_GPRS+31-14)*4)(r3)
++	LOAD_GP (26)
++	LOAD_GP (27)
++	LOAD_GP (28)
++	LOAD_GP (29)
++	LOAD_GP (30)
++	LOAD_GP (31)
+ 	LIBC_PROBE (longjmp_target, 3, 4@3, -4@4, 4@0)
+ 	mr r3,r4
+ 	blr
+--- a/sysdeps/powerpc/powerpc32/setjmp-common.S
++++ b/sysdeps/powerpc/powerpc32/setjmp-common.S
+@@ -26,6 +26,12 @@
+ # include <jmpbuf-offsets.h>
+ #endif
+ 
++#if defined __SPE__ || (defined __NO_FPRS__ && !defined _SOFT_FLOAT)
++# define SAVE_GP(N)	evstdd r##N,((JB_FPRS+((N)-14)*2)*4)(3)
++#else
++# define SAVE_GP(N)	stw r##N,((JB_GPRS+(N)-14)*4)(3)
++#endif
++
+ ENTRY (__sigsetjmp_symbol)
+ 
+ #ifdef PTR_MANGLE
+@@ -39,31 +45,31 @@
+ 	/* setjmp probe expects longjmp first argument (4@3), second argument
+ 	   (-4@4), and target address (4@0), respectively.  */
+ 	LIBC_PROBE (setjmp, 3, 4@3, -4@4, 4@0)
+-	stw  r14,((JB_GPRS+14-14)*4)(3)
++	SAVE_GP (14)
+ #ifdef PTR_MANGLE
+ 	PTR_MANGLE2 (r0, r10)
+ 	li   r10,0
+ #endif
+ 	stw  r0,(JB_LR*4)(3)
+-	stw  r15,((JB_GPRS+15-14)*4)(3)
++	SAVE_GP (15)
+ 	mfcr r0
+-	stw  r16,((JB_GPRS+16-14)*4)(3)
++	SAVE_GP (16)
+ 	stw  r0,(JB_CR*4)(3)
+-	stw  r17,((JB_GPRS+17-14)*4)(3)
+-	stw  r18,((JB_GPRS+18-14)*4)(3)
+-	stw  r19,((JB_GPRS+19-14)*4)(3)
+-	stw  r20,((JB_GPRS+20-14)*4)(3)
+-	stw  r21,((JB_GPRS+21-14)*4)(3)
+-	stw  r22,((JB_GPRS+22-14)*4)(3)
+-	stw  r23,((JB_GPRS+23-14)*4)(3)
+-	stw  r24,((JB_GPRS+24-14)*4)(3)
+-	stw  r25,((JB_GPRS+25-14)*4)(3)
+-	stw  r26,((JB_GPRS+26-14)*4)(3)
+-	stw  r27,((JB_GPRS+27-14)*4)(3)
+-	stw  r28,((JB_GPRS+28-14)*4)(3)
+-	stw  r29,((JB_GPRS+29-14)*4)(3)
+-	stw  r30,((JB_GPRS+30-14)*4)(3)
+-	stw  r31,((JB_GPRS+31-14)*4)(3)
++	SAVE_GP (17)
++	SAVE_GP (18)
++	SAVE_GP (19)
++	SAVE_GP (20)
++	SAVE_GP (21)
++	SAVE_GP (22)
++	SAVE_GP (23)
++	SAVE_GP (24)
++	SAVE_GP (25)
++	SAVE_GP (26)
++	SAVE_GP (27)
++	SAVE_GP (28)
++	SAVE_GP (29)
++	SAVE_GP (30)
++	SAVE_GP (31)
+ #if IS_IN (rtld)
+ 	li   r3,0
+ 	blr
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/getcontext-common.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/getcontext-common.S
+@@ -262,6 +262,10 @@
+ # endif
+ #endif
+ 
++#ifdef __CONTEXT_ENABLE_E500
++	getcontext_e500
++#endif
++
+ /* We need to set up parms and call sigprocmask which will clobber
+    volatile registers. So before the call we need to retrieve the
+    original ucontext ptr (parm1) from stack and store the UC_REGS_PTR
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/setcontext-common.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/setcontext-common.S
+@@ -228,6 +228,10 @@
+ 	lfd	fp31,_UC_FREGS+(31*8)(r31)
+ #endif /* __CONTEXT_ENABLE_FPRS */
+ 
++#ifdef __CONTEXT_ENABLE_E500
++	setcontext_e500
++#endif
++
+ 	/* Restore LR and CCR, and set CTR to the NIP value */
+ 	lwz	r3,_UC_GREGS+(PT_LNK*4)(r31)
+ 	lwz	r4,_UC_GREGS+(PT_NIP*4)(r31)
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/swapcontext-common.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/swapcontext-common.S
+@@ -264,6 +264,10 @@
+ 2: /*L(no_vec):*/
+ # endif /* __CONTEXT_ENABLE_VRS */
+ #endif /* __CONTEXT_ENABLE_FPRS */
++
++#ifdef __CONTEXT_ENABLE_E500
++	getcontext_e500
++#endif
+ 
+ /* Restore ucontext (parm1) from stack.  */
+ 	lwz	r12,_FRAME_PARM_SAVE1(r1)
+@@ -450,6 +454,10 @@
+ 	lfd	fp31,_UC_FREGS+(31*8)(r31)
+ #endif /* __CONTEXT_ENABLE_FPRS */
+ 
++#ifdef __CONTEXT_ENABLE_E500
++	setcontext_e500
++#endif
++
+ 	/* Restore LR and CCR, and set CTR to the NIP value */
+ 	lwz	r3,_UC_GREGS+(PT_LNK*4)(r31)
+ 	lwz	r4,_UC_GREGS+(PT_NIP*4)(r31)
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/getcontext.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/getcontext.S
+@@ -23,6 +23,8 @@
+ #define __ASSEMBLY__
+ #include <asm/ptrace.h>
+ #include "ucontext_i.h"
++
++#include <context-e500.h>
+ 
+ #define __CONTEXT_FUNC_NAME __getcontext
+ #undef __CONTEXT_ENABLE_FPRS
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/setcontext.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/setcontext.S
+@@ -23,6 +23,8 @@
+ #define __ASSEMBLY__
+ #include <asm/ptrace.h>
+ #include "ucontext_i.h"
++
++#include <context-e500.h>
+ 
+ #define __CONTEXT_FUNC_NAME __setcontext
+ #undef __CONTEXT_ENABLE_FPRS
+--- a/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/swapcontext.S
++++ b/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/swapcontext.S
+@@ -23,6 +23,8 @@
+ #define __ASSEMBLY__
+ #include <asm/ptrace.h>
+ #include "ucontext_i.h"
++
++#include <context-e500.h>
+ 
+ #define __CONTEXT_FUNC_NAME __swapcontext
+ #undef __CONTEXT_ENABLE_FPRS
+--- a/sysdeps/unix/sysv/linux/powerpc/elision-lock.c
++++ b/sysdeps/unix/sysv/linux/powerpc/elision-lock.c
+@@ -39,6 +39,7 @@
+ int
+ __lll_lock_elision (int *lock, short *adapt_count, EXTRAARG int pshared)
+ {
++#ifndef __SPE__
+   /* adapt_count is accessed concurrently but is just a hint.  Thus,
+      use atomic accesses but relaxed MO is sufficient.  */
+   if (atomic_load_relaxed (adapt_count) > 0)
+@@ -76,6 +77,7 @@
+ 			  aconf.skip_lock_out_of_tbegin_retries);
+ 
+ use_lock:
++#endif
+   return LLL_LOCK ((*lock), pshared);
+ }
+ libc_hidden_def (__lll_lock_elision)
+--- a/sysdeps/unix/sysv/linux/powerpc/elision-trylock.c
++++ b/sysdeps/unix/sysv/linux/powerpc/elision-trylock.c
+@@ -30,6 +30,7 @@
+ int
+ __lll_trylock_elision (int *futex, short *adapt_count)
+ {
++#ifndef __SPE__
+   /* Implement POSIX semantics by forbiding nesting elided trylocks.  */
+   __libc_tabort (_ABORT_NESTED_TRYLOCK);
+ 
+@@ -65,6 +66,7 @@
+     }
+ 
+ use_lock:
++#endif
+   return lll_trylock (*futex);
+ }
+ libc_hidden_def (__lll_trylock_elision)
+--- a/sysdeps/unix/sysv/linux/powerpc/elision-unlock.c
++++ b/sysdeps/unix/sysv/linux/powerpc/elision-unlock.c
+@@ -23,6 +23,7 @@
+ int
+ __lll_unlock_elision (int *lock, short *adapt_count, int pshared)
+ {
++#ifndef __SPE__
+   /* When the lock was free we're in a transaction.  */
+   if (*lock == 0)
+     __libc_tend (0);
+@@ -39,6 +40,9 @@
+ 
+       lll_unlock ((*lock), pshared);
+     }
++#else
++  lll_unlock ((*lock), pshared);
++#endif
+   return 0;
+ }
+ libc_hidden_def (__lll_unlock_elision)
+--- a/sysdeps/powerpc/preconfigure
++++ b/sysdeps/powerpc/preconfigure
+@@ -9,14 +9,15 @@
+   base_machine=powerpc machine=powerpc/powerpc64/be
+   ;;
+ powerpc*)
+-  base_machine=powerpc machine=powerpc/powerpc32
++  # Select the historical e500 sysdeps only for an actual SPE compiler.
++  $CC $CFLAGS $CPPFLAGS -E -dM -xc /dev/null > conftest.i
++  if grep -q __NO_FPRS__ conftest.i && ! grep -q _SOFT_FLOAT conftest.i; then
++    base_machine=powerpc machine=powerpc/powerpc32/e500
++  else
++    base_machine=powerpc machine=powerpc/powerpc32
++  fi
++  rm -f conftest.i
+   with_fp_cond="!defined __NO_FPRS__"
+-  case "$host_os" in
+-    *gnuspe*)
+-      # SPE support was dropped in glibc 2.30.
+-      as_fn_error $? "Host system type $host is no longer supported." "$LINENO" 5
+-    ;;
+-  esac
+   ;;
+ esac
+ 
+--- a/sysdeps/powerpc/preconfigure.ac
++++ b/sysdeps/powerpc/preconfigure.ac
+@@ -9,14 +9,15 @@
+   base_machine=powerpc machine=powerpc/powerpc64/be
+   ;;
+ powerpc*)
+-  base_machine=powerpc machine=powerpc/powerpc32
++  # Select the historical e500 sysdeps only for an actual SPE compiler.
++  $CC $CFLAGS $CPPFLAGS -E -dM -xc /dev/null > conftest.i
++  if grep -q __NO_FPRS__ conftest.i && ! grep -q _SOFT_FLOAT conftest.i; then
++    base_machine=powerpc machine=powerpc/powerpc32/e500
++  else
++    base_machine=powerpc machine=powerpc/powerpc32
++  fi
++  rm -f conftest.i
+   with_fp_cond="!defined __NO_FPRS__"
+-  case "$host_os" in
+-    *gnuspe*)
+-      # SPE support was dropped in glibc 2.30.
+-      AC_MSG_ERROR([Host system type $host is no longer supported.])
+-    ;;
+-  esac
+   ;;
+ esac
+ 

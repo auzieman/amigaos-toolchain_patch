@@ -1,0 +1,63 @@
+{
+  "upstream_removal": "a053e878494080f7070cf92890e546057236c9c9",
+  "target": "glibc 2.41",
+  "status": "experimental; compile and ABI validation pending",
+  "files": {
+    "sysdeps/powerpc/fpu_control.h": {
+      "baseline_sha256": "acadea22de3de94b7f39b950455850bcb4f85fd5bf87b992a650df76bb153863",
+      "patched_sha256": "e87609afbf9293f97fd6324307844a82555ec87a25334423278ecc749542cd40"
+    },
+    "sysdeps/powerpc/powerpc32/__longjmp-common.S": {
+      "baseline_sha256": "06694ba509222dd26ddae95bfe13ac1796ce099c93c24cc2e04d29508ba2c314",
+      "patched_sha256": "40d065bd20058a372615888c2b81678212601816821c7769b93f6fc54a79fc27"
+    },
+    "sysdeps/powerpc/powerpc32/setjmp-common.S": {
+      "baseline_sha256": "6b88966400a0f329c7e9463ebde996c944d8d637e45466471ef730ff441dafe2",
+      "patched_sha256": "409590fd85f849a87febfdbe32d8cca01d856c95eee497df83d700f07cdd1949"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/getcontext-common.S": {
+      "baseline_sha256": "40f50bad40c36859048a0578475b4497b9e33faebfe89d2f6cc9a23fd87b9dd8",
+      "patched_sha256": "fde71c3d05fef34c271151be132e3d4bbebc069c416902b6cd944f52f601b1df"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/setcontext-common.S": {
+      "baseline_sha256": "68c8cf5287558dea4a4a87f63cba4440d3e486aafa21add6d099d0747bef1de7",
+      "patched_sha256": "4728d21716794c6aab168849e482676e9c4b8bb52c3704ec476605ea3de09fd1"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/swapcontext-common.S": {
+      "baseline_sha256": "3a32d3653f7537fd71575d4954c1b9abf8aaaba175e51bade40802f0370c1b0c",
+      "patched_sha256": "a840005f823f3d7e441ab399660a973be7d8b9254bdf2c31a0b917382f46bb72"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/getcontext.S": {
+      "baseline_sha256": "d772811ad49979676855cf3c226a91ecabc899e5be50b1f678ab858698613267",
+      "patched_sha256": "b17e879643522bc6e3b7e7211f2d29efb5c87cb09d40b3ea0ca55afcd3cbb1f9"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/setcontext.S": {
+      "baseline_sha256": "47d2b326546635479f7849a705293b6f6a8460610a3c480c99c8d089742034bf",
+      "patched_sha256": "4afceaa7ccd5333aaf4e0b550afd524ccd665d3aed5c73675f77a830710cfbf6"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/swapcontext.S": {
+      "baseline_sha256": "a96a6032ab24d310e5d29345317dfee868c82d1bbefa3e78d3886b1f6397969c",
+      "patched_sha256": "2932368f17e10cfcb3a07f8d5e77a78babd78c2989be331fd89c95fd99931041"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/elision-lock.c": {
+      "baseline_sha256": "2992f81e8a63fb7a53192c3836ad87ab1b7bfb0c5e935ed6aeab79d0e2f9e13e",
+      "patched_sha256": "c0302db7a58a64366ab5d31e830e811d0045a40148fd06438b4376b84c8c7a57"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/elision-trylock.c": {
+      "baseline_sha256": "7f9548bb95347c8aba2f2641a4d48bcefefb17bade083c180c5d0639092187aa",
+      "patched_sha256": "2c687f5f432837e6834ea2dd8ae02ad2bb7d0b528df0cec2b6b98e3fee9f8750"
+    },
+    "sysdeps/unix/sysv/linux/powerpc/elision-unlock.c": {
+      "baseline_sha256": "0fb925d1bb03ad7173fbe18455b0685c5075c8fdd18164a1fcb85b023e1ee9c7",
+      "patched_sha256": "99fdcb92bc38e4766e8422896dd2ca8e3fa339f457fc5f627110f6d72e529590"
+    },
+    "sysdeps/powerpc/preconfigure": {
+      "baseline_sha256": "2aedcf1a63d3d0fba0281975a5482d7c9c8ed7b660f78b86d2570ca1fa79f7b0",
+      "patched_sha256": "59224325c3263916fddbf43eff1a3cccdcc458f39dcfc2922d4ad5c0831cd5b9"
+    },
+    "sysdeps/powerpc/preconfigure.ac": {
+      "baseline_sha256": "aaaa6407e06e1455c60e360416122f0fac788a06835c0fef9a34c701c8380ad4",
+      "patched_sha256": "7f93aa5e2e7c53d1bf736de0e0a1dbcb5dedd94bc918827a2098de44ba6cecc7"
+    }
+  }
+}

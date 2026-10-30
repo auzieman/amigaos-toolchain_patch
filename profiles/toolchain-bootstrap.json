@@ -1,0 +1,29 @@
+{
+  "role": "historical SPE reference/bootstrap only; modern GCC restoration remains separate",
+  "target": "powerpc-linux-gnuspe",
+  "gcc": {
+    "version": "8.5.0",
+    "filename": "gcc-8.5.0.tar.xz",
+    "url": "https://gcc.gnu.org/pub/gcc/releases/gcc-8.5.0/gcc-8.5.0.tar.xz",
+    "sha512": "92f599680e6b7fbce88bcdda810f468777d541e5fddfbb287f7977d51093de2a5178bd0e6a08dfe37090ea10a0508a43ccd00220041abbbec33f1179bfc174d8",
+    "checksum_source": "https://gcc.gnu.org/pub/gcc/releases/gcc-8.5.0/sha512.sum",
+    "signature_verification": "not performed; pinned checksum obtained through official HTTPS"
+  },
+  "first_runtime": {
+    "goal": "interactive serial shell only",
+    "extras": false,
+    "docs_and_build_tools_in_runtime": false,
+    "abi": "SPE hard-float, 32-bit big-endian; not generic PPC hard-float or silent soft-float fallback",
+    "glibc_source": "existing pinned Debian 2.41-12+deb13u4 with reviewed restoration series",
+    "gate": "compiler, libc, then shell; no desktop packages until shell boots"
+  },
+  "busybox": {
+    "version": "1.37.0",
+    "filename": "busybox-1.37.0.tar.bz2",
+    "url": "https://busybox.net/downloads/busybox-1.37.0.tar.bz2",
+    "sha256": "3311dff32e746499f4df0d5df04d7eb396382d7e108bb9250e7b519b837043a4",
+    "checksum_source": "https://busybox.net/downloads/busybox-1.37.0.tar.bz2.sha256",
+    "license": "GPL-2.0-only; preserve source/license notices; inspect source LICENSE at build",
+    "signature_verification": "not performed; checksum obtained through official HTTPS"
+  }
+}
