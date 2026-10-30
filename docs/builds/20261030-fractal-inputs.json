@@ -1,0 +1,58 @@
+{
+  "vendor_repository": "nxp-qoriq-yocto-sdk/gcc",
+  "vendor_revision": "12ac7823b0d5cb3279a1c57588cf8748f245712b",
+  "inputs": {
+    "bench/coordinates.h": "2447ac0facdc5b4b511cf2ce4719192f61b7c84268802131568fc5502c232f9d",
+    "bench/fractal.c": "c7d99cf84117a010f5b6a6d1ea999b813e7ad315a35495fd2090906a1c44ba20",
+    "work/fractal-input/softfp/addsf3.c": "0ab9b857fc4497580755551bb0198dad25e78c4c126e7dbaf9785ecfcc056a83",
+    "work/fractal-input/softfp/double.h": "e3615a18252c016ddab862d7007b7862c0ffb23d2c018676aa24fe7d8d9fe198",
+    "work/fractal-input/softfp/extended.h": "9fdd9aa9bbb17aaa5b634b346a6a0d9e396b9f8bd1635fb70a8674fdce68bb09",
+    "work/fractal-input/softfp/longlong.h": "208363195313c365e99bc3a4a4c69f5ca7c112e2d320f70378f820b83155ae2a",
+    "work/fractal-input/softfp/mulsf3.c": "2b6f389dd2c2e5960caaf70d39f8ab0d577b09eda0130e22cab7a4200b65c63c",
+    "work/fractal-input/softfp/op-1.h": "f36f74685f3192b5be48ec8b3ef7e8143686c296899bb3539326b40f4d50d928",
+    "work/fractal-input/softfp/op-2.h": "5e3c37f3c04b204ac7631e43dd36cf2ce32bea9a128558979c85f226fe8ce1bd",
+    "work/fractal-input/softfp/op-4.h": "00e8f1b5d669a231b33044cb653e9c02fe601f2f188fa87909f65c788386fcfd",
+    "work/fractal-input/softfp/op-8.h": "24bb63e18d0db88b8615d73f0a4571a473d0ad7cbbb7270e7f695c0f2db80db3",
+    "work/fractal-input/softfp/op-common.h": "01970474c5e0d9582463dafff5fca4b357538c86d1980555f7667004fae933ee",
+    "work/fractal-input/softfp/quad.h": "a6bd07e542cc278998e3b09cef4d65a14399f23f94f4a129cfe2a70bd99e60ff",
+    "work/fractal-input/softfp/sfp-machine.h": "5efd20a57620d98fe6c684060647db7950eaf7bcf9554effb63fcd7925f69db8",
+    "work/fractal-input/softfp/single.h": "96503bd02173fda7e1726307a917a4e0e927a375267b31a7902003f5223e0bdd",
+    "work/fractal-input/softfp/soft-fp.h": "0ac9da41d576b17c98f6a8e2d8406073a13e7c7a0b13bd996813d3b0be99be17",
+    "work/fractal-input/softfp/subsf3.c": "743b4b446c5152d892a77033c941f0cbbeb5a39553b9fb671bfc70c5a633a2a5"
+  },
+  "compile_flags": [
+    "-O2",
+    "-msoft-float",
+    "-mcpu=8548",
+    "-ffreestanding",
+    "-fno-builtin",
+    "-fno-stack-protector",
+    "-fno-pie",
+    "-msdata=none",
+    "-nostdlib",
+    "-static",
+    "-no-pie",
+    "-Wl,-e,_start"
+  ],
+  "runtime": "No libc. GNU soft-fp helpers plus explicit SPE inline assembly. Not a restored SPE C ABI.",
+  "instruction_audit": {
+    "spe_instructions": [
+      [
+        "spe_add",
+        "efsadd"
+      ],
+      [
+        "spe_sub",
+        "efssub"
+      ],
+      [
+        "spe_mul",
+        "efsmul"
+      ]
+    ],
+    "no_classic_fpu_load_store_or_arithmetic": true,
+    "disassembly_sha256": "ba36be57300e04853cba72fae7bca287868b597c05a48905cd88d033f842cde5"
+  },
+  "kernel_config_and_cpu": "Same as accepted QEMU boot; two CPUs available; one render thread. SPE remains enabled in both paths.",
+  "source_clock": "Linux PPC32 clock_gettime64 syscall 403 / CLOCK_MONOTONIC"
+}

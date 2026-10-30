@@ -10,13 +10,18 @@ import re
 
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--kernel', type=Path, required=True)
-p.add_argument('--init-source', type=Path, required=True)
+init_group = p.add_mutually_exclusive_group(required=True)
+init_group.add_argument('--init-source', type=Path)
+init_group.add_argument('--init-binary', type=Path)
+p.add_argument('--timeout', type=int, default=60)
 p.add_argument('--output', type=Path, required=True)
 p.add_argument('--image-id', required=True)
 a = p.parse_args()
 if not re.fullmatch(r'sha256:[0-9a-f]{64}', a.image_id):
     p.error('exact image identity required')
-if not all(x.is_absolute() for x in [a.kernel, a.init_source, a.output]):
+if not 1 <= a.timeout <= 300:
+    p.error('timeout must be 1..300 seconds')
+if not all(x.is_absolute() for x in [a.kernel, a.init_source or a.init_binary, a.output]):
     p.error('absolute paths required')
 a.output.mkdir(parents=True, exist_ok=False)
 root = a.output / 'root'
@@ -26,11 +31,16 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 receipt = {'image_id': a.image_id, 'kernel_sha256': digest(a.kernel),
-           'init_source_sha256': digest(a.init_source), 'spe_validated': False,
+           'init_input_sha256': digest(a.init_source or a.init_binary), 'timeout_seconds': a.timeout, 'spe_validated': False,
            'glibc_validated': False, 'real_board_boot': False, 'status': 'started'}
 try:
-    subprocess.run(['powerpc-linux-gnu-as', '-me500', '-o', str(a.output / 'init.o'), str(a.init_source)], check=True)
-    subprocess.run(['powerpc-linux-gnu-ld', '-static', '-e', '_start', '-o', str(root / 'init'), str(a.output / 'init.o')], check=True)
+    if a.init_source:
+        receipt['init_source_sha256'] = digest(a.init_source)
+        subprocess.run(['powerpc-linux-gnu-as', '-me500', '-o', str(a.output / 'init.o'), str(a.init_source)], check=True)
+        subprocess.run(['powerpc-linux-gnu-ld', '-static', '-e', '_start', '-o', str(root / 'init'), str(a.output / 'init.o')], check=True)
+    else:
+        import shutil
+        shutil.copyfile(a.init_binary, root / 'init')
     (root / 'init').chmod(0o755)
     # Include /dev/console without creating host device nodes or requiring privileges.
     with (a.output / 'initramfs.cpio').open('wb') as archive:
@@ -57,7 +67,7 @@ try:
     with (a.output / 'serial.log').open('wb', buffering=0) as serial:
         proc = subprocess.Popen(cmd, stdout=serial, stderr=subprocess.STDOUT)
         try:
-            proc.wait(timeout=60)
+            proc.wait(timeout=a.timeout)
             receipt['termination'] = 'qemu-exited'
         except subprocess.TimeoutExpired:
             proc.terminate()

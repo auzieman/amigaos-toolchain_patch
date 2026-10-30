@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "samples_us": {
+    "SOFT": [
+      442113,
+      446341,
+      452158
+    ],
+    "SPE": [
+      201554,
+      173063,
+      169629
+    ]
+  },
+  "median_us": {
+    "SOFT": 446341,
+    "SPE": 173063
+  },
+  "median_speedup": 2.5790665826895407,
+  "images_equal": true,
+  "pixel_sha256": "927af0852454fd8c2324a27158d36f31af1e0386019a653070d625921de56d50",
+  "fnv32": "abd5de74",
+  "kernel_sha256": "4ba9bf38274c0c56f7fc0ebd785d3ab3b236695f2ae37f233e07724e068568f3",
+  "init_sha256": "85f234f917b5e5344d71d4d94b4e1b32324a5da96708566e888dfffe4757cf9e",
+  "serial_sha256": "1ab9188cb7c18467ec0aa2eadec58d4dd692e638011faf473066b97551a046f2",
+  "environment": "QEMU TCG e500v2; not physical A1222",
+  "scope": "Selected FP32 operations, no libc, GL or restored SPE ABI"
+}

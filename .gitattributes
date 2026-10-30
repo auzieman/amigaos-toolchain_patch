@@ -2,3 +2,5 @@
 patches/**/*.patch whitespace=-blank-at-eol,-space-before-tab
 # Keep captured serial bytes/hash; CRLF is emitted by the guest console.
 docs/builds/*-serial.log -text whitespace=-blank-at-eol,cr-at-eol
+# Preserve raw fractal serial evidence and its receipt checksum.
+docs/builds/fractal-*/serial.log -text whitespace=-blank-at-eol,cr-at-eol

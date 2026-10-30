@@ -1,0 +1,19 @@
+A1222 / e500v2 - MATCHED MANDELBROT DEMO
+QEMU 10.0.13 TCG | Linux 6.12.113 | single render thread
+128x96 | 96 iterations max | 1 warmup + 3 timed trials per path
+
++----------------------+------------------+------------------+
+| Metric               | Software FP      | SPE instructions |
++----------------------+------------------+------------------+
+| Trial 1              |       442.113 ms |       201.554 ms |
+| Trial 2              |       446.341 ms |       173.063 ms |
+| Trial 3              |       452.158 ms |       169.629 ms |
+| Median               |       446.341 ms |       173.063 ms |
++----------------------+------------------+------------------+
+SPE median speedup in this run: 2.58x
+Image match: PASS (all 12,288 escape counts; FNV32 abd5de74)
+
+Guest CLOCK_MONOTONIC time64; excludes boot and serial transfer.
+Same kernel, grid and algorithm; explicit SPE vs GNU software FP.
+QEMU timing is NOT physical A1222 performance.
+No GL, libc or restored SPE compiler ABI is exercised.

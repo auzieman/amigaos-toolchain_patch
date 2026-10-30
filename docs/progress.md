@@ -70,3 +70,13 @@ and GL are still unvalidated. Desktop-4 monitor shows the narrower PASS.
 stock VirGL little-endian limitation, physical USB preference and a verified
 staging bundle. No compatible rootfs/reference firmware packaging is currently
 available, so no boot-ready USB or E/gears execution is claimed.
+
+## 2026-10-30 — matched fractal timing demo
+
+[ASCII report](builds/fractal-20261030/results-ascii.txt) and
+[comparison graphic](builds/fractal-20261030/comparison.png): software FP
+median 446.341 ms, explicit SPE median 173.063 ms (2.58x in this QEMU run).
+Three timed trials per path after warmup; identical escape-count images.
+Raw evidence, helper provenance and [replay recipe](../bench/README.md) retained.
+This is a freestanding CPU demo, not a restored C ABI/glibc or GL/physical
+A1222 performance result. Initial failed timing probe is documented separately.

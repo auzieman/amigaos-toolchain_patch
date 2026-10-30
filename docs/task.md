@@ -235,3 +235,29 @@ The stick is a possible future target, not the reference Tabor image needed
 for firmware-wrapper verification and compatible userspace. Physical staging
 remains not boot-ready. Device paths are transient; re-identify before any
 future authorized write and do not infer erase authorization from insertion.
+
+## ASCII comparison and measured Mandelbrot demo — 2026-10-30
+
+User requested an ASCII with/without comparison, then a fractal/timing graphic.
+Initial boot results had no matched timings; added a hash-verified ASCII
+correctness report without inventing performance data. Then implemented a
+freestanding 128x96 Mandelbrot workload using the same FP32 bit-pattern API:
+GNU software FP helpers from the pinned vendor GCC4.9.2 reference versus
+explicit efsadd/efssub/efsmul. Both use the same kernel/CPU/grid/algorithm.
+This is not restored compiler SPE ABI, glibc, GL or physical-board evidence.
+
+Initial run failed timing probe; fixed clock_gettime64/timespec and syscall
+clobbers, retained that lab attempt without accepting its measurements. Retry
+run-002 passed three measured renders per backend after warmup, alternating
+order. All 12,288 escape counts match exactly; all timed checksums abd5de74.
+Medians: software 446341 us, SPE 173063 us (2.58x in this QEMU TCG run).
+Timing excludes boot/serial transfer and host image/palette generation.
+Disassembly audit confines SPE instructions to the three intended functions;
+no classic FP arithmetic/load/store found. Software/input notices preserved.
+
+Raw serial, receipt, disassembly, hashes, per-trial timings, ASCII, PNG/SVG
+comparison and independent images retained under docs/builds/fractal-20261030.
+Source/helper hashes and build flags in 20261030-fractal-inputs.json; replay
+recipe in bench/README.md. Report generator rejects failed/incomplete/mismatched
+runs before presenting results. Desktop live console switches to ASCII report.
+The image is a CPU arithmetic demo, not GPU-rendered fractals or glxgears.

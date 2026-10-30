@@ -1,0 +1,20 @@
+A1222 / e500v2 - CAPTURED TEST RESULTS - 2026-10-30
+Linux 6.12.113 | QEMU 10.0.13 TCG | 2 CPUs | 512 MiB
++--------------------------------+------------------+------------------+
+| Check                          | No-SPE init      | SPE test init    |
++--------------------------------+------------------+------------------+
+| Kernel enters userspace        | PASS             | PASS             |
+| Single: 1.5 + 2.25 = 3.75      | NOT RUN          | PASS             |
+| Double: 1.5 + 2.25 = 3.75      | NOT RUN          | PASS             |
+| SPE register load/store        | NOT RUN          | PASS             |
+| Kernel panic observed          | FALSE            | FALSE            |
+| Matched arithmetic timing      | NOT MEASURED     | NOT MEASURED     |
+| Throughput / speedup           | N/A              | N/A              |
++--------------------------------+------------------+------------------+
+Both runs use the same SPE-capable CPU model and kernel.
+No-SPE init = syscall-only boot baseline; no arithmetic workload.
+SPE PASS = selected instructions, not full ABI/glibc validation.
+These boot/arithmetic runs contain no matched performance timing.
+The 60-second harness limit is NOT an arithmetic timing result.
+Matched fractal timings: docs/builds/fractal-20261030/results-ascii.txt
+QEMU timings would describe emulation, not real A1222 performance.

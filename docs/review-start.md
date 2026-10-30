@@ -6,6 +6,8 @@ needs its host/target/runtime contract. The repository name does not establish
 that Linux glibc can serve as an AmigaOS C runtime.
 
 Start with the [engineering progress log](progress.md) for commit/run context.
+The [matched Mandelbrot demo](../bench/README.md) includes ASCII timings,
+identical fractal images and a side-by-side graphic with explicit QEMU limits.
 
 ## Prompts and workflows
 

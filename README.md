@@ -9,6 +9,8 @@ PPC32 `/init`. See [boot evidence and recipe](docs/qemu-boot.md).
 Selected SPE single/double additions also pass in a libc-free test; see
 [minimal graphics and physical staging status](docs/minimal-e-gears.md).
 Modern SPE/glibc ABI, physical A1222 boot and graphics remain unvalidated.
+[Matched Mandelbrot demo](bench/README.md): identical images, three timed trials
+per path, software FP versus explicit SPE (QEMU results only).
 Proposed [E-Trixie live desktop follow-up](docs/e-trixie-follow-up.md) records
 rescue rootfs, laptop appearance and SDL/GL testing goals.
 
