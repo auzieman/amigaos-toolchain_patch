@@ -46,3 +46,25 @@ independent. Keep kernel-only compiler acceptance separate from userspace.
 See docs/feasibility.md, docs/intake.json and docs/task.md. Existing board source
 remains owned by the separate Tabor workbench. This project stores references
 and hashes, not a duplicate SDK, disk image or vendor code dump.
+
+## Project workflows
+
+Project-owned skills live under `.agents/skills/`:
+`tabor-source-intake`, `tabor-kernel-build`, and `tabor-spe-forward-port`.
+Reusable intake, baseline-build, kernel-forward-port and SPE-forward-port prompts
+live in `.agents/prompts/`. These are discovered when working in this project;
+no global agent configuration was changed.
+
+The executable kernel path is documented in [kernel builds](docs/kernel-build.md):
+`docker/Dockerfile.kernel` starts `scripts/kernel-build.py`, using the exact
+vendor profile in `profiles/kernel-vendor-5.4-rc3.json`. The runner verifies
+source revision and input hashes, exports committed source into fresh storage,
+applies ordered patches and invokes configuration/build steps. It records
+logs, compiler/package versions, configuration and output hashes, including a
+failure receipt. It neither fetches nor patches GCC/glibc yet; their restoration
+series remain empty until qualified source patches are available.
+
+Validation: three real-Git fixture tests cover preparation/source isolation,
+input-hash rejection, patch conflicts and refusal to reuse output storage.
+All three skills pass the skill-creator validator. The tooling Docker image
+and full vendor kernel have not yet been built with this new runner.

@@ -18,3 +18,24 @@ licenses and affected compiler/runtime components before reuse.
 Uncertainty: modern GCC/glibc restoration effort, actual target ABI, SDK contract,
 boot-firmware format acceptance, graphics hardware and full board testing.
 Rollback removes only this newly created project; existing sources unchanged.
+
+## Skills, prompts and isolated build runner — 2026-10-30
+
+User requested E-projects-style local skills/prompts and Docker kernel build
+logic. Applied skill-creator. Added three focused project skills and four task
+prompts, routing from AGENTS.md, a digest-input Dockerfile with build entrypoint,
+reviewed exact vendor profile, and an isolated kernel runner. Runtime inputs
+are mounted read-only; committed source is exported into new storage and patch
+hashes/applicability are checked before modifying that copy. Profile selects
+vmlinux/modules/dtbs, not unverified firmware/boot image targets. No changes to
+existing Tabor repository, SDK, installed system or remotes.
+
+Verification: all three skills passed bundled quick_validate on host Python
+(the session Python lacks PyYAML). Three real-Git integration tests passed,
+covering source isolation/committed bytes, refusal to reuse output, hash mismatch
+failure receipts and patch conflicts. Existing verify-intake also passes.
+No tooling image build, full kernel compile or hardware boot was executed.
+Image package resolution is not snapshot-locked; retain resulting image digest
+and package list before accepting a build. Next execution remains a constrained
+lab baseline job, followed by review of actual compiler/boot-format failures.
+Rollback this slice via its Git commit; it does not remove reference inputs.

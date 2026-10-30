@@ -1,0 +1,1 @@
+Use $tabor-spe-forward-port. Compare the historical SPE compiler/runtime with the selected modern revision. Propose a bounded component patch, implement it when supported by the sources, and report ABI/runtime evidence separately from compilation. Keep the SDK integration contract explicit.

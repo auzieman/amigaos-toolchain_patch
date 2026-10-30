@@ -1,0 +1,1 @@
+Use $tabor-kernel-build. Reproduce the recorded vendor baseline in a fresh workspace with a digest-identified compiler image and constrained lab job. Stop at the first actionable source/config/toolchain failure, retain the complete log, and distinguish compiled output from boot acceptance.

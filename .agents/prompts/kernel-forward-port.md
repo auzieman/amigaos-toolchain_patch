@@ -1,0 +1,1 @@
+Use $tabor-source-intake and $tabor-kernel-build. Select and pin a newer Linux revision; compare board/DTS/audio changes against upstream, forward-port only demonstrated deltas and retain the untouched baseline. Build the selected board outputs and record regressions and boot-format uncertainty.

@@ -1,0 +1,36 @@
+{
+  "name": "a1222-vendor-5.4-rc3",
+  "source": "upstream/linux-5.4-rc3",
+  "commit": "4f5cafb5cb8471e54afdc9054d973535614f7675",
+  "arch": "powerpc",
+  "cross_compile": "powerpc-linux-gnu-",
+  "patches": [
+    {
+      "path": "vendor/a-eon-5.4-rc3-a1222/tabor_5.4-1.patch",
+      "sha256": "3875573de864520981b38c458ec1e7f75829405f77297104b6f131fc002e29fa"
+    }
+  ],
+  "config": {
+    "path": "vendor/a-eon-5.4-rc3-a1222/tabor-5.4-rc3.config",
+    "sha256": "c13ca6ce2eb6d21292d92328df05b2e31ac8bca7c209d3efe48013c666fb608d"
+  },
+  "copies": [
+    {
+      "path": "vendor/a-eon-5.4-rc3-a1222/tabor3.dts",
+      "sha256": "3cfe02e041ffac688a32319493be93d1889d252e97793d25cad4f02fab3a9055",
+      "destination": "arch/powerpc/boot/dts/tabor3.dts"
+    }
+  ],
+  "required_config": {
+    "CONFIG_PPC": "y",
+    "CONFIG_BOOKE": "y",
+    "CONFIG_SPE": "y",
+    "CONFIG_TABOR": "y"
+  },
+  "targets": [
+    "vmlinux",
+    "modules",
+    "dtbs"
+  ],
+  "boot_acceptance": "Boot wrapper and exact board image target remain to validate; vmlinux is not a bootable-board acceptance claim."
+}

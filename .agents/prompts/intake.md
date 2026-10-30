@@ -1,0 +1,1 @@
+Use $tabor-source-intake. Review the supplied patch or vendor sample and existing repository evidence. Record component/revision/ABI/license/hashes, what is directly verified, remaining uncertainty and the smallest useful build experiment. Preserve private sources.
