@@ -5,6 +5,8 @@ implementation targets Linux/SPE on A1222/Tabor; AmigaOS SDK integration still
 needs its host/target/runtime contract. The repository name does not establish
 that Linux glibc can serve as an AmigaOS C runtime.
 
+Start with the [engineering progress log](progress.md) for commit/run context.
+
 ## Prompts and workflows
 
 - [.agents/prompts](../.agents/prompts): intake, baseline kernel, kernel

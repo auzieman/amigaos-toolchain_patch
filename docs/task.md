@@ -124,3 +124,5 @@ board object/config/DTB copies retained with hashes; generated source and object
 trees discarded only after evidence retention, leaving caches intact. New
 retention helper rejects symlink cleanup and has dedicated safety tests; all
 seven local tests pass. Review evidence is docs/builds/20261030-first-debian-iteration.json.
+
+User requested useful commit notes for Hyperion reviewers. Added CONTRIBUTING.md, a local commit template and an engineering progress log backfilling the significant commits/runs without rewriting published history. The third run stopped at the initial disk guard because archive copies consumed local space; archive caches are now deduplicated and project bundles will exclude archives. No partially copied NFS file is treated as verified input.
