@@ -299,3 +299,11 @@ minimal static BusyBox1.37 and real serial-shell commands. Runtime excludes
 E, systemd, package management, docs and host build tools. Later stages are
 queued to stop at failure; no libc/shell boot pass is claimed at this checkpoint.
 Seven existing workflow tests, Python/shell syntax and cached source checks pass.
+
+Shell-cycle checkpoint: reference GCC8.5 built and generated efsadd/efdadd from
+C; pinned UAPI export and static libgcc passed. Fixed target binutils PATH and
+retained the failed first libgcc receipt. glibc configured with e500 sysdeps;
+static-only configure failed generated-header setup, so a fresh source replay
+uses the normal library build (runtime still copies only a static shell).
+Libc compilation is underway. New fixes and checkpoint receipt are committed;
+no shell/ABI acceptance yet.
