@@ -97,3 +97,11 @@ Debian preparation passed; edge libc attempt3 is running, not ABI-accepted.
 Retained failed iteration evidence and reclaimed generated trees. Seven
 workflow tests passed. Read-only A1222 ISO probe reached Sam460 firmware only;
 [receipt](builds/20261030-os4-iso-probe.json) records limits and media hashes.
+
+## 2026-10-30 — graphical AmigaOS probe and libc tool selection
+
+Nested QEMU under existing Proxmox VM127 loaded A1222 ISO Kickstart modules,
+then remained at launching Kickstart; no Workbench. Local browser console
+verified connected; [receipt](builds/20261030-os4-display-probe.json) distinguishes
+bootloader progress from OS boot. SPE libc retry reached target object cleanup
+but selected host objcopy. Fixed target OBJCOPY/STRIP; fresh005 retry started.

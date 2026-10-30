@@ -326,3 +326,23 @@ import. scripts/os4-iso-probe.sh preserves the bounded reproduction. QEMU has
 no A1222 machine here; Pegasos/Sam media/firmware compatibility is a separate
 requirement. Proxmox normal guest architecture choices do not include PPC;
 standalone PPC QEMU can provide VNC, including inside a managed Linux VM.
+
+## Visible OS4 probe under Proxmox VM127 — 2026-10-30
+
+Verified Proxmox192.168.1.9 inventory: running VM127 is swarm1.lab.auzietek.com,
+our existing edge host192.168.1.15. Launched constrained nested standalone
+QEMU Sam460,512MiB,one CPU,ISO read-only,no guest network or installed disk.
+VNC binds edge loopback5907, SSH forwards local15907, ignored local noVNC
+checkout/websockify venv serves localhost6087. Firefox view-only client connected.
+Graphical capture advances beyond serial: Kickstart files load, then final
+screen says Loading done, now launching kickstart. Repeated capture unchanged;
+QMP running does not establish OS boot. No Workbench. Probe stops after20minutes.
+This uses existing Proxmox inventory VM127, not a new native PPC inventory VM.
+Receipt: builds/20261030-os4-display-probe.json; screenshot/media stay ignored.
+Matching Sam/Pegasos/AmigaOne media is needed for a supported OS4 emulator test.
+
+SPE glibc004 compiled past old syscall failures, then host objcopy could not
+recognize PPC libc_pic.os. Explicitly select target OBJCOPY and STRIP alongside
+other target binutils. Retained004 evidence, discarded only generated trees,
+and started fresh005/stage4 detached on edge. Pipeline stops at first failure,
+then builds static shell and boots it only if libc succeeds. No libc pass yet.

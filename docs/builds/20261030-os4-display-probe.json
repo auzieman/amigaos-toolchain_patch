@@ -1,0 +1,24 @@
+{
+  "status": "Kickstart modules loaded; no Workbench observed",
+  "proxmox_host": "192.168.1.9",
+  "parent_vmid": 127,
+  "parent_name": "swarm1.lab.auzietek.com",
+  "edge_ip": "192.168.1.15",
+  "container": "tabor-os4-display-002",
+  "machine": "sam460ex",
+  "cpu_limit": 1,
+  "guest_ram_mib": 512,
+  "guest_network": false,
+  "iso_readonly": true,
+  "installed_guest_disk": false,
+  "display": "VNC 127.0.0.1:5907 on edge; SSH tunnel to local15907; local noVNC6087",
+  "last_screen": "Loading done, now launching kickstart.",
+  "repeated_screen_sha256": "869c88ad806d925caba72021e11a6b23b3154b05056f7a9789277311a52686f7",
+  "qmp_status": "running",
+  "a1222_emulation": false,
+  "expiry": "docker stop scheduled 20 minutes after final screen capture",
+  "media_reference": "20261030-os4-iso-probe.json",
+  "references": [
+    "https://zero.eik.bme.hu/~balaton/qemu/amiga/"
+  ]
+}

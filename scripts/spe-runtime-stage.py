@@ -64,7 +64,7 @@ with (a.work/(a.phase+'-stage'+suffix+'.log')).open('w') as log:
    macros=subprocess.check_output([str(cc)]+flags+['-dM','-E','-x','c','-'],input='',text=True)
    if '#define __SPE__ 1' not in macros or '#define _SOFT_FLOAT' in macros:raise RuntimeError('SPE hard-float compiler required')
    receipt['compiler_macros']=macros
-   env.update({'CC':str(cc)+' --sysroot='+str(a.sysroot),'BUILD_CC':'gcc','CFLAGS':'-O2 -g0 '+' '.join(flags),'AR':'powerpc-linux-gnu-ar','RANLIB':'powerpc-linux-gnu-ranlib','AS':'powerpc-linux-gnu-as','LD':'powerpc-linux-gnu-ld','NM':'powerpc-linux-gnu-nm','OBJDUMP':'powerpc-linux-gnu-objdump','READELF':'powerpc-linux-gnu-readelf'})
+   env.update({'CC':str(cc)+' --sysroot='+str(a.sysroot),'BUILD_CC':'gcc','CFLAGS':'-O2 -g0 '+' '.join(flags),'AR':'powerpc-linux-gnu-ar','RANLIB':'powerpc-linux-gnu-ranlib','AS':'powerpc-linux-gnu-as','LD':'powerpc-linux-gnu-ld','NM':'powerpc-linux-gnu-nm','OBJCOPY':'powerpc-linux-gnu-objcopy','STRIP':'powerpc-linux-gnu-strip','OBJDUMP':'powerpc-linux-gnu-objdump','READELF':'powerpc-linux-gnu-readelf'})
    run([str(source/'configure'),'--build=x86_64-linux-gnu','--host=powerpc-linux-gnuspe','--prefix=/usr','--with-headers='+str(a.sysroot/'usr/include'),'--disable-nscd','--disable-werror','--enable-kernel=3.2'],output)
    receipt['status']='configured'
    run(['make','-j2'],output)
