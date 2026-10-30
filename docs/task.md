@@ -1,5 +1,14 @@
 # Active task — private Tabor SPE toolchain intake
 
+User confirmed the restoration objective: derive missing SPE/e500v2 support
+from legacy kernel/compiler/libc sources and forward-port the required A-EON
+changes. docs/patch-set-plan.md defines separate component series, comparison
+against still-present target support and acceptance. Do not describe generic
+PowerPC support as removed or assume a newer kernel needs a wholesale CPU
+restore. Exact modern target revisions remain to select; no accepted restoration
+patch or modern build result is claimed. Existing A-EON multi-board changes
+need review/splitting so this work stays focused on Tabor.
+
 Current scope clarification: A1222/Tabor e500v2 SPE is the immediate focus.
 User reports Steven and Trevor requested this investigation; no additional
 source access or external communication authorization is inferred. Other A-EON

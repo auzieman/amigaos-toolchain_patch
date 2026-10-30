@@ -1,5 +1,9 @@
 # Tabor SPE toolchain — private development
 
+Active patch objective: [restore missing e500v2/SPE support and forward-port
+A-EON/Tabor changes](docs/patch-set-plan.md), with separate compiler, libc,
+kernel CPU and board series and independently verified acceptance.
+
 Current priority is A1222/Tabor and its e500v2 SPE support, which the user reports
 Steven and Trevor asked them to investigate. Other A-EON platforms and the
 user-described Marhi board belong to the longer-term scope; their exact hardware
