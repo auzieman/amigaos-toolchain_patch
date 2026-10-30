@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-30",
+  "manufacturer": "Freescale / NXP",
+  "soc": "QorIQ P1022 / e500v2",
+  "sources": [
+    {
+      "directory": "boot-format",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/boot-format.git",
+      "commit": "76697de4801a8cbe4f0cbca8ac80d779057cbba8",
+      "tree": "722203890952137f2e7d3e395d161ac6dc1b9b7e",
+      "branch_at_intake": "master",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "boot_format.c": "5fc81bd7b1cf0ce832b6ed7ceeba3fc293e888ad00c72cd144d8883647eef3e3",
+        "config_sram_p1022ds.dat": "51e0ed407e94600f0822179d3475338000535d9ad41d6f6f86d7c6f088f54739",
+        "COPYING": "8177f97513213526df2cf6184d8ff986c675afb514d4e68a404010521b880643"
+      }
+    },
+    {
+      "directory": "eglibc-2.19",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/eglibc.git",
+      "commit": "13aacd96b2b45b20212d28c7602858fd9fe507f1",
+      "tree": "3693a07101e1e7f8cfa8b52f0cba618aeb3aac9d",
+      "branch_at_intake": "nxp/eglibc-2.19",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "libc/sysdeps/powerpc/powerpc32/e500/nofpu/fenv_libc.h": "255f7ed00aeea1a96bdb94f1da0c9387ef2def7b4e9f416642434f2bd2998614",
+        "libc/sysdeps/unix/sysv/linux/powerpc/powerpc32/nofpu/context-e500.h": "b88dd9d999413fe93110757b130ee9d90c9304b51299ab84c31ab402c61fa79a",
+        "libc/COPYING.LIB": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+      }
+    },
+    {
+      "directory": "flib",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/flib.git",
+      "commit": "91bbb134df1cd8b65c7c19db9bec9f00d1435377",
+      "tree": "c6c53ad35dd4e1fe2898a594448094d16e05213e",
+      "branch_at_intake": "nxp/master",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "COPYING": "22a7289de73052aad75a07a75bb43b92bd82e3a765236f618fbfeeb8d27ec88d"
+      }
+    },
+    {
+      "directory": "fsl-yocto-repo",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/fsl-yocto-repo.git",
+      "commit": "092ab9e0ba3dd2217ae7463fbd0d888203e76d49",
+      "tree": "03ca3b32f2ac3e931713de64ffc7107b9f5b2184",
+      "branch_at_intake": "master",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "default.xml": "446e9fa8c7f871a8981e9dd40ce2a5f2fd65857868d4ba7f5e57f79cf9daf75b",
+        "README": "aea987178ff6fd44dd0ecc1dba31107198a6c68f8e9830d69f12e1f88287a24f"
+      }
+    },
+    {
+      "directory": "gcc-4.9.2",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/gcc.git",
+      "commit": "12ac7823b0d5cb3279a1c57588cf8748f245712b",
+      "tree": "c7334ad558d0d304d0283f3a5ea9b3b29aa37fc3",
+      "branch_at_intake": "nxp/gcc-4.9.2",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "gcc/config/rs6000/spe.md": "f00980035d0f7d9ed49b63c0cb9b9d371c82b3be4a0a3667f68f09ed025a9af5",
+        "gcc/config/rs6000/linuxspe.h": "2e1181915fe407818a6518ce83b1d314cd8498d390ad4a2013ea590b6f894b89",
+        "COPYING3": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "COPYING.RUNTIME": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74"
+      }
+    },
+    {
+      "directory": "linux-sdk1.7",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/linux.git",
+      "commit": "6619b8b55796cdf0cec04b66a71288edd3057229",
+      "tree": "48cd19fb2ad076ac724ffe6796ba5a78fb88ce45",
+      "branch_at_intake": "nxp/sdk-v1.7.x",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "arch/powerpc/boot/dts/p1022ds.dtsi": "50593cd9c7c496a4639ca7708573c5d17c9951934d77ca1aa210ec1c0b321440",
+        "COPYING": "af8067302947c01fd9eee72befa54c7e3ef8a48fecde7fd71277f2290b2bf0f7"
+      }
+    },
+    {
+      "directory": "meta-fsl-ppc-sdk1.7",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/meta-fsl-ppc.git",
+      "commit": "2a09854d632a657ad3b37fcebce88181221ecb6a",
+      "tree": "03ce28762545e0f2549c2ca01c6f2bf536250ab1",
+      "branch_at_intake": "nxp/sdk-v1.7.x",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "conf/machine/p1022ds.conf": "4d10e18604f0e15166bbf1b9fd1c25e7016f1eeade95763ecae3d3e217249371",
+        "conf/machine/include/e500v2.inc": "3ea09127f5786e19565f8d6a5be0d80384b2ce667b7e6b8b8b7aef2b334084e5",
+        "recipes-kernel/linux/linux-qoriq_3.12.bb": "fb4bf4d7f0766f20fbc044d532c6b07ce58683955e34390cf711b83ae9792284"
+      }
+    },
+    {
+      "directory": "meta-fsl-ppc-toolchain",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/meta-fsl-ppc-toolchain.git",
+      "commit": "db79ac8d5508101d6eee96f6e05372c2823277c3",
+      "tree": "baa414a4a3432a7a54d5a9a3ebaed90f4763c742",
+      "branch_at_intake": "nxp/dylan",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "conf/distro/include/tcmode-external-fsl.inc": "b0fcaf506f65210d5d3ab395d13c3d16cc87d6ba79743a846b5c37568372c147"
+      }
+    },
+    {
+      "directory": "u-boot-sdk1.7",
+      "url": "https://github.com/nxp-qoriq-yocto-sdk/u-boot.git",
+      "commit": "659b6a23a8b1f3026200bc6352dbacef53f4dcb1",
+      "tree": "33c845bd7dd8c2ccea3c1d2d0532ffc467b365d8",
+      "branch_at_intake": "nxp/sdk-v1.7.x",
+      "shallow": "true",
+      "inspected_file_sha256": {
+        "include/configs/P1022DS.h": "912ff36cb0fdfd44ac55e721b5cc8c4c7be20250fe806d9f9027358f550feb40",
+        "Licenses/README": "7b73bc4d038602b11a0874f78705c71aaebd19a418bc65c1c74e71b2ca460c79"
+      }
+    }
+  ],
+  "scope": "Selected historical public vendor reference trees, not a complete SDK dependency closure or tested version combination",
+  "documentation_downloads": "NXP E500ABIUG.pdf and SDK 1.4 integration PDF direct downloads returned HTTP 404; references available via web index only"
+}

@@ -82,3 +82,5 @@ All three skills pass the skill-creator validator. The tooling Docker image
 and full vendor kernel have not yet been built with this new runner.
 
 Deferred test environment: [Kyvos / AmigaOS provisioning](docs/future-amigaos-provisioning.md). This is separate from A1222/SPE validation and is not required for the current kernel baseline.
+
+Manufacturer references: [Freescale/NXP P1022 source intake](docs/vendor-source-intake.md). Nine historical vendor repositories are now retained under ignored sources/vendor, pinned in profiles/vendor-sources.lock.json; this is not yet a complete SDK dependency closure.
