@@ -18,10 +18,19 @@ try:
     with tarfile.open(a.archive) as t:
         t.extractall(a.work, filter='data')
     source = a.work.resolve()/('qemu-'+lock['version'])
+    dtc = source/'subprojects/dtc'
+    subprocess.run(['git', 'init', str(dtc)], check=True)
+    subprocess.run(['git', '-C', str(dtc), 'remote', 'add', 'origin', lock['dtc']['url']], check=True)
+    subprocess.run(['git', '-C', str(dtc), 'fetch', '--depth', '1', 'origin', lock['dtc']['revision']], check=True)
+    subprocess.run(['git', '-C', str(dtc), 'checkout', '--detach', 'FETCH_HEAD'], check=True)
+    actual = subprocess.check_output(['git', '-C', str(dtc), 'rev-parse', 'HEAD'], text=True).strip()
+    if actual != lock['dtc']['revision']:
+        raise RuntimeError('DTC revision mismatch')
+    receipt['dtc_revision'] = actual
     build = a.work.resolve()/'build'
     build.mkdir()
     commands = [[str(source/'configure'), '--target-list=ppc-softmmu',
-                 '--enable-vnc', '--disable-docs', '--disable-gtk',
+                 '--enable-vnc', '--enable-fdt=internal', '--disable-docs', '--disable-gtk',
                  '--disable-sdl', '--disable-werror', '--disable-download'],
                 ['ninja', '-j2', 'qemu-system-ppc']]
     with (a.work/'build.log').open('w') as log:

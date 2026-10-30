@@ -374,3 +374,13 @@ C-only bootstrap. C++ ABI acceptance remains a later gate. Retained005 evidence
 before generated cleanup, fresh006/stage5 running on edge; pipeline still stops
 at first failure before shell/boot. This is a tool-selection fix, not a new
 source mutation or claimed libc pass.
+
+## Updated emulator retry — 2026-10-30
+
+Stopped previous tabor-os4-display-002 guest at user request. QEMU11.1.3 first
+build exposed missing libfdt headers in Pegasos/VOF; auto configuration had
+silently omitted FDT. Fetched the exact DTC revision from upstream dtc.wrap,
+reviewed README.license, and require --enable-fdt=internal in the replay helper.
+Configuration now includes libfdt and rebuild is running; the post-link ATI
+probe and separate Linux shell check remain queued. No updated-emulator boot
+result is claimed yet. Local browser viewer6088 waits for the new guest.

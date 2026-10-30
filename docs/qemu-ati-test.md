@@ -4,7 +4,9 @@
 The source archive's detached signature was verified against release signer
 `CEACC9E15534EBABB82D3FA03353C9CEF108B584`, published on QEMU's download page.
 Host build requirements include a C compiler, Python, Meson/Ninja, GLib and
-Pixman development files. Build locally without a system installation:
+Pixman development files. The script fetches QEMU’s pinned DTC revision and
+requires internal libfdt; this avoids configuring a PPC build without its
+device-tree dependency. Build locally without a system installation:
 
 ```sh
 python3 scripts/build-qemu-ppc.py \
