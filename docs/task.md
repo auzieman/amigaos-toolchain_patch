@@ -436,3 +436,29 @@ vec_status, while spr_write_spefscr only stores the register; this suggests an
 emulator rounding limitation, not yet proof that the libc setter is wrong.
 Physical fenv validation and a futex-enabled runtime kernel remain next gates;
 C++ unwinding and broader ABI coverage are still untested.
+
+## Live image remote tools and board payload preparation — 2026-10-30
+
+User requested SSH client/server and VNC for live boot, then authorized the
+larger image and SanDisk write once ready. Promoted openssh-client/server into
+rescue and x11vnc into E/X11 in the source-package plan. Lab/LAN SSH uses the
+normal tabor account with privately provisioned keys; physical-display VNC
+binds loopback over SSH and waits for X. No target packages/listeners installed
+by this planning change. Elgato HD60 S+ appears on laptop video4/5; format query
+reports1080p. Two bounded frame reads failed I/O; no capture stream inspected
+or existing capture application changed. User states HDMI output.
+
+Packaged the full board kernel and tested shell as standard U-Boot PPC/Linux
+gzip uImage/uRamdisk plus DTB. Verified header/data CRC and payload decompression,
+using the Linux wrapper's objcopy/gzip/mkimage method rather than old zero-pad
+wrapper. Derived physical kernel extent0x24be2cc from ELF; proposed source
+buffers64/128/160MiB avoid it. Receipt builds/20261030-board-package.json is a
+review payload, not claimed hardware boot. HDMI controller still unidentified;
+initial board patch lacks DIU hooks and Radeon DRM is disabled. USB HID is a
+module absent from the tiny rootfs. Those must be resolved for a usable local
+boot before the authorized stick write. Real firmware iminfo remains an
+on-board check. No drive writes or persistent boot-default changes performed.
+
+R730 old address10.20.0.130 responds through edge, but SSH key differs. User
+expects the resale Trixie image; no host identity inferred, known_hosts not
+changed and no build load deployed until the new OS identity is verified.

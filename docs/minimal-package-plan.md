@@ -67,9 +67,10 @@ trim firmware or modules by filename guesswork. No default persistent overlay,
 swap or internal-disk installation is planned. Resolve sizes/dependencies and
 record a full package/file/hash manifest before choosing the USB layout.
 
-LAN SSH and x11vnc are optional debug overlays, not default listeners. Bind a
-future VNC service to loopback and use the existing LAN SSH tunnel approach;
-reuse the same active E session for physical capture. SDL is a later optional
+The live image includes user-requested OpenSSH client/server in rescue and
+x11vnc with the E/X11 stage. VNC binds loopback and travels through LAN SSH;
+it shares the physical E display seen by Elgato. Unique SSH host keys and
+user credentials are provisioned outside Git. SDL is a later optional
 smoke test. The existing fractal init needs a normal CLI entry/exit wrapper
 before it can be shipped as an ordinary test application in this rootfs.
 

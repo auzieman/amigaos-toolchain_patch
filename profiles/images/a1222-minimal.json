@@ -7,11 +7,23 @@
     "target_tuple": "powerpc-linux-gnuspe",
     "official_trixie_spe_binaries_assumed": false,
     "bootstrap": "minbase-equivalent rebuilt for the selected ABI; dependency closure required",
-    "runtime_from_our_toolchain": ["libc6", "libgcc-s1", "libstdc++6"],
+    "runtime_from_our_toolchain": [
+      "libc6",
+      "libgcc-s1",
+      "libstdc++6"
+    ],
     "install_recommends": false,
     "install_suggests": false,
     "host_toolchain_in_image": false,
-    "package_versions_and_hashes": "Pin before execution; these are source-package intent names, not an installable repository"
+    "package_versions_and_hashes": "Pin before execution; these are source-package intent names, not an installable repository",
+    "target_runtime_cflags": [
+      "-mcpu=8548",
+      "-mabi=spe",
+      "-mspe",
+      "-mfloat-gprs=double",
+      "-mlong-double-128"
+    ],
+    "long_double_policy": "Experimental glibc2.41 uses 128-bit IBM long double; every fresh consumer must explicitly match it. Historical compiler default64 is not the runtime ABI."
   },
   "hardware": {
     "board": "A1222/Tabor; exact original/Plus revision to verify",
@@ -20,7 +32,7 @@
     "ram_verified": false,
     "gpu": "AMD Radeon; exact PCI ID required",
     "boot": "USB-first manual trial; verified board firmware format still required",
-    "console": "serial plus local keyboard/display"
+    "console": "Local keyboard/display observed through Elgato HD60 S+; serial optional when cable available"
   },
   "login": {
     "human_users": 1,
@@ -35,33 +47,81 @@
     {
       "id": "rescue",
       "inherits": null,
-      "packages": ["systemd-sysv", "udev", "initramfs-tools", "kmod", "iproute2", "ifupdown", "dhcpcd-base", "procps", "pciutils", "usbutils", "less", "nano", "sudo"],
-      "project_payloads": ["board kernel/DTB and verified firmware packaging", "SPE arithmetic test", "fractal test adapted to a normal CLI command", "ASCII evidence report"],
-      "acceptance": "Serial login, storage/network enumeration, memory detection and direct SPE correctness; no GUI required"
+      "packages": [
+        "systemd-sysv",
+        "udev",
+        "initramfs-tools",
+        "kmod",
+        "iproute2",
+        "ifupdown",
+        "dhcpcd-base",
+        "procps",
+        "pciutils",
+        "usbutils",
+        "less",
+        "nano",
+        "sudo",
+        "openssh-client",
+        "openssh-server"
+      ],
+      "project_payloads": [
+        "board kernel/DTB and verified firmware packaging",
+        "SPE arithmetic test",
+        "fractal test adapted to a normal CLI command",
+        "ASCII evidence report"
+      ],
+      "acceptance": "Serial login, storage/network enumeration, memory detection and direct SPE correctness; no GUI required; LAN SSH login as tabor with provisioned key"
     },
     {
       "id": "e-desktop",
       "inherits": "rescue",
-      "packages": ["xserver-xorg-core", "xserver-xorg-input-libinput", "xinit", "xauth", "dbus-user-session", "libpam-systemd", "enlightenment", "enlightenment-data", "terminology", "fonts-dejavu-core"],
-      "acceptance": "Single user logs in and starts E with terminal/input; complete required EFL/font/codec dependency closure retained"
+      "packages": [
+        "xserver-xorg-core",
+        "xserver-xorg-input-libinput",
+        "xinit",
+        "xauth",
+        "dbus-user-session",
+        "libpam-systemd",
+        "enlightenment",
+        "enlightenment-data",
+        "terminology",
+        "fonts-dejavu-core",
+        "x11vnc"
+      ],
+      "acceptance": "Single user logs in and starts E with terminal/input; complete required EFL/font/codec dependency closure retained; share the physical X11 display through SSH-tunneled VNC"
     },
     {
       "id": "gl-tests",
       "inherits": "e-desktop",
-      "packages": ["libgl1", "libglx-mesa0", "libgl1-mesa-dri", "libegl1", "libegl-mesa0", "mesa-utils", "libdrm-tests", "htop"],
+      "packages": [
+        "libgl1",
+        "libglx-mesa0",
+        "libgl1-mesa-dri",
+        "libegl1",
+        "libegl-mesa0",
+        "mesa-utils",
+        "libdrm-tests",
+        "htop"
+      ],
       "acceptance": "Record DRM driver and GL_VENDOR/RENDERER/VERSION; display glxgears, retain logs and compare software/hardware rendering explicitly"
     },
     {
       "id": "browser",
       "inherits": "gl-tests",
       "optional": true,
-      "packages": ["firefox-esr", "ca-certificates", "fonts-liberation"],
+      "packages": [
+        "firefox-esr",
+        "ca-certificates",
+        "fonts-liberation"
+      ],
       "acceptance": "Separate PPC32/SPE C++/Rust/JS-engine build feasibility gate; open local test page, then TLS page; no obsolete browser fallback"
     }
   ],
   "hardware_overlays": {
     "radeon": {
-      "packages": ["firmware-amd-graphics"],
+      "packages": [
+        "firmware-amd-graphics"
+      ],
       "policy": "Include only firmware required by identified card and dependencies, respecting firmware license notices; kernel radeon/amdgpu and Mesa r600/radeonsi selected from PCI ID",
       "xorg": "Start with core modesetting driver; add matching xserver-xorg-video-amdgpu or xserver-xorg-video-ati only if required",
       "llvm": "Driver-dependent; do not globally remove LLVM until the selected Mesa driver is qualified"
@@ -71,16 +131,44 @@
     }
   },
   "optional_tools": {
-    "lan-debug": ["openssh-server", "openssh-client"],
-    "remote-desktop": ["x11vnc"],
-    "sdl": ["libsdl2-2.0-0"]
+    "sdl": [
+      "libsdl2-2.0-0"
+    ]
   },
   "trim_policy": [
     "One en_US.UTF-8 locale and one fallback font family initially",
-    "No desktop task/metapackage, greeter, browser or VNC in default gl-tests seed",
+    "No desktop task/metapackage, greeter or browser in default gl-tests seed; user-requested SSH and physical-display VNC retained",
     "No build toolchain, development headers, docs/manpage bulk or package archive cache in runtime",
     "Keep license notices, required runtime data, NSS/PAM/TLS assets, kernel modules/firmware and error logs",
     "Bound volatile logs; no default disk swap or persistence until reviewed",
     "Do not strip or split GPU modules beyond a recorded dependency/firmware manifest"
-  ]
+  ],
+  "remote_access": {
+    "scope": "Lab/LAN only",
+    "ssh": {
+      "packages": [
+        "openssh-client",
+        "openssh-server"
+      ],
+      "start_stage": "rescue",
+      "user": "tabor",
+      "authentication": "Provision authorized public key at image creation; no credentials in Git",
+      "root_login": false,
+      "host_keys": "Generate unique host keys at provisioning or first boot"
+    },
+    "vnc": {
+      "package": "x11vnc",
+      "start_stage": "e-desktop after X11 session starts",
+      "mode": "Share physical E display, not a separate virtual desktop",
+      "listen": "127.0.0.1",
+      "transport": "SSH tunnel",
+      "authentication": "Provision private VNC authentication at image creation",
+      "no_display_behavior": "Remain stopped; SSH and Elgato remain available"
+    },
+    "capture": {
+      "device": "Elgato Game Capture HD60 S+",
+      "purpose": "Observe firmware and early boot before network/sshd starts",
+      "video_feed_verified": false
+    }
+  }
 }

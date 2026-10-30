@@ -16,8 +16,11 @@ Readiness gates before writing:
 - A source-built static shell actually boots and accepts commands in QEMU.
 - Board kernel/DTB and firmware-accepted image format/load ranges are verified.
 - A local console and USB keyboard are supported, since no serial cable is
-  available. Existing board config has FSL DIU/framebuffer console, but this
-  has not been tested on the user's display; Radeon DRM is not yet enabled.
+  available. Existing config enables FSL DIU/framebuffer console, but the
+  initial board patch does not restore DIU board hooks; this is not a verified
+  local console. The user uses HDMI, and its controller/card still needs to
+  be identified. Radeon DRM is not yet enabled. USB HID is a module, so the
+  board payload must include it or rebuild it into the kernel.
 - Boot files, checksums and recoverable logs are staged independently of the
   stick. The read-only staging manifest currently says not firmware-boot-ready.
 - Confirm the exact removable device and its existing contents before writing;

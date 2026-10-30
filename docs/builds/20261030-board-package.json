@@ -1,0 +1,24 @@
+{
+  "status": "packaged-for-review-not-physical-boot-tested",
+  "physical_boot": false,
+  "image_format": "standard legacy U-Boot, PPC Linux gzip",
+  "kernel_physical_memory_end": "0x24be2cc",
+  "proposed_ram_staging": {
+    "uImage": "0x04000000",
+    "dtb": "0x08000000",
+    "uRamdisk": "0x0a000000"
+  },
+  "kernel_sha256": "03dfb9dc6f00a2b6a649d00f4b0db7062b654ca81b7e1ac5dcded4025c32515a",
+  "initramfs_sha256": "b8aa1bba1bcff8261c28a67c7ed4cbe9465e5b3d08a1e30395612cbe6a3c162c",
+  "files_sha256": {
+    "uImage": "9de7fbdf52c6e106da29e05a274e0e10a9dd2904b5d42be41259d92fcce7ea6c",
+    "uRamdisk": "b7e618440d5745ca59aea3db3656a9183882181c4e18598a9a58cafd67af7a36",
+    "tabor.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+  },
+  "remaining": [
+    "Verify selected display and USB keyboard driver in first-boot payload",
+    "Validate real firmware iminfo/load map before bootm",
+    "Reidentify SanDisk device immediately before an authorized write"
+  ],
+  "usb_written": false
+}
