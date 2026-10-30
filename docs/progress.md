@@ -57,3 +57,16 @@ Two desktop-4 capture windows show build/serial and an ANSI edge CPU/RAM
 monitor. Guest metrics are explicitly pending. [E-Trixie follow-up](e-trixie-follow-up.md)
 records the laptop-style live USB intent and direct SPE → SDL software →
 SDL/GL → real A1222 AMD validation gates. No distribution image is built yet.
+
+## 2026-10-30 — direct SPE arithmetic and graphics limits
+
+The same booted QEMU kernel now runs a libc-free init executing known-result
+single/double SPE additions and register load/store. Exact results passed;
+serial/initramfs/source hashes verified and disassembly retained. See
+[arithmetic receipt](builds/20261030-qemu-spe-arithmetic.json). Full ABI, glibc
+and GL are still unvalidated. Desktop-4 monitor shows the narrower PASS.
+
+[Minimal E/gears work](minimal-e-gears.md) records the unavailable edge GPU,
+stock VirGL little-endian limitation, physical USB preference and a verified
+staging bundle. No compatible rootfs/reference firmware packaging is currently
+available, so no boot-ready USB or E/gears execution is claimed.

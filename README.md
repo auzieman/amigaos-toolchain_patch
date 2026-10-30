@@ -6,6 +6,8 @@ Verified milestone (2026-10-30): the Debian 6.12.113-1 Tabor kernel completed
 vmlinux/modules/dtbs cross-compilation. A separate minimal profile of the same
 patched source booted on edge QEMU e500v2 with two CPUs and reached a static
 PPC32 `/init`. See [boot evidence and recipe](docs/qemu-boot.md).
+Selected SPE single/double additions also pass in a libc-free test; see
+[minimal graphics and physical staging status](docs/minimal-e-gears.md).
 Modern SPE/glibc ABI, physical A1222 boot and graphics remain unvalidated.
 Proposed [E-Trixie live desktop follow-up](docs/e-trixie-follow-up.md) records
 rescue rootfs, laptop appearance and SDL/GL testing goals.

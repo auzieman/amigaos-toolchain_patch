@@ -1,0 +1,18 @@
+{
+  "status": "staged-not-firmware-boot-ready",
+  "physical_boot_tested": false,
+  "graphics_tested": false,
+  "rootfs_included": false,
+  "files": {
+    "vmlinux": "03dfb9dc6f00a2b6a649d00f4b0db7062b654ca81b7e1ac5dcded4025c32515a",
+    "tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d",
+    "kernel.config": "aa808703917b70881d8b1297f3bc8a157178912223d183f333e9b64b8a7e41bb",
+    "initramfs-spe.cpio": "79aee7ddaad954035cdbe736e9f20e3d78a04bceeb3f4929b8f5561f050f01e8"
+  },
+  "pending": [
+    "Verify real Tabor firmware wrapper/load addresses against reference image",
+    "Provide compatible SPE rootfs for E/Xorg/Mesa/gears",
+    "Identify A1222 AMD PCI ID and firmware requirements",
+    "Physical boot and GPU validation"
+  ]
+}

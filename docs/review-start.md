@@ -33,6 +33,9 @@ The glibc patch applied, then Debian GCC rejected SPE flags: no restored libc
 ABI is claimed. A separate minimal QEMU configuration booted with two e500v2 CPUs and reached
 freestanding PPC32 init;
 see [emulator recipe and limits](qemu-boot.md). Actual A1222 boot remains pending.
+Selected single/double SPE arithmetic also passed in a later init test; see
+[direct SPE and minimal graphics status](minimal-e-gears.md). This does not
+validate the full SPE ABI or modern libc.
 Earlier infrastructure/configuration failures remain in docs/task.md.
 The proposed [E-Trixie image follow-up](e-trixie-follow-up.md) records the
 remaining compiler/ABI, rescue rootfs, real-board and graphics gates.

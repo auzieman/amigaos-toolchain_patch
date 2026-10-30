@@ -71,6 +71,7 @@ try:
     receipt['serial_sha256'] = digest(a.output / 'serial.log')
     receipt['init_reached'] = b'TABOR_QEMU_INIT_OK:' in log
     receipt['panic_seen'] = b'Kernel panic' in log
+    receipt['selected_spe_arithmetic_passed'] = b'SPE_SMOKE_PASS:' in log and b'SPE_SMOKE_FAIL:' not in log
     receipt['status'] = 'passed' if receipt['init_reached'] and not receipt['panic_seen'] else 'failed'
 except Exception as exc:
     receipt['status'] = 'failed'

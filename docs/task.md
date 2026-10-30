@@ -186,3 +186,36 @@ workflow tests pass. No SPE arithmetic, glibc ABI, graphics or physical board
 acceptance. Desktop 4 console/dashboard windows intentionally remain open.
 Next bounded action: reference SPE toolchain/runtime and direct ABI tests, then
 headless SDL/Mesa tests; E-Trixie laptop-style live image remains a follow-up.
+
+## Minimal E/gears intake and direct SPE proof — 2026-10-30
+
+User requested the smallest E/glxgears guest reusable on A1222, with GPU
+assignment and ANSI/remote graphics evidence. Read kernel-build and source
+intake workflows. Edge PCI inventory exposes only virtual VGA 1234:1111; no
+NVIDIA device/render node is visible, and current QEMU image has no GL display
+backend. Linux 6.12 virtgpu_kms.c additionally enables VirGL 3D only for
+little-endian guests; e500v2 here is big-endian. Do not promise that enabling
+host NVIDIA support alone makes this stock accelerated path work. No GPU
+assignment, driver unbinding or hypervisor change performed.
+
+Implemented a libc-free SPE init: single/double 1.5+2.25 checked exactly as
+3.75, using efsadd/efdadd and evldd/evstdd. Reused the verified QEMU kernel.
+Bounded 60-second run passed and raw serial/initramfs/source hashes verified;
+disassembly confirms the intended instructions. Evidence in docs/builds.
+Selected arithmetic PASS is distinct from unvalidated full ABI/glibc/GL.
+Updated dashboard in a replacement terminal on desktop 4; closed only the
+previous owned monitor window. Serial tail remains open on the SPE result.
+
+User suggested physical USB if GPU assignment is unsuitable. Seagate is not
+currently visible in local block inventory; the recorded Tabor image mount is
+absent, and a bounded image-name search did not find a reference. The existing
+Cruzer was not mounted or written. Prepared a hash-verified regular-directory
+bundle at work/physical-test-001 using the full board kernel/DTB/config and
+shared SPE initramfs. It is NOT firmware-boot-ready and contains no E/rootfs.
+Reference firmware header/load addresses and compatible userspace are still
+required; the old zero-padding wrapper is not accepted boot packaging.
+
+Docs/minimal-e-gears.md bounds the E/Xorg/Mesa/glxgears payload and remaining
+inputs. No full distro build, media write or physical boot was performed.
+Next: make the reference SPE image available, verify boot format, then construct
+the minimal userspace; identify real A1222 AMD GPU before selecting its driver.

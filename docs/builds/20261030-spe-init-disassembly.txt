@@ -1,0 +1,45 @@
+
+/results/boot-spe-001/root/init:     file format elf32-powerpc
+
+
+Disassembly of section .text:
+
+10000094 <_start>:
+10000094:	3c 80 3f c0 	lis     r4,16320
+10000098:	3c a0 40 10 	lis     r5,16400
+1000009c:	10 64 2a c0 	efsadd  r3,r4,r5
+100000a0:	3c c0 40 70 	lis     r6,16496
+100000a4:	7c 03 30 00 	cmpw    r3,r6
+100000a8:	40 82 00 50 	bne-    100000f8 <failed>
+100000ac:	3c c0 10 00 	lis     r6,4096
+100000b0:	38 c6 01 20 	addi    r6,r6,288
+100000b4:	10 86 03 01 	evldd   r4,0(r6)
+100000b8:	10 a6 0b 01 	evldd   r5,8(r6)
+100000bc:	10 64 2a e0 	efdadd  r3,r4,r5
+100000c0:	3c c0 10 01 	lis     r6,4097
+100000c4:	38 c6 01 f8 	addi    r6,r6,504
+100000c8:	10 66 03 21 	evstdd  r3,0(r6)
+100000cc:	80 66 00 00 	lwz     r3,0(r6)
+100000d0:	3c 80 40 0e 	lis     r4,16398
+100000d4:	7c 03 20 00 	cmpw    r3,r4
+100000d8:	40 82 00 20 	bne-    100000f8 <failed>
+100000dc:	80 66 00 04 	lwz     r3,4(r6)
+100000e0:	2c 03 00 00 	cmpwi   r3,0
+100000e4:	40 82 00 14 	bne-    100000f8 <failed>
+100000e8:	3c 80 10 00 	lis     r4,4096
+100000ec:	38 84 01 30 	addi    r4,r4,304
+100000f0:	38 a0 00 99 	li      r5,153
+100000f4:	48 00 00 10 	b       10000104 <write_result>
+
+100000f8 <failed>:
+100000f8:	3c 80 10 00 	lis     r4,4096
+100000fc:	38 84 01 c9 	addi    r4,r4,457
+10000100:	38 a0 00 2c 	li      r5,44
+
+10000104 <write_result>:
+10000104:	38 00 00 04 	li      r0,4
+10000108:	38 60 00 01 	li      r3,1
+1000010c:	44 00 00 02 	sc
+10000110:	38 00 00 1d 	li      r0,29
+10000114:	44 00 00 02 	sc
+10000118:	4b ff ff f8 	b       10000110 <write_result+0xc>

@@ -41,8 +41,16 @@ try:
             rows += [line for line in result.stdout.splitlines() if line.startswith('tabor-qemu-')] or ['No active build/VM container']
         except subprocess.TimeoutExpired:
             rows += ['Container metrics temporarily unavailable']
-        rows += ['', 'Guest CPU utilisation: not instrumented yet',
-                 'SPE arithmetic / modern glibc: NOT VALIDATED', 'Physical A1222 / AMD graphics: NOT TESTED',
+        spe = 'Selected SPE arithmetic: NOT TESTED'
+        spe_receipt = base / 'results/boot-spe-001/receipt.json'
+        if spe_receipt.exists():
+            try:
+                passed = json.loads(spe_receipt.read_text()).get('selected_spe_arithmetic_passed', False)
+                spe = 'Selected SPE arithmetic: ' + ('PASS (single/double add)' if passed else 'FAILED / inspect log')
+            except json.JSONDecodeError:
+                spe = 'Selected SPE arithmetic: writing receipt'
+        rows += ['', 'Guest CPU utilisation: not instrumented yet', spe,
+                 'Full SPE ABI / modern glibc: NOT VALIDATED', 'Physical A1222 / AMD graphics: NOT TESTED',
                  '', 'Serial console is in the companion terminal.', 'Ctrl-C closes this monitor.']
         print('\033[H\033[2J' + '\n'.join(rows), flush=True)
 except KeyboardInterrupt:
