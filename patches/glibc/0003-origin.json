@@ -1,0 +1,55 @@
+{
+  "target": "glibc 2.41 after patches 1 and 2",
+  "reason": "Port restored prctl calls to current internal syscall API; preserve FPEXC flag handling and error checks",
+  "status": "experimental; build and ABI validation pending",
+  "files": {
+    "sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c": {
+      "baseline_sha256": "b50d95648aa0507a24d1114552bcc03610e3e135ff06ef08a72a33d63e281701",
+      "patched_sha256": "024a5b59b21dc89b2bfc959eb99e3a767609994f08dd08ce1d98ac2d7bc49ddd"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c": {
+      "baseline_sha256": "66936b9f67b969c1b69b1ede866baa7410d4b3c7cb544f4d18e87bea9701deab",
+      "patched_sha256": "d059eb34644920c3db7bc8544f0f297c2053048ea68d52a47909753e6f834cf1"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c": {
+      "baseline_sha256": "3f839b592a04eaeab9379309a9c2f4d9787b0a464f95308dee862d9f3f61480a",
+      "patched_sha256": "0df66c9e9087d40adef0fd59a58930564f2faa8a37260701b53efffb998dffc7"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c": {
+      "baseline_sha256": "ae6689ca3208ac7fdd2251c77c71fce1e812a22e8275aa618ee05fb0c3fbbf18",
+      "patched_sha256": "6e87bd32cc4f2ce7ae13ed349c7b40f3c15e94fbbb04a2bf7a499b6531467af1"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c": {
+      "baseline_sha256": "555d4e0d367ff38e6c77112dbdaa28b70b8f159cef02a032b2fb2b2b4e6e9e69",
+      "patched_sha256": "c61d50939ff7c3bd7b3906b7e99fdee508fa56a3226765f59b6a1095166534d0"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c": {
+      "baseline_sha256": "7e658dc0075e89cd325f7b9533113f5229fe0b4ec6472876d8c64a193c86a35c",
+      "patched_sha256": "ae1ecbec0fd73668ffe063fdc51c1e701dd3c7e40a693aaffdda4fca4564e956"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c": {
+      "baseline_sha256": "54f6c81656439829839e8829c511107c4801d56212b191d55c88d49b6d547862",
+      "patched_sha256": "8948a42997b17132df27483af95527beae61ebb8ab844b05339833fade7d0396"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c": {
+      "baseline_sha256": "78ce6106a0f0a3ed74de51c7dbbf3333acd992e7346c72cde0f91ed2201a809f",
+      "patched_sha256": "23409a759b5cd33d06b46d63845a17675eafe46fe3be941d4fd59a634f241603"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c": {
+      "baseline_sha256": "6d0bdde302b168dfeb423d7efdea08abc14cd52852b4223a4c116eca6331a1f9",
+      "patched_sha256": "e41518351540ac444bec9ce9a13a7dc1c4c998377fd94a2e5b4d27722ead7237"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c": {
+      "baseline_sha256": "e9eff93482cca006427b6786876dee59e9e4c8d0595ef2ec003ee62616d95a63",
+      "patched_sha256": "2650b7b18c58c8759171e1a666cbcca7851ebf8c8a9f0679cff435ce1f9fe284"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c": {
+      "baseline_sha256": "1b39321d5db40f01e41c4b451f0d66a31a79f2f148491af64113de8aff229251",
+      "patched_sha256": "ffedcc9abfc11de4fe3a15111be0afc686cbc630daab271e594764ded1859956"
+    },
+    "sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c": {
+      "baseline_sha256": "e23c94310fe6a60e2ea36719b5af97d2b78c18f57388a6461c34d91c91e75ac5",
+      "patched_sha256": "809df13aa1b615a780b25a655bd89ddaf9efb5fda51f9e129d2d2317747ac22f"
+    }
+  }
+}

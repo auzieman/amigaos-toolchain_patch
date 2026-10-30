@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Run a logged libgcc or modern-glibc bootstrap stage inside the lab container."""
-import argparse,hashlib,json,os,shutil,signal,subprocess
+import argparse,hashlib,json,os,re,shutil,signal,subprocess
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--phase',choices=['libgcc','glibc'],required=True)
@@ -12,7 +12,7 @@ p.add_argument('--sysroot',type=Path,default=Path('/sysroot'))
 p.add_argument('--glibc-run',default='glibc-002')
 p.add_argument('--image-id',required=True)
 a=p.parse_args()
-if a.glibc_run not in ['glibc-001','glibc-002','glibc-003']:p.error('invalid component run')
+if not re.fullmatch(r'glibc-[0-9]{3}',a.glibc_run):p.error('invalid component run')
 if not 1<=a.attempt<=99:p.error('invalid stage attempt')
 suffix='' if a.attempt==1 else '-'+str(a.attempt).zfill(3)
 receipt_path=a.work/(a.phase+'-stage'+suffix+'.json')

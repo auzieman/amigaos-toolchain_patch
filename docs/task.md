@@ -307,3 +307,22 @@ static-only configure failed generated-header setup, so a fresh source replay
 uses the normal library build (runtime still copies only a static shell).
 Libc compilation is underway. New fixes and checkpoint receipt are committed;
 no shell/ABI acceptance yet.
+
+## SPE libc retry and OS4 media probe — 2026-10-30
+
+Patch3 ports twelve restored e500 fenv files to current INTERNAL_SYSCALL_CALL
+and one-argument error checks, preserving prctl flags/error behavior. Fresh
+Debian glibc-004 preparation passed; stage attempt3 compiles against the SPE
+reference compiler. Full libc/ABI/shell results remain pending. Retention now
+accepts numbered component iterations; failed002/003 logs/config/receipts kept
+before generated source/output cleanup recovered about700MiB. Seven workflow
+tests and Python/shell syntax checks pass.
+
+User-uploaded ISO and Enhancer LHA verified read-only; hashes and bounded QEMU
+probe in builds/20261030-os4-iso-probe.json. A1222-specific Kicklayout confirmed.
+Sam460 30-second firmware probe initialized DRAM/PCI/SM502, ended at VGA:NO CARDS;
+no AmigaOS boot observed. No installed disk, media modification or runtime-code
+import. scripts/os4-iso-probe.sh preserves the bounded reproduction. QEMU has
+no A1222 machine here; Pegasos/Sam media/firmware compatibility is a separate
+requirement. Proxmox normal guest architecture choices do not include PPC;
+standalone PPC QEMU can provide VNC, including inside a managed Linux VM.

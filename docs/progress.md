@@ -89,3 +89,11 @@ login, startx and no greeter; mandatory dependencies retained, optional
 services excluded by default. Machine-readable JSON validated. All target
 runtime code requires our restored SPE compiler/glibc; source pins/dependency
 closure, RAM/firmware and exact Radeon identity remain execution gates.
+
+## 2026-10-30 — fresh SPE libc retry and media check
+
+Ported historical fenv syscall calls to glibc2.41 interfaces (patch3). Fresh
+Debian preparation passed; edge libc attempt3 is running, not ABI-accepted.
+Retained failed iteration evidence and reclaimed generated trees. Seven
+workflow tests passed. Read-only A1222 ISO probe reached Sam460 firmware only;
+[receipt](builds/20261030-os4-iso-probe.json) records limits and media hashes.

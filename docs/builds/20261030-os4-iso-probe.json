@@ -1,0 +1,26 @@
+{
+  "status": "firmware-only; AmigaOS boot not observed",
+  "machine": "sam460ex",
+  "not_a1222_emulation": true,
+  "limit_seconds": 30,
+  "exit_status": 124,
+  "iso": {
+    "name": "AmigaOneA1222InstallCD-53.37.iso",
+    "size": 613640192,
+    "sha256": "aaf22a514b8a7c416d01fe18965af492ea8d445d726c02eb2df1e860045b3623"
+  },
+  "enhancer": {
+    "name": "enhancer_software_2.2.lha",
+    "size": 220291490,
+    "sha256": "58b13af225c0fec4fb198f5303cd66e4f77f134c5f8dc5ca6457b8f9695ab7e9"
+  },
+  "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "serial_sha256": "505017518f1e70c3ad8c856bd22ac5ae26dd379d5e441e947bea228554ef253e",
+  "observation": "Sam460 firmware initialized DRAM/PCI/SM502; last serial line VGA: NO CARDS. Timed out; no Workbench or installer observed. A1222-specific Kicklayout found by read-only ISO inspection.",
+  "media_copied_to_git": false,
+  "references": [
+    "https://qemu-project.gitlab.io/qemu/system/ppc/amigang.html",
+    "https://www.qemu.org/docs/master/system/qemu-manpage.html",
+    "https://lists.proxmox.com/pipermail/pve-devel/2026-January/078206.html"
+  ]
+}

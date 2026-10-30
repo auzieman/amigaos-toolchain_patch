@@ -1,0 +1,278 @@
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c
+index b94d302..ae44438 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feclearexcept.c
+@@ -41,10 +41,9 @@ __atomic_feclearexcept (void)
+   if (old_fpescr & (SPEFSCR_FINVS | SPEFSCR_FUNFS))
+     {
+       int pflags __attribute__ ((__unused__)), r;
+-      INTERNAL_SYSCALL_DECL (err);
+ 
+-      r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
+-      if (INTERNAL_SYSCALL_ERROR_P (r, err))
++      r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &pflags);
++      if (INTERNAL_SYSCALL_ERROR_P (r))
+ 	abort ();
+     }
+ }
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c
+index 05428b8..f9440b7 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feholdexcept.c
+@@ -26,12 +26,11 @@ void
+ __atomic_feholdexcept (fenv_t *envp)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+   /* Get the current state.  */
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     abort ();
+ 
+   u.l[1] = fegetenv_register ();
+@@ -48,8 +47,8 @@ __atomic_feholdexcept (fenv_t *envp)
+ 
+   /* Put the new state in effect.  */
+   fesetenv_register (u.l[1]);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			u.l[0] | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     abort ();
+ }
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c
+index 9a9a2e3..e755900 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/atomic-feupdateenv.c
+@@ -27,7 +27,6 @@ __atomic_feupdateenv (const fenv_t *envp)
+ {
+   int exc;
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+   /* Save the currently set exceptions.  */
+@@ -36,9 +35,9 @@ __atomic_feupdateenv (const fenv_t *envp)
+   u.fenv = *envp;
+ 
+   fesetenv_register (u.l[1]);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			u.l[0] | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     abort ();
+ 
+   /* Raise (if appropriate) saved exceptions. */
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c
+index b2bb79f..6ec0934 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fe_note_change.c
+@@ -26,13 +26,12 @@ void
+ __fe_note_change (void)
+ {
+   int pflags, r;
+-  INTERNAL_SYSCALL_DECL (err);
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return;
+   if ((pflags & PR_FP_EXC_SW_ENABLE) == 0)
+-    INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++    INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 		      pflags | PR_FP_EXC_SW_ENABLE);
+ }
+ 
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c
+index 89422d5..5f3e506 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fedisblxcpt.c
+@@ -24,19 +24,18 @@ int
+ fedisableexcept (int excepts)
+ {
+   int result = 0, pflags, r;
+-  INTERNAL_SYSCALL_DECL (err);
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   /* Save old enable bits.  */
+   result = __fexcepts_from_prctl (pflags);
+ 
+   pflags &= ~__fexcepts_to_prctl (excepts);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			pflags | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   /* If disabling signals for "inexact", also disable trapping to the
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c
+index b0c313a..f5d99d9 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/feenablxcpt.c
+@@ -24,19 +24,18 @@ int
+ feenableexcept (int excepts)
+ {
+   unsigned int result = 0, pflags, r;
+-  INTERNAL_SYSCALL_DECL (err);
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   /* Save old enable bits.  */
+   result = __fexcepts_from_prctl (pflags);
+ 
+   pflags |= __fexcepts_to_prctl (excepts);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			pflags | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   /* If enabling signals for "inexact", also enable trapping to the
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c
+index 91e4348..ac32d06 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetenv.c
+@@ -24,11 +24,10 @@ int
+ __fegetenv (fenv_t *envp)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   u.l[1] = fegetenv_register ();
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c
+index c751811..a8e8aa2 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetexcept.c
+@@ -24,10 +24,9 @@ int
+ fegetexcept (void)
+ {
+   int result = 0, pflags, r;
+-  INTERNAL_SYSCALL_DECL (err);
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &pflags);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &pflags);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   result = __fexcepts_from_prctl (pflags);
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c
+index 9ffffd4..cb941b1 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fegetmode.c
+@@ -24,11 +24,10 @@ int
+ fegetmode (femode_t *modep)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   u.l[1] = fegetenv_register ();
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c b/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c
+index 25b55f4..1d51b50 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/feholdexcpt.c
+@@ -25,12 +25,11 @@ int
+ __feholdexcept (fenv_t *envp)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+   /* Get the current state.  */
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_GET_FPEXC, &u.l[0]);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_GET_FPEXC, &u.l[0]);
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   u.l[1] = fegetenv_register ();
+@@ -47,9 +46,9 @@ __feholdexcept (fenv_t *envp)
+ 
+   /* Put the new state in effect.  */
+   fesetenv_register (u.l[1]);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			u.l[0] | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   return 0;
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c
+index c47a204..a87118b 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetenv.c
+@@ -24,15 +24,14 @@ int
+ __fesetenv (const fenv_t *envp)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+   u.fenv = *envp;
+ 
+   fesetenv_register (u.l[1]);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			u.l[0] | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   /* Success.  */
+diff --git a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c
+index a0a2744..e44fd7a 100644
+--- a/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c
++++ b/sysdeps/powerpc/powerpc32/e500/nofpu/fesetmode.c
+@@ -26,7 +26,6 @@ int
+ fesetmode (const femode_t *modep)
+ {
+   fenv_union_t u;
+-  INTERNAL_SYSCALL_DECL (err);
+   int r;
+ 
+   u.fenv = *modep;
+@@ -34,9 +33,9 @@ fesetmode (const femode_t *modep)
+   spefscr = (spefscr & SPEFSCR_STATUS) | (u.l[1] & ~SPEFSCR_STATUS);
+ 
+   fesetenv_register (spefscr);
+-  r = INTERNAL_SYSCALL (prctl, err, 2, PR_SET_FPEXC,
++  r = INTERNAL_SYSCALL_CALL (prctl, PR_SET_FPEXC,
+ 			u.l[0] | PR_FP_EXC_SW_ENABLE);
+-  if (INTERNAL_SYSCALL_ERROR_P (r, err))
++  if (INTERNAL_SYSCALL_ERROR_P (r))
+     return -1;
+ 
+   return 0;
