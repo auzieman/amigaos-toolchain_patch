@@ -478,3 +478,24 @@ Receipt records bounded observation and no replacement guest driver loaded.
 The A1222-specific CD remains unmatched to this emulated board. No proprietary
 media/driver or screenshot committed. The Linux result is independent of this
 OS4 outcome. Seven workflow tests and Python syntax checks passed.
+
+## OBS identifies physical GPU; native SSH follow-up — 2026-10-30
+
+User opened control panels in OBS on desktop3. Captured only OBS window
+0x4a00011 read-only; capture settings unchanged. Enlarged PCI panel identifies
+1002:67FF graphics and1002:AAE0 HDMI audio. Initial digit reading677F was
+corrected before selection. Linux6.12.113 amdgpu table matches67FF to
+CHIP_POLARIS11, so select amdgpu/radeonsi and family firmware rather than
+legacy radeon or an assumed RX550 retail variant. Revision overrides and
+required firmware still need source review. Receipt builds/20261030-a1222-gpu.json;
+OBS screenshots remain ignored. This resolves the display-controller question,
+not actual Linux graphics validation.
+
+User floated native AmigaOS SSH/sshd/AmiSSL remote access. Checked AmiSSL
+upstream and archived OS4 OpenSSH4.5p1-1 author readme from Aminet mirror:
+that port explicitly provides clients only. No incoming daemon established;
+AmiSSL update is not assumed to supply sshd. Next native step is identify
+installed versions and errors before selecting any server/crypto fix. This
+remains separate from Linux live-image OpenSSH; no OS4 software/accounts
+installed or changed. Source: https://ftp.fau.de/aminet/comm/tcp/openssh-bin.readme
+and https://github.com/jens-maus/amissl .

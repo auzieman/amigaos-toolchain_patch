@@ -30,7 +30,7 @@
     "cpu": "P1022 dual-core e500v2, big-endian PPC32 with SPE",
     "requested_ram_gib": 8,
     "ram_verified": false,
-    "gpu": "AMD Radeon; exact PCI ID required",
+    "gpu": "OBS AmigaOS PCI panel: AMD1002:67FF, HDMI audio1002:AAE0; Linux amdgpu Polaris/Baffin family, exact retail model/revision not yet identified",
     "boot": "USB-first manual trial; verified board firmware format still required",
     "console": "Local keyboard/display observed through Elgato HD60 S+; serial optional when cable available"
   },
@@ -124,7 +124,11 @@
       ],
       "policy": "Include only firmware required by identified card and dependencies, respecting firmware license notices; kernel radeon/amdgpu and Mesa r600/radeonsi selected from PCI ID",
       "xorg": "Start with core modesetting driver; add matching xserver-xorg-video-amdgpu or xserver-xorg-video-ati only if required",
-      "llvm": "Driver-dependent; do not globally remove LLVM until the selected Mesa driver is qualified"
+      "llvm": "Driver-dependent; do not globally remove LLVM until the selected Mesa driver is qualified",
+      "identified_pci_id": "1002:67ff",
+      "kernel_driver": "amdgpu",
+      "mesa_driver": "radeonsi",
+      "identification_source": "Read-only OBS preview on Enlightenment desktop3, AmigaOS PCI panel; Linux6.12.113 amdgpu device table"
     },
     "qemu": {
       "policy": "Separate kernel/device tree and virtio 2D/software Mesa profile; no stock VirGL acceleration claim for big-endian guest"
