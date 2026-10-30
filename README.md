@@ -68,3 +68,5 @@ Validation: three real-Git fixture tests cover preparation/source isolation,
 input-hash rejection, patch conflicts and refusal to reuse output storage.
 All three skills pass the skill-creator validator. The tooling Docker image
 and full vendor kernel have not yet been built with this new runner.
+
+Deferred test environment: [Kyvos / AmigaOS provisioning](docs/future-amigaos-provisioning.md). This is separate from A1222/SPE validation and is not required for the current kernel baseline.

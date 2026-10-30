@@ -39,3 +39,7 @@ Image package resolution is not snapshot-locked; retain resulting image digest
 and package list before accepting a build. Next execution remains a constrained
 lab baseline job, followed by review of actual compiler/boot-format failures.
 Rollback this slice via its Git commit; it does not remove reference inputs.
+
+## Deferred Kyvos environment — 2026-10-30
+
+User supplied workshop notes about Kyvos v2 automated AmigaOS provisioning and existing ISOs on Seagate. Recorded author-page evidence and inaccessible workshop/video claims separately in docs/future-amigaos-provisioning.md. Pegasos 2 is a future SDK/application test environment, not A1222/SPE acceptance. No media inspection or provisioning requested/executed; current kernel/SPE work remains the active objective.
