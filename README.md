@@ -1,4 +1,6 @@
-# Tabor SPE toolchain — private development
+# A1222 / SPE toolchain patches — private development
+
+Start with [review status and prompts](docs/review-start.md).
 
 Active patch objective: [restore missing e500v2/SPE support and forward-port
 A-EON/Tabor changes](docs/patch-set-plan.md), with separate compiler, libc,
@@ -17,8 +19,8 @@ image after kernel and boot-wrapper validation. Record its userspace ABI
 explicitly; boot acceptance is separate from modern SPE/glibc acceptance.
 
 Modernize the A1222/Tabor e500v2/SPE toolchain and Linux userspace, with a
-separate future AmigaOS SDK integration track. Local private repository only;
-no remote or Hyperion source imported. Collaboration interest was reported by
+separate future AmigaOS SDK integration track. Private collaboration repository:
+https://github.com/auzieman/amigaos-toolchain_patch . No Hyperion source imported. Collaboration interest was reported by
 the user; no access, endorsement or SDK compatibility is inferred.
 
 ## First deliverable

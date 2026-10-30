@@ -108,3 +108,5 @@ not evidence against Tabor support. Subsequent runs use fresh local work,
 require 4 GiB free before kernel extraction and stop running commands below
 1 GiB free. Shared storage remains available for retained completed outputs.
 Tooling image built successfully; apt package/toolchain versions are retained.
+
+Private collaboration handoff — user created auzieman/amigaos-toolchain_patch and reports inviting Steven Solie, explicitly authorizing prompts/patch publication there. GitHub metadata verified private visibility and an empty remote. Publish the development history with review-start status, source pins, prompts, patches and build logic; exclude caches/generated artifacts/media. No collaborator messaging or additional access changes requested/performed.
