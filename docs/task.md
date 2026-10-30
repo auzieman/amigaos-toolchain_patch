@@ -26,8 +26,9 @@ verified vendor patch applies to exact v5.4-rc3 upstream commit with git apply
 --check, and recorded input hashes. No kernel/toolchain build, patch restoration,
 remote creation, SDK modification or hardware trial completed this turn.
 
-Pending clarification: Linux/SPE userspace first versus a Linux-hosted compiler
-targeting AmigaOS first. Independent first action: baseline kernel provenance.
+Current execution is the Linux/SPE kernel and userspace lane selected by the
+Debian-baseline request. The separate AmigaOS SDK host/target/runtime contract
+remains to establish and does not block this Linux build.
 Next bounded execution: resolve exact modern kernel/toolchain pins, prepare an
 isolated constrained lab job, reproduce baseline kernel output and inspect
 board boot packaging before changing kernel version. In parallel intake terms,
