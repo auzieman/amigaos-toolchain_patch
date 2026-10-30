@@ -219,3 +219,19 @@ Docs/minimal-e-gears.md bounds the E/Xorg/Mesa/glxgears payload and remaining
 inputs. No full distro build, media write or physical boot was performed.
 Next: make the reference SPE image available, verify boot format, then construct
 the minimal userspace; identify real A1222 AMD GPU before selecting its driver.
+
+## SanDisk target inspection — 2026-10-30
+
+User removed Seagate and inserted a Debian SanDisk for a possible bare-metal
+trial. Read-only host inventory identifies a 14.32 GiB SanDisk Cruzer Glide
+at the current /dev/sdb path. blkid/partition inspection shows a hybrid ISO9660
+installer with a small EFI partition. A temporary ro,nodev,nosuid,noexec mount
+confirmed .disk/info: Debian GNU/Linux 13.7.0 Trixie official amd64 NETINST
+with firmware. install.amd contains vmlinuz/initrd.gz. This is x86-64 media,
+not A1222 PowerPC/SPE boot media. Temporary mount was removed after inspection.
+No formatting, image write, boot-setting change or alteration of contents.
+
+The stick is a possible future target, not the reference Tabor image needed
+for firmware-wrapper verification and compatible userspace. Physical staging
+remains not boot-ready. Device paths are transient; re-identify before any
+future authorized write and do not infer erase authorization from insertion.
