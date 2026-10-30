@@ -1,0 +1,76 @@
+{
+  "status": "static-shell-initramfs-built",
+  "image_id": "sha256:14e54601943b132a398ace86e677dfe440305206f454bb951c5cdbbecdd0d2ad",
+  "source_sha256": "3311dff32e746499f4df0d5df04d7eb396382d7e108bb9250e7b519b837043a4",
+  "commands": [
+    [
+      "tar",
+      "-xjf",
+      "/cache/busybox-1.37.0.tar.bz2",
+      "-C",
+      "/work/shell-005"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/shell-005/busybox-1.37.0",
+      "O=/work/shell-005/obj",
+      "CROSS_COMPILE=/tools/reference-001/bin/powerpc-linux-gnuspe-",
+      "CONFIG_EXTRA_CFLAGS=--sysroot=/sysroot -isystem /sysroot/usr/include -B/sysroot/usr/lib/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double",
+      "CONFIG_EXTRA_LDFLAGS=--sysroot=/sysroot",
+      "allnoconfig"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/shell-005/busybox-1.37.0",
+      "O=/work/shell-005/obj",
+      "CROSS_COMPILE=/tools/reference-001/bin/powerpc-linux-gnuspe-",
+      "CONFIG_EXTRA_CFLAGS=--sysroot=/sysroot -isystem /sysroot/usr/include -B/sysroot/usr/lib/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double",
+      "CONFIG_EXTRA_LDFLAGS=--sysroot=/sysroot",
+      "oldconfig"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/shell-005/busybox-1.37.0",
+      "O=/work/shell-005/obj",
+      "CROSS_COMPILE=/tools/reference-001/bin/powerpc-linux-gnuspe-",
+      "CONFIG_EXTRA_CFLAGS=--sysroot=/sysroot -isystem /sysroot/usr/include -B/sysroot/usr/lib/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double",
+      "CONFIG_EXTRA_LDFLAGS=--sysroot=/sysroot",
+      "-j2"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/shell-005/busybox",
+      "/work/shell-005/obj/busybox"
+    ],
+    [
+      "/tools/reference-001/bin/powerpc-linux-gnuspe-gcc",
+      "--sysroot=/sysroot",
+      "-isystem",
+      "/sysroot/usr/include",
+      "-B/sysroot/usr/lib/",
+      "-mcpu=8548",
+      "-mabi=spe",
+      "-mspe",
+      "-mfloat-gprs=double",
+      "-Os",
+      "-static",
+      "-s",
+      "/project/boot/init-shell.c",
+      "-o",
+      "/work/shell-005/init"
+    ]
+  ],
+  "boot_tested": false,
+  "config_seed_sha256": "c5945a8c4c5c114c5f92e4371713065e7e19eac4c6e2b2f21f0376f1675f32aa",
+  "init_source_sha256": "f7fdaf375546de9251e122ce4115d9b98f5b86fb238be638cafd0ffe07111a14",
+  "init_sha256": "6df41b94c66cc70342115b336ee055e0c3235a7ca624559c039dc10b6d543dd3",
+  "config_sha256": "ddeec2cf1c75f69825eb1045a94f15f64dfa1d546b2d9261233dbee4634f42e2",
+  "busybox_sha256": "d4e95f9e0affca6be297900505a26f68d7f7ffe5bd7178c9acd246a1bc639e04",
+  "busybox_bytes": 1184876,
+  "initramfs_sha256": "bffa42c612340f70f968529a7c411a6d13c3ff1abeb552117bbfee4d65e111db",
+  "initramfs_bytes": 1717628
+}

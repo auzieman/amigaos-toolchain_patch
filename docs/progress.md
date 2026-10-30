@@ -114,3 +114,12 @@ keeps non-redistributable content outside Git. Actual accelerated OS test needs
 matching machine media. [USB first-boot gates](usb-first-boot.md) retain the
 rear-port preference; no stick write yet. Libc006/stage5 retries with host C++
 discovery disabled for the C-only bootstrap. Seven workflow tests passed.
+
+## 2026-10-30 — fresh SPE libc and interactive shell passed
+
+Experimental glibc2.41 compiled/installed, then static BusyBox plus native init
+booted on the accepted e500v2 kernel. Commands returned ppc and real proc memory
+values without panic. [Raw evidence and receipts](builds/shell-20261030/receipt.json)
+retain exact hashes. Fixed BusyBox configuration/flags and removed the script
+init dependency. Full SPE ABI and real-board boot remain unvalidated. QEMU11
+replay is queued behind its corrected internal-libfdt build; old ISO guest stopped.

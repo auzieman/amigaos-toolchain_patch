@@ -4,3 +4,5 @@ patches/**/*.patch whitespace=-blank-at-eol,-blank-at-eof,-space-before-tab
 docs/builds/*-serial.log -text whitespace=-blank-at-eol,cr-at-eol
 # Preserve raw fractal serial evidence and its receipt checksum.
 docs/builds/fractal-*/serial.log -text whitespace=-blank-at-eol,cr-at-eol
+# Preserve accepted shell serial evidence and its receipt checksum.
+docs/builds/shell-*/serial.log -text whitespace=-blank-at-eol,cr-at-eol

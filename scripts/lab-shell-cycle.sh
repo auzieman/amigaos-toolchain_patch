@@ -7,6 +7,8 @@ image=$2
 phase=$3
 attempt=${4:-1}
 glibc_run=${5:-glibc-002}
+shell_run=${6:-shell-001}
+case "$shell_run" in shell-[0-9][0-9][0-9]) ;; *) echo "Invalid shell run" >&2; exit 2;; esac
 mkdir -p "$stage/work" "$stage/tools" "$stage/sysroot" "$stage/results"
 run() {
  docker run --rm --cpus=2 --memory=4g --network=none --entrypoint python3 \
@@ -21,7 +23,7 @@ case "$phase" in
  libgcc) run /project/scripts/spe-runtime-stage.py --phase libgcc --attempt "$attempt" --image-id "$image" ;;
  prepare-libc) run /project/scripts/debian-iterate.py --project /project --cache /debian-cache --component glibc --work "/work/$glibc_run" --mode prepare --image-id "$image" ;;
  libc) run /project/scripts/spe-runtime-stage.py --phase glibc --glibc-run "$glibc_run" --attempt "$attempt" --image-id "$image" ;;
- shell) run /project/scripts/build-skinny-shell.py --project /project --cache /cache --work /work/shell-001 --tools /tools/reference-001 --sysroot /sysroot --image-id "$image" ;;
- boot) run /project/scripts/qemu-shell-smoke.py --kernel /kernel/vmlinux --initramfs /work/shell-001/shell.cpio --output /work/shell-boot-001 --image-id "$image" ;;
+ shell) run /project/scripts/build-skinny-shell.py --project /project --cache /cache --work "/work/$shell_run" --tools /tools/reference-001 --sysroot /sysroot --image-id "$image" ;;
+ boot) run /project/scripts/qemu-shell-smoke.py --kernel /kernel/vmlinux --initramfs "/work/$shell_run/shell.cpio" --output "/work/shell-boot-${shell_run#shell-}" --image-id "$image" ;;
  *) echo 'Unknown stage' >&2;exit 2 ;;
 esac

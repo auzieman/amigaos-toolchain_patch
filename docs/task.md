@@ -384,3 +384,23 @@ reviewed README.license, and require --enable-fdt=internal in the replay helper.
 Configuration now includes libfdt and rebuild is running; the post-link ATI
 probe and separate Linux shell check remain queued. No updated-emulator boot
 result is claimed yet. Local browser viewer6088 waits for the new guest.
+
+## Source-built glibc and shell acceptance — 2026-10-30
+
+Fresh glibc006/stage5 compiled and installed experimental glibc2.41 against the
+pinned SPE reference compiler. Captured core sysroot library/startup hashes.
+BusyBox allnoconfig resets seeded booleans, so generate all-no first, overlay
+our explicit seed and resolve with oldconfig. Use recognized CONFIG_EXTRA_*
+flags plus explicit bootstrap sysroot headers/startup search. Retained failed
+shell001/002 attempts. Shell003 built and reached fallback ash, but script
+/init failed ENOEXEC because the smoke kernel lacks BINFMT_SCRIPT; that run was
+not accepted. A native static init avoids changing the accepted kernel. One
+intermediate004 staging attempt lacked the new source file; source staged
+before fresh005 retry.
+
+Shell005 plus native init passed on existing QEMU10.0.13/e500v2: SHELL_READY,
+real commands, ppc from uname, /proc/meminfo, SHELL_DONE, no panic. Hash-verified
+serial and libc/shell/boot receipts in docs/builds/shell-20261030. This is shell
+runtime acceptance, not full SPE fenv/signals/threads/unwind ABI or physical USB
+boot. New qemu-shell-smoke --qemu records executable hash/version for the queued
+QEMU11 replay. Seven existing workflow tests, Python/shell syntax checks pass.

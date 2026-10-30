@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build a static, source-pinned BusyBox shell and deterministic initramfs."""
-import argparse,hashlib,json,os,stat,subprocess
+import argparse,hashlib,json,os,re,stat,subprocess
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 for name in ['project','cache','work','tools','sysroot']:p.add_argument('--'+name,type=Path,required=True)
@@ -15,9 +15,20 @@ with (a.work/'build.log').open('w') as log:
   run(['tar','-xjf',str(archive),'-C',str(a.work)])
   source=a.work/('busybox-'+spec['version']);output=a.work/'obj';output.mkdir()
   cross=str(a.tools/'bin/powerpc-linux-gnuspe-')
-  flags='--sysroot='+str(a.sysroot)+' -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double'
-  make=['make','-C',str(source),'O='+str(output),'CROSS_COMPILE='+cross,'EXTRA_CFLAGS='+flags,'EXTRA_LDFLAGS=--sysroot='+str(a.sysroot)]
-  run(make+['KCONFIG_ALLCONFIG='+str(a.project/'profiles/images/busybox-shell.config'),'allnoconfig'])
+  flags='--sysroot='+str(a.sysroot)+' -isystem '+str(a.sysroot/'usr/include')+' -B'+str(a.sysroot/'usr/lib')+'/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double'
+  make=['make','-C',str(source),'O='+str(output),'CROSS_COMPILE='+cross,'CONFIG_EXTRA_CFLAGS='+flags,'CONFIG_EXTRA_LDFLAGS=--sysroot='+str(a.sysroot)]
+  run(make+['allnoconfig'])
+  # BusyBox set_no overrides seeded booleans; apply the seed after allnoconfig.
+  seed=a.project/'profiles/images/busybox-shell.config'
+  entries={line.split('=',1)[0]:line for line in seed.read_text().splitlines() if line.startswith('CONFIG_')}
+  config_path=output/'.config';lines=config_path.read_text().splitlines();merged=[]
+  for line in lines:
+   match=re.match(r'(CONFIG_[A-Z0-9_]+)=|# (CONFIG_[A-Z0-9_]+) is not set',line)
+   key=(match.group(1) or match.group(2)) if match else None
+   merged.append(entries.pop(key,line))
+  merged.extend(entries.values());config_path.write_text('\n'.join(merged)+'\n')
+  run(make+['oldconfig'])
+  receipt['config_seed_sha256']=hashlib.sha256(seed.read_bytes()).hexdigest()
   config=(output/'.config').read_text()
   for required in ['CONFIG_STATIC=y','CONFIG_ASH=y','CONFIG_SH_IS_ASH=y','CONFIG_MOUNT=y']:
    if required not in config:raise RuntimeError('Missing shell configuration: '+required)
@@ -26,14 +37,13 @@ with (a.work/'build.log').open('w') as log:
   headers=subprocess.check_output(['powerpc-linux-gnu-readelf','-l',str(binary)],text=True)
   if 'INTERP' in headers:raise RuntimeError('Shell must be statically linked')
   runtime=a.work/'busybox';run(['powerpc-linux-gnu-strip','-o',str(runtime),str(binary)])
-  init=b'''#!/bin/sh
-/bin/busybox mount -t proc proc /proc
-/bin/busybox mount -t sysfs sysfs /sys
-/bin/busybox mount -t devtmpfs devtmpfs /dev
-printf '\\nA1222 experimental SPE bootstrap shell\\n'
-printf 'SHELL_READY\\n'
-exec /bin/sh -i
-'''
+  init_source=a.project/'boot/init-shell.c';init_binary=a.work/'init'
+  run([cross+'gcc']+flags.split()+['-Os','-static','-s',str(init_source),'-o',str(init_binary)])
+  init_headers=subprocess.check_output(['powerpc-linux-gnu-readelf','-l',str(init_binary)],text=True)
+  if 'INTERP' in init_headers:raise RuntimeError('Init must be statically linked')
+  init=init_binary.read_bytes()
+  receipt['init_source_sha256']=hashlib.sha256(init_source.read_bytes()).hexdigest()
+  receipt['init_sha256']=hashlib.sha256(init).hexdigest()
   with (a.work/'shell.cpio').open('wb') as out:
    def entry(name,mode,data=b'',major=0,minor=0):
     name=name.encode()+b'\0';fields=[0,mode,0,0,1,0,len(data),0,0,major,minor,len(name),0]

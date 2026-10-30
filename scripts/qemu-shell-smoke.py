@@ -1,14 +1,18 @@
 #!/usr/bin/env python3
 """Verify that a fresh serial shell executes commands in the e500v2 guest."""
-import argparse,hashlib,json,re,subprocess,time
+import argparse,hashlib,json,re,shutil,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--kernel',type=Path,required=True);p.add_argument('--initramfs',type=Path,required=True)
 p.add_argument('--output',type=Path,required=True);p.add_argument('--image-id',required=True)
+p.add_argument('--qemu',default='qemu-system-ppc')
 a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
 sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
 receipt={'status':'started','kernel_sha256':sha(a.kernel),'initramfs_sha256':sha(a.initramfs),'image_id':a.image_id,'spe_full_abi_validated':False,'physical_boot':False}
-cmd=['qemu-system-ppc','-M','ppce500','-cpu','e500v2','-accel','tcg','-smp','2','-m','512M','-display','none','-serial','stdio','-monitor','none','-nic','none','-no-reboot','-kernel',str(a.kernel),'-initrd',str(a.initramfs),'-append','console=ttyS0,115200 rdinit=/init panic=-1']
+binary=shutil.which(a.qemu)
+if binary is None:p.error('QEMU executable missing')
+receipt['qemu_sha256']=sha(Path(binary));receipt['qemu_version']=subprocess.check_output([binary,'--version'],text=True).splitlines()[0]
+cmd=[binary,'-M','ppce500','-cpu','e500v2','-accel','tcg','-smp','2','-m','512M','-display','none','-serial','stdio','-monitor','none','-nic','none','-no-reboot','-kernel',str(a.kernel),'-initrd',str(a.initramfs),'-append','console=ttyS0,115200 rdinit=/init panic=-1']
 receipt['command']=cmd;serial=a.output/'serial.log';proc=None
 try:
  with serial.open('wb',buffering=0) as stream:
