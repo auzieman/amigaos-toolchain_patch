@@ -105,3 +105,12 @@ then remained at launching Kickstart; no Workbench. Local browser console
 verified connected; [receipt](builds/20261030-os4-display-probe.json) distinguishes
 bootloader progress from OS boot. SPE libc retry reached target object cleanup
 but selected host objcopy. Fixed target OBJCOPY/STRIP; fresh005 retry started.
+
+## 2026-10-30 — QEMU ATI experiment prepared; USB still gated
+
+Signature-verified QEMU 11.1.3 source build running, with bounded ATI probe
+queued. [Private overlay/configuration](qemu-ati-test.md) pins driver0.1 and
+keeps non-redistributable content outside Git. Actual accelerated OS test needs
+matching machine media. [USB first-boot gates](usb-first-boot.md) retain the
+rear-port preference; no stick write yet. Libc006/stage5 retries with host C++
+discovery disabled for the C-only bootstrap. Seven workflow tests passed.

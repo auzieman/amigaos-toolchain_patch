@@ -346,3 +346,31 @@ recognize PPC libc_pic.os. Explicitly select target OBJCOPY and STRIP alongside
 other target binutils. Retained004 evidence, discarded only generated trees,
 and started fresh005/stage4 detached on edge. Pipeline stops at first failure,
 then builds static shell and boots it only if libc succeeds. No libc pass yet.
+
+## New ATI emulator slice and USB preparation — 2026-10-30
+
+Pinned QEMU 11.1.3 from upstream; detached signature matches the release
+fingerprint published on qemu.org. Source compilation running locally with
+Ninja -j2, ample local storage, no system install. A bounded 90-second ATI
+Sam460 device/firmware probe is queued after compilation; not an OS/2D pass.
+New driver 0.1 downloaded privately, SHA-verified and README reviewed. Personal
+non-commercial use/no redistribution: neither driver nor proprietary media is
+committed. The private overlay helper preserves source files and rejects an
+A1222 Kicklayout for AmigaOne/Pegasos; actual matching media remains needed.
+See docs/qemu-ati-test.md and profiles/qemu/amigaos-ati.json for reproducible
+build/overlay/configuration, and the preparation receipt for actual status.
+Seven workflow tests and Python syntax checks pass; emulator build pending.
+
+User authorizes thumbdrive preparation when ready; USB-first-boot.md records
+readiness gates and the user's rear-port recollection, not an independently
+verified rear-only restriction. Manufacturer manual confirms USB boot and
+critical firmware settings; no port-bank rule found. SanDisk still14.3GiB,
+untouched. Physical wrapper/load ranges, shell runtime, local display/keyboard
+remain readiness gates; no boot defaults or internal disks modified.
+
+Libc005/stage4 progressed further but selected host g++ for a support program.
+Explicit CXX=false lets configure disable unavailable target C++ for this
+C-only bootstrap. C++ ABI acceptance remains a later gate. Retained005 evidence
+before generated cleanup, fresh006/stage5 running on edge; pipeline still stops
+at first failure before shell/boot. This is a tool-selection fix, not a new
+source mutation or claimed libc pass.
