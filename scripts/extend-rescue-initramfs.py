@@ -13,7 +13,7 @@ a=p.parse_args()
 sha=lambda b:hashlib.sha256(b).hexdigest()
 base=(a.base_results/'shell.cpio').read_bytes()
 original=json.loads((a.base_results/'receipt.json').read_text())
-assert original['status']=='static-shell-initramfs-built'
+assert original['status'] in ['static-shell-initramfs-built','rescue-initramfs-extended']
 assert sha(base)==original['initramfs_sha256']
 manifest=json.loads(a.manifest.read_text())
 entries={};offset=0

@@ -1,0 +1,124 @@
+{
+  "role": "Exact source seeds, not a resolved target dependency closure",
+  "reference_sha256": "177d44aabfb4ab58f8a282f36ce1e118ffde22315fdc46fc973c6d65a0307dc7",
+  "signature_verification": "not performed; HTTPS DSC plus payload hashes",
+  "components": {
+    "efl": {
+      "version": "1.28.1-1",
+      "dsc": "efl_1.28.1-1.dsc",
+      "files": [
+        {
+          "filename": "efl_1.28.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/e/efl/efl_1.28.1-1.dsc",
+          "size": 6098,
+          "sha256": "0267b68b6e8869c904794a494d7dc9efddf0f0e98caac965b7f8b71a9ef1c34c"
+        },
+        {
+          "filename": "efl_1.28.1.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/e/efl/efl_1.28.1.orig.tar.xz",
+          "size": 168561296,
+          "sha256": "84cf6145f9cc82bfff690005be24392c8f3c52f8e00ff04d8eea371429c09424"
+        },
+        {
+          "filename": "efl_1.28.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/e/efl/efl_1.28.1-1.debian.tar.xz",
+          "size": 98080,
+          "sha256": "8e260d9ca0f5e7ac81d4862c00cc861cec3194d6166ed67cf3676950d4b40e37"
+        }
+      ],
+      "license_review": {
+        "debian_copyright_sha256": "ae65ffe8cb4022584b560e9493e91012690a3051222ac8ebeb6af309b9d26d7d",
+        "license_labels": [
+          "Apache-2.0",
+          "BSD-2-clause",
+          "BSD-2-clause or LGPL-2.1+",
+          "Expat",
+          "FTL",
+          "GPL-2+",
+          "GPL-3",
+          "ISC",
+          "Khronos",
+          "LGPL-2",
+          "LGPL-2+",
+          "LGPL-2.1+",
+          "NTP~disclaimer",
+          "Zlib",
+          "public-domain"
+        ],
+        "review": "Debian copyright and build metadata inspected; preserve per-file notices, no blanket relicensing"
+      }
+    },
+    "e17": {
+      "version": "0.27.1-1",
+      "dsc": "e17_0.27.1-1.dsc",
+      "files": [
+        {
+          "filename": "e17_0.27.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/e/e17/e17_0.27.1-1.dsc",
+          "size": 2412,
+          "sha256": "83bd59f1b539709d48738d318d63e8d792f7eed1ec17e4978c341923797814ae"
+        },
+        {
+          "filename": "e17_0.27.1.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/e/e17/e17_0.27.1.orig.tar.xz",
+          "size": 409707272,
+          "sha256": "b41df8771f60e3b96a1973ae566d7425c53a8339f18e54e31230218781da2fa9"
+        },
+        {
+          "filename": "e17_0.27.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/e/e17/e17_0.27.1-1.debian.tar.xz",
+          "size": 18304,
+          "sha256": "d63ea23e25354e355334585624389464303c77db0a2261b7907fc0a3eb0b37c6"
+        }
+      ],
+      "license_review": {
+        "debian_copyright_sha256": "74edabaf9619b84ed3280e87e2075d882145a4f1fe6b3c4356ab6ed17a9b23da",
+        "license_labels": [
+          "Apache-2.0",
+          "BSD-2-clause",
+          "GPL-2+",
+          "GPL-FE",
+          "MIT/Expat",
+          "NTP~disclaimer",
+          "OFL-1.1",
+          "public-domain"
+        ],
+        "review": "Debian copyright and build metadata inspected; preserve per-file notices, no blanket relicensing"
+      }
+    },
+    "terminology": {
+      "version": "1.14.0-1",
+      "dsc": "terminology_1.14.0-1.dsc",
+      "files": [
+        {
+          "filename": "terminology_1.14.0-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/t/terminology/terminology_1.14.0-1.dsc",
+          "size": 2160,
+          "sha256": "3929364f22b4baed2002b692937ee9bde4a88a4ce05e511e92c374051ec2ac26"
+        },
+        {
+          "filename": "terminology_1.14.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/t/terminology/terminology_1.14.0.orig.tar.xz",
+          "size": 2781300,
+          "sha256": "f354057051b05cffb699e33836a1135db1d4ed8bf954f9b57dc0e93bc307514d"
+        },
+        {
+          "filename": "terminology_1.14.0-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/t/terminology/terminology_1.14.0-1.debian.tar.xz",
+          "size": 10224,
+          "sha256": "205ec8fcc38e70f375a3115493c117f10964adeaac8e2c93a4d757f335c8fe67"
+        }
+      ],
+      "license_review": {
+        "debian_copyright_sha256": "22c594682252682a6e2f416fc8e488e5af344d768d8aed131afa8dc3429ff62b",
+        "license_labels": [
+          "BSD-2-clause",
+          "SIL-OFL-1.1",
+          "public-domain"
+        ],
+        "review": "Debian copyright and build metadata inspected; preserve per-file notices, no blanket relicensing"
+      }
+    }
+  },
+  "status": "source-seeds-cached-and-payload-hashes-verified"
+}

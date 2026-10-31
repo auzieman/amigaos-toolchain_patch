@@ -1,0 +1,34 @@
+{
+  "status": "source-options-inspected-not-configured-or-built",
+  "source": "efl",
+  "version": "1.28.1-1",
+  "source_lock": "profiles/desktop-seeds.lock.json",
+  "meson_options_sha256": "115032ad5ba2db0ec708d33e53ab47ca3f36083834e241b69c4e664fdf09501b",
+  "purpose": "Lean software X11 step toward VM132; not Mesa/GPU integration",
+  "options": {
+    "x11": true,
+    "opengl": "none",
+    "wl": false,
+    "drm": false,
+    "physics": false,
+    "audio": false,
+    "pulseaudio": false,
+    "gstreamer": false,
+    "edje-sound-and-video": false,
+    "v4l2": false,
+    "build-examples": false,
+    "build-tests": false,
+    "docs": false,
+    "bindings": [],
+    "native-arch-optimization": false
+  },
+  "target_abi": "PPC32 big-endian e500v2 SPE, long-double-128",
+  "retained_defaults": "All unlisted options remain subject to dependency review; no inferred full configuration",
+  "runtime_dependency_closure_resolved": false,
+  "required_next": [
+    "Build native EFL code generators independently of the target sysroot",
+    "Resolve and pin X11/font/image/crypto dependencies",
+    "Qualify cross configuration without executing target binaries on the x86 host",
+    "Build software X11 EFL and then E/Terminology; keep Mesa behind ABI gate"
+  ]
+}

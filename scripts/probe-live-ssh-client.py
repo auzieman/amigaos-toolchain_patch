@@ -6,6 +6,7 @@ p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--port',type=int,required=True)
 p.add_argument('--identity',type=Path,required=True)
 p.add_argument('--output',type=Path,required=True)
+p.add_argument('--cxx',action='store_true')
 a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
 options=['-F','/dev/null','-i',str(a.identity),'-p',str(a.port),'-o','BatchMode=yes',
  '-o','IdentitiesOnly=yes','-o','PreferredAuthentications=publickey',
@@ -46,6 +47,13 @@ try:
     assert checks['fenv'] in ['PASS','FAIL'] and result.returncode==(0 if checks['fenv']=='PASS' else 1)
     r['full_spe_abi_validated']=False # broader ABI/unwinding and hardware gates remain separate
     r['basic_c_checks_all_passed']=all(v=='PASS' for v in checks.values())
+    if a.cxx:
+        result=test('cxx','/bin/spe-cxx-check --cli')
+        checks={name.decode():value.decode() for name,value in re.findall(rb'^CXX_TEST (\w+) (PASS|FAIL)$',result.stdout,re.M)}
+        r['cxx_check_status']=checks
+        assert set(checks)=={'long_double_128','exception_unwind','thread_tls','atomic_u32'}
+        assert result.returncode==0 and all(v=='PASS' for v in checks.values())
+        assert b'CXX_SMOKE_DONE failures=0' in result.stdout
     r['status']='passed'
 except Exception as error:
     r.update(status='failed',error=str(error));raise
