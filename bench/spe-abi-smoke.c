@@ -72,18 +72,41 @@ int main(int argc, char **argv)
 
   int saved_round = fegetround();
   volatile double one = 1.0, half_ulp = 0x1p-53;
-  int env_ok = fesetround(FE_UPWARD) == 0;
+  volatile float fone = 1.0f, fhalf_ulp = 0x1p-24f;
+  int set_up = fesetround(FE_UPWARD);
+  int get_up = fegetround();
+  unsigned int spe_up;
+  __asm__ volatile ("mfspefscr %0" : "=r" (spe_up));
   volatile double up = one + half_ulp;
-  env_ok &= fegetround() == FE_UPWARD && up == 0x1.0000000000001p0;
-  env_ok &= fesetround(FE_DOWNWARD) == 0;
+  volatile float fup = fone + fhalf_ulp;
+  int set_down = fesetround(FE_DOWNWARD);
+  int get_down = fegetround();
+  unsigned int spe_down;
+  __asm__ volatile ("mfspefscr %0" : "=r" (spe_down));
   volatile double down = one + half_ulp;
-  env_ok &= fegetround() == FE_DOWNWARD && down == 1.0;
-  env_ok &= fesetround(saved_round) == 0;
-  env_ok &= feclearexcept(FE_ALL_EXCEPT) == 0;
-  env_ok &= feraiseexcept(FE_INVALID) == 0;
-  env_ok &= (fetestexcept(FE_INVALID) & FE_INVALID) != 0;
-  env_ok &= feclearexcept(FE_ALL_EXCEPT) == 0;
-  printf("FENV_DETAIL up=%a down=%a saved_round=%d\n", up, down, saved_round);
+  volatile float fdown = fone + fhalf_ulp;
+  int restore = fesetround(saved_round);
+  int clear_before = feclearexcept(FE_ALL_EXCEPT);
+  int raise_invalid = feraiseexcept(FE_INVALID);
+  int invalid = fetestexcept(FE_INVALID);
+  int clear_after = feclearexcept(FE_ALL_EXCEPT);
+  int cleared = fetestexcept(FE_ALL_EXCEPT);
+  int mode_ok = set_up == 0 && get_up == FE_UPWARD
+    && set_down == 0 && get_down == FE_DOWNWARD;
+  int double_ok = up == 0x1.0000000000001p0 && down == 1.0;
+  int float_ok = fup == 0x1.000002p0f && fdown == 1.0f;
+  int exception_ok = clear_before == 0 && raise_invalid == 0
+    && (invalid & FE_INVALID) != 0 && clear_after == 0 && cleared == 0;
+  int env_ok = mode_ok && double_ok && float_ok && restore == 0 && exception_ok;
+  printf("FENV_CHECK mode %s\n", mode_ok ? "PASS" : "FAIL");
+  printf("FENV_CHECK float_round %s\n", float_ok ? "PASS" : "FAIL");
+  printf("FENV_CHECK double_round %s\n", double_ok ? "PASS" : "FAIL");
+  printf("FENV_CHECK restore %s\n", restore == 0 ? "PASS" : "FAIL");
+  printf("FENV_CHECK exceptions %s\n", exception_ok ? "PASS" : "FAIL");
+  printf("FENV_REGISTER up=%08x down=%08x get_up=%d get_down=%d\n",
+         spe_up, spe_down, get_up, get_down);
+  printf("FENV_DETAIL up=%a down=%a saved_round=%d float_up=%a float_down=%a\n",
+         up, down, saved_round, (double)fup, (double)fdown);
   check("fenv", env_ok);
 
   jmp_buf jump;

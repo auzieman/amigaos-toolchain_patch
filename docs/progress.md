@@ -188,3 +188,12 @@ Early network failures and exact final config are retained alongside successes.
 The authorized SanDisk write is complete: [full-image readback receipt](builds/r730-live-20261031/usb-write-receipt.json)
 matches the file image SHA256. [Temporary boot commands](builds/r730-live-20261031/BOOT-README.txt)
 are ready for the real-board trial; saved firmware settings remain unchanged.
+
+## 2026-10-31 — larger desktop prerequisites: split the fenv failure
+
+[Detailed diagnostic](fenv-rounding.md) separates working mode/exception APIs
+from failed directed-rounding arithmetic in QEMU. Exact register values, fresh
+probe receipt and source-review hashes are retained. This narrows the failure
+to an emulator-state hypothesis; no workaround or relaxed ABI acceptance.
+R730 is separately building an isolated historical SPE C++ compiler/runtime,
+which the prior C-only bootstrap lacked, before graphical-source builds.

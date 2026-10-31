@@ -39,6 +39,7 @@ try:
     receipt['checks'] = {n: bool(re.search(
         rb'^ABI_TEST '+n.encode()+rb' PASS$', serial, re.M)) for n in names}
     receipt['check_status'] = {n: (re.search(rb'^ABI_TEST '+n.encode()+rb' ([A-Z_]+)$', serial, re.M).group(1).decode() if re.search(rb'^ABI_TEST '+n.encode()+rb' ([A-Z_]+)$', serial, re.M) else 'NOT_REACHED') for n in names}
+    receipt['fenv_check_status'] = {name.decode(): status.decode() for name, status in re.findall(rb'^FENV_CHECK (\w+) (PASS|FAIL)$', serial, re.M)}
     receipt['kernel_futex_missing'] = b'ABI_TEST pthread_tls SKIP_KERNEL_FUTEX' in serial
     receipt['long_double_bits'] = 128
     receipt['serial_sha256'] = boot['serial_sha256']

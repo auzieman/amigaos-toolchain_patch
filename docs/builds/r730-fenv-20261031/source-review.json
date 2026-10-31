@@ -1,0 +1,11 @@
+{
+  "scope": "bounded source review, not patched/rebuilt emulation",
+  "local_qemu_source_version": "11.1.3",
+  "source_files_sha256": {
+    "translate.c": "a02c58aa50d0504863d13018ab89924dd445d793830f2411ec5903daa0f90ab9",
+    "fpu_helper.c": "e4ba145a060fb4c13b8c265afdbced56fb3c9918072d182301b8343cdf1f7830"
+  },
+  "upstream_comparison_tag": "v10.0.0",
+  "finding": "SPEFSCR write stores spe_fscr; SPE addition uses vec_status. No rounding-state update in this write callback. A causal emulator fix is not yet tested.",
+  "full_spe_abi_validated": false
+}
