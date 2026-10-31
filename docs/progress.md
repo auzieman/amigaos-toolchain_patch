@@ -4,6 +4,27 @@ This log records evidence rather than treating a successful source import as a
 working toolchain. Raw generated source/build trees remain outside Git; patch
 origins, source pins, run IDs and artifact hashes provide the replay path.
 
+## 2026-10-31 — R730 larger-build host prepared
+
+Verified the reinstalled Debian 13 R730 against retained chassis/root UUID
+records. Forty logical CPUs, 128 GB RAM and about 1.77 TB available on the
+selected existing data filesystem remove edge's 1.5 GB free-space bottleneck.
+Workspace: `/srv/data1/tabor-build`, initially four CPUs/8 GiB per build.
+
+QEMU 10.0.13, libvirt, Docker and build dependencies installed. Initial host
+preparation stopped at its final Docker CLI check; explicitly adding Debian's
+separate docker-cli package and replaying the corrected script passed. A pinned
+Debian container verified two CPUs, 4 GiB and network-none enforcement.
+
+Diskless x86 ROM executed under KVM and observed guest VMX. Nested host setting
+is Y; actual L2 guest boot remains untested. The existing e500v2 Linux kernel
+and source-built shell passed command execution under PPC TCG on this host.
+RTX 3060 Ti and audio share isolated IOMMU group 28; assignment remains untested
+and the host driver remains attached. No disk/boot/BIOS configuration changed.
+Larger image compilation has not started. Scripts, package versions, raw serial
+and hashed receipts: [R730 preparation](r730-build-host.md),
+[evidence](builds/r730-20261031/receipt.json).
+
 ## 2026-10-30 — first Debian iterations
 
 Target sources: Debian linux 6.12.113-1 and glibc 2.41-12+deb13u4.

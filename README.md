@@ -32,6 +32,10 @@ and not a dependency. The intended first hardware test is a minimal USB/rescue
 image after kernel and boot-wrapper validation. Record its userspace ABI
 explicitly; boot acceptance is separate from modern SPE/glibc acceptance.
 
+The [reinstalled R730](docs/r730-build-host.md) is now prepared as the larger
+build workspace (2026-10-31): KVM x86 and PPC TCG shell smoke tests passed.
+The larger image build and physical A1222 boot remain pending.
+
 Modernize the A1222/Tabor e500v2/SPE toolchain and Linux userspace, with a
 separate future AmigaOS SDK integration track. Private collaboration repository:
 https://github.com/auzieman/amigaos-toolchain_patch . No Hyperion source imported. Collaboration interest was reported by

@@ -1,0 +1,41 @@
+{
+  "host": "r730-trixie",
+  "date": "2026-10-31",
+  "kernel": "6.12.107+deb13-amd64",
+  "product": "PowerEdge R730",
+  "service_tag": "4XC6282",
+  "root_uuid": "f4184dc3-e1f8-4368-b6d3-9c7ad4309ed2",
+  "logical_cpus": 40,
+  "mem_total_kib": 131901840,
+  "nested": "Y",
+  "iommu_group_count": 61,
+  "gpu_group_28_members": [
+    "0000:03:00.0",
+    "0000:03:00.1"
+  ],
+  "workspace": "/srv/data1/tabor-build",
+  "workspace_uuid": "cef9cdeb-027a-4bbb-95e7-d445a013e5fb",
+  "workspace_available_bytes": 1770928979968,
+  "default_build_cpus": 4,
+  "default_build_memory_gib": 8,
+  "packages": [
+    "docker-cli=26.1.5+dfsg1-9+deb13u1",
+    "docker.io=26.1.5+dfsg1-9+deb13u1",
+    "gcc=4:14.2.0-1",
+    "libvirt-clients=11.3.0-3+deb13u3",
+    "libvirt-daemon-system=11.3.0-3+deb13u3",
+    "meson=1.7.0-1",
+    "ninja-build=1.12.1-1",
+    "qemu-system-ppc=1:10.0.13+ds-0+deb13u1",
+    "qemu-system-x86=1:10.0.13+ds-0+deb13u1",
+    "qemu-user=1:10.0.13+ds-0+deb13u1",
+    "qemu-utils=1:10.0.13+ds-0+deb13u1"
+  ],
+  "services": {
+    "docker": "active",
+    "libvirtd": "active"
+  },
+  "gpu_assignment_performed": false,
+  "nested_l2_boot_tested": false,
+  "physical_a1222_boot": false
+}

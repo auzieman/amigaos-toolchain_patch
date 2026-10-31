@@ -499,3 +499,35 @@ installed versions and errors before selecting any server/crypto fix. This
 remains separate from Linux live-image OpenSSH; no OS4 software/accounts
 installed or changed. Source: https://ftp.fau.de/aminet/comm/tcp/openssh-bin.readme
 and https://github.com/jens-maus/amissl .
+
+## R730 build capacity prepared — 2026-10-31
+
+User authorized remote preparation of the resale Debian R730 for QEMU/KVM.
+Found the final installed owner credential in a later private record, distinct
+from the initially linked earlier installer credential. Completed mandatory
+first-login rotation; new note remains mode0600 outside Git. Verified chassis
+4XC6282 and root UUID against October5 installation evidence. Installed existing
+BKC public key for owner, retaining password-authenticated sudo and scoped SSH
+host-key tracking rather than replacing the old global host record.
+
+Prepared QEMU10.0.13 x86/PPC, libvirt, Docker and native/cross build tools.
+Docker CLI is a separate Debian package: initial recipe stopped at final version
+check, fixed dependency and full replay passed. No partitions, firmware settings,
+PCI binding or boot defaults changed. Existing `/srv/data1` has about1.77TB free;
+owner workspace `/srv/data1/tabor-build` has cache/work/results directories and
+four-CPU/8GiB initial policy. No bulk source/toolchain transfer or larger image
+build started yet. Existing suspect data2 is not the selected workspace.
+
+KVM guest ROM executed and observed VMX; host nested=Y,61 IOMMU groups. Actual
+nested L2 boot untested. RTX3060Ti plus audio occupy group28 alone; nouveau stays
+attached, no passthrough claim. Build-disk SMART reports OK and current boot log
+shows no disk I/O errors; this is not a full media-health certification.
+PPC e500v2 TCG boot of the previously accepted kernel/shell passed real commands.
+Pinned Debian container passed 2CPU/4GiB/network-none check. Evidence retained
+under builds/r730-20261031. Next: stage verified source/toolchain inputs and
+resume fresh board-kernel/rootfs iterations, including amdgpu/local console/HID
+requirements. No physical A1222 acceptance or full SPE ABI acceptance inferred.
+
+User clarified current native AmigaSSH comes from OS4Depot, so the older Aminet
+readme is reference only and does not identify their installed package. Native
+SSH repair is deferred while the larger Linux build remains priority.

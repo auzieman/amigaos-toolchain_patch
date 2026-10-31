@@ -1,0 +1,29 @@
+{
+  "status": "host-preparation-and-smokes-passed",
+  "date": "2026-10-31",
+  "base_image": "debian@sha256:f6b08b09a05725f9431502d3b5714f5c4576e82c1a84fa1debe0c24a7e0c3ec4",
+  "container_cpus": 2,
+  "container_memory_bytes": 4294967296,
+  "container_network": "none",
+  "initial_preparation": "failed at final Docker version check: docker.io lacked client",
+  "corrected_preparation": "passed after explicit docker-cli addition and complete replay",
+  "source_hashes": {
+    "scripts/prepare-debian-build-host.sh": "7583d65565088f98c943af2a3abdabc60cad53fc7e52865d3fea0380e011bafe",
+    "scripts/kvm-host-smoke.py": "eb4c14351a749468644248302f3f3fe61ff7a43b0af421cc197a05940542f222",
+    "scripts/qemu-shell-smoke.py": "6a513a6b12c02c6000241a319344c22fcbe1848ff23236481f0ee2edce2422b2"
+  },
+  "evidence_sha256": {
+    "ppc-smoke.json": "b5df276c4e1216d87da98614e5d9faafa3f2a89bcdb374fddee6a0e65dfec1fd",
+    "container-smoke.log": "4663c21a5aceb3df64d626558a4fb125aa159f41fd36a29414f31ca7d9b6da52",
+    "kvm-smoke.json": "0a9db6f3371b7447078228afff0f1686e5f71ce57a6a6271e68cf8af838d266e",
+    "ppc-serial.log": "d8b940f0b730984271138c799e6c28726b68a894ed8372d90331c21dc3a2821d",
+    "host.json": "d643a79ac7f572f5a3824703dc7d8127ad6dcadfe2cc7906e04f23d54bf827d2"
+  },
+  "limits": [
+    "No nested L2 guest boot",
+    "No GPU assignment or graphics validation",
+    "No physical A1222 boot",
+    "No complete SPE ABI acceptance",
+    "Larger image build not started"
+  ]
+}
