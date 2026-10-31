@@ -1,0 +1,138 @@
+random: crng init done
+Memory CAM mapping: 256/256 Mb, residual: 0Mb
+Activating Kernel Userspace Execution Prevention
+Linux version 6.12.113 (tabor@lab) (powerpc-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #1 SMP 1970-01-01 00:00:00 UTC
+OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+Found initrd at 0xc4000000:0xc4115394
+Hardware name: QEMU ppce500 e500v2 0x80210022 QEMU e500
+printk: legacy bootconsole [udbg0] enabled
+CPU maps initialized for 1 thread per core
+-----------------------------------------------------
+phys_mem_size     = 0x20000000
+dcache_bsize      = 0x20
+icache_bsize      = 0x20
+cpu_features      = 0x0000000010010108
+  possible        = 0x0000000010010108
+  always          = 0x0000000010010108
+cpu_user_features = 0x84e08000 0x08000000
+mmu_features      = 0x00020010
+-----------------------------------------------------
+qemu_e500_setup_arch()
+barrier-nospec: using isync; sync as speculation barrier
+Zone ranges:
+  Normal   [mem 0x0000000000000000-0x000000001fffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000000000-0x000000001fffffff]
+Initmem setup node 0 [mem 0x0000000000000000-0x000000001fffffff]
+MMU: Allocated 1088 bytes of context maps for 255 contexts
+percpu: Embedded 9 pages/cpu s12684 r0 d24180 u36864
+Kernel command line: console=ttyS0,115200 rdinit=/init panic=-1
+Dentry cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 5, 131072 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 131072
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+Kernel virtual memory layout:
+  * 0xffbdf000..0xfffff000  : fixmap
+  * 0xe1000000..0xffbdf000  : vmalloc & ioremap
+SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+NR_IRQS: 512, nr_irqs: 512, preallocated irqs: 16
+mpic: Setting up MPIC " OpenPIC  " version 1.2 at fe0040000, max 2 CPUs
+mpic: ISU size: 256, shift: 8, mask: ff
+mpic: Initializing for 256 sources
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+clocksource: timebase mult[2800000] shift[24] registered
+Console: colour dummy device 80x25
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes, linear)
+mpic: requesting IPIs...
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+smp: Bringing up secondary CPUs ...
+smp: Brought up 1 node, 2 CPUs
+Memory: 509364K/524288K available (4980K kernel code, 584K rwdata, 740K rodata, 228K init, 259K bss, 13576K reserved, 0K cma-reserved)
+devtmpfs: initialized
+futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+             
+Found FSL PCI host bridge at 0x0000000fe0008000. Firmware bus number: 0->255
+PCI host bridge /pci@fe0008000 (primary) ranges:
+ MEM 0x0000000c00000000..0x0000000c1fffffff -> 0x00000000e0000000 
+  IO 0x0000000fe1000000..0x0000000fe100ffff -> 0x0000000000000000
+/pci@fe0008000: PCICSRBAR @ 0xdff00000
+setup_pci_atmu: end of DRAM 20000000
+PCI: Probing PCI hardware
+fsl-pci fe0008000.pci: PCI host bridge to bus 0000:00
+pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+pci_bus 0000:00: root bus resource [mem 0xc00000000-0xc1fffffff] (bus address [0xe0000000-0xffffffff])
+pci_bus 0000:00: root bus resource [bus 00-ff]
+pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to ff
+pci 0000:00:00.0: [1957:0030] type 00 class 0x0b2000 conventional PCI endpoint
+pci 0000:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+pci_bus 0000:00: resource 4 [io  0x0000-0xffff]
+pci_bus 0000:00: resource 5 [mem 0xc00000000-0xc1fffffff]
+vgaarb: loaded
+clocksource: Switched to clocksource timebase
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 4096 (order: 2, 16384 bytes, linear)
+TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+TCP: Hash tables configured (established 4096 bind 4096)
+UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+PCI: CLS 0 bytes, default 32
+Unpacking initramfs...
+workingset: timestamp_bits=30 max_order=17 bucket_order=0
+Freeing initrd memory: 1108K
+Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+printk: legacy console [ttyS0] disabled
+serial8250.0: ttyS0 at MMIO 0xfe0004500 (irq = 42, base_baud = 25000000) is a 16550A
+printk: legacy console [ttyS0] enabled
+printk: legacy console [ttyS0] enabled
+printk: legacy bootconsole [udbg0] disabled
+printk: legacy bootconsole [udbg0] disabled
+printk: legacy console [ttyS0] disabled
+printk: legacy console [ttyS0] enabled
+NET: Registered PF_PACKET protocol family
+Freeing unused kernel image (initmem) memory: 228K
+Kernel memory protection not selected by kernel config.
+Run /init as init process
+TABOR_QEMU_INIT_OK: Linux/SPE C++ reference runtime checks
+CXX_TEST long_double_128 PASS
+CXX_TEST exception_unwind PASS
+init[1]: illegal instruction (4) at 10000000 nip 10000000 lr 10003620 code 1 in init[0,10000000+aa000]
+init[1]: code: XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX 
+init[1]: code: XXXXXXXX XXXXXXXX XXXXXXXX XXXXXXXX <7f454c46> 01020103 00000000 00000000 
+Kernel panic - not syncing: Attempted to kill init! exitcode=0x00000004
+CPU: 1 UID: 0 PID: 35 Comm: init Not tainted 6.12.113 #1 
+Hardware name: QEMU ppce500 e500v2 0x80210022 QEMU e500
+Call Trace:
+[c0a53d70] [c04a6104] dump_stack_lvl+0x68/0x98 (unreliable)
+[c0a53d90] [c002ebfc] panic+0x13c/0x334
+[c0a53df0] [c00327dc] make_task_dead+0x0/0x1a0
+[c0a53e30] [c00329c8] do_group_exit+0x34/0xa0
+[c0a53e50] [c0041a04] get_signal+0x904/0x928
+[c0a53ea0] [c0007ae4] do_notify_resume+0x68/0x26c
+[c0a53f00] [c000e314] interrupt_exit_user_prepare_main+0x70/0xe8
+[c0a53f10] [c00110f4] ret_from_syscall+0xc/0x28
+--- interrupt: c00 at 0x100403a8
+NIP:  100403a8 LR: 10036958 CTR: 1002fec8
+REGS: c0a53f20 TRAP: 0c00   Not tainted  (6.12.113)
+MSR:  0002d000 <CE,EE,PR,ME>  CR: 48008228  XER: 20000000
+
+GPR00: 0000005b b7b3ef60 b7b46c80 00000000 000c1000 28008222 c0834a80 10040220 
+GPR08: 0202d000 00000000 00801000 b7b3f058 00000003 100c8ea0 c00040d8 b733f000 
+GPR16: 00000000 100c1028 00000000 b7b3fc80 00000238 b7b3f780 b733f000 b7300000 
+GPR24: 100c3984 00001000 00100000 00021000 100c03b4 000c1000 100c6a9c b7200000 
+NIP [100403a8] 0x100403a8
+LR [10036958] 0x10036958
+--- interrupt: c00

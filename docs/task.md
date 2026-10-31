@@ -588,3 +588,35 @@ write completed and the entire 2 GiB image readback matches SHA256
 full floating ABI or E/Xorg/Mesa desktop is accepted. Native image is a hardware
 rescue increment, not the completed VM132 desktop. Next: manual temporary U-Boot boot with OBS capture, retain real board/network/ABI logs, then
 build graphical dependencies against the validated target ABI.
+
+## 2026-10-31 — repeated larger-image request: R730 desktop prerequisite cycle
+
+Kept Linux development separate from AmigaOS Docker work. Rebuilt the missing
+reference C++ toolchain/runtime from pinned GCC8.5 with the restored read-only
+SPE/glibc sysroot, 128-bit long double and bounded R730 resources. Iteration 001
+failed on missing target ar; fresh iteration 002 adds private binutils aliases
+and passes. Installed tree and binutils hashes retained. This is historical
+reference tooling, not modern GCC restoration.
+
+Static C++ probe 001 passed exception unwind but failed at a weak pthread_join
+reference. Probe 002 explicitly retains pthread functions at static link and
+passes all four selected checks. A separate shared payload resolves and checks
+the full PPC32 DSO closure. network-probe-004 plus laptop native SSH executes
+that shared C++ binary: long-double size, exception/RAII unwinding, thread TLS
+and uint32 atomics PASS. Base C tests retain eight PASS/fenv FAIL and fractal
+pixels remain identical. No full floating ABI or wider atomic claim.
+
+Captured VM132's installed source versions, cached EFL1.28.1/e17 0.27.1/
+Terminology1.14 Debian source packages, and reviewed copyright/build metadata
+and exact Meson options. Added locked source inputs and a software-X11 EFL
+candidate; no target build/configuration success or complete dependency closure
+is implied. Keep native code generators distinct from PPC runtime libraries.
+
+Packaged shared-runtime candidate usb-cxx-image-001 on R730; verified U-Boot
+checks and FAT boot-file readback. It is not written to the existing SanDisk,
+which still holds the previously verified rescue image. Still no E/Xorg/Mesa
+installed or physical A1222 boot/HDMI/GPU validation. See desktop-foundation.md
+and docs/builds/r730-desktop-prerequisites-20261031 for successes and failures.
+Bounded next build: lock/build native EFL generators and software X11/font/
+image/crypto/session dependencies, then E/Terminology/Xorg. Keep Mesa behind
+ABI acceptance and run native board diagnostics when the USB trial is available.

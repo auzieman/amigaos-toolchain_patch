@@ -1,0 +1,75 @@
+{
+  "status": "shared-CXX-payload-built-not-executed",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "source_sha256": "ce66959a494ed2aa77237fa0ced62c452581c476c91ed1253bb47de52a6807a9",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-std=c++17",
+    "-O2",
+    "-g0",
+    "-pthread"
+  ],
+  "physical_boot": false,
+  "full_spe_abi_validated": false,
+  "library_inputs": {
+    "libc.so.6": {
+      "path": "/sysroot/lib/libc.so.6",
+      "sha256": "ba1f317ff2580b5f97daea97c7cf3b49af001d007460f0f71b9334e2d8b6b63a"
+    },
+    "ld.so.1": {
+      "path": "/sysroot/lib/ld.so.1",
+      "sha256": "7c6a84dc183889f16d195ee036ac8dcb438c7d1f555797abc880b1f1b5857e37"
+    },
+    "libgcc_s.so.1": {
+      "path": "/tools/cxx-reference-002/powerpc-linux-gnuspe/lib/libgcc_s.so.1",
+      "sha256": "5ba1dd89702ecbfd40ea5c819710787c37d5103808d1821e2ab18395721a78b9"
+    },
+    "libm.so.6": {
+      "path": "/sysroot/lib/libm.so.6",
+      "sha256": "bc159321e04f4bf5d6b8767e956c5bd4e2a2177c795ab11b13ff1f1044a2f1d0"
+    },
+    "libstdc++.so.6": {
+      "path": "/tools/cxx-reference-002/powerpc-linux-gnuspe/lib/libstdc++.so.6.0.25",
+      "sha256": "1be5377032910e3016ff6606a66b207accb7f3db60796051eefe858cb932b227"
+    }
+  },
+  "files": [
+    {
+      "path": "bin/spe-cxx-check",
+      "sha256": "6481b54bd526ccc07688022c3fd4fb2ef3a19cfd771b673b0c2cfe78cf6cdfaa",
+      "mode": 493
+    },
+    {
+      "path": "lib/ld.so.1",
+      "sha256": "55612fd53c0a53237e6c05462047c6f23b77c10ecfa26dd34ad8e436d27ab44c",
+      "mode": 493
+    },
+    {
+      "path": "lib/libc.so.6",
+      "sha256": "22910415be8c889acc096910605542dbcaafe637a7addfa08676dad784dff699",
+      "mode": 493
+    },
+    {
+      "path": "lib/libgcc_s.so.1",
+      "sha256": "c6c4edba3a6981c9931e986eb8acb1b61a4a9817f0816558c17189797d5ab470",
+      "mode": 493
+    },
+    {
+      "path": "lib/libm.so.6",
+      "sha256": "5ad5cd7753d416c18bdfa22da03ce82ec20ae25e33d7a3afd712ca9a7ce24125",
+      "mode": 493
+    },
+    {
+      "path": "lib/libstdc++.so.6",
+      "sha256": "433fe5c7d17a85e7322ffa6353e7d597cf41bea8d1ec1b6a0b055967e9fee30e",
+      "mode": 493
+    }
+  ],
+  "interpreter": "/lib/ld.so.1",
+  "manifest_sha256": "fad3050721e467e314a8788159200fc9e91112771f1a6397efe748fbdb1bf5ad"
+}

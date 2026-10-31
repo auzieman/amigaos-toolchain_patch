@@ -71,8 +71,8 @@ The live image includes user-requested OpenSSH client/server in rescue and
 x11vnc with the E/X11 stage. VNC binds loopback and travels through LAN SSH;
 it shares the physical E display seen by Elgato. Unique SSH host keys and
 user credentials are provisioned outside Git. SDL is a later optional
-smoke test. The existing fractal init needs a normal CLI entry/exit wrapper
-before it can be shipped as an ordinary test application in this rootfs.
+smoke test. The Linux fractal now has a CLI entry/exit wrapper in the rescue image;
+shared C++ runtime probes are also available. These remain separate from GL.
 
 Firefox is deliberately a final increment: the selected release's supported
 architectures, Rust/LLVM target, SpiderMonkey/JIT/interpreter, C++ runtime and

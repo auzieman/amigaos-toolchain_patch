@@ -1,0 +1,63 @@
+{
+  "status": "failed",
+  "role": "historical SPE reference/bootstrap only; modern GCC restoration remains separate",
+  "target": "powerpc-linux-gnuspe",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "source_sha512": "92f599680e6b7fbce88bcdda810f468777d541e5fddfbb287f7977d51093de2a5178bd0e6a08dfe37090ea10a0508a43ccd00220041abbbec33f1179bfc174d8",
+  "commands": [
+    [
+      "tar",
+      "-xJf",
+      "/cache/gcc-8.5.0.tar.xz",
+      "-C",
+      "/work/cxx-reference-001"
+    ],
+    [
+      "/work/cxx-reference-001/gcc-8.5.0/configure",
+      "--target=powerpc-linux-gnuspe",
+      "--prefix=/tools/cxx-reference-001",
+      "--enable-obsolete",
+      "--disable-bootstrap",
+      "--disable-multilib",
+      "--disable-nls",
+      "--disable-libsanitizer",
+      "--disable-libssp",
+      "--disable-libquadmath",
+      "--disable-libgomp",
+      "--disable-libatomic",
+      "--disable-libvtv",
+      "--disable-werror",
+      "--with-system-zlib",
+      "--with-cpu=8548",
+      "--with-float=hard",
+      "--enable-e500_double",
+      "--with-as=/usr/bin/powerpc-linux-gnu-as",
+      "--with-ld=/usr/bin/powerpc-linux-gnu-ld",
+      "--enable-languages=c,c++",
+      "--enable-shared",
+      "--enable-threads=posix",
+      "--with-long-double-128",
+      "--with-sysroot=/sysroot",
+      "CFLAGS_FOR_TARGET=-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+      "CXXFLAGS_FOR_TARGET=-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128"
+    ],
+    [
+      "make",
+      "-j4",
+      "all-gcc"
+    ],
+    [
+      "make",
+      "install-gcc"
+    ],
+    [
+      "make",
+      "-j4",
+      "all-target-libgcc"
+    ]
+  ],
+  "runtime_built": false,
+  "sysroot_tree_sha256": "76b19cb32e754f8191e337da8d570a06b6e59cd7fd1c14839e7ca1ebdf9a6536",
+  "target_runtime_flags": "-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+  "error": "Command failed 2: ['make', '-j4', 'all-target-libgcc']"
+}

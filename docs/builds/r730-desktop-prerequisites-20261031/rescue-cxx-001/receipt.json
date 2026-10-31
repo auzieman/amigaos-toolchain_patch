@@ -1,0 +1,41 @@
+{
+  "status": "rescue-initramfs-extended",
+  "base_receipt_sha256": "6b0c3970474fa2bd5ed71b7c98c41c17a060d9836dcbddd03fa34f7c9de1b002",
+  "base_initramfs_sha256": "592fcbf6edbba6ce74e8618693b245084778578869b38801ac731cfdf81fdc4c",
+  "manifest_sha256": "fad3050721e467e314a8788159200fc9e91112771f1a6397efe748fbdb1bf5ad",
+  "files": [
+    {
+      "path": "bin/spe-cxx-check",
+      "sha256": "6481b54bd526ccc07688022c3fd4fb2ef3a19cfd771b673b0c2cfe78cf6cdfaa",
+      "mode": 493
+    },
+    {
+      "path": "lib/ld.so.1",
+      "sha256": "55612fd53c0a53237e6c05462047c6f23b77c10ecfa26dd34ad8e436d27ab44c",
+      "mode": 493
+    },
+    {
+      "path": "lib/libc.so.6",
+      "sha256": "22910415be8c889acc096910605542dbcaafe637a7addfa08676dad784dff699",
+      "mode": 493
+    },
+    {
+      "path": "lib/libgcc_s.so.1",
+      "sha256": "c6c4edba3a6981c9931e986eb8acb1b61a4a9817f0816558c17189797d5ab470",
+      "mode": 493
+    },
+    {
+      "path": "lib/libm.so.6",
+      "sha256": "5ad5cd7753d416c18bdfa22da03ce82ec20ae25e33d7a3afd712ca9a7ce24125",
+      "mode": 493
+    },
+    {
+      "path": "lib/libstdc++.so.6",
+      "sha256": "433fe5c7d17a85e7322ffa6353e7d597cf41bea8d1ec1b6a0b055967e9fee30e",
+      "mode": 493
+    }
+  ],
+  "initramfs_sha256": "894977737129ffa7124408b5fb6d1ab1fb2242eb22beaef5f1349c0c61fbd581",
+  "initramfs_bytes": 25077256,
+  "physical_boot": false
+}

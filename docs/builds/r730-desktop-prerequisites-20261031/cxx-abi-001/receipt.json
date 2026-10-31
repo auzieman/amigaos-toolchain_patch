@@ -1,0 +1,25 @@
+{
+  "status": "failed",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "source_sha256": "ce66959a494ed2aa77237fa0ced62c452581c476c91ed1253bb47de52a6807a9",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-std=c++17",
+    "-O2",
+    "-g0",
+    "-static",
+    "-pthread"
+  ],
+  "physical_boot": false,
+  "full_spe_abi_validated": false,
+  "scope": "reference GCC8 C++ exceptions/RAII, thread TLS and uint32 atomics only",
+  "compiler_version": "powerpc-linux-gnuspe-g++ (GCC) 8.5.0\nCopyright (C) 2018 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "binary_sha256": "b6c489bf614826861e8853affe5e6cc9a570cb5e2302177b35ad376ca4f0c07c",
+  "spe_double_add_present": true,
+  "error": "Command '['/usr/bin/python3', '/project/scripts/qemu-boot-smoke.py', '--kernel', '/work/qemu-live-005/output/vmlinux', '--init-binary', '/work/cxx-abi-001/cxx-init', '--output', '/work/cxx-abi-001/boot', '--timeout', '20', '--image-id', 'sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0']' returned non-zero exit status 1."
+}

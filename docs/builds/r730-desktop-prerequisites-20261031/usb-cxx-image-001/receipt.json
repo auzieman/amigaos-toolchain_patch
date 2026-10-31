@@ -1,0 +1,65 @@
+{
+  "status": "file-image-built-and-filesystem-readback-verified",
+  "image_bytes": 2147483648,
+  "image_sha256": "bbf1249c0fd7ad817fc1362152452aa75b09e742724b4c08ae753b55e955f20b",
+  "partition_start_sector": 2048,
+  "partition_type": "0x0c FAT32 LBA",
+  "boot_receipt_sha256": "b4bfe393cf809025a40f21c2eb2c95295df8260d2a597ec5e15e4f2c06275033",
+  "boot_files_sha256": {
+    "uImage": "b59bcd4545911fe86fc6820eb8903b65d6c04b3795d07a584f5f455c5e7e9650",
+    "uRamdisk": "796170c8734925fcdd6970def74261892d226f9043f733e94ae0fb2411cc86e3",
+    "tabor.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+  },
+  "commands": [
+    [
+      "mkfs.fat",
+      "-F",
+      "32",
+      "--offset=2048",
+      "-h",
+      "2048",
+      "-n",
+      "A1222_SPE",
+      "-i",
+      "A1222001",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img"
+    ],
+    [
+      "mmd",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img@@1048576",
+      "::/boot"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img@@1048576",
+      "/srv/data1/tabor-build/linux-live-001/board-boot-cxx-001/uImage",
+      "::/boot/uImage"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img@@1048576",
+      "/srv/data1/tabor-build/linux-live-001/board-boot-cxx-001/uRamdisk",
+      "::/boot/uRamdisk"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img@@1048576",
+      "/srv/data1/tabor-build/linux-live-001/board-boot-cxx-001/tabor.dtb",
+      "::/boot/tabor.dtb"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/a1222-hardware-rescue.img@@1048576",
+      "/srv/data1/tabor-build/linux-live-001/usb-cxx-image-001/BOOT-README.txt",
+      "::/BOOT-README.txt"
+    ]
+  ],
+  "physical_boot": false,
+  "block_device_written": false,
+  "e_desktop_installed": false
+}

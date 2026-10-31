@@ -1,0 +1,99 @@
+{
+  "status": "passed-native-client-probe",
+  "command": [
+    "/usr/bin/qemu-system-ppc",
+    "-M",
+    "ppce500",
+    "-cpu",
+    "e500v2",
+    "-accel",
+    "tcg",
+    "-smp",
+    "2",
+    "-m",
+    "1024M",
+    "-display",
+    "none",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-nic",
+    "none",
+    "-no-reboot",
+    "-object",
+    "rng-random,id=rng0,filename=/dev/urandom",
+    "-device",
+    "virtio-rng-pci,rng=rng0",
+    "-netdev",
+    "user,id=net0,hostfwd=tcp:127.0.0.1:22122-:22",
+    "-device",
+    "virtio-net-pci,netdev=net0",
+    "-kernel",
+    "/srv/data1/tabor-build/linux-live-001/work/qemu-live-005/output/vmlinux",
+    "-initrd",
+    "/srv/data1/tabor-build/linux-live-001/work/rescue-cxx-001/shell.cpio",
+    "-append",
+    "console=ttyS0,115200 rdinit=/init panic=-1"
+  ],
+  "kernel_sha256": "7bcf30d7391c6c72dd803993c16ec3052b12f3e2e4e17ea5579dae73135be02e",
+  "initramfs_sha256": "894977737129ffa7124408b5fb6d1ab1fb2242eb22beaef5f1349c0c61fbd581",
+  "qemu_sha256": "9cd29d318fcbf8353a63cee085f3574aeded1cb3f498ce543c0a991482cb932f",
+  "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "physical_boot": false,
+  "full_spe_abi_validated": false,
+  "host_listener": "loopback only",
+  "client_proof": {
+    "status": "passed",
+    "physical_boot": false,
+    "full_spe_abi_validated": false,
+    "native_ssh_version": "OpenSSH_10.6p1, OpenSSL 3.5.9 29 Sep 2026",
+    "identity": {
+      "returncode": 0,
+      "stdout_sha256": "eeb84e56ca81e01c4ea7c0348f40fa80e2c3bc7335420034f51381f9598f17ef",
+      "stderr_sha256": "38dd1e25f02d1b18dd03bb814fde11f9e8cb38fe02b9ea790506b0dfa7439dc6"
+    },
+    "pty": {
+      "returncode": 0,
+      "stdout_sha256": "29e8cd4f43dd67e612670dac28516af71c71394ac2f320aa64c94d49f51bc761",
+      "stderr_sha256": "00eebb0300b558db0adf043aa8fce39909608ba8382e9741b086f0a11456f480"
+    },
+    "fractal": {
+      "returncode": 0,
+      "stdout_sha256": "95d061f48695694e840b2ba37875f1ce37d22292d9372c6195c0f821a6d90427",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fractal_pixel_equality": true,
+    "abi": {
+      "returncode": 1,
+      "stdout_sha256": "685e9bd8c1fa8b8052469a2dbbd2f2e4d8839c52c85908757ffc7f1415361d33",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "abi_check_status": {
+      "float32": "PASS",
+      "float64": "PASS",
+      "varargs": "PASS",
+      "formatting": "PASS",
+      "fenv": "FAIL",
+      "setjmp": "PASS",
+      "signal": "PASS",
+      "pthread_tls": "PASS",
+      "ucontext": "PASS"
+    },
+    "basic_c_checks_all_passed": false,
+    "cxx": {
+      "returncode": 0,
+      "stdout_sha256": "d5f270b6ab5eaf4a665d7fd2def5c29d530e34cc71ac4052459775007792079a",
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "cxx_check_status": {
+      "long_double_128": "PASS",
+      "exception_unwind": "PASS",
+      "thread_tls": "PASS",
+      "atomic_u32": "PASS"
+    }
+  },
+  "network_ready": true,
+  "panic_seen": false,
+  "serial_sha256": "228c477f11e6a1be6309931caef6353eb79725c1f48178e9e9d39a6903d10315"
+}

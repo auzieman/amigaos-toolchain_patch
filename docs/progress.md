@@ -197,3 +197,18 @@ probe receipt and source-review hashes are retained. This narrows the failure
 to an emulator-state hypothesis; no workaround or relaxed ABI acceptance.
 R730 is separately building an isolated historical SPE C++ compiler/runtime,
 which the prior C-only bootstrap lacked, before graphical-source builds.
+
+## 2026-10-31 — reference C++ runtime and shared-library execution
+
+[R730 desktop foundation](desktop-foundation.md): fresh GCC8 C/C++/libgcc/
+libstdc++ build completes after correcting target binutils aliases. Static and
+shared C++ probes pass 128-bit long-double size, exception/RAII unwind, thread
+TLS and uint32 atomics. The shared probe executes through native SSH into QEMU;
+prior fractal/C tests still pass except the unchanged fenv failure. Failed
+archiver and weak-static-pthread checkpoints remain in the evidence trail.
+
+Exact EFL/E/Terminology sources from VM132 are cached, hash-pinned and inspected
+for licensing/build options. A lean software-X11 candidate is recorded, with
+native code generators and target dependency closure still to resolve. A new
+shared-runtime boot image passes file-image packaging/readback on R730; the
+written SanDisk is unchanged. E/Xorg/Mesa and physical boot are not accepted.
