@@ -57,7 +57,7 @@ static void context_main(void)
   context_ok = a + b == 3.75;
 }
 
-int main(void)
+int main(int argc, char **argv)
 {
   setvbuf(stdout, 0, _IONBF, 0);
   puts("TABOR_QEMU_INIT_OK: restored SPE libc C ABI checks");
@@ -122,5 +122,6 @@ int main(void)
   }
   check("ucontext", context_result == 0 && context_ok);
   printf("ABI_SMOKE_DONE failures=%d\n", failures);
+  if (argc == 2 && strcmp(argv[1], "--cli") == 0) return failures ? 1 : 0;
   for (;;) pause(); /* PID1 must stay alive for the host's bounded test. */
 }

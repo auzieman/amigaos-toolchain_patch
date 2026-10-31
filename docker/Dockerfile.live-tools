@@ -1,0 +1,4 @@
+ARG BOOTSTRAP_TOOLS_IMAGE
+FROM ${BOOTSTRAP_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    autoconf automake libtool && rm -rf /var/lib/apt/lists/*

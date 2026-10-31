@@ -1,0 +1,50 @@
+{
+  "schema": 1,
+  "purpose": "Functional reference for a source-built PPC/SPE live image; not an amd64 binary clone",
+  "reference": {
+    "vmid": 132,
+    "name": "trixie-smoke-132",
+    "architecture": "amd64",
+    "root_used_gib_approx": 12,
+    "enlightenment": "0.27.1-1",
+    "terminology": "1.14.0-1",
+    "xorg_server": "2:21.1.16-1.3+deb13u3",
+    "lightdm": "1.32.0-6+b2",
+    "mesa": "25.0.7-2+deb13u1",
+    "systemd": "257.13-1~deb13u1",
+    "openssh": "1:10.0p1-7+deb13u4",
+    "mesa_utils_installed": false,
+    "x11vnc_installed": false
+  },
+  "target": {
+    "board": "A1222/Tabor",
+    "abi": "powerpc-linux-gnuspe, big-endian PPC32, long-double-128",
+    "ram_gib": 8,
+    "gpu": "Radeon; verify PCI revision on hardware",
+    "first_boot": "root rescue shell, key-only ordinary-user SSH",
+    "subsequent_desktop": [
+      "Xorg",
+      "Enlightenment",
+      "Terminology",
+      "Mesa",
+      "mesa-utils"
+    ],
+    "optional": [
+      "LightDM after graphical validation",
+      "VNC after graphical validation",
+      "Firefox"
+    ]
+  },
+  "current_increment": {
+    "filesystem": "2 GiB MBR/FAT32 boot media with RAM rescue filesystem",
+    "desktop_installed": false,
+    "physical_boot_validated": false,
+    "full_spe_abi_validated": false
+  },
+  "acceptance_order": [
+    "QEMU rescue + native SSH + matched fractal/ABI CLI",
+    "Physical U-Boot/HDMI/USB/wired network + native ABI logs",
+    "Complete ABI gates and build graphical dependencies from source",
+    "Physical E/gears with actual Radeon renderer identification"
+  ]
+}

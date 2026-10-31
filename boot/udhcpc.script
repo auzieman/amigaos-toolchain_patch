@@ -1,0 +1,12 @@
+#!/bin/sh
+# DHCP is operator-invoked; configure only the interface supplied by udhcpc.
+case "$1" in
+ deconfig) ifconfig "$interface" 0.0.0.0 ;;
+ bound|renew)
+  ifconfig "$interface" "$ip" netmask "${subnet:-255.255.255.0}" up || exit 1
+  route del default dev "$interface" 2>/dev/null || true
+  for gateway in $router; do route add default gw "$gateway" dev "$interface" || exit 1; break; done
+  : > /etc/resolv.conf
+  for server in $dns; do echo "nameserver $server" >> /etc/resolv.conf; done
+  ;;
+esac

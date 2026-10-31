@@ -1,0 +1,36 @@
+{
+  "component": "openssh",
+  "version": "1:10.0p1-7+deb13u4",
+  "dsc": "openssh_10.0p1-7+deb13u4.dsc",
+  "files": [
+    {
+      "filename": "openssh_10.0p1-7+deb13u4.dsc",
+      "url": "https://deb.debian.org/debian/pool/main/o/openssh/openssh_10.0p1-7+deb13u4.dsc",
+      "sha256": "73fed3fd77d60925ed342bcb0afd3c037e4ea0d39333107bf617aa90f859910f",
+      "size": 3763
+    },
+    {
+      "filename": "openssh_10.0p1.orig.tar.gz",
+      "url": "https://deb.debian.org/debian/pool/main/o/openssh/openssh_10.0p1.orig.tar.gz",
+      "sha256": "021a2e709a0edf4250b1256bd5a9e500411a90dddabea830ed59cef90eb9d85c",
+      "size": 1972675
+    },
+    {
+      "filename": "openssh_10.0p1.orig.tar.gz.asc",
+      "url": "https://deb.debian.org/debian/pool/main/o/openssh/openssh_10.0p1.orig.tar.gz.asc",
+      "sha256": "f71cf3240516ce59c2240532143982fcd97e2e286e6eb1eb6c3080a1ec012a04",
+      "size": 833
+    },
+    {
+      "filename": "openssh_10.0p1-7+deb13u4.debian.tar.xz",
+      "url": "https://deb.debian.org/debian/pool/main/o/openssh/openssh_10.0p1-7+deb13u4.debian.tar.xz",
+      "sha256": "102e1065030c6002acabd7f896eeba1462bf54b4d7393bac34b0308312868ec6",
+      "size": 215600
+    }
+  ],
+  "target": "powerpc-linux-gnuspe",
+  "authentication": "Ed25519 public-key only in hardware-rescue slice",
+  "crypto": "without OpenSSL: built-in Ed25519/Curve25519/ChaCha20; no RSA in this slice",
+  "signature_verification": "DSC/payload HTTPS and pinned SHA256; no independent DSC OpenPGP verification",
+  "runtime_scope": "source-built rescue SSH only; full desktop PAM/runtime closure remains later"
+}

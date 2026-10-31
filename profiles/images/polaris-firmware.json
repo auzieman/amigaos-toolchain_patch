@@ -1,0 +1,9 @@
+{
+  "package": "firmware-amd-graphics",
+  "version": "20250410-2",
+  "architecture": "all",
+  "url": "https://deb.debian.org/debian/pool/non-free-firmware/f/firmware-nonfree/firmware-amd-graphics_20250410-2_all.deb",
+  "sha256": "22fa89a699044d92e54c9a3b6d737da4f474245fa2001d3cbc039b74d56ac933",
+  "selection": "polaris10* and polaris11*; retain both until PCI revision overrides are resolved",
+  "license": "Preserve packaged copyright/license text; binary firmware is not a source-built SPE userspace library"
+}

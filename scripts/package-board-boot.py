@@ -9,9 +9,9 @@ a = p.parse_args()
 sha = lambda f: hashlib.sha256(f.read_bytes()).hexdigest()
 k = json.loads((a.kernel_results/'linux-receipt.json').read_text())
 s = json.loads((a.shell_results/'receipt.json').read_text())
-if k['status'] != 'compiled' or k.get('kernel_profile', 'tabor') != 'tabor':
+if k['status'] != 'compiled' or k.get('kernel_profile', 'tabor') not in ['tabor','tabor-live']:
     p.error('Compiled physical-board kernel required')
-if s['status'] != 'static-shell-initramfs-built':
+if s['status'] not in ['static-shell-initramfs-built','rescue-initramfs-extended']:
     p.error('Built source-based shell required')
 kernel = a.kernel_results/'vmlinux'
 dtb = a.kernel_results/'tabor-a1222.dtb'

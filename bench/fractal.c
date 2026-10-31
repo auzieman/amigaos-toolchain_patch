@@ -40,22 +40,32 @@ static u32 render(int mode){
  }
  return checksum;
 }
-void benchmark(void){
+int benchmark(void){
  text("FRACTAL_BEGIN width=128 height=96 max_iter=96 trials=3 warmup=1\n");
- if(soft_add(0x3fc00000u,0x40100000u)!=0x40700000u || spe_add(0x3fc00000u,0x40100000u)!=0x40700000u){text("FRACTAL_FAIL arithmetic precheck\n");return;}
+ if(soft_add(0x3fc00000u,0x40100000u)!=0x40700000u || spe_add(0x3fc00000u,0x40100000u)!=0x40700000u){text("FRACTAL_FAIL arithmetic precheck\n");return 1;}
  render(0);render(1);
  for(u32 trial=0;trial<3;trial++)for(u32 order=0;order<2;order++){
   u32 mode=order^(trial&1);struct stamp start,end;
-  if(!now(&start)){text("FRACTAL_FAIL clock\n");return;}
+  if(!now(&start)){text("FRACTAL_FAIL clock\n");return 1;}
   u32 sum=render(mode);
-  if(!now(&end)){text("FRACTAL_FAIL clock\n");return;}
+  if(!now(&end)){text("FRACTAL_FAIL clock\n");return 1;}
   text("FRACTAL_TIME mode=");text(mode?"SPE":"SOFT");text(" trial=");number(trial+1);text(" us=");number(elapsed(start,end));text(" checksum=");number(sum);text("\n");
  }
- for(u32 i=0;i<128*96;i++)if(pixels[0][i]!=pixels[1][i]){text("FRACTAL_FAIL pixel mismatch\n");return;}
+ for(u32 i=0;i<128*96;i++)if(pixels[0][i]!=pixels[1][i]){text("FRACTAL_FAIL pixel mismatch\n");return 1;}
  for(u32 mode=0;mode<2;mode++){
   text("FRACTAL_PIXELS mode=");text(mode?"SPE ":"SOFT ");
   for(u32 i=0;i<128*96;i++)hexbyte(pixels[mode][i]);text("\n");
  }
- text("FRACTAL_PASS identical escape-count images\nTABOR_QEMU_INIT_OK: fractal benchmark complete; full ABI/glibc/GL not tested.\n");
+ text("FRACTAL_PASS identical escape-count images\n");
+#ifdef TABOR_FRACTAL_CLI
+ text("FRACTAL_CLI_DONE full ABI/glibc/GL not tested.\n");
+#else
+ text("TABOR_QEMU_INIT_OK: fractal benchmark complete; full ABI/glibc/GL not tested.\n");
+#endif
+ return 0;
 }
+#ifdef TABOR_FRACTAL_CLI
+__asm__(".text\n.globl _start\n_start:\nbl benchmark\nli 0,1\nsc\n1: b 1b\n");
+#else
 __asm__(".text\n.globl _start\n_start:\nbl benchmark\n1: li 0,29\nsc\nb 1b\n");
+#endif
