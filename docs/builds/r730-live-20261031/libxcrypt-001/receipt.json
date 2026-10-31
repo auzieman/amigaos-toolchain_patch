@@ -1,0 +1,39 @@
+{
+  "status": "libxcrypt-installed-in-fresh-overlay",
+  "image_id": "sha256:484e7b0341f34f874b95af7bb76e37b346a0aa87a36822058d6ab8b4c03019c1",
+  "version": "1:4.4.38-1",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxcrypt_4.4.38-1.dsc",
+      "/work/libxcrypt-001/source"
+    ],
+    [
+      "autoreconf",
+      "-fi"
+    ],
+    [
+      "/work/libxcrypt-001/source/configure",
+      "--build=x86_64-linux-gnu",
+      "--host=powerpc-linux-gnuspe",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-shared",
+      "--enable-static"
+    ],
+    [
+      "make",
+      "-j2"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/libxcrypt-001/sysroot",
+      "install"
+    ]
+  ],
+  "compiler": "/tools/reference-001/bin/powerpc-linux-gnuspe-gcc --sysroot=/work/libxcrypt-001/sysroot -isystem /work/libxcrypt-001/sysroot/usr/include -B/work/libxcrypt-001/sysroot/usr/lib/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+  "libcrypt_sha256": "e5832f0b5c484573b099ea8c8b0870ac6ddd748a6abe7721287554938d74a1fa",
+  "header_sha256": "6f0623e910155766feb1b4c728591c9d446de81a454b860c0d553300d72e2b7c"
+}

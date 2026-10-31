@@ -1,0 +1,51 @@
+{
+  "status": "failed",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "source_sha256": "85b24c6a52c558a47d971ef521ab894323ba3ff067becc66351cfd432c82c0db",
+  "full_spe_abi_validated": false,
+  "physical_boot": false,
+  "flags": [
+    "--sysroot=/sysroot",
+    "-isystem",
+    "/sysroot/usr/include",
+    "-B/sysroot/usr/lib/",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-g0",
+    "-frounding-math",
+    "-static",
+    "-pthread"
+  ],
+  "binary_sha256": "793736ab53f0d5dcd08c35f066da65597955f957bb9a97fd6b8f6258594b1265",
+  "spe_single_arithmetic_present": true,
+  "spe_double_arithmetic_present": true,
+  "checks": {
+    "float32": true,
+    "float64": true,
+    "varargs": true,
+    "formatting": true,
+    "fenv": false,
+    "setjmp": true,
+    "signal": true,
+    "pthread_tls": true,
+    "ucontext": true
+  },
+  "check_status": {
+    "float32": "PASS",
+    "float64": "PASS",
+    "varargs": "PASS",
+    "formatting": "PASS",
+    "fenv": "FAIL",
+    "setjmp": "PASS",
+    "signal": "PASS",
+    "pthread_tls": "PASS",
+    "ucontext": "PASS"
+  },
+  "kernel_futex_missing": false,
+  "long_double_bits": 128,
+  "serial_sha256": "407d3a8b3b81aaefcab7a11034fa1be4629ea6b93ac16d618da86d8d57956a2e"
+}

@@ -36,3 +36,9 @@ for the ordinary owner account; sudo still requires authentication.
 
 References: [QEMU acceleration options](https://www.qemu.org/docs/master/system/invocation.html),
 [kernel nested KVM guidance](https://docs.kernel.org/virt/kvm/x86/running-nested-guests.html).
+
+The first larger Linux cycle now runs under
+`/srv/data1/tabor-build/linux-live-001`; see the
+[rescue-image workflow and VM132 reference](r730-live-image.md).
+R730 QEMU uses TCG for PPC and loopback-only forwarded SSH for the native-client
+probe. Build caches, toolchains and proprietary media remain outside Git.

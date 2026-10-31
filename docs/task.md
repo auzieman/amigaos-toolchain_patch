@@ -548,3 +548,43 @@ an independently validated compiler patch if needed. Modern SPE support is a
 working hypothesis only. No upstream writes, proprietary SDK imports or extra
 container/toolchain builds performed for this review. Larger Linux build remains
 the active implementation track.
+
+## 2026-10-31 — R730 larger Linux image / VM132 reference
+
+Returned to Linux `development`; kept the separate AmigaOS Docker/SPE work on
+its own branch. Inspected live VM132 read-only: amd64 E 0.27.1/Terminology
+1.14/Xorg/Mesa/LightDM, about 12 GiB used. Added a functional target profile;
+no x86 packages or VM disk were copied into the target rootfs.
+
+R730 `linux-live-001` now contains the retained reference tools/sysroot,
+verified Debian source caches and fresh constrained build iterations. Board
+kernel `tabor-live-001` compiled vmlinux/modules/dtbs with built-in USB keyboard,
+USB storage, wired network and amdgpu legacy DCE/framebuffer support. The
+original seed fragment is retained with its exact receipt hash; the newer
+fragment makes already-selected time32/multiuser/PTY/seccomp choices explicit.
+
+Built richer BusyBox/native init, Linux CLI fractal/ABI payload, pinned Polaris
+firmware, isolated libxcrypt sysroot overlay and static OpenSSH 10.0p1 with its
+auth/session helpers. New native init follows HDMI/serial console selection and
+starts DHCP/SSH independently. Key-only ordinary uid1000 login uses the existing
+operator public key; no client private key or baked-in SSH host key is included.
+
+QEMU `network-probe-003`, kernel `qemu-live-005`, initramfs `rescue-full-001`:
+background DHCP/SSH, native laptop key login, uid/home permissions, PTY and both
+CLI tests pass their selected probe assertions. All 12,288 fractal pixels match;
+three software and three explicit-SPE trials retained. Eight basic ABI checks
+pass, including pthread/TLS after legacy time32 support; fenv rounding remains
+FAIL. Probe PASS explicitly permits this known recorded ABI failure and does
+not assert full ABI acceptance. Earlier failed network probes exposed missing
+NET_CORE/legacy virtio transport in the reduced kernel; checked final settings
+now prevent that omission. Source/config/receipts and raw CLI outputs are under
+`docs/builds/r730-live-20261031`; full build trees/logs remain on R730.
+
+Packaged standard U-Boot payloads with ELF/hash/CRC/decompression checks; created
+a 2 GiB MBR/FAT32 file image and verified each boot file by filesystem readback.
+The downloaded local image also matches its complete SHA256. The authorized SanDisk
+write completed and the entire 2 GiB image readback matches SHA256
+`7ac3e5d2aae9a6cb901a320fca42f18f406f2851dd65dc47816c8f06c3f613ff`. No actual A1222 boot, display/GPU output,
+full floating ABI or E/Xorg/Mesa desktop is accepted. Native image is a hardware
+rescue increment, not the completed VM132 desktop. Next: manual temporary U-Boot boot with OBS capture, retain real board/network/ABI logs, then
+build graphical dependencies against the validated target ABI.

@@ -1,0 +1,145 @@
+{
+  "status": "static-openssh-cross-built-not-executed",
+  "image_id": "sha256:484e7b0341f34f874b95af7bb76e37b346a0aa87a36822058d6ab8b4c03019c1",
+  "source_version": "1:10.0p1-7+deb13u4",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/openssh_10.0p1-7+deb13u4.dsc",
+      "/work/openssh-004/source"
+    ],
+    [
+      "autoreconf",
+      "-fi"
+    ],
+    [
+      "/work/openssh-004/source/configure",
+      "--build=x86_64-linux-gnu",
+      "--host=powerpc-linux-gnuspe",
+      "--prefix=/usr",
+      "--sysconfdir=/etc/ssh",
+      "--libexecdir=/usr/lib/openssh",
+      "--with-privsep-user=sshd",
+      "--with-privsep-path=/var/empty",
+      "--with-sandbox=seccomp_filter",
+      "--without-openssl",
+      "--without-zlib",
+      "--without-pam",
+      "--without-selinux",
+      "--without-libedit",
+      "--without-ldns",
+      "--disable-security-key"
+    ],
+    [
+      "make",
+      "-j2"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/bin/ssh",
+      "/work/openssh-004/source/ssh"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/bin/ssh-keygen",
+      "/work/openssh-004/source/ssh-keygen"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/bin/scp",
+      "/work/openssh-004/source/scp"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/bin/sftp",
+      "/work/openssh-004/source/sftp"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/sbin/sshd",
+      "/work/openssh-004/source/sshd"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/lib/openssh/sshd-session",
+      "/work/openssh-004/source/sshd-session"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/lib/openssh/sshd-auth",
+      "/work/openssh-004/source/sshd-auth"
+    ],
+    [
+      "powerpc-linux-gnu-strip",
+      "-o",
+      "/work/openssh-004/payload/usr/lib/openssh/sftp-server",
+      "/work/openssh-004/source/sftp-server"
+    ]
+  ],
+  "physical_boot": false,
+  "runtime_scope": "source-built rescue SSH only; full desktop PAM/runtime closure remains later",
+  "compiler": "/tools/reference-001/bin/powerpc-linux-gnuspe-gcc --sysroot=/work/libxcrypt-001/sysroot -isystem /work/libxcrypt-001/sysroot/usr/include -B/work/libxcrypt-001/sysroot/usr/lib/ -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+  "files": [
+    {
+      "path": "usr/bin/ssh",
+      "sha256": "7095ba6c6ac7bd5abd6cad127233a23ebe2f6009c0fa0e6e6c2026b6788ae61b",
+      "mode": 493
+    },
+    {
+      "path": "usr/bin/ssh-keygen",
+      "sha256": "bd915f5d74b0bf4f1a24f9200a9ae2c92cc38309911c58c55d13721f5215f0ca",
+      "mode": 493
+    },
+    {
+      "path": "usr/bin/scp",
+      "sha256": "a5ed0485a7f71094f57d76d6f1653f18799cd9cc725629941a35ea988e968eb0",
+      "mode": 493
+    },
+    {
+      "path": "usr/bin/sftp",
+      "sha256": "840d8a260f755d8c0ebee9ab6cbcc6b513ddca1c86095fabc04ae0f26a9b7c39",
+      "mode": 493
+    },
+    {
+      "path": "usr/sbin/sshd",
+      "sha256": "0aaee1d4f41adcdcab3e3588844464d5694a1920841a060bba0c096cefab05c4",
+      "mode": 493
+    },
+    {
+      "path": "usr/lib/openssh/sshd-session",
+      "sha256": "7763f3eee51dfe895fb432f2f0dee7da21d5a43ca5aa3ca1ed1d3c3ca973d29d",
+      "mode": 493
+    },
+    {
+      "path": "usr/lib/openssh/sshd-auth",
+      "sha256": "d055aba0ba79154b66f0e37e1d977f7a5b66135b8062c92862fae9c5f54f5f69",
+      "mode": 493
+    },
+    {
+      "path": "usr/lib/openssh/sftp-server",
+      "sha256": "e5c887f320e95c017747bd22ab1f22839b895add855189a646891dad1a112b5e",
+      "mode": 493
+    },
+    {
+      "path": "usr/share/licenses/openssh/LICENCE",
+      "sha256": "5bb5b160726ef5756e4f32fe95b35249c294962419650f48d05134b486d27ccb",
+      "mode": 420
+    },
+    {
+      "path": "usr/share/licenses/openssh/debian-copyright",
+      "sha256": "af946edbe423f2af7cb2297e68ed177748461b3c8ecee9884ea087bea7b06f92",
+      "mode": 420
+    }
+  ],
+  "crypto": "Ed25519/Curve25519/ChaCha20 built in; no OpenSSL/RSA",
+  "sandbox": "seccomp_filter; kernel filter support required"
+}

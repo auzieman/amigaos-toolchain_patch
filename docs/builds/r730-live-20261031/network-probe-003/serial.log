@@ -1,0 +1,135 @@
+random: crng init done
+Memory CAM mapping: 256/256/256 Mb, residual: 256Mb
+Activating Kernel Userspace Execution Prevention
+Linux version 6.12.113 (tabor@lab) (powerpc-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #1 SMP 1970-01-01 00:00:00 UTC
+OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+Found initrd at 0xc4000000:0xc52fce4c
+Hardware name: QEMU ppce500 e500v2 0x80210022 QEMU e500
+printk: legacy bootconsole [udbg0] enabled
+CPU maps initialized for 1 thread per core
+-----------------------------------------------------
+phys_mem_size     = 0x30000000
+dcache_bsize      = 0x20
+icache_bsize      = 0x20
+cpu_features      = 0x0000000010010108
+  possible        = 0x0000000010010108
+  always          = 0x0000000010010108
+cpu_user_features = 0x84e08000 0x08000000
+mmu_features      = 0x00020010
+-----------------------------------------------------
+qemu_e500_setup_arch()
+barrier-nospec: using isync; sync as speculation barrier
+Zone ranges:
+  Normal   [mem 0x0000000000000000-0x000000002fffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000000000-0x000000002fffffff]
+Initmem setup node 0 [mem 0x0000000000000000-0x000000002fffffff]
+MMU: Allocated 1088 bytes of context maps for 255 contexts
+percpu: Embedded 9 pages/cpu s12684 r0 d24180 u36864
+Kernel command line: console=ttyS0,115200 rdinit=/init panic=-1
+Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 196608
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+Kernel virtual memory layout:
+  * 0xffbdf000..0xfffff000  : fixmap
+  * 0xf1000000..0xffbdf000  : vmalloc & ioremap
+SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+NR_IRQS: 512, nr_irqs: 512, preallocated irqs: 16
+mpic: Setting up MPIC " OpenPIC  " version 1.2 at fe0040000, max 2 CPUs
+mpic: ISU size: 256, shift: 8, mask: ff
+mpic: Initializing for 256 sources
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+clocksource: timebase mult[2800000] shift[24] registered
+Console: colour dummy device 80x25
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+mpic: requesting IPIs...
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+smp: Bringing up secondary CPUs ...
+smp: Brought up 1 node, 2 CPUs
+Memory: 749496K/786432K available (4980K kernel code, 584K rwdata, 740K rodata, 228K init, 259K bss, 34340K reserved, 0K cma-reserved)
+devtmpfs: initialized
+futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+             
+Found FSL PCI host bridge at 0x0000000fe0008000. Firmware bus number: 0->255
+PCI host bridge /pci@fe0008000 (primary) ranges:
+ MEM 0x0000000c00000000..0x0000000c1fffffff -> 0x00000000e0000000 
+  IO 0x0000000fe1000000..0x0000000fe100ffff -> 0x0000000000000000
+/pci@fe0008000: PCICSRBAR @ 0xdff00000
+setup_pci_atmu: end of DRAM 30000000
+PCI: Probing PCI hardware
+fsl-pci fe0008000.pci: PCI host bridge to bus 0000:00
+pci_bus 0000:00: root bus resource [io  0x0000-0xffff]
+pci_bus 0000:00: root bus resource [mem 0xc00000000-0xc1fffffff] (bus address [0xe0000000-0xffffffff])
+pci_bus 0000:00: root bus resource [bus 00-ff]
+pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to ff
+pci 0000:00:00.0: [1957:0030] type 00 class 0x0b2000 conventional PCI endpoint
+pci 0000:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+pci 0000:00:01.0: [1af4:1005] type 00 class 0x00ff00 conventional PCI endpoint
+pci 0000:00:01.0: BAR 0 [io  0x0000-0x001f]
+pci 0000:00:01.0: BAR 1 [mem 0x00000000-0x00000fff]
+pci 0000:00:01.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+pci 0000:00:02.0: [1af4:1000] type 00 class 0x020000 conventional PCI endpoint
+pci 0000:00:02.0: BAR 0 [io  0x0000-0x001f]
+pci 0000:00:02.0: BAR 1 [mem 0x00000000-0x00000fff]
+pci 0000:00:02.0: BAR 4 [mem 0x00000000-0x00003fff 64bit pref]
+pci 0000:00:02.0: ROM [mem 0x00000000-0x0003ffff pref]
+pci_bus 0000:00: busn_res: [bus 00-ff] end is updated to 00
+pci 0000:00:02.0: ROM [mem 0xc00000000-0xc0003ffff pref]: assigned
+pci 0000:00:01.0: BAR 4 [mem 0xc00040000-0xc00043fff 64bit pref]: assigned
+pci 0000:00:02.0: BAR 4 [mem 0xc00044000-0xc00047fff 64bit pref]: assigned
+pci 0000:00:01.0: BAR 1 [mem 0xc00048000-0xc00048fff]: assigned
+pci 0000:00:02.0: BAR 1 [mem 0xc00049000-0xc00049fff]: assigned
+pci 0000:00:01.0: BAR 0 [io  0x1000-0x101f]: assigned
+pci 0000:00:02.0: BAR 0 [io  0x1020-0x103f]: assigned
+pci_bus 0000:00: resource 4 [io  0x0000-0xffff]
+pci_bus 0000:00: resource 5 [mem 0xc00000000-0xc1fffffff]
+vgaarb: loaded
+clocksource: Switched to clocksource timebase
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+PCI: CLS 0 bytes, default 32
+Unpacking initramfs...
+workingset: timestamp_bits=30 max_order=18 bucket_order=0
+virtio-pci 0000:00:01.0: enabling device (0000 -> 0003)
+virtio-pci 0000:00:02.0: enabling device (0000 -> 0003)
+Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+printk: legacy console [ttyS0] disabled
+serial8250.0: ttyS0 at MMIO 0xfe0004500 (irq = 42, base_baud = 25000000) is a 16550A
+printk: legacy console [ttyS0] enabled
+printk: legacy console [ttyS0] enabled
+printk: legacy bootconsole [udbg0] disabled
+printk: legacy bootconsole [udbg0] disabled
+printk: legacy console [ttyS0] disabled
+printk: legacy console [ttyS0] enabled
+NET: Registered PF_PACKET protocol family
+Freeing initrd memory: 19440K
+Freeing unused kernel image (initmem) memory: 228K
+Kernel memory protection not selected by kernel config.
+Run /init as init process
+
+A1222 experimental SPE bootstrap shell
+SHELL_READY
+
+
+BusyBox v1.37.0 (2026-10-31 12:38:56 UTC) built-in shell (ash)
+
+# NETWORK_SSH_READY
+qemu-system-ppc: terminating on signal 15 from pid 162733 (python3)

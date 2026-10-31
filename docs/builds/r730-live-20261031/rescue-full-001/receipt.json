@@ -1,0 +1,398 @@
+{
+  "status": "rescue-initramfs-extended",
+  "base_receipt_sha256": "e082b5ee3ccfca9a2213073d4a37177381c63f7b1271fa12e1225be1490019c8",
+  "base_initramfs_sha256": "5347c526595680e44f5aad3fdaab8c979f7e327ffb245d549e9536a5e3e9d1bc",
+  "manifest_sha256": "4230c0321c8015b7a861a9b49d4260d8adb8efb5abff281fee6ed27665973598",
+  "files": [
+    {
+      "path": "bin/fractal-test",
+      "mode": 493,
+      "sha256": "c84d170ba5357db132aafaf24003cc12f3e1b422899b6abc9ef5388930c8b979"
+    },
+    {
+      "path": "bin/spe-abi-check",
+      "mode": 493,
+      "sha256": "793736ab53f0d5dcd08c35f066da65597955f957bb9a97fd6b8f6258594b1265"
+    },
+    {
+      "path": "etc/group",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "19ea68460772c05c52b588cb9ec622f4d06a2d8f947765db8db1f8a7de2084a0"
+    },
+    {
+      "path": "etc/hosts",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "081ef9d5367595d16e30b4b4549d9f43537320508b4ce0788963e10e4f808857"
+    },
+    {
+      "path": "etc/nsswitch.conf",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "3a5e37b3bee02d4ca90b9c6cfef0a2a2d75d296ed8de113d1204384950a1f51e"
+    },
+    {
+      "path": "etc/passwd",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9d1b97aa20795aa45053a1733d118b433424ed3baee52413c82d7d5c1f1f67aa"
+    },
+    {
+      "path": "etc/shadow",
+      "mode": 384,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9eb69b56fa6cdf45a8078458694114f5868610213d3eff0d4d706a4f8ffe5639"
+    },
+    {
+      "path": "etc/ssh/sshd_config",
+      "mode": 384,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "2ebfb095320d06a981b226f898c4e714dc8d540bc50c7ae7b63b967ca0263bc2"
+    },
+    {
+      "path": "etc/start-network",
+      "mode": 493,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "331ffbcacfbfcd524f38e6ee7f7413f51a384af45deaf6d1739a531527232062"
+    },
+    {
+      "path": "etc/start-ssh",
+      "mode": 493,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "bae726a589f8f093fb734d78cd64600ae1aa650885511c7648aef601c3114dfb"
+    },
+    {
+      "path": "etc/tabor-rescue.txt",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "4bb2ce5aafa5b204821a30bceaf31f2a498c69be4a6b44320c0c92448cbb7a88"
+    },
+    {
+      "path": "home/tabor/.ssh/authorized_keys",
+      "mode": 384,
+      "uid": 1000,
+      "gid": 1000,
+      "sha256": "b751ed49235c2776323dd3d77eff75c9f3bfbee34c04ed0c7b07ffe153f793c6"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_ce.bin",
+      "mode": 420,
+      "sha256": "d1664bd98b69bf21c2fb4e6654860e6648d2a202eeb2175e718982ffb7be1dc5"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_ce_2.bin",
+      "mode": 420,
+      "sha256": "790ca90f5afa001a858909619a222442bfaec1a1f63c47396d21e0097609e24a"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k2_smc.bin",
+      "mode": 420,
+      "sha256": "b5d34a4b0ea0d0c9c53dddcac93e9e01fe759f0ad9a0b0d0b4905e5a6b254d03"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k_mc.bin",
+      "mode": 420,
+      "sha256": "78a0e88d669cf91c09cd027ac3b5bd0c08ac126a8488092c567ecda21824e9ad"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k_smc.bin",
+      "mode": 420,
+      "sha256": "98fa36d74fa933a73419257daae924fda290a7208aa42584a9dd89e1cc44e05d"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mc.bin",
+      "mode": 420,
+      "sha256": "fff3926e5e5903a87d40d6f6b7c756bd8ecf6fd9c47fced867add1fdc9fe11b6"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_me.bin",
+      "mode": 420,
+      "sha256": "db550bf611ed416a93057b207014ee78b0abe90e5474995b56e915133ff4d1b0"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_me_2.bin",
+      "mode": 420,
+      "sha256": "35c778c82c006a28f129186c414c37d7acbdb23fefb4cb84c1f705886f372fdd"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec.bin",
+      "mode": 420,
+      "sha256": "c19c1e2e36b47c4a8c25d601f5ae04a26458d98c3000f851d1be5c3a0a424b07"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec2.bin",
+      "mode": 420,
+      "sha256": "c19c1e2e36b47c4a8c25d601f5ae04a26458d98c3000f851d1be5c3a0a424b07"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec2_2.bin",
+      "mode": 420,
+      "sha256": "67546c49317168a5ab33ba85503e9893f2dcd974f995402054a306dac246b64f"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec_2.bin",
+      "mode": 420,
+      "sha256": "d4914f1166e3b7af212837aaf8f393a155ce3f61f48bb08279c743a2ddea0b6a"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_pfp.bin",
+      "mode": 420,
+      "sha256": "066cf60af4cf266eb302c8d327513159d964e1bef9dacbb65a6b07483bbd440a"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_pfp_2.bin",
+      "mode": 420,
+      "sha256": "bf1ca44ceefd73df8a8e350540d8758d9041e9e2b9cd0bd77e647ed7151ed9eb"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_rlc.bin",
+      "mode": 420,
+      "sha256": "a5d4c2d3acc5c3c4988b95855fe21a5f682552b2b065f76439370835178ccbaf"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_sdma.bin",
+      "mode": 420,
+      "sha256": "e27b3ec976f87e32883b9190e653b20d27f9e77da8dd2d77eeb10c35ee9f1e61"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_sdma1.bin",
+      "mode": 420,
+      "sha256": "23dd73eb1316d40a681841b4d3d116c5cae6d8317cebe8f5e1f9e5dec6de5c87"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_smc.bin",
+      "mode": 420,
+      "sha256": "f7ac568d6e2098a26fc61fc321df1330f9d8952e9b0b47e0309f1d8e6b6727fb"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_smc_sk.bin",
+      "mode": 420,
+      "sha256": "09cc712ec2d30cac29e4b0606c3844d7eae15d6663f73d3f48a695e7324491c1"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_uvd.bin",
+      "mode": 420,
+      "sha256": "e05664b587a1585d98db3097cf4a55119ee4af2da68e65d3d43b3f57065a95fb"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_vce.bin",
+      "mode": 420,
+      "sha256": "3a6bffa5f94054b3593bbe1ad1ba07bde62fa3c4f0734c8cb9f39d901331b810"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_ce.bin",
+      "mode": 420,
+      "sha256": "d1664bd98b69bf21c2fb4e6654860e6648d2a202eeb2175e718982ffb7be1dc5"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_ce_2.bin",
+      "mode": 420,
+      "sha256": "790ca90f5afa001a858909619a222442bfaec1a1f63c47396d21e0097609e24a"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k2_smc.bin",
+      "mode": 420,
+      "sha256": "83dd69a87fdbba335b266d9970cb51c837f89fce33d24b493a8d4db5909d923a"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k_mc.bin",
+      "mode": 420,
+      "sha256": "64a2749ae228a5cd2084a877615519a0d18811068f803411545dd9774549b7cf"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k_smc.bin",
+      "mode": 420,
+      "sha256": "0224af84c74efe8a437ccac8c45f534bca8127ff532cef711ce7157c2ac9bd52"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mc.bin",
+      "mode": 420,
+      "sha256": "b75c34f2b5866128e007c81d4b077f07f21c724cebe8f19b6db5526a02435b6c"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_me.bin",
+      "mode": 420,
+      "sha256": "784ecf696e9a59b0baec4f010631c32f6bb0971a7965705660ca9244e728992b"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_me_2.bin",
+      "mode": 420,
+      "sha256": "75dbf9d8d38955de4589e6a2fa20ae22815ebbaa7cd4686ea756b5b519db39c4"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec.bin",
+      "mode": 420,
+      "sha256": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec2.bin",
+      "mode": 420,
+      "sha256": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec2_2.bin",
+      "mode": 420,
+      "sha256": "672b3cc2c5cc12d771b73a031a72641072706c23138a3182964e19ab6546a059"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec_2.bin",
+      "mode": 420,
+      "sha256": "47a976f67dcfb01287e0e8cc1ae252a1e89c1c816e26a4f5f0c8b48b5cbea754"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_pfp.bin",
+      "mode": 420,
+      "sha256": "ad2ca7d837f09f94491056af88e2d03de55d773a0f86fac238ebb9e13a0a88f8"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_pfp_2.bin",
+      "mode": 420,
+      "sha256": "22bf71e495e2b7d1c05956f59070151b27ac638dcfa6c35d7e71d9d0183cd08b"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_rlc.bin",
+      "mode": 420,
+      "sha256": "29fa9e98117f3ade4471987af3398c9d106df04605f8287f045e0950fe6a1fa1"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_sdma.bin",
+      "mode": 420,
+      "sha256": "e27b3ec976f87e32883b9190e653b20d27f9e77da8dd2d77eeb10c35ee9f1e61"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_sdma1.bin",
+      "mode": 420,
+      "sha256": "23dd73eb1316d40a681841b4d3d116c5cae6d8317cebe8f5e1f9e5dec6de5c87"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_smc.bin",
+      "mode": 420,
+      "sha256": "20142b588ada975151efb15e8f3efde254f6e7a453204d99659c314e43954aca"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_smc_sk.bin",
+      "mode": 420,
+      "sha256": "efa5e768ad6c7e2f754e6bb6b73248d7bd8e7306798eb9054b0f3f7a14223616"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_uvd.bin",
+      "mode": 420,
+      "sha256": "e05664b587a1585d98db3097cf4a55119ee4af2da68e65d3d43b3f57065a95fb"
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_vce.bin",
+      "mode": 420,
+      "sha256": "3a6bffa5f94054b3593bbe1ad1ba07bde62fa3c4f0734c8cb9f39d901331b810"
+    },
+    {
+      "path": "usr/bin/scp",
+      "mode": 493,
+      "sha256": "a5ed0485a7f71094f57d76d6f1653f18799cd9cc725629941a35ea988e968eb0"
+    },
+    {
+      "path": "usr/bin/sftp",
+      "mode": 493,
+      "sha256": "840d8a260f755d8c0ebee9ab6cbcc6b513ddca1c86095fabc04ae0f26a9b7c39"
+    },
+    {
+      "path": "usr/bin/ssh",
+      "mode": 493,
+      "sha256": "7095ba6c6ac7bd5abd6cad127233a23ebe2f6009c0fa0e6e6c2026b6788ae61b"
+    },
+    {
+      "path": "usr/bin/ssh-keygen",
+      "mode": 493,
+      "sha256": "bd915f5d74b0bf4f1a24f9200a9ae2c92cc38309911c58c55d13721f5215f0ca"
+    },
+    {
+      "path": "usr/lib/openssh/sftp-server",
+      "mode": 493,
+      "sha256": "e5c887f320e95c017747bd22ab1f22839b895add855189a646891dad1a112b5e"
+    },
+    {
+      "path": "usr/lib/openssh/sshd-auth",
+      "mode": 493,
+      "sha256": "d055aba0ba79154b66f0e37e1d977f7a5b66135b8062c92862fae9c5f54f5f69"
+    },
+    {
+      "path": "usr/lib/openssh/sshd-session",
+      "mode": 493,
+      "sha256": "7763f3eee51dfe895fb432f2f0dee7da21d5a43ca5aa3ca1ed1d3c3ca973d29d"
+    },
+    {
+      "path": "usr/sbin/sshd",
+      "mode": 493,
+      "sha256": "0aaee1d4f41adcdcab3e3588844464d5694a1920841a060bba0c096cefab05c4"
+    },
+    {
+      "path": "usr/share/licenses/busybox/LICENSE",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "bbfc9843646d483c334664f651c208b9839626891d8f17604db2146962f43548"
+    },
+    {
+      "path": "usr/share/licenses/firmware-amd-graphics/copyright",
+      "mode": 420,
+      "sha256": "f5d62266d99e91aeae9223a5b4f830ed5e917256672f50470ef868e0378ad6d8"
+    },
+    {
+      "path": "usr/share/licenses/gcc-runtime/COPYING.RUNTIME",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "9d6b43ce4d8de0c878bf16b54d8e7a10d9bd42b75178153e3af6a815bdc90f74"
+    },
+    {
+      "path": "usr/share/licenses/gcc-runtime/COPYING3",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903"
+    },
+    {
+      "path": "usr/share/licenses/glibc/COPYING.LIB",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "path": "usr/share/licenses/libxcrypt/COPYING.LIB",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "dc626520dcd53a22f727af3ee42c770e56c97a64fe3adb063799d8ab032fe551"
+    },
+    {
+      "path": "usr/share/licenses/libxcrypt/LICENSING",
+      "mode": 420,
+      "uid": 0,
+      "gid": 0,
+      "sha256": "f9b48b0bc67a92b752780710aa774cf08b62ec2ebaa3f4aebd00069fba6effd2"
+    },
+    {
+      "path": "usr/share/licenses/openssh/LICENCE",
+      "mode": 420,
+      "sha256": "5bb5b160726ef5756e4f32fe95b35249c294962419650f48d05134b486d27ccb"
+    },
+    {
+      "path": "usr/share/licenses/openssh/debian-copyright",
+      "mode": 420,
+      "sha256": "af946edbe423f2af7cb2297e68ed177748461b3c8ecee9884ea087bea7b06f92"
+    }
+  ],
+  "initramfs_sha256": "592fcbf6edbba6ce74e8618693b245084778578869b38801ac731cfdf81fdc4c",
+  "initramfs_bytes": 19910220,
+  "physical_boot": false
+}

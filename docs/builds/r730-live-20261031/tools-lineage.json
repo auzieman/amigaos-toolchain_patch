@@ -1,0 +1,22 @@
+{
+  "edge_oci_manifest_identity": "sha256:14e54601943b132a398ace86e677dfe440305206f454bb951c5cdbbecdd0d2ad",
+  "r730_classic_config_identity": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "rootfs_layers_identical": true,
+  "rootfs": {
+    "Type": "layers",
+    "Layers": [
+      "sha256:a5d6d345f6afa08d7c31272055746d60a838b290bfcc82c0a23e8e984d61a933",
+      "sha256:9c99f4e80b9ffb6558ce8aeb887e497bc5fa3218fea5c4a8968449256eada1c1",
+      "sha256:7418ca8ef20abea60ef69783d22281909184208b2e5697e41b295c7da86b6cf7",
+      "sha256:4a6e4d58d8fa26552ad8e8a6e6c8e900159d715971a2238626b1b095bc2790c8",
+      "sha256:53286a04e1268b6b442c14da8a32fba93682f6a6fc750270d6e24178da576eb9",
+      "sha256:be2f99dff1400e85863f5ee3cb3b5e994629876d210d8612cc2022a65a15af24",
+      "sha256:5e2765e948d1e06d2442d606c2292f53f1c25ab2a83e0e2680b04f7a42e047af"
+    ]
+  },
+  "inspect_files_sha256": {
+    "linux-tools-edge-inspect.json": "0d200bd38a319b871e3147deb5786bcb758c46d92d22e2d4f2ec7028e9f541f6",
+    "linux-tools-r730-inspect.json": "98ec5956536954e0cb5ff3533a956ec3d7adfcc39a71a7ec8fe7e85f8f7d2916"
+  },
+  "note": "Archive manifest/config blob linkage was separately verified during intake. Tooling was imported rather than rebuilt."
+}

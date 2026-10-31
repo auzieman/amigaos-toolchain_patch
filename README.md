@@ -27,8 +27,9 @@ identities and requirements remain to establish. Do not expand the current
 patch/build slice to those boards. Keep reusable toolchain machinery separate
 from board-specific profiles so later support can be added deliberately.
 
-Build execution targets BKC lab-edge with constrained jobs; the R730 is optional
-and not a dependency. The intended first hardware test is a minimal USB/rescue
+Build execution uses constrained BKC lab-edge jobs and the prepared R730.
+The [larger R730 rescue-image workflow](docs/r730-live-image.md) stages the
+physical test before the VM132-inspired desktop. The intended first hardware test is a minimal USB/rescue
 image after kernel and boot-wrapper validation. Record its userspace ABI
 explicitly; boot acceptance is separate from modern SPE/glibc acceptance.
 

@@ -1,0 +1,346 @@
+{
+  "status": "hardware-rescue-payload-built-not-desktop",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "physical_boot": false,
+  "commands": [
+    [
+      "powerpc-linux-gnu-gcc",
+      "-O2",
+      "-msoft-float",
+      "-mcpu=8548",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-msdata=none",
+      "-I/softfp",
+      "-c",
+      "/softfp/addsf3.c",
+      "-o",
+      "/work/live-payload-001/addsf3.c.o"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "-O2",
+      "-msoft-float",
+      "-mcpu=8548",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-msdata=none",
+      "-I/softfp",
+      "-c",
+      "/softfp/subsf3.c",
+      "-o",
+      "/work/live-payload-001/subsf3.c.o"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "-O2",
+      "-msoft-float",
+      "-mcpu=8548",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-msdata=none",
+      "-I/softfp",
+      "-c",
+      "/softfp/mulsf3.c",
+      "-o",
+      "/work/live-payload-001/mulsf3.c.o"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "-O2",
+      "-msoft-float",
+      "-mcpu=8548",
+      "-ffreestanding",
+      "-fno-builtin",
+      "-fno-stack-protector",
+      "-fno-pie",
+      "-msdata=none",
+      "-DTABOR_FRACTAL_CLI",
+      "-nostdlib",
+      "-static",
+      "-no-pie",
+      "-Wl,-e,_start",
+      "-I/project/bench",
+      "/project/bench/fractal.c",
+      "/work/live-payload-001/addsf3.c.o",
+      "/work/live-payload-001/subsf3.c.o",
+      "/work/live-payload-001/mulsf3.c.o",
+      "-o",
+      "/work/live-payload-001/payload/bin/fractal-test"
+    ],
+    [
+      "dpkg-deb",
+      "-x",
+      "/firmware/firmware-amd-graphics_20250410-2_all.deb",
+      "/work/live-payload-001/firmware-package"
+    ]
+  ],
+  "softfp_sha256": {
+    "addsf3.c": "0ab9b857fc4497580755551bb0198dad25e78c4c126e7dbaf9785ecfcc056a83",
+    "double.h": "e3615a18252c016ddab862d7007b7862c0ffb23d2c018676aa24fe7d8d9fe198",
+    "extended.h": "9fdd9aa9bbb17aaa5b634b346a6a0d9e396b9f8bd1635fb70a8674fdce68bb09",
+    "longlong.h": "208363195313c365e99bc3a4a4c69f5ca7c112e2d320f70378f820b83155ae2a",
+    "mulsf3.c": "2b6f389dd2c2e5960caaf70d39f8ab0d577b09eda0130e22cab7a4200b65c63c",
+    "op-1.h": "f36f74685f3192b5be48ec8b3ef7e8143686c296899bb3539326b40f4d50d928",
+    "op-2.h": "5e3c37f3c04b204ac7631e43dd36cf2ce32bea9a128558979c85f226fe8ce1bd",
+    "op-4.h": "00e8f1b5d669a231b33044cb653e9c02fe601f2f188fa87909f65c788386fcfd",
+    "op-8.h": "24bb63e18d0db88b8615d73f0a4571a473d0ad7cbbb7270e7f695c0f2db80db3",
+    "op-common.h": "01970474c5e0d9582463dafff5fca4b357538c86d1980555f7667004fae933ee",
+    "quad.h": "a6bd07e542cc278998e3b09cef4d65a14399f23f94f4a129cfe2a70bd99e60ff",
+    "sfp-machine.h": "5efd20a57620d98fe6c684060647db7950eaf7bcf9554effb63fcd7925f69db8",
+    "single.h": "96503bd02173fda7e1726307a917a4e0e927a375267b31a7902003f5223e0bdd",
+    "soft-fp.h": "0ac9da41d576b17c98f6a8e2d8406073a13e7c7a0b13bd996813d3b0be99be17",
+    "subsf3.c": "743b4b446c5152d892a77033c941f0cbbeb5a39553b9fb671bfc70c5a633a2a5"
+  },
+  "firmware_input": {
+    "package": "firmware-amd-graphics",
+    "version": "20250410-2",
+    "architecture": "all",
+    "url": "https://deb.debian.org/debian/pool/non-free-firmware/f/firmware-nonfree/firmware-amd-graphics_20250410-2_all.deb",
+    "sha256": "22fa89a699044d92e54c9a3b6d737da4f474245fa2001d3cbc039b74d56ac933",
+    "selection": "polaris10* and polaris11*; retain both until PCI revision overrides are resolved",
+    "license": "Preserve packaged copyright/license text; binary firmware is not a source-built SPE userspace library"
+  },
+  "abi_validation_status": "failed",
+  "abi_receipt_sha256": "5a374376d3a02889304fb19ba885ccaf552626b0554aff05e86a7a09e5a9a12a",
+  "fractal_source_sha256": "2f78045e7e1919b6e7581c9b8dd5647f636712351bd9b01ea2f2db4f45f0c4d6",
+  "fractal_binary_sha256": "c84d170ba5357db132aafaf24003cc12f3e1b422899b6abc9ef5388930c8b979",
+  "files": [
+    {
+      "path": "bin/fractal-test",
+      "sha256": "c84d170ba5357db132aafaf24003cc12f3e1b422899b6abc9ef5388930c8b979",
+      "mode": 493
+    },
+    {
+      "path": "bin/spe-abi-check",
+      "sha256": "793736ab53f0d5dcd08c35f066da65597955f957bb9a97fd6b8f6258594b1265",
+      "mode": 493
+    },
+    {
+      "path": "etc/tabor-rescue.txt",
+      "sha256": "58abb71ea9cd345f91526dc6322d1af0712798aefd5d68ae430745c4858a2d25",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_ce.bin",
+      "sha256": "d1664bd98b69bf21c2fb4e6654860e6648d2a202eeb2175e718982ffb7be1dc5",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_ce_2.bin",
+      "sha256": "790ca90f5afa001a858909619a222442bfaec1a1f63c47396d21e0097609e24a",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k2_smc.bin",
+      "sha256": "b5d34a4b0ea0d0c9c53dddcac93e9e01fe759f0ad9a0b0d0b4905e5a6b254d03",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k_mc.bin",
+      "sha256": "78a0e88d669cf91c09cd027ac3b5bd0c08ac126a8488092c567ecda21824e9ad",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_k_smc.bin",
+      "sha256": "98fa36d74fa933a73419257daae924fda290a7208aa42584a9dd89e1cc44e05d",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mc.bin",
+      "sha256": "fff3926e5e5903a87d40d6f6b7c756bd8ecf6fd9c47fced867add1fdc9fe11b6",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_me.bin",
+      "sha256": "db550bf611ed416a93057b207014ee78b0abe90e5474995b56e915133ff4d1b0",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_me_2.bin",
+      "sha256": "35c778c82c006a28f129186c414c37d7acbdb23fefb4cb84c1f705886f372fdd",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec.bin",
+      "sha256": "c19c1e2e36b47c4a8c25d601f5ae04a26458d98c3000f851d1be5c3a0a424b07",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec2.bin",
+      "sha256": "c19c1e2e36b47c4a8c25d601f5ae04a26458d98c3000f851d1be5c3a0a424b07",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec2_2.bin",
+      "sha256": "67546c49317168a5ab33ba85503e9893f2dcd974f995402054a306dac246b64f",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_mec_2.bin",
+      "sha256": "d4914f1166e3b7af212837aaf8f393a155ce3f61f48bb08279c743a2ddea0b6a",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_pfp.bin",
+      "sha256": "066cf60af4cf266eb302c8d327513159d964e1bef9dacbb65a6b07483bbd440a",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_pfp_2.bin",
+      "sha256": "bf1ca44ceefd73df8a8e350540d8758d9041e9e2b9cd0bd77e647ed7151ed9eb",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_rlc.bin",
+      "sha256": "a5d4c2d3acc5c3c4988b95855fe21a5f682552b2b065f76439370835178ccbaf",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_sdma.bin",
+      "sha256": "e27b3ec976f87e32883b9190e653b20d27f9e77da8dd2d77eeb10c35ee9f1e61",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_sdma1.bin",
+      "sha256": "23dd73eb1316d40a681841b4d3d116c5cae6d8317cebe8f5e1f9e5dec6de5c87",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_smc.bin",
+      "sha256": "f7ac568d6e2098a26fc61fc321df1330f9d8952e9b0b47e0309f1d8e6b6727fb",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_smc_sk.bin",
+      "sha256": "09cc712ec2d30cac29e4b0606c3844d7eae15d6663f73d3f48a695e7324491c1",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_uvd.bin",
+      "sha256": "e05664b587a1585d98db3097cf4a55119ee4af2da68e65d3d43b3f57065a95fb",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris10_vce.bin",
+      "sha256": "3a6bffa5f94054b3593bbe1ad1ba07bde62fa3c4f0734c8cb9f39d901331b810",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_ce.bin",
+      "sha256": "d1664bd98b69bf21c2fb4e6654860e6648d2a202eeb2175e718982ffb7be1dc5",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_ce_2.bin",
+      "sha256": "790ca90f5afa001a858909619a222442bfaec1a1f63c47396d21e0097609e24a",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k2_smc.bin",
+      "sha256": "83dd69a87fdbba335b266d9970cb51c837f89fce33d24b493a8d4db5909d923a",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k_mc.bin",
+      "sha256": "64a2749ae228a5cd2084a877615519a0d18811068f803411545dd9774549b7cf",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_k_smc.bin",
+      "sha256": "0224af84c74efe8a437ccac8c45f534bca8127ff532cef711ce7157c2ac9bd52",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mc.bin",
+      "sha256": "b75c34f2b5866128e007c81d4b077f07f21c724cebe8f19b6db5526a02435b6c",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_me.bin",
+      "sha256": "784ecf696e9a59b0baec4f010631c32f6bb0971a7965705660ca9244e728992b",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_me_2.bin",
+      "sha256": "75dbf9d8d38955de4589e6a2fa20ae22815ebbaa7cd4686ea756b5b519db39c4",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec.bin",
+      "sha256": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec2.bin",
+      "sha256": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec2_2.bin",
+      "sha256": "672b3cc2c5cc12d771b73a031a72641072706c23138a3182964e19ab6546a059",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_mec_2.bin",
+      "sha256": "47a976f67dcfb01287e0e8cc1ae252a1e89c1c816e26a4f5f0c8b48b5cbea754",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_pfp.bin",
+      "sha256": "ad2ca7d837f09f94491056af88e2d03de55d773a0f86fac238ebb9e13a0a88f8",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_pfp_2.bin",
+      "sha256": "22bf71e495e2b7d1c05956f59070151b27ac638dcfa6c35d7e71d9d0183cd08b",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_rlc.bin",
+      "sha256": "29fa9e98117f3ade4471987af3398c9d106df04605f8287f045e0950fe6a1fa1",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_sdma.bin",
+      "sha256": "e27b3ec976f87e32883b9190e653b20d27f9e77da8dd2d77eeb10c35ee9f1e61",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_sdma1.bin",
+      "sha256": "23dd73eb1316d40a681841b4d3d116c5cae6d8317cebe8f5e1f9e5dec6de5c87",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_smc.bin",
+      "sha256": "20142b588ada975151efb15e8f3efde254f6e7a453204d99659c314e43954aca",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_smc_sk.bin",
+      "sha256": "efa5e768ad6c7e2f754e6bb6b73248d7bd8e7306798eb9054b0f3f7a14223616",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_uvd.bin",
+      "sha256": "e05664b587a1585d98db3097cf4a55119ee4af2da68e65d3d43b3f57065a95fb",
+      "mode": 420
+    },
+    {
+      "path": "lib/firmware/amdgpu/polaris11_vce.bin",
+      "sha256": "3a6bffa5f94054b3593bbe1ad1ba07bde62fa3c4f0734c8cb9f39d901331b810",
+      "mode": 420
+    },
+    {
+      "path": "usr/share/licenses/firmware-amd-graphics/copyright",
+      "sha256": "f5d62266d99e91aeae9223a5b4f830ed5e917256672f50470ef868e0378ad6d8",
+      "mode": 420
+    }
+  ]
+}

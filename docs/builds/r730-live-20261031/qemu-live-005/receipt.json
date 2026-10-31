@@ -1,0 +1,117 @@
+{
+  "component": "linux",
+  "version": "6.12.113-1",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "status": "compiled",
+  "mode": "build",
+  "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "series_sha256": "1d231e0e0ae8cb5d8108344685962fbfe69fc66fb7e96321f3ef1e0fd0d3f7b6",
+  "patches": {
+    "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4"
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/linux_6.12.113-1.dsc",
+      "/work/qemu-live-005/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "dpkg-query",
+      "-W"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "--version"
+    ],
+    [
+      "powerpc-linux-gnu-ld",
+      "--version"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/qemu-live-005/source",
+      "O=/work/qemu-live-005/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "KCONFIG_ALLCONFIG=/project/profiles/qemu/e500v2-live.config",
+      "allnoconfig"
+    ],
+    [
+      "/work/qemu-live-005/source/scripts/config",
+      "--file",
+      "/work/qemu-live-005/output/.config",
+      "--enable",
+      "TABOR",
+      "--enable",
+      "SPE",
+      "--enable",
+      "DEVTMPFS",
+      "--enable",
+      "DEVTMPFS_MOUNT",
+      "--enable",
+      "DEBUG_INFO_NONE",
+      "--disable",
+      "DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT",
+      "--disable",
+      "DEBUG_INFO",
+      "--disable",
+      "DEBUG_INFO_BTF"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/qemu-live-005/source",
+      "O=/work/qemu-live-005/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "olddefconfig"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/qemu-live-005/source",
+      "O=/work/qemu-live-005/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "-j4",
+      "arch/powerpc/platforms/85xx/tabor.o",
+      "fsl/tabor-a1222.dtb"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/qemu-live-005/source",
+      "O=/work/qemu-live-005/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "-j4",
+      "vmlinux"
+    ]
+  ],
+  "kernel_profile": "qemu-live",
+  "boot_tested": false,
+  "spe_userspace_validated": false,
+  "config_seed_sha256": "88a89eef66e98699b38f304785a7c1ce77b5f005c7172ad8dc3bacc6433fb26e",
+  "config_sha256": "f590819a540a27c077abfa32e461ba236d3b51e6d80867915fe5c76ca3fd028c",
+  "artifacts": {
+    "vmlinux": "7bcf30d7391c6c72dd803993c16ec3052b12f3e2e4e17ea5579dae73135be02e",
+    "System.map": "8640835e160a68a7a7f1f54b85f9df4b8c5bedbc9c042e17c52f93e5e8e7cd99",
+    ".config": "f590819a540a27c077abfa32e461ba236d3b51e6d80867915fe5c76ca3fd028c",
+    "arch/powerpc/boot/dts/fsl/tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+  },
+  "cache_reverified": true
+}

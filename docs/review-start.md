@@ -13,6 +13,10 @@ The [minimal image package plan](minimal-package-plan.md) records the requested
 8 GiB/Radeon target, staged E/GL payload and optional browser, without claiming
 a completed target dependency solution or image.
 
+Current Linux increment: [R730 rescue-image workflow](r730-live-image.md),
+with [native SSH/CLI evidence](builds/r730-live-20261031/results-ascii.txt).
+The VM132-inspired desktop remains a subsequent source-built increment.
+
 ## Prompts and workflows
 
 - [.agents/prompts](../.agents/prompts): intake, baseline kernel, kernel

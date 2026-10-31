@@ -170,3 +170,21 @@ controller/driver and USB keyboard module inclusion still need resolution
 before writing the authorized SanDisk. User has Elgato; device is detected,
 frame reads failed. R730 is booting its expected Trixie image; changed old-address
 SSH key means OS identity is not yet verified, and no work was deployed there.
+
+## 2026-10-31 — larger rescue image built on R730
+
+[Workflow and VM132 target](r730-live-image.md), implementation `4fe159f`.
+R730 now builds fresh Linux iterations; board kernel, richer RAM rescue image,
+Polaris firmware and static key-only OpenSSH are assembled into a verified
+2 GiB FAT32 boot image. This is the shell-first increment toward the E desktop.
+
+[Native SSH/QEMU evidence](builds/r730-live-20261031/network-probe-003/receipt.json)
+passes key login, uid1000/home permissions, PTY and matched CLI fractal execution.
+[ASCII results](builds/r730-live-20261031/results-ascii.txt) record identical
+pixels and emulator-only timings. Eight basic ABI checks pass, including
+pthread/TLS; fenv rounding still fails. No complete ABI or physical/GPU claim.
+Early network failures and exact final config are retained alongside successes.
+
+The authorized SanDisk write is complete: [full-image readback receipt](builds/r730-live-20261031/usb-write-receipt.json)
+matches the file image SHA256. [Temporary boot commands](builds/r730-live-20261031/BOOT-README.txt)
+are ready for the real-board trial; saved firmware settings remain unchanged.

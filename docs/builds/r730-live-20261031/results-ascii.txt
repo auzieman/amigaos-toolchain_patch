@@ -1,0 +1,10 @@
+R730 QEMU e500v2, 2 vCPUs, 1 GiB; NOT native A1222 performance
+Native laptop SSH into the source-built Linux rescue guest
+
+SOFT trials us: 327520, 327805, 328561; median 327805 us
+SPE  trials us: 78048, 77440, 132593; median 78048 us
+Median software/SPE ratio: 4.20x (emulator only)
+Image equality: PASS, 12288/12288 pixels; FNV32 abd5de74 both paths
+SSH key login, uid1000/home write, PTY: PASS
+ABI: 8 PASS, fenv FAIL; full SPE ABI NOT accepted
+Physical board/graphics/GL: NOT tested
