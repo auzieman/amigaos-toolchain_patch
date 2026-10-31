@@ -19,3 +19,9 @@ results and docs/task.md for detailed active work. Update review-start.md when
 acceptance changes. Cached source, SDK/media and generated build trees stay out
 of commits. Submission and retention scripts are lab-specific; the generic
 Docker/iteration runners should remain inspectable independently.
+
+Track reproducible build/runtime failures in this private repository's GitHub
+issues as work proceeds. Include the failing iteration, exact component/ABI,
+observed error, evidence, proposed correction and a bounded validation gate.
+Link correction commits and raw results; close only after that gate passes.
+Keep unresolved ABI failures open even when later application builds succeed.

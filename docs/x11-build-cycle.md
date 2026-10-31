@@ -40,3 +40,57 @@ build ends; that alone does not mean compilation is active.
 Still required: X11 runtime/link checks, font dependencies, native EFL generators,
 EFL/E/Terminology and Xorg server plus display/input drivers. Keep the floating
 rounding failure, full ABI gate and physical U-Boot/HDMI validation explicit.
+
+## Follow-up: complete client chain and protocol proof
+
+Fresh iteration002 failed at Xlib linking: installed libxcb libtool metadata
+contained an absolute `/usr/lib/libXau.la` dependency that bypassed the target
+stage. Iteration003 removes installed public-library `.la` files from the new
+stage (including inherited libpng metadata), retaining their path/hash in the
+receipt. This follows [Debian shared-library policy](https://www.debian.org/doc/debian-policy/ch-files.html).
+These public libraries are not libltdl plugins; this is not a blanket rule for
+all future plugin metadata. Accepted input stages remain unchanged.
+
+Xlib then built. Iteration003 next stopped at libXext's configure run-test for
+zero-size allocation while cross compiling. `bench/x11-alloc-check.c` reproduces
+the exact configure predicate: **any** of malloc(0), realloc(malloc(10),0), or
+calloc(0,10) returning NULL. SPE guest measurements were 0/1/0 respectively,
+so the measured answer is yes. This is scoped in
+`profiles/x11-configure-cache.json`, hash-pinned by the runner; it is not guessed
+from host libc or generalized to another target sysroot.
+
+Fresh iteration004 finishes all 22 components and verifies 48 staged ELF files
+as PPC32 big-endian. Receipts, failed log excerpts, allocation proof and build
+checkpoints are under [retained evidence](builds/r730-x11-20261031/completed-004.json).
+No upstream source, compiler/backend or libc patch was necessary for these
+build-system failures. Nonfatal compiler/documentation warnings are retained.
+
+`build-x11-client-probe.py` links the client test with the resulting target
+libraries and checks every recursively needed shared object before staging a
+stripped runtime closure. `probe-x11-client.py` uploads those files to a unique
+ordinary-user guest directory; LD_LIBRARY_PATH affects only this invocation.
+The existing guest rootfs/system libraries and physical USB remain unchanged.
+
+Actual SPE QEMU execution passes:
+
+- Xlib creates/fills a pixmap and reads back every pixel accurately.
+- Render/RandR/XFixes version query/replies succeed.
+- A separate XCB connection completes its request/reply.
+
+[Raw protocol output](builds/r730-x11-20261031/protocol-guest.log) and
+[runtime receipt](builds/r730-x11-20261031/protocol-receipt.json) distinguish this
+from target Xorg acceptance. The server was native amd64 Xvfb in a separate
+container, image
+`sha256:7173c89674284fe014d0ffafb6d603f2e5d698577fe89882ce20a84c2e1a31fb`;
+its package versions are retained. It ran as display117, 640x480x24, TCP6117,
+published only on R730 loopback127.0.0.1 with access control disabled for this
+isolated lab probe. QEMU user networking reaches that endpoint at10.0.2.2:117.
+The server container is stopped after the probe. Native server Mesa dependencies
+are test tooling only; none enter the SPE runtime payload or qualify target GPU.
+
+GitHub issues: [libtool path](https://github.com/auzieman/amigaos-toolchain_patch/issues/1),
+[allocation configure check](https://github.com/auzieman/amigaos-toolchain_patch/issues/2),
+[unresolved fenv arithmetic](https://github.com/auzieman/amigaos-toolchain_patch/issues/3).
+The first two have passed their selected build/protocol validation. The third
+remains open. Xorg server/drivers, native EFL generators, fonts and E desktop
+still need their build/runtime stages; no physical display or full ABI claim.

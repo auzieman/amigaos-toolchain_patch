@@ -247,3 +247,18 @@ Corrected notice handling; fresh002 compiles against the accepted read-only SPE
 compiler/libc and source-built software prerequisites. Live receipts expose
 active component/status; desktop4 log view now follows the latest iteration
 with explicit state. No Xorg/E session or full ABI acceptance claimed.
+
+
+## 2026-10-31 — X11 cross-build blockers fixed and protocol tests pass
+
+Fresh004 builds all 22 X11 client components and checks 48 target ELF files.
+Fixed stale installed public-library libtool metadata; measured Xorg allocation
+configure predicate on the SPE guest before setting scoped cache answer. Failed
+002/003 receipts and output remain. No upstream ABI/source patch required.
+SPE QEMU client passes pixel readback, Render/RandR/XFixes queries and XCB
+request/reply against a separate native Xvfb server, now stopped. See
+[x11-build-cycle.md](x11-build-cycle.md) and its raw evidence links.
+
+GitHub issues1/2 track these corrections; issue3 retains unresolved fenv failure.
+Continue source-built fonts, native EFL generators and Xorg/E stages; no target
+server, physical GPU/HDMI or complete ABI acceptance follows from client proof.

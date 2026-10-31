@@ -11,6 +11,16 @@ stage=a.work/'stage';shutil.copytree(a.base_stage,stage,symlinks=True)
 cc=a.tools/'bin/powerpc-linux-gnuspe-gcc';flags=f'--sysroot={a.sysroot} -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 -g0'
 env=os.environ.copy();env.update(PATH=str(a.tools/'bin')+':'+env['PATH'],CC=str(cc),AR=str(a.tools/'bin/powerpc-linux-gnuspe-ar'),RANLIB=str(a.tools/'bin/powerpc-linux-gnuspe-ranlib'),CFLAGS=flags,CPPFLAGS=f'--sysroot={a.sysroot} -I{stage}/usr/include',LDFLAGS=f'-L{stage}/usr/lib -Wl,-rpath-link,{stage}/usr/lib',PKG_CONFIG_SYSROOT_DIR=str(stage),PKG_CONFIG_LIBDIR=str(stage/'usr/lib/pkgconfig')+':'+str(stage/'usr/share/pkgconfig'),PYTHONPATH=str(stage/'usr/share/xcb-proto/python'))
 r={'status':'running','started_unix':time.time(),'image_id':a.image_id,'lock_sha256':sha(lockpath),'recipe_sha256':sha(Path(__file__)),'compiler_sha256':sha(cc),'flags':flags,'components':{},'commands':[],'physical_boot':False,'X11_server_tested':False}
+cache_path=a.project/'profiles/x11-configure-cache.json'
+cache_values=json.loads(cache_path.read_text())['values']
+assert set(cache_values)=={'xorg_cv_malloc0_returns_null'} and cache_values['xorg_cv_malloc0_returns_null'] in ['yes','no']
+env.update(cache_values);r['configure_cache_sha256']=sha(cache_path);r['configure_cache']=cache_values
+def prune_public_libtool_metadata():
+ # This stage contains public link libraries, not libltdl plugins. Absolute
+ # dependency_libs entries bypass DESTDIR; use ELF and pkg-config instead.
+ for archive in sorted((stage/'usr/lib').glob('*.la')):
+  r.setdefault('removed_libtool_metadata',[]).append({'path':str(archive.relative_to(stage)),'sha256':sha(archive)})
+  archive.unlink()
 def save():
  tmp=a.work/'receipt.json.tmp';tmp.write_text(json.dumps(r,indent=2)+'\n');tmp.replace(a.work/'receipt.json')
 def run(cmd,cwd):
@@ -18,6 +28,7 @@ def run(cmd,cwd):
  subprocess.run(cmd,cwd=cwd,env=env,stdout=log,stderr=subprocess.STDOUT,check=True)
 try:
  with (a.work/'build.log').open('w') as log:
+  prune_public_libtool_metadata()
   for name,comp in lock['components'].items():
    r['active_component']=name;save();print('BUILD_START',name,comp['version'],flush=True)
    for f in comp['files']:
@@ -33,6 +44,7 @@ try:
    if name=='libx11':opts+=['--disable-specs','--without-xmlto','--without-fop','--disable-xf86bigfont']
    if not (src/'configure').is_file():run(['autoreconf','-fi'],src)
    run(['./configure',*opts],src);run(['make','-j'+str(a.jobs)],src);run(['make','DESTDIR='+str(stage),'install'],src)
+   prune_public_libtool_metadata()
    r['components'][name]={'status':'built','version':comp['version'],'copyright_sha256':sha(copyright)};save();print('BUILD_PASS',name,flush=True)
   r['elfs']={}
   for f in stage.rglob('*'):

@@ -1,0 +1,7 @@
+# Native headless X server for SPE client protocol tests, not target runtime.
+ARG DESKTOP_TOOLS_IMAGE
+FROM ${DESKTOP_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends xvfb xfonts-base \
+    && dpkg-query -W > /opt/tabor-x11-probe-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["Xvfb"]

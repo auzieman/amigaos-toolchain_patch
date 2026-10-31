@@ -1,0 +1,8 @@
+{
+  "scope": "experimental restored glibc2.41 SPE sysroot only",
+  "values": {
+    "xorg_cv_malloc0_returns_null": "yes"
+  },
+  "evidence": "docs/builds/r730-x11-20261031/alloc-probe",
+  "predicate": "malloc(0)==NULL OR realloc(malloc(10),0)==NULL OR calloc(0,10)==NULL; actual Xorg configure test"
+}

@@ -1,0 +1,73 @@
+{
+  "status": "probe-linked-closure-checked-not-executed",
+  "source_sha256": "8167bf7077072fc3fdc70fa1dba3aac0a96b5474f0d30792769e089230b91999",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-I/work/x11-clients-004/stage/usr/include",
+    "-L/work/x11-clients-004/stage/usr/lib",
+    "-Wl,-rpath-link,/work/x11-clients-004/stage/usr/lib"
+  ],
+  "libraries": {
+    "libc.so.6": {
+      "path": "/sysroot/lib/libc.so.6",
+      "sha256": "ba1f317ff2580b5f97daea97c7cf3b49af001d007460f0f71b9334e2d8b6b63a"
+    },
+    "ld.so.1": {
+      "path": "/sysroot/lib/ld.so.1",
+      "sha256": "7c6a84dc183889f16d195ee036ac8dcb438c7d1f555797abc880b1f1b5857e37"
+    },
+    "libxcb.so.1": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libxcb.so.1.1.0",
+      "sha256": "48ad37995e202af7fb283c82f54a71cf8c0b84c74fb73d4c55a62737bf654085"
+    },
+    "libXdmcp.so.6": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXdmcp.so.6.0.0",
+      "sha256": "4c1750415b5a29a2e95ffc645238cb843ef724ae545299697e7d4092cc5602cc"
+    },
+    "libXau.so.6": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXau.so.6.0.0",
+      "sha256": "0300a79269b3dd4c2dbf155ac6a29d9c1687064c9786addcf008afd6079dca4c"
+    },
+    "libX11.so.6": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libX11.so.6.4.0",
+      "sha256": "df6a3198fb216eba45fd8dafd3add26d871a9d2bc4ab69e4374ad7e175fd11f3"
+    },
+    "libXfixes.so.3": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXfixes.so.3.1.0",
+      "sha256": "ad1fcd1a051a5bf29f7e24981e7bb8e507fa4760e602915b3860f9a09fa851c3"
+    },
+    "libXrandr.so.2": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXrandr.so.2.2.0",
+      "sha256": "a95a75ff14ab7985a0d4b455bc7d80f353c5cc29f560cc801f6ce56b1a2b1813"
+    },
+    "libXrender.so.1": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXrender.so.1.3.0",
+      "sha256": "288810f7b0f7281712f67b4295cb5ce8d4f14d2c9e07976b7e6d042f2794e7a2"
+    },
+    "libXext.so.6": {
+      "path": "/work/x11-clients-004/stage/usr/lib/libXext.so.6.4.0",
+      "sha256": "6f1cd5e2826ca088f426f8336c9455a7cb6b29e4fc7662b6fd80f601be02205c"
+    }
+  },
+  "physical_boot": false,
+  "target_Xorg_tested": false,
+  "files": {
+    "x11-client-check": "aceeff2e58bc1c127ad8fcca73c8664bc085bb22dae39b647c778af647941027",
+    "lib/libX11.so.6": "dc50dff319ad5fbd1ad42116527fac18ad26a899f82b7346ddd74b249c8e738d",
+    "lib/ld.so.1": "55612fd53c0a53237e6c05462047c6f23b77c10ecfa26dd34ad8e436d27ab44c",
+    "lib/libXdmcp.so.6": "6464d707795b12ef0bf093df5acee43cf0bd2684c0b433670e5520ef8ac7fa8c",
+    "lib/libXrender.so.1": "db62075d7e652a0140531147f331362da467fd577b37fc368976be268f714fef",
+    "lib/libXrandr.so.2": "edee2ebc60a6abd98dc02e6676978a4e92523ee0cd4a564bfbf8ac5df582653d",
+    "lib/libXau.so.6": "b962f9c3322bdd2ed492526a2f40fe8c120f93369d6b5097b1008915af353432",
+    "lib/libXfixes.so.3": "fa0a0069031a91bb874c39c20effe9416376a7c4cb35a86e889eb16c04eff01d",
+    "lib/libc.so.6": "22910415be8c889acc096910605542dbcaafe637a7addfa08676dad784dff699",
+    "lib/libXext.so.6": "c8737d60ed707df7bd71583b60a257d042ce81709cc01765be6cb67aa811546a",
+    "lib/libxcb.so.1": "b28f23deb2af4c69b295f61858e3b8fa7031feacef7c7ae590a8663d017a25d5"
+  }
+}

@@ -1,0 +1,50 @@
+In file included from Xrm.c:61:
+locking.h:38: warning: "xfree" redefined
+ #define xfree(s) Xfree(s)
+ 
+In file included from ../include/X11/Xlibint.h:47,
+                 from Xrm.c:57:
+/work/x11-clients-002/stage/usr/include/X11/Xthreads.h:37: note: this is the location of the previous definition
+ #  define xfree free
+ 
+Xrm.c: In function 'PutEntry':
+Xrm.c:900:15: warning: logical not is only applied to the left hand side of comparison [-Wlogical-not-parentheses]
+    !quarks[2] != table->leaf)
+               ^~
+Xrm.c:900:4: note: add parentheses around left hand side expression to silence this warning
+    !quarks[2] != table->leaf)
+    ^~~~~~~~~~
+    (         )
+In file included from Xxcbint.h:14,
+                 from x11_xcb.c:5:
+locking.h:37: warning: "xmalloc" redefined
+ #define xmalloc(s) Xmalloc(s)
+ 
+In file included from ../include/X11/Xlibint.h:47,
+                 from x11_xcb.c:4:
+/work/x11-clients-002/stage/usr/include/X11/Xthreads.h:34: note: this is the location of the previous definition
+ #  define xmalloc malloc
+ 
+In file included from Xxcbint.h:14,
+                 from x11_xcb.c:5:
+locking.h:38: warning: "xfree" redefined
+ #define xfree(s) Xfree(s)
+ 
+In file included from ../include/X11/Xlibint.h:47,
+                 from x11_xcb.c:4:
+/work/x11-clients-002/stage/usr/include/X11/Xthreads.h:37: note: this is the location of the previous definition
+ #  define xfree free
+ 
+  CCLD     libX11-xcb.la
+  CCLD     libX11.la
+libtool: warning: library '/work/x11-clients-002/stage/usr/lib/libxcb.la' was moved.
+/usr/bin/grep: /usr/lib/libXau.la: No such file or directory
+/usr/bin/sed: can't read /usr/lib/libXau.la: No such file or directory
+libtool:   error: '/usr/lib/libXau.la' is not a valid libtool archive
+make[3]: *** [Makefile:913: libX11.la] Error 1
+make[3]: Leaving directory '/work/x11-clients-002/libx11-source/src'
+make[2]: *** [Makefile:1266: all-recursive] Error 1
+make[2]: Leaving directory '/work/x11-clients-002/libx11-source/src'
+make[1]: *** [Makefile:827: all] Error 2
+make[1]: Leaving directory '/work/x11-clients-002/libx11-source/src'
+make: *** [Makefile:532: all-recursive] Error 1

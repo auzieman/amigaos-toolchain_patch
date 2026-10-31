@@ -1,0 +1,404 @@
+{
+  "status": "failed",
+  "started_unix": 1793466313.3139622,
+  "image_id": "sha256:eb877fcd41042f17c0a1f67aa6e679c8dc81c10a72bf3ad12287d864e5eacdf0",
+  "lock_sha256": "52f390626db3b70b7eb11abc6755c013b1583c7ed4cc0a7f7b3e28d10d92bf45",
+  "recipe_sha256": "5eee9422a646c35399fc6d657159ecd707e97cb76ac39c2795465f3be7c50eb3",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "flags": "--sysroot=/sysroot -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 -g0",
+  "components": {
+    "xorgproto": {
+      "status": "built",
+      "version": "2024.1-1",
+      "copyright_sha256": "b09d6804e6c24163c51e723c26b24313f9c2a3179146cdec7328aa8e9651bb45"
+    },
+    "xtrans": {
+      "status": "built",
+      "version": "1.4.0-1",
+      "copyright_sha256": "6363ea56c0a9b866cc8ce0b4c013142b1a1074cec6c0585475cef2190ffd777e"
+    },
+    "libpthread-stubs": {
+      "status": "built",
+      "version": "0.5-1",
+      "copyright_sha256": "d452eb85445ad9addc2baf90ae2823139bfeca57a7e35dba4d226ae5713a0abb"
+    },
+    "libxau": {
+      "status": "built",
+      "version": "1:1.0.11-1",
+      "copyright_sha256": "a576c55fed1915d78bfff56fb3814da96678531e3bf953f65853553c6709c383"
+    },
+    "libxdmcp": {
+      "status": "built",
+      "version": "1:1.1.5-1",
+      "copyright_sha256": "d947c4bede53cb9df1bf52a7d0ffa9ea65c7e199ec3f6ea3699043101fe77f1e"
+    },
+    "xcb-proto": {
+      "status": "built",
+      "version": "1.17.0-1",
+      "copyright_sha256": "b9f2fbbb0dd1d201f852d5de6549702e824434886e2f84a8a2925e8cd292b51d"
+    },
+    "libxcb": {
+      "status": "built",
+      "version": "1.17.0-2",
+      "copyright_sha256": "0a572322ba3be4a8f2e093e56706f09814a3cff1a49e268eb8b11aeab148e937"
+    },
+    "libx11": {
+      "status": "built",
+      "version": "2:1.8.12-1",
+      "copyright_sha256": "f8598fa32fb2e9d14724b927c700b783a707a19ff46961dffe1264ac3f3f3b01"
+    }
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xorgproto_2024.1-1.dsc",
+      "/work/x11-clients-003/xorgproto-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xtrans_1.4.0-1.dsc",
+      "/work/x11-clients-003/xtrans-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libpthread-stubs_0.5-1.dsc",
+      "/work/x11-clients-003/libpthread-stubs-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxau_1.0.11-1.dsc",
+      "/work/x11-clients-003/libxau-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxdmcp_1.1.5-1.dsc",
+      "/work/x11-clients-003/libxdmcp-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xcb-proto_1.17.0-1.dsc",
+      "/work/x11-clients-003/xcb-proto-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--with-python-sys-prefix",
+      "pythondir=/usr/share/xcb-proto/python"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxcb_1.17.0-2.dsc",
+      "/work/x11-clients-003/libxcb-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-devel-docs",
+      "--enable-xinput",
+      "--enable-xkb"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libx11_1.8.12-1.dsc",
+      "/work/x11-clients-003/libx11-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-specs",
+      "--without-xmlto",
+      "--without-fop",
+      "--disable-xf86bigfont"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-003/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxext_1.3.4-1.dsc",
+      "/work/x11-clients-003/libxext-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ]
+  ],
+  "physical_boot": false,
+  "X11_server_tested": false,
+  "removed_libtool_metadata": [
+    {
+      "path": "usr/lib/libpng.la",
+      "sha256": "b128a22ebcd19368de715654c34d7fa1819de75195e3f5260b7a0a089f29986f"
+    },
+    {
+      "path": "usr/lib/libpng16.la",
+      "sha256": "b128a22ebcd19368de715654c34d7fa1819de75195e3f5260b7a0a089f29986f"
+    },
+    {
+      "path": "usr/lib/libXau.la",
+      "sha256": "3035b72c3845c8b84c02c7ec00ea8c36d20ff93cc00e0a12b9403fbea0a0b6d5"
+    },
+    {
+      "path": "usr/lib/libXdmcp.la",
+      "sha256": "9f7ca9a9119d66156484a95b17a3008900f6ada8476409b4af083332a5ac6573"
+    },
+    {
+      "path": "usr/lib/libxcb-composite.la",
+      "sha256": "cbb27f1aebadf37328204bfc4c4d21c0b26940bfffd4a82f174dac43349dd5f7"
+    },
+    {
+      "path": "usr/lib/libxcb-damage.la",
+      "sha256": "940ac0c230a2bbfb7ef8816fe565690e8975d0d3ea33dfc8d355858951f20eba"
+    },
+    {
+      "path": "usr/lib/libxcb-dbe.la",
+      "sha256": "0d11620327c7844db52abb4b0f97cfd82658d6e5f02af27467cd8a79952ae052"
+    },
+    {
+      "path": "usr/lib/libxcb-dpms.la",
+      "sha256": "c72ce717a21c4f830b4f9a1b2480fe184366d37d4027bf4f7d54e3b8e805cae0"
+    },
+    {
+      "path": "usr/lib/libxcb-dri2.la",
+      "sha256": "a872fb291b22073ee4036155bf159587418c16911674a6b757a65c54c59394ef"
+    },
+    {
+      "path": "usr/lib/libxcb-dri3.la",
+      "sha256": "86420b200ff12e9692bd015105fcad74475bcb45de89ecb023080530353200a5"
+    },
+    {
+      "path": "usr/lib/libxcb-glx.la",
+      "sha256": "018f397d16f7f49a073cd8c486acb02e9053fcd9f751f47339acc86fc1502cb6"
+    },
+    {
+      "path": "usr/lib/libxcb-present.la",
+      "sha256": "ae6795dc9d8d99d3afe6c7d492afa5cd96724642640140a78de4b614e2caecee"
+    },
+    {
+      "path": "usr/lib/libxcb-randr.la",
+      "sha256": "8c4f13f38a41b6ebcca25e30888297fcfeaf87cf3b4c3c6634fd4506588a6225"
+    },
+    {
+      "path": "usr/lib/libxcb-record.la",
+      "sha256": "7bd60c4308422d660a0d9ac90d4a462706ad6b0e025234bfa13d85f8dda3106b"
+    },
+    {
+      "path": "usr/lib/libxcb-render.la",
+      "sha256": "2d7b0d64beab476f299e8812ee10db26808bddcc3d1c1ba2f308b941fd58e3a5"
+    },
+    {
+      "path": "usr/lib/libxcb-res.la",
+      "sha256": "4064793815528214d5bb18e9c88e7b600feaf316097c585efbfaadc0dcbcdc19"
+    },
+    {
+      "path": "usr/lib/libxcb-screensaver.la",
+      "sha256": "d095248765d4c3e3f5304cebd709cca54dc904c5bb329cc0719f00c76119cecb"
+    },
+    {
+      "path": "usr/lib/libxcb-shape.la",
+      "sha256": "7ef5a30fc50e7c2b3f43edd9049acbafddb6a2f2be317d3bd998f4b3ede6c872"
+    },
+    {
+      "path": "usr/lib/libxcb-shm.la",
+      "sha256": "80abf828daf08a940f74c1c1a2702178084812b2ac7dd7446fdceb68cf941f8c"
+    },
+    {
+      "path": "usr/lib/libxcb-sync.la",
+      "sha256": "c8cf7a1a26dc1a853ed182acb65b3392a301c39fcd272748ef864f55b86304a4"
+    },
+    {
+      "path": "usr/lib/libxcb-xf86dri.la",
+      "sha256": "426d3c1152cf6082dfbb6322208814e24d66584d2e10a58f26622c9e8f8fb9dc"
+    },
+    {
+      "path": "usr/lib/libxcb-xfixes.la",
+      "sha256": "dca00005a90a0c14bd7626a22fc293d2f366517449fd7183045361766bc118e2"
+    },
+    {
+      "path": "usr/lib/libxcb-xinerama.la",
+      "sha256": "c83974d423dd72768e265d5b2fda1f4f9989a14be52751f5cccca9d8e3a75bd1"
+    },
+    {
+      "path": "usr/lib/libxcb-xinput.la",
+      "sha256": "1f174157c9ad8d42ff8afad02f3dd8da0f206246195d1bbc06fa9b73430485e4"
+    },
+    {
+      "path": "usr/lib/libxcb-xkb.la",
+      "sha256": "718d326eb59d7184a14e61423b89b1453ccf29a9350ad906aa59ecceb1eaf244"
+    },
+    {
+      "path": "usr/lib/libxcb-xtest.la",
+      "sha256": "1584700582766a89a6cf213d526551dd8be88bc2a7ea373688f8efafa18375da"
+    },
+    {
+      "path": "usr/lib/libxcb-xv.la",
+      "sha256": "c07bbbea7a701a5fd12105b6a5958010493b05a7e60b683516a9356868aaf39a"
+    },
+    {
+      "path": "usr/lib/libxcb-xvmc.la",
+      "sha256": "b1a87a851817ca2927422dd1eccfaa57278bfb9baf4035ec20b528c0c9767cd8"
+    },
+    {
+      "path": "usr/lib/libxcb.la",
+      "sha256": "9a0e61396dadc5b4c8d387739a679dec8359080d5dd7630720225fe231049c07"
+    },
+    {
+      "path": "usr/lib/libX11-xcb.la",
+      "sha256": "95abf7df302da69776b45bbe76d5aefca0b1ee52f82ca46259de862a0c64a1e2"
+    },
+    {
+      "path": "usr/lib/libX11.la",
+      "sha256": "de338c28e79eac482732a946f1b639313d9c2aaa13aee0b48fa515e0d1630c90"
+    }
+  ],
+  "active_component": "libxext",
+  "error": "Command '['./configure', '--host=powerpc-linux-gnuspe', '--build=x86_64-linux-gnu', '--prefix=/usr', '--libdir=/usr/lib', '--disable-static']' returned non-zero exit status 1.",
+  "finished_unix": 1793466408.7362936
+}
