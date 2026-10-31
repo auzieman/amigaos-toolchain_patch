@@ -1,0 +1,41 @@
+{
+  "scope": "Private first package-managed bootstrap/session bundles; not a complete Debian installation",
+  "architecture": "powerpcspe",
+  "abi": "PPC32 big endian, SPE double GPR, IBM long double128",
+  "setuid_root_executables": [
+    "usr/lib/enlightenment/utils/enlightenment_sys",
+    "usr/lib/enlightenment/utils/enlightenment_system",
+    "usr/lib/enlightenment/utils/enlightenment_ckpasswd"
+  ],
+  "origin": "Debian e17 0.27.1-1 debian/rules execute_after_dh_fixperms-arch, adapted to our non-multiarch library prefix",
+  "no_foreign_maintainer_scripts_on_host": true,
+  "remaining": [
+    "individual source-package dependency closure",
+    "locale/keyboard tools and data",
+    "minimal E profile",
+    "Xorg/Mesa/libdrm and GPU runtime",
+    "apt and full compression support",
+    "UPower and other optional service packages"
+  ],
+  "service_account": {
+    "name": "messagebus",
+    "uid": 101,
+    "gid": 101
+  },
+  "desktop_groups": [
+    {
+      "name": "video",
+      "gid": 44,
+      "members": [
+        "tabor"
+      ]
+    },
+    {
+      "name": "input",
+      "gid": 104,
+      "members": [
+        "tabor"
+      ]
+    }
+  ]
+}

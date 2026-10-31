@@ -1,0 +1,56 @@
+{
+  "scope": "source-built software X11/E session dependency intake",
+  "signature_verification": "HTTPS DSC and SHA256 payloads; no independent OpenPGP verification",
+  "components": {
+    "libmd": {
+      "version": "1.1.0-2",
+      "dsc": "libmd_1.1.0-2.dsc",
+      "files": [
+        {
+          "filename": "libmd_1.1.0-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libm/libmd/libmd_1.1.0-2.dsc",
+          "size": 2280,
+          "sha256": "46cc951cd6d71bbfeff4522de66f968fb92601ec4cc622b07f6ac0a2a36ac5f0"
+        },
+        {
+          "filename": "libmd_1.1.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libm/libmd/libmd_1.1.0.orig.tar.xz",
+          "size": 271228,
+          "sha256": "1bd6aa42275313af3141c7cf2e5b964e8b1fd488025caf2f971f43b00776b332"
+        },
+        {
+          "filename": "libmd_1.1.0.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libm/libmd/libmd_1.1.0.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "402fd3024e43ab975733d09e661804a58ca58697194e4b15216b1217cfe1dadb"
+        },
+        {
+          "filename": "libmd_1.1.0-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libm/libmd/libmd_1.1.0-2.debian.tar.xz",
+          "size": 8244,
+          "sha256": "3b6ff35fc921eb5450fa9bf2d300c9e058e3771f96f8f13f759768fadd53324c"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libmd"
+    },
+    "dpkg": {
+      "version": "1.22.22",
+      "dsc": "dpkg_1.22.22.dsc",
+      "files": [
+        {
+          "filename": "dpkg_1.22.22.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.22.dsc",
+          "size": 3449,
+          "sha256": "fc481d9b87cd4416cd55673cc1fa716b57480a6b23253ac0d87c1abbfad4c964"
+        },
+        {
+          "filename": "dpkg_1.22.22.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.22.tar.xz",
+          "size": 5746724,
+          "sha256": "d5ea9f132deec8030b50ab2a02ade2b49f0c7a195805a302c8301156fe833a57"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/dpkg"
+    }
+  }
+}

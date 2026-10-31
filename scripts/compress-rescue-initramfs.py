@@ -2,7 +2,7 @@
 """Compress a complete, receipt-verified initramfs and verify its round-trip."""
 import argparse,gzip,hashlib,json,shutil
 from pathlib import Path
-p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);a=p.parse_args();b=a.input;r=json.loads((b/'receipt.json').read_text());assert r['status']=='rescue-initramfs-extended'
+p=argparse.ArgumentParser(description=__doc__);p.add_argument('--input',type=Path,required=True);a=p.parse_args();b=a.input;r=json.loads((b/'receipt.json').read_text());assert r['status'] in ['rescue-initramfs-extended','package-installed-initramfs-built']
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();raw=b/'shell.cpio';assert sha(raw)==r['initramfs_sha256'];out=b/'shell.cpio.gz';assert not out.exists()
 with raw.open('rb') as src,out.open('xb') as dst:
  with gzip.GzipFile(filename='',mode='wb',fileobj=dst,mtime=0,compresslevel=6) as gz:shutil.copyfileobj(src,gz)

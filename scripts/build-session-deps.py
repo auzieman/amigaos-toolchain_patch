@@ -4,7 +4,7 @@ import argparse,hashlib,json,os,shutil,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','cache','tools','sysroot','base-stage','work']:p.add_argument('--'+n,type=Path,required=True)
-p.add_argument('--extra-stage',type=Path);p.add_argument('--image-id',required=True);p.add_argument('--jobs',type=int,default=4);p.add_argument('--components',default='')
+p.add_argument('--source-lock',default='profiles/session-sources.lock.json');p.add_argument('--extra-stage',type=Path);p.add_argument('--image-id',required=True);p.add_argument('--jobs',type=int,default=4);p.add_argument('--components',default='')
 a=p.parse_args();assert 1<=a.jobs<=8;a.work.mkdir(parents=True,exist_ok=False)
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();stage=a.work/'stage';shutil.copytree(a.base_stage,stage,symlinks=True)
 if a.extra_stage:
@@ -15,7 +15,7 @@ if a.extra_stage:
   if f.is_symlink():dest.symlink_to(os.readlink(f))
   else:shutil.copy2(f,dest)
 if (stage/'work').exists():shutil.rmtree(stage/'work')
-lockpath=a.project/'profiles/session-sources.lock.json';lock=json.loads(lockpath.read_text())
+lockpath=a.project/a.source_lock;lock=json.loads(lockpath.read_text())
 cc=a.tools/'bin/powerpc-linux-gnuspe-gcc';cxx=a.tools/'bin/powerpc-linux-gnuspe-g++'
 abi=['--sysroot='+str(a.sysroot),'-mcpu=8548','-mabi=spe','-mspe','-mfloat-gprs=double','-mlong-double-128','-O2','-g0']
 cflags=abi+['-I'+str(stage/'usr/include')];ldflags=['-L'+str(stage/'usr/lib'),'-Wl,-rpath-link,'+str(stage/'usr/lib')]
@@ -100,6 +100,8 @@ try:
     shutil.copy2(src/'gif_lib.h',stage/'usr/include/gif_lib.h')
    elif name=='libsndfile':cmakebuild(src,name,['-DBUILD_SHARED_LIBS=ON','-DENABLE_EXTERNAL_LIBS=OFF','-DENABLE_MPEG=OFF','-DBUILD_PROGRAMS=OFF','-DBUILD_EXAMPLES=OFF','-DBUILD_TESTING=OFF'])
    elif name=='libvncserver':cmakebuild(src,name,['-DWITH_GNUTLS=OFF','-DWITH_OPENSSL=OFF','-DWITH_GCRYPT=OFF','-DWITH_LZO=OFF','-DWITH_SDL=OFF','-DWITH_GTK=OFF','-DWITH_QT=OFF','-DWITH_SYSTEMD=OFF','-DWITH_LIBSSHTUNNEL=OFF','-DWITH_FFMPEG=OFF','-DWITH_SASL=OFF','-DWITH_EXAMPLES=OFF','-DWITH_TESTS=OFF','-DWITH_TIGHTVNC_FILETRANSFER=OFF'])
+   elif name=='libmd':autotools(src,[])
+   elif name=='dpkg':autotools(src,['--sysconfdir=/etc','--localstatedir=/var','--disable-nls','--disable-dselect','--disable-devel-docs','--without-libbz2','--without-liblzma','--without-libzstd','--without-libselinux','--with-deb-compressor=gzip'])
    elif name=='x11vnc':autotools(src,['--without-ssl','--without-crypt','--without-avahi'])
    else:raise ValueError(name)
    for f in (stage/'usr/lib').glob('*.la'):f.unlink()

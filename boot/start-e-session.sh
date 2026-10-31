@@ -11,7 +11,13 @@ export ELM_ENGINE=software_x11
 mkdir -p "$XDG_RUNTIME_DIR" "$XDG_CACHE_HOME"
 chmod 700 "$XDG_RUNTIME_DIR"
 unset DBUS_SESSION_BUS_ADDRESS
-Xvfb :0 -screen 0 1280x720x24 -nolisten tcp -ac -noreset -extension MIT-SHM > /tmp/Xvfb.log 2>&1 &
+# The old smoke kernel had no SysV IPC; retain its fallback explicitly.
+if [ -r /proc/sysvipc/shm ]; then
+    set --
+else
+    set -- -extension MIT-SHM
+fi
+Xvfb :0 -screen 0 1280x720x24 -nolisten tcp -ac -noreset "$@" > /tmp/Xvfb.log 2>&1 &
 echo "XVFB_PID=$!"
 sleep 3
 # The guest has NAT only; its RFB port is published solely to host loopback.
