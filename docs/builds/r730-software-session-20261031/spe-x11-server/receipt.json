@@ -1,0 +1,26 @@
+{
+  "status": "passed-SPE-client-protocol",
+  "display": ":0",
+  "server_scope": "SPE Xvfb inside software-x11-001 QEMU guest",
+  "physical_boot": false,
+  "full_abi_validated": false,
+  "files": {
+    "lib/ld.so.1": "55612fd53c0a53237e6c05462047c6f23b77c10ecfa26dd34ad8e436d27ab44c",
+    "lib/libX11.so.6": "dc50dff319ad5fbd1ad42116527fac18ad26a899f82b7346ddd74b249c8e738d",
+    "lib/libXau.so.6": "b962f9c3322bdd2ed492526a2f40fe8c120f93369d6b5097b1008915af353432",
+    "lib/libXdmcp.so.6": "6464d707795b12ef0bf093df5acee43cf0bd2684c0b433670e5520ef8ac7fa8c",
+    "lib/libXext.so.6": "c8737d60ed707df7bd71583b60a257d042ce81709cc01765be6cb67aa811546a",
+    "lib/libXfixes.so.3": "fa0a0069031a91bb874c39c20effe9416376a7c4cb35a86e889eb16c04eff01d",
+    "lib/libXrandr.so.2": "edee2ebc60a6abd98dc02e6676978a4e92523ee0cd4a564bfbf8ac5df582653d",
+    "lib/libXrender.so.1": "db62075d7e652a0140531147f331362da467fd577b37fc368976be268f714fef",
+    "lib/libc.so.6": "22910415be8c889acc096910605542dbcaafe637a7addfa08676dad784dff699",
+    "lib/libxcb.so.1": "b28f23deb2af4c69b295f61858e3b8fa7031feacef7c7ae590a8663d017a25d5",
+    "x11-client-check": "de545526510510cf3c6d029fbef92448eb2302eaff2edf55a1bebfcabaed2aa0"
+  },
+  "tests": [
+    "xlib_pixel_roundtrip",
+    "render_randr_fixes_protocol",
+    "xcb_request_reply"
+  ],
+  "guest_log_sha256": "459c4df6718c53a42fcfceea32f933067ea28f97c8a331cdee16fe4566f23d2b"
+}

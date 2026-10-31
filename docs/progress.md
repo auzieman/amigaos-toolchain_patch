@@ -274,3 +274,34 @@ Fresh OpenSSL/curl/D-Bus build succeeds; Lua's Debian generated-header step is
 included, with keyboard/font/Xvfb/VNC compilation continuing. Retain prior
 failures and issue4. No target E/X server boot yet; software-e-session.md records
 scope, exact tools image and remaining runtime acceptance.
+
+
+## 2026-10-31 — SPE target X server boots; EFL builds
+
+Software-session source dependencies and EFL1.28.1 now build. Fixed CMake target
+library directory, specified real font path, added mandatory minimal sndfile/GIF
+APIs. Separate x11-root001 reaches shell/SSH; target Xvfb/VNC and target client
+pixel/protocol tests pass, with Fontconfig font discovery and OpenSSL execution.
+No E desktop yet. E 0.27.1 source needs optional-Eeze configure and ACPI watcher
+guards; ordered hash-checked patches are building in fresh e-session003. Retain
+all prior failures and runtime proofs; issues4/5/6 expose current corrections.
+
+
+## 2026-10-31 — Separate filesystem boots into E; rendering fault retained
+
+Completed EFL1.28.1, E0.27.1 and Terminology1.14 target SPE builds. Three
+minimal no-Eeze source guards are hash-pinned; source iterations and failures
+remain retained. New root002 contains the selected four themes/still wallpapers,
+without the stock400MiB gallery or held-back Fire Strong Animated. Compressed
+archive round-trip/hash verification passes; launch now rejects incomplete roots.
+
+Software-e003 boots the new root using ramfs to avoid the minimal kernel's tmpfs
+size limit. Shell/key-only SSH, target Xvfb/VNC and interactive E wizard run;
+standard profile reaches wallpaper, shelf, icons and window frames. Client
+interiors are black, so this is a partial graphical boot, not clean desktop
+acceptance. Screenshot, runtime/serial logs and exact receipts are retained in
+docs/builds/r730-software-session-20261031. Desktop4 noVNC6089 shows this guest.
+Issues7/8 track integration omissions and rendering respectively; issue3 remains
+open. No physical A1222, Radeon, OpenGL or full SPE ABI acceptance is implied.
+Next: isolate non-SHM compositor readback versus direct client drawing, then
+repair and repeat the graphical test before preparing hardware USB media.

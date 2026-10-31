@@ -62,3 +62,12 @@ SDK payloads and lab build artifacts are excluded from Git. Patches retain
 upstream notices and do not relicense third-party source. Lab submission scripts
 refer to Auzieman's BKC environment; collaborators can inspect/reuse the generic
 runner with their own Docker mounts without those lab credentials.
+
+
+2026-10-31 software-session checkpoint: EFL/E/Terminology target builds now
+complete and a separate filesystem boots into E's standard profile via target
+Xvfb/VNC. This is partial graphical acceptance: shelf/icons/frames render, but
+client interiors are black (issue8). Locale/keyboard and optional service work
+is issue7; directed rounding remains issue3. See software-e-session.md and
+builds/r730-software-session-20261031 for exact receipts, screenshot and retained
+failures. Physical A1222/Radeon/OpenGL remain untested by this checkpoint.
