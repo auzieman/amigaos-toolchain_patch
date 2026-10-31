@@ -1,0 +1,125 @@
+{
+  "status": "failed",
+  "image_id": "sha256:d07f9edb80960f37cc40921171283aa7870151ae513d4789095d542e96f186d9",
+  "lock_sha256": "da98d417ba0afb83b710df842442d8551493ff3140e5ccdba85f3da935b1a0a3",
+  "recipe_sha256": "8b452699ebd25db412446e693fbff96f52e14c4e8f172acaf0ec9e8a561955a5",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-g0",
+    "-I/work/session-deps-001/stage/usr/include"
+  ],
+  "components": {
+    "expat": {
+      "status": "built",
+      "version": "2.9.0-1~deb13u1",
+      "notice_sha256": "067010aebeba69b86570b7424b98347827c3c289c73e8b84ff79a294d7b16628"
+    },
+    "freetype": {
+      "status": "built",
+      "version": "2.13.3+dfsg-1+deb13u1",
+      "notice_sha256": "3d3c7b6d402c33babb10a5bb79bd8e000e5a1f2600f712c5e9ca868760ac25ed"
+    }
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/expat_2.9.0-1~deb13u1.dsc",
+      "/work/session-deps-001/expat-source"
+    ],
+    [
+      "cmake",
+      "-S",
+      "/work/session-deps-001/expat-source/expat",
+      "-B",
+      "/work/session-deps-001/expat-build",
+      "-G",
+      "Ninja",
+      "-DCMAKE_TOOLCHAIN_FILE=/work/session-deps-001/spe-cmake.cmake",
+      "-DCMAKE_INSTALL_PREFIX=/usr",
+      "-DCMAKE_INSTALL_LIBDIR=lib",
+      "-DCMAKE_BUILD_TYPE=Release",
+      "-DEXPAT_BUILD_TOOLS=OFF",
+      "-DEXPAT_BUILD_TESTS=OFF",
+      "-DEXPAT_BUILD_EXAMPLES=OFF",
+      "-DEXPAT_BUILD_DOCS=OFF",
+      "-DEXPAT_SHARED_LIBS=ON"
+    ],
+    [
+      "cmake",
+      "--build",
+      "/work/session-deps-001/expat-build",
+      "--parallel",
+      "4"
+    ],
+    [
+      "cmake",
+      "--install",
+      "/work/session-deps-001/expat-build"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/freetype_2.13.3+dfsg-1+deb13u1.dsc",
+      "/work/session-deps-001/freetype-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--without-bzip2",
+      "--without-harfbuzz",
+      "--without-brotli",
+      "--with-zlib=yes",
+      "--with-png=yes"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/session-deps-001/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/fontconfig_2.15.0-2.3.dsc",
+      "/work/session-deps-001/fontconfig-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-cache-build",
+      "--disable-docbook"
+    ],
+    [
+      "make",
+      "-j4"
+    ]
+  ],
+  "physical_boot": false,
+  "GPU_validated": false,
+  "active_component": "fontconfig",
+  "error": "Command '['make', '-j4']' returned non-zero exit status 2.",
+  "finished_unix": 1793469305.153346
+}

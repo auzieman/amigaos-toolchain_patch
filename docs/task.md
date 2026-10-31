@@ -677,3 +677,15 @@ request/reply against a separate native Xvfb server, now stopped. See
 GitHub issues1/2 track these corrections; issue3 retains unresolved fenv failure.
 Continue source-built fonts, native EFL generators and Xorg/E stages; no target
 server, physical GPU/HDMI or complete ABI acceptance follows from client proof.
+
+
+## 2026-10-31 — software E session filesystem build underway
+
+User requests another filesystem and QEMU boot into E. Added locked session
+source chain and separate native generators, target dependency/EFL runners,
+and runtime staging/startup preparation. Expat/font/image/shaping libraries
+build; missing GCC8 libatomic now builds and passes threaded64-bit guest test.
+Fresh OpenSSL/curl/D-Bus build succeeds; Lua's Debian generated-header step is
+included, with keyboard/font/Xvfb/VNC compilation continuing. Retain prior
+failures and issue4. No target E/X server boot yet; software-e-session.md records
+scope, exact tools image and remaining runtime acceptance.

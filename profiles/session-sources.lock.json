@@ -1,0 +1,622 @@
+{
+  "scope": "source-built software X11/E session dependency intake",
+  "signature_verification": "HTTPS DSC and SHA256 payloads; no independent OpenPGP verification",
+  "components": {
+    "expat": {
+      "version": "2.9.0-1~deb13u1",
+      "dsc": "expat_2.9.0-1~deb13u1.dsc",
+      "files": [
+        {
+          "filename": "expat_2.9.0-1~deb13u1.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/e/expat/expat_2.9.0-1~deb13u1.dsc",
+          "size": 2157,
+          "sha256": "09fe168e2186a2672e077d9fda02287b51fa08f73914fcc425b3307b503df8ff"
+        },
+        {
+          "filename": "expat_2.9.0.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/e/expat/expat_2.9.0.orig.tar.gz",
+          "size": 8488503,
+          "sha256": "6e8ce7b52ebbaa423c59becc7cf1e6875c42e49228c062ac8123c10e700cec27"
+        },
+        {
+          "filename": "expat_2.9.0-1~deb13u1.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/e/expat/expat_2.9.0-1~deb13u1.debian.tar.xz",
+          "size": 14348,
+          "sha256": "0c1575a3dc3d039f9e6751821efcdfd5246e04c6af4939defa01226d94541fba"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/expat"
+    },
+    "freetype": {
+      "version": "2.13.3+dfsg-1+deb13u1",
+      "dsc": "freetype_2.13.3+dfsg-1+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "freetype_2.13.3+dfsg-1+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg-1+deb13u1.dsc",
+          "size": 3691,
+          "sha256": "8aa6e936f4b8ce5b1ac530d3c1bc7c5c36e6432ef81385c29ce649a3ed79e8cd"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg.orig-ft2demos.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg.orig-ft2demos.tar.xz",
+          "size": 342404,
+          "sha256": "8775e5ffded1a885ba2ccb3ea0e82c73306a03b764080c3e4c79da15b5c9a28a"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg.orig-ft2demos.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg.orig-ft2demos.tar.xz.asc",
+          "size": 833,
+          "sha256": "931bfa17e59c0ec7db391160f43977e0907f36ea3c39d7e6063731cd4612dd51"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg.orig-ft2docs.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg.orig-ft2docs.tar.xz",
+          "size": 2173852,
+          "sha256": "b7b66149bea769e226fd3d6d1eee6160e5b6beb4249b088071434fbe85fd1070"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg.orig-ft2docs.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg.orig-ft2docs.tar.xz.asc",
+          "size": 833,
+          "sha256": "65c66aec6244d247540430b21d3e80b677f1361906347a5be7fad371d46655da"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg.orig.tar.xz",
+          "size": 2201416,
+          "sha256": "686ec73cbf6783b245dd068a09ce807b729ac0f8a46dd70f7867923c32fdf4de"
+        },
+        {
+          "filename": "freetype_2.13.3+dfsg-1+deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/freetype/freetype_2.13.3+dfsg-1+deb13u1.debian.tar.xz",
+          "size": 44488,
+          "sha256": "e7a07cad1b9c803457ec310bc87132429f52171c89f9126c09eb62e203c8c84b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/freetype"
+    },
+    "fontconfig": {
+      "version": "2.15.0-2.3",
+      "dsc": "fontconfig_2.15.0-2.3.dsc",
+      "files": [
+        {
+          "filename": "fontconfig_2.15.0-2.3.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.15.0-2.3.dsc",
+          "size": 2673,
+          "sha256": "d5c3b910e470fdd00048813863f2e25e330c61b5cb3c795edf30cb3c52a657d0"
+        },
+        {
+          "filename": "fontconfig_2.15.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.15.0.orig.tar.xz",
+          "size": 1447820,
+          "sha256": "63a0658d0e06e0fa886106452b58ef04f21f58202ea02a94c39de0d3335d7c0e"
+        },
+        {
+          "filename": "fontconfig_2.15.0-2.3.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/fontconfig/fontconfig_2.15.0-2.3.debian.tar.xz",
+          "size": 59516,
+          "sha256": "af8e98e3801427f8957f86dc18303fcfbae329c0fab5bc06b5d5a0d26a53295f"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/fontconfig"
+    },
+    "libjpeg-turbo": {
+      "version": "1:2.1.5-4",
+      "dsc": "libjpeg-turbo_2.1.5-4.dsc",
+      "files": [
+        {
+          "filename": "libjpeg-turbo_2.1.5-4.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg-turbo_2.1.5-4.dsc",
+          "size": 2508,
+          "sha256": "26cbf22aa3b3e327df072513f14a5ddfb4a7b9a3d78c46a5dccfd711c13ac743"
+        },
+        {
+          "filename": "libjpeg-turbo_2.1.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg-turbo_2.1.5.orig.tar.gz",
+          "size": 2264471,
+          "sha256": "254f3642b04e309fee775123133c6464181addc150499561020312ec61c1bf7c"
+        },
+        {
+          "filename": "libjpeg-turbo_2.1.5-4.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libj/libjpeg-turbo/libjpeg-turbo_2.1.5-4.debian.tar.xz",
+          "size": 108128,
+          "sha256": "739e7dc22904dccdc5ab105de57a6e4c1515c0e841e68226e6410ff4976e0e91"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libjpeg-turbo"
+    },
+    "fribidi": {
+      "version": "1.0.16-1",
+      "dsc": "fribidi_1.0.16-1.dsc",
+      "files": [
+        {
+          "filename": "fribidi_1.0.16-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/f/fribidi/fribidi_1.0.16-1.dsc",
+          "size": 2004,
+          "sha256": "10f003abcad934adde409c94f2780ec9638517dc1cc495b2a1df03a13c1d4315"
+        },
+        {
+          "filename": "fribidi_1.0.16.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/fribidi/fribidi_1.0.16.orig.tar.xz",
+          "size": 1098260,
+          "sha256": "1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c"
+        },
+        {
+          "filename": "fribidi_1.0.16-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/fribidi/fribidi_1.0.16-1.debian.tar.xz",
+          "size": 8928,
+          "sha256": "8d1cd7177a436b25ca8153e3dd2b9fb6da411a2c3cb0105eaadf4e42b777da6f"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/fribidi"
+    },
+    "harfbuzz": {
+      "version": "10.2.0-1+deb13u1",
+      "dsc": "harfbuzz_10.2.0-1+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "harfbuzz_10.2.0-1+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/h/harfbuzz/harfbuzz_10.2.0-1+deb13u1.dsc",
+          "size": 2896,
+          "sha256": "bdc0f2aa593d42e09a35c1469d2cb9580f0b15bcae4e3a8c4b8ed586c4fb1032"
+        },
+        {
+          "filename": "harfbuzz_10.2.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/h/harfbuzz/harfbuzz_10.2.0.orig.tar.xz",
+          "size": 17957608,
+          "sha256": "620e3468faec2ea8685d32c46a58469b850ef63040b3565cde05959825b48227"
+        },
+        {
+          "filename": "harfbuzz_10.2.0-1+deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/h/harfbuzz/harfbuzz_10.2.0-1+deb13u1.debian.tar.xz",
+          "size": 20656,
+          "sha256": "7694792ba03256931cbd068b9100d5bcca1d63496434af3c30b56babddd01d90"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/harfbuzz"
+    },
+    "openssl": {
+      "version": "3.5.7-1~deb13u3",
+      "dsc": "openssl_3.5.7-1~deb13u3.dsc",
+      "files": [
+        {
+          "filename": "openssl_3.5.7-1~deb13u3.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7-1~deb13u3.dsc",
+          "size": 2710,
+          "sha256": "9cdb0d9daf0773ca5c0f3f5ea1fc59b1106a99e005a5c048948b826e8d3b47e1"
+        },
+        {
+          "filename": "openssl_3.5.7.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7.orig.tar.gz",
+          "size": 53153930,
+          "sha256": "a8c0d28a529ca480f9f36cf5792e2cd21984552a3c8e4aa11a24aa31aeac98e8"
+        },
+        {
+          "filename": "openssl_3.5.7.orig.tar.gz.asc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "d3d082bee3f658c31db53af625eceecf29d777c7010394bed5787ebcc98abdf2"
+        },
+        {
+          "filename": "openssl_3.5.7-1~deb13u3.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7-1~deb13u3.debian.tar.xz",
+          "size": 147344,
+          "sha256": "0a427fdc3e773f4119a7dd5b36d1f0903a163cf4ea15d812bb823b251ff1cbc5"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/openssl"
+    },
+    "curl": {
+      "version": "8.14.1-2+deb13u7",
+      "dsc": "curl_8.14.1-2+deb13u7.dsc",
+      "files": [
+        {
+          "filename": "curl_8.14.1-2+deb13u7.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/c/curl/curl_8.14.1-2+deb13u7.dsc",
+          "size": 3263,
+          "sha256": "a559b829ff852b2ee1ac0e448b5d9c18e0f94875bc820d037609d4d807ac6f57"
+        },
+        {
+          "filename": "curl_8.14.1.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/c/curl/curl_8.14.1.orig.tar.gz",
+          "size": 4250332,
+          "sha256": "6766ada7101d292b42b8b15681120acd68effa4a9660935853cf6d61f0d984d4"
+        },
+        {
+          "filename": "curl_8.14.1.orig.tar.gz.asc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/c/curl/curl_8.14.1.orig.tar.gz.asc",
+          "size": 488,
+          "sha256": "39cc2ec8ddc39d04e3e7101bbed46d858d0875cbb297a6bfa20959fa2bc7d5c7"
+        },
+        {
+          "filename": "curl_8.14.1-2+deb13u7.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/c/curl/curl_8.14.1-2+deb13u7.debian.tar.xz",
+          "size": 75756,
+          "sha256": "e0f627ee2b9ae61078b2835edc25c8b94a0b57e180a1bc72dd8636ef260c370b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/curl"
+    },
+    "dbus": {
+      "version": "1.16.2-2",
+      "dsc": "dbus_1.16.2-2.dsc",
+      "files": [
+        {
+          "filename": "dbus_1.16.2-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2-2.dsc",
+          "size": 3712,
+          "sha256": "4bc35ba286891589d8ed9368da3d81db2a4d387144919850e4ea8e9ae2cf0364"
+        },
+        {
+          "filename": "dbus_1.16.2.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2.orig.tar.xz",
+          "size": 1115644,
+          "sha256": "0ba2a1a4b16afe7bceb2c07e9ce99a8c2c3508e5dec290dbb643384bd6beb7e2"
+        },
+        {
+          "filename": "dbus_1.16.2.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "108723e6bb2b0655abcb8ec7b06d27918bd7ac215f835ba086b45f9780cb529b"
+        },
+        {
+          "filename": "dbus_1.16.2-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/dbus/dbus_1.16.2-2.debian.tar.xz",
+          "size": 66364,
+          "sha256": "f774fe3bd1ac24265e17c70999bfa26a92a15f2fb72e1fb8c64fa5d436fb9119"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/dbus"
+    },
+    "lua5.1": {
+      "version": "5.1.5-11",
+      "dsc": "lua5.1_5.1.5-11.dsc",
+      "files": [
+        {
+          "filename": "lua5.1_5.1.5-11.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5-11.dsc",
+          "size": 1929,
+          "sha256": "e892023e902f4649b4acc9b06bcc12f9121a180d0607ab775ba9521393fae079"
+        },
+        {
+          "filename": "lua5.1_5.1.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz",
+          "size": 221213,
+          "sha256": "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
+        },
+        {
+          "filename": "lua5.1_5.1.5-11.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5-11.debian.tar.xz",
+          "size": 16300,
+          "sha256": "66eaa71b60744a5fa5ae98e815952ec70b339c934e45a9ba8c1049f4ca4b8b35"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/lua5.1"
+    },
+    "libxkbcommon": {
+      "version": "1.7.0-2",
+      "dsc": "libxkbcommon_1.7.0-2.dsc",
+      "files": [
+        {
+          "filename": "libxkbcommon_1.7.0-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon_1.7.0-2.dsc",
+          "size": 2802,
+          "sha256": "f513da93558121b17d0f980d4b24419e5463c6d880c03b31275221c6e83223e8"
+        },
+        {
+          "filename": "libxkbcommon_1.7.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon_1.7.0.orig.tar.xz",
+          "size": 534312,
+          "sha256": "65782f0a10a4b455af9c6baab7040e2f537520caa2ec2092805cdfd36863b247"
+        },
+        {
+          "filename": "libxkbcommon_1.7.0-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbcommon/libxkbcommon_1.7.0-2.debian.tar.xz",
+          "size": 8464,
+          "sha256": "fcf3db4a281477b93a3bd2ae00bbbd8ea2e589e12301112547779a17ec7c6b80"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxkbcommon"
+    },
+    "libxkbfile": {
+      "version": "1:1.1.0-1",
+      "dsc": "libxkbfile_1.1.0-1.dsc",
+      "files": [
+        {
+          "filename": "libxkbfile_1.1.0-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile_1.1.0-1.dsc",
+          "size": 2279,
+          "sha256": "d389523e40c07beb98d214e9aa417dac4c89a285b3a9873b1e7fa88d6c60857a"
+        },
+        {
+          "filename": "libxkbfile_1.1.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile_1.1.0.orig.tar.gz",
+          "size": 441021,
+          "sha256": "2a92adda3992aa7cbad758ef0b8dfeaedebb49338b772c64ddf369d78c1c51d3"
+        },
+        {
+          "filename": "libxkbfile_1.1.0.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile_1.1.0.orig.tar.gz.asc",
+          "size": 801,
+          "sha256": "998e90cb1bf5cff3386ea0c1715370fd9753c4bfdb49e81c9131de6ba60aa1fa"
+        },
+        {
+          "filename": "libxkbfile_1.1.0-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxkbfile/libxkbfile_1.1.0-1.diff.gz",
+          "size": 10049,
+          "sha256": "5d8fee55b59aba5e585a9b3b13d5b9ff93a174b2d460fef278736a589283a078"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxkbfile"
+    },
+    "libfontenc": {
+      "version": "1:1.1.8-1",
+      "dsc": "libfontenc_1.1.8-1.dsc",
+      "files": [
+        {
+          "filename": "libfontenc_1.1.8-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libfontenc/libfontenc_1.1.8-1.dsc",
+          "size": 2288,
+          "sha256": "fc070572b06923aa72dae3fc0e6db16906eb38ac7765100abf567efe2caa404f"
+        },
+        {
+          "filename": "libfontenc_1.1.8.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libfontenc/libfontenc_1.1.8.orig.tar.gz",
+          "size": 405168,
+          "sha256": "b55039f70959a1b2f02f4ec8db071e5170528d2c9180b30575dccf7510d7fb9f"
+        },
+        {
+          "filename": "libfontenc_1.1.8.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libfontenc/libfontenc_1.1.8.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "3e42c5de5281768f2ba83c7519a2b572de04d4392a60167fa50a4f582d58025f"
+        },
+        {
+          "filename": "libfontenc_1.1.8-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libfontenc/libfontenc_1.1.8-1.diff.gz",
+          "size": 12021,
+          "sha256": "3061495a0800059dbca1295be18aaf22e342d2c11e2c2317ee0a8ea02ecae209"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libfontenc"
+    },
+    "libxfont": {
+      "version": "1:2.0.6-1+deb13u1",
+      "dsc": "libxfont_2.0.6-1+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "libxfont_2.0.6-1+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfont/libxfont_2.0.6-1+deb13u1.dsc",
+          "size": 2581,
+          "sha256": "25d131fff652df5f70d16da165ba7f79d360cb52ce5773faa07216036817e7c8"
+        },
+        {
+          "filename": "libxfont_2.0.6.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfont/libxfont_2.0.6.orig.tar.gz",
+          "size": 635826,
+          "sha256": "a944df7b6837c8fa2067f6a5fc25d89b0acc4011cd0bc085106a03557fb502fc"
+        },
+        {
+          "filename": "libxfont_2.0.6.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfont/libxfont_2.0.6.orig.tar.gz.asc",
+          "size": 801,
+          "sha256": "debee1347d3e220968308a87155f7ea517d531a5298e668e54dfab9bf2813d1e"
+        },
+        {
+          "filename": "libxfont_2.0.6-1+deb13u1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfont/libxfont_2.0.6-1+deb13u1.diff.gz",
+          "size": 38890,
+          "sha256": "ed42ef32c50c805cb420c9c96acc61af5ec297658d4e59735ab2e83b96243552"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxfont"
+    },
+    "libxcvt": {
+      "version": "0.1.3-1",
+      "dsc": "libxcvt_0.1.3-1.dsc",
+      "files": [
+        {
+          "filename": "libxcvt_0.1.3-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcvt/libxcvt_0.1.3-1.dsc",
+          "size": 2328,
+          "sha256": "0c0bbf943291d35d925b99b98f61c786db4f23c25abfb77dce213c0cc019b67a"
+        },
+        {
+          "filename": "libxcvt_0.1.3.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcvt/libxcvt_0.1.3.orig.tar.xz",
+          "size": 9680,
+          "sha256": "a929998a8767de7dfa36d6da4751cdbeef34ed630714f2f4a767b351f2442e01"
+        },
+        {
+          "filename": "libxcvt_0.1.3.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcvt/libxcvt_0.1.3.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "03b20106adbd157637addd0fe7885662374ba077f63817738ac84b12bb51bc44"
+        },
+        {
+          "filename": "libxcvt_0.1.3-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcvt/libxcvt_0.1.3-1.debian.tar.xz",
+          "size": 16876,
+          "sha256": "97215c2120511395954ad84da144ced30e1591cea3b31cadb2cf74a91af01f5f"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxcvt"
+    },
+    "libxshmfence": {
+      "version": "1.3.3-1",
+      "dsc": "libxshmfence_1.3.3-1.dsc",
+      "files": [
+        {
+          "filename": "libxshmfence_1.3.3-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence_1.3.3-1.dsc",
+          "size": 2416,
+          "sha256": "a0a5c9fb10a27f84ef2280bfa5885e01e1dbe8f68ff9236bb6f22c7abb2c4ad0"
+        },
+        {
+          "filename": "libxshmfence_1.3.3.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence_1.3.3.orig.tar.gz",
+          "size": 402414,
+          "sha256": "6233ccd9fa80198835efc3039cdf8086ab2b218b17e77ebdb0a19913fcee58d3"
+        },
+        {
+          "filename": "libxshmfence_1.3.3.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence_1.3.3.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "38d8dea031c58aee780117d8c1ab17569580b7ee4de2876ce3753dc7526da67d"
+        },
+        {
+          "filename": "libxshmfence_1.3.3-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxshmfence/libxshmfence_1.3.3-1.diff.gz",
+          "size": 18890,
+          "sha256": "e84dfe14637642e84a5a6523f771d7b55b271cac5cb0532aaf36acf776c8e4a5"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxshmfence"
+    },
+    "xkeyboard-config": {
+      "version": "2.42-1",
+      "dsc": "xkeyboard-config_2.42-1.dsc",
+      "files": [
+        {
+          "filename": "xkeyboard-config_2.42-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xkeyboard-config/xkeyboard-config_2.42-1.dsc",
+          "size": 2112,
+          "sha256": "7e0f095d049f95ff465dd6a4ded9ce34cc75b245533a67469e5dd53a9f672308"
+        },
+        {
+          "filename": "xkeyboard-config_2.42.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xkeyboard-config/xkeyboard-config_2.42.orig.tar.gz",
+          "size": 1731645,
+          "sha256": "0cba2aee2faaa86f965d0ce400b69279c8215a8ac56e3ad5e6853cb82ba9400f"
+        },
+        {
+          "filename": "xkeyboard-config_2.42-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xkeyboard-config/xkeyboard-config_2.42-1.diff.gz",
+          "size": 37648,
+          "sha256": "f8a6af8de9100d01bd349439299355e6c5dff5a83d1f4a57fa605c99b2e5450f"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xkeyboard-config"
+    },
+    "x11-xkb-utils": {
+      "version": "7.7+9",
+      "dsc": "x11-xkb-utils_7.7+9.dsc",
+      "files": [
+        {
+          "filename": "x11-xkb-utils_7.7+9.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/x11-xkb-utils/x11-xkb-utils_7.7+9.dsc",
+          "size": 1764,
+          "sha256": "80a85d5923a565f0d4515a840fdc548f441896f893d50ed8e0e1003bcbc4cb25"
+        },
+        {
+          "filename": "x11-xkb-utils_7.7+9.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/x11-xkb-utils/x11-xkb-utils_7.7+9.tar.xz",
+          "size": 356060,
+          "sha256": "27ae7efb512f3b816c66b7c7290f28de4ae811972e06c5e27a9124d2eab766d4"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/x11-xkb-utils"
+    },
+    "xorg-server": {
+      "version": "2:21.1.16-1.3+deb13u4",
+      "dsc": "xorg-server_21.1.16-1.3+deb13u4.dsc",
+      "files": [
+        {
+          "filename": "xorg-server_21.1.16-1.3+deb13u4.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xorg-server/xorg-server_21.1.16-1.3+deb13u4.dsc",
+          "size": 4236,
+          "sha256": "ef0e04fe6c415f94d8a90b5305974427825865e76ed61154005565be8602a2ef"
+        },
+        {
+          "filename": "xorg-server_21.1.16.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xorg-server/xorg-server_21.1.16.orig.tar.gz",
+          "size": 8954623,
+          "sha256": "59fa52b63f6f8747ee2c4716decb29ced249c4c574e2a18c96b7d3b1420f7fd9"
+        },
+        {
+          "filename": "xorg-server_21.1.16-1.3+deb13u4.diff.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xorg-server/xorg-server_21.1.16-1.3+deb13u4.diff.gz",
+          "size": 207997,
+          "sha256": "ad8b35823a0b82323ecdb3b3a6896d652106ed89ec927e49016c9eaefa35bf6b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xorg-server"
+    },
+    "libvncserver": {
+      "version": "0.9.15+dfsg-1+deb13u2",
+      "dsc": "libvncserver_0.9.15+dfsg-1+deb13u2.dsc",
+      "files": [
+        {
+          "filename": "libvncserver_0.9.15+dfsg-1+deb13u2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libv/libvncserver/libvncserver_0.9.15+dfsg-1+deb13u2.dsc",
+          "size": 2345,
+          "sha256": "3750c3660ad9fd9eaad32d8a4a5a62748687388044397142351a58af8f1f4580"
+        },
+        {
+          "filename": "libvncserver_0.9.15+dfsg.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libv/libvncserver/libvncserver_0.9.15+dfsg.orig.tar.xz",
+          "size": 446056,
+          "sha256": "522faacc783ca0924d34e2a355c3b1cc2d17115e04ffb78e7935db541af184d0"
+        },
+        {
+          "filename": "libvncserver_0.9.15+dfsg-1+deb13u2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libv/libvncserver/libvncserver_0.9.15+dfsg-1+deb13u2.debian.tar.xz",
+          "size": 20528,
+          "sha256": "2e7dea1a2f9a52509305765cefc66eb58917c26974b168df150fa3531ab65901"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libvncserver"
+    },
+    "x11vnc": {
+      "version": "0.9.17-1",
+      "dsc": "x11vnc_0.9.17-1.dsc",
+      "files": [
+        {
+          "filename": "x11vnc_0.9.17-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/x11vnc/x11vnc_0.9.17-1.dsc",
+          "size": 2208,
+          "sha256": "8ed30829efe3f02d1c36964d0b38847f9d41d805d28e2ab486781a77a7894a77"
+        },
+        {
+          "filename": "x11vnc_0.9.17.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/x11vnc/x11vnc_0.9.17.orig.tar.gz",
+          "size": 1691520,
+          "sha256": "3ab47c042bc1c33f00c7e9273ab674665b85ab10592a8e0425589fe7f3eb1a69"
+        },
+        {
+          "filename": "x11vnc_0.9.17-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/x11vnc/x11vnc_0.9.17-1.debian.tar.xz",
+          "size": 19492,
+          "sha256": "078e8651c59a27f1535af9d354d9ee4ec45139b7eefb39216f6d8c0fee185de6"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/x11vnc"
+    },
+    "fonts-dejavu": {
+      "version": "2.37-8",
+      "dsc": "fonts-dejavu_2.37-8.dsc",
+      "files": [
+        {
+          "filename": "fonts-dejavu_2.37-8.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/f/fonts-dejavu/fonts-dejavu_2.37-8.dsc",
+          "size": 2156,
+          "sha256": "219f7f8fba98827caaa296520730171ec230d3090ed8b6d663edb66839b48847"
+        },
+        {
+          "filename": "fonts-dejavu_2.37.orig.tar.bz2",
+          "url": "https://deb.debian.org/debian/pool/main/f/fonts-dejavu/fonts-dejavu_2.37.orig.tar.bz2",
+          "size": 12050109,
+          "sha256": "4b21c5203f792343d5e90ab1cb0cf07e99887218abe3d83cd9a98cea9085e799"
+        },
+        {
+          "filename": "fonts-dejavu_2.37-8.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/fonts-dejavu/fonts-dejavu_2.37-8.debian.tar.xz",
+          "size": 13176,
+          "sha256": "2401402245dec8a59fc5f0f8eff76d203a38440797f7f223e1d044e07c2d41fb"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/fonts-dejavu"
+    }
+  }
+}

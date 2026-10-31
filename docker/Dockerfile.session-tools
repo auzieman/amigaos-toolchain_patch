@@ -1,0 +1,9 @@
+ARG DESKTOP_TOOLS_IMAGE
+FROM ${DESKTOP_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    cmake gperf python3-jinja2 python3-mako xutils-dev xkb-data x11-xkb-utils \
+    libeet-bin libedje-bin libeolian-bin libelementary-bin libecore-bin \
+    && test "$(dpkg-query -W -f='${source:Version}' libeolian-bin)" = '1.28.1-1' \
+    && dpkg-query -W > /opt/tabor-session-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

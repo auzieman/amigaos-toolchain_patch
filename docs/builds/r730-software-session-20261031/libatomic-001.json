@@ -1,0 +1,61 @@
+{
+  "status": "built-not-executed",
+  "source_sha256": "d308841a511bb830a6100397b0042db24ce11f642dab6ea6ee44842e5325ed50",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-fPIC"
+  ],
+  "commands": [
+    [
+      "tar",
+      "-xf",
+      "/cache/gcc-8.5.0.tar.xz",
+      "-C",
+      "/work/libatomic-001"
+    ],
+    [
+      "/work/libatomic-001/gcc-8.5.0/libatomic/configure",
+      "--host=powerpc-linux-gnuspe",
+      "--target=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--enable-shared",
+      "--disable-multilib"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/libatomic-001/stage",
+      "install"
+    ],
+    [
+      "/tools/cxx-reference-002/bin/powerpc-linux-gnuspe-gcc",
+      "--sysroot=/sysroot",
+      "-mcpu=8548",
+      "-mabi=spe",
+      "-mspe",
+      "-mfloat-gprs=double",
+      "-mlong-double-128",
+      "-O2",
+      "-fPIC",
+      "/project/bench/atomic64-check.c",
+      "-L/work/libatomic-001/stage/usr/lib",
+      "-latomic",
+      "-pthread",
+      "-o",
+      "/work/libatomic-001/atomic64-check"
+    ]
+  ],
+  "lib_sha256": "98c03c3c98f8ec5409b5e8c3d4dbcb9c1b9e986c2c57d257ce4c7bce82d62141",
+  "probe_sha256": "5acdb9dceb63096e15d690eef66a7beaef7ac8a1a3040a801975871c5ff69e5a"
+}
