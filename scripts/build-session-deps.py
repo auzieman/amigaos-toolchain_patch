@@ -14,6 +14,7 @@ if a.extra_stage:
   dest.parent.mkdir(parents=True,exist_ok=True)
   if f.is_symlink():dest.symlink_to(os.readlink(f))
   else:shutil.copy2(f,dest)
+if (stage/'work').exists():shutil.rmtree(stage/'work')
 lockpath=a.project/'profiles/session-sources.lock.json';lock=json.loads(lockpath.read_text())
 cc=a.tools/'bin/powerpc-linux-gnuspe-gcc';cxx=a.tools/'bin/powerpc-linux-gnuspe-g++'
 abi=['--sysroot='+str(a.sysroot),'-mcpu=8548','-mabi=spe','-mspe','-mfloat-gprs=double','-mlong-double-128','-O2','-g0']
@@ -49,7 +50,7 @@ set(CMAKE_SHARED_LINKER_FLAGS "{' '.join(ldflags)}")
 def meson(src,name,opts):
  build=a.work/(name+'-build');run(['meson','setup',build,src,'--cross-file',cross,'--prefix=/usr','--libdir=lib','--sysconfdir=/etc','--localstatedir=/var','--buildtype=release','--wrap-mode=nodownload',*opts],a.work);run(['meson','compile','-C',build,'-j',a.jobs],a.work);run(['meson','install','-C',build,'--destdir',stage],a.work)
 def cmakebuild(src,name,opts):
- build=a.work/(name+'-build');run(['cmake','-S',src,'-B',build,'-G','Ninja','-DCMAKE_TOOLCHAIN_FILE='+str(cmake),'-DCMAKE_INSTALL_PREFIX=/usr','-DCMAKE_INSTALL_LIBDIR=lib','-DCMAKE_BUILD_TYPE=Release',*opts],a.work);run(['cmake','--build',build,'--parallel',a.jobs],a.work)
+ build=a.work/(name+'-build');run(['cmake','-S',src,'-B',build,'-G','Ninja','-DCMAKE_TOOLCHAIN_FILE='+str(cmake),'-DCMAKE_INSTALL_PREFIX=/usr','-DCMAKE_INSTALL_LIBDIR=/usr/lib','-DCMAKE_BUILD_TYPE=Release',*opts],a.work);run(['cmake','--build',build,'--parallel',a.jobs],a.work)
  old=env.get('DESTDIR');env['DESTDIR']=str(stage)
  try:run(['cmake','--install',build],a.work)
  finally:
@@ -89,7 +90,15 @@ try:
    elif name=='libxfont':autotools(src,['--without-bzip2','--disable-devel-docs'])
    elif name=='xkeyboard-config':meson(src,name,['-Dcompat-rules=true'])
    elif name=='x11-xkb-utils':autotools(src/'xkbcomp',['--disable-selective-werror'])
-   elif name=='xorg-server':meson(src,name,['-Dxorg=false','-Dxephyr=false','-Dxnest=false','-Dxwin=false','-Dxquartz=false','-Dxvfb=true','-Dglamor=false','-Dglx=false','-Ddri1=false','-Ddri2=false','-Ddri3=false','-Ddrm=false','-Dpciaccess=false','-Dudev=false','-Dudev_kms=false','-Dsystemd_logind=false','-Dxselinux=false','-Dsecure-rpc=false','-Ddocs=false','-Ddevel-docs=false','-Dxkb_dir=/usr/share/X11/xkb','-Dxkb_bin_dir=/usr/bin','-Dxkb_output_dir=/tmp'])
+   elif name=='xorg-server':meson(src,name,['-Dxorg=false','-Dxephyr=false','-Dxnest=false','-Dxwin=false','-Dxquartz=false','-Dxvfb=true','-Dglamor=false','-Dglx=false','-Ddri1=false','-Ddri2=false','-Ddri3=false','-Ddrm=false','-Dpciaccess=false','-Dudev=false','-Dudev_kms=false','-Dsystemd_logind=false','-Dxselinux=false','-Dsecure-rpc=false','-Ddocs=false','-Ddevel-docs=false','-Dxkb_dir=/usr/share/X11/xkb','-Dxkb_bin_dir=/usr/bin','-Dxkb_output_dir=/tmp','-Ddefault_font_path=/usr/share/fonts/X11/misc,built-ins'])
+   elif name=='giflib':
+    run(['make','-j'+str(a.jobs),'libgif.so','CC='+str(cc),'CFLAGS='+' '.join(cflags+['-std=gnu99','-fPIC'])],src)
+    for f in src.glob('libgif.so*'):
+     dest=stage/'usr/lib'/f.name
+     if f.is_symlink():dest.symlink_to(os.readlink(f))
+     else:shutil.copy2(f,dest)
+    shutil.copy2(src/'gif_lib.h',stage/'usr/include/gif_lib.h')
+   elif name=='libsndfile':cmakebuild(src,name,['-DBUILD_SHARED_LIBS=ON','-DENABLE_EXTERNAL_LIBS=OFF','-DENABLE_MPEG=OFF','-DBUILD_PROGRAMS=OFF','-DBUILD_EXAMPLES=OFF','-DBUILD_TESTING=OFF'])
    elif name=='libvncserver':cmakebuild(src,name,['-DWITH_GNUTLS=OFF','-DWITH_OPENSSL=OFF','-DWITH_GCRYPT=OFF','-DWITH_LZO=OFF','-DWITH_SDL=OFF','-DWITH_GTK=OFF','-DWITH_QT=OFF','-DWITH_SYSTEMD=OFF','-DWITH_LIBSSHTUNNEL=OFF','-DWITH_FFMPEG=OFF','-DWITH_SASL=OFF','-DWITH_EXAMPLES=OFF','-DWITH_TESTS=OFF','-DWITH_TIGHTVNC_FILETRANSFER=OFF'])
    elif name=='x11vnc':autotools(src,['--without-ssl','--without-crypt','--without-avahi'])
    else:raise ValueError(name)

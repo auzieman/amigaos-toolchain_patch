@@ -57,6 +57,11 @@ try:
     file=a.cache/f['filename'];assert file.stat().st_size==f['size'] and sha(file)==f['sha256'],file
    src=a.work/(name+'-source');run(['dpkg-source','--no-check','-x',a.cache/comp['dsc'],src],a.work)
    notice=src/'debian/copyright';assert notice.is_file();shutil.copy2(notice,a.work/(name+'-copyright'))
+   if name=='e17':
+    series=json.loads((a.project/'patches/e17/series.json').read_text());assert series['version']==comp['version']
+    for item in series['patches']:
+     patch=a.project/item['path'];assert sha(patch)==item['sha256']
+     run(['git','apply','--check',patch],src);run(['git','apply',patch],src);r.setdefault('patches',[]).append(item)
    if name=='efl':
     opts=json.loads((a.project/'profiles/images/efl-software-session.json').read_text())['options']
     args=[]
@@ -65,9 +70,9 @@ try:
      args.append('-D'+k+'='+value)
     meson(src,name,args)
    elif name=='e17':
-    off=['nls','pam','libexif','elput','device-udev','mount-udisks','mount-eeze','wl','xwayland','systemd','bluez5','connman','backlight','battery','convertible','cpufreq','geolocation','polkit','mixer','music-control','packagekit','temperature','gesture-recognition','procstats']
+    off=['nls','pam','lokker','libexif','elput','device-udev','mount-udisks','mount-eeze','wl','xwayland','systemd','bluez5','connman','backlight','battery','convertible','cpufreq','geolocation','polkit','mixer','music-control','packagekit','temperature','gesture-recognition','procstats']
     meson(src,name,['-D'+n+'=false' for n in off]+['-Dedje-cc=/usr/bin/edje_cc','-Deet=/usr/bin/eet','-Deldbus-codegen=/usr/bin/eldbus-codegen'])
-   elif name=='terminology':meson(src,name,['-Dnls=false','-Dtests=false','-Ddocs=false'])
+   elif name=='terminology':meson(src,name,['-Dnls=false','-Dtests=false','-Dedje-cc=/usr/bin/edje_cc','-Deet=/usr/bin/eet'])
    for f in (stage/'usr/lib').glob('*.la'):f.unlink()
    r['components'][name]={'status':'built','version':comp['version'],'notice_sha256':sha(notice)};save();print('BUILD_PASS',name,flush=True)
   r['elfs']={}

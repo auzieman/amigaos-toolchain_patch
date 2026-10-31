@@ -29,5 +29,5 @@ int main(int argc,char **argv) {
  xcb_get_input_focus_reply_t *reply=xcb_get_input_focus_reply(c,xcb_get_input_focus(c),&e);
  if(!reply||e)return 9;free(reply);xcb_disconnect(c);
  puts("X11_CLIENT_TEST xcb_request_reply PASS");
- puts("X11_CLIENT_DONE native headless server; no target Xorg/E/GPU acceptance");return 0;
+ puts("X11_CLIENT_DONE server identity recorded by runner; no E/GPU or full ABI acceptance");return 0;
 }

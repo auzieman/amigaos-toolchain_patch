@@ -1,0 +1,20 @@
+--- a/src/bin/system/e_system_acpi.c
++++ b/src/bin/system/e_system_acpi.c
+@@ -3,7 +3,7 @@
+ // no local funcs
+ #elif defined __FreeBSD__
+ // no local funcs
+-#else
++#elif defined HAVE_EEZE
+ #  include <linux/input.h>
+ #  include <fcntl.h>
+ 
+@@ -234,7 +234,7 @@
+ // no local funcs
+ #  elif defined __FreeBSD__
+ // no local funcs
+-#  else
++#  elif defined HAVE_EEZE
+   dev_open();
+ #endif
+ }

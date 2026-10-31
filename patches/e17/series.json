@@ -1,0 +1,19 @@
+{
+  "source": "Debian e17 0.27.1-1 after its supplied patches",
+  "version": "0.27.1-1",
+  "scope": "Honor disabled Eeze integrations for software X11; full Eeze path unchanged",
+  "patches": [
+    {
+      "path": "patches/e17/0001-meson-probe-eeze-optionally.patch",
+      "sha256": "e6cf992c2b261b39a3ab2fcf51bf83f221fc8ac2845087624b585c057040f235"
+    },
+    {
+      "path": "patches/e17/0002-acpi-guard-eeze-device-watches.patch",
+      "sha256": "679aeec337047a0790dd3bf98254920202ae217028db59cbc5322d9df0930278"
+    },
+    {
+      "path": "patches/e17/0003-wizard-keep-null-temperature-list-without-eeze.patch",
+      "sha256": "ed4a9821b21a1b032196e2d2f4851f572774d73905ecea71eb67de7e400e4ee5"
+    }
+  ]
+}
