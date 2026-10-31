@@ -1,0 +1,20 @@
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '--version']
+ppc-amigaos-gcc (adtools build 6.4.0) 6.4.0
+Copyright (C) 2017 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-dumpmachine']
+ppc-amigaos
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcpu=8548', '-mabi=spe', '-mspe', '-mfloat-gprs=double', '-S', PosixPath('/out/compiler-spe.c'), '-o', PosixPath('/out/compiler-spe.s')]
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-I/softfp', '-D__addsf3=tabor_softfp_add', '-c', PosixPath('/softfp/addsf3.c'), '-o', PosixPath('/out/addsf3.c.o')]
+/tmp/ccKg5pUR.s: Assembler messages:
+/tmp/ccKg5pUR.s:43: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:54: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:80: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:118: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:220: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:260: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:311: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:353: Error: unrecognized opcode: `isel'
+/tmp/ccKg5pUR.s:354: Error: unrecognized opcode: `isel'

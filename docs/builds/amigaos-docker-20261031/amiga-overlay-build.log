@@ -1,0 +1,30 @@
+Sending build context to Docker daemon  4.608kB
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Step 1/8 : ARG AMIGAOS_TOOLCHAIN_IMAGE
+Step 2/8 : FROM ${AMIGAOS_TOOLCHAIN_IMAGE}
+ ---> f6c88b3bf08a
+Step 3/8 : USER root
+ ---> Running in 31ed5078dab2
+ ---> Removed intermediate container 31ed5078dab2
+ ---> 598c332495dc
+Step 4/8 : RUN case "$(/opt/ppc-amigaos/bin/ppc-amigaos-gcc -dumpversion)" in 6.*) ;; *) exit 1;; esac
+ ---> Running in 1412ca6ef48d
+ ---> Removed intermediate container 1412ca6ef48d
+ ---> 600f8f79f1eb
+Step 5/8 : COPY e500v2.specs /opt/tabor-spe/e500v2.specs
+ ---> a49b5860cef3
+Step 6/8 : COPY compiler-wrapper /opt/tabor-spe/compiler-wrapper
+ ---> 133428598a72
+Step 7/8 : RUN chmod 755 /opt/tabor-spe/compiler-wrapper &&     mkdir /opt/tabor-spe/bin &&     ln -s ../compiler-wrapper /opt/tabor-spe/bin/ppc-amigaos-gcc &&     ln -s ../compiler-wrapper /opt/tabor-spe/bin/ppc-amigaos-g++
+ ---> Running in a2f9a1cf4ca8
+ ---> Removed intermediate container a2f9a1cf4ca8
+ ---> 607da1da1ed4
+Step 8/8 : ENV PATH="/opt/tabor-spe/bin:${PATH}"     CC="/opt/tabor-spe/bin/ppc-amigaos-gcc"     CXX="/opt/tabor-spe/bin/ppc-amigaos-g++"
+ ---> Running in 87819a25f988
+ ---> Removed intermediate container 87819a25f988
+ ---> 9c90dbf8d411
+Successfully built 9c90dbf8d411
+Successfully tagged tabor-os4-gcc6-spe:20261031

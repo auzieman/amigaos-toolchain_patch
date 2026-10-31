@@ -1,0 +1,33 @@
+{
+  "image": "walkero/amigagccondocker@sha256:96feddb4f961320437b90b6c609a7aad3690766f1c171f7189458226a32dc2fa",
+  "image_id": "sha256:6e389d69329572cc237730cd92ec8647013462f08039897d6d883865bcdd44fb",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "--cap-drop=ALL",
+    "--security-opt=no-new-privileges",
+    "--read-only",
+    "--tmpfs",
+    "/tmp:rw,size=512m",
+    "--user",
+    "1000:1000",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/project,dst=/project,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/softfp,dst=/softfp,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/gcc13-001,dst=/out",
+    "--entrypoint",
+    "python3",
+    "walkero/amigagccondocker@sha256:96feddb4f961320437b90b6c609a7aad3690766f1c171f7189458226a32dc2fa",
+    "/project/scripts/amigaos-container-build.py",
+    "--image",
+    "walkero/amigagccondocker@sha256:96feddb4f961320437b90b6c609a7aad3690766f1c171f7189458226a32dc2fa"
+  ],
+  "amigaos_execution": false
+}

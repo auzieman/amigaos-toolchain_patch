@@ -1,0 +1,1487 @@
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '--version']
+ppc-amigaos-gcc (adtools build 13.5.0) 13.5.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-dumpmachine']
+ppc-amigaos
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcpu=8548', '-mabi=spe', '-mspe', '-mfloat-gprs=double', '-S', PosixPath('/out/compiler-spe.c'), '-o', PosixPath('/out/compiler-spe.s')]
+ppc-amigaos-gcc: error: unrecognized command-line option ‘-mabi=spe’
+ppc-amigaos-gcc: error: unrecognized command-line option ‘-mspe’
+ppc-amigaos-gcc: error: unrecognized command-line option ‘-mfloat-gprs=double’
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-I/softfp', '-D__addsf3=tabor_softfp_add', '-c', PosixPath('/softfp/addsf3.c'), '-o', PosixPath('/out/addsf3.c.o')]
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-I/softfp', '-D__subsf3=tabor_softfp_sub', '-c', PosixPath('/softfp/subsf3.c'), '-o', PosixPath('/out/subsf3.c.o')]
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-I/softfp', '-D__mulsf3=tabor_softfp_mul', '-c', PosixPath('/softfp/mulsf3.c'), '-o', PosixPath('/out/mulsf3.c.o')]
+In file included from /softfp/soft-fp.h:231,
+                 from /softfp/mulsf3.c:31:
+/softfp/mulsf3.c: In function ‘tabor_softfp_mul’:
+/softfp/op-common.h:866:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  866 |           R##_s = X##_s;                                        \
+/softfp/single.h:167:41: note: in expansion of macro ‘_FP_MUL’
+  167 | #define FP_MUL_S(R, X, Y)               _FP_MUL (S, 1, R, X, Y)
+      |                                         ^~~~~~~
+/softfp/mulsf3.c:46:3: note: in expansion of macro ‘FP_MUL_S’
+   46 |   FP_MUL_S (R, A, B);
+      |   ^~~~~~~~
+/softfp/op-common.h:868:9: note: here
+  868 |         case _FP_CLS_COMBINE (FP_CLS_INF, FP_CLS_INF):          \
+      |         ^~~~
+/softfp/single.h:167:41: note: in expansion of macro ‘_FP_MUL’
+  167 | #define FP_MUL_S(R, X, Y)               _FP_MUL (S, 1, R, X, Y)
+      |                                         ^~~~~~~
+/softfp/mulsf3.c:46:3: note: in expansion of macro ‘FP_MUL_S’
+   46 |   FP_MUL_S (R, A, B);
+      |   ^~~~~~~~
+/softfp/op-common.h:879:17: warning: this statement may fall through [-Wimplicit-fallthrough=]
+  879 |           R##_s = Y##_s;                                        \
+/softfp/single.h:167:41: note: in expansion of macro ‘_FP_MUL’
+  167 | #define FP_MUL_S(R, X, Y)               _FP_MUL (S, 1, R, X, Y)
+      |                                         ^~~~~~~
+/softfp/mulsf3.c:46:3: note: in expansion of macro ‘FP_MUL_S’
+   46 |   FP_MUL_S (R, A, B);
+      |   ^~~~~~~~
+/softfp/op-common.h:881:9: note: here
+  881 |         case _FP_CLS_COMBINE (FP_CLS_NORMAL, FP_CLS_INF):       \
+      |         ^~~~
+/softfp/single.h:167:41: note: in expansion of macro ‘_FP_MUL’
+  167 | #define FP_MUL_S(R, X, Y)               _FP_MUL (S, 1, R, X, Y)
+      |                                         ^~~~~~~
+/softfp/mulsf3.c:46:3: note: in expansion of macro ‘FP_MUL_S’
+   46 |   FP_MUL_S (R, A, B);
+      |   ^~~~~~~~
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-c', PosixPath('/project/bench/amigaos/soft-backend.c'), '-o', PosixPath('/out/soft-backend.c.o')]
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-msoft-float', '-mcpu=8548', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-c', PosixPath('/project/bench/amigaos/spe-backend.c'), '-o', PosixPath('/out/spe-backend.c.o')]
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-mcpu=750', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', '-c', PosixPath('/project/bench/amigaos/fractal-main.c'), '-o', PosixPath('/out/fractal-main.c.o')]
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/addsf3.c.o')]
+
+/out/addsf3.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <tabor_softfp_add>:
+   0:	54 8a 0f fe 	srwi    r10,r4,31
+   4:	54 65 0f fe 	srwi    r5,r3,31
+   8:	54 67 02 7e 	clrlwi  r7,r3,9
+   c:	54 86 4e 3e 	rlwinm  r6,r4,9,24,31
+  10:	7c 05 50 00 	cmpw    r5,r10
+  14:	54 63 4e 3e 	rlwinm  r3,r3,9,24,31
+  18:	54 8c 02 7e 	clrlwi  r12,r4,9
+  1c:	54 8b 0f fe 	srwi    r11,r4,31
+  20:	7c e8 3b 78 	mr      r8,r7
+  24:	54 ea 18 38 	slwi    r10,r7,3
+  28:	7d 26 18 50 	subf    r9,r6,r3
+  2c:	54 84 19 b8 	rlwinm  r4,r4,3,6,28
+  30:	41 82 00 64 	beq-    94 <tabor_softfp_add+0x94>
+  34:	2c 09 00 00 	cmpwi   r9,0
+  38:	40 81 00 2c 	ble-    64 <tabor_softfp_add+0x64>
+  3c:	2c 06 00 00 	cmpwi   r6,0
+  40:	40 82 00 80 	bne-    c0 <tabor_softfp_add+0xc0>
+  44:	2c 04 00 00 	cmpwi   r4,0
+  48:	41 82 01 b0 	beq-    1f8 <tabor_softfp_add+0x1f8>
+  4c:	35 09 ff ff 	addic.  r8,r9,-1
+  50:	41 82 03 cc 	beq-    41c <tabor_softfp_add+0x41c>
+  54:	2c 09 00 ff 	cmpwi   r9,255
+  58:	41 82 01 b0 	beq-    208 <tabor_softfp_add+0x208>
+  5c:	7d 09 43 78 	mr      r9,r8
+  60:	48 00 00 6c 	b       cc <tabor_softfp_add+0xcc>
+  64:	41 82 01 1c 	beq-    180 <tabor_softfp_add+0x180>
+  68:	2c 03 00 00 	cmpwi   r3,0
+  6c:	7d 23 30 50 	subf    r9,r3,r6
+  70:	40 82 02 9c 	bne-    30c <tabor_softfp_add+0x30c>
+  74:	2c 0a 00 00 	cmpwi   r10,0
+  78:	41 82 01 78 	beq-    1f0 <tabor_softfp_add+0x1f0>
+  7c:	35 09 ff ff 	addic.  r8,r9,-1
+  80:	41 82 04 0c 	beq-    48c <tabor_softfp_add+0x48c>
+  84:	2c 09 00 ff 	cmpwi   r9,255
+  88:	41 82 03 88 	beq-    410 <tabor_softfp_add+0x410>
+  8c:	7d 09 43 78 	mr      r9,r8
+  90:	48 00 02 88 	b       318 <tabor_softfp_add+0x318>
+  94:	2c 09 00 00 	cmpwi   r9,0
+  98:	40 81 01 c0 	ble-    258 <tabor_softfp_add+0x258>
+  9c:	2c 06 00 00 	cmpwi   r6,0
+  a0:	41 82 01 30 	beq-    1d0 <tabor_softfp_add+0x1d0>
+  a4:	2c 03 00 ff 	cmpwi   r3,255
+  a8:	41 82 01 60 	beq-    208 <tabor_softfp_add+0x208>
+  ac:	64 84 04 00 	oris    r4,r4,1024
+  b0:	2c 09 00 1b 	cmpwi   r9,27
+  b4:	40 81 02 98 	ble-    34c <tabor_softfp_add+0x34c>
+  b8:	39 4a 00 01 	addi    r10,r10,1
+  bc:	48 00 00 7c 	b       138 <tabor_softfp_add+0x138>
+  c0:	2c 03 00 ff 	cmpwi   r3,255
+  c4:	41 82 01 44 	beq-    208 <tabor_softfp_add+0x208>
+  c8:	64 84 04 00 	oris    r4,r4,1024
+  cc:	2c 09 00 1b 	cmpwi   r9,27
+  d0:	39 00 00 01 	li      r8,1
+  d4:	41 81 00 1c 	bgt-    f0 <tabor_softfp_add+0xf0>
+  d8:	20 e9 00 20 	subfic  r7,r9,32
+  dc:	7c 87 38 30 	slw     r7,r4,r7
+  e0:	7c 88 4c 30 	srw     r8,r4,r9
+  e4:	31 27 ff ff 	addic   r9,r7,-1
+  e8:	7d 29 39 10 	subfe   r9,r9,r7
+  ec:	7d 08 4b 78 	or      r8,r8,r9
+  f0:	7d 48 50 50 	subf    r10,r8,r10
+  f4:	75 49 04 00 	andis.  r9,r10,1024
+  f8:	41 82 01 54 	beq-    24c <tabor_softfp_add+0x24c>
+  fc:	55 49 01 be 	clrlwi  r9,r10,6
+ 100:	7d 2a 00 34 	cntlzw  r10,r9
+ 104:	39 4a ff fb 	addi    r10,r10,-5
+ 108:	7c 03 50 00 	cmpw    r3,r10
+ 10c:	7d 29 50 30 	slw     r9,r9,r10
+ 110:	41 81 01 88 	bgt-    298 <tabor_softfp_add+0x298>
+ 114:	7d 43 50 50 	subf    r10,r3,r10
+ 118:	39 4a 00 01 	addi    r10,r10,1
+ 11c:	38 60 00 00 	li      r3,0
+ 120:	21 0a 00 20 	subfic  r8,r10,32
+ 124:	7d 2a 54 30 	srw     r10,r9,r10
+ 128:	7d 29 40 30 	slw     r9,r9,r8
+ 12c:	31 09 ff ff 	addic   r8,r9,-1
+ 130:	7d 28 49 10 	subfe   r9,r8,r9
+ 134:	7d 4a 4b 78 	or      r10,r10,r9
+ 138:	71 49 00 07 	andi.   r9,r10,7
+ 13c:	41 82 00 14 	beq-    150 <tabor_softfp_add+0x150>
+ 140:	55 49 07 3e 	clrlwi  r9,r10,28
+ 144:	2c 09 00 04 	cmpwi   r9,4
+ 148:	39 2a 00 04 	addi    r9,r10,4
+ 14c:	7d 4a 48 9e 	iseleq  r10,r10,r9
+ 150:	75 49 04 00 	andis.  r9,r10,1024
+ 154:	41 82 00 a8 	beq-    1fc <tabor_softfp_add+0x1fc>
+ 158:	2c 03 00 fe 	cmpwi   r3,254
+ 15c:	39 23 00 01 	addi    r9,r3,1
+ 160:	41 82 00 d0 	beq-    230 <tabor_softfp_add+0x230>
+ 164:	55 48 01 88 	rlwinm  r8,r10,0,6,4
+ 168:	55 08 ea 7e 	rlwinm  r8,r8,29,9,31
+ 16c:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 170:	54 a5 f8 00 	slwi    r5,r5,31
+ 174:	7c 63 2b 78 	or      r3,r3,r5
+ 178:	7c 63 43 78 	or      r3,r3,r8
+ 17c:	4e 80 00 20 	blr
+ 180:	39 23 00 01 	addi    r9,r3,1
+ 184:	71 29 00 fe 	andi.   r9,r9,254
+ 188:	40 82 01 60 	bne-    2e8 <tabor_softfp_add+0x2e8>
+ 18c:	2c 03 00 00 	cmpwi   r3,0
+ 190:	40 82 02 40 	bne-    3d0 <tabor_softfp_add+0x3d0>
+ 194:	2c 0a 00 00 	cmpwi   r10,0
+ 198:	41 82 02 dc 	beq-    474 <tabor_softfp_add+0x474>
+ 19c:	2c 04 00 00 	cmpwi   r4,0
+ 1a0:	39 20 00 00 	li      r9,0
+ 1a4:	41 a2 ff c8 	beq-    16c <tabor_softfp_add+0x16c>
+ 1a8:	7d 04 50 50 	subf    r8,r4,r10
+ 1ac:	75 07 04 00 	andis.  r7,r8,1024
+ 1b0:	41 82 03 20 	beq-    4d0 <tabor_softfp_add+0x4d0>
+ 1b4:	7d 0a 20 50 	subf    r8,r10,r4
+ 1b8:	75 0a 04 00 	andis.  r10,r8,1024
+ 1bc:	41 82 03 3c 	beq-    4f8 <tabor_softfp_add+0x4f8>
+ 1c0:	55 08 01 88 	rlwinm  r8,r8,0,6,4
+ 1c4:	7d 65 5b 78 	mr      r5,r11
+ 1c8:	39 20 00 01 	li      r9,1
+ 1cc:	4b ff ff 9c 	b       168 <tabor_softfp_add+0x168>
+ 1d0:	2c 04 00 00 	cmpwi   r4,0
+ 1d4:	41 82 00 24 	beq-    1f8 <tabor_softfp_add+0x1f8>
+ 1d8:	35 09 ff ff 	addic.  r8,r9,-1
+ 1dc:	41 82 02 10 	beq-    3ec <tabor_softfp_add+0x3ec>
+ 1e0:	2c 09 00 ff 	cmpwi   r9,255
+ 1e4:	41 82 00 24 	beq-    208 <tabor_softfp_add+0x208>
+ 1e8:	7d 09 43 78 	mr      r9,r8
+ 1ec:	4b ff fe c4 	b       b0 <tabor_softfp_add+0xb0>
+ 1f0:	7d 65 5b 78 	mr      r5,r11
+ 1f4:	7c 8a 23 78 	mr      r10,r4
+ 1f8:	7d 23 4b 78 	mr      r3,r9
+ 1fc:	2c 03 00 ff 	cmpwi   r3,255
+ 200:	55 47 e8 fe 	srwi    r7,r10,3
+ 204:	40 82 02 00 	bne-    404 <tabor_softfp_add+0x404>
+ 208:	2c 07 00 00 	cmpwi   r7,0
+ 20c:	41 82 00 24 	beq-    230 <tabor_softfp_add+0x230>
+ 210:	64 e8 00 40 	oris    r8,r7,64
+ 214:	55 08 02 7e 	clrlwi  r8,r8,9
+ 218:	39 20 ff ff 	li      r9,-1
+ 21c:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 220:	54 a5 f8 00 	slwi    r5,r5,31
+ 224:	7c 63 2b 78 	or      r3,r3,r5
+ 228:	7c 63 43 78 	or      r3,r3,r8
+ 22c:	4e 80 00 20 	blr
+ 230:	39 20 ff ff 	li      r9,-1
+ 234:	54 a5 f8 00 	slwi    r5,r5,31
+ 238:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 23c:	39 00 00 00 	li      r8,0
+ 240:	7c 63 2b 78 	or      r3,r3,r5
+ 244:	7c 63 43 78 	or      r3,r3,r8
+ 248:	4e 80 00 20 	blr
+ 24c:	71 49 00 07 	andi.   r9,r10,7
+ 250:	40 82 fe f0 	bne+    140 <tabor_softfp_add+0x140>
+ 254:	4b ff ff a8 	b       1fc <tabor_softfp_add+0x1fc>
+ 258:	41 82 00 4c 	beq-    2a4 <tabor_softfp_add+0x2a4>
+ 25c:	2c 03 00 00 	cmpwi   r3,0
+ 260:	7d 23 30 50 	subf    r9,r3,r6
+ 264:	40 82 01 38 	bne-    39c <tabor_softfp_add+0x39c>
+ 268:	2c 0a 00 00 	cmpwi   r10,0
+ 26c:	41 a2 ff 88 	beq-    1f4 <tabor_softfp_add+0x1f4>
+ 270:	35 09 ff ff 	addic.  r8,r9,-1
+ 274:	41 82 01 78 	beq-    3ec <tabor_softfp_add+0x3ec>
+ 278:	2c 09 00 ff 	cmpwi   r9,255
+ 27c:	41 82 01 98 	beq-    414 <tabor_softfp_add+0x414>
+ 280:	7d 09 43 78 	mr      r9,r8
+ 284:	2c 09 00 1b 	cmpwi   r9,27
+ 288:	40 81 01 a0 	ble-    428 <tabor_softfp_add+0x428>
+ 28c:	39 44 00 01 	addi    r10,r4,1
+ 290:	7c c3 33 78 	mr      r3,r6
+ 294:	4b ff fe a4 	b       138 <tabor_softfp_add+0x138>
+ 298:	7c 6a 18 50 	subf    r3,r10,r3
+ 29c:	55 2a 01 88 	rlwinm  r10,r9,0,6,4
+ 2a0:	4b ff fe 98 	b       138 <tabor_softfp_add+0x138>
+ 2a4:	39 23 00 01 	addi    r9,r3,1
+ 2a8:	71 26 00 fe 	andi.   r6,r9,254
+ 2ac:	40 82 01 00 	bne-    3ac <tabor_softfp_add+0x3ac>
+ 2b0:	2c 03 00 00 	cmpwi   r3,0
+ 2b4:	40 82 01 98 	bne-    44c <tabor_softfp_add+0x44c>
+ 2b8:	2c 0a 00 00 	cmpwi   r10,0
+ 2bc:	41 82 02 08 	beq-    4c4 <tabor_softfp_add+0x4c4>
+ 2c0:	2c 04 00 00 	cmpwi   r4,0
+ 2c4:	39 20 00 00 	li      r9,0
+ 2c8:	41 a2 fe a4 	beq-    16c <tabor_softfp_add+0x16c>
+ 2cc:	7d 4a 22 14 	add     r10,r10,r4
+ 2d0:	75 48 04 00 	andis.  r8,r10,1024
+ 2d4:	55 48 e8 fe 	srwi    r8,r10,3
+ 2d8:	55 08 02 7e 	clrlwi  r8,r8,9
+ 2dc:	41 a2 fe 90 	beq-    16c <tabor_softfp_add+0x16c>
+ 2e0:	39 20 00 01 	li      r9,1
+ 2e4:	4b ff fe 88 	b       16c <tabor_softfp_add+0x16c>
+ 2e8:	7d 24 50 50 	subf    r9,r4,r10
+ 2ec:	75 28 04 00 	andis.  r8,r9,1024
+ 2f0:	40 82 00 d4 	bne-    3c4 <tabor_softfp_add+0x3c4>
+ 2f4:	2c 09 00 00 	cmpwi   r9,0
+ 2f8:	40 a2 fe 08 	bne-    100 <tabor_softfp_add+0x100>
+ 2fc:	38 a0 00 00 	li      r5,0
+ 300:	39 20 00 00 	li      r9,0
+ 304:	39 00 00 00 	li      r8,0
+ 308:	4b ff fe 64 	b       16c <tabor_softfp_add+0x16c>
+ 30c:	2c 06 00 ff 	cmpwi   r6,255
+ 310:	41 82 01 00 	beq-    410 <tabor_softfp_add+0x410>
+ 314:	65 4a 04 00 	oris    r10,r10,1024
+ 318:	2c 09 00 1b 	cmpwi   r9,27
+ 31c:	39 00 00 01 	li      r8,1
+ 320:	41 81 00 1c 	bgt-    33c <tabor_softfp_add+0x33c>
+ 324:	20 e9 00 20 	subfic  r7,r9,32
+ 328:	7d 47 38 30 	slw     r7,r10,r7
+ 32c:	7d 48 4c 30 	srw     r8,r10,r9
+ 330:	31 27 ff ff 	addic   r9,r7,-1
+ 334:	7d 29 39 10 	subfe   r9,r9,r7
+ 338:	7d 08 4b 78 	or      r8,r8,r9
+ 33c:	7d 48 20 50 	subf    r10,r8,r4
+ 340:	7d 65 5b 78 	mr      r5,r11
+ 344:	7c c3 33 78 	mr      r3,r6
+ 348:	4b ff fd ac 	b       f4 <tabor_softfp_add+0xf4>
+ 34c:	21 09 00 20 	subfic  r8,r9,32
+ 350:	7c 89 4c 30 	srw     r9,r4,r9
+ 354:	7c 88 40 30 	slw     r8,r4,r8
+ 358:	30 e8 ff ff 	addic   r7,r8,-1
+ 35c:	7d 07 41 10 	subfe   r8,r7,r8
+ 360:	7d 29 43 78 	or      r9,r9,r8
+ 364:	7d 4a 4a 14 	add     r10,r10,r9
+ 368:	75 49 04 00 	andis.  r9,r10,1024
+ 36c:	41 a2 fe e0 	beq-    24c <tabor_softfp_add+0x24c>
+ 370:	38 63 00 01 	addi    r3,r3,1
+ 374:	2c 03 00 ff 	cmpwi   r3,255
+ 378:	39 20 ff ff 	li      r9,-1
+ 37c:	39 00 00 00 	li      r8,0
+ 380:	41 82 fd ec 	beq+    16c <tabor_softfp_add+0x16c>
+ 384:	55 49 f8 7e 	srwi    r9,r10,1
+ 388:	55 29 01 ca 	rlwinm  r9,r9,0,7,5
+ 38c:	55 4a 07 fe 	clrlwi  r10,r10,31
+ 390:	55 29 00 7e 	clrlwi  r9,r9,1
+ 394:	7d 2a 53 78 	or      r10,r9,r10
+ 398:	4b ff fd a0 	b       138 <tabor_softfp_add+0x138>
+ 39c:	2c 06 00 ff 	cmpwi   r6,255
+ 3a0:	41 82 00 74 	beq-    414 <tabor_softfp_add+0x414>
+ 3a4:	65 4a 04 00 	oris    r10,r10,1024
+ 3a8:	4b ff fe dc 	b       284 <tabor_softfp_add+0x284>
+ 3ac:	2c 09 00 ff 	cmpwi   r9,255
+ 3b0:	41 a2 fe 80 	beq-    230 <tabor_softfp_add+0x230>
+ 3b4:	7d 4a 22 14 	add     r10,r10,r4
+ 3b8:	55 4a f8 7e 	srwi    r10,r10,1
+ 3bc:	7d 23 4b 78 	mr      r3,r9
+ 3c0:	4b ff fd 78 	b       138 <tabor_softfp_add+0x138>
+ 3c4:	7d 2a 20 50 	subf    r9,r10,r4
+ 3c8:	7d 65 5b 78 	mr      r5,r11
+ 3cc:	4b ff fd 34 	b       100 <tabor_softfp_add+0x100>
+ 3d0:	2c 0a 00 00 	cmpwi   r10,0
+ 3d4:	40 82 00 c8 	bne-    49c <tabor_softfp_add+0x49c>
+ 3d8:	2c 04 00 00 	cmpwi   r4,0
+ 3dc:	41 82 01 08 	beq-    4e4 <tabor_softfp_add+0x4e4>
+ 3e0:	7d 87 63 78 	mr      r7,r12
+ 3e4:	7d 65 5b 78 	mr      r5,r11
+ 3e8:	4b ff fe 28 	b       210 <tabor_softfp_add+0x210>
+ 3ec:	7d 4a 22 14 	add     r10,r10,r4
+ 3f0:	38 60 00 02 	li      r3,2
+ 3f4:	75 49 04 00 	andis.  r9,r10,1024
+ 3f8:	40 82 ff 8c 	bne+    384 <tabor_softfp_add+0x384>
+ 3fc:	55 47 e8 fe 	srwi    r7,r10,3
+ 400:	38 60 00 01 	li      r3,1
+ 404:	54 e8 02 7e 	clrlwi  r8,r7,9
+ 408:	7c 69 1b 78 	mr      r9,r3
+ 40c:	4b ff fd 60 	b       16c <tabor_softfp_add+0x16c>
+ 410:	7d 65 5b 78 	mr      r5,r11
+ 414:	7d 87 63 78 	mr      r7,r12
+ 418:	4b ff fd f0 	b       208 <tabor_softfp_add+0x208>
+ 41c:	7d 44 50 50 	subf    r10,r4,r10
+ 420:	38 60 00 01 	li      r3,1
+ 424:	4b ff fc d0 	b       f4 <tabor_softfp_add+0xf4>
+ 428:	21 09 00 20 	subfic  r8,r9,32
+ 42c:	7d 49 4c 30 	srw     r9,r10,r9
+ 430:	7d 4a 40 30 	slw     r10,r10,r8
+ 434:	7c c3 33 78 	mr      r3,r6
+ 438:	31 0a ff ff 	addic   r8,r10,-1
+ 43c:	7d 48 51 10 	subfe   r10,r8,r10
+ 440:	7d 2a 53 78 	or      r10,r9,r10
+ 444:	7d 4a 22 14 	add     r10,r10,r4
+ 448:	4b ff ff 20 	b       368 <tabor_softfp_add+0x368>
+ 44c:	2c 0a 00 00 	cmpwi   r10,0
+ 450:	41 a2 ff c4 	beq-    414 <tabor_softfp_add+0x414>
+ 454:	2c 04 00 00 	cmpwi   r4,0
+ 458:	41 a2 fd b8 	beq-    210 <tabor_softfp_add+0x210>
+ 45c:	3d 20 00 40 	lis     r9,64
+ 460:	7c 07 48 40 	cmplw   r7,r9
+ 464:	41 a0 fd ac 	blt-    210 <tabor_softfp_add+0x210>
+ 468:	7c 0c 48 40 	cmplw   r12,r9
+ 46c:	7c ec 38 1e 	isellt  r7,r12,r7
+ 470:	4b ff fd a0 	b       210 <tabor_softfp_add+0x210>
+ 474:	2c 04 00 00 	cmpwi   r4,0
+ 478:	41 a2 fe 84 	beq-    2fc <tabor_softfp_add+0x2fc>
+ 47c:	7d 65 5b 78 	mr      r5,r11
+ 480:	7d 88 63 78 	mr      r8,r12
+ 484:	39 20 00 00 	li      r9,0
+ 488:	4b ff fc e4 	b       16c <tabor_softfp_add+0x16c>
+ 48c:	7d 4a 20 50 	subf    r10,r10,r4
+ 490:	7d 65 5b 78 	mr      r5,r11
+ 494:	38 60 00 01 	li      r3,1
+ 498:	4b ff fc 5c 	b       f4 <tabor_softfp_add+0xf4>
+ 49c:	2c 04 00 00 	cmpwi   r4,0
+ 4a0:	41 a2 fd 70 	beq-    210 <tabor_softfp_add+0x210>
+ 4a4:	3d 20 00 40 	lis     r9,64
+ 4a8:	7c 07 48 40 	cmplw   r7,r9
+ 4ac:	41 a0 fd 64 	blt-    210 <tabor_softfp_add+0x210>
+ 4b0:	7c 0c 48 40 	cmplw   r12,r9
+ 4b4:	40 a0 fd 5c 	bge-    210 <tabor_softfp_add+0x210>
+ 4b8:	7d 65 5b 78 	mr      r5,r11
+ 4bc:	7d 87 63 78 	mr      r7,r12
+ 4c0:	4b ff fd 50 	b       210 <tabor_softfp_add+0x210>
+ 4c4:	7d 88 63 78 	mr      r8,r12
+ 4c8:	39 20 00 00 	li      r9,0
+ 4cc:	4b ff fc a0 	b       16c <tabor_softfp_add+0x16c>
+ 4d0:	2c 08 00 00 	cmpwi   r8,0
+ 4d4:	40 a2 fc 94 	bne-    168 <tabor_softfp_add+0x168>
+ 4d8:	38 a0 00 00 	li      r5,0
+ 4dc:	39 00 00 00 	li      r8,0
+ 4e0:	4b ff fc 8c 	b       16c <tabor_softfp_add+0x16c>
+ 4e4:	3d 00 00 7f 	lis     r8,127
+ 4e8:	38 a0 00 00 	li      r5,0
+ 4ec:	61 08 ff ff 	ori     r8,r8,65535
+ 4f0:	39 20 ff ff 	li      r9,-1
+ 4f4:	4b ff fd 28 	b       21c <tabor_softfp_add+0x21c>
+ 4f8:	55 08 ea 7e 	rlwinm  r8,r8,29,9,31
+ 4fc:	7d 65 5b 78 	mr      r5,r11
+ 500:	4b ff fc 6c 	b       16c <tabor_softfp_add+0x16c>
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/subsf3.c.o')]
+
+/out/subsf3.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <tabor_softfp_sub>:
+   0:	94 21 ff f0 	stwu    r1,-16(r1)
+   4:	54 86 4e 3e 	rlwinm  r6,r4,9,24,31
+   8:	54 67 02 7e 	clrlwi  r7,r3,9
+   c:	54 68 0f fe 	srwi    r8,r3,31
+  10:	2c 06 00 ff 	cmpwi   r6,255
+  14:	93 c1 00 08 	stw     r30,8(r1)
+  18:	54 8a 0f fe 	srwi    r10,r4,31
+  1c:	7d 00 43 78 	mr      r0,r8
+  20:	54 9e 02 7e 	clrlwi  r30,r4,9
+  24:	93 e1 00 0c 	stw     r31,12(r1)
+  28:	7c e5 3b 78 	mr      r5,r7
+  2c:	54 e9 18 38 	slwi    r9,r7,3
+  30:	54 63 4e 3e 	rlwinm  r3,r3,9,24,31
+  34:	55 08 06 3e 	clrlwi  r8,r8,24
+  38:	54 84 19 b8 	rlwinm  r4,r4,3,6,28
+  3c:	41 82 00 78 	beq-    b4 <tabor_softfp_sub+0xb4>
+  40:	69 4a 00 01 	xori    r10,r10,1
+  44:	55 5f 06 3e 	clrlwi  r31,r10,24
+  48:	7d 66 18 50 	subf    r11,r6,r3
+  4c:	7c 08 f8 00 	cmpw    r8,r31
+  50:	7d 4c 53 78 	mr      r12,r10
+  54:	41 82 00 34 	beq-    88 <tabor_softfp_sub+0x88>
+  58:	2c 0b 00 00 	cmpwi   r11,0
+  5c:	40 81 05 1c 	ble-    578 <tabor_softfp_sub+0x578>
+  60:	2c 06 00 00 	cmpwi   r6,0
+  64:	40 82 00 d4 	bne-    138 <tabor_softfp_sub+0x138>
+  68:	2c 04 00 00 	cmpwi   r4,0
+  6c:	41 82 02 40 	beq-    2ac <tabor_softfp_sub+0x2ac>
+  70:	35 4b ff ff 	addic.  r10,r11,-1
+  74:	41 82 04 44 	beq-    4b8 <tabor_softfp_sub+0x4b8>
+  78:	2c 0b 00 ff 	cmpwi   r11,255
+  7c:	41 82 02 40 	beq-    2bc <tabor_softfp_sub+0x2bc>
+  80:	7d 4b 53 78 	mr      r11,r10
+  84:	48 00 00 c0 	b       144 <tabor_softfp_sub+0x144>
+  88:	2c 0b 00 00 	cmpwi   r11,0
+  8c:	40 81 05 0c 	ble-    598 <tabor_softfp_sub+0x598>
+  90:	2c 06 00 00 	cmpwi   r6,0
+  94:	41 82 01 98 	beq-    22c <tabor_softfp_sub+0x22c>
+  98:	2c 03 00 ff 	cmpwi   r3,255
+  9c:	41 82 02 20 	beq-    2bc <tabor_softfp_sub+0x2bc>
+  a0:	64 84 04 00 	oris    r4,r4,1024
+  a4:	2c 0b 00 1b 	cmpwi   r11,27
+  a8:	40 81 01 a4 	ble-    24c <tabor_softfp_sub+0x24c>
+  ac:	39 29 00 01 	addi    r9,r9,1
+  b0:	48 00 01 00 	b       1b0 <tabor_softfp_sub+0x1b0>
+  b4:	2f 84 00 00 	cmpwi   cr7,r4,0
+  b8:	39 63 ff 01 	addi    r11,r3,-255
+  bc:	40 9e 01 48 	bne-    cr7,204 <tabor_softfp_sub+0x204>
+  c0:	69 4a 00 01 	xori    r10,r10,1
+  c4:	55 5f 06 3e 	clrlwi  r31,r10,24
+  c8:	7d 4c 53 78 	mr      r12,r10
+  cc:	7c 08 f8 00 	cmpw    r8,r31
+  d0:	41 82 02 f0 	beq-    3c0 <tabor_softfp_sub+0x3c0>
+  d4:	2c 0b 00 00 	cmpwi   r11,0
+  d8:	41 82 02 24 	beq-    2fc <tabor_softfp_sub+0x2fc>
+  dc:	2c 03 00 00 	cmpwi   r3,0
+  e0:	7d 40 53 78 	mr      r0,r10
+  e4:	40 82 01 98 	bne-    27c <tabor_softfp_sub+0x27c>
+  e8:	39 60 00 ff 	li      r11,255
+  ec:	2c 09 00 00 	cmpwi   r9,0
+  f0:	41 82 01 b4 	beq-    2a4 <tabor_softfp_sub+0x2a4>
+  f4:	34 6b ff ff 	addic.  r3,r11,-1
+  f8:	41 82 04 14 	beq-    50c <tabor_softfp_sub+0x50c>
+  fc:	2c 0b 00 ff 	cmpwi   r11,255
+ 100:	7d 80 63 78 	mr      r0,r12
+ 104:	41 82 03 ac 	beq-    4b0 <tabor_softfp_sub+0x4b0>
+ 108:	2c 03 00 1b 	cmpwi   r3,27
+ 10c:	39 40 00 01 	li      r10,1
+ 110:	41 81 00 1c 	bgt-    12c <tabor_softfp_sub+0x12c>
+ 114:	21 03 00 20 	subfic  r8,r3,32
+ 118:	7d 28 40 30 	slw     r8,r9,r8
+ 11c:	7d 23 1c 30 	srw     r3,r9,r3
+ 120:	31 48 ff ff 	addic   r10,r8,-1
+ 124:	7d 4a 41 10 	subfe   r10,r10,r8
+ 128:	7c 6a 53 78 	or      r10,r3,r10
+ 12c:	7d 2a 20 50 	subf    r9,r10,r4
+ 130:	7c c3 33 78 	mr      r3,r6
+ 134:	48 00 00 38 	b       16c <tabor_softfp_sub+0x16c>
+ 138:	2c 03 00 ff 	cmpwi   r3,255
+ 13c:	41 82 01 80 	beq-    2bc <tabor_softfp_sub+0x2bc>
+ 140:	64 84 04 00 	oris    r4,r4,1024
+ 144:	2c 0b 00 1b 	cmpwi   r11,27
+ 148:	39 40 00 01 	li      r10,1
+ 14c:	41 81 00 1c 	bgt-    168 <tabor_softfp_sub+0x168>
+ 150:	21 0b 00 20 	subfic  r8,r11,32
+ 154:	7c 88 40 30 	slw     r8,r4,r8
+ 158:	7c 8a 5c 30 	srw     r10,r4,r11
+ 15c:	30 e8 ff ff 	addic   r7,r8,-1
+ 160:	7d 07 41 10 	subfe   r8,r7,r8
+ 164:	7d 4a 43 78 	or      r10,r10,r8
+ 168:	7d 2a 48 50 	subf    r9,r10,r9
+ 16c:	75 2a 04 00 	andis.  r10,r9,1024
+ 170:	41 82 01 80 	beq-    2f0 <tabor_softfp_sub+0x2f0>
+ 174:	55 2a 01 be 	clrlwi  r10,r9,6
+ 178:	7d 49 00 34 	cntlzw  r9,r10
+ 17c:	39 29 ff fb 	addi    r9,r9,-5
+ 180:	7c 03 48 00 	cmpw    r3,r9
+ 184:	7d 4a 48 30 	slw     r10,r10,r9
+ 188:	41 81 01 c8 	bgt-    350 <tabor_softfp_sub+0x350>
+ 18c:	7d 23 48 50 	subf    r9,r3,r9
+ 190:	39 29 00 01 	addi    r9,r9,1
+ 194:	38 60 00 00 	li      r3,0
+ 198:	21 09 00 20 	subfic  r8,r9,32
+ 19c:	7d 49 4c 30 	srw     r9,r10,r9
+ 1a0:	7d 4a 40 30 	slw     r10,r10,r8
+ 1a4:	31 0a ff ff 	addic   r8,r10,-1
+ 1a8:	7d 48 51 10 	subfe   r10,r8,r10
+ 1ac:	7d 29 53 78 	or      r9,r9,r10
+ 1b0:	71 2a 00 07 	andi.   r10,r9,7
+ 1b4:	41 82 00 14 	beq-    1c8 <tabor_softfp_sub+0x1c8>
+ 1b8:	55 2a 07 3e 	clrlwi  r10,r9,28
+ 1bc:	2c 0a 00 04 	cmpwi   r10,4
+ 1c0:	39 49 00 04 	addi    r10,r9,4
+ 1c4:	7d 29 50 9e 	iseleq  r9,r9,r10
+ 1c8:	75 2a 04 00 	andis.  r10,r9,1024
+ 1cc:	41 82 00 e4 	beq-    2b0 <tabor_softfp_sub+0x2b0>
+ 1d0:	2c 03 00 fe 	cmpwi   r3,254
+ 1d4:	38 63 00 01 	addi    r3,r3,1
+ 1d8:	41 82 00 a4 	beq-    27c <tabor_softfp_sub+0x27c>
+ 1dc:	55 25 01 88 	rlwinm  r5,r9,0,6,4
+ 1e0:	54 a5 ea 7e 	rlwinm  r5,r5,29,9,31
+ 1e4:	54 63 b8 50 	rlwinm  r3,r3,23,1,8
+ 1e8:	54 00 f8 00 	slwi    r0,r0,31
+ 1ec:	7c 63 03 78 	or      r3,r3,r0
+ 1f0:	83 c1 00 08 	lwz     r30,8(r1)
+ 1f4:	83 e1 00 0c 	lwz     r31,12(r1)
+ 1f8:	7c 63 2b 78 	or      r3,r3,r5
+ 1fc:	38 21 00 10 	addi    r1,r1,16
+ 200:	4e 80 00 20 	blr
+ 204:	7c 08 50 00 	cmpw    r8,r10
+ 208:	55 5f 06 3e 	clrlwi  r31,r10,24
+ 20c:	41 82 01 74 	beq-    380 <tabor_softfp_sub+0x380>
+ 210:	2c 0b 00 00 	cmpwi   r11,0
+ 214:	41 82 00 e8 	beq-    2fc <tabor_softfp_sub+0x2fc>
+ 218:	2c 03 00 00 	cmpwi   r3,0
+ 21c:	40 82 02 14 	bne-    430 <tabor_softfp_sub+0x430>
+ 220:	7d 4c 53 78 	mr      r12,r10
+ 224:	39 60 00 ff 	li      r11,255
+ 228:	4b ff fe c4 	b       ec <tabor_softfp_sub+0xec>
+ 22c:	2c 04 00 00 	cmpwi   r4,0
+ 230:	41 82 00 7c 	beq-    2ac <tabor_softfp_sub+0x2ac>
+ 234:	35 4b ff ff 	addic.  r10,r11,-1
+ 238:	41 82 02 58 	beq-    490 <tabor_softfp_sub+0x490>
+ 23c:	2c 0b 00 ff 	cmpwi   r11,255
+ 240:	41 82 00 7c 	beq-    2bc <tabor_softfp_sub+0x2bc>
+ 244:	7d 4b 53 78 	mr      r11,r10
+ 248:	4b ff fe 5c 	b       a4 <tabor_softfp_sub+0xa4>
+ 24c:	21 4b 00 20 	subfic  r10,r11,32
+ 250:	7c 8b 5c 30 	srw     r11,r4,r11
+ 254:	7c 8a 50 30 	slw     r10,r4,r10
+ 258:	31 0a ff ff 	addic   r8,r10,-1
+ 25c:	7d 48 51 10 	subfe   r10,r8,r10
+ 260:	7d 6b 53 78 	or      r11,r11,r10
+ 264:	7d 29 5a 14 	add     r9,r9,r11
+ 268:	75 2a 04 00 	andis.  r10,r9,1024
+ 26c:	41 82 00 84 	beq-    2f0 <tabor_softfp_sub+0x2f0>
+ 270:	38 63 00 01 	addi    r3,r3,1
+ 274:	2c 03 00 ff 	cmpwi   r3,255
+ 278:	40 82 01 94 	bne-    40c <tabor_softfp_sub+0x40c>
+ 27c:	38 60 ff ff 	li      r3,-1
+ 280:	83 c1 00 08 	lwz     r30,8(r1)
+ 284:	54 63 b8 50 	rlwinm  r3,r3,23,1,8
+ 288:	54 00 f8 00 	slwi    r0,r0,31
+ 28c:	38 a0 00 00 	li      r5,0
+ 290:	83 e1 00 0c 	lwz     r31,12(r1)
+ 294:	7c 63 03 78 	or      r3,r3,r0
+ 298:	38 21 00 10 	addi    r1,r1,16
+ 29c:	7c 63 2b 78 	or      r3,r3,r5
+ 2a0:	4e 80 00 20 	blr
+ 2a4:	7d 80 63 78 	mr      r0,r12
+ 2a8:	7c 89 23 78 	mr      r9,r4
+ 2ac:	7d 63 5b 78 	mr      r3,r11
+ 2b0:	2c 03 00 ff 	cmpwi   r3,255
+ 2b4:	55 27 e8 fe 	srwi    r7,r9,3
+ 2b8:	40 82 01 f0 	bne-    4a8 <tabor_softfp_sub+0x4a8>
+ 2bc:	2c 07 00 00 	cmpwi   r7,0
+ 2c0:	41 a2 ff bc 	beq-    27c <tabor_softfp_sub+0x27c>
+ 2c4:	64 e5 00 40 	oris    r5,r7,64
+ 2c8:	54 a5 02 7e 	clrlwi  r5,r5,9
+ 2cc:	38 60 ff ff 	li      r3,-1
+ 2d0:	54 63 b8 50 	rlwinm  r3,r3,23,1,8
+ 2d4:	54 00 f8 00 	slwi    r0,r0,31
+ 2d8:	7c 63 03 78 	or      r3,r3,r0
+ 2dc:	83 c1 00 08 	lwz     r30,8(r1)
+ 2e0:	83 e1 00 0c 	lwz     r31,12(r1)
+ 2e4:	7c 63 2b 78 	or      r3,r3,r5
+ 2e8:	38 21 00 10 	addi    r1,r1,16
+ 2ec:	4e 80 00 20 	blr
+ 2f0:	71 2a 00 07 	andi.   r10,r9,7
+ 2f4:	40 82 fe c4 	bne+    1b8 <tabor_softfp_sub+0x1b8>
+ 2f8:	4b ff ff b8 	b       2b0 <tabor_softfp_sub+0x2b0>
+ 2fc:	39 43 00 01 	addi    r10,r3,1
+ 300:	71 4a 00 fe 	andi.   r10,r10,254
+ 304:	40 82 00 58 	bne-    35c <tabor_softfp_sub+0x35c>
+ 308:	2c 03 00 00 	cmpwi   r3,0
+ 30c:	40 82 01 60 	bne-    46c <tabor_softfp_sub+0x46c>
+ 310:	2c 09 00 00 	cmpwi   r9,0
+ 314:	41 82 02 08 	beq-    51c <tabor_softfp_sub+0x51c>
+ 318:	2c 04 00 00 	cmpwi   r4,0
+ 31c:	38 60 00 00 	li      r3,0
+ 320:	41 a2 fe c4 	beq-    1e4 <tabor_softfp_sub+0x1e4>
+ 324:	7c a4 48 50 	subf    r5,r4,r9
+ 328:	74 aa 04 00 	andis.  r10,r5,1024
+ 32c:	41 82 02 38 	beq-    564 <tabor_softfp_sub+0x564>
+ 330:	7c 89 20 50 	subf    r4,r9,r4
+ 334:	74 89 04 00 	andis.  r9,r4,1024
+ 338:	7f e0 fb 78 	mr      r0,r31
+ 33c:	54 85 ea 7e 	rlwinm  r5,r4,29,9,31
+ 340:	41 a2 fe a4 	beq-    1e4 <tabor_softfp_sub+0x1e4>
+ 344:	54 85 01 88 	rlwinm  r5,r4,0,6,4
+ 348:	38 60 00 01 	li      r3,1
+ 34c:	4b ff fe 94 	b       1e0 <tabor_softfp_sub+0x1e0>
+ 350:	7c 69 18 50 	subf    r3,r9,r3
+ 354:	55 49 01 88 	rlwinm  r9,r10,0,6,4
+ 358:	4b ff fe 58 	b       1b0 <tabor_softfp_sub+0x1b0>
+ 35c:	7d 44 48 50 	subf    r10,r4,r9
+ 360:	75 48 04 00 	andis.  r8,r10,1024
+ 364:	40 82 00 fc 	bne-    460 <tabor_softfp_sub+0x460>
+ 368:	2c 0a 00 00 	cmpwi   r10,0
+ 36c:	40 a2 fe 0c 	bne-    178 <tabor_softfp_sub+0x178>
+ 370:	38 00 00 00 	li      r0,0
+ 374:	38 60 00 00 	li      r3,0
+ 378:	38 a0 00 00 	li      r5,0
+ 37c:	4b ff fe 68 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 380:	2c 0b 00 00 	cmpwi   r11,0
+ 384:	41 82 00 44 	beq-    3c8 <tabor_softfp_sub+0x3c8>
+ 388:	2c 03 00 00 	cmpwi   r3,0
+ 38c:	40 82 01 24 	bne-    4b0 <tabor_softfp_sub+0x4b0>
+ 390:	39 60 00 ff 	li      r11,255
+ 394:	2c 09 00 00 	cmpwi   r9,0
+ 398:	41 a2 ff 10 	beq-    2a8 <tabor_softfp_sub+0x2a8>
+ 39c:	35 4b ff ff 	addic.  r10,r11,-1
+ 3a0:	41 82 00 f0 	beq-    490 <tabor_softfp_sub+0x490>
+ 3a4:	2c 0b 00 ff 	cmpwi   r11,255
+ 3a8:	41 82 01 08 	beq-    4b0 <tabor_softfp_sub+0x4b0>
+ 3ac:	2c 0a 00 1b 	cmpwi   r10,27
+ 3b0:	40 81 01 14 	ble-    4c4 <tabor_softfp_sub+0x4c4>
+ 3b4:	39 24 00 01 	addi    r9,r4,1
+ 3b8:	7c c3 33 78 	mr      r3,r6
+ 3bc:	4b ff fd f4 	b       1b0 <tabor_softfp_sub+0x1b0>
+ 3c0:	2c 0b 00 00 	cmpwi   r11,0
+ 3c4:	40 82 00 60 	bne-    424 <tabor_softfp_sub+0x424>
+ 3c8:	39 43 00 01 	addi    r10,r3,1
+ 3cc:	71 48 00 fe 	andi.   r8,r10,254
+ 3d0:	40 82 00 78 	bne-    448 <tabor_softfp_sub+0x448>
+ 3d4:	2c 03 00 00 	cmpwi   r3,0
+ 3d8:	40 82 01 10 	bne-    4e8 <tabor_softfp_sub+0x4e8>
+ 3dc:	2c 09 00 00 	cmpwi   r9,0
+ 3e0:	41 82 01 78 	beq-    558 <tabor_softfp_sub+0x558>
+ 3e4:	2c 04 00 00 	cmpwi   r4,0
+ 3e8:	38 60 00 00 	li      r3,0
+ 3ec:	41 a2 fd f8 	beq-    1e4 <tabor_softfp_sub+0x1e4>
+ 3f0:	7d 29 22 14 	add     r9,r9,r4
+ 3f4:	55 25 e8 fe 	srwi    r5,r9,3
+ 3f8:	75 2a 04 00 	andis.  r10,r9,1024
+ 3fc:	54 a5 02 7e 	clrlwi  r5,r5,9
+ 400:	41 a2 fd e4 	beq-    1e4 <tabor_softfp_sub+0x1e4>
+ 404:	38 60 00 01 	li      r3,1
+ 408:	4b ff fd dc 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 40c:	55 2a f8 7e 	srwi    r10,r9,1
+ 410:	55 29 07 fe 	clrlwi  r9,r9,31
+ 414:	55 4a 01 ca 	rlwinm  r10,r10,0,7,5
+ 418:	55 4a 00 7e 	clrlwi  r10,r10,1
+ 41c:	7d 49 4b 78 	or      r9,r10,r9
+ 420:	4b ff fd 90 	b       1b0 <tabor_softfp_sub+0x1b0>
+ 424:	2c 03 00 00 	cmpwi   r3,0
+ 428:	41 a2 ff 68 	beq-    390 <tabor_softfp_sub+0x390>
+ 42c:	4b ff fe 50 	b       27c <tabor_softfp_sub+0x27c>
+ 430:	7d 40 53 78 	mr      r0,r10
+ 434:	7f c7 f3 78 	mr      r7,r30
+ 438:	4b ff fe 84 	b       2bc <tabor_softfp_sub+0x2bc>
+ 43c:	39 43 00 01 	addi    r10,r3,1
+ 440:	71 48 00 fe 	andi.   r8,r10,254
+ 444:	41 82 ff 98 	beq+    3dc <tabor_softfp_sub+0x3dc>
+ 448:	2c 0a 00 ff 	cmpwi   r10,255
+ 44c:	41 a2 fe 30 	beq-    27c <tabor_softfp_sub+0x27c>
+ 450:	7d 29 22 14 	add     r9,r9,r4
+ 454:	55 29 f8 7e 	srwi    r9,r9,1
+ 458:	7d 43 53 78 	mr      r3,r10
+ 45c:	4b ff fd 54 	b       1b0 <tabor_softfp_sub+0x1b0>
+ 460:	7d 49 20 50 	subf    r10,r9,r4
+ 464:	7f e0 fb 78 	mr      r0,r31
+ 468:	4b ff fd 10 	b       178 <tabor_softfp_sub+0x178>
+ 46c:	2c 09 00 00 	cmpwi   r9,0
+ 470:	40 82 00 c0 	bne-    530 <tabor_softfp_sub+0x530>
+ 474:	2c 04 00 00 	cmpwi   r4,0
+ 478:	40 82 00 d4 	bne-    54c <tabor_softfp_sub+0x54c>
+ 47c:	3c a0 00 7f 	lis     r5,127
+ 480:	38 00 00 00 	li      r0,0
+ 484:	60 a5 ff ff 	ori     r5,r5,65535
+ 488:	38 60 ff ff 	li      r3,-1
+ 48c:	4b ff fe 44 	b       2d0 <tabor_softfp_sub+0x2d0>
+ 490:	7d 29 22 14 	add     r9,r9,r4
+ 494:	38 60 00 02 	li      r3,2
+ 498:	75 2a 04 00 	andis.  r10,r9,1024
+ 49c:	40 82 ff 70 	bne+    40c <tabor_softfp_sub+0x40c>
+ 4a0:	55 27 e8 fe 	srwi    r7,r9,3
+ 4a4:	38 60 00 01 	li      r3,1
+ 4a8:	54 e5 02 7e 	clrlwi  r5,r7,9
+ 4ac:	4b ff fd 38 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 4b0:	7f c7 f3 78 	mr      r7,r30
+ 4b4:	4b ff fe 08 	b       2bc <tabor_softfp_sub+0x2bc>
+ 4b8:	7d 24 48 50 	subf    r9,r4,r9
+ 4bc:	38 60 00 01 	li      r3,1
+ 4c0:	4b ff fc ac 	b       16c <tabor_softfp_sub+0x16c>
+ 4c4:	21 0a 00 20 	subfic  r8,r10,32
+ 4c8:	7d 2a 54 30 	srw     r10,r9,r10
+ 4cc:	7d 29 40 30 	slw     r9,r9,r8
+ 4d0:	7c c3 33 78 	mr      r3,r6
+ 4d4:	31 09 ff ff 	addic   r8,r9,-1
+ 4d8:	7d 28 49 10 	subfe   r9,r8,r9
+ 4dc:	7d 49 4b 78 	or      r9,r10,r9
+ 4e0:	7d 29 22 14 	add     r9,r9,r4
+ 4e4:	4b ff fd 84 	b       268 <tabor_softfp_sub+0x268>
+ 4e8:	2c 09 00 00 	cmpwi   r9,0
+ 4ec:	41 a2 ff c4 	beq-    4b0 <tabor_softfp_sub+0x4b0>
+ 4f0:	41 be fd d4 	beq-    cr7,2c4 <tabor_softfp_sub+0x2c4>
+ 4f4:	3d 20 00 40 	lis     r9,64
+ 4f8:	7c 07 48 40 	cmplw   r7,r9
+ 4fc:	41 a0 fd c8 	blt-    2c4 <tabor_softfp_sub+0x2c4>
+ 500:	7c 1e 48 40 	cmplw   r30,r9
+ 504:	7c fe 38 1e 	isellt  r7,r30,r7
+ 508:	4b ff fd bc 	b       2c4 <tabor_softfp_sub+0x2c4>
+ 50c:	7d 29 20 50 	subf    r9,r9,r4
+ 510:	7d 80 63 78 	mr      r0,r12
+ 514:	38 60 00 01 	li      r3,1
+ 518:	4b ff fc 54 	b       16c <tabor_softfp_sub+0x16c>
+ 51c:	2c 04 00 00 	cmpwi   r4,0
+ 520:	41 a2 fe 50 	beq-    370 <tabor_softfp_sub+0x370>
+ 524:	7f e0 fb 78 	mr      r0,r31
+ 528:	7f c5 f3 78 	mr      r5,r30
+ 52c:	4b ff fc b8 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 530:	2c 04 00 00 	cmpwi   r4,0
+ 534:	41 a2 fd 90 	beq-    2c4 <tabor_softfp_sub+0x2c4>
+ 538:	3d 20 00 40 	lis     r9,64
+ 53c:	7c 07 48 40 	cmplw   r7,r9
+ 540:	41 a0 fd 84 	blt-    2c4 <tabor_softfp_sub+0x2c4>
+ 544:	7c 1e 48 40 	cmplw   r30,r9
+ 548:	40 a0 fd 7c 	bge-    2c4 <tabor_softfp_sub+0x2c4>
+ 54c:	7f e0 fb 78 	mr      r0,r31
+ 550:	7f c7 f3 78 	mr      r7,r30
+ 554:	4b ff fd 70 	b       2c4 <tabor_softfp_sub+0x2c4>
+ 558:	7f c5 f3 78 	mr      r5,r30
+ 55c:	38 60 00 00 	li      r3,0
+ 560:	4b ff fc 84 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 564:	2c 05 00 00 	cmpwi   r5,0
+ 568:	40 a2 fc 78 	bne-    1e0 <tabor_softfp_sub+0x1e0>
+ 56c:	38 00 00 00 	li      r0,0
+ 570:	38 a0 00 00 	li      r5,0
+ 574:	4b ff fc 70 	b       1e4 <tabor_softfp_sub+0x1e4>
+ 578:	41 a2 fd 84 	beq-    2fc <tabor_softfp_sub+0x2fc>
+ 57c:	2c 03 00 00 	cmpwi   r3,0
+ 580:	7c 63 30 50 	subf    r3,r3,r6
+ 584:	7c 6b 1b 78 	mr      r11,r3
+ 588:	41 a2 fb 64 	beq-    ec <tabor_softfp_sub+0xec>
+ 58c:	65 29 04 00 	oris    r9,r9,1024
+ 590:	7d 40 53 78 	mr      r0,r10
+ 594:	4b ff fb 74 	b       108 <tabor_softfp_sub+0x108>
+ 598:	41 a2 fe a4 	beq-    43c <tabor_softfp_sub+0x43c>
+ 59c:	2c 03 00 00 	cmpwi   r3,0
+ 5a0:	7d 43 30 50 	subf    r10,r3,r6
+ 5a4:	40 82 00 0c 	bne-    5b0 <tabor_softfp_sub+0x5b0>
+ 5a8:	7d 4b 53 78 	mr      r11,r10
+ 5ac:	4b ff fd e8 	b       394 <tabor_softfp_sub+0x394>
+ 5b0:	65 29 04 00 	oris    r9,r9,1024
+ 5b4:	4b ff fd f8 	b       3ac <tabor_softfp_sub+0x3ac>
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/mulsf3.c.o')]
+
+/out/mulsf3.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <tabor_softfp_mul>:
+   0:	94 21 ff f0 	stwu    r1,-16(r1)
+   4:	54 60 0f fe 	srwi    r0,r3,31
+   8:	54 6b 4e 3f 	rlwinm. r11,r3,9,24,31
+   c:	7c 06 03 78 	mr      r6,r0
+  10:	54 63 02 7e 	clrlwi  r3,r3,9
+  14:	93 e1 00 0c 	stw     r31,12(r1)
+  18:	41 82 01 a4 	beq-    1bc <tabor_softfp_mul+0x1bc>
+  1c:	2c 0b 00 ff 	cmpwi   r11,255
+  20:	40 82 01 20 	bne-    140 <tabor_softfp_mul+0x140>
+  24:	2c 03 00 00 	cmpwi   r3,0
+  28:	38 e0 00 0c 	li      r7,12
+  2c:	39 40 00 08 	li      r10,8
+  30:	39 20 00 03 	li      r9,3
+  34:	39 00 00 02 	li      r8,2
+  38:	7d 4a 38 9e 	iseleq  r10,r10,r7
+  3c:	7d 08 48 9e 	iseleq  r8,r8,r9
+  40:	39 60 00 ff 	li      r11,255
+  44:	54 87 4e 3f 	rlwinm. r7,r4,9,24,31
+  48:	54 89 02 7e 	clrlwi  r9,r4,9
+  4c:	54 9f 0f fe 	srwi    r31,r4,31
+  50:	41 82 01 14 	beq-    164 <tabor_softfp_mul+0x164>
+  54:	2c 07 00 ff 	cmpwi   r7,255
+  58:	41 82 01 7c 	beq-    1d4 <tabor_softfp_mul+0x1d4>
+  5c:	55 29 18 38 	slwi    r9,r9,3
+  60:	38 e7 ff 81 	addi    r7,r7,-127
+  64:	65 29 04 00 	oris    r9,r9,1024
+  68:	7d 6b 3a 14 	add     r11,r11,r7
+  6c:	38 a0 00 00 	li      r5,0
+  70:	2c 0a 00 0a 	cmpwi   r10,10
+  74:	39 8b 00 01 	addi    r12,r11,1
+  78:	41 81 01 08 	bgt-    180 <tabor_softfp_mul+0x180>
+  7c:	2c 0a 00 02 	cmpwi   r10,2
+  80:	7f e6 02 78 	xor     r6,r31,r0
+  84:	40 81 01 ac 	ble-    230 <tabor_softfp_mul+0x230>
+  88:	38 e0 00 01 	li      r7,1
+  8c:	7c ea 50 30 	slw     r10,r7,r10
+  90:	71 47 05 30 	andi.   r7,r10,1328
+  94:	40 82 00 ec 	bne-    180 <tabor_softfp_mul+0x180>
+  98:	71 48 02 40 	andi.   r8,r10,576
+  9c:	40 82 02 74 	bne-    310 <tabor_softfp_mul+0x310>
+  a0:	71 4a 00 88 	andi.   r10,r10,136
+  a4:	40 82 02 44 	bne-    2e8 <tabor_softfp_mul+0x2e8>
+  a8:	7d 49 19 d6 	mullw   r10,r9,r3
+  ac:	7d 23 48 16 	mulhwu  r9,r3,r9
+  b0:	55 29 30 32 	slwi    r9,r9,6
+  b4:	75 28 08 00 	andis.  r8,r9,2048
+  b8:	55 48 30 32 	slwi    r8,r10,6
+  bc:	55 4a 36 be 	srwi    r10,r10,26
+  c0:	30 68 ff ff 	addic   r3,r8,-1
+  c4:	7c 63 41 10 	subfe   r3,r3,r8
+  c8:	7c 63 53 78 	or      r3,r3,r10
+  cc:	7d 23 1b 78 	or      r3,r9,r3
+  d0:	41 82 02 54 	beq-    324 <tabor_softfp_mul+0x324>
+  d4:	54 69 f8 7e 	srwi    r9,r3,1
+  d8:	54 63 07 fe 	clrlwi  r3,r3,31
+  dc:	7d 23 1b 78 	or      r3,r9,r3
+  e0:	35 2c 00 7f 	addic.  r9,r12,127
+  e4:	40 81 01 b4 	ble-    298 <tabor_softfp_mul+0x298>
+  e8:	70 6a 00 07 	andi.   r10,r3,7
+  ec:	41 82 00 14 	beq-    100 <tabor_softfp_mul+0x100>
+  f0:	54 6a 07 3e 	clrlwi  r10,r3,28
+  f4:	2c 0a 00 04 	cmpwi   r10,4
+  f8:	39 43 00 04 	addi    r10,r3,4
+  fc:	7c 63 50 9e 	iseleq  r3,r3,r10
+ 100:	74 6a 08 00 	andis.  r10,r3,2048
+ 104:	41 82 00 0c 	beq-    110 <tabor_softfp_mul+0x110>
+ 108:	54 63 01 46 	rlwinm  r3,r3,0,5,3
+ 10c:	39 2c 00 80 	addi    r9,r12,128
+ 110:	2c 09 00 fe 	cmpwi   r9,254
+ 114:	54 6a ea 7e 	rlwinm  r10,r3,29,9,31
+ 118:	40 81 00 88 	ble-    1a0 <tabor_softfp_mul+0x1a0>
+ 11c:	39 20 ff ff 	li      r9,-1
+ 120:	83 e1 00 0c 	lwz     r31,12(r1)
+ 124:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 128:	54 c6 f8 00 	slwi    r6,r6,31
+ 12c:	39 40 00 00 	li      r10,0
+ 130:	7c 63 33 78 	or      r3,r3,r6
+ 134:	38 21 00 10 	addi    r1,r1,16
+ 138:	7c 63 53 78 	or      r3,r3,r10
+ 13c:	4e 80 00 20 	blr
+ 140:	54 63 18 38 	slwi    r3,r3,3
+ 144:	54 87 4e 3f 	rlwinm. r7,r4,9,24,31
+ 148:	64 63 04 00 	oris    r3,r3,1024
+ 14c:	39 6b ff 81 	addi    r11,r11,-127
+ 150:	39 40 00 00 	li      r10,0
+ 154:	39 00 00 00 	li      r8,0
+ 158:	54 89 02 7e 	clrlwi  r9,r4,9
+ 15c:	54 9f 0f fe 	srwi    r31,r4,31
+ 160:	40 82 fe f4 	bne+    54 <tabor_softfp_mul+0x54>
+ 164:	2c 09 00 00 	cmpwi   r9,0
+ 168:	40 82 00 e8 	bne-    250 <tabor_softfp_mul+0x250>
+ 16c:	61 4a 00 01 	ori     r10,r10,1
+ 170:	2c 0a 00 0a 	cmpwi   r10,10
+ 174:	38 a0 00 01 	li      r5,1
+ 178:	39 8b 00 01 	addi    r12,r11,1
+ 17c:	40 81 ff 00 	ble+    7c <tabor_softfp_mul+0x7c>
+ 180:	2c 08 00 02 	cmpwi   r8,2
+ 184:	41 a2 ff 98 	beq-    11c <tabor_softfp_mul+0x11c>
+ 188:	2c 08 00 03 	cmpwi   r8,3
+ 18c:	41 82 01 74 	beq-    300 <tabor_softfp_mul+0x300>
+ 190:	2c 08 00 01 	cmpwi   r8,1
+ 194:	39 20 00 00 	li      r9,0
+ 198:	39 40 00 00 	li      r10,0
+ 19c:	40 a2 ff 44 	bne-    e0 <tabor_softfp_mul+0xe0>
+ 1a0:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 1a4:	83 e1 00 0c 	lwz     r31,12(r1)
+ 1a8:	54 c6 f8 00 	slwi    r6,r6,31
+ 1ac:	38 21 00 10 	addi    r1,r1,16
+ 1b0:	7c 63 33 78 	or      r3,r3,r6
+ 1b4:	7c 63 53 78 	or      r3,r3,r10
+ 1b8:	4e 80 00 20 	blr
+ 1bc:	2c 03 00 00 	cmpwi   r3,0
+ 1c0:	40 82 00 bc 	bne-    27c <tabor_softfp_mul+0x27c>
+ 1c4:	39 40 00 04 	li      r10,4
+ 1c8:	39 60 00 00 	li      r11,0
+ 1cc:	39 00 00 01 	li      r8,1
+ 1d0:	4b ff fe 74 	b       44 <tabor_softfp_mul+0x44>
+ 1d4:	2c 09 00 00 	cmpwi   r9,0
+ 1d8:	38 eb 00 ff 	addi    r7,r11,255
+ 1dc:	41 82 00 90 	beq-    26c <tabor_softfp_mul+0x26c>
+ 1e0:	61 4a 00 03 	ori     r10,r10,3
+ 1e4:	2c 0a 00 0a 	cmpwi   r10,10
+ 1e8:	39 8b 01 00 	addi    r12,r11,256
+ 1ec:	40 81 01 58 	ble-    344 <tabor_softfp_mul+0x344>
+ 1f0:	2c 0a 00 0f 	cmpwi   r10,15
+ 1f4:	40 82 01 04 	bne-    2f8 <tabor_softfp_mul+0x2f8>
+ 1f8:	74 6a 00 40 	andis.  r10,r3,64
+ 1fc:	41 82 01 04 	beq-    300 <tabor_softfp_mul+0x300>
+ 200:	74 84 00 40 	andis.  r4,r4,64
+ 204:	40 82 00 fc 	bne-    300 <tabor_softfp_mul+0x300>
+ 208:	65 2a 00 40 	oris    r10,r9,64
+ 20c:	7f e6 fb 78 	mr      r6,r31
+ 210:	39 20 ff ff 	li      r9,-1
+ 214:	55 23 b8 50 	rlwinm  r3,r9,23,1,8
+ 218:	54 c6 f8 00 	slwi    r6,r6,31
+ 21c:	7c 63 33 78 	or      r3,r3,r6
+ 220:	83 e1 00 0c 	lwz     r31,12(r1)
+ 224:	7c 63 53 78 	or      r3,r3,r10
+ 228:	38 21 00 10 	addi    r1,r1,16
+ 22c:	4e 80 00 20 	blr
+ 230:	39 4a ff ff 	addi    r10,r10,-1
+ 234:	28 0a 00 01 	cmplwi  r10,1
+ 238:	41 a1 fe 70 	bgt-    a8 <tabor_softfp_mul+0xa8>
+ 23c:	2c 05 00 02 	cmpwi   r5,2
+ 240:	41 a2 fe dc 	beq-    11c <tabor_softfp_mul+0x11c>
+ 244:	7d 23 4b 78 	mr      r3,r9
+ 248:	7c a8 2b 78 	mr      r8,r5
+ 24c:	4b ff ff 44 	b       190 <tabor_softfp_mul+0x190>
+ 250:	7d 27 00 34 	cntlzw  r7,r9
+ 254:	38 a0 00 00 	li      r5,0
+ 258:	38 87 ff fb 	addi    r4,r7,-5
+ 25c:	20 e7 ff 8a 	subfic  r7,r7,-118
+ 260:	7d 29 20 30 	slw     r9,r9,r4
+ 264:	7d 6b 3a 14 	add     r11,r11,r7
+ 268:	4b ff fe 08 	b       70 <tabor_softfp_mul+0x70>
+ 26c:	61 4a 00 02 	ori     r10,r10,2
+ 270:	7c eb 3b 78 	mr      r11,r7
+ 274:	38 a0 00 02 	li      r5,2
+ 278:	4b ff fd f8 	b       70 <tabor_softfp_mul+0x70>
+ 27c:	7c 6b 00 34 	cntlzw  r11,r3
+ 280:	39 40 00 00 	li      r10,0
+ 284:	39 2b ff fb 	addi    r9,r11,-5
+ 288:	39 00 00 00 	li      r8,0
+ 28c:	21 6b ff 8a 	subfic  r11,r11,-118
+ 290:	7c 63 48 30 	slw     r3,r3,r9
+ 294:	4b ff fd b0 	b       44 <tabor_softfp_mul+0x44>
+ 298:	21 29 00 01 	subfic  r9,r9,1
+ 29c:	2c 09 00 1b 	cmpwi   r9,27
+ 2a0:	41 81 00 8c 	bgt-    32c <tabor_softfp_mul+0x32c>
+ 2a4:	39 8c 00 9e 	addi    r12,r12,158
+ 2a8:	7c 6c 60 30 	slw     r12,r3,r12
+ 2ac:	7c 69 4c 30 	srw     r9,r3,r9
+ 2b0:	31 4c ff ff 	addic   r10,r12,-1
+ 2b4:	7d 4a 61 10 	subfe   r10,r10,r12
+ 2b8:	7d 29 53 78 	or      r9,r9,r10
+ 2bc:	71 2a 00 07 	andi.   r10,r9,7
+ 2c0:	41 82 00 14 	beq-    2d4 <tabor_softfp_mul+0x2d4>
+ 2c4:	55 2a 07 3e 	clrlwi  r10,r9,28
+ 2c8:	2c 0a 00 04 	cmpwi   r10,4
+ 2cc:	39 49 00 04 	addi    r10,r9,4
+ 2d0:	7d 29 50 9e 	iseleq  r9,r9,r10
+ 2d4:	75 2a 04 00 	andis.  r10,r9,1024
+ 2d8:	41 82 00 60 	beq-    338 <tabor_softfp_mul+0x338>
+ 2dc:	39 20 00 01 	li      r9,1
+ 2e0:	39 40 00 00 	li      r10,0
+ 2e4:	4b ff fe bc 	b       1a0 <tabor_softfp_mul+0x1a0>
+ 2e8:	7f e6 fb 78 	mr      r6,r31
+ 2ec:	7d 23 4b 78 	mr      r3,r9
+ 2f0:	7c a8 2b 78 	mr      r8,r5
+ 2f4:	4b ff fe 8c 	b       180 <tabor_softfp_mul+0x180>
+ 2f8:	7f e6 fb 78 	mr      r6,r31
+ 2fc:	7d 23 4b 78 	mr      r3,r9
+ 300:	64 6a 00 40 	oris    r10,r3,64
+ 304:	39 20 ff ff 	li      r9,-1
+ 308:	55 4a 02 7e 	clrlwi  r10,r10,9
+ 30c:	4b ff ff 08 	b       214 <tabor_softfp_mul+0x214>
+ 310:	3d 40 00 7f 	lis     r10,127
+ 314:	38 c0 00 00 	li      r6,0
+ 318:	61 4a ff ff 	ori     r10,r10,65535
+ 31c:	39 20 ff ff 	li      r9,-1
+ 320:	4b ff fe f4 	b       214 <tabor_softfp_mul+0x214>
+ 324:	7d 6c 5b 78 	mr      r12,r11
+ 328:	4b ff fd b8 	b       e0 <tabor_softfp_mul+0xe0>
+ 32c:	39 20 00 00 	li      r9,0
+ 330:	39 40 00 00 	li      r10,0
+ 334:	4b ff fe 6c 	b       1a0 <tabor_softfp_mul+0x1a0>
+ 338:	55 2a ea 7e 	rlwinm  r10,r9,29,9,31
+ 33c:	39 20 00 00 	li      r9,0
+ 340:	4b ff fe 60 	b       1a0 <tabor_softfp_mul+0x1a0>
+ 344:	7f e6 02 78 	xor     r6,r31,r0
+ 348:	7c eb 3b 78 	mr      r11,r7
+ 34c:	38 a0 00 03 	li      r5,3
+ 350:	4b ff fd 38 	b       88 <tabor_softfp_mul+0x88>
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/soft-backend.c.o')]
+
+/out/soft-backend.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <soft_add>:
+   0:	94 21 ff f0 	stwu    r1,-16(r1)
+   4:	7c 08 02 a6 	mflr    r0
+   8:	90 01 00 14 	stw     r0,20(r1)
+   c:	48 00 00 01 	bl      c <soft_add+0xc>
+  10:	80 01 00 14 	lwz     r0,20(r1)
+  14:	38 21 00 10 	addi    r1,r1,16
+  18:	7c 08 03 a6 	mtlr    r0
+  1c:	4e 80 00 20 	blr
+
+00000020 <soft_sub>:
+  20:	94 21 ff f0 	stwu    r1,-16(r1)
+  24:	7c 08 02 a6 	mflr    r0
+  28:	90 01 00 14 	stw     r0,20(r1)
+  2c:	48 00 00 01 	bl      2c <soft_sub+0xc>
+  30:	80 01 00 14 	lwz     r0,20(r1)
+  34:	38 21 00 10 	addi    r1,r1,16
+  38:	7c 08 03 a6 	mtlr    r0
+  3c:	4e 80 00 20 	blr
+
+00000040 <soft_mul>:
+  40:	94 21 ff f0 	stwu    r1,-16(r1)
+  44:	7c 08 02 a6 	mflr    r0
+  48:	90 01 00 14 	stw     r0,20(r1)
+  4c:	48 00 00 01 	bl      4c <soft_mul+0xc>
+  50:	80 01 00 14 	lwz     r0,20(r1)
+  54:	38 21 00 10 	addi    r1,r1,16
+  58:	7c 08 03 a6 	mtlr    r0
+  5c:	4e 80 00 20 	blr
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/spe-backend.c.o')]
+
+/out/spe-backend.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <spe_add>:
+   0:	10 63 22 c0 	efsadd  r3,r3,r4
+   4:	4e 80 00 20 	blr
+
+00000008 <spe_sub>:
+   8:	10 63 22 c1 	efssub  r3,r3,r4
+   c:	4e 80 00 20 	blr
+
+00000010 <spe_mul>:
+  10:	10 63 22 c8 	efsmul  r3,r3,r4
+  14:	4e 80 00 20 	blr
+$ ['ppc-amigaos-objdump', '-d', '-M', 'e500', PosixPath('/out/fractal-main.c.o')]
+
+/out/fractal-main.c.o:     file format elf32-powerpc-amigaos
+
+
+Disassembly of section .text:
+
+00000000 <render>:
+   0:	94 21 ff b0 	stwu    r1,-80(r1)
+   4:	7c 69 1b 79 	mr.     r9,r3
+   8:	7c 08 02 a6 	mflr    r0
+   c:	90 01 00 54 	stw     r0,84(r1)
+  10:	91 c1 00 08 	stw     r14,8(r1)
+  14:	91 e1 00 0c 	stw     r15,12(r1)
+  18:	92 01 00 10 	stw     r16,16(r1)
+  1c:	92 21 00 14 	stw     r17,20(r1)
+  20:	92 41 00 18 	stw     r18,24(r1)
+  24:	92 61 00 1c 	stw     r19,28(r1)
+  28:	92 81 00 20 	stw     r20,32(r1)
+  2c:	92 a1 00 24 	stw     r21,36(r1)
+  30:	92 c1 00 28 	stw     r22,40(r1)
+  34:	92 e1 00 2c 	stw     r23,44(r1)
+  38:	93 01 00 30 	stw     r24,48(r1)
+  3c:	93 21 00 34 	stw     r25,52(r1)
+  40:	93 41 00 38 	stw     r26,56(r1)
+  44:	93 61 00 3c 	stw     r27,60(r1)
+  48:	93 81 00 40 	stw     r28,64(r1)
+  4c:	93 a1 00 44 	stw     r29,68(r1)
+  50:	93 c1 00 48 	stw     r30,72(r1)
+  54:	93 e1 00 4c 	stw     r31,76(r1)
+  58:	41 82 01 a4 	beq-    1fc <render+0x1fc>
+  5c:	3e a0 00 00 	lis     r21,0
+  60:	3f 20 00 00 	lis     r25,0
+  64:	3f 60 00 00 	lis     r27,0
+  68:	3a b5 00 00 	addi    r21,r21,0
+  6c:	3b 39 00 00 	addi    r25,r25,0
+  70:	3b 7b 00 00 	addi    r27,r27,0
+  74:	7d 29 00 d0 	neg     r9,r9
+  78:	3e 00 00 00 	lis     r16,0
+  7c:	55 29 04 a6 	rlwinm  r9,r9,0,18,19
+  80:	3a 10 00 00 	addi    r16,r16,0
+  84:	3e c0 00 00 	lis     r22,0
+  88:	7e 10 4a 14 	add     r16,r16,r9
+  8c:	3a d6 00 00 	addi    r22,r22,0
+  90:	3e 80 81 1c 	lis     r20,-32484
+  94:	3e 40 01 00 	lis     r18,256
+  98:	3a 10 ff ff 	addi    r16,r16,-1
+  9c:	39 d6 01 80 	addi    r14,r22,384
+  a0:	3a 36 03 80 	addi    r17,r22,896
+  a4:	62 94 9d c5 	ori     r20,r20,40389
+  a8:	62 52 01 93 	ori     r18,r18,403
+  ac:	39 e0 00 00 	li      r15,0
+  b0:	3e e0 40 80 	lis     r23,16512
+  b4:	7e 70 7a 14 	add     r19,r16,r15
+  b8:	7d d8 73 78 	mr      r24,r14
+  bc:	3b c0 00 00 	li      r30,0
+  c0:	3b e0 00 00 	li      r31,0
+  c4:	3b 40 00 00 	li      r26,0
+  c8:	48 00 00 54 	b       11c <render+0x11c>
+  cc:	4e 80 04 21 	bctrl
+  d0:	7f 69 03 a6 	mtctr   r27
+  d4:	7c 64 1b 78 	mr      r4,r3
+  d8:	3c 60 40 00 	lis     r3,16384
+  dc:	3b 5a 00 01 	addi    r26,r26,1
+  e0:	4e 80 04 21 	bctrl
+  e4:	80 96 00 00 	lwz     r4,0(r22)
+  e8:	7f 29 03 a6 	mtctr   r25
+  ec:	4e 80 04 21 	bctrl
+  f0:	7f 84 e3 78 	mr      r4,r28
+  f4:	7e a9 03 a6 	mtctr   r21
+  f8:	7c 7e 1b 78 	mr      r30,r3
+  fc:	7f a3 eb 78 	mr      r3,r29
+ 100:	4e 80 04 21 	bctrl
+ 104:	80 98 00 00 	lwz     r4,0(r24)
+ 108:	7f 29 03 a6 	mtctr   r25
+ 10c:	4e 80 04 21 	bctrl
+ 110:	28 1a 00 60 	cmplwi  r26,96
+ 114:	7c 7f 1b 78 	mr      r31,r3
+ 118:	41 82 00 dc 	beq-    1f4 <render+0x1f4>
+ 11c:	7f e4 fb 78 	mr      r4,r31
+ 120:	7f 69 03 a6 	mtctr   r27
+ 124:	7f e3 fb 78 	mr      r3,r31
+ 128:	4e 80 04 21 	bctrl
+ 12c:	7f c4 f3 78 	mr      r4,r30
+ 130:	7c 7d 1b 78 	mr      r29,r3
+ 134:	7f 69 03 a6 	mtctr   r27
+ 138:	7f c3 f3 78 	mr      r3,r30
+ 13c:	4e 80 04 21 	bctrl
+ 140:	7f 29 03 a6 	mtctr   r25
+ 144:	7c 7c 1b 78 	mr      r28,r3
+ 148:	7f a3 eb 78 	mr      r3,r29
+ 14c:	7f 84 e3 78 	mr      r4,r28
+ 150:	4e 80 04 21 	bctrl
+ 154:	7f c4 f3 78 	mr      r4,r30
+ 158:	7c 69 1b 78 	mr      r9,r3
+ 15c:	7f 69 03 a6 	mtctr   r27
+ 160:	7c 09 b8 40 	cmplw   r9,r23
+ 164:	7f e3 fb 78 	mr      r3,r31
+ 168:	40 81 ff 64 	ble+    cc <render+0xcc>
+ 16c:	7f 49 d3 78 	mr      r9,r26
+ 170:	3b 18 00 04 	addi    r24,r24,4
+ 174:	7f 54 a2 78 	xor     r20,r26,r20
+ 178:	7c 18 88 40 	cmplw   r24,r17
+ 17c:	7e 94 91 d6 	mullw   r20,r20,r18
+ 180:	9d 33 00 01 	stbu    r9,1(r19)
+ 184:	40 82 ff 38 	bne+    bc <render+0xbc>
+ 188:	3a d6 00 04 	addi    r22,r22,4
+ 18c:	39 ef 00 80 	addi    r15,r15,128
+ 190:	7c 16 70 40 	cmplw   r22,r14
+ 194:	40 82 ff 20 	bne+    b4 <render+0xb4>
+ 198:	80 01 00 54 	lwz     r0,84(r1)
+ 19c:	7e 83 a3 78 	mr      r3,r20
+ 1a0:	81 c1 00 08 	lwz     r14,8(r1)
+ 1a4:	81 e1 00 0c 	lwz     r15,12(r1)
+ 1a8:	7c 08 03 a6 	mtlr    r0
+ 1ac:	82 01 00 10 	lwz     r16,16(r1)
+ 1b0:	82 21 00 14 	lwz     r17,20(r1)
+ 1b4:	82 41 00 18 	lwz     r18,24(r1)
+ 1b8:	82 61 00 1c 	lwz     r19,28(r1)
+ 1bc:	82 81 00 20 	lwz     r20,32(r1)
+ 1c0:	82 a1 00 24 	lwz     r21,36(r1)
+ 1c4:	82 c1 00 28 	lwz     r22,40(r1)
+ 1c8:	82 e1 00 2c 	lwz     r23,44(r1)
+ 1cc:	83 01 00 30 	lwz     r24,48(r1)
+ 1d0:	83 21 00 34 	lwz     r25,52(r1)
+ 1d4:	83 41 00 38 	lwz     r26,56(r1)
+ 1d8:	83 61 00 3c 	lwz     r27,60(r1)
+ 1dc:	83 81 00 40 	lwz     r28,64(r1)
+ 1e0:	83 a1 00 44 	lwz     r29,68(r1)
+ 1e4:	83 c1 00 48 	lwz     r30,72(r1)
+ 1e8:	83 e1 00 4c 	lwz     r31,76(r1)
+ 1ec:	38 21 00 50 	addi    r1,r1,80
+ 1f0:	4e 80 00 20 	blr
+ 1f4:	39 20 00 60 	li      r9,96
+ 1f8:	4b ff ff 78 	b       170 <render+0x170>
+ 1fc:	3e a0 00 00 	lis     r21,0
+ 200:	3f 20 00 00 	lis     r25,0
+ 204:	3f 60 00 00 	lis     r27,0
+ 208:	3a b5 00 00 	addi    r21,r21,0
+ 20c:	3b 39 00 00 	addi    r25,r25,0
+ 210:	3b 7b 00 00 	addi    r27,r27,0
+ 214:	4b ff fe 60 	b       74 <render+0x74>
+
+00000218 <save_image>:
+ 218:	94 21 ff e0 	stwu    r1,-32(r1)
+ 21c:	3d 40 00 00 	lis     r10,0
+ 220:	7c 08 02 a6 	mflr    r0
+ 224:	93 e1 00 1c 	stw     r31,28(r1)
+ 228:	7c 9f 23 78 	mr      r31,r4
+ 22c:	38 8a 00 00 	addi    r4,r10,0
+ 230:	93 c1 00 18 	stw     r30,24(r1)
+ 234:	90 01 00 24 	stw     r0,36(r1)
+ 238:	93 a1 00 14 	stw     r29,20(r1)
+ 23c:	48 00 00 01 	bl      23c <save_image+0x24>
+ 240:	7c 7e 1b 79 	mr.     r30,r3
+ 244:	41 82 00 5c 	beq-    2a0 <save_image+0x88>
+ 248:	3c 80 00 00 	lis     r4,0
+ 24c:	3b a0 00 00 	li      r29,0
+ 250:	38 84 00 00 	addi    r4,r4,0
+ 254:	4c c6 31 82 	crclr   4*cr1+eq
+ 258:	48 00 00 01 	bl      258 <save_image+0x40>
+ 25c:	7d 3f 00 d0 	neg     r9,r31
+ 260:	7c 6a 1b 78 	mr      r10,r3
+ 264:	3c 60 00 00 	lis     r3,0
+ 268:	55 29 04 a6 	rlwinm  r9,r9,0,18,19
+ 26c:	38 63 00 00 	addi    r3,r3,0
+ 270:	7c 63 4a 14 	add     r3,r3,r9
+ 274:	7f c6 f3 78 	mr      r6,r30
+ 278:	38 a0 30 00 	li      r5,12288
+ 27c:	38 80 00 01 	li      r4,1
+ 280:	7d 5f 53 78 	mr      r31,r10
+ 284:	48 00 00 01 	bl      284 <save_image+0x6c>
+ 288:	2c 03 30 00 	cmpwi   r3,12288
+ 28c:	41 82 00 38 	beq-    2c4 <save_image+0xac>
+ 290:	7f c3 f3 78 	mr      r3,r30
+ 294:	48 00 00 01 	bl      294 <save_image+0x7c>
+ 298:	2c 03 00 00 	cmpwi   r3,0
+ 29c:	41 82 00 08 	beq-    2a4 <save_image+0x8c>
+ 2a0:	3b a0 00 00 	li      r29,0
+ 2a4:	80 01 00 24 	lwz     r0,36(r1)
+ 2a8:	7f a3 eb 78 	mr      r3,r29
+ 2ac:	83 c1 00 18 	lwz     r30,24(r1)
+ 2b0:	83 a1 00 14 	lwz     r29,20(r1)
+ 2b4:	7c 08 03 a6 	mtlr    r0
+ 2b8:	83 e1 00 1c 	lwz     r31,28(r1)
+ 2bc:	38 21 00 20 	addi    r1,r1,32
+ 2c0:	4e 80 00 20 	blr
+ 2c4:	39 3f ff ff 	addi    r9,r31,-1
+ 2c8:	7f e9 48 f8 	nor     r9,r31,r9
+ 2cc:	55 3d 0f fe 	srwi    r29,r9,31
+ 2d0:	4b ff ff c0 	b       290 <save_image+0x78>
+
+Disassembly of section .text.startup:
+
+00000000 <main>:
+   0:	2c 03 00 02 	cmpwi   r3,2
+   4:	94 21 ff c0 	stwu    r1,-64(r1)
+   8:	7d 80 00 26 	mfcr    r12
+   c:	7c 08 02 a6 	mflr    r0
+  10:	90 01 00 44 	stw     r0,68(r1)
+  14:	92 a1 00 14 	stw     r21,20(r1)
+  18:	92 c1 00 18 	stw     r22,24(r1)
+  1c:	92 e1 00 1c 	stw     r23,28(r1)
+  20:	93 01 00 20 	stw     r24,32(r1)
+  24:	93 21 00 24 	stw     r25,36(r1)
+  28:	93 41 00 28 	stw     r26,40(r1)
+  2c:	93 61 00 2c 	stw     r27,44(r1)
+  30:	93 81 00 30 	stw     r28,48(r1)
+  34:	93 a1 00 34 	stw     r29,52(r1)
+  38:	93 c1 00 38 	stw     r30,56(r1)
+  3c:	93 e1 00 3c 	stw     r31,60(r1)
+  40:	91 81 00 10 	stw     r12,16(r1)
+  44:	41 82 01 b0 	beq-    1f4 <main+0x1f4>
+  48:	2c 03 00 01 	cmpwi   r3,1
+  4c:	40 82 02 3c 	bne-    288 <main+0x288>
+  50:	3c 60 00 00 	lis     r3,0
+  54:	38 63 00 00 	addi    r3,r3,0
+  58:	48 00 00 01 	bl      58 <main+0x58>
+  5c:	3c 60 00 00 	lis     r3,0
+  60:	3c 80 00 0f 	lis     r4,15
+  64:	38 63 00 00 	addi    r3,r3,0
+  68:	60 84 42 40 	ori     r4,r4,16960
+  6c:	4c c6 31 82 	crclr   4*cr1+eq
+  70:	48 00 00 01 	bl      70 <main+0x70>
+  74:	3c 60 00 00 	lis     r3,0
+  78:	38 63 00 00 	addi    r3,r3,0
+  7c:	48 00 00 01 	bl      7c <main+0x7c>
+  80:	3c 80 40 10 	lis     r4,16400
+  84:	3c 60 3f c0 	lis     r3,16320
+  88:	48 00 00 01 	bl      88 <main+0x88>
+  8c:	3d 20 40 70 	lis     r9,16496
+  90:	7c 03 48 00 	cmpw    r3,r9
+  94:	40 82 00 e4 	bne-    178 <main+0x178>
+  98:	38 60 00 00 	li      r3,0
+  9c:	3b 80 00 00 	li      r28,0
+  a0:	48 00 00 01 	bl      a0 <main+0xa0>
+  a4:	3b 20 00 00 	li      r25,0
+  a8:	3b 60 00 00 	li      r27,0
+  ac:	3b 40 00 00 	li      r26,0
+  b0:	3b e0 00 00 	li      r31,0
+  b4:	3e e0 00 00 	lis     r23,0
+  b8:	3f 00 ab d5 	lis     r24,-21547
+  bc:	2e 1c 00 00 	cmpwi   cr4,r28,0
+  c0:	3a f7 00 00 	addi    r23,r23,0
+  c4:	63 18 de 74 	ori     r24,r24,56948
+  c8:	48 00 00 01 	bl      c8 <main+0xc8>
+  cc:	3b c0 00 10 	li      r30,16
+  d0:	7c 75 1b 78 	mr      r21,r3
+  d4:	7c 9d 23 78 	mr      r29,r4
+  d8:	7f e3 fb 78 	mr      r3,r31
+  dc:	48 00 00 01 	bl      dc <main+0xdc>
+  e0:	7f e3 fb 78 	mr      r3,r31
+  e4:	48 00 00 01 	bl      e4 <main+0xe4>
+  e8:	7f e3 fb 78 	mr      r3,r31
+  ec:	48 00 00 01 	bl      ec <main+0xec>
+  f0:	7f e3 fb 78 	mr      r3,r31
+  f4:	48 00 00 01 	bl      f4 <main+0xf4>
+  f8:	37 de ff fc 	addic.  r30,r30,-4
+  fc:	7c 76 1b 78 	mr      r22,r3
+ 100:	40 82 ff d8 	bne+    d8 <main+0xd8>
+ 104:	48 00 00 01 	bl      104 <main+0x104>
+ 108:	2c 15 ff ff 	cmpwi   r21,-1
+ 10c:	7c 86 23 78 	mr      r6,r4
+ 110:	41 82 01 d8 	beq-    2e8 <main+0x2e8>
+ 114:	2c 03 ff ff 	cmpwi   r3,-1
+ 118:	41 82 01 b8 	beq-    2d0 <main+0x2d0>
+ 11c:	7c 03 a8 40 	cmplw   r3,r21
+ 120:	40 81 01 e4 	ble-    304 <main+0x304>
+ 124:	2c 1f 00 00 	cmpwi   r31,0
+ 128:	41 82 00 a4 	beq-    1cc <main+0x1cc>
+ 12c:	3c 80 00 00 	lis     r4,0
+ 130:	38 84 00 00 	addi    r4,r4,0
+ 134:	3b fb 00 01 	addi    r31,r27,1
+ 138:	7c dd 30 50 	subf    r6,r29,r6
+ 13c:	7f e5 fb 78 	mr      r5,r31
+ 140:	7e c7 b3 78 	mr      r7,r22
+ 144:	7e e3 bb 78 	mr      r3,r23
+ 148:	4c c6 31 82 	crclr   4*cr1+eq
+ 14c:	48 00 00 01 	bl      14c <main+0x14c>
+ 150:	7c 16 c0 00 	cmpw    r22,r24
+ 154:	40 82 01 a0 	bne-    2f4 <main+0x2f4>
+ 158:	40 92 00 80 	bne-    cr4,1d8 <main+0x1d8>
+ 15c:	28 1f 00 03 	cmplwi  r31,3
+ 160:	41 82 01 44 	beq-    2a4 <main+0x2a4>
+ 164:	7f f9 fb 78 	mr      r25,r31
+ 168:	7f fb fb 78 	mr      r27,r31
+ 16c:	3b 40 00 00 	li      r26,0
+ 170:	3b e0 00 00 	li      r31,0
+ 174:	4b ff ff 54 	b       c8 <main+0xc8>
+ 178:	3c 60 00 00 	lis     r3,0
+ 17c:	38 63 00 00 	addi    r3,r3,0
+ 180:	48 00 00 01 	bl      180 <main+0x180>
+ 184:	38 60 00 01 	li      r3,1
+ 188:	80 01 00 44 	lwz     r0,68(r1)
+ 18c:	81 81 00 10 	lwz     r12,16(r1)
+ 190:	82 a1 00 14 	lwz     r21,20(r1)
+ 194:	7c 08 03 a6 	mtlr    r0
+ 198:	82 c1 00 18 	lwz     r22,24(r1)
+ 19c:	7d 80 81 20 	mtcrf   8,r12
+ 1a0:	82 e1 00 1c 	lwz     r23,28(r1)
+ 1a4:	83 01 00 20 	lwz     r24,32(r1)
+ 1a8:	83 21 00 24 	lwz     r25,36(r1)
+ 1ac:	83 41 00 28 	lwz     r26,40(r1)
+ 1b0:	83 61 00 2c 	lwz     r27,44(r1)
+ 1b4:	83 81 00 30 	lwz     r28,48(r1)
+ 1b8:	83 a1 00 34 	lwz     r29,52(r1)
+ 1bc:	83 c1 00 38 	lwz     r30,56(r1)
+ 1c0:	83 e1 00 3c 	lwz     r31,60(r1)
+ 1c4:	38 21 00 40 	addi    r1,r1,64
+ 1c8:	4e 80 00 20 	blr
+ 1cc:	3c 80 00 00 	lis     r4,0
+ 1d0:	38 84 00 00 	addi    r4,r4,0
+ 1d4:	4b ff ff 60 	b       134 <main+0x134>
+ 1d8:	2c 1a 00 00 	cmpwi   r26,0
+ 1dc:	40 82 01 48 	bne-    324 <main+0x324>
+ 1e0:	57 3f 07 fe 	clrlwi  r31,r25,31
+ 1e4:	7f 9a e3 78 	mr      r26,r28
+ 1e8:	7f ff e2 78 	xor     r31,r31,r28
+ 1ec:	3b 80 00 01 	li      r28,1
+ 1f0:	4b ff fe c4 	b       b4 <main+0xb4>
+ 1f4:	80 64 00 04 	lwz     r3,4(r4)
+ 1f8:	3c 80 00 00 	lis     r4,0
+ 1fc:	38 84 00 00 	addi    r4,r4,0
+ 200:	48 00 00 01 	bl      200 <main+0x200>
+ 204:	7c 7c 1b 79 	mr.     r28,r3
+ 208:	40 82 00 80 	bne-    288 <main+0x288>
+ 20c:	3c 60 00 00 	lis     r3,0
+ 210:	38 63 00 00 	addi    r3,r3,0
+ 214:	48 00 00 01 	bl      214 <main+0x214>
+ 218:	3c 60 00 00 	lis     r3,0
+ 21c:	3c 80 00 0f 	lis     r4,15
+ 220:	38 63 00 00 	addi    r3,r3,0
+ 224:	60 84 42 40 	ori     r4,r4,16960
+ 228:	4c c6 31 82 	crclr   4*cr1+eq
+ 22c:	48 00 00 01 	bl      22c <main+0x22c>
+ 230:	3c 60 00 00 	lis     r3,0
+ 234:	38 63 00 00 	addi    r3,r3,0
+ 238:	48 00 00 01 	bl      238 <main+0x238>
+ 23c:	3c 80 40 10 	lis     r4,16400
+ 240:	3c 60 3f c0 	lis     r3,16320
+ 244:	48 00 00 01 	bl      244 <main+0x244>
+ 248:	3d 20 40 70 	lis     r9,16496
+ 24c:	7c 03 48 00 	cmpw    r3,r9
+ 250:	7c 7f 1b 78 	mr      r31,r3
+ 254:	40 a2 ff 24 	bne-    178 <main+0x178>
+ 258:	3c 80 40 10 	lis     r4,16400
+ 25c:	3c 60 3f c0 	lis     r3,16320
+ 260:	48 00 00 01 	bl      260 <main+0x260>
+ 264:	7c 03 f8 00 	cmpw    r3,r31
+ 268:	40 a2 ff 10 	bne-    178 <main+0x178>
+ 26c:	38 60 00 00 	li      r3,0
+ 270:	3b 20 00 00 	li      r25,0
+ 274:	48 00 00 01 	bl      274 <main+0x274>
+ 278:	38 60 00 01 	li      r3,1
+ 27c:	48 00 00 01 	bl      27c <main+0x27c>
+ 280:	3b 60 00 00 	li      r27,0
+ 284:	4b ff ff 5c 	b       1e0 <main+0x1e0>
+ 288:	48 00 00 01 	bl      288 <main+0x288>
+ 28c:	80 83 00 0c 	lwz     r4,12(r3)
+ 290:	3c 60 00 00 	lis     r3,0
+ 294:	38 63 00 00 	addi    r3,r3,0
+ 298:	48 00 00 01 	bl      298 <main+0x298>
+ 29c:	38 60 00 02 	li      r3,2
+ 2a0:	4b ff fe e8 	b       188 <main+0x188>
+ 2a4:	3c 60 00 00 	lis     r3,0
+ 2a8:	38 80 00 00 	li      r4,0
+ 2ac:	38 63 00 00 	addi    r3,r3,0
+ 2b0:	48 00 00 01 	bl      2b0 <main+0x2b0>
+ 2b4:	2c 03 00 00 	cmpwi   r3,0
+ 2b8:	41 82 00 5c 	beq-    314 <main+0x314>
+ 2bc:	3c 60 00 00 	lis     r3,0
+ 2c0:	38 63 00 00 	addi    r3,r3,0
+ 2c4:	48 00 00 01 	bl      2c4 <main+0x2c4>
+ 2c8:	38 60 00 00 	li      r3,0
+ 2cc:	4b ff fe bc 	b       188 <main+0x188>
+ 2d0:	2c 06 ff ff 	cmpwi   r6,-1
+ 2d4:	40 82 fe 48 	bne+    11c <main+0x11c>
+ 2d8:	3c 60 00 00 	lis     r3,0
+ 2dc:	38 63 00 00 	addi    r3,r3,0
+ 2e0:	48 00 00 01 	bl      2e0 <main+0x2e0>
+ 2e4:	4b ff fe a0 	b       184 <main+0x184>
+ 2e8:	2c 1d ff ff 	cmpwi   r29,-1
+ 2ec:	40 82 fe 28 	bne+    114 <main+0x114>
+ 2f0:	4b ff ff e8 	b       2d8 <main+0x2d8>
+ 2f4:	3c 60 00 00 	lis     r3,0
+ 2f8:	38 63 00 00 	addi    r3,r3,0
+ 2fc:	48 00 00 01 	bl      2fc <main+0x2fc>
+ 300:	4b ff fe 84 	b       184 <main+0x184>
+ 304:	40 a2 ff d4 	bne-    2d8 <main+0x2d8>
+ 308:	7c 06 e8 40 	cmplw   r6,r29
+ 30c:	41 81 fe 18 	bgt+    124 <main+0x124>
+ 310:	4b ff ff c8 	b       2d8 <main+0x2d8>
+ 314:	3c 60 00 00 	lis     r3,0
+ 318:	38 63 00 00 	addi    r3,r3,0
+ 31c:	48 00 00 01 	bl      31c <main+0x31c>
+ 320:	4b ff fe 64 	b       184 <main+0x184>
+ 324:	28 1f 00 03 	cmplwi  r31,3
+ 328:	7f f9 fb 78 	mr      r25,r31
+ 32c:	3b 80 00 00 	li      r28,0
+ 330:	7f fb fb 78 	mr      r27,r31
+ 334:	40 82 fe ac 	bne+    1e0 <main+0x1e0>
+ 338:	3c 60 00 00 	lis     r3,0
+ 33c:	38 a0 30 00 	li      r5,12288
+ 340:	38 63 00 00 	addi    r3,r3,0
+ 344:	38 83 30 00 	addi    r4,r3,12288
+ 348:	48 00 00 01 	bl      348 <main+0x348>
+ 34c:	2c 03 00 00 	cmpwi   r3,0
+ 350:	40 82 00 48 	bne-    398 <main+0x398>
+ 354:	3c 60 00 00 	lis     r3,0
+ 358:	38 80 00 00 	li      r4,0
+ 35c:	38 63 00 00 	addi    r3,r3,0
+ 360:	48 00 00 01 	bl      360 <main+0x360>
+ 364:	2c 03 00 00 	cmpwi   r3,0
+ 368:	41 a2 ff ac 	beq-    314 <main+0x314>
+ 36c:	3c 60 00 00 	lis     r3,0
+ 370:	38 80 00 01 	li      r4,1
+ 374:	38 63 00 00 	addi    r3,r3,0
+ 378:	48 00 00 01 	bl      378 <main+0x378>
+ 37c:	2c 03 00 00 	cmpwi   r3,0
+ 380:	41 a2 ff 94 	beq-    314 <main+0x314>
+ 384:	3c 60 00 00 	lis     r3,0
+ 388:	38 63 00 00 	addi    r3,r3,0
+ 38c:	48 00 00 01 	bl      38c <main+0x38c>
+ 390:	38 60 00 00 	li      r3,0
+ 394:	4b ff fd f4 	b       188 <main+0x188>
+ 398:	3c 60 00 00 	lis     r3,0
+ 39c:	38 63 00 00 	addi    r3,r3,0
+ 3a0:	48 00 00 01 	bl      3a0 <main+0x3a0>
+ 3a4:	4b ff fd e0 	b       184 <main+0x184>
+$ ['/opt/ppc-amigaos/bin/ppc-amigaos-gcc', '-O2', '-mcrt=newlib', '-mcpu=750', '-msdata=none', '-fno-builtin', '-fno-stack-protector', '-Wall', '-Wextra', PosixPath('/out/addsf3.c.o'), PosixPath('/out/subsf3.c.o'), PosixPath('/out/mulsf3.c.o'), PosixPath('/out/soft-backend.c.o'), PosixPath('/out/spe-backend.c.o'), PosixPath('/out/fractal-main.c.o'), '-o', PosixPath('/out/fractal-os4')]
+$ ['ppc-amigaos-readelf', '-h', '-A', PosixPath('/out/fractal-os4')]
+ELF Header:
+  Magic:   7f 45 4c 46 01 02 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, big endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           PowerPC
+  Version:                           0x1
+  Entry point address:               0x100045c
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          69344 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         4
+  Size of section headers:           40 (bytes)
+  Number of section headers:         17
+  Section header string table index: 16
+Attribute Section: gnu
+File Attributes
+  Tag_GNU_Power_ABI_FP: soft float, unspecified long double

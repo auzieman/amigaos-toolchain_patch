@@ -548,3 +548,44 @@ an independently validated compiler patch if needed. Modern SPE support is a
 working hypothesis only. No upstream writes, proprietary SDK imports or extra
 container/toolchain builds performed for this review. Larger Linux build remains
 the active implementation track.
+
+## AmigaOS Docker/SPE fractal branch — 2026-10-31
+
+User requested a separate branch/subproject for the Docker setup and fractal
+test, expressing concern about installed OS support. Created branch
+amigaos/docker-spe-fractal without merging into the Linux development branch.
+Used the existing tabor-spe-forward-port skill and kept OS/runtime boundaries.
+
+Pinned actual amd64 GCC6/GCC13 image manifests in profiles/amigaos-docker-spe.json.
+On R730, gcc6-001 reproduced isel assembler rejection. The actual driver specs
+map8540 but omit8548. Added an opt-in derived image with gcc/g++ specs wrappers:
+preserve original asm_cpu and append8548 -> me500x2. gcc6-002 then exposed absent
+newlib soft-float libraries. Kept CLI/link on normal newlib ABI, with integer-only
+boundaries into separately built/renamed GNU soft-fp and explicit SPE modules.
+No arbitrary runtime ABI fallback or edits to cached sources/SDKs.
+
+Final gcc6-006 passed C float/double SPE codegen/object assembly, C++ SPE object
+assembly, unchanged generic750 driver mapping, object instruction audit and
+fractal link. GCC13-001 rejects native SPE C ABI flags but independently builds
+the explicit SPE integer-interface demo with no overlay. Own objects have no
+SPE/FPU instructions outside the selected SPE backend; prebuilt runtime excluded.
+No AmigaOS execution, context/thread/exception validation or full ABI acceptance.
+
+Host-only algorithm reference matches all12288 existing escape-count pixels,
+checksumabd5de74. Host timings are not AmigaOS results. Native program defaults
+software-only, enables SPE with explicit --spe, uses C clock ticks over16-render
+batches, writes PGM images and checks expected checksum and exact equality.
+Single-threaded testing needs no SMP; installed OS SPE-state support remains to
+verify, and a newer OS is not assumed necessary or sufficient.
+
+Staged GCC6 and GCC13 executables, instructions and hashes in lab-only FTP
+downloads/amigaos-fractal-20261031/. Verified hashes locally and the modern file
+readable inside the FTP container; no login credentials read or exposed. Only
+project executables/instructions staged, no separate SDK redistribution. No OS4
+application was run automatically. Next: capture software-only and optional SPE
+board logs/images with OS/kernel version, then select modern backend work from
+Steven's exact needs. Wider Linux rootfs work remains separate.
+
+Evidence: docs/builds/amigaos-docker-20261031, native images outside Git; replay
+instructions and scope in bench/amigaos/README.md; reusable task starter in
+.agents/prompts/amigaos-docker-spe.md. No upstream issue/PR/message or image push.

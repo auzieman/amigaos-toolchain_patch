@@ -1,0 +1,5 @@
+%rename asm_cpu tabor_original_asm_cpu
+
+*asm_cpu:
+%(tabor_original_asm_cpu) %{mcpu=8548:-me500x2}
+

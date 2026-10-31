@@ -1,0 +1,7 @@
+#!/bin/sh
+# SPDX-License-Identifier: MIT
+# Preserve all original compiler behavior except the explicit 8548 assembler map.
+set -eu
+compiler=${0##*/}
+case "$compiler" in ppc-amigaos-gcc|ppc-amigaos-g++) ;; *) exit 2;; esac
+exec "/opt/ppc-amigaos/bin/$compiler" -specs=/opt/tabor-spe/e500v2.specs "$@"

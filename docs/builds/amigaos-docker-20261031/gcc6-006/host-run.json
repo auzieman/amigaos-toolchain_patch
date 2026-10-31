@@ -1,0 +1,33 @@
+{
+  "image": "sha256:9c90dbf8d41182c7344c62c664dc58c55a4e4a26c33e5660420d6c576e9e5216",
+  "image_id": "sha256:9c90dbf8d41182c7344c62c664dc58c55a4e4a26c33e5660420d6c576e9e5216",
+  "command": [
+    "docker",
+    "run",
+    "--rm",
+    "--pull=never",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "--cap-drop=ALL",
+    "--security-opt=no-new-privileges",
+    "--read-only",
+    "--tmpfs",
+    "/tmp:rw,size=512m",
+    "--user",
+    "1000:1000",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/project,dst=/project,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/softfp,dst=/softfp,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/amigaos-001/gcc6-006,dst=/out",
+    "--entrypoint",
+    "python3",
+    "sha256:9c90dbf8d41182c7344c62c664dc58c55a4e4a26c33e5660420d6c576e9e5216",
+    "/project/scripts/amigaos-container-build.py",
+    "--image",
+    "sha256:9c90dbf8d41182c7344c62c664dc58c55a4e4a26c33e5660420d6c576e9e5216"
+  ],
+  "amigaos_execution": false
+}

@@ -35,6 +35,22 @@ not implemented yet and Linux libc/board patches are not direct AmigaOS fixes.
 Exact failing image/runtime/reproducer remains to establish before a patch is
 selected. No upstream changes or AmigaOS build acceptance claimed.
 
+## 2026-10-31 — AmigaOS Docker experiment branch and fractal cross-builds
+
+On `amigaos/docker-spe-fractal`, reproduced a missing GCC6 driver assembler
+mapping for8548, supplied an isolated Docker specs overlay, and verified both
+C/C++ SPE object assembly plus unchanged generic750 mapping. Separating normal
+newlib runtime calls from integer-interface arithmetic resolves the absent
+soft-float newlib link directory for this demo. No general runtime ABI fix claimed.
+
+GCC13.5 rejects SPE C ABI options but builds the same explicit-instruction demo
+without the overlay. Both cross-builds pass own-object instruction audits and
+link; neither has run on AmigaOS. Host-only output matches all12288 reference
+pixels. Lab FTP has both native test binaries with instructions/hashes. Native
+timings and OS SPE-state preservation remain unverified. Modern GCC backend
+restoration remains open. See [experiment/replay](../bench/amigaos/README.md) and
+[retained matrix](builds/amigaos-docker-20261031/summary.json).
+
 ## 2026-10-30 — first Debian iterations
 
 Target sources: Debian linux 6.12.113-1 and glibc 2.41-12+deb13u4.

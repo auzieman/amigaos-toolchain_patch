@@ -1,0 +1,53 @@
+{
+  "date": "2026-10-31",
+  "branch": "amigaos/docker-spe-fractal",
+  "gcc6": {
+    "assembler_mapping_overlay": "verified",
+    "compiler_spe_c_cpp_object_probes": "passed",
+    "native_execution": false
+  },
+  "gcc13": {
+    "spe_c_abi_flags": "rejected",
+    "explicit_spe_integer_boundary_demo": "cross-build-passed",
+    "native_execution": false
+  },
+  "host_reference": {
+    "description": "native-host float algorithm/output reference only",
+    "all_12288_pixels_equal_prior_linux_demo": true,
+    "checksum": "abd5de74",
+    "amigaos_timing": false
+  },
+  "lab_ftp_directory": "downloads/amigaos-fractal-20261031/",
+  "modern_gcc_backend_restoration": false,
+  "os_spe_context_validated": false,
+  "evidence_sha256": {
+    "host-fractal-soft.pgm": "d518831417fa3ba63724094f2679a2da5632593a697a21bd2667001531122449",
+    "amiga-gcc6-runtime-paths.log": "61edf31542bb40319a30ca0062deceb452c5ba8ad008f20c57ab9c6d8e79b584",
+    "amiga-gcc6-asm-specs.log": "35852e1e37f3e651c2391415feaf80b3871e78917e50a713f02d4439e277a40d",
+    "host-host-reference.log": "fd7db8d5b282df2c239ffbd664262ffe65b70b02d10e9974f1e884ac156adb23",
+    "amiga-overlay-build.log": "1bbaea508004bc71c6324baca03fa8e45a40bd55864a63495b883096a96562e4",
+    "gcc6-001/build.log": "41c8e4c16d94e1696981ea0a12d56c3ac75a65ed7e0220aec59ce1c4b30a2f91",
+    "gcc6-001/receipt.json": "7319cd3a1c0a553a1bbbbe88e570abeb8df1ec755c244e44cfc1ebdddc4af002",
+    "gcc13-001/build.log": "9a38f573fb7de18744f76df2d55884b560d22d20b01a51a8e68156e5b118a6d6",
+    "gcc13-001/host-run.json": "b7f78e879d7de3ac978713e2b49f77c425e0082a9a3e478af6005be11768f68d",
+    "gcc13-001/receipt.json": "d970b2af7271014c4fbcc8b96096bbbee7058d8d2f6e1d7f3753c47398f7933b",
+    "gcc6-006/build.log": "76487afdade7d2a3f381c31c839a91d15921f0b2f6d15187268395deb2cc48c4",
+    "gcc6-006/compiler-spe.s": "16dbe04032f74b81c539bd789225858bea4ec7f890e6f67e105179bb632809ee",
+    "gcc6-006/host-run.json": "b5c928b2e1e318ab824a738b8c4aa43ecf52f6d846fa32bfeb24317a16b927a6",
+    "gcc6-006/receipt.json": "c75a2417d6eaa68cc2c197fdaf7f9a0ef5b4092d14e2431321481aaf2d92a135",
+    "gcc6-002/build.log": "a247cfb5a8e19439bf8b6a80726527fe81cba61d0b65201ff3168c032902e7e2",
+    "gcc6-002/receipt.json": "16a24026f07ea4cfdc696a205e6db85cf5f4dc8a3a06434a247c67b93dec7d51"
+  },
+  "integration_source_sha256": {
+    "docker/amigaos/compiler-wrapper": "dd693d5f23b2d5f6ef2e5952a01508dd7351229c62e976b56bbcace46293238b",
+    "docker/amigaos/e500v2.specs": "e6dce83905ae1e56323659334288b3f0f400a000c5b72d29d3cb07f5ab817269",
+    "docker/amigaos/Dockerfile": "f8333666591545f1da22194fbfa9acdc60f387c7f9725165a17e884e56915ddd",
+    "scripts/amigaos-container-build.py": "8cf69b3685e96f47e76f57dac6796ca7aa4254d51d1d37e1fb8635e8ab49be85",
+    "scripts/run-amigaos-docker-test.py": "c1aec75121d3725251b43f6fa473ea4cb342436419a62de5c7abf49b6211ea85",
+    "profiles/amigaos-docker-spe.json": "9e284067e4af994ca74aad5fd8274bdbba7c1c24cde0b4d1d48f1acc22a3f4de"
+  },
+  "native_binary_sha256": {
+    "gcc6-006": "22a345c2cffb14b8b5d733690446af7332ae27d981bee49341f2c9d7387c2013",
+    "gcc13-001": "779c5f60cdd8a068a0206fe695f44065417f9faef9d79201760d2099fea30b84"
+  }
+}
