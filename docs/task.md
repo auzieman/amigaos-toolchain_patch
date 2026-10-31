@@ -531,3 +531,20 @@ requirements. No physical A1222 acceptance or full SPE ABI acceptance inferred.
 User clarified current native AmigaSSH comes from OS4Depot, so the older Aminet
 readme is reference only and does not identify their installed package. Native
 SSH repair is deferred while the larger Linux build remains priority.
+
+## AmigaGCConDocker integration intake — 2026-10-31
+
+User reports Steven may want our work for walkero-gr/AmigaGCConDocker. Reviewed
+the linked target docs, packaging Dockerfile/Makefile/changelog/license and
+separate AmigaGCConDocker-base compiler/dependency recipes through GitHub tools.
+Pinned inspected commits in docs/amigagccondocker-integration.md. Compiler base
+builds AmigaLabs/adtools; target runtime choices are newlib/clib2/clib4, not our
+Linux glibc. Explicitly recorded that our modern GCC patch series is still empty
+and the present Linux ABI gate remains partial. No AmigaOS compatibility inferred.
+
+Bounded next action: obtain exact image/GCC/runtime and failing command from
+Steven, pin adtools/GCC inputs, reproduce smallest failure on R730, then select
+an independently validated compiler patch if needed. Modern SPE support is a
+working hypothesis only. No upstream writes, proprietary SDK imports or extra
+container/toolchain builds performed for this review. Larger Linux build remains
+the active implementation track.

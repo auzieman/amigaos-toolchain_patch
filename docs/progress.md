@@ -25,6 +25,16 @@ Larger image compilation has not started. Scripts, package versions, raw serial
 and hashed receipts: [R730 preparation](r730-build-host.md),
 [evidence](builds/r730-20261031/receipt.json).
 
+## 2026-10-31 — AmigaGCConDocker review for Steven
+
+[Pinned integration review](amigagccondocker-integration.md) traces the linked
+development image to AmigaGCConDocker-base and AmigaLabs/adtools. Its docs
+advertise GCC6 SPE support; its target runtimes differ from Linux glibc.
+Our workflow/test design can inform that work, but modern GCC restoration is
+not implemented yet and Linux libc/board patches are not direct AmigaOS fixes.
+Exact failing image/runtime/reproducer remains to establish before a patch is
+selected. No upstream changes or AmigaOS build acceptance claimed.
+
 ## 2026-10-30 — first Debian iterations
 
 Target sources: Debian linux 6.12.113-1 and glibc 2.41-12+deb13u4.
