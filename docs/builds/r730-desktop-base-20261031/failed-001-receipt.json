@@ -1,0 +1,62 @@
+{
+  "status": "failed",
+  "image_id": "sha256:eb877fcd41042f17c0a1f67aa6e679c8dc81c10a72bf3ad12287d864e5eacdf0",
+  "lock_sha256": "d2a089fb743a39d3cde5ab89aec13498b9ca6ae1a027c0402b8fd076aca1bdb4",
+  "target": "PPC32 big-endian e500v2 SPE long-double-128",
+  "jobs": 4,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "/work/desktop-base-001/zlib-source"
+    ],
+    [
+      "./configure",
+      "--prefix=/usr"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/desktop-base-001/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libpng1.6_1.6.48-1+deb13u6.dsc",
+      "/work/desktop-base-001/libpng-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--disable-static",
+      "--disable-powerpc-vsx"
+    ],
+    [
+      "make",
+      "-j4"
+    ]
+  ],
+  "components": {
+    "zlib": {
+      "version": "1:1.3.dfsg+really1.3.1-1",
+      "copyright_sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6"
+    },
+    "libpng": {
+      "version": "1.6.48-1+deb13u6",
+      "copyright_sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b"
+    }
+  },
+  "physical_boot": false,
+  "full_abi_validated": false,
+  "compiler_version": "powerpc-linux-gnuspe-gcc (GCC) 8.5.0",
+  "error": "Command '['make', '-j4']' returned non-zero exit status 2."
+}

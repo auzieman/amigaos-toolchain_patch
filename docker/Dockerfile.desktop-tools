@@ -1,0 +1,8 @@
+# Native build tools only; target libraries are always built from locked source.
+ARG BOOTSTRAP_TOOLS_IMAGE
+FROM ${BOOTSTRAP_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    meson ninja-build pkgconf autoconf automake libtool \
+    && dpkg-query -W > /opt/tabor-desktop-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

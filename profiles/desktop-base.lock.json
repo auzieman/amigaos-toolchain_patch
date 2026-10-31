@@ -1,0 +1,78 @@
+{
+  "scope": "software X11 prerequisites; no GPU or full ABI acceptance",
+  "signature_verification": "HTTPS DSC and SHA256 payload verification; OpenPGP not independently verified",
+  "components": {
+    "zlib": {
+      "version": "1:1.3.dfsg+really1.3.1-1",
+      "dsc": "zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "files": [
+        {
+          "filename": "zlib_1.3.dfsg+really1.3.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1-1.dsc",
+          "size": 2637,
+          "sha256": "ede2791e29c1d3b422f9208bdd7edf040c20445ea1e7453a72037576e64fa197"
+        },
+        {
+          "filename": "zlib_1.3.dfsg+really1.3.1.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1.orig.tar.gz",
+          "size": 1325737,
+          "sha256": "60dd315c07f616887caa029408308a018ace66e3d142726a97db164b3b8f69fb"
+        },
+        {
+          "filename": "zlib_1.3.dfsg+really1.3.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1-1.debian.tar.xz",
+          "size": 16576,
+          "sha256": "9ed525955ce9fb0c1b39be8ff98f73450dbfc6305a9a27e6149c8972d38a0a9e"
+        }
+      ]
+    },
+    "libpng": {
+      "version": "1.6.48-1+deb13u6",
+      "dsc": "libpng1.6_1.6.48-1+deb13u6.dsc",
+      "files": [
+        {
+          "filename": "libpng1.6_1.6.48-1+deb13u6.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/libp/libpng1.6/libpng1.6_1.6.48-1+deb13u6.dsc",
+          "size": 2286,
+          "sha256": "6eb8e2cb5d3fdaf0b2381058906d0003c1667295eb4b965c9c653336e61872ae"
+        },
+        {
+          "filename": "libpng1.6_1.6.48.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/libp/libpng1.6/libpng1.6_1.6.48.orig.tar.gz",
+          "size": 1572923,
+          "sha256": "b17e99026055727e8cba99160c3a9a7f9af788e9f786daeadded5a42243f1dd0"
+        },
+        {
+          "filename": "libpng1.6_1.6.48-1+deb13u6.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/libp/libpng1.6/libpng1.6_1.6.48-1+deb13u6.debian.tar.xz",
+          "size": 53284,
+          "sha256": "26a8f1c2bed971ad68d3549b7cd9b517e8f2ed2f23f75a7ac348452e25c87133"
+        }
+      ]
+    },
+    "pixman": {
+      "version": "0.44.0-3",
+      "dsc": "pixman_0.44.0-3.dsc",
+      "files": [
+        {
+          "filename": "pixman_0.44.0-3.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/p/pixman/pixman_0.44.0-3.dsc",
+          "size": 2019,
+          "sha256": "b05388a6cb71550a2ed425e9689b09b1dc458fa06d842f87328ede5e0eb7345f"
+        },
+        {
+          "filename": "pixman_0.44.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/p/pixman/pixman_0.44.0.orig.tar.gz",
+          "size": 812995,
+          "sha256": "89a4c1e1e45e0b23dffe708202cb2eaffde0fe3727d7692b2e1739fec78a7dac"
+        },
+        {
+          "filename": "pixman_0.44.0-3.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/p/pixman/pixman_0.44.0-3.diff.gz",
+          "size": 9417,
+          "sha256": "820f71488852530f2a662bb6bdcc8bd8e065a15800d8b459d7ec69e6ffc98a85"
+        }
+      ]
+    }
+  }
+}

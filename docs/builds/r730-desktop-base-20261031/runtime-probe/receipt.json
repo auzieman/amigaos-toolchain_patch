@@ -1,0 +1,18 @@
+{
+  "status": "passed-selected-software-prerequisite-checks",
+  "physical_boot": false,
+  "full_abi_validated": false,
+  "guest_directory": "/tmp/desktop-base-7be5fcde20374e9e8165f02668153220",
+  "inputs": {
+    "desktop-base-check": "a51d5f34a090b0779e80b50431b5517da327ae55bef06835d13dfde68cabc88e",
+    "libz.so.1": "084c955ec45944a7db814caa2b80db47e2f76669b410382e5d326f77aecb5bd2",
+    "libpng16.so.16": "1a99086fab6262db2b4b22d8ceb1e4862cc8bd8cd43a6273ec3a28b59da6c837",
+    "libpixman-1.so.0": "de4c50ff3d54b988b82499f94a98b3bcdbf74e5bff87ccca09dda6497350407b"
+  },
+  "checks": [
+    "zlib_roundtrip",
+    "png_rgba_roundtrip",
+    "pixman_argb_copy"
+  ],
+  "guest_log_sha256": "793e93cb4f0b2c16bc57a2bb1c784a10dae66891ff37653f38943643fb388d48"
+}

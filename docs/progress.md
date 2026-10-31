@@ -212,3 +212,19 @@ for licensing/build options. A lean software-X11 candidate is recorded, with
 native code generators and target dependency closure still to resolve. A new
 shared-runtime boot image passes file-image packaging/readback on R730; the
 written SanDisk is unchanged. E/Xorg/Mesa and physical boot are not accepted.
+
+
+## 2026-10-31 — software desktop prerequisites execute in the SPE guest
+
+[Source build and evidence](desktop-base.md): fresh R730 iteration 002 builds
+Debian zlib, security-updated libpng and Pixman using the reference SPE compiler
+and isolated restored libc. Explicit target flags, AltiVec disabled, no generic
+PowerPC binary substitution. Three shared-library CLI checks pass through SSH
+in the existing QEMU guest: compression round-trip, PNG RGBA round-trip, ARGB
+compositing copy. Existing desktop 4 guest remains running. Failed iteration001
+and its libpng CPPFLAGS correction are retained. Sources/licenses/hash locks,
+native image/package identity, recipes and runtime receipts are captured.
+
+This completes only the first software prerequisites. X11/font dependencies,
+native EFL generators, cross EFL/E/Terminology/Xorg remain. The known fenv
+failure, Mesa/GPU gate and physical/U-Boot/HDMI validation remain unchanged.

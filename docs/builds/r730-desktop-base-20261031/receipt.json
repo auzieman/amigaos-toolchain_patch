@@ -1,0 +1,117 @@
+{
+  "status": "source-built-prerequisites-not-runtime-tested",
+  "image_id": "sha256:eb877fcd41042f17c0a1f67aa6e679c8dc81c10a72bf3ad12287d864e5eacdf0",
+  "lock_sha256": "d2a089fb743a39d3cde5ab89aec13498b9ca6ae1a027c0402b8fd076aca1bdb4",
+  "target": "PPC32 big-endian e500v2 SPE long-double-128",
+  "jobs": 4,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "/work/desktop-base-002/zlib-source"
+    ],
+    [
+      "./configure",
+      "--prefix=/usr"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/desktop-base-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libpng1.6_1.6.48-1+deb13u6.dsc",
+      "/work/desktop-base-002/libpng-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--disable-static",
+      "--disable-powerpc-vsx"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/desktop-base-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/pixman_0.44.0-3.dsc",
+      "/work/desktop-base-002/pixman-source"
+    ],
+    [
+      "meson",
+      "setup",
+      "/work/desktop-base-002/pixman-build",
+      "/work/desktop-base-002/pixman-source",
+      "--cross-file",
+      "/work/desktop-base-002/spe-cross.ini",
+      "--prefix=/usr",
+      "--libdir=lib",
+      "--buildtype=release",
+      "-Dtests=disabled",
+      "-Ddemos=disabled",
+      "-Dgtk=disabled",
+      "-Dlibpng=enabled",
+      "-Dvmx=disabled"
+    ],
+    [
+      "meson",
+      "compile",
+      "-C",
+      "/work/desktop-base-002/pixman-build",
+      "-j",
+      "4"
+    ],
+    [
+      "meson",
+      "install",
+      "-C",
+      "/work/desktop-base-002/pixman-build",
+      "--destdir",
+      "/work/desktop-base-002/stage"
+    ]
+  ],
+  "components": {
+    "zlib": {
+      "version": "1:1.3.dfsg+really1.3.1-1",
+      "copyright_sha256": "9e5b96d63773a5d177ba264254390f792be07e41748ebd94730981c6cac31cc6"
+    },
+    "libpng": {
+      "version": "1.6.48-1+deb13u6",
+      "copyright_sha256": "7e729164c60950b2b57f1712d82a051c9ba54f421c9b69815d9e4686ddc5709b"
+    },
+    "pixman": {
+      "version": "0.44.0-3",
+      "copyright_sha256": "1b3fb5690861e15ca4fd6640fd4def4b2576617942eec04b6fcb7d8bc6c4c9da"
+    }
+  },
+  "physical_boot": false,
+  "full_abi_validated": false,
+  "compiler_version": "powerpc-linux-gnuspe-gcc (GCC) 8.5.0",
+  "elfs": {
+    "usr/lib/libz.so.1.3.1": "084c955ec45944a7db814caa2b80db47e2f76669b410382e5d326f77aecb5bd2",
+    "usr/lib/libpng16.so.16.48.0": "1a99086fab6262db2b4b22d8ceb1e4862cc8bd8cd43a6273ec3a28b59da6c837",
+    "usr/lib/libpixman-1.so.0.44.0": "de4c50ff3d54b988b82499f94a98b3bcdbf74e5bff87ccca09dda6497350407b",
+    "usr/bin/png-fix-itxt": "ba136fbab577fec22400c3151dae56a7d2021f4f92ac351cb770b43a89edc6f6",
+    "usr/bin/pngfix": "7cf2b5a0a54f288dae3b66b0d26b3cffd333794d4f20c6d9d36d7f048cc6943f"
+  },
+  "probe_sha256": "a51d5f34a090b0779e80b50431b5517da327ae55bef06835d13dfde68cabc88e"
+}
