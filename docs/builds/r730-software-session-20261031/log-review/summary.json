@@ -1,0 +1,924 @@
+{
+  ".e-log.log": {
+    "bytes": 113920,
+    "sha256": "9d28f322b27d864bf3d7be1389099668beca588e0db9ee87983999e2b1abb39c",
+    "lines": 2032,
+    "messages": [
+      {
+        "count": 1073,
+        "text": "Xlib:  extension \"DPMS\" missing on display \":0.0\"."
+      },
+      {
+        "count": 264,
+        "text": "SCRSV: someone else messed with screen dpms!"
+      },
+      {
+        "count": 264,
+        "text": "SCRSV: someone else messed with screen dpms timeouts!"
+      },
+      {
+        "count": 4,
+        "text": "MODULE ERR: [Error loading Module]"
+      },
+      {
+        "count": 3,
+        "text": "ERR<PID>:eldbus ../efl-source/src/lib/eldbus/eldbus_core.c:1063 _connection_get() Error connecting to bus of type 2. error name: org.freedesktop.DBus.Error.FileNotFound error message: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory"
+      },
+      {
+        "count": 3,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1126 eldbus_connection_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 2,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_object.c:192 eldbus_object_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 2,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:663 eldbus_proxy_signal_handler_add() safety check failed: proxy == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore_system_upower ../efl-source/src/modules/ecore/system/upower/ecore_system_upower.c:446 _ecore_system_upower_init() could not get object name=org.freedesktop.UPower, path=/org/freedesktop/UPower"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1437 eldbus_name_owner_changed_callback_del() safety check failed: conn == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(36, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported"
+      },
+      {
+        "count": 1,
+        "text": "E_SUID_ERR: Unable to assume root user privileges"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:212 eldbus_proxy_get() safety check failed: obj == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_freedesktop.c:28 eldbus_name_owner_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 262.02058 should have slept ~ 0.01667s but took 0.03616s!"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eina/eina_convert.c:297 eina_convert_dtoa() safety check failed: !isnan(d) && !isinf(d) is false"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 265.12458 should have slept ~ 0.01667s but took 0.03967s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 268.45280 should have slept ~ 0.01667s but took 0.03954s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 269.67310 should have slept ~ 0.01667s but took 0.22003s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 274.20027 should have slept ~ 0.01667s but took 0.04800s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 275.88434 should have slept ~ 0.01667s but took 0.22808s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 277.90026 should have slept ~ 0.01667s but took 0.03995s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 325.70036 should have slept ~ 0.01667s but took 0.03585s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 325.92040 should have slept ~ 0.01667s but took 0.04383s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 326.02041 should have slept ~ 0.01667s but took 0.03581s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 337.60045 should have slept ~ 0.01667s but took 0.03583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 368.77240 should have slept ~ 0.01667s but took 0.03583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 381.13482 should have slept ~ 0.01667s but took 0.12249s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 435.78484 should have slept ~ 0.01667s but took 0.03423s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 455.90029 should have slept ~ 0.01667s but took 0.04801s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 456.08842 should have slept ~ 0.01667s but took 0.11615s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 530.91684 should have slept ~ 0.01667s but took 0.03441s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 531.02899 should have slept ~ 0.01667s but took 0.06287s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 561.50145 should have slept ~ 0.01667s but took 0.04133s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 561.62490 should have slept ~ 0.01667s but took 0.03535s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 564.45630 should have slept ~ 0.01667s but took 0.04438s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 564.60046 should have slept ~ 0.01667s but took 0.03642s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 604.25638 should have slept ~ 0.01667s but took 0.03751s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 653.39281 should have slept ~ 0.01667s but took 0.03633s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 694.30037 should have slept ~ 0.01667s but took 0.03985s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 785.52712 should have slept ~ 0.01667s but took 0.04515s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 892.81808 should have slept ~ 0.01667s but took 0.06217s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 892.88055 should have slept ~ 0.01667s but took 0.03569s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 944.16838 should have slept ~ 0.01667s but took 0.04082s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 951.96981 should have slept ~ 0.01667s but took 0.03917s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 974.90441 should have slept ~ 0.01667s but took 0.03585s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1022.65230 should have slept ~ 0.01667s but took 0.10810s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1046.40026 should have slept ~ 0.01667s but took 0.03779s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1046.80037 should have slept ~ 0.01667s but took 0.04018s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1062.00074 should have slept ~ 0.01667s but took 0.04391s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1233.72243 should have slept ~ 0.01667s but took 0.03778s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1314.23647 should have slept ~ 0.01667s but took 0.13537s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1352.80091 should have slept ~ 0.01667s but took 0.04761s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1375.41699 should have slept ~ 0.01667s but took 0.03924s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1375.47242 should have slept ~ 0.01667s but took 0.12654s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1384.17255 should have slept ~ 0.01667s but took 0.04386s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1384.78435 should have slept ~ 0.01667s but took 0.03624s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1384.82091 should have slept ~ 0.01667s but took 0.03943s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1385.06838 should have slept ~ 0.01667s but took 0.03371s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1449.82030 should have slept ~ 0.01667s but took 0.03593s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1450.00433 should have slept ~ 0.01667s but took 0.05189s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1473.33593 should have slept ~ 0.01667s but took 0.03626s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1534.45231 should have slept ~ 0.01667s but took 0.03591s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1534.96838 should have slept ~ 0.01667s but took 0.03584s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1609.01693 should have slept ~ 0.01667s but took 0.03927s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1617.50993 should have slept ~ 0.01667s but took 0.03429s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1673.05232 should have slept ~ 0.01667s but took 0.03589s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1721.25236 should have slept ~ 0.01667s but took 0.03582s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1739.18477 should have slept ~ 0.01667s but took 0.38343s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1783.98521 should have slept ~ 0.01667s but took 0.05101s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1826.20076 should have slept ~ 0.01667s but took 0.05142s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1826.32441 should have slept ~ 0.01667s but took 0.03623s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1826.56899 should have slept ~ 0.01667s but took 0.04324s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1827.08443 should have slept ~ 0.01667s but took 0.03981s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1827.30033 should have slept ~ 0.01667s but took 0.05217s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1841.05231 should have slept ~ 0.01667s but took 0.03589s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1855.72434 should have slept ~ 0.01667s but took 0.03590s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1855.76801 should have slept ~ 0.01667s but took 0.03622s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1997.80033 should have slept ~ 0.01667s but took 0.04788s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1997.88827 should have slept ~ 0.01667s but took 0.03989s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1997.95236 should have slept ~ 0.01667s but took 0.03583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 1998.08041 should have slept ~ 0.01667s but took 0.03980s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2045.10135 should have slept ~ 0.01667s but took 0.04713s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2045.50854 should have slept ~ 0.01667s but took 0.03969s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2045.60101 should have slept ~ 0.01667s but took 0.03924s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2071.47237 should have slept ~ 0.01667s but took 0.03590s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2071.72554 should have slept ~ 0.01667s but took 0.03906s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2071.78924 should have slept ~ 0.01667s but took 0.03361s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2086.98832 should have slept ~ 0.01667s but took 0.04790s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2104.90043 should have slept ~ 0.01667s but took 0.12426s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2106.40085 should have slept ~ 0.01667s but took 0.03534s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2106.46039 should have slept ~ 0.01667s but took 0.03986s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2106.50056 should have slept ~ 0.01667s but took 0.04430s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2133.27237 should have slept ~ 0.01667s but took 0.03393s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2133.53688 should have slept ~ 0.01667s but took 0.03566s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2142.47238 should have slept ~ 0.01667s but took 0.03589s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2142.65234 should have slept ~ 0.01667s but took 0.03992s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2182.53630 should have slept ~ 0.01667s but took 0.03590s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2183.06825 should have slept ~ 0.01667s but took 0.03595s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2205.18437 should have slept ~ 0.01667s but took 0.03583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2214.05828 should have slept ~ 0.01667s but took 0.03465s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2214.17238 should have slept ~ 0.01667s but took 0.03584s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2214.60822 should have slept ~ 0.01667s but took 0.03999s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2214.70053 should have slept ~ 0.01667s but took 0.04032s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2214.80902 should have slept ~ 0.01667s but took 0.03920s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2234.75633 should have slept ~ 0.01667s but took 0.03590s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2234.80436 should have slept ~ 0.01667s but took 0.03986s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2235.10028 should have slept ~ 0.01667s but took 0.03594s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2235.25227 should have slept ~ 0.01667s but took 0.03993s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2269.45429 should have slept ~ 0.01667s but took 0.07409s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2276.94415 should have slept ~ 0.01667s but took 0.04007s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2301.03241 should have slept ~ 0.01667s but took 0.13181s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2308.80472 should have slept ~ 0.01667s but took 0.04362s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2342.56836 should have slept ~ 0.01667s but took 0.03594s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2351.35683 should have slept ~ 0.01667s but took 0.03656s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2434.52041 should have slept ~ 0.01667s but took 0.15190s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2448.12160 should have slept ~ 0.01667s but took 0.03782s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2495.06829 should have slept ~ 0.01667s but took 0.09603s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2514.16844 should have slept ~ 0.01667s but took 0.03664s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2535.74845 should have slept ~ 0.01667s but took 0.04776s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2544.40133 should have slept ~ 0.01667s but took 0.03644s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2544.46889 should have slept ~ 0.01667s but took 0.04329s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2544.58538 should have slept ~ 0.01667s but took 0.03568s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2570.72432 should have slept ~ 0.01667s but took 0.10334s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2572.72034 should have slept ~ 0.01667s but took 0.04783s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2577.70477 should have slept ~ 0.01667s but took 0.12747s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2577.86450 should have slept ~ 0.01667s but took 0.04425s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2587.47241 should have slept ~ 0.01667s but took 0.03982s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2597.52028 should have slept ~ 0.01667s but took 0.24508s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2603.42039 should have slept ~ 0.01667s but took 0.12041s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2604.50196 should have slept ~ 0.01667s but took 0.03432s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2604.75284 should have slept ~ 0.01667s but took 0.03545s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2605.78440 should have slept ~ 0.01667s but took 0.03593s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2606.43691 should have slept ~ 0.01667s but took 0.03532s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2608.73648 should have slept ~ 0.01667s but took 0.03572s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2609.50299 should have slept ~ 0.01667s but took 0.04597s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2609.63383 should have slept ~ 0.01667s but took 0.32483s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2611.13771 should have slept ~ 0.01667s but took 0.21863s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2620.22555 should have slept ~ 0.01667s but took 0.04678s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2620.30222 should have slept ~ 0.01667s but took 0.03525s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2620.70101 should have slept ~ 0.01667s but took 0.03376s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2621.60027 should have slept ~ 0.01667s but took 0.03997s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2624.42058 should have slept ~ 0.01667s but took 0.03990s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2624.60426 should have slept ~ 0.01667s but took 0.03591s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2624.75234 should have slept ~ 0.01667s but took 0.03990s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2624.91746 should have slept ~ 0.01667s but took 0.23625s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2625.15404 should have slept ~ 0.01667s but took 0.03855s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2626.80069 should have slept ~ 0.01667s but took 0.03553s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2631.40439 should have slept ~ 0.01667s but took 0.03645s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2632.65632 should have slept ~ 0.01667s but took 0.13638s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2637.31844 should have slept ~ 0.01667s but took 0.03380s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2653.05723 should have slept ~ 0.01667s but took 0.03500s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2653.45643 should have slept ~ 0.01667s but took 0.11597s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2653.86851 should have slept ~ 0.01667s but took 0.03656s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2654.76434 should have slept ~ 0.01667s but took 0.12404s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2654.88871 should have slept ~ 0.01667s but took 0.04373s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2658.52029 should have slept ~ 0.01667s but took 0.03592s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2662.80080 should have slept ~ 0.01667s but took 0.03942s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2668.50045 should have slept ~ 0.01667s but took 0.03577s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2676.25632 should have slept ~ 0.01667s but took 0.03594s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2677.03870 should have slept ~ 0.01667s but took 0.03978s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2691.02665 should have slept ~ 0.01667s but took 0.04051s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2692.30245 should have slept ~ 0.01667s but took 0.03886s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2696.10948 should have slept ~ 0.01667s but took 0.03584s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2696.90422 should have slept ~ 0.01667s but took 0.03657s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2698.17237 should have slept ~ 0.01667s but took 0.03674s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2699.78028 should have slept ~ 0.01667s but took 0.11587s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2700.43826 should have slept ~ 0.01667s but took 0.03796s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2715.30437 should have slept ~ 0.01667s but took 0.03593s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2717.32434 should have slept ~ 0.01667s but took 0.03991s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2719.65232 should have slept ~ 0.01667s but took 0.04857s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2721.50436 should have slept ~ 0.01667s but took 0.03585s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2725.50033 should have slept ~ 0.01667s but took 0.03582s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2776.74127 should have slept ~ 0.01667s but took 0.05131s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2813.94433 should have slept ~ 0.01667s but took 0.03602s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2822.55235 should have slept ~ 0.01667s but took 0.03613s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 2831.58434 should have slept ~ 0.01667s but took 0.09198s!"
+      }
+    ]
+  },
+  ".e-log.log.old": {
+    "bytes": 622143,
+    "sha256": "94fcf204031e5fbc2e327ec635e0f4974eec108538c24fa03898305ab36ce9a5",
+    "lines": 3792,
+    "messages": [
+      {
+        "count": 686,
+        "text": "ERR<PID>:eldbus ../efl-source/src/lib/eldbus/eldbus_core.c:1063 _connection_get() Error connecting to bus of type 2. error name: org.freedesktop.DBus.Error.FileNotFound error message: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory"
+      },
+      {
+        "count": 686,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1126 eldbus_connection_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 685,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_object.c:192 eldbus_object_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 684,
+        "text": "ERR<PID>:ecore_system_upower ../efl-source/src/modules/ecore/system/upower/ecore_system_upower.c:446 _ecore_system_upower_init() could not get object name=org.freedesktop.UPower, path=/org/freedesktop/UPower"
+      },
+      {
+        "count": 684,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1437 eldbus_name_owner_changed_callback_del() safety check failed: conn == NULL"
+      },
+      {
+        "count": 74,
+        "text": "Xlib:  extension \"DPMS\" missing on display \":0.0\"."
+      },
+      {
+        "count": 21,
+        "text": "SCRSV: someone else messed with screen dpms timeouts!"
+      },
+      {
+        "count": 5,
+        "text": "ERR<PID>:eo ../efl-source/src/lib/eo/eo.c:2314 efl_data_scope_get() Eo ID 0x800010e0 is not a valid object. Current thread: main. This ID has probably been deleted or this was never a valid object ID. (domain=0, current_domain=0, local_domain=0, available_domains=[0 1    ], generation=60, id=20, ref=1)"
+      },
+      {
+        "count": 5,
+        "text": "ERR<PID>:eo ../efl-source/src/lib/eo/eo.c:1933 efl_isa() Eo ID 0x800010e0 is not a valid object. Current thread: main. This ID has probably been deleted or this was never a valid object ID. (domain=0, current_domain=0, local_domain=0, available_domains=[0 1    ], generation=60, id=20, ref=1)"
+      },
+      {
+        "count": 2,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:663 eldbus_proxy_signal_handler_add() safety check failed: proxy == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(21, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(32, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported"
+      },
+      {
+        "count": 1,
+        "text": "E_SUID_ERR: Unable to assume root user privileges"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:212 eldbus_proxy_get() safety check failed: obj == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_freedesktop.c:28 eldbus_name_owner_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eina/eina_convert.c:297 eina_convert_dtoa() safety check failed: !isnan(d) && !isinf(d) is false"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 48.02439 should have slept ~ 0.01667s but took 0.03579s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 50.35317 should have slept ~ 0.01667s but took 0.03503s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 51.70208 should have slept ~ 0.01667s but took 0.06359s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 52.05237 should have slept ~ 0.01667s but took 0.03583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 94.80030 should have slept ~ 0.01667s but took 0.03379s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 94.83441 should have slept ~ 0.01667s but took 0.04583s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 113.53641 should have slept ~ 0.01667s but took 0.06317s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 120.55253 should have slept ~ 0.01667s but took 0.03678s!"
+      },
+      {
+        "count": 1,
+        "text": "SCRSV: someone else messed with screen blanking!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 138.30540 should have slept ~ 0.01667s but took 0.14449s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 145.97019 should have slept ~ 0.01667s but took 0.05173s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 157.20079 should have slept ~ 0.01667s but took 0.03966s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 172.72035 should have slept ~ 0.01667s but took 0.11654s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 177.73629 should have slept ~ 0.01667s but took 0.04429s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 196.03644 should have slept ~ 0.01667s but took 0.03384s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 196.07060 should have slept ~ 0.01667s but took 0.03767s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 225.15328 should have slept ~ 0.01667s but took 0.03492s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 237.70452 should have slept ~ 0.01667s but took 0.05282s!"
+      },
+      {
+        "count": 1,
+        "text": "ERROR: ecore_animator thread - epoll_wait(..., 200) at 237.91254 should have slept ~ 0.01667s but took 0.07566s!"
+      }
+    ]
+  },
+  "e-session.log": {
+    "bytes": 196,
+    "sha256": "be8d33df1b599ec8c8fd72a0a9157797a77b9799fd7c5badf94478cd2f33c0ca",
+    "lines": 4,
+    "messages": [
+      {
+        "count": 1,
+        "text": "dbus-daemon[73]: [session uid=1000 pid=73 pidfd=5] Cannot initialize inotify: Function not implemented"
+      }
+    ]
+  },
+  "terminology.log": {
+    "bytes": 588649,
+    "sha256": "0060bc8e7ec90eb22ca4a340e20a3fc18ac2385ece04c6a40a30ba6352536533",
+    "lines": 3354,
+    "messages": [
+      {
+        "count": 670,
+        "text": "ERR<PID>:eldbus ../efl-source/src/lib/eldbus/eldbus_core.c:1063 _connection_get() Error connecting to bus of type 2. error name: org.freedesktop.DBus.Error.FileNotFound error message: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory"
+      },
+      {
+        "count": 670,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1126 eldbus_connection_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 670,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_object.c:192 eldbus_object_get() safety check failed: conn == NULL"
+      },
+      {
+        "count": 670,
+        "text": "ERR<PID>:ecore_system_upower ../efl-source/src/modules/ecore/system/upower/ecore_system_upower.c:446 _ecore_system_upower_init() could not get object name=org.freedesktop.UPower, path=/org/freedesktop/UPower"
+      },
+      {
+        "count": 670,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1437 eldbus_name_owner_changed_callback_del() safety check failed: conn == NULL"
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(21, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported"
+      },
+      {
+        "count": 1,
+        "text": "Xlib:  extension \"DPMS\" missing on display \":0\"."
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:ecore ../efl-source/src/lib/ecore/ecore.c:741 ecore_thread_main_loop_end() the main loop is not locked ! No matching call to ecore_thread_main_loop_begin()."
+      },
+      {
+        "count": 1,
+        "text": "ERR<PID>:eina_safety ../efl-source/src/lib/evas/canvas/evas_object_textgrid.c:1205 _evas_textgrid_efl_text_font_font_family_set() safety check failed: (!font_name) || (!*font_name) is true"
+      }
+    ]
+  },
+  "Xvfb.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lines": 0,
+    "messages": []
+  }
+}

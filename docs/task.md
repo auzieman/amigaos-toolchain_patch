@@ -720,3 +720,12 @@ Issues7/8 track integration omissions and rendering respectively; issue3 remains
 open. No physical A1222, Radeon, OpenGL or full SPE ABI acceptance is implied.
 Next: isolate non-SHM compositor readback versus direct client drawing, then
 repair and repeat the graphical test before preparing hardware USB media.
+
+
+2026-10-31 E log review: read actual ~/.e-log.log and rotated log, not just
+launcher output. Confirmed four disabled-module/profile mismatches, unprivileged
+system-helper error, missing system D-Bus/UPower, Xvfb DPMS polling noise and
+kernel inotify omission. Retain non-finite-number, Eo object and thread/font
+warnings without assuming their cause. No OOM/crash event found in sampled
+serial log. See builds/r730-software-session-20261031/log-review. Guest unchanged;
+issues7/8 remain open for integration and rendering.
