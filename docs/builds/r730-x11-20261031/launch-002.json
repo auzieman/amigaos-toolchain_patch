@@ -1,0 +1,223 @@
+{
+  "status": "running",
+  "started_unix": 1793465622.1338644,
+  "image_id": "sha256:eb877fcd41042f17c0a1f67aa6e679c8dc81c10a72bf3ad12287d864e5eacdf0",
+  "lock_sha256": "52f390626db3b70b7eb11abc6755c013b1583c7ed4cc0a7f7b3e28d10d92bf45",
+  "recipe_sha256": "442d1e0ffba50d30a8d265506072f5cb8c0f8bf0d19b82d8284ac1191405b5cf",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "flags": "--sysroot=/sysroot -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 -g0",
+  "components": {
+    "xorgproto": {
+      "status": "built",
+      "version": "2024.1-1",
+      "copyright_sha256": "b09d6804e6c24163c51e723c26b24313f9c2a3179146cdec7328aa8e9651bb45"
+    },
+    "xtrans": {
+      "status": "built",
+      "version": "1.4.0-1",
+      "copyright_sha256": "6363ea56c0a9b866cc8ce0b4c013142b1a1074cec6c0585475cef2190ffd777e"
+    },
+    "libpthread-stubs": {
+      "status": "built",
+      "version": "0.5-1",
+      "copyright_sha256": "d452eb85445ad9addc2baf90ae2823139bfeca57a7e35dba4d226ae5713a0abb"
+    },
+    "libxau": {
+      "status": "built",
+      "version": "1:1.0.11-1",
+      "copyright_sha256": "a576c55fed1915d78bfff56fb3814da96678531e3bf953f65853553c6709c383"
+    },
+    "libxdmcp": {
+      "status": "built",
+      "version": "1:1.1.5-1",
+      "copyright_sha256": "d947c4bede53cb9df1bf52a7d0ffa9ea65c7e199ec3f6ea3699043101fe77f1e"
+    },
+    "xcb-proto": {
+      "status": "built",
+      "version": "1.17.0-1",
+      "copyright_sha256": "b9f2fbbb0dd1d201f852d5de6549702e824434886e2f84a8a2925e8cd292b51d"
+    }
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xorgproto_2024.1-1.dsc",
+      "/work/x11-clients-002/xorgproto-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xtrans_1.4.0-1.dsc",
+      "/work/x11-clients-002/xtrans-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libpthread-stubs_0.5-1.dsc",
+      "/work/x11-clients-002/libpthread-stubs-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxau_1.0.11-1.dsc",
+      "/work/x11-clients-002/libxau-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxdmcp_1.1.5-1.dsc",
+      "/work/x11-clients-002/libxdmcp-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xcb-proto_1.17.0-1.dsc",
+      "/work/x11-clients-002/xcb-proto-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--with-python-sys-prefix",
+      "pythondir=/usr/share/xcb-proto/python"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libxcb_1.17.0-2.dsc",
+      "/work/x11-clients-002/libxcb-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-devel-docs",
+      "--enable-xinput",
+      "--enable-xkb"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-002/stage",
+      "install"
+    ]
+  ],
+  "physical_boot": false,
+  "X11_server_tested": false,
+  "active_component": "libxcb"
+}

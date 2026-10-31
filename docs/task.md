@@ -651,3 +651,14 @@ selected for them. Verify E/Elementary selector discovery and actual target
 rendering before declaring integration. Preserve default E first boot. Full
 inherited desktop assets retain their existing notice/distribution boundaries;
 no third-party asset import or public release occurs in this selection change.
+
+
+## 2026-10-31 — restart source-built X11 dependency jobs
+
+[Active workflow](x11-build-cycle.md): pinned 22 Debian source packages and
+launched detached, constrained offline R730 X11 client builds. Fresh iteration001
+built protocol/transport headers, then rejected an unexpected license filename.
+Corrected notice handling; fresh002 compiles against the accepted read-only SPE
+compiler/libc and source-built software prerequisites. Live receipts expose
+active component/status; desktop4 log view now follows the latest iteration
+with explicit state. No Xorg/E session or full ABI acceptance claimed.

@@ -1,0 +1,634 @@
+{
+  "scope": "ordered source-built X11 client chain; not Xorg server",
+  "signature_verification": "HTTPS DSC and SHA256 payloads; no independent OpenPGP verification",
+  "components": {
+    "xorgproto": {
+      "version": "2024.1-1",
+      "dsc": "xorgproto_2024.1-1.dsc",
+      "files": [
+        {
+          "filename": "xorgproto_2024.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1-1.dsc",
+          "size": 3336,
+          "sha256": "56c08773592f3cf529bc087449de421aac0645b5c43fad41387b856b5e29fab7"
+        },
+        {
+          "filename": "xorgproto_2024.1.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1.orig.tar.gz",
+          "size": 1115486,
+          "sha256": "4f6b9b4faf91e5df8265b71843a91fc73dc895be6210c84117a996545df296ce"
+        },
+        {
+          "filename": "xorgproto_2024.1.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1.orig.tar.gz.asc",
+          "size": 195,
+          "sha256": "41d650fd19f3df1ae8ad24c2570638d5cdadff819613f8cff96d17310d35347c"
+        },
+        {
+          "filename": "xorgproto_2024.1-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1-1.diff.gz",
+          "size": 25061,
+          "sha256": "f250a5bc693079f84dc0caad3cc282433940d3665ff9a77b8dc4dc0961f83d1b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xorgproto"
+    },
+    "xtrans": {
+      "version": "1.4.0-1",
+      "dsc": "xtrans_1.4.0-1.dsc",
+      "files": [
+        {
+          "filename": "xtrans_1.4.0-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xtrans/xtrans_1.4.0-1.dsc",
+          "size": 1919,
+          "sha256": "dd74ab9199e8f45215b566a9317cac7953bf063ce6893c185eccaf0fb4d84d8f"
+        },
+        {
+          "filename": "xtrans_1.4.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xtrans/xtrans_1.4.0.orig.tar.gz",
+          "size": 225941,
+          "sha256": "48ed850ce772fef1b44ca23639b0a57e38884045ed2cbb18ab137ef33ec713f9"
+        },
+        {
+          "filename": "xtrans_1.4.0-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xtrans/xtrans_1.4.0-1.diff.gz",
+          "size": 9522,
+          "sha256": "0dac18165654d79e0796b80fab4c1104998d29e6d0b098af0426a1d72399521e"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xtrans"
+    },
+    "libpthread-stubs": {
+      "version": "0.5-1",
+      "dsc": "libpthread-stubs_0.5-1.dsc",
+      "files": [
+        {
+          "filename": "libpthread-stubs_0.5-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libp/libpthread-stubs/libpthread-stubs_0.5-1.dsc",
+          "size": 2159,
+          "sha256": "e53eb38acae4f62c2b980a0b3bb88beabb7cc7291c694ab545c152d298234df9"
+        },
+        {
+          "filename": "libpthread-stubs_0.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libp/libpthread-stubs/libpthread-stubs_0.5.orig.tar.gz",
+          "size": 74938,
+          "sha256": "593196cc746173d1e25cb54a93a87fd749952df68699aab7e02c085530e87747"
+        },
+        {
+          "filename": "libpthread-stubs_0.5.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libp/libpthread-stubs/libpthread-stubs_0.5.orig.tar.gz.asc",
+          "size": 801,
+          "sha256": "f666daa994819d2c375e5fc07911fc0926df3af3a33e9315364c9cc5bffeb282"
+        },
+        {
+          "filename": "libpthread-stubs_0.5-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libp/libpthread-stubs/libpthread-stubs_0.5-1.diff.gz",
+          "size": 6719,
+          "sha256": "fa16e98a5c1adfd59b079e63cd56ba7f9a6e1234fe2a79b30c17eaa0ae0656ef"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libpthread-stubs"
+    },
+    "libxau": {
+      "version": "1:1.0.11-1",
+      "dsc": "libxau_1.0.11-1.dsc",
+      "files": [
+        {
+          "filename": "libxau_1.0.11-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxau/libxau_1.0.11-1.dsc",
+          "size": 2213,
+          "sha256": "6058ab58b243ae2b175eee067b868f37b74cd4e8cc40b90607ce6d9ee99c50f9"
+        },
+        {
+          "filename": "libxau_1.0.11.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxau/libxau_1.0.11.orig.tar.gz",
+          "size": 404973,
+          "sha256": "3a321aaceb803577a4776a5efe78836eb095a9e44bbc7a465d29463e1a14f189"
+        },
+        {
+          "filename": "libxau_1.0.11.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxau/libxau_1.0.11.orig.tar.gz.asc",
+          "size": 358,
+          "sha256": "72320a0c036cc2d36bebdd7d279c402620e2f3553f639581dfb23736803ce258"
+        },
+        {
+          "filename": "libxau_1.0.11-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxau/libxau_1.0.11-1.diff.gz",
+          "size": 22671,
+          "sha256": "0af3f94102f73c585c48a6b17f54c92e154f6b560a061871d437bd720edd5314"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxau"
+    },
+    "libxdmcp": {
+      "version": "1:1.1.5-1",
+      "dsc": "libxdmcp_1.1.5-1.dsc",
+      "files": [
+        {
+          "filename": "libxdmcp_1.1.5-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5-1.dsc",
+          "size": 2331,
+          "sha256": "d4a124405528eba3cf8794cc4fb8c4339ad74e79dd916fc0565b3a30c9fc1fe3"
+        },
+        {
+          "filename": "libxdmcp_1.1.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5.orig.tar.gz",
+          "size": 442597,
+          "sha256": "31a7abc4f129dcf6f27ae912c3eedcb94d25ad2e8f317f69df6eda0bc4e4f2f3"
+        },
+        {
+          "filename": "libxdmcp_1.1.5.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "0c7666da02d66ab785584cd16a6f9324f0d949555734e70b3b1385e525c7860b"
+        },
+        {
+          "filename": "libxdmcp_1.1.5-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5-1.diff.gz",
+          "size": 9764,
+          "sha256": "7ec2e7da28c38723aa115ce2bd18389f7d73e716b0f50bec9e6e0d1b24f19954"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxdmcp"
+    },
+    "xcb-proto": {
+      "version": "1.17.0-1",
+      "dsc": "xcb-proto_1.17.0-1.dsc",
+      "files": [
+        {
+          "filename": "xcb-proto_1.17.0-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-proto/xcb-proto_1.17.0-1.dsc",
+          "size": 2244,
+          "sha256": "73223228a476dbb056b6b839e1dcfd7de39c59ad2fa4d9858186dfcb4a1124f0"
+        },
+        {
+          "filename": "xcb-proto_1.17.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-proto/xcb-proto_1.17.0.orig.tar.gz",
+          "size": 206094,
+          "sha256": "392d3c9690f8c8202a68fdb89c16fd55159ab8d65000a6da213f4a1576e97a16"
+        },
+        {
+          "filename": "xcb-proto_1.17.0.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-proto/xcb-proto_1.17.0.orig.tar.gz.asc",
+          "size": 358,
+          "sha256": "12914b1edd88275d8b71fe14322d99a4f3460ef74dd06429a9d6f8b22318cbba"
+        },
+        {
+          "filename": "xcb-proto_1.17.0-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-proto/xcb-proto_1.17.0-1.diff.gz",
+          "size": 28175,
+          "sha256": "24387ef32838d9251e66ac8faf527c0540247c88972409f7b633272b83292d01"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xcb-proto"
+    },
+    "libxcb": {
+      "version": "1.17.0-2",
+      "dsc": "libxcb_1.17.0-2.dsc",
+      "files": [
+        {
+          "filename": "libxcb_1.17.0-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb_1.17.0-2.dsc",
+          "size": 5318,
+          "sha256": "b2728d156f79d2e757e7378cfcefca52bd570739d2efffa87e1aaeaf4f21de3a"
+        },
+        {
+          "filename": "libxcb_1.17.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb_1.17.0.orig.tar.gz",
+          "size": 661593,
+          "sha256": "2c69287424c9e2128cb47ffe92171e10417041ec2963bceafb65cb3fcf8f0b85"
+        },
+        {
+          "filename": "libxcb_1.17.0-2.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcb/libxcb_1.17.0-2.diff.gz",
+          "size": 28069,
+          "sha256": "c5b33b67a61d0d1c1b624bf88a8150f4be1ba9b46e855e38f03a8f73858af558"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxcb"
+    },
+    "libx11": {
+      "version": "2:1.8.12-1",
+      "dsc": "libx11_1.8.12-1.dsc",
+      "files": [
+        {
+          "filename": "libx11_1.8.12-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libx11/libx11_1.8.12-1.dsc",
+          "size": 2490,
+          "sha256": "745fb04a4b0f8942183f6ac84ebd9e2dae1416c37f90abeaacabb57dc11286f5"
+        },
+        {
+          "filename": "libx11_1.8.12.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libx11/libx11_1.8.12.orig.tar.gz",
+          "size": 3215077,
+          "sha256": "220fbcf54b6e4d8dc40076ff4ab87954358019982490b33c7802190b62d89ce1"
+        },
+        {
+          "filename": "libx11_1.8.12.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libx11/libx11_1.8.12.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "c3d177c8efcef9d3a1963956de0edc56ef2dd63d13dc39d3d7473dc9011fca65"
+        },
+        {
+          "filename": "libx11_1.8.12-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libx11/libx11_1.8.12-1.diff.gz",
+          "size": 74466,
+          "sha256": "2231b0ec8ce2eb380256b67eb30c05d90b0e92d75dd583c24e0bf640b3078977"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libx11"
+    },
+    "libxext": {
+      "version": "2:1.3.4-1",
+      "dsc": "libxext_1.3.4-1.dsc",
+      "files": [
+        {
+          "filename": "libxext_1.3.4-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxext/libxext_1.3.4-1.dsc",
+          "size": 2118,
+          "sha256": "25024f57d955739c6b858822bf93ec3c71400b56fc0d666826f440e3661fd7c0"
+        },
+        {
+          "filename": "libxext_1.3.4.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxext/libxext_1.3.4.orig.tar.gz",
+          "size": 494434,
+          "sha256": "8ef0789f282826661ff40a8eef22430378516ac580167da35cc948be9041aac1"
+        },
+        {
+          "filename": "libxext_1.3.4-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxext/libxext_1.3.4-1.diff.gz",
+          "size": 12509,
+          "sha256": "b975870d6a7b791ffbe2d57efdf6e20c250c5e76d12e45b04c8655f593bb8337"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxext"
+    },
+    "libxrender": {
+      "version": "1:0.9.12-1",
+      "dsc": "libxrender_0.9.12-1.dsc",
+      "files": [
+        {
+          "filename": "libxrender_0.9.12-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrender/libxrender_0.9.12-1.dsc",
+          "size": 2258,
+          "sha256": "2980c127d296455f4e9bcaf5ba114284fa0735ce3ef5b613dbe99d854bc87ca3"
+        },
+        {
+          "filename": "libxrender_0.9.12.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrender/libxrender_0.9.12.orig.tar.gz",
+          "size": 450034,
+          "sha256": "0fff64125819c02d1102b6236f3d7d861a07b5216d8eea336c3811d31494ecf7"
+        },
+        {
+          "filename": "libxrender_0.9.12.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrender/libxrender_0.9.12.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "0bbd310ac3974ef398cf4d8a4b362b0b4d60ceb43e6eba393c3cc740b03816fc"
+        },
+        {
+          "filename": "libxrender_0.9.12-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrender/libxrender_0.9.12-1.diff.gz",
+          "size": 21464,
+          "sha256": "c0d3e91a3aa474772c242dcbb997504dff4c28e177d9b7fbb70c50ce7bf56fc5"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxrender"
+    },
+    "libxfixes": {
+      "version": "1:6.0.0-2",
+      "dsc": "libxfixes_6.0.0-2.dsc",
+      "files": [
+        {
+          "filename": "libxfixes_6.0.0-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes_6.0.0-2.dsc",
+          "size": 2240,
+          "sha256": "d1958d4b89d749c7d05df7d6ec2215bf11527f9ae914c0f2da48672c6165c65e"
+        },
+        {
+          "filename": "libxfixes_6.0.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes_6.0.0.orig.tar.gz",
+          "size": 387810,
+          "sha256": "82045da5625350838390c9440598b90d69c882c324ca92f73af9f0e992cb57c7"
+        },
+        {
+          "filename": "libxfixes_6.0.0.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes_6.0.0.orig.tar.gz.asc",
+          "size": 195,
+          "sha256": "e5598f42aa32140936c7772ab4d99ba35ecb859c29adc1703bb51440e7a54928"
+        },
+        {
+          "filename": "libxfixes_6.0.0-2.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxfixes/libxfixes_6.0.0-2.diff.gz",
+          "size": 17318,
+          "sha256": "24f13645909ecfd63a21568e515cfc962692c468d7dcf8cb97212d2445f60a3b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxfixes"
+    },
+    "libxdamage": {
+      "version": "1:1.1.6-1",
+      "dsc": "libxdamage_1.1.6-1.dsc",
+      "files": [
+        {
+          "filename": "libxdamage_1.1.6-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdamage/libxdamage_1.1.6-1.dsc",
+          "size": 2124,
+          "sha256": "3e8a0869abf7ed410d23c8f59df898b1f472a420b260412b388af485e9b87f63"
+        },
+        {
+          "filename": "libxdamage_1.1.6.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdamage/libxdamage_1.1.6.orig.tar.gz",
+          "size": 381548,
+          "sha256": "2afcc139eb6eb926ffe344494b1fc023da25def42874496e6e6d3aa8acef8595"
+        },
+        {
+          "filename": "libxdamage_1.1.6-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxdamage/libxdamage_1.1.6-1.debian.tar.xz",
+          "size": 6200,
+          "sha256": "ab7603ba139a898e2c05b76cca06fbe5fbf10f5591fc8d3fe787e31852ce2796"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxdamage"
+    },
+    "libxcomposite": {
+      "version": "1:0.4.6-1",
+      "dsc": "libxcomposite_0.4.6-1.dsc",
+      "files": [
+        {
+          "filename": "libxcomposite_0.4.6-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite_0.4.6-1.dsc",
+          "size": 2361,
+          "sha256": "b9b50efa78e28a24a1c6838b9f7cd43b8e1b5fd2fe660d4a4d76c0a9489d8ceb"
+        },
+        {
+          "filename": "libxcomposite_0.4.6.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite_0.4.6.orig.tar.gz",
+          "size": 395552,
+          "sha256": "3599dfcd96cd48d45e6aeb08578aa27636fa903f480f880c863622c2b352d076"
+        },
+        {
+          "filename": "libxcomposite_0.4.6.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite_0.4.6.orig.tar.gz.asc",
+          "size": 801,
+          "sha256": "5774dceebd9cfd3c609f96a9ca3b86b31a333318932f4e3afb6f9c93837e2483"
+        },
+        {
+          "filename": "libxcomposite_0.4.6-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcomposite/libxcomposite_0.4.6-1.diff.gz",
+          "size": 10556,
+          "sha256": "ebd0457f814e69d2864123eba1fe98c6f99b13576dd2fbd06acb9c3750e0ff68"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxcomposite"
+    },
+    "libxi": {
+      "version": "2:1.8.2-1",
+      "dsc": "libxi_1.8.2-1.dsc",
+      "files": [
+        {
+          "filename": "libxi_1.8.2-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxi/libxi_1.8.2-1.dsc",
+          "size": 2286,
+          "sha256": "06669e65a5a382b97c6c1bf886dca7b6da0ebbcda17862243e53fee700195bb8"
+        },
+        {
+          "filename": "libxi_1.8.2.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxi/libxi_1.8.2.orig.tar.gz",
+          "size": 611246,
+          "sha256": "5542daec66febfeb6f51d57abfa915826efe2e3af57534f4105b82240ea3188d"
+        },
+        {
+          "filename": "libxi_1.8.2.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxi/libxi_1.8.2.orig.tar.gz.asc",
+          "size": 195,
+          "sha256": "acfaf42beee3690980632c5ec4d9948276da969f07beea6bd09312d63fa7fb45"
+        },
+        {
+          "filename": "libxi_1.8.2-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxi/libxi_1.8.2-1.diff.gz",
+          "size": 27701,
+          "sha256": "f7a6b01f918159bc19570470ee315ea32284ae88a9cde269954e5086537716f8"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxi"
+    },
+    "libxinerama": {
+      "version": "2:1.1.4-3",
+      "dsc": "libxinerama_1.1.4-3.dsc",
+      "files": [
+        {
+          "filename": "libxinerama_1.1.4-3.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxinerama/libxinerama_1.1.4-3.dsc",
+          "size": 2088,
+          "sha256": "5fe68b94d4cbc4be1ba37bbf676fbece3920b2c59a33cc94c4e4c7a140958edd"
+        },
+        {
+          "filename": "libxinerama_1.1.4.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxinerama/libxinerama_1.1.4.orig.tar.gz",
+          "size": 380740,
+          "sha256": "64de45e18cc76b8e703cb09b3c9d28bd16e3d05d5cd99f2d630de2d62c3acc18"
+        },
+        {
+          "filename": "libxinerama_1.1.4-3.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxinerama/libxinerama_1.1.4-3.diff.gz",
+          "size": 8436,
+          "sha256": "127f99cde4e62d8ed0c11acda9491926df693b31bed4f56fc1cba39c461444d9"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxinerama"
+    },
+    "libxcursor": {
+      "version": "1:1.2.3-1",
+      "dsc": "libxcursor_1.2.3-1.dsc",
+      "files": [
+        {
+          "filename": "libxcursor_1.2.3-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcursor/libxcursor_1.2.3-1.dsc",
+          "size": 2148,
+          "sha256": "4b6e8fc0a324a53acc6eff84944b60416cba376a84031d1ace463f21ea7b596c"
+        },
+        {
+          "filename": "libxcursor_1.2.3.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcursor/libxcursor_1.2.3.orig.tar.gz",
+          "size": 433030,
+          "sha256": "74e72da27e61cc2cfd2e267c14f500ea47775850048ee0b00362a55c9b60ee9b"
+        },
+        {
+          "filename": "libxcursor_1.2.3-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxcursor/libxcursor_1.2.3-1.debian.tar.xz",
+          "size": 9168,
+          "sha256": "1ad7443c8b166b3ea7b98c38eb7a27ddd8871496e52f80a937c6211da2a01504"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxcursor"
+    },
+    "libxrandr": {
+      "version": "2:1.5.4-1",
+      "dsc": "libxrandr_1.5.4-1.dsc",
+      "files": [
+        {
+          "filename": "libxrandr_1.5.4-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr_1.5.4-1.dsc",
+          "size": 2322,
+          "sha256": "791dfa8b5864c6e67a2f2ed08690154aec38866702eafed4bd5470725bb0f545"
+        },
+        {
+          "filename": "libxrandr_1.5.4.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr_1.5.4.orig.tar.gz",
+          "size": 421566,
+          "sha256": "c72c94dc3373512ceb67f578952c5d10915b38cc9ebb0fd176a49857b8048e22"
+        },
+        {
+          "filename": "libxrandr_1.5.4.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr_1.5.4.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "2444694037ee4dc16f1886962a429516682011bbe12e3ca2c59342cbe91fa400"
+        },
+        {
+          "filename": "libxrandr_1.5.4-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxrandr/libxrandr_1.5.4-1.diff.gz",
+          "size": 21350,
+          "sha256": "7f784233b35ddcccd582a0d3eb2850fdd1a5d7e5ab5c21856ec1fb35f3734b6b"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxrandr"
+    },
+    "libxtst": {
+      "version": "2:1.2.5-1",
+      "dsc": "libxtst_1.2.5-1.dsc",
+      "files": [
+        {
+          "filename": "libxtst_1.2.5-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxtst/libxtst_1.2.5-1.dsc",
+          "size": 2333,
+          "sha256": "31d3770c5888a2dd22c48f1f110c5932d487466850b5edd38a8a6319ec357c8a"
+        },
+        {
+          "filename": "libxtst_1.2.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxtst/libxtst_1.2.5.orig.tar.gz",
+          "size": 441257,
+          "sha256": "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
+        },
+        {
+          "filename": "libxtst_1.2.5.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxtst/libxtst_1.2.5.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "d2d8a029e6fbe2c1ebacafd6ee78bc2f41ea04440327011891145a088e0bc64e"
+        },
+        {
+          "filename": "libxtst_1.2.5-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxtst/libxtst_1.2.5-1.diff.gz",
+          "size": 16695,
+          "sha256": "e184a1eaf71546957de912fa69f73e35c8524689d8a84e328fef72e9273aac19"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxtst"
+    },
+    "libxss": {
+      "version": "1:1.2.3-1",
+      "dsc": "libxss_1.2.3-1.dsc",
+      "files": [
+        {
+          "filename": "libxss_1.2.3-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxss/libxss_1.2.3-1.dsc",
+          "size": 2203,
+          "sha256": "783dbcd49a0934d994693af676ee98734dad070ab2434a6afe831c2de0ecca1d"
+        },
+        {
+          "filename": "libxss_1.2.3.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxss/libxss_1.2.3.orig.tar.gz",
+          "size": 385215,
+          "sha256": "4f74e7e412144591d8e0616db27f433cfc9f45aae6669c6c4bb03e6bf9be809a"
+        },
+        {
+          "filename": "libxss_1.2.3.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxss/libxss_1.2.3.orig.tar.gz.asc",
+          "size": 705,
+          "sha256": "4e900524d56c8e7263365267efa91bb3671110c9eb28ccab58f70e2188f0b91b"
+        },
+        {
+          "filename": "libxss_1.2.3-1.diff.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libx/libxss/libxss_1.2.3-1.diff.gz",
+          "size": 7145,
+          "sha256": "9d381b48f1377f27c506113e1f9b7d6ee286b856421f7f2b27017f01dccfef04"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libxss"
+    },
+    "xcb-util": {
+      "version": "0.4.1-1",
+      "dsc": "xcb-util_0.4.1-1.dsc",
+      "files": [
+        {
+          "filename": "xcb-util_0.4.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util/xcb-util_0.4.1-1.dsc",
+          "size": 2082,
+          "sha256": "fb2daff4f1f72efeef1a07ae34ecdec0d74aabc7039ee77afcbd5aa4ec31d7b8"
+        },
+        {
+          "filename": "xcb-util_0.4.1.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util/xcb-util_0.4.1.orig.tar.gz",
+          "size": 393791,
+          "sha256": "21c6e720162858f15fe686cef833cf96a3e2a79875f84007d76f6d00417f593a"
+        },
+        {
+          "filename": "xcb-util_0.4.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util/xcb-util_0.4.1-1.debian.tar.xz",
+          "size": 4412,
+          "sha256": "f919c696d7e5d1fcdea19cd1c2361e5255fd4f0219c046a5c6ad9deca0ec6cf7"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xcb-util"
+    },
+    "xcb-util-image": {
+      "version": "0.4.0-2",
+      "dsc": "xcb-util-image_0.4.0-2.dsc",
+      "files": [
+        {
+          "filename": "xcb-util-image_0.4.0-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-image/xcb-util-image_0.4.0-2.dsc",
+          "size": 2121,
+          "sha256": "6a01c919e437b18ecd00c02c7ed1a5b0ff85cd0e3f7effd89ac8226a3fa5e299"
+        },
+        {
+          "filename": "xcb-util-image_0.4.0.orig.tar.bz2",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-image/xcb-util-image_0.4.0.orig.tar.bz2",
+          "size": 327891,
+          "sha256": "2db96a37d78831d643538dd1b595d7d712e04bdccf8896a5e18ce0f398ea2ffc"
+        },
+        {
+          "filename": "xcb-util-image_0.4.0-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-image/xcb-util-image_0.4.0-2.debian.tar.xz",
+          "size": 4508,
+          "sha256": "cf7d3d2ee9b462c93ba51f95857e2044b5e1b5d91bb5b88be71b2d1aacc2f025"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xcb-util-image"
+    },
+    "xcb-util-keysyms": {
+      "version": "0.4.1-1",
+      "dsc": "xcb-util-keysyms_0.4.1-1.dsc",
+      "files": [
+        {
+          "filename": "xcb-util-keysyms_0.4.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/xcb-util-keysyms_0.4.1-1.dsc",
+          "size": 2122,
+          "sha256": "3b828ef483cd8dbfedd446d9b876be81f20d18ff468e906be3133506dd4a4eff"
+        },
+        {
+          "filename": "xcb-util-keysyms_0.4.1.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/xcb-util-keysyms_0.4.1.orig.tar.xz",
+          "size": 259860,
+          "sha256": "7c260a5294412aed429df1da2f8afd3bd07b7cba3fec772fba15a613a6d5c638"
+        },
+        {
+          "filename": "xcb-util-keysyms_0.4.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xcb-util-keysyms/xcb-util-keysyms_0.4.1-1.debian.tar.xz",
+          "size": 4372,
+          "sha256": "65ca9c26b6afc813e329b10a24a13a129fd6aafb18730b4c87ddc13a329bdd35"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xcb-util-keysyms"
+    }
+  }
+}

@@ -236,3 +236,14 @@ User requests Fire, Molten Steel, Frosty and Minty in the future E image.
 Recorded exact local theme/still-wallpaper reference hashes and target selector/
 rendering gates in profiles/images/a1222-theme-selection.json. No target install
 or asset publication yet; held-back Fire Strong Animated remains excluded.
+
+
+## 2026-10-31 — restart source-built X11 dependency jobs
+
+[Active workflow](x11-build-cycle.md): pinned 22 Debian source packages and
+launched detached, constrained offline R730 X11 client builds. Fresh iteration001
+built protocol/transport headers, then rejected an unexpected license filename.
+Corrected notice handling; fresh002 compiles against the accepted read-only SPE
+compiler/libc and source-built software prerequisites. Live receipts expose
+active component/status; desktop4 log view now follows the latest iteration
+with explicit state. No Xorg/E session or full ABI acceptance claimed.

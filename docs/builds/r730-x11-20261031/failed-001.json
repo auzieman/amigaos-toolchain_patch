@@ -1,0 +1,87 @@
+{
+  "status": "failed",
+  "started_unix": 1793465561.8493454,
+  "image_id": "sha256:eb877fcd41042f17c0a1f67aa6e679c8dc81c10a72bf3ad12287d864e5eacdf0",
+  "lock_sha256": "52f390626db3b70b7eb11abc6755c013b1583c7ed4cc0a7f7b3e28d10d92bf45",
+  "recipe_sha256": "bcd48c7b4fac1f66714842e34f49ba8bf143418a7131de2d9022075f208e9731",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "flags": "--sysroot=/sysroot -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 -g0",
+  "components": {
+    "xorgproto": {
+      "status": "built",
+      "version": "2024.1-1",
+      "copyright_sha256": "7b40446cf2035abc6836c7a7f411ec79153dbf4530bce209e26aa2fd7c4dd55a"
+    },
+    "xtrans": {
+      "status": "built",
+      "version": "1.4.0-1",
+      "copyright_sha256": "29e6f06b1dcd85f1bc4b3e9374b92967cb2a274abde00169784f1dd1c7c95431"
+    }
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xorgproto_2024.1-1.dsc",
+      "/work/x11-clients-001/xorgproto-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-001/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/xtrans_1.4.0-1.dsc",
+      "/work/x11-clients-001/xtrans-source"
+    ],
+    [
+      "./configure",
+      "--host=powerpc-linux-gnuspe",
+      "--build=x86_64-linux-gnu",
+      "--prefix=/usr",
+      "--libdir=/usr/lib",
+      "--disable-static",
+      "--disable-docs",
+      "--disable-specs"
+    ],
+    [
+      "make",
+      "-j4"
+    ],
+    [
+      "make",
+      "DESTDIR=/work/x11-clients-001/stage",
+      "install"
+    ],
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libpthread-stubs_0.5-1.dsc",
+      "/work/x11-clients-001/libpthread-stubs-source"
+    ]
+  ],
+  "physical_boot": false,
+  "X11_server_tested": false,
+  "active_component": "libpthread-stubs",
+  "error": "",
+  "finished_unix": 1793465572.7728617
+}
