@@ -2,10 +2,12 @@
 
 Start with [review status and prompts](docs/review-start.md).
 
-Latest software prerequisite slice: [source-built zlib/PNG/Pixman with QEMU runtime checks](docs/desktop-base.md).
+Current package/kernel increment: [package installation, 8GiB/SMP and GL readiness](docs/package-hardware-readiness.md).
+
+Earlier software prerequisite slice: [source-built zlib/PNG/Pixman with QEMU runtime checks](docs/desktop-base.md).
 
 Previous R730 increment: [tested shared SPE C++ runtime and pinned desktop sources](docs/desktop-foundation.md),
-preparing the VM132-style E desktop. E/Xorg/Mesa are not installed yet.
+preparing the VM132-style E desktop. E now boots under software Xvfb; physical Xorg/Mesa/Radeon remain unvalidated.
 
 Verified milestone (2026-10-30): the Debian 6.12.113-1 Tabor kernel completed
 vmlinux/modules/dtbs cross-compilation. A separate minimal profile of the same

@@ -71,3 +71,14 @@ client interiors are black (issue8). Locale/keyboard and optional service work
 is issue7; directed rounding remains issue3. See software-e-session.md and
 builds/r730-software-session-20261031 for exact receipts, screenshot and retained
 failures. Physical A1222/Radeon/OpenGL remain untested by this checkpoint.
+
+
+Package/hardware increment: package-hardware-readiness.md records private
+installed SPE deb bundles and native dpkg, corrected helper permissions/system
+bus, qemu-live007 with8GiB and two online CPUs, pinned-core arithmetic/page tests,
+and actual physical-kernel SMP/MMU/HIGHMEM/SPE/DMA configuration. These are
+emulator/configuration gates only; physical8GiB/CPU startup and GL/Radeon are
+still pending. Black client interiors persist with SysV shared-memory segments
+attached in software-e007; issue8 stays open. Exact board revision remains to
+verify despite the user-reported age/A1222 Plus reference. Evidence is under
+builds/r730-packaged-session-20261031. No USB writes occurred.

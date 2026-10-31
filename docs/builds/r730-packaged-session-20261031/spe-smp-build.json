@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/tools/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-O2",
+    "-pthread",
+    "/project/bench/spe-smp-check.c",
+    "-o",
+    "/work/spe-smp-001/spe-smp-check"
+  ],
+  "source_sha256": "d9fc78cff22ed2003fda778463dd85cb152e5f4cbd79ddc0ad0014c98d8c968f",
+  "binary_sha256": "45dec3edf3b0e6b444bae5be129f7471a6a5d057a3658421c4835136d3c5d073",
+  "efdadd_present": true,
+  "status": "compiled-not-run"
+}

@@ -1,0 +1,18 @@
+powerpcspe
+tabor-spe-bootstrap	0.3+20261031
+tabor-spe-software-session	0.3+20261031
+MemTotal:        8248388 kB
+MemFree:         7873612 kB
+MemAvailable:    7611024 kB
+0-1
+       key      shmid perms       size  cpid  lpid nattch   uid   gid  cuid  cgid      atime      dtime      ctime        rss       swap
+         0         15   600     271440   105    99      2  1000  1000  1000  1000        157          0        157     274432          0
+         0         16   600     271440   105    99      2  1000  1000  1000  1000        157          0        157     274432          0
+         0         17   600     292900   105    99      2  1000  1000  1000  1000        157          0        157     294912          0
+         0         18   600     269700   105    99      2  1000  1000  1000  1000        157          0        157     270336          0
+         0         51   600     559120   105    99      2  1000  1000  1000  1000        171          0        171     561152          0
+-rwsr-xr-x    1     67416 /usr/lib/enlightenment/utils/enlightenment_system
+   44 messageb  4548 S    /usr/bin/dbus-daemon --system --fork --nopidfile
+  103 tabor     4548 S    dbus-daemon --nofork --print-address 4 --session
+  105 tabor     140m S    /usr/bin/enlightenment -nopause
+  115 root     30856 SN   /usr/lib/enlightenment/utils/enlightenment_system

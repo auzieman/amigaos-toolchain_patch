@@ -1,0 +1,17 @@
+{
+  "component": "linux",
+  "version": "6.12.113-1",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "status": "failed",
+  "mode": "build",
+  "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "series_sha256": "1d231e0e0ae8cb5d8108344685962fbfe69fc66fb7e96321f3ef1e0fd0d3f7b6",
+  "patches": {
+    "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4"
+  },
+  "commands": [],
+  "kernel_profile": "qemu-live",
+  "boot_tested": false,
+  "spe_userspace_validated": false,
+  "error": "[Errno 2] No such file or directory: '/cache/linux_6.12.113-1.dsc'"
+}

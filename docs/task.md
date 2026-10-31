@@ -729,3 +729,17 @@ kernel inotify omission. Retain non-finite-number, Eo object and thread/font
 warnings without assuming their cause. No OOM/crash event found in sampled
 serial log. See builds/r730-software-session-20261031/log-review. Guest unchanged;
 issues7/8 remain open for integration and rendering.
+
+
+2026-10-31 package/hardware increment: actual private powerpcspe .deb bundles
+install into a fresh offline root with recorded ownership/modes. Native dpkg
+1.22.22 + libmd build and query/audit the installed guest. Fresh qemu-live007
+adds HIGHMEM/SYSVIPC/inotify; 8GiB guest reports8248388KiB and CPUs0–1 online.
+Both pinned-core SPE arithmetic/64MiB page-pattern checks pass. Physical kernel
+already has SMP/MMU/HIGHMEM/PHYS_64BIT/PTE_64BIT/SPE/SWIOTLB; firmware memory map
+and real-board execution remain unvalidated. Board age/link suggests Plus, not
+an exact revision measurement. Version0.3 root fixes service boot ordering:
+mount /dev before system D-Bus. Messagebus and E root helper run; black client
+interiors persist, so issue8 remains open. 6089 now points at software-e007.
+See package-hardware-readiness.md and builds/r730-packaged-session-20261031.
+Mesa/libdrm sources are pinned/audited; no GL/Radeon runtime pass claimed.

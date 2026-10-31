@@ -1,0 +1,467 @@
+ESTART: 0.00034 [0.00034] - Begin Startup
+ESTART: 0.02000 [0.01967] - Signal Trap
+ESTART: 0.02174 [0.00174] - Signal Trap Done
+ESTART: 0.02209 [0.00035] - Eina Init
+ESTART: 0.09230 [0.07021] - Eina Init Done
+ESTART: 0.09253 [0.00023] - Determine Prefix
+ESTART: 0.10238 [0.00985] - Determine Prefix Done
+ESTART: 0.10497 [0.00259] - Environment Variables
+ESTART: 0.10682 [0.00185] - Environment Variables Done
+ESTART: 0.10699 [0.00017] - Parse Arguments
+ESTART: 0.11187 [0.00487] - Parse Arguments Done
+ESTART: 0.11206 [0.00019] - Eet Init
+ESTART: 0.12799 [0.01593] - Eet Init Done
+ESTART: 0.12819 [0.00019] - Ecore Init
+ESTART: 0.78662 [0.65843] - Ecore Init Done
+ESTART: 0.78951 [0.00289] - E Comp Canvas Intercept Init
+ESTART: 0.79264 [0.00313] - E Comp Canvas Intercept Init Done
+ESTART: 0.79284 [0.00020] - EFX Init
+ESTART: 0.79591 [0.00307] - EFX Init Done
+ESTART: 0.79606 [0.00015] - EIO Init
+ERR<106>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(23, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+ESTART: 1.74943 [0.95337] - EIO Init Done
+ESTART: 1.77986 [0.03042] - Ecore Event Handlers
+ESTART: 1.78012 [0.00026] - Ecore Event Handlers Done
+ESTART: 1.78025 [0.00013] - Ecore_File Init
+ESTART: 1.79583 [0.01559] - Ecore_File Init Done
+ESTART: 1.79599 [0.00015] - Ecore_Con Init
+ESTART: 1.79615 [0.00017] - Ecore_Con Init Done
+ESTART: 1.79628 [0.00013] - Ecore_Ipc Init
+ESTART: 1.79645 [0.00017] - Ecore_Ipc Init Done
+ESTART: 1.80782 [0.01137] - Ecore_Evas Init
+ESTART: 2.04394 [0.23612] - Ecore_Evas Init Done
+ESTART: 2.05208 [0.00814] - Elementary Init
+ESTART: 3.27300 [1.22092] - Elementary Init Done
+ESTART: 3.27339 [0.00039] - Emotion Init
+ESTART: 3.31611 [0.04271] - Emotion Init Done
+ESTART: 3.34797 [0.03186] - Ecore_Evas Engine Check
+ESTART: 3.34846 [0.00049] - Ecore_Evas Engine Check Done
+ESTART: 3.34880 [0.00034] - E Intl Init
+ESTART: 3.35027 [0.00147] - E Intl Init Done
+ESTART: 3.35044 [0.00017] - E_Alert Init
+ESTART: 3.35059 [0.00015] - E_Alert Init Done
+ESTART: 3.35073 [0.00014] - E Directories Init
+ESTART: 3.36598 [0.01525] - E Directories Init Done
+ESTART: 3.36616 [0.00018] - E_Filereg Init
+ESTART: 3.36649 [0.00033] - E_Filereg Init Done
+ESTART: 3.36662 [0.00013] - E_Config Init
+ESTART: 3.41500 [0.04838] - E_Config Init Done
+ESTART: 3.41547 [0.00047] - E_Env Init
+ESTART: 3.42023 [0.00476] - E_Env Init Done
+ESTART: 3.42100 [0.00076] - E Paths Init
+ESTART: 3.42233 [0.00133] - E Paths Init Done
+ESTART: 3.42248 [0.00015] - E_Precache
+PRECACHE: SPAWN
+ESTART: 3.43738 [0.01490] - E_Precache Done
+ESTART: 3.43767 [0.00028] - E_Ipc Init
+PRECACHE: BEGIN
+ERR<105>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(38, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+ESTART: 3.47003 [0.03236] - E_Ipc Init Done
+ESTART: 3.47021 [0.00018] - E_State Init
+ESTART: 3.47041 [0.00020] - E_State Init Done
+ESTART: 3.47053 [0.00012] - E_Font Init
+ESTART: 3.47084 [0.00031] - E_Font Init Done
+ESTART: 3.47098 [0.00013] - E_Font Apply
+ESTART: 3.47605 [0.00508] - E_Font Apply Done
+ESTART: 3.47620 [0.00014] - E_Theme Init
+ESTART: 3.47664 [0.00045] - E_Theme Init Done
+ESTART: 3.47678 [0.00014] - E_Moveresize Init
+ESTART: 3.47721 [0.00042] - E_Moveresize Init Done
+ESTART: 3.47735 [0.00014] - E_Msgbus Init
+ESTART: 3.56919 [0.09185] - E_Msgbus Init Done
+ESTART: 3.56951 [0.00032] - Efreet Init
+ESTART: 3.56974 [0.00023] - Efreet Init Done
+ESTART: 3.56989 [0.00015] - E_Intl Post Init
+ESTART: 3.57639 [0.00650] - E_Intl Post Init Done
+ESTART: 3.57656 [0.00017] - E_Configure Init
+ESTART: 3.57854 [0.00198] - E_Configure Init Done
+ESTART: 3.57894 [0.00040] - E_Actions Init
+PRECACHE: [0.19263] [/usr/share/elementary/themes/default.edj] DONE
+PRECACHE: TOTAL [0.19348]
+PRECACHE: SUM=aa954f1a, READS=4763
+ESTART: 3.65754 [0.07860] - E_Actions Init Done
+ESTART: 3.67242 [0.01488] - E_System Init
+ESTART: 3.89580 [0.22338] - E_System Init Done
+ESTART: 3.91593 [0.02013] - E_Powersave Init
+ESTART: 3.93190 [0.01598] - E_Powersave Init Done
+ESTART: 3.93223 [0.00033] - E_Sound Init
+ESTART: 4.00416 [0.07193] - Screens Init
+ESTART: 4.00441 [0.00026] -   screens: client
+ESTART: 4.03288 [0.02846] - E_Screensaver Init
+ESTART: 4.03326 [0.00038] -   screens: client volume
+ESTART: 4.03365 [0.00039] -   screens: win
+ESTART: 4.04779 [0.01414] - Compositor Init
+Xlib:  extension "DPMS" missing on display ":0.0".
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x10731640
+RRR: 'screen' 0 0 1280x720
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1280x720
+RRR: result max: 1280x720
+RRR: loaded existing config
+RRR: check lid for screen...
+RRR: re-get info before applying..
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x1072e970
+RRR: 'screen' 0 0 1280x720
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1280x720
+RRR: result max: 1280x720
+RRR: apply config...
+RRR: apply 'screen'...
+RRR: check lid for screen...
+RRR: connected =  1
+RRR: ... enabled
+RRR: ... priority = 0
+RRR: really apply rotation=0
+RRR: really apply 'screen' ignore discon 0
+RRR: takeover config...
+RRR: eval config...
+RRR:--------------------------------1
+RRR: screen config eval this...
+RRR: screen do 'screen'
+RRR: 'screen' cloneset 0x106fde08 1
+RRR: find base/root for list=0x106fde08 count=1
+RRR: clone=0x1072f490 mode=1
+RRR: _screen_config_do 2
+RRR: _screen_config_do 3
+RRR: screen config do 1280x720 rotation=0
+RRR: _screen_config_do 4
+RRR: _screen_config_do 6
+RRR:--------------------------------2
+RRR: s: 'screen' @ 0 0 - 1280x720
+RRR:--- 0 0 -> 1280 720
+RRR: really apply config...
+RRR: cur size: 1280x720
+RRR: size range: 1x1 -> 1280x720
+RRR: cur size: 1280x720
+RRR: set vsize: 1280x720
+RRR: crtcs=0x1072fd30 outputs=0x1072fdf0
+RRR: find output for 'screen'
+RRR:   enabled: 1
+RRR:     crtc slot empty: 0
+RRR:       assign slot out: 3c
+RRR: modes for 'screen' are 0x1072ec70 [1]
+RRR: crtc on: 0 = 'screen'     @ 0 0    - 1280x720 orient 1 mode 3a out 3c
+RRR: set vsize2: 1280x720
+RRR: cur size: 1280x720
+RRR: done config...
+xinerama screen 0 0 1280x720
+xinerama setup............... 1 (nil)
+DEV: CHANGES ... have 6 devices, changed=1
+XKB: e_xkb_init
+XKB: _e_xkb_type_reconfig
+XKB: _e_x_xkb_reconfig
+/bin/sh: setxkbmap: not found
+ESTART: 8.45994 [4.41215] - Compositor Init Done
+ESTART: 8.46847 [0.00853] - Desk Restore
+ESTART: 8.49654 [0.02807] - Desk Restore Done
+ESTART: 8.49678 [0.00024] - E_Dnd Init
+ESTART: 8.53309 [0.03631] - E_Dnd Init Done
+ESTART: 8.53327 [0.00018] - Screens Init Done
+ESTART: 8.53340 [0.00013] - E_Pointer Init
+ESTART: 8.53371 [0.00031] - E_Pointer Init Done
+ESTART: 8.53411 [0.00040] - E_Scale Init
+ESTART: 8.90230 [0.36819] - E_Scale Init Done
+ESTART: 8.90258 [0.00028] - E_Splash Init
+ESTART: 8.90284 [0.00026] - E_Splash Init Done
+ESTART: 8.90300 [0.00016] - E_Splash Show
+ESTART: 13.15203 [4.24903] - E_Splash Show Done
+ESTART: 13.15279 [0.00076] - Add Icon Extensions
+ESTART: 13.16490 [0.01211] - Add Icon Extensions Done
+ESTART: 13.16511 [0.00021] - E_Acpi Init
+ESTART: 13.16549 [0.00038] - E_Acpi Init Done
+ESTART: 13.16566 [0.00018] - E_Auth Init
+ESTART: 13.17179 [0.00613] - E_Auth Init Done
+ESTART: 13.17196 [0.00017] - E_Backlight Init
+ESTART: 13.18455 [0.01259] - E_Backlight Init Done
+ESTART: 13.18472 [0.00017] - E_Dpms Init
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+ESTART: 13.18945 [0.00473] - E_Dpms Init Done
+ESTART: 13.18960 [0.00015] - E_Desklock Init
+ESTART: 13.18986 [0.00026] - E_Desklock Init Done
+ESTART: 13.19002 [0.00016] - Efreet Paths
+ESTART: 13.19057 [0.00055] - Efreet Paths Done
+ESTART: 13.19075 [0.00018] - E_Sys Init
+ESTART: 13.21984 [0.02909] - E_Sys Init Done
+ESTART: 13.22010 [0.00027] - E_Exec Init
+ESTART: 13.22040 [0.00030] - E_Exec Init Done
+ESTART: 13.22054 [0.00014] - E_Comp Freeze
+ESTART: 13.22085 [0.00031] - E_Comp Freeze Done
+ESTART: 13.22100 [0.00015] - E_Fm2 Init
+ESTART: 13.23225 [0.01125] - E_Fm2 Init Done
+ESTART: 13.23247 [0.00022] - E_Msg Init
+ESTART: 13.23268 [0.00021] - E_Msg Init Done
+ESTART: 13.23281 [0.00013] - E_Grabinput Init
+ESTART: 13.23294 [0.00013] - E_Grabinput Init Done
+ESTART: 13.23306 [0.00012] - E_Module Init
+ESTART: 13.23329 [0.00023] - E_Module Init Done
+ESTART: 13.23342 [0.00013] - E_Remember Init
+CF: fallback to system config config file for [e_remember_restart]
+CF: system config load for /usr/share/enlightenment/data/config/standard/e_remember_restart.cfg failed
+ESTART: 13.23560 [0.00218] - E_Remember Init Done
+ESTART: 13.23986 [0.00426] - E_Gadcon Init
+ESTART: 13.24014 [0.00028] - E_Gadcon Init Done
+ESTART: 13.24029 [0.00014] - E_Toolbar Init
+ESTART: 13.29984 [0.05955] - E_Toolbar Init Done
+ESTART: 13.30002 [0.00019] - E_Bg Init
+ESTART: 13.31212 [0.01210] - E_Bg Init Done
+ESTART: 13.31232 [0.00020] - E_Mouse Init
+DEV: CHANGES ... have 6 devices, changed=1
+ESTART: 13.32225 [0.00993] - E_Mouse Init Done
+ESTART: 13.32242 [0.00017] - E_Bindings Init
+ESTART: 13.32586 [0.00344] - E_Bindings Init Done
+ESTART: 13.32602 [0.00017] - E_Thumb Init
+ESTART: 13.32624 [0.00022] - E_Thumb Init Done
+ESTART: 13.32638 [0.00014] - E_Icon Init
+ESTART: 13.32652 [0.00015] - E_Icon Init Done
+ESTART: 13.32665 [0.00012] - E_Update Init
+ESTART: 13.32961 [0.00297] - E_Update Init Done
+ESTART: 13.32979 [0.00018] - E_Deskenv Init
+ESTART: 13.33022 [0.00043] - E_Deskenv Init Done
+ESTART: 13.33037 [0.00015] - E_Order Init
+ESTART: 13.33099 [0.00062] - E_Order Init Done
+ESTART: 13.33116 [0.00017] - E_Comp_Canvas Keys Grab
+ESTART: 13.34026 [0.00910] - E_Comp_Canvas Keys Grab Done
+ESTART: 13.34042 [0.00016] - Run Startup Apps
+ESTART: 13.34082 [0.00039] - Run Startup Apps Done
+ESTART: 13.34096 [0.00015] - E_Comp Thaw
+ESTART: 13.34155 [0.00059] - E_Comp Thaw Done
+ESTART: 13.34170 [0.00015] - E_Test Init
+ESTART: 13.34183 [0.00013] - E_Test Done
+ESTART: 13.34194 [0.00011] - Load Modules
+CF: fallback to system config config file for [module.clock]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.clock.cfg failed
+CF: fallback to system config config file for [module.conf]
+CF: fallback to system config config file for [module.everything]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.everything.cfg failed
+CF: fallback to system config config file for [module.everything-apps]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.everything-apps.cfg failed
+CF: fallback to system config config file for [module.everything-files]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.everything-files.cfg failed
+CF: fallback to system config config file for [module.fileman]
+CF: fallback to system config config file for [module.gadman]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.gadman.cfg failed
+CF: fallback to system config config file for [module.ibar]
+MODULE ERR: [Error loading Module]
+There was an error loading the module named: lokker<ps/>No module named lokker/linux-gnu-ppc-0.27.1/module.so could be found in the<ps/>module search directories.<ps/>
+MODULE ERR: [Error loading Module]
+There was an error loading the module named: mixer<ps/>No module named mixer/linux-gnu-ppc-0.27.1/module.so could be found in the<ps/>module search directories.<ps/>
+MODULE ERR: [Error loading Module]
+There was an error loading the module named: music-control<ps/>No module named music-control/linux-gnu-ppc-0.27.1/module.so could be found in the<ps/>module search directories.<ps/>
+CF: fallback to system config config file for [module.notification]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.notification.cfg failed
+CF: fallback to system config config file for [module.pager]
+MODULE ERR: [Error loading Module]
+There was an error loading the module named: polkit<ps/>No module named polkit/linux-gnu-ppc-0.27.1/module.so could be found in the<ps/>module search directories.<ps/>
+CF: fallback to system config config file for [module.syscon]
+CF: system config load for /usr/share/enlightenment/data/config/standard/module.syscon.cfg failed
+CF: fallback to system config config file for [systray]
+CF: system config load for /usr/share/enlightenment/data/config/standard/systray.cfg failed
+ESTART: 16.04789 [2.70596] - Load Modules Done
+ESTART: 16.05265 [0.00476] - E_Shelf Init
+ESTART: 16.29444 [0.24178] - start
+ESTART: 16.51765 [0.22322] - start Done
+ESTART: 16.51790 [0.00024] - pager
+ESTART: 18.27605 [1.75816] - pager Done
+ESTART: 18.27633 [0.00027] - ibar
+ESTART: 18.58717 [0.31085] - ibar Done
+ESTART: 18.58743 [0.00026] - systray
+ESTART: 18.71999 [0.13256] - systray Done
+ESTART: 18.72024 [0.00025] - clock
+ESTART: 19.63394 [0.91370] - clock Done
+ESTART: 19.63417 [0.00023] - xkbswitch
+XKB: e_xkb_layout_get
+ESTART: 19.71669 [0.08252] - xkbswitch Done
+ESTART: 19.71692 [0.00024] - syscon
+ESTART: 19.76044 [0.04351] - syscon Done
+ESTART: 19.91410 [0.15366] - E_Shelf Init Done
+ESTART: 19.95687 [0.04277] - MAIN LOOP AT LAST
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 147.05223 should have slept ~ 0.01667s but took 0.04004s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 147.15230 should have slept ~ 0.01667s but took 0.06060s!
+ESTART: 20.54796 [0.59110] - SLEEP
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+RRR: CB screen change...
+RRR: CB output change...
+COMPX: _e_comp_x_mapping_change
+COMPX: _e_comp_x_mapping_change
+XKB: _e_x_xkb_update
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 150.33628 should have slept ~ 0.01667s but took 0.07825s!
+RRR: ... 1 0
+RRR: reconfigure screens due to event...
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x109ae950
+RRR: 'screen' 0 0 1280x720
+RRR: check fingerprint...
+RRR: ... fingerprint says 0
+RRR: screens lists 1 -> 1
+RRR: --------
+RRR: --------
+RRR: --------
+RRR: screens 1 -> 1
+RRR: --------
+RRR: look at r2 screen ID screen/
+RRR: look at r1 screen ID screen/
+RRR: skip change because of single laptop lid
+RRR: --------
+RRR: changed = 0
+--------------------------------------------------
+RRR: out id=screen/:  connected=1 enabled=1 configured=0
+RRR: check lid for screen...
+--------------------------------------------------
+RRR: scr: screen/ lid=0 conn=1
+RRR: is not lid, is connected, ext++
+RRR: prev_scr: screen/ lid=0 conn=1
+RRR: lids=0 closed=0 ext=1 prev_ext=1
+RRR: change = 0
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x109ae950
+RRR: 'screen' 0 0 1280x720
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1280x720
+RRR: result max: 1280x720
+xinerama screen 0 0 1280x720
+xinerama setup............... 1 0x106fde28
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ match screens 0x10bf1150[0] = 0 0 1280x720 -- 0
+@ matches existing zone 0x10742d60
+   move resize 0 0 1280x720 -> 0 0 1280x720
+RRR: New unconfigured screen on screen
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 172.10047 should have slept ~ 0.01667s but took 0.03979s!
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms!
+Xlib:  extension "DPMS" missing on display ":0.0".
+Xlib:  extension "DPMS" missing on display ":0.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":0.0".
+ERR<146>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(23, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+Xlib:  extension "DPMS" missing on display ":0".

@@ -1,0 +1,58 @@
+{
+  "status": "debs-built-installed-permissions-verified-not-booted",
+  "version": "0.3+20261031",
+  "recipe_sha256": "9b15d138fcdb06336f1c9169c5c28ddd58bd701a44fa91b49efed75080fb0206",
+  "base_sha256": "894977737129ffa7124408b5fb6d1ab1fb2242eb22beaef5f1349c0c61fbd581",
+  "policy_sha256": "0e7c145662ba5478646157bec341ed1cfe5a05551081e57605471929de05eeb8",
+  "commands": [
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-005/bootstrap",
+      "/work/deb-root-005/tabor-spe-bootstrap_0.3+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-005/session",
+      "/work/deb-root-005/tabor-spe-software-session_0.3+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg",
+      "--root=/work/deb-root-005/root",
+      "--force-architecture",
+      "--install",
+      "/work/deb-root-005/tabor-spe-bootstrap_0.3+20261031_powerpcspe.deb",
+      "/work/deb-root-005/tabor-spe-software-session_0.3+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg-query",
+      "--admindir=/work/deb-root-005/root/var/lib/dpkg",
+      "-W",
+      "-f=${Package} ${Architecture} ${Status}\n"
+    ]
+  ],
+  "packages": {
+    "tabor-spe-bootstrap": {
+      "sha256": "386b8bb22e9cc0d655c971abf77ecdf885521626f7c522e19cad23405b98a340",
+      "bytes": 10406600
+    },
+    "tabor-spe-software-session": {
+      "sha256": "7e0a9bbc2b1a5680e1da6a3c250b8f1003fe7e31a0e526672621b4f14dbd01c5",
+      "bytes": 177651908
+    }
+  },
+  "physical_boot": false,
+  "full_distribution_bootstrap": false,
+  "manifest_sha256": "6cb4a1be0aaa0b900d818ec9807a85940f1845ad858fc36a4c69f82705881d1a",
+  "setuid_root_executables": [
+    "usr/lib/enlightenment/utils/enlightenment_ckpasswd",
+    "usr/lib/enlightenment/utils/enlightenment_sys",
+    "usr/lib/enlightenment/utils/enlightenment_system"
+  ],
+  "installed_status_sha256": "5b176cc43f07cb55e887898a3e9e02e847bab951abf447e4ca9e9d32feda1786"
+}

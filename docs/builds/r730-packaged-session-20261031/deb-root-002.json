@@ -1,0 +1,56 @@
+{
+  "status": "debs-built-installed-permissions-verified-not-booted",
+  "base_sha256": "894977737129ffa7124408b5fb6d1ab1fb2242eb22beaef5f1349c0c61fbd581",
+  "policy_sha256": "57248df9dd10e400faf9d3c07221f2ced15bc7a5a1ee4622ef3e2124988117ac",
+  "commands": [
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-002/bootstrap",
+      "/work/deb-root-002/tabor-spe-bootstrap_0.1+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-002/session",
+      "/work/deb-root-002/tabor-spe-software-session_0.1+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg",
+      "--root=/work/deb-root-002/root",
+      "--force-architecture",
+      "--install",
+      "/work/deb-root-002/tabor-spe-bootstrap_0.1+20261031_powerpcspe.deb",
+      "/work/deb-root-002/tabor-spe-software-session_0.1+20261031_powerpcspe.deb"
+    ],
+    [
+      "dpkg-query",
+      "--admindir=/work/deb-root-002/root/var/lib/dpkg",
+      "-W",
+      "-f=${Package} ${Architecture} ${Status}\n"
+    ]
+  ],
+  "packages": {
+    "tabor-spe-bootstrap": {
+      "sha256": "1fad9717ceee786bed35c798e19df7429f48842a9ab36c6e50bc330a1d5061c6",
+      "bytes": 10406520
+    },
+    "tabor-spe-software-session": {
+      "sha256": "50b7d97826727a5899fb2d8bdd9d5ba3cce5cea851a28dfb16b46d4154e7386d",
+      "bytes": 176891176
+    }
+  },
+  "physical_boot": false,
+  "full_distribution_bootstrap": false,
+  "manifest_sha256": "3e3eea50f5c14235ef333278be0c087bc968cbf3ee391dfc1cf2f1dd8223b7d7",
+  "setuid_root_executables": [
+    "usr/lib/enlightenment/utils/enlightenment_ckpasswd",
+    "usr/lib/enlightenment/utils/enlightenment_sys",
+    "usr/lib/enlightenment/utils/enlightenment_system"
+  ],
+  "installed_status_sha256": "404ae93348bf6bd859f03adf11467bb1eba32fc56b97c42009a26987f6430453"
+}
