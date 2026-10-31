@@ -1,0 +1,87 @@
+{
+  "status": "requested-for-desktop-stage-not-installed-in-target",
+  "scope": "Private A1222 E image; preserve default E first-boot choice",
+  "exclude": [
+    "Fire Strong Animated wallpaper",
+    "Locutus theme and portrait"
+  ],
+  "themes": [
+    {
+      "name": "Fire",
+      "source_project": "E-projects/Fire-E-Theme",
+      "reference_files": [
+        {
+          "role": "theme",
+          "reference_file": "/home/auzieman/.elementary/themes/Fire-Theme-Menu-20261026.edj",
+          "sha256": "b55b37ec76454ee61ce94b1b863d6f8620c5053164184ed8a89ecf2b1ac7d86f",
+          "size": 23075219,
+          "target_installed": false
+        },
+        {
+          "role": "wallpaper",
+          "reference_file": "/home/auzieman/.e/e/backgrounds/Fire-Wallpaper-Still-20261026.edj",
+          "sha256": "c4876a0a07660fe0eba1d90d53b8d0ba2361b2c8f92284d7b32cc7868cc3d8c8",
+          "size": 422271,
+          "target_installed": false
+        }
+      ],
+      "wallpaper_policy": "Still initial candidate; animated variants require separate target review"
+    },
+    {
+      "name": "Molten Steel",
+      "source_project": "E-projects/Molten-Steel-E-Theme",
+      "reference_files": [
+        {
+          "role": "theme",
+          "reference_file": "/home/auzieman/.elementary/themes/Molten-Steel-Theme-Liquid-Menu-20261026.edj",
+          "sha256": "2e011072475087e3311563427375e8e2601b5151d727806ee0cba005fe75ec4a",
+          "size": 25765403,
+          "target_installed": false
+        },
+        {
+          "role": "wallpaper",
+          "reference_file": "/home/auzieman/.e/e/backgrounds/Molten-Steel-Wallpaper-Still-20261026.edj",
+          "sha256": "4048eccbc175403ead7e9e45c33a0037a68d4f02f2a88d33daabb53705cd8095",
+          "size": 351359,
+          "target_installed": false
+        }
+      ],
+      "wallpaper_policy": "Still initial candidate; animated variants require separate target review"
+    },
+    {
+      "name": "Frosty",
+      "source_project": "E-projects/theme-kit",
+      "reference_files": [
+        {
+          "role": "theme",
+          "reference_file": "/home/auzieman/.elementary/themes/Frosty-20261023-corners.edj",
+          "sha256": "ff20c1d7d0c3d5893bbb093fa50fa975c6d557c46a76f8ea20a4308f5ed9031d",
+          "size": 23021907,
+          "target_installed": false
+        }
+      ],
+      "wallpaper_policy": "No separate wallpaper selected yet"
+    },
+    {
+      "name": "Minty",
+      "source_project": "E-projects/theme-kit",
+      "reference_files": [
+        {
+          "role": "theme",
+          "reference_file": "/home/auzieman/.elementary/themes/Minty-20261023-corners.edj",
+          "sha256": "6b82fb19e6ae63deee640a9c56247f716566a8c6ee53083e830c6ac34acb2767",
+          "size": 23021979,
+          "target_installed": false
+        }
+      ],
+      "wallpaper_policy": "No separate wallpaper selected yet"
+    }
+  ],
+  "acceptance": [
+    "Resolve source and inherited-asset notices before distributing full desktop binaries",
+    "Build or qualify EDJ archives with selected target EFL; do not assume native bytecode compatibility",
+    "Install in target E/Elementary theme and wallpaper search paths and verify selector discovery",
+    "Preview window borders, menu tree, shelves, text and wallpaper on target",
+    "Check idle animation CPU use on A1222 before enabling animated wallpaper by default"
+  ]
+}

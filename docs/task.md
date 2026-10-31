@@ -636,3 +636,18 @@ native image/package identity, recipes and runtime receipts are captured.
 This completes only the first software prerequisites. X11/font dependencies,
 native EFL generators, cross EFL/E/Terminology/Xorg remain. The known fenv
 failure, Mesa/GPU gate and physical/U-Boot/HDMI validation remain unchanged.
+
+
+## 2026-10-31 — requested A1222 desktop theme selection
+
+Include Fire, Molten Steel, Frosty and Minty when E reaches the image. Exact
+existing local preview archive hashes are in profiles/images/a1222-theme-selection.json;
+these are references, not installed target binaries or a runtime compatibility
+claim. Fire Strong Animated remains excluded per the earlier rejected flame
+review. Start Fire/Molten wallpaper selection with still candidates; animated
+Molten variants remain available for later target performance review. Frosty
+and Minty use their recent corner candidates; no additional wallpaper has been
+selected for them. Verify E/Elementary selector discovery and actual target
+rendering before declaring integration. Preserve default E first boot. Full
+inherited desktop assets retain their existing notice/distribution boundaries;
+no third-party asset import or public release occurs in this selection change.

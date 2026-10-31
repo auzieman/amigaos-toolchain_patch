@@ -228,3 +228,11 @@ native image/package identity, recipes and runtime receipts are captured.
 This completes only the first software prerequisites. X11/font dependencies,
 native EFL generators, cross EFL/E/Terminology/Xorg remain. The known fenv
 failure, Mesa/GPU gate and physical/U-Boot/HDMI validation remain unchanged.
+
+
+## 2026-10-31 — four-theme A1222 desktop selection
+
+User requests Fire, Molten Steel, Frosty and Minty in the future E image.
+Recorded exact local theme/still-wallpaper reference hashes and target selector/
+rendering gates in profiles/images/a1222-theme-selection.json. No target install
+or asset publication yet; held-back Fire Strong Animated remains excluded.
