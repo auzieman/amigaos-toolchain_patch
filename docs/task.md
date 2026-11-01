@@ -807,3 +807,11 @@ resolve full target dependency closure and restore normal Debian session setup
 before E acceptance. Retain lean profiles as diagnostics. See
 builds/vm132-comparison-20261101/README.md. USB unchanged; causal rendering
 fix and target package builds remain pending.
+
+
+2026-11-01 browser/archive scope: user requests compact browser and considers
+Gitea/simple HTTP package hosting for our custom compile. Added NetSurf GTK as
+an unvalidated candidate (limited modern JS), plus signed lab HTTP APT archive
+plan with normal package metadata/source provenance and one common SPE archive
+for QEMU/A1222. Added apt bootstrap to baseline. No browser build, server
+deployment or signing key creation claimed. See package-repository-plan.md.

@@ -70,6 +70,11 @@
     "optional_login_manager": [
       "lightdm",
       "lightdm-gtk-greeter"
+    ],
+    "package_management": [
+      "apt",
+      "ca-certificates",
+      "debian-archive-keyring"
     ]
   },
   "boot_policy": "Shell-first is allowed. Start the desktop through the packaged PAM/login and Xsession path; LightDM can follow. A single human account does not remove service users or session dependencies.",
@@ -94,5 +99,25 @@
     "X11/E/Terminology actual client contents render",
     "QEMU software GL and SPE demos pass",
     "Physical A1222 memory, SMP, input, SSH and Radeon separately verified"
-  ]
+  ],
+  "browser": {
+    "candidate": "netsurf-gtk",
+    "status": "candidate-source-intake-and-SPE-build-pending",
+    "purpose": "Compact graphical browser for local documentation and basic web pages",
+    "limitation": "Modern web application/JavaScript compatibility is limited; not a Firefox replacement",
+    "acceptance": [
+      "Pinned Debian source and complete target dependency closure",
+      "SPE-target build and installed-package configuration",
+      "X11 text, images, scrolling, HTTPS and certificate validation on the target"
+    ],
+    "fallback": "Choose a fuller engine separately if modern web applications are required"
+  },
+  "package_repository": {
+    "format": "Signed Debian APT repository served over lab HTTP",
+    "architecture": "powerpcspe",
+    "suite": "tabor-trixie",
+    "component": "main",
+    "status": "planned-not-deployed",
+    "source": "docs/package-repository-plan.md"
+  }
 }
