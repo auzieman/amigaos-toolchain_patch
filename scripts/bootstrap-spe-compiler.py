@@ -18,6 +18,7 @@ p.add_argument('--image-id',required=True)
 p.add_argument('--runtime-sysroot',type=Path)
 p.add_argument('--languages',choices=['c','c,c++'],default='c')
 p.add_argument('--jobs',type=int,default=2)
+p.add_argument('--patch-series',type=Path,help='Reviewed project-relative JSON patch series')
 a=p.parse_args()
 if not 1<=a.jobs<=8:p.error('jobs must be 1..8')
 if a.languages!='c' and not a.runtime_sysroot:p.error('C++ requires a reviewed runtime sysroot')
@@ -67,6 +68,19 @@ with (work/'build.log').open('w') as log:
  try:
   run(['tar','-xJf',str(archive),'-C',str(work)])
   source=work/('gcc-'+spec['gcc']['version']);obj=work/'obj';obj.mkdir()
+  if a.patch_series:
+   series_path=(project/a.patch_series).resolve()
+   if not series_path.is_relative_to(project):raise RuntimeError('Patch series outside project')
+   series=json.loads(series_path.read_text())
+   if series['gcc_version']!=spec['gcc']['version']:raise RuntimeError('Patch source version mismatch')
+   receipt['patch_series_sha256']=hashlib.sha256(series_path.read_bytes()).hexdigest()
+   receipt['patches']=[]
+   for item in series['patches']:
+    patch=(project/item['path']).resolve()
+    if not patch.is_relative_to(project):raise RuntimeError('Patch outside project')
+    if hashlib.sha256(patch.read_bytes()).hexdigest()!=item['sha256']:raise RuntimeError('Patch hash mismatch')
+    run(['patch','--batch','--fuzz=0','-p1','-i',str(patch)],source)
+    receipt['patches'].append(item)
   flags=['--target='+spec['target'],'--prefix='+str(prefix),'--enable-obsolete','--enable-languages=c','--disable-bootstrap','--disable-multilib','--disable-nls','--disable-shared','--disable-threads','--without-headers','--with-newlib','--disable-libsanitizer','--disable-libssp','--disable-libquadmath','--disable-libgomp','--disable-libatomic','--disable-libvtv','--disable-werror','--with-system-zlib','--with-cpu=8548','--with-float=hard','--enable-e500_double','--with-as=/usr/bin/powerpc-linux-gnu-as','--with-ld=/usr/bin/powerpc-linux-gnu-ld']
   flags=[f for f in flags if f!='--enable-languages=c']+['--enable-languages='+a.languages]
   if a.runtime_sysroot:

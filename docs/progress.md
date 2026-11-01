@@ -431,3 +431,13 @@ stack slot. Compiler/SPE frame handling is a hypothesis requiring a reduced
 reproducer, not yet an established fix. Initial static-C loader attempts are
 explicitly excluded from shared-libc acceptance. No target installation or USB
 write. Next: isolate the return-address regression before iteration004.
+
+2026-11-01 Hyperion handoff and compiler isolation: opened unwind issue #9 and
+roadmap #10; updated fenv #3 with actual dynamic probe evidence. Added
+docs/hyperion-roadmap.md separating Linux reference, portable probes and
+OS4 SDK/runtime/kernel obligations. Reduced GCC8.5 probe reproduces SIGSEGV
+with -fpic plus strong stack protection under both libc runtimes; ordinary
+PIC without protection and non-PIC variants pass. Retaining frame pointers
+does not fix it. Experimental SPE/ABI_V4 return-address patch keeps hardening;
+fresh gcc-unwind-002 compilation running remotely, 4CPUs/6GiB. Candidate
+runtime acceptance pending. No accepted artifacts, target root or USB changed.

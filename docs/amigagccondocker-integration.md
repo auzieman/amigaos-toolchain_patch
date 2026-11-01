@@ -64,3 +64,12 @@ layout independently, not a reason to force its compiler to our Linux flags.
 
 This review establishes an integration route, not a completed AmigaOS fix or a
 claim that a Linux QEMU result validates the AmigaOS SDK.
+
+## 2026-11-01 status update
+
+See [Hyperion roadmap](hyperion-roadmap.md) for current gates. The earlier
+untested C++/thread note above is historical: the reference shared Linux C++
+runtime now passes its four checks, but the new Debian libc stage2 combination
+segfaults during exception unwinding (#9). A reduced GCC8.5 probe reproduces
+with PIC plus strong stack protection under both libc runtimes. This is a
+compiler-fix candidate, not yet a validated OS4 patch or modern GCC restoration.

@@ -1,0 +1,28 @@
+From: Tabor SPE toolchain project
+Subject: [EXPERIMENTAL] rs6000: address SPE PIC caller LR through argument pointer
+
+Local candidate against checksum-pinned GCC8.5.0, not an upstream backport.
+The reduced probe faults with -fpic -fstack-protector-strong under both libc
+runtimes. The generated backchain load addresses SP+64 instead of SP+0.
+Use the argument pointer, whose elimination offset names the incoming frame,
+to load its saved LR directly. Restrict to SPE/ABI_V4/count0 PIC; retain all
+other target behavior and stack protection. Runtime validation pending.
+
+--- a/gcc/config/rs6000/rs6000.c
++++ b/gcc/config/rs6000/rs6000.c
+@@ -25497,5 +25497,15 @@
+       cfun->machine->ra_needs_full_frame = 1;
+ 
++      /* The incoming argument frame names the caller's saved LR even when
++         stack protection moves the local frame origin.  Do not derive it
++         from the local backchain address for SPE PIC.  */
++      if (count == 0 && TARGET_SPE && DEFAULT_ABI == ABI_V4)
++        {
++          rtx addr = plus_constant (Pmode, arg_pointer_rtx,
++                                    RETURN_ADDRESS_OFFSET);
++          return gen_rtx_MEM (Pmode, memory_address (Pmode, addr));
++        }
++
+       if (count == 0)
+ 	/* FRAME is set to frame_pointer_rtx by the generic code, but that
+ 	   is good for loading 0(r1) only when !FRAME_GROWS_DOWNWARD.  */
