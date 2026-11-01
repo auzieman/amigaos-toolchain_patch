@@ -1,0 +1,193 @@
+{
+  "scope": "Trixie Essential/bootstrap source intake",
+  "signature_verification": "HTTPS DSC and payload SHA256; independent archive OpenPGP chain not yet verified",
+  "components": {
+    "base-files": {
+      "version": "13.8+deb13u7",
+      "dsc": "base-files_13.8+deb13u7.dsc",
+      "files": [
+        {
+          "filename": "base-files_13.8+deb13u7.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/b/base-files/base-files_13.8+deb13u7.dsc",
+          "size": 1247,
+          "sha256": "6240b5a02fc32bd6d925bb7776e00c467e80d930f8cf3c4a20c299ce692dc7e4"
+        },
+        {
+          "filename": "base-files_13.8+deb13u7.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/b/base-files/base-files_13.8%2Bdeb13u7.tar.xz",
+          "size": 83444,
+          "sha256": "be32803b9408ac9aa46b96f68c83ee45e88d04d89854a87999986efc4cb34c69"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/base-files"
+    },
+    "debianutils": {
+      "version": "5.23.2",
+      "dsc": "debianutils_5.23.2.dsc",
+      "files": [
+        {
+          "filename": "debianutils_5.23.2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_5.23.2.dsc",
+          "size": 1908,
+          "sha256": "471b65deec232bb033f3e3e06d5bf64dac0ced474c6fd61d41538f3f3de876f8"
+        },
+        {
+          "filename": "debianutils_5.23.2.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/debianutils/debianutils_5.23.2.tar.xz",
+          "size": 82376,
+          "sha256": "79e524b7526dba2ec5c409d0ee52ebec135815cf5b2907375d444122e0594b69"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/debianutils"
+    },
+    "diffutils": {
+      "version": "1:3.10-4",
+      "dsc": "diffutils_3.10-4.dsc",
+      "files": [
+        {
+          "filename": "diffutils_3.10-4.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/d/diffutils/diffutils_3.10-4.dsc",
+          "size": 1875,
+          "sha256": "087b414ddfc92161a30186926bc4b4ac02c7cba589b0323561cacd54c8b48392"
+        },
+        {
+          "filename": "diffutils_3.10.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/diffutils/diffutils_3.10.orig.tar.xz",
+          "size": 1624240,
+          "sha256": "90e5e93cc724e4ebe12ede80df1634063c7a855692685919bfe60b556c9bd09e"
+        },
+        {
+          "filename": "diffutils_3.10.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/d/diffutils/diffutils_3.10.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "a94faf8f1baa04ff220f7b2ccb137c16337284e023ebc4a1d5df475c08d810f7"
+        },
+        {
+          "filename": "diffutils_3.10-4.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/diffutils/diffutils_3.10-4.debian.tar.xz",
+          "size": 14304,
+          "sha256": "8588b6ffb897ccff46c583e58ef50500b2511eee41949b21e8afa5439712c2c7"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/diffutils"
+    },
+    "findutils": {
+      "version": "4.10.0-3",
+      "dsc": "findutils_4.10.0-3.dsc",
+      "files": [
+        {
+          "filename": "findutils_4.10.0-3.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/f/findutils/findutils_4.10.0-3.dsc",
+          "size": 2291,
+          "sha256": "fa6b67056d9e5b4d8edbfc8ab95ac15ac769b140284426973f6a1ef07a4594ec"
+        },
+        {
+          "filename": "findutils_4.10.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/findutils/findutils_4.10.0.orig.tar.xz",
+          "size": 2240712,
+          "sha256": "1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5"
+        },
+        {
+          "filename": "findutils_4.10.0.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/f/findutils/findutils_4.10.0.orig.tar.xz.asc",
+          "size": 488,
+          "sha256": "7f53670eea6bd114e014571221eb652855c1129a3ed99f2a9257c2a313cc216f"
+        },
+        {
+          "filename": "findutils_4.10.0-3.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/f/findutils/findutils_4.10.0-3.debian.tar.xz",
+          "size": 33364,
+          "sha256": "7d19668508523a6fcfb7731f5646305a8b1a00a3105ee3f0a5f167adf93a8a46"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/findutils"
+    },
+    "grep": {
+      "version": "3.11-4",
+      "dsc": "grep_3.11-4.dsc",
+      "files": [
+        {
+          "filename": "grep_3.11-4.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/g/grep/grep_3.11-4.dsc",
+          "size": 1642,
+          "sha256": "dd6f8eb933bc05446e483f7792c8bf0a1aba9d498e65c6ccafe64e9bf27ac054"
+        },
+        {
+          "filename": "grep_3.11.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/g/grep/grep_3.11.orig.tar.xz",
+          "size": 1703776,
+          "sha256": "1db2aedde89d0dea42b16d9528f894c8d15dae4e190b59aecc78f5a951276eab"
+        },
+        {
+          "filename": "grep_3.11.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/g/grep/grep_3.11.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "89ec23ffd59b68822732dc8204fc89883c3af30a90ae390feb94346d9d09a589"
+        },
+        {
+          "filename": "grep_3.11-4.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/g/grep/grep_3.11-4.debian.tar.xz",
+          "size": 20468,
+          "sha256": "f10394b7589c58ca7de4b580692b1b59431f898cb2068e86222c174e093fdf49"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/grep"
+    },
+    "sed": {
+      "version": "4.9-2+deb13u1",
+      "dsc": "sed_4.9-2+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "sed_4.9-2+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/s/sed/sed_4.9-2+deb13u1.dsc",
+          "size": 2047,
+          "sha256": "9fcc5dffe5e712b4631757c057228ae57919aec1cca1c91a80e76719167f443b"
+        },
+        {
+          "filename": "sed_4.9.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/s/sed/sed_4.9.orig.tar.xz",
+          "size": 1397092,
+          "sha256": "6e226b732e1cd739464ad6862bd1a1aba42d7982922da7a53519631d24975181"
+        },
+        {
+          "filename": "sed_4.9-2+deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/s/sed/sed_4.9-2%2Bdeb13u1.debian.tar.xz",
+          "size": 63644,
+          "sha256": "9c9aacda91e02802f33fb6a1a6e86f80be1bc67b92a4dae009e78f77e26e130a"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/sed"
+    },
+    "mawk": {
+      "version": "1.3.4.20250131-1",
+      "dsc": "mawk_1.3.4.20250131-1.dsc",
+      "files": [
+        {
+          "filename": "mawk_1.3.4.20250131-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/m/mawk/mawk_1.3.4.20250131-1.dsc",
+          "size": 2969,
+          "sha256": "147dd01670e2ebf61f3c78470e0025b87d14e69c7ba9cfafd54da32a355dea84"
+        },
+        {
+          "filename": "mawk_1.3.4.20250131.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/m/mawk/mawk_1.3.4.20250131.orig.tar.gz",
+          "size": 433213,
+          "sha256": "51bcb82d577b141d896d9d9c3077d7aaa209490132e9f2b9573ba8511b3835be"
+        },
+        {
+          "filename": "mawk_1.3.4.20250131.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/m/mawk/mawk_1.3.4.20250131.orig.tar.gz.asc",
+          "size": 729,
+          "sha256": "bc83f127727edb42a91d516770c8d0d3cdb5f6e541aa3cb5213b79dae494db95"
+        },
+        {
+          "filename": "mawk_1.3.4.20250131-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/m/mawk/mawk_1.3.4.20250131-1.debian.tar.xz",
+          "size": 16008,
+          "sha256": "23dea8244bf4f116ec3cd202ab5d4693207d82d986cd0a3d79442b916be4e2b7"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/mawk"
+    }
+  }
+}

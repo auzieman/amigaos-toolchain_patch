@@ -1,0 +1,17 @@
+{
+  "macros": [
+    "#define __powerpc__ 1",
+    "#define __SPE__ 1",
+    "#define __LDBL_MANT_DIG__ 106",
+    "#define __NO_FPRS__ 1",
+    "#define __LONG_DOUBLE_128__ 1"
+  ],
+  "target_options": [
+    "  -mabi=spe                   \t\t[enabled]",
+    "  -mcpu=                      \t\t8548",
+    "  -mfloat-gprs=               \t\tdouble",
+    "  -mlong-double-<n>           \t\t128",
+    "  Known CPUs (for use with the -mcpu= and -mtune= options):",
+    "  Valid arguments to -mfloat-gprs=:"
+  ]
+}

@@ -1,0 +1,114 @@
+{
+  "architecture": "amd64",
+  "status": "build-dependencies-blocked",
+  "package": "glibc",
+  "source_version": "2.41-12+deb13u4",
+  "build_profiles": "nocheck,stage2,nobiarch",
+  "arch_only": true,
+  "dependency_preflight_only": true,
+  "image_id": "sha256:294830d623d488a0963fbdac716d7d55bc4582fe43ea9aa29e6192753f9f03f4",
+  "recipe_sha256": "6a0b432f512e6ac8393920841ed0418b7cc134ca79ade5e94412e381e494a259",
+  "source_lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "compiler_sha256": "a23ecab8ff08f09ad8c80602c2c5df7f49e09c25905cb8975902e101bf72635f",
+  "compiler_frontend_sha256": "02675980109a4a5496cddf67d5286de57942759edc830deaa525e36f9a2a0291",
+  "sysroot_libraries": {},
+  "flags": [],
+  "bootstrap_shlibs_sha256": null,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/glibc_2.41-12+deb13u4.dsc",
+      "/work/debian-glibc-amd64-001/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0005-explicit-spe-toolchain-and-stage2-dependencies.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0005-explicit-spe-toolchain-and-stage2-dependencies.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0006-require-fixed-spe-bootstrap-compiler.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0006-require-fixed-spe-bootstrap-compiler.patch"
+    ],
+    [
+      "dpkg-architecture",
+      "-aamd64",
+      "-c",
+      "make -f debian/rules debian/control"
+    ],
+    [
+      "dpkg-checkbuilddeps",
+      "-a",
+      "amd64",
+      "-P",
+      "nocheck,stage2,nobiarch",
+      "-B"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "patch_series_sha256": "a16fb1d4fb91aa7f3da660abd3b1f94926f2dced640232b2e38ebe60ec886004",
+  "binary_version": "2.41-12+deb13u4+tabor1~stage2",
+  "active_phase": "debian-build-dependency-preflight",
+  "error": "Command '['dpkg-checkbuilddeps', '-a', 'amd64', '-P', 'nocheck,stage2,nobiarch', '-B']' returned non-zero exit status 1.",
+  "failed_command_exit": 1
+}

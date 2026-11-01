@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "suite": "tabor-trixie",
+  "architectures": [
+    "powerpcspe"
+  ],
+  "components": [
+    "main",
+    "bootstrap"
+  ],
+  "status": "experimental bootstrap archive; not an accepted installed image",
+  "source_policy": "Binary indexes only initially; original source locks plus ordered patches/build receipts retained. Patched-version source .dsc publication pending, no deb-src claim.",
+  "inputs": [
+    {
+      "receipt": "work/debian-glibc-004/receipt.json",
+      "receipt_sha256": "76d42b550833bfd4d13fc537b52bdd13fa92663ec4c8042e9da0cacc3e23ce2b",
+      "component": "bootstrap",
+      "kind": "debian-build",
+      "evidence": "docs/builds/glibc-debian-20261101/007-libc-build.json"
+    },
+    {
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "receipt_sha256": "515b51c56a20187eebd7517f21d3e0b42b6e885cfb3f598cf900e66fdf703c37",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/bootstrap-libraries-20261101/libcap-ng-package-build.json"
+    },
+    {
+      "receipt": "work/debian-libsepol-001/receipt.json",
+      "receipt_sha256": "2db906cdab93d42df4facc49253e61da942d6b1878df2e62ef35d1f7684ff4a1",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/bootstrap-libraries-20261101/libsepol-package-build.json"
+    },
+    {
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "receipt_sha256": "61ea0e148927b26ddacac68cf64454a0797cada990892741ba67eb5e5e6eadd8",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/bootstrap-libraries-20261101/pcre2-package-build.json"
+    },
+    {
+      "receipt": "work/linux-headers-003/receipt.json",
+      "receipt_sha256": "a4addf6d6c3c95af5cf0e0e1fb774524a741b11f1b66d426661a4683b3b40acc",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/boot-candidate-20261101/linux-headers-003.json"
+    },
+    {
+      "receipt": "work/debian-libmd-006/receipt.json",
+      "receipt_sha256": "8b081884324bca2958cb6600c27329833acbd898447470fb0bbece7bc2d53f23",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/boot-candidate-20261101/debian-libmd-006.json"
+    },
+    {
+      "receipt": "work/debian-attr-001/receipt.json",
+      "receipt_sha256": "253d2bca6c417d04d3019c31efabbca6fa6a33bd00a278264bc39be4bea20cbe",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/boot-candidate-20261101/debian-attr-001.json"
+    },
+    {
+      "receipt": "work/debian-dash-002/receipt.json",
+      "receipt_sha256": "bfdb269fabb99cdb09908abde6934b1b4aa9054d365e401a8b5b6ec790245c2a",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/boot-candidate-20261101/debian-dash-002.json"
+    },
+    {
+      "receipt": "work/debian-gzip-004/receipt.json",
+      "receipt_sha256": "512809e87a05c54753503c14cd7ba0aed38d16032e0930f9f75902e47fc02faf",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/boot-candidate-20261101/debian-gzip-004.json"
+    }
+  ]
+}

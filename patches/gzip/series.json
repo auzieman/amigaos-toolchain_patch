@@ -1,0 +1,14 @@
+{
+  "version": "1.13-1+deb13u1",
+  "purpose": "Bounded Essential bootstrap: let normal dpkg-shlibdeps locate the real SPE libc; retire when target build roots supply package-managed library state. No dependency checks or maintainer scripts skipped.",
+  "patches": [
+    {
+      "path": "patches/gzip/0001-cross-bootstrap-library-discovery.patch",
+      "sha256": "eb12402de992e1cdb97a1a0c799b6daa421d61ec7a5fbc443018be5a69f97e84"
+    },
+    {
+      "path": "patches/gzip/0002-preserve-caller-maintainer-flags.patch",
+      "sha256": "6244a71ad34cc213e5019a14ce923bfc1c8202b6e5b1c1c38b4d98f8869c52a8"
+    }
+  ]
+}

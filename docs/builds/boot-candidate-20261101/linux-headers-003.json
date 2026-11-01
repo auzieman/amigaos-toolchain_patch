@@ -1,0 +1,64 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "architecture": "powerpcspe",
+  "kernel_architectures": [
+    "powerpc"
+  ],
+  "image_id": "sha256:facdb12e4e2734e23166473fee6ea1bfeb0ed08231c81158d5a9968dfbd89948",
+  "recipe_sha256": "7b2efdc769891342d32698c2e65cc9a1f328224302ea5386ee525a6cf4c26514",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/linux_6.12.113-1.dsc",
+      "/work/linux-headers-003/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/headers/0001-package-spe-only-uapi-headers.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/headers/0001-package-spe-only-uapi-headers.patch"
+    ],
+    [
+      "env",
+      "-u",
+      "DEB_HOST_ARCH",
+      "-u",
+      "DEB_HOST_GNU_TYPE",
+      "dpkg-checkbuilddeps",
+      "-d",
+      "debhelper-compat (= 13), rsync, make, gcc, libc6-dev, bison, flex"
+    ],
+    [
+      "make",
+      "-f",
+      "debian/rules.real",
+      "binary_libc-dev",
+      "ALL_LIBCDEV_KERNELARCHES=powerpc",
+      "ALL_LIBCDEV_MULTIARCHES=powerpc-linux-gnuspe:powerpc",
+      "PACKAGE_NAME=linux-libc-dev",
+      "DESTDIR=/work/linux-headers-003/source/debian/linux-libc-dev",
+      "DH_OPTIONS=-plinux-libc-dev",
+      "SOURCEVERSION=6.12.113-1+tabor1",
+      "SOURCE_BASENAME=linux",
+      "UPSTREAMVERSION=6.12",
+      "VERSION=6.12",
+      "BUILDDEB_ARGS=-Zgzip"
+    ]
+  ],
+  "packages": {
+    "linux-libc-dev_6.12.113-1+tabor1_powerpcspe.deb": {
+      "sha256": "b2d5060992eb34164737f19070c0ee7c050cd1344e39de6bfa8b81d5c6beca96",
+      "bytes": 3269814,
+      "architecture": "powerpcspe"
+    }
+  },
+  "target_installation": false,
+  "patch_sha256": "51f21ce73a8937df1edfe4dda050f03b5c72421e4154435f4b8ff58cb1ea5ee6"
+}

@@ -1,0 +1,23 @@
+--- a/debian/templates/libc-dev.control.in
++++ b/debian/templates/libc-dev.control.in
+@@ -4,7 +4,7 @@
+-Architecture: all
++Architecture: powerpcspe
+ Build-Depends:
+ # used by upstream headers_install target
+  rsync,
+ Depends: ${misc:Depends}
+-Multi-Arch: foreign
++Multi-Arch: same
+ Description: Linux support headers for userspace development
+--- a/debian/control
++++ b/debian/control
+@@ -2383,6 +2383,6 @@
+ Package: linux-libc-dev
+-Architecture: all
++Architecture: powerpcspe
+ Section: devel
+ Depends: ${misc:Depends}
+-Multi-Arch: foreign
++Multi-Arch: same
+ Description: Linux support headers for userspace development

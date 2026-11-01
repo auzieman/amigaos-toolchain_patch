@@ -1,0 +1,40 @@
+{
+  "status": "failed",
+  "architecture": "powerpcspe",
+  "kernel_architectures": [
+    "powerpc"
+  ],
+  "image_id": "sha256:facdb12e4e2734e23166473fee6ea1bfeb0ed08231c81158d5a9968dfbd89948",
+  "recipe_sha256": "af3067e6aa8534ea94da29e242ec50f486ce0d34ef2b9e4f6b7e1f5573182ba9",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/linux_6.12.113-1.dsc",
+      "/work/linux-headers-002/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/headers/0001-package-spe-only-uapi-headers.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/headers/0001-package-spe-only-uapi-headers.patch"
+    ],
+    [
+      "dpkg-checkbuilddeps",
+      "-d",
+      "debhelper-compat (= 13), rsync:native, make:native, gcc:native, libc6-dev:native, bison:native, flex:native",
+      "-a",
+      "powerpcspe"
+    ]
+  ],
+  "packages": {},
+  "target_installation": false,
+  "patch_sha256": "51f21ce73a8937df1edfe4dda050f03b5c72421e4154435f4b8ff58cb1ea5ee6",
+  "error": "Command '['dpkg-checkbuilddeps', '-d', 'debhelper-compat (= 13), rsync:native, make:native, gcc:native, libc6-dev:native, bison:native, flex:native', '-a', 'powerpcspe']' returned non-zero exit status 1."
+}

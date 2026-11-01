@@ -1,0 +1,7 @@
+ARG PACKAGE_TOOLS_IMAGE
+FROM ${PACKAGE_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    apt-utils gnupg gpgv sbuild mmdebstrap e2fsprogs less \
+    && dpkg-query -W > /opt/tabor-debian-build-infra-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

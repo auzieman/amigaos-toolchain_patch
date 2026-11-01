@@ -25,7 +25,7 @@ try:
    'QEMU compiler matrix: 18/18 PASS (SPE PIC fix)',
    state.get('runtime','New libc / original C++ test: pending rebuild'),
    'Fenv rounding: OPEN #3 | physical A1222: UNTESTED',
-   '', 'QEMU software-e010: 8GiB, 2 e500v2 TCG CPUs',
+   '', state.get('guest','QEMU software-e011: 8GiB, 2 e500v2 TCG CPUs'),
    'Software GL: diagnostic PASS; E compositor: OPEN #8',
    state.get('viewer','noVNC: older graphical baseline; new candidate pending'),
    'USB unchanged | Debian Essential root not accepted',

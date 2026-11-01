@@ -85,3 +85,10 @@ Fresh-source preflight now reports Debian's actual unsatisfied dependencies
 without compiling or suppressing checks. Use those results to prepare the
 repository/build root and bootstrap closure before scheduling these sources.
 Keep fenv rounding (#3), session rendering (#8) and physical board gates visible.
+
+Target architecture scope (user correction, 2026-11-01): source/package builds
+are powerpcspe only. Use existing Debian host binaries for scripting and build
+orchestration; do not expand target dependency work into rebuilding amd64 libc
+or other native counterparts. Keep host compiler tooling outside the target
+archive. Cross-compilation has a host and a target, but this is not a multi-target
+archive rebuild. Resolve target dependencies in the target environment.

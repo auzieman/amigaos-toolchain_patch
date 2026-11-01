@@ -1,0 +1,11 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -26,7 +26,7 @@
+ endif
+ 
+ export DEFS=NO_ASM # Avoid TEXTRELs on i386
+-DEB_CFLAGS_MAINT_APPEND := -Wall
++DEB_CFLAGS_MAINT_APPEND += -Wall
+ 
+ ifeq ($(buildarch), amd64)
+ DEB_CPPFLAGS_MAINT_APPEND := -DUNALIGNED_OK

@@ -957,3 +957,42 @@ without building. Exact source requirements and Debian exits retained under
 builds/debian-dependency-preflight-20261101. Next gate is genuine repository/
 build-root dependency state, not another hand-sorted list or disabled check.
 Desktop4 displays that gate; no new compilation or root configuration occurred.
+
+## 2026-11-01 — keep package builds powerpcspe only
+
+User corrected the attempted native-library expansion. Stopped the isolated
+`tabor-debian-glibc-amd64-003` container (exited 137) and removed the uncommitted
+amd64 package-build route and native package overrides. Existing Debian host
+utilities remain build tools; no native libc rebuild is part of the plan.
+The pending target archive manifest now lists powerpcspe only and excludes the
+separate host cross-compiler package. Earlier mixed-architecture archive/solver
+receipts remain historical experiments, not an accepted installation route.
+
+The signed archive experiment authenticated package indexes, but foreign libc
+coinstallation hit Debian's matching-version requirement. Building native libc
+counterparts was the wrong scope; the next step is a target-only package-managed
+root/dependency closure, retaining normal Debian installation semantics.
+No new target root or QEMU boot acceptance and no SanDisk write are claimed.
+
+## 2026-11-01 — SPE-only archive, kernel/storage proof and live filming session
+
+Built genuine SPE-only linux-libc-dev via Debian's UAPI packaging rules and
+rebuilt gzip with preserved explicit ABI flags. Compiler defaults independently
+remain8548/SPE/double-GPR/LD128; no architecture switch was observed. Packaged
+gzip payload passes a hash-verified compression roundtrip under private libc004.
+Signed archive005 now contains30 target .debs; target-only apt development
+closure resolves. Essential installation closure remains incomplete and is
+retained explicitly, with seven more source inputs cached/hash-locked.
+
+Kernel008 boots with two CPUs,8240288kB usable RAM, cgroup2 controllers and
+virtio/ext4 write/unmount/remount proof. New software-e011 runs that kernel
+with the earlier diagnostic RAM root, verified equal fractals and Mesa25.0.7
+softpipe GL pixel readback. Desktop4's existing noVNC6089 now shows that live
+recording loop; guest shell/monitors updated individually. E compositor remains
+issue8; fenv issue3 and physical Radeon/board acceptance remain open.
+Physical tabor-live002 kernel rebuilding on R7304CPU/6GiB, briefly paused while
+bringing up the viewer and then resumed. No new complete Debian root or USB
+write is claimed. Next: finish board-kernel build, preflight/build base-files
+and Debianutils, then close actual Essential dependencies and run normal target
+package configuration before assembling the new disk-root image.
+Evidence: builds/boot-candidate-20261101/README.md.

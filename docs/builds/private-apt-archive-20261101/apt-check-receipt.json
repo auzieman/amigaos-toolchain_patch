@@ -1,0 +1,67 @@
+{
+  "status": "archive-verified-installation-simulation-blocked",
+  "image_id": "sha256:294830d623d488a0963fbdac716d7d55bc4582fe43ea9aa29e6192753f9f03f4",
+  "archive_receipt_sha256": "80ad1ce684d2a2a208679dd27a8f1e9cf625995649d8f83e70dda2feae8a7b4f",
+  "target_installation": false,
+  "tests": {
+    "update": {
+      "command": [
+        "apt-get",
+        "-o",
+        "Dir::Etc::sourcelist=/repo/tabor.sources",
+        "-o",
+        "Dir::Etc::sourceparts=/work/apt-check-001/sourceparts",
+        "-o",
+        "Dir::State::lists=/work/apt-check-001/lists",
+        "-o",
+        "Acquire::Languages=none",
+        "update"
+      ],
+      "exit": 0,
+      "log_sha256": "ebcb7bcdb3b9857c38b2520a6f7d14f57b4eeee5000c8c0a2d17878e13d6ac97"
+    },
+    "policy": {
+      "command": [
+        "apt-cache",
+        "-o",
+        "Dir::Etc::sourcelist=/repo/tabor.sources",
+        "-o",
+        "Dir::Etc::sourceparts=/work/apt-check-001/sourceparts",
+        "-o",
+        "Dir::State::lists=/work/apt-check-001/lists",
+        "-o",
+        "Acquire::Languages=none",
+        "policy",
+        "libc6:powerpcspe",
+        "libcap-ng0:powerpcspe",
+        "libsepol2:powerpcspe",
+        "libpcre2-8-0:powerpcspe",
+        "tabor-spe-toolchain:amd64"
+      ],
+      "exit": 0,
+      "log_sha256": "31f0fba0ecebe32d06ca88e41584ff73bff4e1b702d5532cae5662e29bc1d250"
+    },
+    "install-simulation": {
+      "command": [
+        "apt-get",
+        "-o",
+        "Dir::Etc::sourcelist=/repo/tabor.sources",
+        "-o",
+        "Dir::Etc::sourceparts=/work/apt-check-001/sourceparts",
+        "-o",
+        "Dir::State::lists=/work/apt-check-001/lists",
+        "-o",
+        "Acquire::Languages=none",
+        "--simulate",
+        "--no-install-recommends",
+        "install",
+        "libc6:powerpcspe",
+        "libsepol-dev:powerpcspe",
+        "libpcre2-dev:powerpcspe",
+        "libcap-ng-dev:powerpcspe"
+      ],
+      "exit": 100,
+      "log_sha256": "4161c7c5b99e87dce11a855de69fa1fab83ce444a0c04fc46cb932063e6631d8"
+    }
+  }
+}

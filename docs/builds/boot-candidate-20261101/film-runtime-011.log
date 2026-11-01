@@ -1,0 +1,19 @@
+Software GL diagnostic; renderer identity is printed below.
+FRACTAL_TIME mode=SOFT trial=1 us=819909 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=1 us=188783 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=2 us=230017 checksum=2882920052
+FRACTAL_TIME mode=SOFT trial=2 us=621849 checksum=2882920052
+FRACTAL_TIME mode=SOFT trial=3 us=491099 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=3 us=117003 checksum=2882920052
+FRACTAL_PASS identical escape-count images
+FRACTAL_VIEW_PASS equal_images=12288_pixels timings=6
+GL_VENDOR=Mesa
+GL_RENDERER=softpipe
+GL_VERSION=3.3 (Compatibility Profile) Mesa 25.0.7
+GL_PIXEL_CHECK=PASS colored_pixels=5585 elapsed_seconds=8.370
+SPE-built CPU code with measured GL readback; not full ABI or hardware acceleration validation.
+FILM_READY: live SPE fractal and Mesa software GL; QEMU timings only
+Software GL diagnostic; renderer identity is printed below.
+GL_VENDOR=Mesa
+GL_RENDERER=softpipe
+GL_VERSION=3.3 (Compatibility Profile) Mesa 25.0.7

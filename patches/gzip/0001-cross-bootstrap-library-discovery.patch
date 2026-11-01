@@ -1,0 +1,11 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -137,7 +137,7 @@
+ 	dh_fixperms -a
+ 	dh_makeshlibs -a
+ 	dh_installdeb -a
+-	dh_shlibdeps -a
++	dh_shlibdeps -a $(if $(TABOR_SYSROOT),-- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS))
+ 	dh_gencontrol -a
+ 	dh_md5sums -a
+ 	dh_builddeb -a

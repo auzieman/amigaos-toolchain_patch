@@ -29,3 +29,10 @@ resolution; do not perpetually extend ad hoc sysroot/shlibs patches across
 ordinary packages. Preserve normal Debian feature/setup behavior and close
 bootstrap cycles with appropriate profiles and subsequent required full builds.
 Our tooling must use real packages and dependencies in that same process.
+
+Target architecture scope (user correction, 2026-11-01): source/package builds
+are powerpcspe only. Use existing Debian host binaries for scripting and build
+orchestration; do not expand target dependency work into rebuilding amd64 libc
+or other native counterparts. Keep host compiler tooling outside the target
+archive. Cross-compilation has a host and a target, but this is not a multi-target
+archive rebuild. Resolve target dependencies in the target environment.
