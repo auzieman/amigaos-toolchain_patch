@@ -815,3 +815,13 @@ an unvalidated candidate (limited modern JS), plus signed lab HTTP APT archive
 plan with normal package metadata/source provenance and one common SPE archive
 for QEMU/A1222. Added apt bootstrap to baseline. No browser build, server
 deployment or signing key creation claimed. See package-repository-plan.md.
+
+
+2026-11-01 private media inspection: located FTP ISO/Enhancer, streamed six
+selected documents read-only with 7z (no mount/install/execution). A1222 onboard
+video notes describe early U-Boot display/keyboard limitations; keep installed
+PCIe Radeon for boot trial. Enhancer RadeonRX history explicitly mentions
+A1222 SPE copy/blitter/compositing optimizations, useful future workload clues
+but not Linux graphics validation or source reuse. Recorded selected hashes
+and factual summary only; media remains private. No USB/firmware changes. See
+builds/os4-media-review-20261101/README.md.
