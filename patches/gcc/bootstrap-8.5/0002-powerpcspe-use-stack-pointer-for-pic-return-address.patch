@@ -1,0 +1,24 @@
+From: Tabor SPE toolchain project
+Subject: powerpcspe: use actual backchain for PIC return address at depth zero
+
+Candidate against pinned GCC8.5.0. The active gnuspe backend is powerpcspe,
+not rs6000. Mirror the count-zero frame correction present in the same
+archive's gcc/config/rs6000/rs6000.c: the generic frame pointer addresses
+locals when FRAME_GROWS_DOWNWARD (stack protection), not the backchain.
+Use stack_pointer_rtx at depth zero; retain existing nonzero-depth behavior.
+This preserves stack protection and changes no other target backend.
+Validation: protected PIC reproducer and fresh libc unwind tests required.
+
+--- a/gcc/config/powerpcspe/powerpcspe.c
++++ b/gcc/config/powerpcspe/powerpcspe.c
+@@ -28073,5 +28073,10 @@
+       cfun->machine->ra_needs_full_frame = 1;
+ 
++      /* FRAME names locals rather than the backchain when stack protection
++         makes FRAME_GROWS_DOWNWARD true.  Depth zero needs the real SP.  */
++      if (count == 0)
++        frame = stack_pointer_rtx;
++
+       return
+ 	gen_rtx_MEM
+ 	  (Pmode,

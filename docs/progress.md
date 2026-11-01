@@ -441,3 +441,12 @@ PIC without protection and non-PIC variants pass. Retaining frame pointers
 does not fix it. Experimental SPE/ABI_V4 return-address patch keeps hardening;
 fresh gcc-unwind-002 compilation running remotely, 4CPUs/6GiB. Candidate
 runtime acceptance pending. No accepted artifacts, target root or USB changed.
+
+2026-11-01 QEMU retest of rebuilt gcc-unwind-002: completed six modes against
+both libc runtimes. Protected PIC and protected PIC+frame-pointer still exit139;
+other modes pass. First candidate modified inactive rs6000 backend: actual
+gnuspe uses config/powerpcspe/powerpcspe.c. Retained failed evidence; did not
+promote compiler or rebuild libc. New0002 mirrors the depth-zero real-SP
+correction from the same GCC8.5 rs6000 source into active powerpcspe; fresh
+gcc-unwind-003 build submitted,4CPU/6GiB. Updated #9. Future build receipts
+record selected backend; probe receipts hash cc1 as well as compiler driver.

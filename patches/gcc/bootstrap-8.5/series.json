@@ -3,8 +3,11 @@
   "status": "experimental-reference-compiler-fix-not-modern-SPE-restoration",
   "patches": [
     {
-      "path": "patches/gcc/bootstrap-8.5/0001-spe-pic-return-address.patch",
-      "sha256": "9e620ea601e86bb5a4038f2f6778eb7297bc9ed0bd9678d76473857d28ee9f15"
+      "path": "patches/gcc/bootstrap-8.5/0002-powerpcspe-use-stack-pointer-for-pic-return-address.patch",
+      "sha256": "f5f3ef8b3ebe99c362a3725d2466756bece09b91a70a8808285d20fdd8688d4f"
     }
+  ],
+  "superseded": [
+    "0001 modified inactive rs6000 backend for gnuspe; gcc-unwind-002 tests unchanged, not an accepted fix"
   ]
 }

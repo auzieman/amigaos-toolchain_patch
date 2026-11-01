@@ -100,6 +100,12 @@ with (work/'build.log').open('w') as log:
     receipt['binutils_sha256'][tool]=hashlib.sha256(host.read_bytes()).hexdigest()
   run([str(source/'configure')]+flags,obj)
   run(['make','-j'+str(a.jobs),'all-gcc'],obj)
+  backend_line=next(line for line in (obj/'gcc/Makefile').read_text().splitlines()
+                    if line.startswith('out_file='))
+  receipt['backend_selection']=backend_line
+  if spec['target']=='powerpc-linux-gnuspe':
+   if '/config/powerpcspe/powerpcspe.c' not in backend_line:raise RuntimeError('Unexpected gnuspe backend')
+   receipt['backend_source_sha256']=hashlib.sha256((source/'gcc/config/powerpcspe/powerpcspe.c').read_bytes()).hexdigest()
   run(['make','install-gcc'],obj)
   if a.runtime_sysroot:
    run(['make','-j'+str(a.jobs),'all-target-libgcc'],obj)
