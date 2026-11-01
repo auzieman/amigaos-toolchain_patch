@@ -37,3 +37,14 @@ OpenPGP source-chain verification remains pending, not implied by DSC SHA checks
 One heavy R730 job,4CPU/6GiB, no build network or local compilation, no extra
 viewer/services, no target status edits/forced package install, no USB write.
 Current package commands and bootstrap limits: ../../debian-package-build.md.
+
+## Latest correction
+
+Iteration003 built seven packages but failed C++ exception unwinding. Reduced
+GCC8 protected-PIC return-address probe isolated the active powerpcspe backend.
+After a failed inactive-backend candidate, corrected gcc-unwind-003 passes
+all18 system-QEMU cases. See 006-compiler-qemu.md and 006-qemu-matrix/receipt.json.
+Compiler package8.5.0+tabor2 installed in pinned updated build image; fresh
+Debian libc004 compilation running. Original unwind acceptance still pending.
+Desktop4 monitors now follow004 and accurately label known open gates; bounded
+remote tails avoid streaming huge compiler lines into the laptop UI.

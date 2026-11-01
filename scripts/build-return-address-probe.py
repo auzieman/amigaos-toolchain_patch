@@ -19,7 +19,10 @@ modes={'plain':[], 'protected':['-fstack-protector-strong','-fexceptions'],
  'frame':['-fstack-protector-strong','-fexceptions','-fno-omit-frame-pointer'],
  'pic':['-fpic','-fstack-protector-strong','-fexceptions'],
  'pic-plain':['-fpic','-fno-stack-protector','-fexceptions'],
- 'pic-frame':['-fpic','-fstack-protector-strong','-fexceptions','-fno-omit-frame-pointer']}
+ 'pic-frame':['-fpic','-fstack-protector-strong','-fexceptions','-fno-omit-frame-pointer'],
+ 'PIC':['-fPIC','-fstack-protector-strong','-fexceptions'],
+ 'pic-all':['-fpic','-fstack-protector-all','-fexceptions'],
+ 'pic-O0':['-O0','-fpic','-fstack-protector-strong','-fexceptions']}
 r={'status':'building','source_sha256':sha(source),'image_id':a.image_id,
    'compiler_sha256':sha(cc.resolve()),'frontend_sha256':sha(cc1),'flags':base,'modes':{},'executed':False}
 try:

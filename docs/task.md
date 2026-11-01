@@ -900,3 +900,11 @@ promote compiler or rebuild libc. New0002 mirrors the depth-zero real-SP
 correction from the same GCC8.5 rs6000 source into active powerpcspe; fresh
 gcc-unwind-003 build submitted,4CPU/6GiB. Updated #9. Future build receipts
 record selected backend; probe receipts hash cc1 as well as compiler driver.
+
+2026-11-01 active-backend correction verified: gcc-unwind-003 rebuild passed.
+All18 existing-QEMU return-address tests pass (nine modes, two libc runtimes),
+including protected PIC, frame pointers and -O0. Guest uploaded bytes verified
+by readback hashes. Package new compiler as8.5.0+tabor2 and require it in
+Debian libc source metadata; fresh libc rebuild remains prerequisite for
+original C++ unwind acceptance. Keep #9 open until that passes; fenv #3 and
+hardware gates remain open. Evidence: builds/glibc-debian-20261101/006-*.

@@ -1,0 +1,8 @@
+ARG GLIBC_PACKAGE_TOOLS_IMAGE
+FROM ${GLIBC_PACKAGE_TOOLS_IMAGE}
+ARG TOOLCHAIN_PACKAGE
+COPY ${TOOLCHAIN_PACKAGE} /tmp/tabor-spe-toolchain.deb
+RUN dpkg -i /tmp/tabor-spe-toolchain.deb \
+    && dpkg-query -W > /opt/tabor-glibc-package-host-packages.txt \
+    && rm /tmp/tabor-spe-toolchain.deb
+ENTRYPOINT ["python3"]

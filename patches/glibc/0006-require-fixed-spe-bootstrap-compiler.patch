@@ -1,0 +1,15 @@
+Require the separately packaged SPE PIC/stack-protector compiler correction.
+Keep normal Debian dependency checking; do not silently build with the known
+broken historical compiler. Other target compiler dependencies are unchanged.
+
+--- a/debian/control.in/main
++++ b/debian/control.in/main
+@@ -8,7 +8,7 @@
+  mig-for-host (>= 1.8+git20200618-7~) [hurd-any], gnumach-dev (>= 2:1.8+git20200710-2~) [hurd-any],
+  hurd-dev (>= 1:0.9.git20201127-4~) [hurd-any] | hurd-headers-dev [hurd-any],
+  binutils-for-host (>= 2.38) [!powerpcspe],
+- tabor-spe-toolchain (>= 8.5.0) [powerpcspe],
++ tabor-spe-toolchain (>= 8.5.0+tabor2) [powerpcspe],
+  g++@DEB_GCC_VERSION@-for-host [!powerpcspe], g++@DEB_GCC_VERSION@-multilib [amd64 i386 mips mipsel mipsn32 mipsn32el mips64 mips64el mipsr6 mipsr6el mipsn32r6 mipsn32r6el mips64r6 mips64r6el powerpc ppc64 s390x sparc sparc64 x32] <!nobiarch>,
+  g++@DEB_GCC_VERSION@-for-host (>= 14.1.0-4) [arm64],
+  python3:native,

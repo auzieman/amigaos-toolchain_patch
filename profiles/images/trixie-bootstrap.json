@@ -28,8 +28,8 @@
     "libmd": "built and library-runtime-tested; target installation pending",
     "attr": "Debian SPE binary packages built; target tests/install pending",
     "dash": "Debian SPE package with maintainer scripts built; runtime smoke passed; install pending",
-    "glibc": "Seven Debian stage2 artifacts built; dynamic C ABI smoke passes eight checks, fenv rounding still fails; C++ exception unwinding SIGSEGV blocks acceptance; not installed",
-    "host_toolchain": "Real amd64 tabor-spe-toolchain8.5 native-host package installed into pinned libc build image; target runtime separate"
+    "glibc": "Fresh Debian stage2 iteration004 compiling with QEMU-tested compiler correction; original C++ unwind retest pending; fenv still open",
+    "host_toolchain": "Native-host tabor-spe-toolchain8.5.0+tabor2 installed in pinned libc build image; corrected active powerpcspe backend passes 18 QEMU checks"
   },
   "kernel_delta": "QEMU cgroups/ACL/virtio-block effective config required; same init/session requirements in physical fragment",
   "next_dependency_gates": [

@@ -1,0 +1,216 @@
+{
+  "status": "built-not-executed",
+  "source_sha256": "b5e89402bbcf10aba5df367c070ddbe120ede4cb8d9c837352b89acd86f2f088",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "compiler_sha256": "fbe48af0ff7e7916e6e4c5978c5a3becc8514b7da7272655fb1cbebb18bb57df",
+  "frontend_sha256": "421ceaeadbf66483ae389580b96b40fbffd5387b4c30195fcbc300c2c055798f",
+  "flags": [
+    "--sysroot=/sysroot",
+    "-O2",
+    "-g",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128"
+  ],
+  "modes": {
+    "plain": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-plain",
+        "-ldl"
+      ],
+      "sha256": "8d7d2fbf6c8e2ebf15a8aa3379df45e3ad544046fcd47ea2b337af22ba6474a3",
+      "disassembly_sha256": "a337225c1e131365fa55aba956dc37422dc958f8821235d276463b357beca2da"
+    },
+    "protected": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-protected",
+        "-ldl"
+      ],
+      "sha256": "8d36b554682cf56bd5fe3457dcac5dbb6f427add45a0125bc76ba3ccd8a379cc",
+      "disassembly_sha256": "3e702ea7821f29a43edf17c48775999dea60d98a3ed7f15a3b8f07002987537b"
+    },
+    "frame": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "-fno-omit-frame-pointer",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-frame",
+        "-ldl"
+      ],
+      "sha256": "a0f9ae192d7516edca6667be403f3c9d5638c77594fe81ad1b6d3c0b3ef069bd",
+      "disassembly_sha256": "ddf52d8d619271adbaa244eb7b7a4cbe8d9f1c266fa5fd5833331a437e269474"
+    },
+    "pic": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fpic",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-pic",
+        "-ldl"
+      ],
+      "sha256": "7a91946cfbc2b913d6bb93a74804e6d04025ad91bba74695c347e520df938388",
+      "disassembly_sha256": "feda7bbf10645087bb4f6aaaf7a52abd6fadb2a79c474949fc82ee266c5a2edb"
+    },
+    "pic-plain": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fpic",
+        "-fno-stack-protector",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-pic-plain",
+        "-ldl"
+      ],
+      "sha256": "d488aca520e2e92824b4d4dcb927cbf5fe8e57c1a6706b6d97a302691acefa01",
+      "disassembly_sha256": "435c7c2eed5368d58f2fca55ef1c19555f84cba087a0b08e959541d75db22c3b"
+    },
+    "pic-frame": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fpic",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "-fno-omit-frame-pointer",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-pic-frame",
+        "-ldl"
+      ],
+      "sha256": "62efae5198f33494fa0f8b635273d6f7dc36253b2630172143c98306d4de6fd3",
+      "disassembly_sha256": "b4bd093236ed4b7805c7bf53eb84667af7f519a2a6d118b582727f9882ef61b8"
+    },
+    "PIC": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fPIC",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-PIC",
+        "-ldl"
+      ],
+      "sha256": "d4108c3ac303e7dc68e78b76376b39bdf18ab4bbf675c495c355fc270e75847e",
+      "disassembly_sha256": "f457b41e00c0ead6b9cc021e6042aafdc7fb963e16c2b7684fc4a5221ed434a9"
+    },
+    "pic-all": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-fpic",
+        "-fstack-protector-all",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-pic-all",
+        "-ldl"
+      ],
+      "sha256": "aa5bb5355b5390f1aca0d37a9a2f49c812db2ca89da28abd61e9b8d07d663f04",
+      "disassembly_sha256": "5576c5b68715990e8f25997ba8130d98cfb950e86ba61671ace0fa6c1231c53a"
+    },
+    "pic-O0": {
+      "command": [
+        "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+        "--sysroot=/sysroot",
+        "-O2",
+        "-g",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mlong-double-128",
+        "-O0",
+        "-fpic",
+        "-fstack-protector-strong",
+        "-fexceptions",
+        "/project/bench/spe-return-address.c",
+        "-o",
+        "/work/return-address-patched-002/probe-pic-O0",
+        "-ldl"
+      ],
+      "sha256": "28cc499b34a8dca0639699fbdf6e907fca6cd81cd11785d64c8ab64137b566de",
+      "disassembly_sha256": "071f0d58ed485ee1bea075bdd663d172ee13d765af71be996b9eaeb3fb015f2f"
+    }
+  },
+  "executed": false
+}
