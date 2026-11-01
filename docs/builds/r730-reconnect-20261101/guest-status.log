@@ -1,0 +1,12 @@
+tabor-spe-bootstrap	0.3+20261031
+tabor-spe-software-session	0.3+20261031
+MemTotal:        8248388 kB
+MemFree:         7889468 kB
+MemAvailable:    7626760 kB
+0-1
+XVFB_PID=74
+X11VNC_PID=77
+E_SESSION_START: software X11; no GL or physical Radeon acceptance
+   74 tabor    19144 S    Xvfb :0 -screen 0 1280x720x24 -nolisten tcp -ac -nor
+   77 tabor    23180 S    x11vnc -display :0 -listen 0.0.0.0 -rfbport 5900 -no
+   80 tabor     126m S    /usr/bin/enlightenment -nopause

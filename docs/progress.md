@@ -328,3 +328,13 @@ mount /dev before system D-Bus. Messagebus and E root helper run; black client
 interiors persist, so issue8 remains open. 6089 now points at software-e007.
 See package-hardware-readiness.md and builds/r730-packaged-session-20261031.
 Mesa/libdrm sources are pinned/audited; no GL/Radeon runtime pass claimed.
+
+
+2026-11-01 reconnect: R730 restarted, artifacts intact; reverified accepted
+kernel/root and launched software-e008. Package audit clean, ~7.87GiB usable and
+two online guest cores. E starts from fresh RAM-root state. Moved noVNC proxy to
+a bounded loopback-only R730 service; kept6089 local entry via SSH, removed local
+proxy and three retired test forwards. No local builds/VMs or extra viewer
+windows started. Laptop resource policy is now in AGENTS.md; no crash cause is
+inferred from current memory snapshots. See reconnect-resource-policy.md and
+builds/r730-reconnect-20261101. Rendering/GL/physical tests remain outstanding.
