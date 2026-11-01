@@ -1,0 +1,174 @@
+{
+  "scope": "Trixie Essential/bootstrap source intake",
+  "signature_verification": "HTTPS DSC and payload SHA256; independent archive OpenPGP chain not yet verified",
+  "components": {
+    "libcap-ng": {
+      "version": "0.8.5-4",
+      "dsc": "libcap-ng_0.8.5-4.dsc",
+      "files": [
+        {
+          "filename": "libcap-ng_0.8.5-4.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap-ng/libcap-ng_0.8.5-4.dsc",
+          "size": 1710,
+          "sha256": "a5745b7d68a11068ae5beddcc7fbc94cd87dd81cb2d7495e7d48610603be3526"
+        },
+        {
+          "filename": "libcap-ng_0.8.5.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap-ng/libcap-ng_0.8.5.orig.tar.gz",
+          "size": 59265,
+          "sha256": "e4be07fdd234f10b866433f224d183626003c65634ed0552b02e654a380244c2"
+        },
+        {
+          "filename": "libcap-ng_0.8.5-4.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap-ng/libcap-ng_0.8.5-4.debian.tar.xz",
+          "size": 7816,
+          "sha256": "f5d4e7f38bdbca87de77317ce95f973883081370ef257019b484e29e3368a20d"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libcap-ng"
+    },
+    "audit": {
+      "version": "1:4.0.2-2+deb13u1",
+      "dsc": "audit_4.0.2-2+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "audit_4.0.2-2+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/a/audit/audit_4.0.2-2+deb13u1.dsc",
+          "size": 2761,
+          "sha256": "f72198219d4a50967e328a143c9c0a7ba981c8f3790b2880465b8a80ac33850e"
+        },
+        {
+          "filename": "audit_4.0.2.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/a/audit/audit_4.0.2.orig.tar.gz",
+          "size": 1198769,
+          "sha256": "d5d1b5d50ee4a2d0d17875bc6ae6bd6a7d5b34d9557ea847a39faec531faaa0a"
+        },
+        {
+          "filename": "audit_4.0.2-2+deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/a/audit/audit_4.0.2-2%2Bdeb13u1.debian.tar.xz",
+          "size": 25008,
+          "sha256": "ab39cb2d6dc6b0440da37f085b643dffc86d8cc5370b5cc6502d36b53edaa862"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/audit"
+    },
+    "libcap2": {
+      "version": "1:2.75-10+deb13u1",
+      "dsc": "libcap2_2.75-10+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "libcap2_2.75-10+deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap2/libcap2_2.75-10+deb13u1.dsc",
+          "size": 2714,
+          "sha256": "cb6af220de216655ec55bb1f5abf3fa8f03e82c9956f120b313056e895c02ea6"
+        },
+        {
+          "filename": "libcap2_2.75.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap2/libcap2_2.75.orig.tar.xz",
+          "size": 197868,
+          "sha256": "de4e7e064c9ba451d5234dd46e897d7c71c96a9ebf9a0c445bc04f4742d83632"
+        },
+        {
+          "filename": "libcap2_2.75.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap2/libcap2_2.75.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "c71b593e7c3160fd7f406641074d93462bbc4906c9243937a0e232f42d5c54d2"
+        },
+        {
+          "filename": "libcap2_2.75-10+deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libc/libcap2/libcap2_2.75-10%2Bdeb13u1.debian.tar.xz",
+          "size": 24628,
+          "sha256": "d375de2f743f112835fc0eef2a9c305c1109371954cf53e109b7f046fe58c1bc"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libcap2"
+    },
+    "libselinux": {
+      "version": "3.8.1-1",
+      "dsc": "libselinux_3.8.1-1.dsc",
+      "files": [
+        {
+          "filename": "libselinux_3.8.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libselinux/libselinux_3.8.1-1.dsc",
+          "size": 3013,
+          "sha256": "e430b782a396e266f86c32fa779efadebfd40e6a0d10ddbd786fc47905f723b9"
+        },
+        {
+          "filename": "libselinux_3.8.1.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libselinux/libselinux_3.8.1.orig.tar.gz",
+          "size": 204411,
+          "sha256": "ec2d2789f931152d21c1db1eb4bc202ce4eccede34d9be9e360e3b45243cee2c"
+        },
+        {
+          "filename": "libselinux_3.8.1.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libselinux/libselinux_3.8.1.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "7f983714a780d89f7677e7ba140ce29974022b8ba225f60246b6c33de1477dd6"
+        },
+        {
+          "filename": "libselinux_3.8.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libselinux/libselinux_3.8.1-1.debian.tar.xz",
+          "size": 37812,
+          "sha256": "1af25952374f083cf3d6d0edd5beb938f2e53c30eb404afa1e32fcd1cb127db7"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libselinux"
+    },
+    "libsepol": {
+      "version": "3.8.1-1",
+      "dsc": "libsepol_3.8.1-1.dsc",
+      "files": [
+        {
+          "filename": "libsepol_3.8.1-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libsepol/libsepol_3.8.1-1.dsc",
+          "size": 2347,
+          "sha256": "0351ffc8c3f66918c9e4ecae9244ae2af27857d8795e424e384ddda794718c34"
+        },
+        {
+          "filename": "libsepol_3.8.1.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libsepol/libsepol_3.8.1.orig.tar.gz",
+          "size": 513830,
+          "sha256": "0e78705305f955abd4c0654d37a5477ee26349ab74db9e2b03a7868897ae1ddf"
+        },
+        {
+          "filename": "libsepol_3.8.1.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libsepol/libsepol_3.8.1.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "183f6cf96054986704d4224f89518e9139370385c43a533078f45ca688dca8b6"
+        },
+        {
+          "filename": "libsepol_3.8.1-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libs/libsepol/libsepol_3.8.1-1.debian.tar.xz",
+          "size": 21432,
+          "sha256": "7aac515a941f8dd19581b16c664b3098962e6a8ed7fa0afdafd306a85c667619"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libsepol"
+    },
+    "pcre2": {
+      "version": "10.46-1~deb13u3",
+      "dsc": "pcre2_10.46-1~deb13u3.dsc",
+      "files": [
+        {
+          "filename": "pcre2_10.46-1~deb13u3.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/p/pcre2/pcre2_10.46-1~deb13u3.dsc",
+          "size": 2406,
+          "sha256": "5f317534eff1e33f0a5690a866ba2f2c9399c60ce9b74c89039d4de372420c5c"
+        },
+        {
+          "filename": "pcre2_10.46.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/p/pcre2/pcre2_10.46.orig.tar.gz",
+          "size": 2718545,
+          "sha256": "8d28d7f2c3b970c3a4bf3776bcbb5adfc923183ce74bc8df1ebaad8c1985bd07"
+        },
+        {
+          "filename": "pcre2_10.46-1~deb13u3.diff.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/p/pcre2/pcre2_10.46-1~deb13u3.diff.gz",
+          "size": 20405,
+          "sha256": "28734c85365f431a4494c2efe2cdb42ed432673f962e421826f3c3b7aa76c4cf"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/pcre2"
+    }
+  }
+}

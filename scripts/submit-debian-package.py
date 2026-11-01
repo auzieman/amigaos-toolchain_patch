@@ -22,6 +22,8 @@ files = ['scripts/build-debian-package.py', profile['source_lock'],
 series = project / 'patches' / a.package / 'series.json'
 if series.exists():
     files.append(str(series.relative_to(project)))
+    if series.with_name('series').exists():
+        files.append(str(series.with_name('series').relative_to(project)))
     files.extend(item['path'] for item in json.loads(series.read_text())['patches'])
 for name in files:
     path = project / name
@@ -40,9 +42,13 @@ for source, target in [('project', '/project'), (profile['source_cache'], '/cach
     command += ['-v', base + '/' + source + ':' + target + ':ro']
 command += ['-v', base + '/work:/work', profile['image_id'],
             '/project/scripts/build-debian-package.py', '--project', '/project',
-            '--cache', '/cache', '--tools', '/tools', '--sysroot', '/sysroot',
+            '--cache', '/cache', '--tools', profile.get('tools_prefix', '/tools'), '--sysroot', '/sysroot',
             '--work', '/work/debian-' + a.package + '-' + a.iteration,
             '--source-lock', profile['source_lock'], '--package', a.package,
             '--image-id', profile['image_id'], '--jobs', str(profile['cpus'])]
+if profile.get('arch_only'):
+    command += ['--arch-only']
+if profile.get('build_profiles'):
+    command += ['--build-profiles', profile['build_profiles']]
 subprocess.run(['python3', str(helper / 'sudo.py'), shlex.join(command)], check=True)
 print('Submitted', name, 'on R730; no local build or automatic retry')

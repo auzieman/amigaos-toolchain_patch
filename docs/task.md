@@ -852,3 +852,13 @@ profiles/images/trixie-bootstrap.json for exact progress and remaining gates.
 
 
 2026-11-01 status check: qemu-live008 kernel build exited0; receipt reports compiled. Cgroups/ACL/virtio-block config checks passed. New kernel and normal disk-root boot remain untested. No package job currently running; full libc package/Essential root bootstrap remains next.
+
+
+2026-11-01 libc Debian bootstrap: packaged real native-host GCC8.5 SPE compiler
+and installed it in pinned libc build image. Corrected architecture-specific
+compiler dependency selection and supported stage2 dependency cycle; preflight
+checks remain enabled. Iteration002 reaches libc link then native objcopy cannot
+read PPC; explicit cross OBJCOPY export fixes selection. Fresh003 compiling
+with ~stage2 version. Full-feature rebuild, installed root and runtime gates
+remain pending; no forced dependency/status records. Six following library
+sources pinned for normal SELinux/audit closure. See builds/glibc-debian-20261101.

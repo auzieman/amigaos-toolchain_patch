@@ -69,3 +69,31 @@ python3 scripts/submit-r730-kernel.py --kernel-profile qemu-live --iteration 009
 
 Use a fresh iteration; tabor-live is the physical profile. No USB writes or
 new viewer launches are performed by either submitter.
+
+## Debian libc bootstrap
+
+```sh
+python3 scripts/submit-debian-package.py --package glibc --iteration 004
+```
+
+Use the next unused iteration. This selects the pinned libc packaging image,
+its installed native-host tabor-spe-toolchain package and actual compiler prefix,
+source restoration/packaging patches, Linux headers in the recorded sysroot,
+arch-only binary build and Debian cross/nocheck/stage2/nobiarch profiles.
+Dependency checks remain enabled. Plain and JSON patch series must agree.
+Debian control templates regenerate before package preflight. Bootstrap versions
+carry ~stage2 so a later full-feature +tabor1 rebuild upgrades normally.
+
+The compiler package contains actual GCC8.5 files and upstream licenses; it
+does not provide a fictitious GCC14 identity or mark target libc installed.
+Its dependency is selected only for powerpcspe. Native binutils dependency is
+the actual cross binutils package. Glibc's SPE architecture file explicitly
+exports cross OBJCOPY: GCC8's relocated print-prog-name lookup otherwise falls
+back to host objcopy, which fails at libc_pic.os.clean.
+
+Stage2 is intermediate bootstrap state, not final Trixie acceptance. SELinux
+build dependencies are omitted by Debian's stage2 profile; the audit development
+dependency is also excluded in that profile because that integration is absent.
+The final normal-feature rebuild restores these dependencies and needs target
+runtime tests. Keep all generated maintainer scripts and real libc/libgcc
+dependencies. Do not force installation into the incomplete diagnostic root.

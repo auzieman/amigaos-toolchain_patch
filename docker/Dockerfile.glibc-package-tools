@@ -1,0 +1,8 @@
+ARG PACKAGE_TOOLS_IMAGE
+FROM ${PACKAGE_TOOLS_IMAGE}
+COPY tabor-spe-toolchain_8.5.0+tabor1_amd64.deb /tmp/tabor-spe-toolchain.deb
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    /tmp/tabor-spe-toolchain.deb rdfind symlinks perl \
+    && dpkg-query -W > /opt/tabor-glibc-package-host-packages.txt \
+    && rm -f /tmp/tabor-spe-toolchain.deb && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

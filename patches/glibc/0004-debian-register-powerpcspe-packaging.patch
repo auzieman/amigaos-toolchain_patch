@@ -11,9 +11,11 @@
  
 --- /dev/null
 +++ b/debian/sysdeps/powerpcspe.mk
-@@ -0,0 +1,5 @@
+@@ -0,0 +1,7 @@
 +# Experimental Tabor/e500v2 SPE ABI; do not use generic PowerPC multilib.
 +# The reference compiler is GCC8.5; do not impersonate Debian GCC14.
 +DEB_GCC_VERSION =
++# GCC8 does not locate the relocated cross objcopy through print-prog-name.
++export OBJCOPY = $(DEB_HOST_GNU_TYPE)-objcopy
 +extra_cflags = -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128
 +extra_config_options = --disable-multi-arch --disable-werror

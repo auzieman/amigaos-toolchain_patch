@@ -1,0 +1,11 @@
+make[5]: Leaving directory '/work/debian-glibc-002/source/misc'
+/usr/bin/make subdir=time -C ../time ..=../ objdir=/work/debian-glibc-002/source/build-tree/powerpcspe-libc -f Makefile -f ../elf/rtld-Rules rtld-all rtld-modules='rtld-setitimer.os'
+make[5]: Entering directory '/work/debian-glibc-002/source/string'
+make[5]: Entering directory '/work/debian-glibc-002/source/time'
+powerpc-linux-gnuspe-gcc -U_FILE_OFFSET_BITS -U_TIME_BITS ../sysdeps/unix/sysv/linux/setitimer.c -c -std=gnu11 -fgnu89-inline  -pipe -O2 -g -fdebug-prefix-map=/work/debian-glibc-002/source=. -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-doubl
+make[5]: Leaving directory '/work/debian-glibc-002/source/time'
+objcopy @/work/debian-glibc-002/source/build-tree/powerpcspe-libc/libc_pic.opts /work/debian-glibc-002/source/build-tree/powerpcspe-libc/libc_pic.os /work/debian-glibc-002/source/build-tree/powerpcspe-libc/libc_pic.os.clean
+objcopy: Unable to recognise the format of the input file `/work/debian-glibc-002/source/build-tree/powerpcspe-libc/libc_pic.os'
+make[3]: *** [../Makerules:620: /work/debian-glibc-002/source/build-tree/powerpcspe-libc/libc_pic.os.clean] Error 1
+make[3]: *** Waiting for unfinished jobs....
+powerpc-linux-gnuspe-gcc -U_FILE_OFFSET_BITS -U_TIME_BITS errname.c -c -std=gnu11 -fgnu89-inline  -pipe -O2 -g -fdebug-prefix-map=/work/debian-glibc-002/source=. -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -Wall -Wwrite-strings -

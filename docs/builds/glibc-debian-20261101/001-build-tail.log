@@ -1,0 +1,20 @@
+cat debian/control.in/ppc64		>> /work/debian-glibc-001/source/stamp-dir/controlT
+cat debian/control.in/mips32		>> /work/debian-glibc-001/source/stamp-dir/controlT
+cat debian/control.in/mipsn32		>> /work/debian-glibc-001/source/stamp-dir/controlT
+cat debian/control.in/mips64		>> /work/debian-glibc-001/source/stamp-dir/controlT
+cat debian/control.in/x32		>> /work/debian-glibc-001/source/stamp-dir/controlT
+sed -e 's%@libc@%libc6%g' -e 's%@DEB_VERSION_UPSTREAM@%2.41%g' -e 's%@DEB_GCC_VERSION@%%g' < /work/debian-glibc-001/source/stamp-dir/controlT > debian/control
+rm /work/debian-glibc-001/source/stamp-dir/controlT
+# And generate the tests control file with the current GCC
+sed -e 's%@triggers@%binutils, linux-libc-dev [linux-any], gcc%g' debian/tests/control.in > debian/tests/control
+touch /work/debian-glibc-001/source/stamp-dir/control
+$ ['dpkg-buildpackage', '-a', 'powerpcspe', '-B', '-us', '-uc']
+dpkg-buildpackage: info: source package glibc
+dpkg-buildpackage: info: source version 2.41-12+deb13u4+tabor1
+dpkg-buildpackage: info: source distribution tabor-trixie
+dpkg-buildpackage: info: source changed by Tabor lab <root@localhost>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture powerpcspe
+dpkg-checkbuilddeps: error: unmet build dependencies: tabor-spe-toolchain:native (>= 8.5.0)
+dpkg-buildpackage: error: build dependencies/conflicts unsatisfied; aborting
+dpkg-buildpackage: hint: satisfy build dependencies with your package manager frontend

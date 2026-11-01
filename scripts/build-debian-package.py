@@ -13,7 +13,10 @@ p.add_argument('--source-lock', default='profiles/package-tools.lock.json')
 p.add_argument('--package', required=True)
 p.add_argument('--image-id', required=True)
 p.add_argument('--jobs', type=int, default=4)
+p.add_argument('--build-profiles', default='cross,nocheck')
+p.add_argument('--arch-only', action='store_true')
 a = p.parse_args()
+assert __import__('re').fullmatch(r'[a-z0-9,-]+', a.build_profiles)
 assert 1 <= a.jobs <= 4
 assert a.image_id.startswith('sha256:') and len(a.image_id) == 71
 a.work.mkdir(parents=True, exist_ok=False)
@@ -30,10 +33,11 @@ env.update(PATH=str(a.tools / 'bin') + ':' + env['PATH'], CC=str(cc),
            DEB_CXXFLAGS_MAINT_APPEND=' '.join(flags),
            DEB_LDFLAGS_MAINT_APPEND=flags[0],
            DEB_BUILD_OPTIONS='nocheck parallel=' + str(a.jobs),
-           DEB_BUILD_PROFILES='cross nocheck', LC_ALL='C.UTF-8',
+           DEB_BUILD_PROFILES=a.build_profiles.replace(',', ' '), LC_ALL='C.UTF-8',
            TABOR_SYSROOT=str(a.sysroot),
            TABOR_SHLIBS=str(a.project / 'profiles/images/spe-bootstrap.shlibs'))
 r = {'status': 'running', 'package': a.package, 'source_version': component['version'],
+     'build_profiles': a.build_profiles, 'arch_only': a.arch_only,
      'image_id': a.image_id, 'recipe_sha256': sha(Path(__file__)),
      'source_lock_sha256': sha(lockpath), 'compiler_sha256': sha(cc),
      'sysroot_libraries': {str(f.relative_to(a.sysroot)): sha(f)
@@ -61,6 +65,10 @@ with (a.work / 'build.log').open('w') as log:
         if series.exists():
             patches = json.loads(series.read_text())
             assert patches['version'] == component['version']
+            plain = series.with_name('series')
+            if plain.exists():
+                ordered = [line.split('#', 1)[0].strip() for line in plain.read_text().splitlines()]
+                assert [name for name in ordered if name] == [Path(item['path']).name for item in patches['patches']], 'Plain/JSON patch series disagree'
             for item in patches['patches']:
                 patch = a.project / item['path']; assert sha(patch) == item['sha256']
                 run(['git', 'apply', '--check', patch], source)
@@ -68,12 +76,20 @@ with (a.work / 'build.log').open('w') as log:
             r['patch_series_sha256'] = sha(series)
         changelog = source / 'debian/changelog'
         version = component['version'] + '+tabor1'
+        if 'stage2' in a.build_profiles.split(','):
+            version += '~stage2'
         changelog.write_text(f'{a.package} ({version}) tabor-trixie; urgency=medium\n\n'
             '  * Rebuild for the experimental Tabor SPE sysroot.\n\n'
             ' -- Tabor lab <root@localhost>  Sun, 01 Nov 2026 16:00:00 +0000\n\n'
             + changelog.read_text())
         r['binary_version'] = version
-        run(['dpkg-buildpackage', '-a', 'powerpcspe', '-b', '-us', '-uc'], source)
+        if a.package == 'glibc':
+            # Debian generates its control from architecture-specific templates.
+            env['LINUX_SOURCE'] = str(a.sysroot / 'usr')
+            run(['dpkg-architecture', '-apowerpcspe', '-c',
+                 'make -f debian/rules debian/control'], source)
+        run(['dpkg-buildpackage', '-a', 'powerpcspe',
+             '-B' if a.arch_only else '-b', '-us', '-uc'], source)
         packages = {}
         for deb in sorted([*a.work.glob('*.deb'), *a.work.glob('*.udeb')]):
             metadata = subprocess.check_output(['dpkg-deb', '-f', str(deb), 'Architecture'], text=True).strip()

@@ -12,7 +12,8 @@
   "packages": [
     "libmd",
     "attr",
-    "dash"
+    "dash",
+    "glibc"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -23,6 +24,14 @@
     "dash": {
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/essential-sources.lock.json"
+    },
+    "glibc": {
+      "source_cache": "tabor-source-cache",
+      "source_lock": "profiles/debian-trixie.lock.json",
+      "image_id": "sha256:960dc24bef160fe79cd03ac2e029883b1903a5146fe8443e8b2d6d791cc29c36",
+      "tools_prefix": "/usr/lib/tabor-spe-toolchain",
+      "arch_only": true,
+      "build_profiles": "cross,nocheck,stage2,nobiarch"
     }
   }
 }
