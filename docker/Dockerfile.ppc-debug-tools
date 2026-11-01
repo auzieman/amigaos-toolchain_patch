@@ -1,0 +1,6 @@
+ARG GLIBC_PACKAGE_TOOLS_IMAGE
+FROM ${GLIBC_PACKAGE_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends gdb-multiarch \
+    && dpkg-query -W > /opt/tabor-debug-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["gdb-multiarch"]

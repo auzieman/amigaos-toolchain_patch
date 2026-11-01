@@ -1,0 +1,25 @@
+{
+  "probe_sha256": "ca4b257fc453e3512af7050d6992448ad7b4f6c438795e4900c6f330edf1a2be",
+  "scope": "Actual shared-library smoke; previous static-C invocation excluded",
+  "tests": {
+    "dynamic-library-list": {
+      "returncode": 0,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003:/lib:/usr/lib --list /home/tabor/glibc-stage2-003/abi-dynamic-probe"
+    },
+    "dynamic-abi": {
+      "returncode": 1,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003:/lib:/usr/lib /home/tabor/glibc-stage2-003/abi-dynamic-probe --cli"
+    },
+    "cxx-library-list": {
+      "returncode": 0,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003:/lib:/usr/lib --list /bin/spe-cxx-check"
+    },
+    "cxx-trace": {
+      "returncode": 0,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003:/lib:/usr/lib /bin/spe-cxx-check --cli; result=$?; echo TARGET_PROCESS_EXIT=$result; exit 0",
+      "target_process_exit": 139,
+      "status": "FAIL: SIGSEGV during exception unwinding",
+      "returncode_scope": "SSH wrapper returns zero intentionally; target exit is 139"
+    }
+  }
+}

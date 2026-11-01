@@ -862,3 +862,22 @@ read PPC; explicit cross OBJCOPY export fixes selection. Fresh003 compiling
 with ~stage2 version. Full-feature rebuild, installed root and runtime gates
 remain pending; no forced dependency/status records. Six following library
 sources pinned for normal SELinux/audit closure. See builds/glibc-debian-20261101.
+
+
+2026-11-01 target policy (user clarification): preserve Debian behavior while
+compiling/configuring for the A1222 SPE CPU, real memory/SMP and Radeon. Prove
+this baseline on physical hardware, then measure/tune, then port AlpinE tooling
+as native Debian packages. Flatpak excluded. Avoid importing Alpine/musl
+binaries or porting tooling ahead of hardware validation. Current libc C++
+unwinding regression remains the active prerequisite; do not stop that work.
+
+2026-11-01 iteration003 runtime gate: seven real Debian glibc stage2 artifacts
+built successfully. Candidate loader/libc/libm hashes match the .deb payload.
+A dynamically linked C probe passes eight basic ABI checks; fenv rounding
+remains failing. C++ exception unwinding crashes with SIGSEGV, unlike the
+existing baseline. Offline core analysis locates the fault in dl_iterate_phdr
+while obtaining the caller address; generated code reads an uninitialized
+stack slot. Compiler/SPE frame handling is a hypothesis requiring a reduced
+reproducer, not yet an established fix. Initial static-C loader attempts are
+explicitly excluded from shared-libc acceptance. No target installation or USB
+write. Next: isolate the return-address regression before iteration004.

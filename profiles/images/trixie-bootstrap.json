@@ -28,7 +28,7 @@
     "libmd": "built and library-runtime-tested; target installation pending",
     "attr": "Debian SPE binary packages built; target tests/install pending",
     "dash": "Debian SPE package with maintainer scripts built; runtime smoke passed; install pending",
-    "glibc": "Debian stage2 packaging compile in progress; compiler/dependency qualification passed, cross objcopy selection corrected; not installed or accepted",
+    "glibc": "Seven Debian stage2 artifacts built; dynamic C ABI smoke passes eight checks, fenv rounding still fails; C++ exception unwinding SIGSEGV blocks acceptance; not installed",
     "host_toolchain": "Real amd64 tabor-spe-toolchain8.5 native-host package installed into pinned libc build image; target runtime separate"
   },
   "kernel_delta": "QEMU cgroups/ACL/virtio-block effective config required; same init/session requirements in physical fragment",
@@ -39,5 +39,18 @@
     "Boot that disk root under QEMU, verify dpkg/apt and persistence",
     "Add VM132 session closure, E and software GL/SPE tests",
     "Physical A1222 image and Radeon acceptance"
-  ]
+  ],
+  "target_policy": {
+    "baseline": "Normal Debian package, init and service behavior, compiled/configured for A1222 hardware and SPE ABI",
+    "cpu": "P1022/e500v2 SPE; -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+    "platform": "Two cores, usable physical RAM/MMU and Radeon driver verified on actual board",
+    "sequence": [
+      "Configured Trixie boot and runtime baseline",
+      "Actual A1222 hardware acceptance",
+      "Measured hardware tuning",
+      "Port AlpinE tooling as native Debian packages"
+    ],
+    "flatpak": "Excluded from this target per user direction",
+    "port_contract": "Adapt AlpinE tooling to Debian paths/dependencies/services and SPE builds; preserve normal package configuration; do not import Alpine/musl binaries"
+  }
 }

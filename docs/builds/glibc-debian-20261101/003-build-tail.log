@@ -1,0 +1,35 @@
+dpkg-deb: building package 'libc6-dbg' in '../libc6-dbg_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb'.
+touch /work/debian-glibc-003/source/stamp-dir/binaryinst_libc6-dbg
+Running debhelper for libc6-udeb
+dh_testroot
+dh_installdirs -plibc6-udeb
+dh_install -plibc6-udeb
+dh_strip -plibc6-udeb
+# Ensure that symlinks resolve even when /usr is unmerged.
+set -e; \
+find "debian/libc6-udeb" \( -lname "*../lib*" -o -lname "/lib*" \) -printf "%p*%l\n" | \
+while IFS='*' read -r p l; do \
+  ln -svf "${l%%/lib*}/usr/lib${l#*/lib}" "$p"; \
+done
+'debian/libc6-udeb/usr/lib/ld.so.1' -> '/usr/lib/powerpc-linux-gnuspe/ld.so.1'
+dh_link -plibc6-udeb
+# when you want to install extra packages, use extra_pkg_install.
+dh_compress -plibc6-udeb
+dh_fixperms -plibc6-udeb
+find debian/libc6-udeb -type f -regex '.*/libc\.so\.[0-9.]+' -exec chmod a+x '{}' ';'
+find debian/libc6-udeb -type f -regex '.*/ld.*\.so\.[0-9]' -exec chmod a+x '{}' ';'
+dh_installdeb -plibc6-udeb
+# dh_shlibdeps -plibc6-udeb
+dh_gencontrol -plibc6-udeb
+dh_builddeb -plibc6-udeb
+dpkg-deb: building package 'libc6-udeb' in 'debian/.debhelper/scratch-space/build-libc6-udeb/libc6-udeb_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb'.
+	Renaming libc6-udeb_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb to libc6-udeb_2.41-12+deb13u4+tabor1~stage2_powerpcspe.udeb
+touch /work/debian-glibc-003/source/stamp-dir/binaryinst_libc6-udeb
+rm /work/debian-glibc-003/source/stamp-dir/mkbuilddir_libc /work/debian-glibc-003/source/stamp-dir/configure_libc
+ dpkg-genbuildinfo --build=any -O../glibc_2.41-12+deb13u4+tabor1~stage2_powerpcspe.buildinfo
+ dpkg-genchanges --build=any -O../glibc_2.41-12+deb13u4+tabor1~stage2_powerpcspe.changes
+dpkg-genchanges: warning: package libc-devtools in control file but not in files list
+dpkg-genchanges: warning: package locales-all in control file but not in files list
+dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

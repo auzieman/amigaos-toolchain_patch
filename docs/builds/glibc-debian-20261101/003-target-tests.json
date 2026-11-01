@@ -1,0 +1,31 @@
+{
+  "scope": "New packaged-build loader/libc/libm in private directory; not target package installation or full Trixie root",
+  "files_sha256": {
+    "ld.so.1": "d022ba90791b92f6b6790fade136f84c3f010e3b23ab03a52a9258aa25f9f389",
+    "libc.so.6": "d8370dc166533993cef0c89e9e598b21d0098ac37fe8dac02e788d1c624ed345",
+    "libm.so.6": "afa03e92eec6390a3ad12c19d6ac72f262ad59473a7b8067d1e33ae96e861e8a"
+  },
+  "tests": {
+    "loader-version": {
+      "returncode": 0,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --version"
+    },
+    "library-list": {
+      "returncode": 255,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003 --list /bin/spe-abi-check",
+      "valid_for_shared_libc_acceptance": false,
+      "reason": "spe-abi-check is statically linked"
+    },
+    "abi": {
+      "returncode": 1,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003 /bin/spe-abi-check --cli",
+      "valid_for_shared_libc_acceptance": false,
+      "reason": "spe-abi-check is statically linked"
+    },
+    "cxx": {
+      "returncode": 255,
+      "command": "/home/tabor/glibc-stage2-003/ld.so.1 --library-path /home/tabor/glibc-stage2-003 /bin/spe-cxx-check --cli"
+    }
+  },
+  "validity": "Initial diagnostic attempts, superseded by 003-dynamic-tests.json. Static C probe cannot validate candidate shared libc."
+}
