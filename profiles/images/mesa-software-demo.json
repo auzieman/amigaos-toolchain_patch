@@ -1,0 +1,31 @@
+{
+  "purpose": "Explicit user-authorized diagnostic GL/SPE demo despite open ABI issue3; software rendering only, no GPU acceptance",
+  "source": "mesa",
+  "version": "25.0.7-2+deb13u1",
+  "options": {
+    "platforms": [
+      "x11"
+    ],
+    "gallium-drivers": [
+      "softpipe"
+    ],
+    "vulkan-drivers": [],
+    "glx": "xlib",
+    "egl": "disabled",
+    "gbm": "disabled",
+    "glvnd": "disabled",
+    "gles1": "disabled",
+    "gles2": "disabled",
+    "llvm": "disabled",
+    "draw-use-llvm": false,
+    "power8": "disabled",
+    "gallium-vdpau": "disabled",
+    "gallium-va": "disabled",
+    "gallium-xa": "disabled",
+    "gallium-opencl": "disabled",
+    "gallium-rusticl": false,
+    "lmsensors": "disabled",
+    "zstd": "disabled",
+    "build-tests": false
+  }
+}

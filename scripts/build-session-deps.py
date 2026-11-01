@@ -4,7 +4,7 @@ import argparse,hashlib,json,os,shutil,subprocess,time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','cache','tools','sysroot','base-stage','work']:p.add_argument('--'+n,type=Path,required=True)
-p.add_argument('--source-lock',default='profiles/session-sources.lock.json');p.add_argument('--extra-stage',type=Path);p.add_argument('--image-id',required=True);p.add_argument('--jobs',type=int,default=4);p.add_argument('--components',default='')
+p.add_argument('--hardware-xorg',action='store_true');p.add_argument('--source-lock',default='profiles/session-sources.lock.json');p.add_argument('--extra-stage',type=Path);p.add_argument('--image-id',required=True);p.add_argument('--jobs',type=int,default=4);p.add_argument('--components',default='')
 a=p.parse_args();assert 1<=a.jobs<=8;a.work.mkdir(parents=True,exist_ok=False)
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest();stage=a.work/'stage';shutil.copytree(a.base_stage,stage,symlinks=True)
 if a.extra_stage:
@@ -90,7 +90,7 @@ try:
    elif name=='libxfont':autotools(src,['--without-bzip2','--disable-devel-docs'])
    elif name=='xkeyboard-config':meson(src,name,['-Dcompat-rules=true'])
    elif name=='x11-xkb-utils':autotools(src/'xkbcomp',['--disable-selective-werror'])
-   elif name=='xorg-server':meson(src,name,['-Dxorg=false','-Dxephyr=false','-Dxnest=false','-Dxwin=false','-Dxquartz=false','-Dxvfb=true','-Dglamor=false','-Dglx=false','-Ddri1=false','-Ddri2=false','-Ddri3=false','-Ddrm=false','-Dpciaccess=false','-Dudev=false','-Dudev_kms=false','-Dsystemd_logind=false','-Dxselinux=false','-Dsecure-rpc=false','-Ddocs=false','-Ddevel-docs=false','-Dxkb_dir=/usr/share/X11/xkb','-Dxkb_bin_dir=/usr/bin','-Dxkb_output_dir=/tmp','-Ddefault_font_path=/usr/share/fonts/X11/misc,built-ins'])
+   elif name=='xorg-server':meson(src,name,['-Dxorg='+str(a.hardware_xorg).lower(),'-Dxephyr=false','-Dxnest=false','-Dxwin=false','-Dxquartz=false','-Dxvfb=true','-Dglamor=false','-Dglx=false','-Ddri1=false','-Ddri2=false','-Ddri3=false','-Ddrm='+str(a.hardware_xorg).lower(),'-Dpciaccess='+str(a.hardware_xorg).lower(),'-Dudev=false','-Dudev_kms=false','-Dsystemd_logind=false','-Dxselinux=false','-Dsecure-rpc=false','-Ddocs=false','-Ddevel-docs=false','-Dxkb_dir=/usr/share/X11/xkb','-Dxkb_bin_dir=/usr/bin','-Dxkb_output_dir=/tmp','-Ddefault_font_path=/usr/share/fonts/X11/misc,built-ins'])
    elif name=='giflib':
     run(['make','-j'+str(a.jobs),'libgif.so','CC='+str(cc),'CFLAGS='+' '.join(cflags+['-std=gnu99','-fPIC'])],src)
     for f in src.glob('libgif.so*'):
@@ -100,6 +100,23 @@ try:
     shutil.copy2(src/'gif_lib.h',stage/'usr/include/gif_lib.h')
    elif name=='libsndfile':cmakebuild(src,name,['-DBUILD_SHARED_LIBS=ON','-DENABLE_EXTERNAL_LIBS=OFF','-DENABLE_MPEG=OFF','-DBUILD_PROGRAMS=OFF','-DBUILD_EXAMPLES=OFF','-DBUILD_TESTING=OFF'])
    elif name=='libvncserver':cmakebuild(src,name,['-DWITH_GNUTLS=OFF','-DWITH_OPENSSL=OFF','-DWITH_GCRYPT=OFF','-DWITH_LZO=OFF','-DWITH_SDL=OFF','-DWITH_GTK=OFF','-DWITH_QT=OFF','-DWITH_SYSTEMD=OFF','-DWITH_LIBSSHTUNNEL=OFF','-DWITH_FFMPEG=OFF','-DWITH_SASL=OFF','-DWITH_EXAMPLES=OFF','-DWITH_TESTS=OFF','-DWITH_TIGHTVNC_FILETRANSFER=OFF'])
+   elif name=='libpciaccess':autotools(src,[])
+   elif name=='libevdev':meson(src,name,['-Dtests=disabled','-Ddocumentation=disabled'])
+   elif name=='xserver-xorg-input-evdev':
+    series=json.loads((a.project/'patches/evdev/series.json').read_text());assert series['version']==comp['version']
+    for item in series['patches']:
+     patch=a.project/item['path'];assert sha(patch)==item['sha256'];run(['git','apply','--check',patch],src);run(['git','apply',patch],src);r.setdefault('patches',[]).append(item)
+    run(['autoreconf','-fi'],src);autotools(src,['--disable-selective-werror','--disable-libudev'])
+   elif name=='mtdev':autotools(src,[])
+   elif name=='xinit':autotools(src,[])
+   elif name=='libdrm':meson(src,name,['-Dintel=disabled','-Dradeon=disabled','-Damdgpu=enabled','-Dnouveau=disabled','-Dvmwgfx=disabled','-Dvalgrind=disabled','-Dtests=false'])
+   elif name=='mesa':
+    profile=json.loads((a.project/'profiles/images/mesa-software-demo.json').read_text());assert profile['version']==comp['version']
+    args=[]
+    for k,v in profile['options'].items():
+     value=','.join(v) if isinstance(v,list) else str(v).lower() if isinstance(v,bool) else str(v)
+     args.append('-D'+k+'='+value)
+    meson(src,name,args)
    elif name=='libmd':autotools(src,[])
    elif name=='dpkg':autotools(src,['--sysconfdir=/etc','--localstatedir=/var','--disable-nls','--disable-dselect','--disable-devel-docs','--without-libbz2','--without-liblzma','--without-libzstd','--without-libselinux','--with-deb-compressor=gzip'])
    elif name=='x11vnc':autotools(src,['--without-ssl','--without-crypt','--without-avahi'])

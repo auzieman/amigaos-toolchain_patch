@@ -1,0 +1,11 @@
+{
+  "source": "Debian xserver-xorg-input-evdev after supplied patches",
+  "version": "1:2.11.0-1",
+  "scope": "Explicit manual-device diagnostic configuration only; default libudev path unchanged",
+  "patches": [
+    {
+      "path": "patches/evdev/0001-configure-optional-libudev-for-manual-devices.patch",
+      "sha256": "4d16bba3a7b7395b955a8804c69f556e43b50eceb0af41a8e4a321db7061a056"
+    }
+  ]
+}

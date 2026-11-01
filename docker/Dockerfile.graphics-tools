@@ -1,0 +1,6 @@
+ARG SESSION_TOOLS_IMAGE
+FROM ${SESSION_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends python3-yaml python3-packaging \
+    && dpkg-query -W > /opt/tabor-graphics-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

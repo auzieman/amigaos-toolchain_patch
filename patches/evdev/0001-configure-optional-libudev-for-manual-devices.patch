@@ -1,0 +1,25 @@
+From: Tabor SPE lab
+Subject: Allow existing non-libudev evdev path for static diagnostic devices
+
+Default libudev behavior remains required. The source already guards its
+virtual-device inspection with HAVE_LIBUDEV and supplies a FALSE fallback.
+Expose an explicit opt-out for manual device configuration without hotplug.
+
+--- a/configure.ac
++++ b/configure.ac
+@@ -45,7 +45,14 @@
+ 
+ # Obtain compiler/linker options from server and required extensions
+ PKG_CHECK_MODULES(XORG, [xorg-server >= 1.18] xproto [inputproto >= 2.1.99.3])
+-PKG_CHECK_MODULES(UDEV, libudev, [AC_DEFINE(HAVE_LIBUDEV, 1,[libudev support])])
++AC_ARG_ENABLE([libudev],
++    [AS_HELP_STRING([--disable-libudev],
++        [omit virtual-device inspection for manually configured devices])],
++    [], [enable_libudev=yes])
++AS_IF([test "x$enable_libudev" = "xyes"], [
++    PKG_CHECK_MODULES(UDEV, libudev,
++        [AC_DEFINE(HAVE_LIBUDEV, 1,[libudev support])])
++])
+ 
+ PKG_CHECK_MODULES(LIBEVDEV, [libevdev >= 0.4])
+ PKG_CHECK_MODULES(MTDEV, mtdev)

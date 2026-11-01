@@ -31,7 +31,7 @@ for f in sorted(a.stage.rglob('*')):
  if name.startswith(('usr/include/','usr/share/doc/','usr/share/man/','usr/share/info/','usr/share/aclocal/','usr/share/pkgconfig/','usr/lib/pkgconfig/','usr/lib/cmake/','usr/lib/python')):continue
  if name.startswith('usr/share/enlightenment/data/backgrounds/'):continue
  if name.startswith('usr/bin/') and f.name in skip_bins:continue
- if not (parts[0]=='etc' or name.startswith(('usr/lib/','usr/libexec/','usr/bin/','usr/sbin/','usr/share/'))):continue
+ if not (parts[0]=='etc' or name.startswith(('lib/firmware/','usr/lib/','usr/libexec/','usr/bin/','usr/sbin/','usr/share/'))):continue
  source=f
  for _ in range(32):
   if not source.is_symlink():break
