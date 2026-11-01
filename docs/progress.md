@@ -375,3 +375,15 @@ A1222 SPE copy/blitter/compositing optimizations, useful future workload clues
 but not Linux graphics validation or source reuse. Recorded selected hashes
 and factual summary only; media remains private. No USB/firmware changes. See
 builds/os4-media-review-20261101/README.md.
+
+
+2026-11-01 automated native-package increment: no active package job; built
+pinned native debhelper tools image, added fresh hash-locked Debian package
+runner and single-job R730 submit command (4CPU/6GiB, network off). Real libmd
+SPE packages built via normal debian/rules with dependency checks enabled.
+Recorded cross-sysroot shlibdeps fix and gzip bootstrap packaging adjustment;
+retained six success/failure iterations. Actual library MD5/SHA256 vectors pass
+in guest010. Target extraction exposed missing GNU tar (BusyBox lacks required
+option), reinforcing need for full Debian Essential dependency closure. No
+forced package installation or USB write. See debian-package-build.md and
+builds/debian-libmd-20261101. E/graphics/fenv/hardware gates remain open.

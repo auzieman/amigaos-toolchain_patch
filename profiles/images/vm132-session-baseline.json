@@ -13,6 +13,23 @@
   "contract": "Resolve complete Depends/Pre-Depends closure from target binary-package metadata, including alternatives and version constraints. Do not copy amd64 binaries or infer a resolved SPE closure from this seed list.",
   "package_seeds": {
     "installation": [
+      "base-files",
+      "base-passwd",
+      "libc6",
+      "libc-bin",
+      "libgcc-s1",
+      "bash",
+      "dash",
+      "coreutils",
+      "debianutils",
+      "diffutils",
+      "findutils",
+      "grep",
+      "sed",
+      "tar",
+      "gzip",
+      "perl-base",
+      "mawk",
       "dpkg",
       "debconf",
       "init-system-helpers",
@@ -119,5 +136,6 @@
     "component": "main",
     "status": "planned-not-deployed",
     "source": "docs/package-repository-plan.md"
-  }
+  },
+  "essential_bootstrap_contract": "Resolve the selected Debian Essential: yes set and its implicit runtime dependencies as well as explicit Depends/Pre-Depends; BusyBox applets are not assumed compatible replacements for package-maintenance tools."
 }

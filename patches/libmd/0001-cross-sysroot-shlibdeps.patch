@@ -1,0 +1,17 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -11,3 +11,14 @@
+ 
+ override_dh_installchangelogs:
+ 	dh_installchangelogs --no-trim
++
++# The experimental target libc lives in a read-only cross sysroot, not the
++# native builder package database. Preserve shlibdeps validation and metadata.
++ifneq ($(TABOR_SYSROOT),)
++override_dh_shlibdeps:
++	dh_shlibdeps -- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS)
++
++# Gzip is supported by the first bootstrap dpkg as well as normal APT.
++override_dh_builddeb:
++	dh_builddeb -- -Zgzip -Snone
++endif

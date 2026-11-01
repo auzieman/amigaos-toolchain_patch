@@ -1,0 +1,11 @@
+{
+  "status": "runtime-only-pass",
+  "test": "MD5+SHA256 abc vectors using exact packaged build library",
+  "command": "cd /home/tabor/libmd-package-005 && chmod 755 libmd-package-check && LD_LIBRARY_PATH=/home/tabor/libmd-package-005 ./libmd-package-check",
+  "scope": "Shared library runtime only. Target dpkg-deb extraction fails because BusyBox tar lacks GNU options. No package installation/configuration acceptance.",
+  "library_sha256": "b62f01825c7ecc5709d339d688e913c226a04b42e98343140eaffd5f361d9515",
+  "iterations_with_identical_tested_library": [
+    "005",
+    "006"
+  ]
+}

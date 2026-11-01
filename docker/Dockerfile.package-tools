@@ -1,0 +1,7 @@
+ARG GRAPHICS_TOOLS_IMAGE
+FROM ${GRAPHICS_TOOLS_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    debhelper fakeroot dh-autoreconf gettext \
+    && dpkg-query -W > /opt/tabor-package-host-packages.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

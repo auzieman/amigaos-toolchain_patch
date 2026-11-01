@@ -1,0 +1,45 @@
+make[2]: Leaving directory '/work/debian-libmd-006/source/test'
+make[2]: Entering directory '/work/debian-libmd-006/source'
+make[3]: Entering directory '/work/debian-libmd-006/source'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/work/debian-libmd-006/source'
+make[2]: Leaving directory '/work/debian-libmd-006/source'
+make[1]: Leaving directory '/work/debian-libmd-006/source'
+   dh_install
+   dh_installdocs
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/work/debian-libmd-006/source'
+dh_installchangelogs --no-trim
+make[1]: Leaving directory '/work/debian-libmd-006/source'
+   dh_installman
+   dh_perl
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_dwz -a
+   dh_strip -a
+dh_strip: warning: Could not find the BuildID in debian/libmd0/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0
+   dh_makeshlibs -a
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/work/debian-libmd-006/source'
+dh_shlibdeps -- -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs
+make[1]: Leaving directory '/work/debian-libmd-006/source'
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   debian/rules override_dh_builddeb
+make[1]: Entering directory '/work/debian-libmd-006/source'
+dh_builddeb -- -Zgzip -Snone
+dpkg-deb: building package 'libmd-dev' in '../libmd-dev_1.1.0-2+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libmd0' in '../libmd0_1.1.0-2+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libmd0-udeb' in 'debian/.debhelper/scratch-space/build-libmd0-udeb/libmd0-udeb_1.1.0-2+tabor1_powerpcspe.deb'.
+	Renaming libmd0-udeb_1.1.0-2+tabor1_powerpcspe.deb to libmd0-udeb_1.1.0-2+tabor1_powerpcspe.udeb
+make[1]: Leaving directory '/work/debian-libmd-006/source'
+ dpkg-genbuildinfo --build=binary -O../libmd_1.1.0-2+tabor1_powerpcspe.buildinfo
+ dpkg-genchanges --build=binary -O../libmd_1.1.0-2+tabor1_powerpcspe.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

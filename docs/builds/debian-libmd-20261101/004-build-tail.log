@@ -1,0 +1,40 @@
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_dwz -a
+   dh_strip -a
+dh_strip: warning: Could not find the BuildID in debian/libmd0/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0
+   dh_makeshlibs -a
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/work/debian-libmd-004/source'
+dh_shlibdeps -- -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs
+make[1]: Leaving directory '/work/debian-libmd-004/source'
+   dh_installdeb -a
+   dh_gencontrol -a
+   dh_md5sums -a
+   debian/rules override_dh_builddeb
+make[1]: Entering directory '/work/debian-libmd-004/source'
+dh_builddeb -- -Zgzip -Sdefault
+dpkg-deb: error: unknown compression strategy 'default'!
+
+Type dpkg-deb --help for help about manipulating *.deb files;
+Type dpkg --help for help about installing and deinstalling packages.
+dpkg-deb: error: unknown compression strategy 'default'!
+
+Type dpkg-deb --help for help about manipulating *.deb files;
+Type dpkg --help for help about installing and deinstalling packages.
+dh_builddeb: error: dpkg-deb --root-owner-group -Zgzip -Sdefault --build debian/libmd-dev .. returned exit code 2
+dh_builddeb: error: dpkg-deb --root-owner-group -Zgzip -Sdefault --build debian/libmd0 .. returned exit code 2
+dpkg-deb: error: unknown compression strategy 'default'!
+
+Type dpkg-deb --help for help about manipulating *.deb files;
+Type dpkg --help for help about installing and deinstalling packages.
+dh_builddeb: error: dpkg-deb -z6 -Zxz -Sextreme --root-owner-group -Zgzip -Sdefault --build debian/libmd0-udeb debian/.debhelper/scratch-space/build-libmd0-udeb returned exit code 2
+dh_builddeb: error: Aborting due to earlier error
+make[1]: *** [debian/rules:23: override_dh_builddeb] Error 25
+make[1]: Leaving directory '/work/debian-libmd-004/source'
+make: *** [debian/rules:10: binary-arch] Error 2
+dpkg-buildpackage: error: debian/rules binary-arch subprocess returned exit status 2

@@ -1,0 +1,40 @@
+make[3]: Leaving directory '/work/debian-libmd-001/source/test'
+make[2]: Leaving directory '/work/debian-libmd-001/source/test'
+make[2]: Entering directory '/work/debian-libmd-001/source'
+make[3]: Entering directory '/work/debian-libmd-001/source'
+make[3]: Nothing to be done for 'install-exec-am'.
+make[3]: Nothing to be done for 'install-data-am'.
+make[3]: Leaving directory '/work/debian-libmd-001/source'
+make[2]: Leaving directory '/work/debian-libmd-001/source'
+make[1]: Leaving directory '/work/debian-libmd-001/source'
+   dh_install -a
+   dh_installdocs -a
+   debian/rules override_dh_installchangelogs
+make[1]: Entering directory '/work/debian-libmd-001/source'
+dh_installchangelogs --no-trim
+make[1]: Leaving directory '/work/debian-libmd-001/source'
+   dh_installman -a
+   dh_perl -a
+   dh_link -a
+   dh_strip_nondeterminism -a
+   dh_compress -a
+   dh_fixperms -a
+   dh_missing -a
+   dh_dwz -a
+   dh_strip -a
+dh_strip: warning: Could not find the BuildID in debian/libmd0/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0
+   dh_makeshlibs -a
+   dh_shlibdeps -a
+dpkg-shlibdeps: error: cannot find library libc.so.6 needed by debian/libmd0-udeb/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0 (ELF format: 'elf32-powerpc' abi: 'ELF:32:b:ppc:0'; RPATH: '')
+dpkg-shlibdeps: error: cannot continue due to the error above
+Note: libraries are not searched in other binary packages that do not have any shlibs or symbols file.
+To help dpkg-shlibdeps find private libraries, you might need to use -l.
+dpkg-shlibdeps: error: cannot find library libc.so.6 needed by debian/libmd0/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0 (ELF format: 'elf32-powerpc' abi: 'ELF:32:b:ppc:0'; RPATH: '')
+dpkg-shlibdeps: error: cannot continue due to the error above
+Note: libraries are not searched in other binary packages that do not have any shlibs or symbols file.
+To help dpkg-shlibdeps find private libraries, you might need to use -l.
+dh_shlibdeps: error: dpkg-shlibdeps -Tdebian/libmd0-udeb.substvars -tudeb debian/libmd0-udeb/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0 returned exit code 2
+dh_shlibdeps: error: dpkg-shlibdeps -Tdebian/libmd0.substvars debian/libmd0/usr/lib/powerpc-linux-gnuspe/libmd.so.0.1.0 returned exit code 2
+dh_shlibdeps: error: Aborting due to earlier error
+make: *** [debian/rules:10: binary-arch] Error 25
+dpkg-buildpackage: error: debian/rules binary-arch subprocess returned exit status 2

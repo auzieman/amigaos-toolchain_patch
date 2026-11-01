@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "image_id": "sha256:0b09621df752ad60727ca662bd215b1fc9369e5b948c5150846bc88a3a9bec10",
+  "server_base": "/srv/data1/tabor-build/linux-live-001",
+  "cpus": 4,
+  "memory": "6g",
+  "pids_limit": 256,
+  "tools": "tools/cxx-reference-002",
+  "sysroot": "sysroot",
+  "source_cache": "session-source-cache",
+  "source_lock": "profiles/package-tools.lock.json",
+  "packages": [
+    "libmd"
+  ],
+  "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages."
+}

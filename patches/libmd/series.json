@@ -1,0 +1,10 @@
+{
+  "version": "1.1.0-2",
+  "purpose": "Cross packaging against recorded experimental libc; normal Debian builds unchanged without TABOR_SYSROOT",
+  "patches": [
+    {
+      "path": "patches/libmd/0001-cross-sysroot-shlibdeps.patch",
+      "sha256": "e77f9fad39d7cb3beee682d34222a037b3ee1ed2264c47a02e4fc62b839062d2"
+    }
+  ]
+}

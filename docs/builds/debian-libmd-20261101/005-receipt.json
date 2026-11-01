@@ -1,0 +1,93 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "libmd",
+  "source_version": "1.1.0-2",
+  "image_id": "sha256:0b09621df752ad60727ca662bd215b1fc9369e5b948c5150846bc88a3a9bec10",
+  "recipe_sha256": "2ea8d1b051a93ff953fe52250b5848b738dced6495d006112c8b6fc7d3ca546a",
+  "source_lock_sha256": "7671e45fc022ea2d5442de40485f5ac2372443cae5c0cd7a47344b63db188114",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "sysroot_libraries": {
+    "lib/ld.so.1": "7c6a84dc183889f16d195ee036ac8dcb438c7d1f555797abc880b1f1b5857e37",
+    "lib/libBrokenLocale.so.1": "ef915aeeb1956dd204de9cad78d94025486eaabb3aae9d0a55ba4e1cd586c91e",
+    "lib/libanl.so.1": "95981244395d646ee82e23be81fe7e0e41025d5e240a4cc09f1ce859f58ebcb0",
+    "lib/libc.so.6": "ba1f317ff2580b5f97daea97c7cf3b49af001d007460f0f71b9334e2d8b6b63a",
+    "lib/libc_malloc_debug.so.0": "748a7305f3b170849e01b1e2b5005fb53b029d75ab306b2ae1d84fe49039ab2f",
+    "lib/libdl.so.2": "0fc534fb10f68150dc0401b4ed2c1c7f8b90dab8a5cde6b0ded771fd19463c1f",
+    "lib/libm.so.6": "bc159321e04f4bf5d6b8767e956c5bd4e2a2177c795ab11b13ff1f1044a2f1d0",
+    "lib/libmemusage.so": "51361a50c664c619d14cefcfb4cfc5a758271f9956dc3c38411e2ca9e2a73d18",
+    "lib/libnsl.so.1": "3de38aedc91a1199303f6d460fb2968e7b41e2d4b6852be27d1594ac03e649ee",
+    "lib/libnss_compat.so.2": "28d7d3161d83c56282450a0c03c83d45246960f5c870a29356884644dc137f3b",
+    "lib/libnss_dns.so.2": "20fe5ab0015067adb6ee10d797d143077534046eacc94fc6936c4e514b2d80ba",
+    "lib/libnss_files.so.2": "56a541fd075386814e8bff7e6bee0b4e4879e39e34c04bfac5b93ddce983a70f",
+    "lib/libnss_hesiod.so.2": "554282a50bb4a99d41162084cff0ece53524cdeb2ce3c1cbc49ef0b7a4992ee3",
+    "lib/libpcprofile.so": "dbaf86e5b04600dc5ecbd71f2045c3d30693364e49dafb8ae7e6f3bafafea1bb",
+    "lib/libpthread.so.0": "41e00353d23ae7c3cd07a2c5c4432d8116f0b1e5bc3c9fcaf063e2084c1f168a",
+    "lib/libresolv.so.2": "fd847a155d9a4e0b538db65eaae92e2dfbe066a3eb8e6b80245530a139b2f3d3",
+    "lib/librt.so.1": "4d8f47a3be882a8c3b2540c066875c45f67787cfaf73656315c2287efc331239",
+    "lib/libthread_db.so.1": "e7eb41cace21a6db40dce4638a91cb8978fbbcc32aa53858c6cdab7d9c54d227",
+    "lib/libutil.so.1": "d21ee3d368b2a2feb1d2dbdacef48ae7215b7d6cde3c81536372ea5a55e601a6"
+  },
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128"
+  ],
+  "bootstrap_shlibs_sha256": "ce744288bfd956881d77f2d11b7ed092d3a6c114cc4cd553f5a952ade00a2af1",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/libmd_1.1.0-2.dsc",
+      "/work/debian-libmd-005/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/libmd/0001-cross-sysroot-shlibdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/libmd/0001-cross-sysroot-shlibdeps.patch"
+    ],
+    [
+      "dpkg-buildpackage",
+      "-a",
+      "powerpcspe",
+      "-B",
+      "-us",
+      "-uc"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "patch_series_sha256": "dce191051c8c6fbea1d4a61228661c592cb0af97d292d0072b3d0ea8705afb1c",
+  "binary_version": "1.1.0-2+tabor1",
+  "packages": {
+    "libmd-dev_1.1.0-2+tabor1_powerpcspe.deb": {
+      "sha256": "6de13d4fd28852642877fd1d25cc257b1e37418cd43473ecd601418271471e3e",
+      "bytes": 60208,
+      "architecture": "powerpcspe"
+    },
+    "libmd0-udeb_1.1.0-2+tabor1_powerpcspe.udeb": {
+      "sha256": "8e3b142b8e09c67a1e71a4a0514c195cc9939fae7ad879c2843ea3f0925a5cdd",
+      "bytes": 23924,
+      "architecture": "powerpcspe"
+    },
+    "libmd0_1.1.0-2+tabor1_powerpcspe.deb": {
+      "sha256": "2c9ef5b675d2d3f0b404a4bc73c16c1349932c995108cf57ca40b177634c13af",
+      "bytes": 38544,
+      "architecture": "powerpcspe"
+    }
+  },
+  "build_metadata": {
+    "libmd_1.1.0-2+tabor1_powerpcspe.changes": "02577cddac0317cda3e96039c1f25ab92029df745f5a2e57999673ac29d8177c",
+    "libmd_1.1.0-2+tabor1_powerpcspe.buildinfo": "e51e315fc3ff7ae91d9037417592fcaa840dff09991d1f09108512bf2af79321"
+  }
+}
