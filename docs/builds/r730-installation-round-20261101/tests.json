@@ -1,0 +1,14 @@
+{
+  "installed-runtime": {
+    "returncode": 0,
+    "command": "dpkg-query -W; dpkg --audit; grep MemTotal /proc/meminfo; cat /sys/devices/system/cpu/online; /usr/bin/spe-smp-check; cat /tmp/visual-session.log"
+  },
+  "ssh-access": {
+    "returncode": 0,
+    "command": "grep Uid /proc/self/status; ls -ld .ssh .ssh/authorized_keys; test -S /run/dbus/system_bus_socket && echo SYSTEM_DBUS_SOCKET_PRESENT"
+  },
+  "direct-redirect": {
+    "returncode": 0,
+    "command": "DISPLAY=:1 REDIRECT_TEST=1 /usr/bin/x11-window-check"
+  }
+}

@@ -1,0 +1,21 @@
+tabor-spe-bootstrap	0.4+20261101
+tabor-spe-software-session	0.4+20261101
+MemTotal:        8248772 kB
+0-1
+CPU0 affinity + 64MiB page pattern + SPE-built arithmetic: PASS (error=0 value=16384)
+CPU1 affinity + 64MiB page pattern + SPE-built arithmetic: PASS (error=0 value=16384)
+CPU affinity/arithmetic smoke only; not a full ABI, GPU or physical-board validation.
+Software GL diagnostic; renderer identity is printed below.
+FRACTAL_TIME mode=SOFT trial=1 us=806044 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=1 us=205767 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=2 us=214132 checksum=2882920052
+FRACTAL_TIME mode=SOFT trial=2 us=602889 checksum=2882920052
+FRACTAL_TIME mode=SOFT trial=3 us=500525 checksum=2882920052
+FRACTAL_TIME mode=SPE trial=3 us=121497 checksum=2882920052
+FRACTAL_PASS identical escape-count images
+FRACTAL_VIEW_PASS equal_images=12288_pixels timings=6
+GL_VENDOR=Mesa
+GL_RENDERER=softpipe
+GL_VERSION=3.3 (Compatibility Profile) Mesa 25.0.7
+GL_PIXEL_CHECK=PASS colored_pixels=5585 elapsed_seconds=6.990
+SPE-built CPU code with measured GL readback; not full ABI or hardware acceleration validation.

@@ -338,3 +338,11 @@ proxy and three retired test forwards. No local builds/VMs or extra viewer
 windows started. Laptop resource policy is now in AGENTS.md; no crash cause is
 inferred from current memory snapshots. See reconnect-resource-policy.md and
 builds/r730-reconnect-20261101. Rendering/GL/physical tests remain outstanding.
+
+
+2026-11-01: Fresh0.4 installed-image QEMU test passes key SSH,8GiB/SMP,
+software GL readback and matched SPE fractal visualization. Added an explicit
+Debian installation-state gate: FAIL because only lab bundles are installed.
+Do not confuse dpkg audit success with native package setup. USB unchanged;
+normal Debian binary-package/configuration integration is next. Evidence:
+builds/r730-installation-round-20261101/README.md.

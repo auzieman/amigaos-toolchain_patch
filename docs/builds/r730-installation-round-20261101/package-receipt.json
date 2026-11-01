@@ -1,0 +1,58 @@
+{
+  "status": "debs-built-installed-permissions-verified-not-booted",
+  "version": "0.4+20261101",
+  "recipe_sha256": "9b15d138fcdb06336f1c9169c5c28ddd58bd701a44fa91b49efed75080fb0206",
+  "base_sha256": "894977737129ffa7124408b5fb6d1ab1fb2242eb22beaef5f1349c0c61fbd581",
+  "policy_sha256": "0e7c145662ba5478646157bec341ed1cfe5a05551081e57605471929de05eeb8",
+  "commands": [
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-006/bootstrap",
+      "/work/deb-root-006/tabor-spe-bootstrap_0.4+20261101_powerpcspe.deb"
+    ],
+    [
+      "dpkg-deb",
+      "--build",
+      "--uniform-compression",
+      "-Zgzip",
+      "/work/deb-root-006/session",
+      "/work/deb-root-006/tabor-spe-software-session_0.4+20261101_powerpcspe.deb"
+    ],
+    [
+      "dpkg",
+      "--root=/work/deb-root-006/root",
+      "--force-architecture",
+      "--install",
+      "/work/deb-root-006/tabor-spe-bootstrap_0.4+20261101_powerpcspe.deb",
+      "/work/deb-root-006/tabor-spe-software-session_0.4+20261101_powerpcspe.deb"
+    ],
+    [
+      "dpkg-query",
+      "--admindir=/work/deb-root-006/root/var/lib/dpkg",
+      "-W",
+      "-f=${Package} ${Architecture} ${Status}\n"
+    ]
+  ],
+  "packages": {
+    "tabor-spe-bootstrap": {
+      "sha256": "efc4fcb95b94fcf9caba590994687029d6282ecf829b2b65e0126fd7838434fa",
+      "bytes": 10406572
+    },
+    "tabor-spe-software-session": {
+      "sha256": "45618b919ffe6aa59921adbc89e7704f286796eb2750ac063c341313dae77972",
+      "bytes": 191208098
+    }
+  },
+  "physical_boot": false,
+  "full_distribution_bootstrap": false,
+  "manifest_sha256": "4facb3a5f28646a727dbceedbdd66bf05d23d9e3c2ba5b643105d10c649bcf42",
+  "setuid_root_executables": [
+    "usr/lib/enlightenment/utils/enlightenment_ckpasswd",
+    "usr/lib/enlightenment/utils/enlightenment_sys",
+    "usr/lib/enlightenment/utils/enlightenment_system"
+  ],
+  "installed_status_sha256": "58266f0da6e04e552292ebe2047ac7a747ac8d97707acf14457911b2795943aa"
+}

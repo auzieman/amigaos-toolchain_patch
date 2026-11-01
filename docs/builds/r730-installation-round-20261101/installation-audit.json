@@ -1,0 +1,34 @@
+{
+  "status": "fail",
+  "required": [
+    "dbus",
+    "openssh-server",
+    "enlightenment",
+    "terminology",
+    "xserver-xorg-core",
+    "xinit"
+  ],
+  "missing_or_unconfigured": [
+    "dbus",
+    "openssh-server",
+    "enlightenment",
+    "terminology",
+    "xserver-xorg-core",
+    "xinit"
+  ],
+  "package_states": {
+    "tabor-spe-bootstrap": "install ok installed",
+    "tabor-spe-software-session": "install ok installed"
+  },
+  "package_metadata_sha256": {
+    "info/format": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865",
+    "info/tabor-spe-bootstrap.list": "f25167c3e6244fa8112e9a06feec0c3a1319e709eff1c578d654b35a9fb739e1",
+    "info/tabor-spe-bootstrap.md5sums": "9bd7ccbbf6a74ab0a81cd70b03b7bc1477b5e533e694bdf352a3174d7d26020d",
+    "info/tabor-spe-software-session.list": "42fbfb7d3b23eaab12affc9a6b42d67c7b15f501c07c23197975f1d01185ca0e",
+    "info/tabor-spe-software-session.md5sums": "83df3ec3d6db25ec302f7cdcf0c54903fdfd3fe8aae297c1baeba9bb1bbc2a21",
+    "triggers/Lock": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "triggers/Unincorp": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "scope": "Package configuration state only; runtime/service/ABI tests are separate",
+  "maintainer_scripts_executed_by_this_audit": false
+}

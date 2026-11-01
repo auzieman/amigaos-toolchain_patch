@@ -753,3 +753,46 @@ proxy and three retired test forwards. No local builds/VMs or extra viewer
 windows started. Laptop resource policy is now in AGENTS.md; no crash cause is
 inferred from current memory snapshots. See reconnect-resource-policy.md and
 builds/r730-reconnect-20261101. Rendering/GL/physical tests remain outstanding.
+
+
+2026-11-01 installation-state correction (user instruction): preserve native
+Debian package installation and configuration state throughout image assembly.
+Current bootstrap/session .deb bundles are lab transport packages without
+maintainer scripts; their installed status is not evidence of individual Debian
+package configuration, dependency closure, triggers or service provisioning.
+Do not describe these bundles as a completed Debian installation. Retain the
+installed root, dpkg database, configuration, owners/modes and generated state
+when archiving; do not replace it with another staged file overlay.
+Before another E acceptance claim, inspect actual module failures, system and
+session D-Bus, missing dependencies and helper permissions. Prefer target-ABI
+source-package builds and their normal configure/install logic; execute target
+maintainer scripts in the target environment, never as foreign host scripts.
+New screenshot shot-2026-11-01_07-22-53.jpg shows an Error loading Module dialog
+and black client interiors while E decorations and wallpaper draw. This does
+not identify D-Bus or QEMU as the cause. New 0.4 installed-root archive completed
+but has not booted; acceptance remains pending. User again reports editor UI
+stall: keep local inspection bounded and heavy work on R730.
+
+
+2026-11-01 scope clarification: no policy blocks Debian maintainer scripts or
+triggers. Preserve normal Debian package installation, configuration, service
+setup and general runtime behavior. Apply compatibility fixes at source-code
+level rather than bypassing package setup. Execute target package scripts in
+the appropriate target environment. The current lab bundles lack those scripts;
+that is an incomplete packaging implementation, not a desired restriction.
+Support exactly two configurations for this build: the QEMU validation machine
+and the physical A1222. Keep machine-specific kernel, device and boot choices
+in those configurations without replacing normal Debian package behavior.
+
+
+2026-11-01 final-round gate: fresh actual installed root0.4 boots in bounded
+R730 software-e010. Key-only SSH(uid1000),8GiB/two-core tests, installed
+Mesa softpipe GL readback, matched fractal and direct redirected pixmaps pass.
+Normal Debian configuration acceptance FAILS: only the two lab bundles are
+registered, not the individual Debian packages. Added read-only installed-state
+audit; configured/half-configured fixture checks pass on R730. Source review
+confirms E profile/build mismatch for four disabled modules. Preserve normal
+Debian maintainer scripts/triggers; build proper target packages with their
+dependencies rather than transplanting raw maintainer-script templates.
+SanDisk unchanged; E/Radeon/physical acceptance remains open. See
+builds/r730-installation-round-20261101/README.md.
