@@ -468,3 +468,21 @@ not suppressed. #9 original regression gate satisfied. Evidence007-*.
 Desktop4 monitors and shell updated; bounded remote log rendering limits
 laptop impact. noVNC waits for a new graphical image. No installed target
 runtime/root replacement, full-feature libc or physical acceptance yet.
+
+2026-11-01 next dependency increment: libcap-ng002 built five artifacts with
+normal Debian nopython profile; libsepol001 built four artifacts. Package-
+matched libraries pass read-back-hash-verified QEMU smokes with private libc004
+(capability query/local clear/reload, policydb create/free). No privilege-
+changing capability apply or policy enforcement attempted. Initial cap-ng001
+failed shlibs metadata for ld.so.1; map loader to its actual libc6 owner and
+retain failure. Checks stay enabled. Preserve package hardening flags while
+appending SPE ABI. Fresh pcre2-001 building next, existing JIT-disabled target
+configuration preserved. Desktop4 follows it. No target installation/USB write.
+
+2026-11-01 dependency batch completed: PCRE2 also built and passed ASCII,
+nonmatch and UTF-8 matching in system-QEMU; JIT disabled as Debian specifies
+for powerpcspe. All three package-library smokes use verified .deb payloads,
+guest readback hashes and actual libc004 mappings. Build frontend identity now
+recorded. Evidence: builds/bootstrap-libraries-20261101. Continue genuine
+dev-dependency closure for libselinux/audit/libcap2, then full-feature libc and
+Essential root. No installed Debian root or graphical-image acceptance claimed.

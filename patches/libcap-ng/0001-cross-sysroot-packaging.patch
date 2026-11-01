@@ -1,0 +1,15 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -62,3 +62,12 @@
+ 	for V in $(PY3VERS); do \
+ 		dh_auto_clean --builddir=build-py$$V; \
+ 	done
++
++# Explicit experimental SPE bootstrap sysroot; preserve normal Debian metadata.
++ifneq ($(TABOR_SYSROOT),)
++override_dh_shlibdeps:
++	dh_shlibdeps -- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS)
++
++override_dh_builddeb:
++	dh_builddeb -- -Zgzip -Snone
++endif

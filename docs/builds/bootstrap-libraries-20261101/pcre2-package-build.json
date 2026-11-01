@@ -1,0 +1,116 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "pcre2",
+  "source_version": "10.46-1~deb13u3",
+  "build_profiles": "cross,nocheck",
+  "arch_only": true,
+  "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6",
+  "recipe_sha256": "4097872ddb306ec51fb86531a51dc7638d34a03952e962db275b8f6fbcae63f3",
+  "source_lock_sha256": "eba7c83a0328bfed4724676627ec65079248789e31c194bd5f225a99941b3255",
+  "compiler_sha256": "fbe48af0ff7e7916e6e4c5978c5a3becc8514b7da7272655fb1cbebb18bb57df",
+  "compiler_frontend_sha256": "421ceaeadbf66483ae389580b96b40fbffd5387b4c30195fcbc300c2c055798f",
+  "sysroot_libraries": {
+    "lib/ld.so.1": "7c6a84dc183889f16d195ee036ac8dcb438c7d1f555797abc880b1f1b5857e37",
+    "lib/libBrokenLocale.so.1": "ef915aeeb1956dd204de9cad78d94025486eaabb3aae9d0a55ba4e1cd586c91e",
+    "lib/libanl.so.1": "95981244395d646ee82e23be81fe7e0e41025d5e240a4cc09f1ce859f58ebcb0",
+    "lib/libc.so.6": "ba1f317ff2580b5f97daea97c7cf3b49af001d007460f0f71b9334e2d8b6b63a",
+    "lib/libc_malloc_debug.so.0": "748a7305f3b170849e01b1e2b5005fb53b029d75ab306b2ae1d84fe49039ab2f",
+    "lib/libdl.so.2": "0fc534fb10f68150dc0401b4ed2c1c7f8b90dab8a5cde6b0ded771fd19463c1f",
+    "lib/libm.so.6": "bc159321e04f4bf5d6b8767e956c5bd4e2a2177c795ab11b13ff1f1044a2f1d0",
+    "lib/libmemusage.so": "51361a50c664c619d14cefcfb4cfc5a758271f9956dc3c38411e2ca9e2a73d18",
+    "lib/libnsl.so.1": "3de38aedc91a1199303f6d460fb2968e7b41e2d4b6852be27d1594ac03e649ee",
+    "lib/libnss_compat.so.2": "28d7d3161d83c56282450a0c03c83d45246960f5c870a29356884644dc137f3b",
+    "lib/libnss_dns.so.2": "20fe5ab0015067adb6ee10d797d143077534046eacc94fc6936c4e514b2d80ba",
+    "lib/libnss_files.so.2": "56a541fd075386814e8bff7e6bee0b4e4879e39e34c04bfac5b93ddce983a70f",
+    "lib/libnss_hesiod.so.2": "554282a50bb4a99d41162084cff0ece53524cdeb2ce3c1cbc49ef0b7a4992ee3",
+    "lib/libpcprofile.so": "dbaf86e5b04600dc5ecbd71f2045c3d30693364e49dafb8ae7e6f3bafafea1bb",
+    "lib/libpthread.so.0": "41e00353d23ae7c3cd07a2c5c4432d8116f0b1e5bc3c9fcaf063e2084c1f168a",
+    "lib/libresolv.so.2": "fd847a155d9a4e0b538db65eaae92e2dfbe066a3eb8e6b80245530a139b2f3d3",
+    "lib/librt.so.1": "4d8f47a3be882a8c3b2540c066875c45f67787cfaf73656315c2287efc331239",
+    "lib/libthread_db.so.1": "e7eb41cace21a6db40dce4638a91cb8978fbbcc32aa53858c6cdab7d9c54d227",
+    "lib/libutil.so.1": "d21ee3d368b2a2feb1d2dbdacef48ae7215b7d6cde3c81536372ea5a55e601a6"
+  },
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128"
+  ],
+  "bootstrap_shlibs_sha256": "2a0fdbc0451fab080c5ba0514bd9288c6547ea0586740f2d66426298ddddce13",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/pcre2_10.46-1~deb13u3.dsc",
+      "/work/debian-pcre2-001/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/pcre2/0001-cross-sysroot-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/pcre2/0001-cross-sysroot-packaging.patch"
+    ],
+    [
+      "dpkg-buildpackage",
+      "-a",
+      "powerpcspe",
+      "-B",
+      "-us",
+      "-uc"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "patch_series_sha256": "dc91509430288ccaf83925ad5e6b8b0ba174ac8d2357448feeaa1676987d3f75",
+  "binary_version": "10.46-1~deb13u3+tabor1",
+  "packages": {
+    "libpcre2-16-0_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "0d578985745f52a9a91cbb7d2a6e51b7a3d8206616dfbbdc309b662312166308",
+      "bytes": 203134,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-32-0_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "9ff8bc25beabe59585d9eb41f74f67a7624cd8eaffc58d12fd5ce8603193a99b",
+      "bytes": 197220,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-8-0-udeb_10.46-1~deb13u3+tabor1_powerpcspe.udeb": {
+      "sha256": "9fb848b43de03804a7011b66fecb8350fddfe59d83e864b0a1fd6e024bfd2a5c",
+      "bytes": 156222,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-8-0_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "68bf0d438be8bcf9e4e25f0fde799418fe31c311c62494eb1c8896063dbc0adf",
+      "bytes": 217408,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-dev_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "04ba1004b222a6494db7102729c72d5b049a81d04204bbce5097b5164931bcd2",
+      "bytes": 835828,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-posix3_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "5216b5c449fa2c7b5fac82a8c26043568f4890c120e89782ab57ce75b909db07",
+      "bytes": 64938,
+      "architecture": "powerpcspe"
+    },
+    "pcre2-utils_10.46-1~deb13u3+tabor1_powerpcspe.deb": {
+      "sha256": "dac46d0f251c15443d7dc9c191d9087b09b8c74b4ed38acd3a1d79730ba4eb32",
+      "bytes": 195838,
+      "architecture": "powerpcspe"
+    }
+  },
+  "build_metadata": {
+    "pcre2_10.46-1~deb13u3+tabor1_powerpcspe.changes": "5de92d1f7b15a4d4e6605cfff1a962f8e6cbe1b1e750235569981359fb0971b7",
+    "pcre2_10.46-1~deb13u3+tabor1_powerpcspe.buildinfo": "b92b7297af0c66b999aa08fb582e4c2123c2e725ad6a620595658097560c2cac"
+  }
+}

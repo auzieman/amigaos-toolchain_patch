@@ -1,0 +1,10 @@
+{
+  "version": "0.8.5-4",
+  "purpose": "Explicit SPE cross-sysroot dependency mapping, normal Debian nopython bootstrap profile",
+  "patches": [
+    {
+      "path": "patches/libcap-ng/0001-cross-sysroot-packaging.patch",
+      "sha256": "0e87b1d526bcfba9ad607112117f276d457e8e3597687fbdbbf03b92f937262a"
+    }
+  ]
+}

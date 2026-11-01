@@ -1,0 +1,99 @@
+{
+  "status": "passed-library-smoke-not-package-installation",
+  "scope": "existing system-QEMU guest with private packaged libc004",
+  "packages": {
+    "libcap-ng": {
+      "files": {
+        "probe": "562a9ba74ec7ab5f9f19929502f81bf133e51054aa469297db1a2a53c9e707ff",
+        "libcap-ng.so.0": "5823e8802dd6f2bf5f7a78cab230b76bcdfa9dd3fc568cfb60a789b6b1471af9"
+      },
+      "tests": {
+        "map": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/libcap-ng:/lib:/usr/lib",
+            "--list",
+            "/home/tabor/bootstrap-libraries-001/libcap-ng/probe"
+          ],
+          "exit": 0,
+          "stdout": "\tlinux-vdso32.so.1 (0xb7d53000)\n\tlibcap-ng.so.0 => /home/tabor/bootstrap-libraries-001/libcap-ng/libcap-ng.so.0 (0x0ffd0000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fde0000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb7d60000)\n",
+          "stderr": ""
+        },
+        "runtime": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/libcap-ng:/lib:/usr/lib",
+            "/home/tabor/bootstrap-libraries-001/libcap-ng/probe"
+          ],
+          "exit": 0,
+          "stdout": "CAP_NG_SMOKE PASS uid=1000 get=0 before=1 empty=0 reload=0 after=1\n",
+          "stderr": ""
+        }
+      }
+    },
+    "libsepol": {
+      "files": {
+        "probe": "8d108df7f7d9658dc9096238e873ea011d3dbf084cc49a383a64e6f1f328ef52",
+        "libsepol.so.2": "7d29d10a5595053da87571ef4b5404a78dae05bbd19ec2f88ef5a80422b89c70"
+      },
+      "tests": {
+        "map": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/libsepol:/lib:/usr/lib",
+            "--list",
+            "/home/tabor/bootstrap-libraries-001/libsepol/probe"
+          ],
+          "exit": 0,
+          "stdout": "\tlinux-vdso32.so.1 (0xb79d3000)\n\tlibsepol.so.2 => /home/tabor/bootstrap-libraries-001/libsepol/libsepol.so.2 (0x0ff20000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fd30000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb79e0000)\n",
+          "stderr": ""
+        },
+        "runtime": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/libsepol:/lib:/usr/lib",
+            "/home/tabor/bootstrap-libraries-001/libsepol/probe"
+          ],
+          "exit": 0,
+          "stdout": "SEPOL_SMOKE PASS create=0\n",
+          "stderr": ""
+        }
+      }
+    },
+    "pcre2": {
+      "files": {
+        "probe": "701d6510efa84775172d0fa0efd86afca4579d34c354671f5af11146b3cf24e2",
+        "libpcre2-8.so.0": "ada17f28177069f49b2ac167429e5a695e3cc13690f48b8de2d388e3d31362ae"
+      },
+      "tests": {
+        "map": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/pcre2:/lib:/usr/lib",
+            "--list",
+            "/home/tabor/bootstrap-libraries-001/pcre2/probe"
+          ],
+          "exit": 0,
+          "stdout": "\tlinux-vdso32.so.1 (0xb7913000)\n\tlibpcre2-8.so.0 => /home/tabor/bootstrap-libraries-001/pcre2/libpcre2-8.so.0 (0x0ff70000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fd80000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb7920000)\n",
+          "stderr": ""
+        },
+        "runtime": {
+          "command": [
+            "/home/tabor/glibc-stage2-004/ld.so.1",
+            "--library-path",
+            "/home/tabor/glibc-stage2-004:/home/tabor/bootstrap-libraries-001/pcre2:/lib:/usr/lib",
+            "/home/tabor/bootstrap-libraries-001/pcre2/probe"
+          ],
+          "exit": 0,
+          "stdout": "PCRE2_SMOKE PASS jit=0 ascii=1 reject=1 utf=1\n",
+          "stderr": ""
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -20,3 +20,13 @@
+ 	dh $@
+ 
+ override_dh_auto_test:
++
++# Preserve Debian hardening options while appending the experimental SPE ABI.
++ifneq ($(TABOR_SYSROOT),)
++export DEB_CFLAGS_MAINT_APPEND += -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128
++override_dh_shlibdeps:
++	dh_shlibdeps -- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS)
++
++override_dh_builddeb:
++	dh_builddeb -- -Zgzip -Snone
++endif

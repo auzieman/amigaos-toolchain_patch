@@ -1,0 +1,10 @@
+{
+  "version": "3.8.1-1",
+  "purpose": "Preserve hardening and append explicit SPE ABI after Debian rules assignment; bootstrap shlibs mapping",
+  "patches": [
+    {
+      "path": "patches/libsepol/0001-cross-sysroot-packaging.patch",
+      "sha256": "aee96807d5b1fe630b2a59cb2dc856d6c556f2f5a27b4c6888ef7d4f8b924e38"
+    }
+  ]
+}

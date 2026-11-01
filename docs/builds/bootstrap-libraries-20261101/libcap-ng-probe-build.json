@@ -1,0 +1,27 @@
+{
+  "status": "probe-built-not-executed",
+  "command": [
+    "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/sysroot",
+    "-O2",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-I/work/debian-libcap-ng-002/source/debian/libcap-ng-dev/usr/include",
+    "/project/bench/bootstrap/cap-ng-smoke.c",
+    "/work/debian-libcap-ng-002/source/debian/libcap-ng0/usr/lib/powerpc-linux-gnuspe/libcap-ng.so.0.0.0",
+    "-o",
+    "/work/libcap-ng-probe-001/probe"
+  ],
+  "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6",
+  "source_sha256": "08aed66c9e639c57096fbd50f1924c2caec9fdd13ae99abad30a6fc8e0e1b39d",
+  "package": "libcap-ng0_0.8.5-4+tabor1_powerpcspe.deb",
+  "package_sha256": "50d5b5b9088d8f4e23b23e06b9c6b0bde94dfdeb968147a4c0b4b2458f3bfcb1",
+  "package_build_receipt_sha256": "515b51c56a20187eebd7517f21d3e0b42b6e885cfb3f598cf900e66fdf703c37",
+  "files": {
+    "probe": "562a9ba74ec7ab5f9f19929502f81bf133e51054aa469297db1a2a53c9e707ff",
+    "libcap-ng.so.0": "5823e8802dd6f2bf5f7a78cab230b76bcdfa9dd3fc568cfb60a789b6b1471af9"
+  }
+}

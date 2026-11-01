@@ -24,6 +24,8 @@ sha = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
 lockpath = a.project / a.source_lock
 component = json.loads(lockpath.read_text())['components'][a.package]
 cc = a.tools / 'bin/powerpc-linux-gnuspe-gcc'
+frontend = Path(subprocess.check_output([str(cc), '-print-prog-name=cc1'], text=True).strip()).resolve()
+assert frontend.is_relative_to(a.tools.resolve()), 'Compiler frontend outside selected toolchain'
 flags = ['--sysroot=' + str(a.sysroot), '-mcpu=8548', '-mabi=spe', '-mspe',
          '-mfloat-gprs=double', '-mlong-double-128']
 env = os.environ.copy()
@@ -40,6 +42,7 @@ r = {'status': 'running', 'package': a.package, 'source_version': component['ver
      'build_profiles': a.build_profiles, 'arch_only': a.arch_only,
      'image_id': a.image_id, 'recipe_sha256': sha(Path(__file__)),
      'source_lock_sha256': sha(lockpath), 'compiler_sha256': sha(cc),
+     'compiler_frontend_sha256': sha(frontend),
      'sysroot_libraries': {str(f.relative_to(a.sysroot)): sha(f)
          for f in sorted((a.sysroot / 'lib').glob('*.so*')) if f.is_file()},
      'flags': flags, 'bootstrap_shlibs_sha256': sha(Path(env['TABOR_SHLIBS'])), 'commands': [], 'target_tests': 'pending',

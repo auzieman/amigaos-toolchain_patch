@@ -1,0 +1,27 @@
+{
+  "status": "probe-built-not-executed",
+  "command": [
+    "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/sysroot",
+    "-O2",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-I/work/debian-pcre2-001/source/debian/libpcre2-dev/usr/include",
+    "/project/bench/bootstrap/pcre2-smoke.c",
+    "/work/debian-pcre2-001/source/debian/libpcre2-8-0/usr/lib/powerpc-linux-gnuspe/libpcre2-8.so.0.14.0",
+    "-o",
+    "/work/pcre2-probe-001/probe"
+  ],
+  "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6",
+  "source_sha256": "6a1648aacf01bc783e25e36e6fd5511dbe6ca243644bc9175803b3e15cfa5ff9",
+  "package": "libpcre2-8-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+  "package_sha256": "68bf0d438be8bcf9e4e25f0fde799418fe31c311c62494eb1c8896063dbc0adf",
+  "package_build_receipt_sha256": "61ea0e148927b26ddacac68cf64454a0797cada990892741ba67eb5e5e6eadd8",
+  "files": {
+    "probe": "701d6510efa84775172d0fa0efd86afca4579d34c354671f5af11146b3cf24e2",
+    "libpcre2-8.so.0": "ada17f28177069f49b2ac167429e5a695e3cc13690f48b8de2d388e3d31362ae"
+  }
+}

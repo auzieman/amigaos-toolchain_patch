@@ -1,0 +1,27 @@
+{
+  "status": "probe-built-not-executed",
+  "command": [
+    "/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/sysroot",
+    "-O2",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-I/work/debian-libsepol-001/source/debian/libsepol-dev/usr/include",
+    "/project/bench/bootstrap/sepol-smoke.c",
+    "/work/debian-libsepol-001/source/debian/libsepol2/usr/lib/powerpc-linux-gnuspe/libsepol.so.2",
+    "-o",
+    "/work/libsepol-probe-001/probe"
+  ],
+  "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6",
+  "source_sha256": "d68cf5be74ee0c66e8355381856f11fb01431016b943f57bc59e283c9ebf9b52",
+  "package": "libsepol2_3.8.1-1+tabor1_powerpcspe.deb",
+  "package_sha256": "d38eaef8aed19333fc7227a5ae508f3a3f7915061e45fcdb902c542b00fcb159",
+  "package_build_receipt_sha256": "2db906cdab93d42df4facc49253e61da942d6b1878df2e62ef35d1f7684ff4a1",
+  "files": {
+    "probe": "8d108df7f7d9658dc9096238e873ea011d3dbf084cc49a383a64e6f1f328ef52",
+    "libsepol.so.2": "7d29d10a5595053da87571ef4b5404a78dae05bbd19ec2f88ef5a80422b89c70"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "version": "10.46-1~deb13u3",
+  "purpose": "Preserve Debian symbol-prefix flags and disabled JIT for powerpcspe; explicit SPE bootstrap sysroot",
+  "patches": [
+    {
+      "path": "patches/pcre2/0001-cross-sysroot-packaging.patch",
+      "sha256": "fb4938a912cbe8cde70a569399b190ce04ba6f6d7edcedaae247d4a93005069c"
+    }
+  ]
+}

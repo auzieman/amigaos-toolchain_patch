@@ -13,7 +13,10 @@
     "libmd",
     "attr",
     "dash",
-    "glibc"
+    "glibc",
+    "libcap-ng",
+    "libsepol",
+    "pcre2"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -32,6 +35,25 @@
       "tools_prefix": "/usr/lib/tabor-spe-toolchain",
       "arch_only": true,
       "build_profiles": "cross,nocheck,stage2,nobiarch"
+    },
+    "libcap-ng": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "build_profiles": "cross,nocheck,nopython",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
+    },
+    "libsepol": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
+    },
+    "pcre2": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
     }
   }
 }

@@ -1,0 +1,15 @@
+dh_strip: warning: Could not find the BuildID in debian/libcap-ng-utils/usr/bin/netcap
+dh_strip: warning: Could not find the BuildID in debian/libcap-ng-utils/usr/bin/captest
+dh_strip: warning: Could not find the BuildID in debian/libcap-ng-utils/usr/bin/pscap
+   dh_makeshlibs -a
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/work/debian-libcap-ng-001/source'
+dh_shlibdeps -- -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs
+dpkg-shlibdeps: error: no dependency information found for /sysroot/lib/ld.so.1 (used by debian/libcap-ng0/usr/lib/powerpc-linux-gnuspe/libcap-ng.so.0.0.0)
+dpkg-shlibdeps: hint: check if the library actually comes from a package
+dh_shlibdeps: error: dpkg-shlibdeps -Tdebian/libcap-ng0.substvars -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs debian/libcap-ng0/usr/lib/powerpc-linux-gnuspe/libdr
+dh_shlibdeps: error: Aborting due to earlier error
+make[1]: *** [debian/rules:69: override_dh_shlibdeps] Error 25
+make[1]: Leaving directory '/work/debian-libcap-ng-001/source'
+make: *** [debian/rules:23: binary-arch] Error 2
+dpkg-buildpackage: error: debian/rules binary-arch subprocess returned exit status 2
