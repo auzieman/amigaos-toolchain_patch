@@ -849,3 +849,6 @@ with corrected seeds/assertions. Full root becomes ext4 disk-backed with normal
 Debian Essential/PAM/init/session/package state. No USB write or full Trixie
 acceptance claimed. See builds/trixie-bootstrap-20261101 and the new
 profiles/images/trixie-bootstrap.json for exact progress and remaining gates.
+
+
+2026-11-01 status check: qemu-live008 kernel build exited0; receipt reports compiled. Cgroups/ACL/virtio-block config checks passed. New kernel and normal disk-root boot remain untested. No package job currently running; full libc package/Essential root bootstrap remains next.
