@@ -908,3 +908,13 @@ by readback hashes. Package new compiler as8.5.0+tabor2 and require it in
 Debian libc source metadata; fresh libc rebuild remains prerequisite for
 original C++ unwind acceptance. Keep #9 open until that passes; fenv #3 and
 hardware gates remain open. Evidence: builds/glibc-debian-20261101/006-*.
+
+2026-11-01 libc004 runtime acceptance: seven real Debian stage2 artifacts
+built; library hashes match .deb payload and guest readback. Original C++
+exception/RAII unwind, LD128, thread/TLS and atomics now PASS, versus003
+SIGSEGV. New compiler/new libgcc_s/libstdc++ combination also passes all4.
+Dynamic C eight basic ABI checks pass; directed rounding remains FAIL (#3),
+not suppressed. #9 original regression gate satisfied. Evidence007-*.
+Desktop4 monitors and shell updated; bounded remote log rendering limits
+laptop impact. noVNC waits for a new graphical image. No installed target
+runtime/root replacement, full-feature libc or physical acceptance yet.

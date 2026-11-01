@@ -1,0 +1,46 @@
+{
+  "status": "passed-shared-cxx-new-compiler-runtime-and-packaged-libc",
+  "files": {
+    "bin/spe-cxx-check": {
+      "path": "bin/spe-cxx-check",
+      "sha256": "6481b54bd526ccc07688022c3fd4fb2ef3a19cfd771b673b0c2cfe78cf6cdfaa",
+      "mode": 493
+    },
+    "lib/libgcc_s.so.1": {
+      "path": "lib/libgcc_s.so.1",
+      "sha256": "c6c4edba3a6981c9931e986eb8acb1b61a4a9817f0816558c17189797d5ab470",
+      "mode": 493
+    },
+    "lib/libstdc++.so.6": {
+      "path": "lib/libstdc++.so.6",
+      "sha256": "0afea22e8eea5e850eb2f11f411fd5aef9c0b429d5325d623ce9a2672b7b56df",
+      "mode": 493
+    }
+  },
+  "tests": {
+    "map": {
+      "command": [
+        "/home/tabor/glibc-stage2-004/ld.so.1",
+        "--library-path",
+        "/home/tabor/glibc-stage2-004:/home/tabor/glibc-stage2-004/new-cxx:/lib:/usr/lib",
+        "--list",
+        "/home/tabor/glibc-stage2-004/new-cxx/spe-cxx-check"
+      ],
+      "exit": 0,
+      "stdout": "\tlinux-vdso32.so.1 (0xb78d3000)\n\tlibstdc++.so.6 => /home/tabor/glibc-stage2-004/new-cxx/libstdc++.so.6 (0x0fe30000)\n\tlibm.so.6 => /home/tabor/glibc-stage2-004/libm.so.6 (0x0fd00000)\n\tlibgcc_s.so.1 => /home/tabor/glibc-stage2-004/new-cxx/libgcc_s.so.1 (0x0fcc0000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fad0000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb78e0000)\n",
+      "stderr": ""
+    },
+    "cxx": {
+      "command": [
+        "/home/tabor/glibc-stage2-004/ld.so.1",
+        "--library-path",
+        "/home/tabor/glibc-stage2-004:/home/tabor/glibc-stage2-004/new-cxx:/lib:/usr/lib",
+        "/home/tabor/glibc-stage2-004/new-cxx/spe-cxx-check",
+        "--cli"
+      ],
+      "exit": 0,
+      "stdout": "TABOR_QEMU_INIT_OK: Linux/SPE C++ reference runtime checks\nCXX_TEST long_double_128 PASS\nCXX_TEST exception_unwind PASS\nCXX_TEST thread_tls PASS\nCXX_TEST atomic_u32 PASS\nCXX_SMOKE_DONE failures=0\n",
+      "stderr": ""
+    }
+  }
+}

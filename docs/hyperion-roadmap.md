@@ -53,3 +53,13 @@ this private repository; do not expose proprietary media, SDKs or kernel code.
 - [Integration issue #7](https://github.com/auzieman/amigaos-toolchain_patch/issues/7)
 - [Compositor issue #8](https://github.com/auzieman/amigaos-toolchain_patch/issues/8)
 - [Unwind issue #9](https://github.com/auzieman/amigaos-toolchain_patch/issues/9)
+
+## Verified increment: libc004
+
+The protected-PIC compiler return-address correction now passes18 reduced
+QEMU cases; fresh Debian libc004 passes the original C++ exception/RAII test
+and a rebuilt C++ binary with matching new runtimes. See
+[007 runtime result](builds/glibc-debian-20261101/007-runtime-result.md).
+The rounding failure remains. For OS4, inspect its actual selected backend
+and exception model before considering an analogous patch; the inactive-
+backend mistake and corrected selection are preserved in the evidence trail.

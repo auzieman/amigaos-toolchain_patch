@@ -1,0 +1,45 @@
+
+/work/debian-glibc-004/source/build-tree/powerpcspe-libc/libc.so:     file format elf32-powerpc
+
+
+Disassembly of section .text:
+
+0017f75c <dl_iterate_phdr>:
+  17f75c:	94 21 ff 80 	stwu    r1,-128(r1)
+  17f760:	7c 08 02 a6 	mflr    r0
+  17f764:	48 06 42 a5 	bl      1e3a08 <.got+0x2c50>
+  17f768:	93 c1 00 78 	stw     r30,120(r1)
+  17f76c:	7f c8 02 a6 	mflr    r30
+  17f770:	93 61 00 6c 	stw     r27,108(r1)
+  17f774:	83 7e ff 8c 	lwz     r27,-116(r30)
+  17f778:	92 c1 00 58 	stw     r22,88(r1)
+  17f77c:	92 e1 00 5c 	stw     r23,92(r1)
+  17f780:	7c 97 23 78 	mr      r23,r4
+  17f784:	93 01 00 60 	stw     r24,96(r1)
+  17f788:	3a db 05 9c 	addi    r22,r27,1436
+  17f78c:	93 41 00 68 	stw     r26,104(r1)
+  17f790:	7c 78 1b 78 	mr      r24,r3
+  17f794:	93 81 00 70 	stw     r28,112(r1)
+  17f798:	7e c3 b3 78 	mr      r3,r22
+  17f79c:	93 a1 00 74 	stw     r29,116(r1)
+  17f7a0:	90 01 00 84 	stw     r0,132(r1)
+  17f7a4:	92 41 00 48 	stw     r18,72(r1)
+  17f7a8:	92 61 00 4c 	stw     r19,76(r1)
+  17f7ac:	92 81 00 50 	stw     r20,80(r1)
+  17f7b0:	92 a1 00 54 	stw     r21,84(r1)
+  17f7b4:	93 21 00 64 	stw     r25,100(r1)
+  17f7b8:	93 e1 00 7c 	stw     r31,124(r1)
+  17f7bc:	81 22 8f f8 	lwz     r9,-28680(r2)
+  17f7c0:	91 21 00 3c 	stw     r9,60(r1)
+  17f7c4:	39 20 00 00 	li      r9,0
+  17f7c8:	4b f1 cc 4d 	bl      9c414 <__pthread_mutex_lock@GLIBC_2.0>
+  17f7cc:	81 3b 05 80 	lwz     r9,1408(r27)
+  17f7d0:	81 41 00 00 	lwz     r10,0(r1)
+  17f7d4:	83 bb 00 04 	lwz     r29,4(r27)
+  17f7d8:	37 49 ff ff 	addic.  r26,r9,-1
+  17f7dc:	83 8a 00 04 	lwz     r28,4(r10)
+  17f7e0:	40 81 01 b0 	ble-    17f990 <dl_iterate_phdr+0x234>
+  17f7e4:	1d 29 00 58 	mulli   r9,r9,88
+  17f7e8:	3b 20 00 00 	li      r25,0
+  17f7ec:	7f 69 da 14 	add     r27,r9,r27
+  17f7f0:	83 fb ff a8 	lwz     r31,-88(r27)

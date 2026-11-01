@@ -1,0 +1,60 @@
+{
+  "status": "unwind-fixed-fenv-open",
+  "package_proof": {
+    "status": "package-runtime-match",
+    "package": "libc6_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+    "package_sha256": "34db6c40f11d28b80f061a679a237a9092eb28c66c7b911c0a250d8ce3ba9db8",
+    "build_receipt_sha256": "76d42b550833bfd4d13fc537b52bdd13fa92663ec4c8042e9da0cacc3e23ce2b",
+    "files_sha256": {
+      "ld.so.1": "582decc5bd1dfa9d331aeeeda5c9941c262388aa79904fb0c24a7d45db92db95",
+      "libc.so.6": "a49a2863afab811994e633649301197e7651b9a5edc4b15fe2314facfff1f114",
+      "libm.so.6": "f1198ab768786644cd06655c1a65c5edaec369228c6b0b3c8c5130624e65dc3a"
+    }
+  },
+  "scope": "Private runtime in existing system-QEMU; no package installation or hardware acceptance",
+  "tests": {
+    "baseline-cxx": {
+      "command": "/bin/spe-cxx-check --cli",
+      "exit": 0,
+      "stdout": "TABOR_QEMU_INIT_OK: Linux/SPE C++ reference runtime checks\nCXX_TEST long_double_128 PASS\nCXX_TEST exception_unwind PASS\nCXX_TEST thread_tls PASS\nCXX_TEST atomic_u32 PASS\nCXX_SMOKE_DONE failures=0\nTABOR_EXIT=0\n",
+      "stderr": ""
+    },
+    "candidate-cxx-map": {
+      "command": "/home/tabor/glibc-stage2-004/ld.so.1 --library-path /home/tabor/glibc-stage2-004:/lib:/usr/lib --list /bin/spe-cxx-check",
+      "exit": 0,
+      "stdout": "\tlinux-vdso32.so.1 (0xb7cf3000)\n\tlibstdc++.so.6 => /lib/libstdc++.so.6 (0x0fe30000)\n\tlibm.so.6 => /home/tabor/glibc-stage2-004/libm.so.6 (0x0fd00000)\n\tlibgcc_s.so.1 => /lib/libgcc_s.so.1 (0x0fcc0000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fad0000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb7d00000)\nTABOR_EXIT=0\n",
+      "stderr": ""
+    },
+    "candidate-abi-map": {
+      "command": "/home/tabor/glibc-stage2-004/ld.so.1 --library-path /home/tabor/glibc-stage2-004:/lib:/usr/lib --list /home/tabor/glibc-stage2-003/abi-dynamic-probe",
+      "exit": 0,
+      "stdout": "\tlinux-vdso32.so.1 (0xb7d13000)\n\tlibm.so.6 => /home/tabor/glibc-stage2-004/libm.so.6 (0x0fed0000)\n\tlibc.so.6 => /home/tabor/glibc-stage2-004/libc.so.6 (0x0fce0000)\n\t/lib/ld.so.1 => /home/tabor/glibc-stage2-004/ld.so.1 (0xb7d20000)\nTABOR_EXIT=0\n",
+      "stderr": ""
+    },
+    "candidate-cxx": {
+      "command": "/home/tabor/glibc-stage2-004/ld.so.1 --library-path /home/tabor/glibc-stage2-004:/lib:/usr/lib /bin/spe-cxx-check --cli",
+      "exit": 0,
+      "stdout": "TABOR_QEMU_INIT_OK: Linux/SPE C++ reference runtime checks\nCXX_TEST long_double_128 PASS\nCXX_TEST exception_unwind PASS\nCXX_TEST thread_tls PASS\nCXX_TEST atomic_u32 PASS\nCXX_SMOKE_DONE failures=0\nTABOR_EXIT=0\n",
+      "stderr": ""
+    },
+    "candidate-abi": {
+      "command": "/home/tabor/glibc-stage2-004/ld.so.1 --library-path /home/tabor/glibc-stage2-004:/lib:/usr/lib /home/tabor/glibc-stage2-003/abi-dynamic-probe --cli",
+      "exit": 1,
+      "stdout": "TABOR_QEMU_INIT_OK: restored SPE libc C ABI checks\nABI_TEST float32 PASS\nABI_TEST float64 PASS\nABI_TEST varargs PASS\nABI_TEST formatting PASS\nFENV_CHECK mode PASS\nFENV_CHECK float_round FAIL\nFENV_CHECK double_round FAIL\nFENV_CHECK restore PASS\nFENV_CHECK exceptions PASS\nFENV_REGISTER up=0000003e down=0000003f get_up=2 get_down=3\nFENV_DETAIL up=0x1p+0 down=0x1p+0 saved_round=0 float_up=0x1p+0 float_down=0x1p+0\nABI_TEST fenv FAIL\nABI_TEST setjmp PASS\nABI_TEST signal PASS\nABI_TEST pthread_tls PASS\nABI_TEST ucontext PASS\nABI_SMOKE_DONE failures=1\nTABOR_EXIT=1\n",
+      "stderr": ""
+    }
+  },
+  "dynamic_probe_sha256": "ca4b257fc453e3512af7050d6992448ad7b4f6c438795e4900c6f330edf1a2be",
+  "abi_checks": {
+    "float32": "PASS",
+    "float64": "PASS",
+    "varargs": "PASS",
+    "formatting": "PASS",
+    "fenv": "FAIL",
+    "setjmp": "PASS",
+    "signal": "PASS",
+    "pthread_tls": "PASS",
+    "ucontext": "PASS"
+  },
+  "full_spe_abi_validated": false
+}

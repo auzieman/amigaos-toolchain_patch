@@ -48,3 +48,6 @@ Compiler package8.5.0+tabor2 installed in pinned updated build image; fresh
 Debian libc004 compilation running. Original unwind acceptance still pending.
 Desktop4 monitors now follow004 and accurately label known open gates; bounded
 remote tails avoid streaming huge compiler lines into the laptop UI.
+
+Libc004 subsequently built and passed original/new C++ runtime tests in QEMU;
+see007-runtime-result.md. Rounding remains open; no complete ABI/root claim.

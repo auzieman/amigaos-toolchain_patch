@@ -1,0 +1,6 @@
+TABOR_QEMU_INIT_OK: Linux/SPE C++ reference runtime checks
+CXX_TEST long_double_128 PASS
+CXX_TEST exception_unwind PASS
+CXX_TEST thread_tls PASS
+CXX_TEST atomic_u32 PASS
+CXX_SMOKE_DONE failures=0
