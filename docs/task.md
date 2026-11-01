@@ -796,3 +796,14 @@ Debian maintainer scripts/triggers; build proper target packages with their
 dependencies rather than transplanting raw maintainer-script templates.
 SanDisk unchanged; E/Radeon/physical acceptance remains open. See
 builds/r730-installation-round-20261101/README.md.
+
+
+2026-11-01 live VM132 correction: inspected running reference via guest agent.
+Confirmed broader omissions than package records: PAM/logind/udev, normal
+Xsession/user-bus activation, packaged EFL engines/loaders, polkit/UPower/udisks
+and Xorg libinput/EGL/GBM integration. Existing minimal build disables features
+that reference packages depend on. Added VM132 session baseline seed profile;
+resolve full target dependency closure and restore normal Debian session setup
+before E acceptance. Retain lean profiles as diagnostics. See
+builds/vm132-comparison-20261101/README.md. USB unchanged; causal rendering
+fix and target package builds remain pending.

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "status": "reference-verified-target-build-pending",
+  "reference": {
+    "vmid": 132,
+    "observed": "2026-11-01",
+    "evidence": "docs/builds/vm132-comparison-20261101"
+  },
+  "configurations": [
+    "qemu",
+    "a1222"
+  ],
+  "contract": "Resolve complete Depends/Pre-Depends closure from target binary-package metadata, including alternatives and version constraints. Do not copy amd64 binaries or infer a resolved SPE closure from this seed list.",
+  "package_seeds": {
+    "installation": [
+      "dpkg",
+      "debconf",
+      "init-system-helpers",
+      "adduser",
+      "passwd",
+      "libpam-runtime",
+      "libpam-modules"
+    ],
+    "session": [
+      "systemd-sysv",
+      "udev",
+      "libpam-systemd",
+      "dbus",
+      "dbus-user-session",
+      "dbus-x11",
+      "x11-common",
+      "xinit",
+      "xauth",
+      "keyboard-configuration",
+      "xkb-data",
+      "x11-xkb-utils"
+    ],
+    "desktop": [
+      "enlightenment",
+      "enlightenment-data",
+      "terminology",
+      "terminology-data",
+      "libedje-bin",
+      "libefreet-bin",
+      "libecore-bin",
+      "libevas1-engines-x",
+      "libevas-loaders",
+      "fontconfig",
+      "fontconfig-config"
+    ],
+    "graphics": [
+      "xserver-xorg-core",
+      "xserver-common",
+      "xserver-xorg-input-libinput",
+      "libgl1",
+      "libglx-mesa0",
+      "libgl1-mesa-dri",
+      "libegl1",
+      "libgbm1"
+    ],
+    "desktop_services": [
+      "polkitd",
+      "upower",
+      "udisks2"
+    ],
+    "remote": [
+      "openssh-client",
+      "openssh-server"
+    ],
+    "optional_login_manager": [
+      "lightdm",
+      "lightdm-gtk-greeter"
+    ]
+  },
+  "boot_policy": "Shell-first is allowed. Start the desktop through the packaged PAM/login and Xsession path; LightDM can follow. A single human account does not remove service users or session dependencies.",
+  "preserve": [
+    "maintainer scripts and generated debhelper snippets",
+    "conffiles and account database",
+    "alternatives, triggers and generated caches",
+    "system and user bus service activation",
+    "logind seats, runtime directory and device ACLs",
+    "complete installed root and dpkg database"
+  ],
+  "explicitly_not_accepted_baseline": [
+    "hardcoded E feature-disable list",
+    "software-only EFL options as default desktop configuration",
+    "manual evdev/no-udev fallback as normal hardware setup",
+    "handwritten bundle status as evidence of Debian package closure"
+  ],
+  "acceptance": [
+    "Dependencies configured in target environment with no pending package errors",
+    "Normal PAM/login establishes /run/user/UID and session bus",
+    "E profile modules present with their runtime dependencies",
+    "X11/E/Terminology actual client contents render",
+    "QEMU software GL and SPE demos pass",
+    "Physical A1222 memory, SMP, input, SSH and Radeon separately verified"
+  ]
+}

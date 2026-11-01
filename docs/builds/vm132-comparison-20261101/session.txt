@@ -1,0 +1,194 @@
+2 1000 auzieman seat0 1103 user    - no -
+3 1000 auzieman -     1114 manager - no -
+enlightenment.desktop
+lightdm-xsession.desktop
+mate.desktop
+#%PAM-1.0
+
+# Block login if they are globally disabled
+auth      requisite pam_nologin.so
+
+# Load environment from /etc/environment and ~/.pam_environment
+session      required pam_env.so readenv=1
+session      required pam_env.so readenv=1 envfile=/etc/default/locale
+
+@include common-auth
+
+-auth  optional pam_gnome_keyring.so
+
+@include common-account
+
+# SELinux needs to be the first session rule. This ensures that any
+# lingering context has been cleared. Without out this it is possible
+# that a module could execute code in the wrong domain.
+# When the module is present, "required" would be sufficient (When SELinux
+# is disabled, this returns success.)
+session  [success=ok ignore=ignore module_unknown=ignore default=bad] pam_selinux.so close
+
+session  required        pam_limits.so
+session  required        pam_loginuid.so
+@include common-session
+
+# SELinux needs to intervene at login time to ensure that the process
+# starts in the proper default security context. Only sessions which are
+# intended to run in the user's context should be run after this.
+session [success=ok ignore=ignore module_unknown=ignore default=bad] pam_selinux.so open
+# When the module is present, "required" would be sufficient (When SELinux
+# is disabled, this returns success.)
+
+-session optional        pam_gnome_keyring.so auto_start
+
+@include common-password
+# $Id: Xsession.options 189 2005-06-11 00:04:27Z branden $
+#
+# configuration options for /etc/X11/Xsession
+# See Xsession.options(5) for an explanation of the available options.
+allow-failsafe
+allow-user-resources
+allow-user-xsession
+use-ssh-agent
+use-session-dbus
+20dbus_xdg-runtime
+20vdpau-va-gl
+20x11-common_process-args
+30x11-common_xresources
+35x11-common_xhost-local
+40x11-common_xsessionrc
+50x11-common_determine-startup
+55mate-session_materc
+75dbus_dbus-launch
+90gpg-agent
+90qt-a11y
+90x11-common_ssh-agent
+95dbus_update-activation-env
+99mate-environment
+99x11-common_start
+accounts-daemon
+acpid
+agetty
+avahi-daemon
+blkmapd
+COMMAND
+cpuhp/0
+cpuhp/1
+cron
+cups-browsed
+cupsd
+dbus-daemon
+dhcpcd
+efl_net_proxy_h
+efreetd
+enlightenment
+enlightenment_f
+enlightenment_s
+firewalld
+fwupd
+gnome-keyring-d
+gvfsd
+gvfsd-fuse
+idle_inject/0
+idle_inject/1
+irq/9-acpi
+jbd2/sda1-8
+kauditd
+kcompactd0
+kdevtmpfs
+khugepaged
+khungtaskd
+ksmd
+ksoftirqd/0
+ksoftirqd/1
+kswapd0
+kthreadd
+kworker/0:0-events
+kworker/0:0H-events_highpri
+kworker/0:1-cgroup_free
+kworker/0:1H-kblockd
+kworker/1:0H-events_highpri
+kworker/1:1-cgroup_free
+kworker/1:1H-kblockd
+kworker/1:3-events
+kworker/R-acpi_thermal_pm
+kworker/R-ata_sff
+kworker/R-blkcg_punt_bio
+kworker/R-cfg80211
+kworker/R-devfreq_wq
+kworker/R-edac-poller
+kworker/R-ext4-rsv-conversion
+kworker/R-inet_frag_wq
+kworker/R-ipv6_addrconf
+kworker/R-kblockd
+kworker/R-kintegrityd
+kworker/R-kstrp
+kworker/R-kthrotld
+kworker/R-kvfree_rcu_reclaim
+kworker/R-mld
+kworker/R-mm_percpu_wq
+kworker/R-netns
+kworker/R-quota_events_unbound
+kworker/R-rcu_gp
+kworker/R-rpciod
+kworker/R-scsi_tmf_0
+kworker/R-scsi_tmf_1
+kworker/R-scsi_tmf_2
+kworker/R-slub_flushwq
+kworker/R-sync_wq
+kworker/R-tpm_dev_wq
+kworker/R-ttm
+kworker/R-writeback
+kworker/R-xprtiod
+kworker/u8:1-kvfree_rcu_reclaim
+kworker/u8:2
+kworker/u8:4-events_unbound
+kworker/u9:0
+lightdm
+migration/0
+migration/1
+ModemManager
+mpris-proxy
+netavark
+NetworkManager
+nginx
+nmbd
+oom_reaper
+pipewire
+pipewire-pulse
+polkitd
+pool_workqueue_release
+power-profiles-
+ps
+psimon
+qemu-ga
+rcu_exp_gp_kthread_worker
+rcu_exp_par_gp_kthread_worker/0
+rcu_preempt
+rcu_tasks_kthread
+rcu_tasks_rude_kthread
+rcu_tasks_trace_kthread
+rpcbind
+rtkit-daemon
+scsi_eh_0
+scsi_eh_1
+scsi_eh_2
+(sd-pam)
+sh
+smbd
+smbd-cleanupd
+smbd-notifyd
+sort
+ssh-agent
+sshd
+switcheroo-cont
+systemd
+systemd-journal
+systemd-logind
+systemd-timesyn
+systemd-udevd
+udisksd
+upowerd
+wb-idmap
+wb[TRIXIE-SMOKE
+winbindd
+wireplumber
+wpa_supplicant
+Xorg

@@ -14,7 +14,8 @@
     "systemd": "257.13-1~deb13u1",
     "openssh": "1:10.0p1-7+deb13u4",
     "mesa_utils_installed": false,
-    "x11vnc_installed": false
+    "x11vnc_installed": false,
+    "live_comparison": "docs/builds/vm132-comparison-20261101"
   },
   "target": {
     "board": "A1222/Tabor",
@@ -33,13 +34,20 @@
       "LightDM after graphical validation",
       "VNC after graphical validation",
       "Firefox"
-    ]
+    ],
+    "installation_contract": "Normal Debian binary packages, dependency resolution, maintainer scripts, triggers, PAM/session integration; source-level SPE compatibility patches",
+    "configurations": [
+      "qemu",
+      "a1222"
+    ],
+    "session_baseline": "profiles/images/vm132-session-baseline.json"
   },
   "current_increment": {
     "filesystem": "2 GiB MBR/FAT32 boot media with RAM rescue filesystem",
     "desktop_installed": false,
     "physical_boot_validated": false,
-    "full_spe_abi_validated": false
+    "full_spe_abi_validated": false,
+    "note": "Existing lab root runs diagnostic E/GL but is not the Debian session baseline"
   },
   "acceptance_order": [
     "QEMU rescue + native SSH + matched fractal/ABI CLI",

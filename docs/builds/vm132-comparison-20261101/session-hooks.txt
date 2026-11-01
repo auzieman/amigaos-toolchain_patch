@@ -1,0 +1,151 @@
+#
+# /etc/pam.d/common-session - session-related modules common to all services
+#
+# This file is included from other service-specific PAM config files,
+# and should contain a list of modules that define tasks to be performed
+# at the start and end of interactive sessions.
+#
+# As of pam 1.0.1-6, this file is managed by pam-auth-update by default.
+# To take advantage of this, it is recommended that you configure any
+# local modules either before or after the default block, and use
+# pam-auth-update to manage selection of other modules.  See
+# pam-auth-update(8) for details.
+
+# here are the per-package modules (the "Primary" block)
+session	[default=1]			pam_permit.so
+# here's the fallback if no module succeeds
+session	requisite			pam_deny.so
+# prime the stack with a positive return value if there isn't one already;
+# this avoids us returning an error just because nothing sets a success code
+# since the modules above will each just jump around
+session	required			pam_permit.so
+# reset the umask for new sessions
+session optional			pam_umask.so
+# and here are more per-package modules (the "Additional" block)
+session	required	pam_unix.so 
+session	optional			pam_winbind.so 
+session	optional			pam_wtmpdb.so skip_if=sshd
+session	optional	pam_systemd.so 
+# end of pam-auth-update config
+# vim:set ft=sh sw=2 sts=2 et:
+
+if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && [ -n "$XDG_RUNTIME_DIR" ] && \
+    [ "$XDG_RUNTIME_DIR" = "/run/user/`id -u`" ] && \
+    [ -S "$XDG_RUNTIME_DIR/bus" ]; then
+  # We are under systemd-logind or something remarkably similar, and
+  # a user-session socket has already been set up.
+  #
+  # Be nice to non-libdbus, non-sd-bus implementations by using
+  # that as the session bus address in the environment. The check for
+  # XDG_RUNTIME_DIR = "/run/user/`id -u`" is because we know that
+  # form of the address, from systemd-logind, doesn't need escaping,
+  # whereas arbitrary addresses might.
+  DBUS_SESSION_BUS_ADDRESS="unix:path=$XDG_RUNTIME_DIR/bus"
+  export DBUS_SESSION_BUS_ADDRESS
+fi
+
+if [ -x "/usr/bin/dbus-update-activation-environment" ]; then
+  # tell dbus-daemon --session (and systemd --user, if running)
+  # to put a minimal subset of the Xsession's environment in activated
+  # services' environments
+  dbus-update-activation-environment --verbose --systemd \
+    DBUS_SESSION_BUS_ADDRESS \
+    DISPLAY \
+    XAUTHORITY \
+    XDG_CURRENT_DESKTOP \
+    ${NULL+}
+fi
+# $Id:$
+# In order to activate the session bus at X session launch
+# simply place use-session-dbus into your /etc/X11/Xsession.options file
+#
+
+STARTDBUS=
+DBUSLAUNCH=/usr/bin/dbus-launch
+
+if has_option use-session-dbus; then
+  if [ -z "$DBUS_SESSION_BUS_ADDRESS" ] && [ -x "$DBUSLAUNCH" ]; then
+    STARTDBUS=yes
+  fi
+fi
+
+if [ -n "$STARTDBUS" ]; then
+  # Note that anything that is D-Bus-activated between here and
+  # 95dbus_update-activation-env will not have the complete environment
+  # set up by Xsession.d, unless the Xsession.d snippet that sets the
+  # environment variable also calls dbus-update-activation-environment.
+  # See <https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=815503>
+  eval $($DBUSLAUNCH --exit-with-session --sh-syntax)
+fi
+# vim:set ft=sh sw=2 sts=2 et:
+
+if [ -n "$DBUS_SESSION_BUS_ADDRESS" ] && \
+    [ -x "/usr/bin/dbus-update-activation-environment" ]; then
+  # subshell so we can unset environment variables
+  (
+    # unset login-session-specifics
+    unset XDG_SEAT
+    unset XDG_SEAT_PATH
+    unset XDG_SESSION_ID
+    unset XDG_SESSION_PATH
+    unset XDG_VTNR
+
+    # tell dbus-daemon --session (and systemd --user, if running)
+    # to put the Xsession's environment in activated services'
+    # environments
+    dbus-update-activation-environment --verbose --systemd --all
+  )
+fi
+[Desktop Entry]
+Type=XSession
+Name=Enlightenment
+Name[ca]=Enlightenment
+Name[de]=Enlightenment
+Name[el]=Enlightenment
+Name[eo]=Enlightenment
+Name[fi]=Enlightenment
+Name[fr]=Enlightenment
+Name[gl]=Enlightenment
+Name[ja]=Enlightenment
+Name[ko]=Enlightenment
+Name[ms]=Enlightenment
+Name[pl]=Enlightenment
+Name[ru]=Enlightenment
+Name[sr]=ÐÑÐ¾ÑÐ²ÐµÑÐµÑÐµ
+Name[tr]=Enlightenment
+Comment=Log in using Enlightenment (Version 0.27.1)
+Comment[ca]=Iniciar sessiÃ³ amb Enlightenment (VersiÃ³ 0.27.1)
+Comment[da]=Log ind med Enlightenment (Version 0.27.1)
+Comment[de]=Anmelden und Enlightenment verwenden (Version 0.27.1)
+Comment[el]=ÎÎ¯ÏÎ¿Î´Î¿Ï Î¼Îµ ÏÎ¿ Enlightenment (ÎÎºÎ´Î¿ÏÎ· 0.27.1)
+Comment[eo]=Ensaluti pere de Enlightenment (Versio 0.27.1)
+Comment[es]=Iniciar sesiÃ³n usando Enlightenment (VersiÃ³n 0.27.1)
+Comment[fi]=Kirjaudu kÃ¤yttÃ¤en EnlightenmentiÃ¤ (versio 0.27.1)
+Comment[fr]=Ouvrir une session Enlightenment (Version 0.27.1)
+Comment[gl]=Iniciar sesiÃ³n usando Enlightenment (VersiÃ³n 0.27.1)
+Comment[it]=Accedi con Enlightenment (Versione 0.27.1)
+Comment[ko]=Enlightenment ë¡ê·¸ì¸(ë²ì  0.27.1)
+Comment[ms]=Daftar masuk menggunakan Enligtenment (Versi 0.27.1)
+Comment[pt]=Iniciar sessÃ£o no Enlightenment (VersÃ£o 0.27.1)
+Comment[ru]=ÐÐ¾Ð¹ÑÐ¸ Ð¸ÑÐ¿Ð¾Ð»ÑÐ·ÑÑ Enlightenment (ÐÐµÑÑÐ¸Ñ 0.27.1)
+Comment[sr]=ÐÑÐ¸ÑÐ°Ð²Ð¸ÑÐµ ÑÐµ Ð·Ð° ÐºÐ¾ÑÐ¸ÑÑÐµÑÐµ ÐÑÐ¾ÑÐ²ÐµÑÐµÑÐ° (Ð¸Ð·Ð´Ð°ÑÐ° 0.27.1)
+Comment[tr]=Enlightenment kullanarak giriÅ yaÄ±n (Version 0.27.1)
+Icon=/usr/share/enlightenment/data/images/enlightenment.png
+TryExec=/usr/bin/enlightenment_start
+Exec=/usr/bin/enlightenment_start
+DesktopNames=Enlightenment
+Service=lightdm
+Desktop=enlightenment
+Type=x11
+Class=user
+State=active
+/usr/lib/x86_64-linux-gnu/evas/modules/engines/gl_generic/v-1.28/module.so
+/usr/lib/x86_64-linux-gnu/evas/modules/engines/gl_x11/v-1.28/module.so
+/usr/lib/x86_64-linux-gnu/evas/modules/engines/software_x11/v-1.28/module.so
+/usr/lib/x86_64-linux-gnu/enlightenment/modules/lokker:
+linux-gnu-x86_64-0.27.1
+
+/usr/lib/x86_64-linux-gnu/enlightenment/modules/polkit:
+e-module-polkit.edj
+linux-gnu-x86_64-0.27.1
+module.desktop
