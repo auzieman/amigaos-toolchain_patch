@@ -1,0 +1,22 @@
+{
+  "libselinux": {
+    "status": "build-dependencies-blocked",
+    "profiles": "cross,nocheck",
+    "missing": "dh-sequence-python3 dh-sequence-ruby libsepol-dev (>= 3.8.1) libpcre2-dev libpython3-all-dev python3-all-dev:any python3-pip swig"
+  },
+  "audit": {
+    "status": "build-dependencies-blocked",
+    "profiles": "cross,nocheck",
+    "missing": "dh-python libcap-ng-dev libkrb5-dev libldap2-dev libwrap0-dev python3-all-dev:any libpython3-all-dev swig"
+  },
+  "libcap2": {
+    "status": "build-dependencies-blocked",
+    "profiles": "cross,nocheck",
+    "missing": "patchelf indent libpam0g-dev"
+  },
+  "libcap-ng": {
+    "status": "build-dependencies-satisfied-not-built",
+    "profiles": "cross,nocheck,nopython",
+    "missing": null
+  }
+}

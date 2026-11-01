@@ -2,6 +2,8 @@
 
 Start with [review status and prompts](docs/review-start.md).
 
+Build policy: [Debian-first powerpcspe port](docs/debian-port-build-contract.md).
+
 For Steven: [Linux reference and AmigaOS4 engineering roadmap](docs/hyperion-roadmap.md).
 
 Current work: [normal Trixie bootstrap packages, libc packaging and disk-root prerequisites](docs/builds/trixie-bootstrap-20261101/README.md). The older BusyBox roots remain diagnostics, not an accepted Debian installation.

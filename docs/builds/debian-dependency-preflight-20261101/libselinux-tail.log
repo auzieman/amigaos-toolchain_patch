@@ -1,0 +1,10 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/libselinux_3.8.1-1.dsc', '/work/debian-libselinux-001/source']
+dpkg-source: info: extracting libselinux in /work/debian-libselinux-001/source
+dpkg-source: info: unpacking libselinux_3.8.1.orig.tar.gz
+dpkg-source: info: unpacking libselinux_3.8.1-1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying default
+dpkg-source: info: applying man
+dpkg-source: info: applying x32
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck', '-B']
+dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-python3 dh-sequence-ruby libsepol-dev (>= 3.8.1) libpcre2-dev libpython3-all-dev python3-all-dev:any python3-pip swig

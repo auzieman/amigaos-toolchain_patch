@@ -63,3 +63,12 @@ and a rebuilt C++ binary with matching new runtimes. See
 The rounding failure remains. For OS4, inspect its actual selected backend
 and exception model before considering an analogous patch; the inactive-
 backend mistake and corrected selection are preserved in the evidence trail.
+
+## Debian build-system direction
+
+The Linux lane follows the [Debian-first build contract](debian-port-build-contract.md):
+patched foundations, real package repositories/build roots, source Build-Depends
+for scheduling and binary dependencies for installation. Recent fresh-source
+[preflight evidence](builds/debian-dependency-preflight-20261101/README.md)
+identifies the actual next gates. The current wrapper preserves Debian build
+commands but is not yet a full apt/sbuild dependency service.

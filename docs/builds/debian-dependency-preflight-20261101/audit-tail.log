@@ -1,0 +1,10 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/audit_4.0.2-2+deb13u1.dsc', '/work/debian-audit-001/source']
+dpkg-source: info: extracting audit in /work/debian-audit-001/source
+dpkg-source: info: unpacking audit_4.0.2.orig.tar.gz
+dpkg-source: info: unpacking audit_4.0.2-2+deb13u1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying 01-no-refusemanualstop.patch
+dpkg-source: info: applying 03-Set-log_group-adm.patch
+dpkg-source: info: applying 04-riscv64.patch
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck', '-B']
+dpkg-checkbuilddeps: error: unmet build dependencies: dh-python libcap-ng-dev libkrb5-dev libldap2-dev libwrap0-dev python3-all-dev:any libpython3-all-dev swig

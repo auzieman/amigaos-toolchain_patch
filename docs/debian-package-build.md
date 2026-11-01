@@ -97,3 +97,21 @@ dependency is also excluded in that profile because that integration is absent.
 The final normal-feature rebuild restores these dependencies and needs target
 runtime tests. Keep all generated maintainer scripts and real libc/libgcc
 dependencies. Do not force installation into the incomplete diagnostic root.
+
+## Dependency readiness, not a hand-picked queue
+
+Follow [the Debian-first contract](debian-port-build-contract.md). The recipe
+allowlist controls reviewed inputs; it does not resolve package dependencies.
+A fresh source-only readiness check uses Debian's own dependency tool:
+
+```sh
+python3 scripts/submit-debian-package.py --package libselinux --iteration 001 --check-dependencies-only
+```
+
+Use a fresh iteration number. This extracts/verifies sources and applies any
+reviewed source patches, then invokes dpkg-checkbuilddeps with target arch,
+selected profiles and arch-only selection. It compiles nothing, installs
+nothing, and records blocked dependencies as blocked rather than forcing them.
+Prepare real native/target package dependencies in a clean build root before
+normal builds. Fresh preflight success is readiness, not compilation or root
+acceptance. Current runner does not yet provide apt/sbuild dependency resolution.

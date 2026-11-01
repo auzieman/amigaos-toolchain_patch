@@ -1,0 +1,10 @@
+dpkg-source: info: applying Hide-private-symbols.patch
+dpkg-source: info: applying Filter-out-PIE-flags-when-building-shared-objects.patch
+dpkg-source: info: applying Skip-git-if-not-installed.patch
+dpkg-source: info: applying Glibc-needs-a-constant-to-be-defined-for-puts-to-work.patch
+dpkg-source: info: applying Add-support-for-some-less-mainstream-architectures.patch
+dpkg-source: info: applying Extend-support-further-to-__m68k__-and-possibly-__sparc__.patch
+dpkg-source: info: applying Be-more-systematic-using-the-kernel-signal-handler-APIs.patch
+dpkg-source: info: applying Address-a-potential-TOCTOU-race-condition-in-cap_set_file.patch
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck', '-B']
+dpkg-checkbuilddeps: error: unmet build dependencies: patchelf indent libpam0g-dev

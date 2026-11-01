@@ -5,6 +5,7 @@ from pathlib import Path
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--package', required=True)
 p.add_argument('--iteration', required=True)
+p.add_argument('--check-dependencies-only', action='store_true')
 a = p.parse_args()
 assert re.fullmatch(r'[0-9]{3}', a.iteration)
 project = Path(__file__).resolve().parents[1]
@@ -46,6 +47,8 @@ command += ['-v', base + '/work:/work', profile['image_id'],
             '--work', '/work/debian-' + a.package + '-' + a.iteration,
             '--source-lock', profile['source_lock'], '--package', a.package,
             '--image-id', profile['image_id'], '--jobs', str(profile['cpus'])]
+if a.check_dependencies_only:
+    command += ['--check-dependencies-only']
 if profile.get('arch_only'):
     command += ['--arch-only']
 if profile.get('build_profiles'):

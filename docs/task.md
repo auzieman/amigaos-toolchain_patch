@@ -936,3 +936,24 @@ guest readback hashes and actual libc004 mappings. Build frontend identity now
 recorded. Evidence: builds/bootstrap-libraries-20261101. Continue genuine
 dev-dependency closure for libselinux/audit/libcap2, then full-feature libc and
 Essential root. No installed Debian root or graphical-image acceptance claimed.
+
+2026-11-01 user build-policy clarification: Debian Trixie powerpcspe rebuild
+above patched compiler/runtime/board foundations. Debian source Build-Depends
+and profiles govern readiness; binary Depends/Pre-Depends govern installation.
+Recipe allowlist is not an ordering/dependency solver. Added authoritative
+docs/debian-port-build-contract.md and AGENTS instruction. Do not extend
+ad hoc sysroot/shlibs accommodations across the archive indefinitely: prepare
+real repository/build-root package state and use normal apt/sbuild mechanisms.
+Our tools enter as packages with real dependencies. Native/target roles and
+bootstrap/full-feature phases remain explicit; normal setup/scripts preserved.
+Fresh source --check-dependencies-only invokes dpkg-checkbuilddeps before
+compilation; blocked inputs stay blocked. Current runner is not yet an apt/
+sbuild dependency service. Auditing the next real source dependency gates and
+a known-ready bootstrap source; no new compilation/target installation claimed.
+
+2026-11-01 Debian preflight verification complete: libselinux/audit/libcap2
+correctly dependency-blocked; known-ready libcap-ng nopython profile passes
+without building. Exact source requirements and Debian exits retained under
+builds/debian-dependency-preflight-20261101. Next gate is genuine repository/
+build-root dependency state, not another hand-sorted list or disabled check.
+Desktop4 displays that gate; no new compilation or root configuration occurred.

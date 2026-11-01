@@ -16,7 +16,10 @@
     "glibc",
     "libcap-ng",
     "libsepol",
-    "pcre2"
+    "pcre2",
+    "libselinux",
+    "audit",
+    "libcap2"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -50,6 +53,24 @@
       "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
     },
     "pcre2": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
+    },
+    "libselinux": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
+    },
+    "audit": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/bootstrap-libraries.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:ad264d623ad0caba90453f6d1f3787c642c806a72eead7149dcfc88b9073f5d6"
+    },
+    "libcap2": {
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/bootstrap-libraries.lock.json",
       "arch_only": true,

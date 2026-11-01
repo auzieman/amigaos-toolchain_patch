@@ -18,3 +18,14 @@ available laptop memory and own process/thread impact at substantial job starts
 and after symptoms; do not kill user apps, change swap, or tune services merely
 from a snapshot. Remove only identified obsolete task-owned processes/tunnels.
 Prefer a server-hosted noVNC proxy with loopback SSH forwarding.
+
+Debian-first build policy (user clarification, 2026-11-01): read
+`docs/debian-port-build-contract.md`. Patched compiler/runtime/board support
+forms the foundation; Debian source dependency/profile semantics determine
+build readiness and binary Depends/Pre-Depends determine installation order.
+The recipe allowlist is not a dependency solver. Progress toward clean,
+package-managed apt/sbuild build roots and repository-driven dependency
+resolution; do not perpetually extend ad hoc sysroot/shlibs patches across
+ordinary packages. Preserve normal Debian feature/setup behavior and close
+bootstrap cycles with appropriate profiles and subsequent required full builds.
+Our tooling must use real packages and dependencies in that same process.

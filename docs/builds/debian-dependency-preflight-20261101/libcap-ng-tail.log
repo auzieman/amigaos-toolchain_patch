@@ -1,0 +1,10 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/libcap-ng_0.8.5-4.dsc', '/work/debian-libcap-ng-003/source']
+dpkg-source: info: extracting libcap-ng in /work/debian-libcap-ng-003/source
+dpkg-source: info: unpacking libcap-ng_0.8.5.orig.tar.gz
+dpkg-source: info: unpacking libcap-ng_0.8.5-4.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying use-version-specific-python3-config.patch
+dpkg-source: info: applying fix-python-path-when-invoking-py-compile.patch
+$ ['git', 'apply', '--check', '/project/patches/libcap-ng/0001-cross-sysroot-packaging.patch']
+$ ['git', 'apply', '/project/patches/libcap-ng/0001-cross-sysroot-packaging.patch']
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck,nopython', '-B']

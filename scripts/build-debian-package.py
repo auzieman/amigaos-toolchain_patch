@@ -15,6 +15,7 @@ p.add_argument('--image-id', required=True)
 p.add_argument('--jobs', type=int, default=4)
 p.add_argument('--build-profiles', default='cross,nocheck')
 p.add_argument('--arch-only', action='store_true')
+p.add_argument('--check-dependencies-only', action='store_true', help='Fresh source preflight using Debian dependency semantics; do not compile')
 a = p.parse_args()
 assert __import__('re').fullmatch(r'[a-z0-9,-]+', a.build_profiles)
 assert 1 <= a.jobs <= 4
@@ -40,6 +41,7 @@ env.update(PATH=str(a.tools / 'bin') + ':' + env['PATH'], CC=str(cc),
            TABOR_SHLIBS=str(a.project / 'profiles/images/spe-bootstrap.shlibs'))
 r = {'status': 'running', 'package': a.package, 'source_version': component['version'],
      'build_profiles': a.build_profiles, 'arch_only': a.arch_only,
+     'dependency_preflight_only': a.check_dependencies_only,
      'image_id': a.image_id, 'recipe_sha256': sha(Path(__file__)),
      'source_lock_sha256': sha(lockpath), 'compiler_sha256': sha(cc),
      'compiler_frontend_sha256': sha(frontend),
@@ -91,21 +93,36 @@ with (a.work / 'build.log').open('w') as log:
             env['LINUX_SOURCE'] = str(a.sysroot / 'usr')
             run(['dpkg-architecture', '-apowerpcspe', '-c',
                  'make -f debian/rules debian/control'], source)
-        run(['dpkg-buildpackage', '-a', 'powerpcspe',
-             '-B' if a.arch_only else '-b', '-us', '-uc'], source)
-        packages = {}
-        for deb in sorted([*a.work.glob('*.deb'), *a.work.glob('*.udeb')]):
-            metadata = subprocess.check_output(['dpkg-deb', '-f', str(deb), 'Architecture'], text=True).strip()
-            assert metadata in ['powerpcspe', 'all'], metadata
-            packages[deb.name] = {'sha256': sha(deb), 'bytes': deb.stat().st_size,
-                                  'architecture': metadata}
-        assert packages, 'No Debian binary packages generated'
-        r['packages'] = packages
-        r['build_metadata'] = {f.name: sha(f) for pattern in ['*.changes', '*.buildinfo']
-                               for f in sorted(a.work.glob(pattern))}
-        r['status'] = 'debian-packages-built-not-target-installed'
+        if a.check_dependencies_only:
+            command = ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', a.build_profiles]
+            if a.arch_only:
+                command.append('-B')
+            r['active_phase'] = 'debian-build-dependency-preflight'
+            run(command, source)
+            r['status'] = 'build-dependencies-satisfied-not-built'
+        else:
+            run(['dpkg-buildpackage', '-a', 'powerpcspe',
+                 '-B' if a.arch_only else '-b', '-us', '-uc'], source)
+            packages = {}
+            for deb in sorted([*a.work.glob('*.deb'), *a.work.glob('*.udeb')]):
+                metadata = subprocess.check_output(['dpkg-deb', '-f', str(deb), 'Architecture'], text=True).strip()
+                assert metadata in ['powerpcspe', 'all'], metadata
+                packages[deb.name] = {'sha256': sha(deb), 'bytes': deb.stat().st_size,
+                                      'architecture': metadata}
+            assert packages, 'No Debian binary packages generated'
+            r['packages'] = packages
+            r['build_metadata'] = {f.name: sha(f) for pattern in ['*.changes', '*.buildinfo']
+                                   for f in sorted(a.work.glob(pattern))}
+            r['status'] = 'debian-packages-built-not-target-installed'
     except Exception as error:
-        r.update(status='failed', error=str(error)); raise
+        dependency_blocked = (a.check_dependencies_only
+            and isinstance(error, subprocess.CalledProcessError)
+            and error.cmd[0] == 'dpkg-checkbuilddeps')
+        r.update(status='build-dependencies-blocked' if dependency_blocked else 'failed',
+                 error=str(error))
+        if isinstance(error, subprocess.CalledProcessError):
+            r['failed_command_exit'] = error.returncode
+        raise
     finally:
         save()
 print(r['status'])
