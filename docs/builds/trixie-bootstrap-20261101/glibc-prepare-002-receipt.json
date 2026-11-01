@@ -1,0 +1,72 @@
+{
+  "component": "glibc",
+  "version": "2.41-12+deb13u4",
+  "image_id": "sha256:0b09621df752ad60727ca662bd215b1fc9369e5b948c5150846bc88a3a9bec10",
+  "status": "prepared",
+  "mode": "prepare",
+  "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "series_sha256": "b2afd378b0e1c64174191289e616b894e848be76eba27df5800422f26f95f642",
+  "patches": {
+    "0001-restore-historical-e500-sysdeps.patch": "141c17f4275a0e70c863702edb23ba743d7c72a40d812107f7ca2d6bd5ab08c8",
+    "0002-powerpc-restore-spe-selection-and-state.patch": "aa9b1b61ff308f757f76529407b8278d4ae2f090d19f02c26990651fa3ca6634",
+    "0003-e500-port-internal-syscall-interface.patch": "cb2f7e97722413cc4dc2a8519840fb4bde88c0d3a06d71b5daf3acea319f9e80",
+    "0004-debian-register-powerpcspe-packaging.patch": "bb2c4749d8b040566ed1b0decddca0bd1e6450f37809d741667b8657f40a8383"
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/glibc_2.41-12+deb13u4.dsc",
+      "/work/glibc-package-review-002/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ]
+  ],
+  "kernel_profile": "tabor",
+  "boot_tested": false,
+  "spe_userspace_validated": false,
+  "cache_reverified": true
+}

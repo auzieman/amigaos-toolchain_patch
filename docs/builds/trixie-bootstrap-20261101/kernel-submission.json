@@ -1,0 +1,16 @@
+{
+  "status": "effective-config-validated-kernel-compilation-running",
+  "container": "tabor-qemu-debian-009",
+  "work": "/srv/data1/tabor-build/linux-live-001/work/qemu-live-008",
+  "image": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "resources": {
+    "cpus": 4,
+    "memory": "6g",
+    "pids": 256,
+    "network": "none"
+  },
+  "entrypoint": "python3",
+  "initial_submission_failure": "Container008 inherited sh entrypoint and exited before creating work; replacement009 explicitly selects python3",
+  "physical_boot": false,
+  "new_root_booted": false
+}

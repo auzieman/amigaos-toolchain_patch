@@ -1,0 +1,15 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -39,3 +39,12 @@
+ 	sed -i '/^misc:Depends=/s/debconf[^,]*[, ]*//' debian/dash.substvars
+ 
+ .PHONY: override_dh_auto_configure
++
++# Recorded experimental cross sysroot; normal Debian rules remain intact.
++ifneq ($(TABOR_SYSROOT),)
++override_dh_shlibdeps:
++	dh_shlibdeps -- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS)
++
++override_dh_builddeb:
++	dh_builddeb -- -Zgzip -Snone
++endif

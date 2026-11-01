@@ -2,6 +2,8 @@
 
 Start with [review status and prompts](docs/review-start.md).
 
+Current work: [normal Trixie bootstrap packages, libc packaging and disk-root prerequisites](docs/builds/trixie-bootstrap-20261101/README.md). The older BusyBox roots remain diagnostics, not an accepted Debian installation.
+
 Current package/kernel increment: [package installation, 8GiB/SMP and GL readiness](docs/package-hardware-readiness.md).
 
 Earlier software prerequisite slice: [source-built zlib/PNG/Pixman with QEMU runtime checks](docs/desktop-base.md).

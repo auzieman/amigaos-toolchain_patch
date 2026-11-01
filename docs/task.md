@@ -837,3 +837,15 @@ in guest010. Target extraction exposed missing GNU tar (BusyBox lacks required
 option), reinforcing need for full Debian Essential dependency closure. No
 forced package installation or USB write. See debian-package-build.md and
 builds/debian-libmd-20261101. E/graphics/fenv/hardware gates remain open.
+
+
+2026-11-01 actual Trixie transition: pinned seven bootstrap source packages;
+built normal Debian attr/libattr and dash packages. Fixed dash native-generator
+LDFLAGS/sysroot contamination at source level; target shell smoke passes.
+Glibc Debian powerpcspe registration/reference-compiler patch applies and actual
+control generation succeeds; full libc packaging remains pending. Effective
+QEMU config lacks cgroups/ACL/virtio-block; started bounded qemu-live008 rebuild
+with corrected seeds/assertions. Full root becomes ext4 disk-backed with normal
+Debian Essential/PAM/init/session/package state. No USB write or full Trixie
+acceptance claimed. See builds/trixie-bootstrap-20261101 and the new
+profiles/images/trixie-bootstrap.json for exact progress and remaining gates.

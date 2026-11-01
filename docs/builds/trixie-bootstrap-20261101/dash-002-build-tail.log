@@ -1,0 +1,35 @@
+   dh_link
+   dh_strip_nondeterminism
+   dh_compress
+   dh_fixperms
+   dh_missing
+   dh_dwz -a
+   dh_strip -a
+dh_strip: warning: Could not find the BuildID in debian/dash/usr/bin/dash
+   dh_makeshlibs -a
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/work/debian-dash-002/source'
+dh_shlibdeps -- -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs
+make[1]: Leaving directory '/work/debian-dash-002/source'
+   dh_installdeb
+   debian/rules execute_before_dh_gencontrol
+make[1]: Entering directory '/work/debian-dash-002/source'
+# dh_installdebconf will add a dependency on debconf to
+#  because of the presence of ./debian/dash.templates
+# Since the preinst snippet has fallback code for when debconf is not
+# available, that extra dependency is not needed.
+# FIXME: remove this after Trixie together with the preinst
+sed -i '/^misc:Depends=/s/debconf[^,]*[, ]*//' debian/dash.substvars
+make[1]: Leaving directory '/work/debian-dash-002/source'
+   dh_gencontrol
+   dh_md5sums
+   debian/rules override_dh_builddeb
+make[1]: Entering directory '/work/debian-dash-002/source'
+dh_builddeb -- -Zgzip -Snone
+dpkg-deb: building package 'dash' in '../dash_0.5.12-12+tabor1_powerpcspe.deb'.
+make[1]: Leaving directory '/work/debian-dash-002/source'
+ dpkg-genbuildinfo --build=binary -O../dash_0.5.12-12+tabor1_powerpcspe.buildinfo
+ dpkg-genchanges --build=binary -O../dash_0.5.12-12+tabor1_powerpcspe.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

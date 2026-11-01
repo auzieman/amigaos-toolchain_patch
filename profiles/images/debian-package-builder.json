@@ -10,7 +10,19 @@
   "source_cache": "session-source-cache",
   "source_lock": "profiles/package-tools.lock.json",
   "packages": [
-    "libmd"
+    "libmd",
+    "attr",
+    "dash"
   ],
-  "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages."
+  "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
+  "package_inputs": {
+    "attr": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/essential-sources.lock.json"
+    },
+    "dash": {
+      "source_cache": "bootstrap-source-cache",
+      "source_lock": "profiles/essential-sources.lock.json"
+    }
+  }
 }

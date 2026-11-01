@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "status": "bootstrap-packages-in-progress-not-a-complete-Trixie-root",
+  "architecture": "powerpcspe",
+  "abi": "e500v2 SPE double GPR, IBM long double128",
+  "configurations": [
+    "qemu",
+    "a1222"
+  ],
+  "reference": "docs/builds/trixie-bootstrap-20261101/vm132-essential-required.txt",
+  "session_baseline": "profiles/images/vm132-session-baseline.json",
+  "source_lock": "profiles/essential-sources.lock.json",
+  "storage": {
+    "root": "ext4 disk filesystem with complete installed Debian package state",
+    "qemu": "virtio block image; UUID-based root selection",
+    "a1222": "USB block root plus U-Boot FAT boot files; no media write until accepted candidate",
+    "initramfs": "Early boot only; use normal Debian initramfs tooling once bootstrapped",
+    "constraint": "No internal-disk installation, partitioning or Sandisk overwrite in current stage"
+  },
+  "required_state": [
+    "Debian Essential package closure plus apt runtime dependencies",
+    "Real libc6/libc-bin/libgcc packages; no dummy installed records",
+    "Generated package maintainer scripts/triggers execute in target environment",
+    "Normal Debian init, udev, logind, PAM and D-Bus",
+    "Normal package database, conffiles, account state and generated caches survive reboot"
+  ],
+  "current_packages": {
+    "libmd": "built and library-runtime-tested; target installation pending",
+    "attr": "Debian SPE binary packages built; target tests/install pending",
+    "dash": "Debian SPE package with maintainer scripts built; runtime smoke passed; install pending",
+    "glibc": "Restoration and architecture packaging patch apply; control generation passed; full Debian package build pending"
+  },
+  "kernel_delta": "QEMU cgroups/ACL/virtio-block effective config required; same init/session requirements in physical fragment",
+  "next_dependency_gates": [
+    "Complete libc packaging/compiler and target build-dependency bootstrap",
+    "Debianutils and GNU tar/Essential tooling with their dependency closure",
+    "Configure Essential packages in isolated target root",
+    "Boot that disk root under QEMU, verify dpkg/apt and persistence",
+    "Add VM132 session closure, E and software GL/SPE tests",
+    "Physical A1222 image and Radeon acceptance"
+  ]
+}

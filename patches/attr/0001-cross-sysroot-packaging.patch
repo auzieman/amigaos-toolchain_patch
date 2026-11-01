@@ -1,0 +1,15 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -16,3 +16,12 @@
+ override_dh_makeshlibs:
+ 	dh_makeshlibs -N libattr1
+ 	dh_makeshlibs -p libattr1 -V 'libattr1 (>= 1:2.4.48)'
++
++# Match the explicit experimental cross sysroot without skipping dependency checks.
++ifneq ($(TABOR_SYSROOT),)
++override_dh_shlibdeps:
++	dh_shlibdeps -- -l$(TABOR_SYSROOT)/lib -l$(TABOR_SYSROOT)/usr/lib -L$(TABOR_SHLIBS)
++
++override_dh_builddeb:
++	dh_builddeb -- -Zgzip -Snone
++endif

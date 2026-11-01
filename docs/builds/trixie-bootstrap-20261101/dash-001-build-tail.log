@@ -1,0 +1,42 @@
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:268:(.text+0xc6): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /tmp/cccHNxoT.o: in function `main':
+/work/debian-dash-001/source/src/mksyntax.c:131:(.text.startup+0x16c): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:135:(.text.startup+0x1c5): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:140:(.text.startup+0x247): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:144:(.text.startup+0x2a9): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:147:(.text.startup+0x2e0): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mksyntax.c:148:(.text.startup+0x2fa): undefined reference to `__nldbl_fprintf'
+collect2: error: ld returned 1 exit status
+make[3]: *** [Makefile:838: mksyntax] Error 1
+make[3]: *** Waiting for unfinished jobs....
+/usr/bin/ld: /tmp/cczt230C.o: in function `error':
+/work/debian-dash-001/source/src/mknodes.c:427:(.text+0x11d): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:428:(.text+0x131): undefined reference to `__nldbl_vfprintf'
+/usr/bin/ld: /tmp/cczt230C.o: in function `outfunc':
+/work/debian-dash-001/source/src/mknodes.c:305:(.text+0x250): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:328:(.text+0x321): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:347:(.text+0x381): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:335:(.text+0x56b): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /tmp/cczt230C.o: in function `parsefield':
+/work/debian-dash-001/source/src/mknodes.c:173:(.text+0x85f): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:176:(.text+0x9ba): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:179:(.text+0xa2c): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:182:(.text+0xa5e): undefined reference to `__nldbl_sprintf'
+/usr/bin/ld: /tmp/cczt230C.o: in function `output':
+/work/debian-dash-001/source/src/mknodes.c:227:(.text.startup+0x319): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:230:(.text.startup+0x396): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:232:(.text.startup+0x3c1): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /work/debian-dash-001/source/src/mknodes.c:239:(.text.startup+0x497): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /tmp/cczt230C.o: in function `outsizes':
+/work/debian-dash-001/source/src/mknodes.c:274:(.text.startup+0x691): undefined reference to `__nldbl_fprintf'
+/usr/bin/ld: /tmp/cczt230C.o:/work/debian-dash-001/source/src/mknodes.c:276: more undefined references to `__nldbl_fprintf' follow
+collect2: error: ld returned 1 exit status
+make[3]: *** [Makefile:838: mknodes] Error 1
+make[3]: Leaving directory '/work/debian-dash-001/source/src'
+make[2]: *** [Makefile:359: all-recursive] Error 1
+make[2]: Leaving directory '/work/debian-dash-001/source'
+make[1]: *** [Makefile:300: all] Error 2
+make[1]: Leaving directory '/work/debian-dash-001/source'
+dh_auto_build: error: make -j4 returned exit code 2
+make: *** [debian/rules:25: binary] Error 25
+dpkg-buildpackage: error: debian/rules binary subprocess returned exit status 2

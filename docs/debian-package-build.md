@@ -10,6 +10,7 @@ Use a fresh iteration number. This command checks for an active package build,
 synchronizes the reviewed recipe/lock/patch files, and submits one network-free
 R730 Docker job (4 CPU equivalents,6GiB,256 tasks). It does not compile locally,
 launch extra viewers, retry unknown failures or overwrite accepted artifacts.
+Both package and kernel submitters check for active Tabor Docker jobs.
 The whitelist expands after source/dependency/recipe review, not arbitrary shell
 commands. Image digest, sysroot and compiler paths are pinned in
 profiles/images/debian-package-builder.json; native image package inventory is
@@ -54,3 +55,17 @@ The single-user goal still permits normal Debian system accounts and services.
 
 Directed-rounding/fenv, complete Debian desktop setup, E compositor rendering
 and physical Radeon output remain independent open gates. No USB write.
+
+Bootstrap extension: attr and dash source inputs are now pinned separately in
+profiles/essential-sources.lock.json and selected by per-package cache/lock
+settings. Dash preserves real Debian maintainer scripts. Its source patch fixes
+native code-generator linking without changing shell runtime semantics.
+
+Kernel submission uses the same server budget and explicit Python entrypoint:
+
+```sh
+python3 scripts/submit-r730-kernel.py --kernel-profile qemu-live --iteration 009
+```
+
+Use a fresh iteration; tabor-live is the physical profile. No USB writes or
+new viewer launches are performed by either submitter.

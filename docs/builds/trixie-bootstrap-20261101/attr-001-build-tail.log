@@ -1,0 +1,30 @@
+dh_strip: warning: Could not find the BuildID in debian/attr/usr/bin/getfattr
+   debian/rules override_dh_makeshlibs
+make[1]: Entering directory '/work/debian-attr-001/source'
+dh_makeshlibs -N libattr1
+dh_makeshlibs -p libattr1 -V 'libattr1 (>= 1:2.4.48)'
+make[1]: Leaving directory '/work/debian-attr-001/source'
+   debian/rules override_dh_shlibdeps
+make[1]: Entering directory '/work/debian-attr-001/source'
+dh_shlibdeps -- -l/sysroot/lib -l/sysroot/usr/lib -L/project/profiles/images/spe-bootstrap.shlibs
+make[1]: Leaving directory '/work/debian-attr-001/source'
+   dh_installdeb
+   dh_gencontrol
+   dh_md5sums
+   debian/rules override_dh_builddeb
+make[1]: Entering directory '/work/debian-attr-001/source'
+dh_builddeb -- -Zgzip -Snone
+dpkg-deb: building package 'libattr1-dev' in '../libattr1-dev_2.5.2-3+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'attr' in '../attr_2.5.2-3+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'attr-udeb' in 'debian/.debhelper/scratch-space/build-attr-udeb/attr-udeb_2.5.2-3+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libattr1' in '../libattr1_2.5.2-3+tabor1_powerpcspe.deb'.
+	Renaming attr-udeb_2.5.2-3+tabor1_powerpcspe.deb to attr-udeb_2.5.2-3+tabor1_powerpcspe.udeb
+dpkg-deb: building package 'attr-dbgsym' in '../attr-dbgsym_2.5.2-3+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libattr1-udeb' in 'debian/.debhelper/scratch-space/build-libattr1-udeb/libattr1-udeb_2.5.2-3+tabor1_powerpcspe.deb'.
+	Renaming libattr1-udeb_2.5.2-3+tabor1_powerpcspe.deb to libattr1-udeb_2.5.2-3+tabor1_powerpcspe.udeb
+make[1]: Leaving directory '/work/debian-attr-001/source'
+ dpkg-genbuildinfo --build=binary -O../attr_2.5.2-3+tabor1_powerpcspe.buildinfo
+ dpkg-genchanges --build=binary -O../attr_2.5.2-3+tabor1_powerpcspe.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

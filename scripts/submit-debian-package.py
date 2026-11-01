@@ -10,11 +10,12 @@ assert re.fullmatch(r'[0-9]{3}', a.iteration)
 project = Path(__file__).resolve().parents[1]
 profile = json.loads((project / 'profiles/images/debian-package-builder.json').read_text())
 assert a.package in profile['packages'], 'Package needs reviewed intake and recipe first'
+profile.update(profile.get('package_inputs', {}).get(a.package, {}))
 helper = project.parent / 'lab/consolidation-20261002/r730-prep-20261031'
 base = profile['server_base']
 # Serial submission: refuse to add a second active package build.
 active = subprocess.check_output(['python3', str(helper / 'sudo.py'),
-    "docker ps --filter name=tabor-debian- --format '{{.Names}}'"], text=True).strip()
+    "docker ps --filter name=tabor- --format '{{.Names}}'"], text=True).strip()
 assert not active, 'A package build is already active: ' + active
 files = ['scripts/build-debian-package.py', profile['source_lock'],
          'profiles/images/spe-bootstrap.shlibs']

@@ -1,0 +1,15 @@
+{
+  "version": "0.5.12-12",
+  "purpose": "Cross packaging against experimental libc without bypassing Debian setup",
+  "patches": [
+    {
+      "path": "patches/dash/0001-cross-sysroot-packaging.patch",
+      "sha256": "e03f6a51f64318efb52858217ca83be8188f39e7a0302122d2b870a98c175b63"
+    },
+    {
+      "path": "patches/dash/0002-separate-native-generator-link-flags.patch",
+      "sha256": "6b8354390769561db04e3f407111b3e126658a4067731c1da84d53328a1cfbb2",
+      "origin": "Local cross-build fix: native generators must not inherit target sysroot linker flags; native non-cross behavior preserved"
+    }
+  ]
+}

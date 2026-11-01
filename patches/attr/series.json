@@ -1,0 +1,10 @@
+{
+  "version": "1:2.5.2-3",
+  "purpose": "Explicit experimental cross sysroot; ordinary builds retain Debian defaults",
+  "patches": [
+    {
+      "path": "patches/attr/0001-cross-sysroot-packaging.patch",
+      "sha256": "6c4a610dd343f1b1a6e414d4e44c949c0139f03d78db13d8934340399c40036f"
+    }
+  ]
+}
