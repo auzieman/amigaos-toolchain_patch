@@ -21,22 +21,31 @@ if not any(l.startswith('pub:') for l in keys.splitlines()):
 assert sum(l.startswith('pub:') for l in keys.splitlines())==1
 fingerprint=next(l.split(':')[9] for l in keys.splitlines() if l.startswith('fpr:'))
 keyring=a.output/'keyrings/tabor-archive.gpg';keyring.parent.mkdir();keyring.write_bytes(run(['gpg','--batch','--export',fingerprint]))
-artifacts=[]
+artifacts=[];excluded_artifacts=[]
 for item in spec['inputs']:
  rp=(a.base/item['receipt']).resolve();assert rp.is_relative_to(a.base.resolve())
  assert sha(rp)==item['receipt_sha256'], 'Receipt changed: '+str(rp)
  r=json.loads(rp.read_text())
  assert item['kind']=='debian-build'
  assert r['status']=='debian-packages-built-not-target-installed'
+ assert not (r.get('preserve_debian_version') and 'stage2' in r.get('build_profiles','').split(',')), 'Preserved-version stage2 libc is a build-root-only bootstrap input'
  packages={name:entry['sha256'] for name,entry in r['packages'].items() if name.endswith('.deb')}
+ exclusions=set(item.get('exclude_packages',[]));found_exclusions=set()
+ if exclusions:assert item.get('exclusion_reason'), 'Package exclusion needs a recorded reason'
  for name,digest in packages.items():
   assert Path(name).name==name
   source=rp.parent/name;assert sha(source)==digest
+  package=run(['dpkg-deb','-f',str(source),'Package'],text=True).strip()
+  if package in exclusions:
+   found_exclusions.add(package)
+   excluded_artifacts.append({'package':package,'file':name,'sha256':digest,'receipt':item['receipt'],'reason':item['exclusion_reason']})
+   continue
   arch=run(['dpkg-deb','-f',str(source),'Architecture'],text=True).strip();assert arch in spec['architectures']+['all']
   dest=a.output/'pool'/item['component']/name;dest.parent.mkdir(parents=True,exist_ok=True)
   if dest.exists():assert sha(dest)==digest
   else:shutil.copyfile(source,dest);dest.chmod(0o644)
   artifacts.append({'file':str(dest.relative_to(a.output)),'sha256':digest,'architecture':arch,'receipt':item['receipt']})
+ assert found_exclusions==exclusions, 'Excluded package not found in recorded artifacts'
 release_dir=a.output/'dists'/spec['suite']
 for component in spec['components']:
  for arch in spec['architectures']:
@@ -51,5 +60,5 @@ for flags,filename in [(['--armor','--detach-sign'],'Release.gpg'),(['--clearsig
 run(['gpgv','--keyring',str(keyring),str(release_dir/'InRelease')])
 (a.output/'tabor.sources').write_text('Types: deb\nURIs: file:/repo\nSuites: '+spec['suite']+'\nComponents: '+' '.join(spec['components'])+'\nArchitectures: '+' '.join(spec['architectures'])+'\nSigned-By: /repo/keyrings/tabor-archive.gpg\n')
 (a.output/'manifest.json').write_text(json.dumps(spec,indent=2)+'\n')
-(a.output/'receipt.json').write_text(json.dumps({'status':'signed-binary-archive-built-not-target-installed','image_id':a.image_id,'recipe_sha256':sha(Path(__file__)),'manifest_sha256':sha(a.manifest),'public_key_fingerprint':fingerprint,'source_indexes':False,'artifacts':artifacts,'release_sha256':sha(release),'inrelease_sha256':sha(release_dir/'InRelease')},indent=2)+'\n')
+(a.output/'receipt.json').write_text(json.dumps({'status':'signed-binary-archive-built-not-target-installed','image_id':a.image_id,'recipe_sha256':sha(Path(__file__)),'manifest_sha256':sha(a.manifest),'public_key_fingerprint':fingerprint,'source_indexes':False,'artifacts':artifacts,'excluded_artifacts':excluded_artifacts,'release_sha256':sha(release),'inrelease_sha256':sha(release_dir/'InRelease')},indent=2)+'\n')
 print('Signed archive:',len(artifacts),'artifacts; public fingerprint',fingerprint)

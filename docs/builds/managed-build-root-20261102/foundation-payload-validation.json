@@ -1,0 +1,111 @@
+{
+  "status": "five-source-elf-payload-validation-passed",
+  "target_execution": false,
+  "source_outputs": {
+    "attr": [
+      {
+        "package": "attr-dbgsym_2.5.2-3_powerpcspe.deb",
+        "file": "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/attr.debug",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr-udeb_2.5.2-3_powerpcspe.udeb",
+        "file": "./usr/bin/attr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr-udeb_2.5.2-3_powerpcspe.udeb",
+        "file": "./usr/bin/getfattr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr-udeb_2.5.2-3_powerpcspe.udeb",
+        "file": "./usr/bin/setfattr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr_2.5.2-3_powerpcspe.deb",
+        "file": "./usr/bin/attr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr_2.5.2-3_powerpcspe.deb",
+        "file": "./usr/bin/getfattr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "attr_2.5.2-3_powerpcspe.deb",
+        "file": "./usr/bin/setfattr",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libattr1-udeb_2.5.2-3_powerpcspe.udeb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libattr.so.1.1.2502",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libattr1_2.5.2-3_powerpcspe.deb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libattr.so.1.1.2502",
+        "elf": "ELF32 big-endian PowerPC"
+      }
+    ],
+    "libxcrypt": [
+      {
+        "package": "libcrypt1-udeb_4.4.38-1_powerpcspe.udeb",
+        "file": "./usr/lib/libcrypt.so.1.1.0",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libcrypt1_4.4.38-1_powerpcspe.deb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libcrypt.so.1.1.0",
+        "elf": "ELF32 big-endian PowerPC"
+      }
+    ],
+    "fribidi": [
+      {
+        "package": "libfribidi-bin_1.0.16-1_powerpcspe.deb",
+        "file": "./usr/bin/fribidi",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libfribidi0-udeb_1.0.16-1_powerpcspe.udeb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libfribidi.so.0.4.0",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libfribidi0_1.0.16-1_powerpcspe.deb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libfribidi.so.0.4.0",
+        "elf": "ELF32 big-endian PowerPC"
+      }
+    ],
+    "pixman": [
+      {
+        "package": "libpixman-1-0-udeb_0.44.0-3_powerpcspe.udeb",
+        "file": "./usr/lib/libpixman-1.so.0.44.0",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libpixman-1-0_0.44.0-3_powerpcspe.deb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libpixman-1.so.0.44.0",
+        "elf": "ELF32 big-endian PowerPC"
+      }
+    ],
+    "mtdev": [
+      {
+        "package": "libmtdev1-udeb_1.1.7-1_powerpcspe.udeb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libmtdev.so.1.0.0",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "libmtdev1t64_1.1.7-1_powerpcspe.deb",
+        "file": "./usr/lib/powerpc-linux-gnuspe/libmtdev.so.1.0.0",
+        "elf": "ELF32 big-endian PowerPC"
+      },
+      {
+        "package": "mtdev-tools_1.1.7-1_powerpcspe.deb",
+        "file": "./usr/bin/mtdev-test",
+        "elf": "ELF32 big-endian PowerPC"
+      }
+    ]
+  }
+}

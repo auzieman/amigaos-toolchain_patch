@@ -1,0 +1,37 @@
+{
+  "purpose": "Install reviewed foundation runtime/development packages through Debian apt; no copied package state",
+  "inputs": [
+    {
+      "receipt": "work/debian-libxcrypt-401/receipt.json",
+      "receipt_sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "packages": [
+        "libcrypt1",
+        "libcrypt-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-fribidi-401/receipt.json",
+      "receipt_sha256": "057d29611b6e3017271db130f64631370527c64a21fb9bac789c7c59ba65634b",
+      "packages": [
+        "libfribidi0",
+        "libfribidi-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-pixman-401/receipt.json",
+      "receipt_sha256": "7fce94f6399506eeaee7ecb17a89c5683e662d26cd441a7562fca880ea4dcc5d",
+      "packages": [
+        "libpixman-1-0",
+        "libpixman-1-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-mtdev-401/receipt.json",
+      "receipt_sha256": "eb62427fb5e9a2d9d11722e606192c2f346233f13f81dab32cd68675938b400c",
+      "packages": [
+        "libmtdev1t64",
+        "libmtdev-dev"
+      ]
+    }
+  ]
+}

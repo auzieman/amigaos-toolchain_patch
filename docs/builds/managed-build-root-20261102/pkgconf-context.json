@@ -1,0 +1,15 @@
+{
+  "recipe_sha256": "c284f61f17772757fc1283ed5b1c1a2cca1fc93caeaf42bb5294066658579bb3",
+  "manifest_sha256": "d7d4f88806f969706107533a7c84455bfcaaa925bd77f66eb7b56802101d5713",
+  "dockerfile_sha256": "0051d30f8966407f23628e8851974b9642fb2751e4deb93602598b2c3a357386",
+  "inputs": [
+    {
+      "package": "pkgconf",
+      "file": "pkgconf_1.8.1-4_powerpcspe.deb",
+      "sha256": "75d936e9314fef39b31b4292d94319b4e543cbf6a5a21cfb2dc08244b8759a6d",
+      "receipt_sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "build_profiles": "cross,nocheck"
+    }
+  ],
+  "purpose": "isolated cross-build root; not a final target installation"
+}

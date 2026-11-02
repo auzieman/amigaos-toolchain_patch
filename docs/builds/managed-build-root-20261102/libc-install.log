@@ -1,0 +1,49 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  3.908MB
+Step 1/5 : ARG BUILD_INFRA_IMAGE
+Step 2/5 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 34575c073e8a
+Step 3/5 : COPY packages/ /opt/tabor-target-packages/
+ ---> Using cache
+ ---> 38f08d32dcaf
+Step 4/5 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in 9c2d4e741740
+libc6-dev_2.41-12+deb13u4_powerpcspe.deb: OK
+libc6_2.41-12+deb13u4_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  glibc-doc:powerpcspe libc-l10n:powerpcspe locales:powerpcspe
+  libnss-nis:powerpcspe libnss-nisplus:powerpcspe manpages-dev:powerpcspe
+Recommended packages:
+  libidn2-0:powerpcspe
+The following NEW packages will be installed:
+  libc6:powerpcspe libc6-dev:powerpcspe
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/3901 kB of archives.
+After this operation, 33.0 MB of additional disk space will be used.
+Get:1 /opt/tabor-target-packages/libc6_2.41-12+deb13u4_powerpcspe.deb libc6 powerpcspe 2.41-12+deb13u4 [2377 kB]
+Get:2 /opt/tabor-target-packages/libc6-dev_2.41-12+deb13u4_powerpcspe.deb libc6-dev powerpcspe 2.41-12+deb13u4 [1524 kB]
+Preconfiguring packages ...
+Selecting previously unselected package libc6:powerpcspe.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 39249 files and directories currently installed.)
+Preparing to unpack .../libc6_2.41-12+deb13u4_powerpcspe.deb ...
+Unpacking libc6:powerpcspe (2.41-12+deb13u4) ...
+Selecting previously unselected package libc6-dev:powerpcspe.
+Preparing to unpack .../libc6-dev_2.41-12+deb13u4_powerpcspe.deb ...
+Unpacking libc6-dev:powerpcspe (2.41-12+deb13u4) ...
+Setting up libc6:powerpcspe (2.41-12+deb13u4) ...
+Setting up libc6-dev:powerpcspe (2.41-12+deb13u4) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...
+Processing triggers for systemd (257.13-1~deb13u1) ...
+ ---> Removed intermediate container 9c2d4e741740
+ ---> 91b78c771e71
+Step 5/5 : ENTRYPOINT ["python3"]
+ ---> Running in 055b8366d9cd
+ ---> Removed intermediate container 055b8366d9cd
+ ---> fd6592c81fb5
+Successfully built fd6592c81fb5

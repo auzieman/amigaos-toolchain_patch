@@ -1,0 +1,22 @@
+{
+  "scope": "Core target library/development dependency rebuilds in the common managed root; no old transport mounts; Debian checks readiness",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "libmd",
+      "iteration": "501"
+    },
+    {
+      "package": "libcap-ng",
+      "iteration": "501"
+    },
+    {
+      "package": "libsepol",
+      "iteration": "501"
+    },
+    {
+      "package": "pcre2",
+      "iteration": "501"
+    }
+  ]
+}

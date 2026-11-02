@@ -1087,3 +1087,38 @@ signature/update and selected dependency checks pass; full Essential/desktop
 closure remains blocked. No new accepted root, graphical boot or USB write.
 Next: install genuine already-built target development packages and close the
 remaining core dependency source chain. See runtime-packaging-20261102.
+
+2026-11-02 managed build-root transition: ordinary target development package
+state remains missing despite archived binaries. Added explicit preserved-Debian-
+version and package-managed-root recipe modes: keep upstream changelog/version
+for normal library coinstallation, retain patch/compiler provenance in receipts,
+and retire TABOR_SYSROOT/TABOR_SHLIBS transport overrides in that mode. No
+installed version/status rewriting or native source counterpart rebuild.
+Fresh libc401 uses corrected SDK, six patches and existing stage2/nobiarch
+profiles as build-root-only bootstrap input; compiling/packaging on R730.
+Pinned missing pkgconf1.8.1-4 source (native executable is a separate foreign
+package; target package supplies cross scripts). Next: normal apt installation,
+then real attr development package state and ACL retry. See
+builds/managed-build-root-20261102. Final target root/graphics remain unaccepted.
+
+Managed-root checkpoint: libc401 produced7 packages; libc6/libc6-dev install
+and configure normally beside native tools with clean dpkg audit. Header401
+retains Debian universal UAPI data/metadata and adds the gnuspe include tuple
+via source patch, with no extra executable target compilation. Pkgconf401
+exposes that missing path; pkgconf402 then compiles but reveals libc401's
+OUTPUT_FORMAT(elf32-big) linker-script defect. Native/cross objdump comparison
+confirms the producer cause. Seven-patch fresh libc402 now selects the cross
+objdump; installation/fresh pkgconf acceptance pending. GitHub issues12/13
+retain separate gates. Future manual submissions freeze recipe snapshots; the
+serial queue launcher retains failures and continues independent sources.
+
+2026-11-02 verified managed-root checkpoint: libc402/header401 and real target
+library development packages install normally with clean dpkg audit. Pkgconf,
+attr, libxcrypt, fribidi, pixman, mtdev and ACL source builds pass; subsequent
+libmd/libcap-ng builds also pass. Remaining65 are dependency-blocked. Libsepol
+and PCRE2 reveal the common SDK default /sysroot when normal Debian rules reset
+CFLAGS. Issue14 tracks a fresh GCC8.5 rebuild with installed sysroot / and a
+separate read-only build sysroot, running on R730 at 4CPU/6GiB; acceptance and
+consumer retries pending. Archive011 has83 artifacts with bad old libc6-dev
+explicitly excluded; full dependency closure remains blocked. No new graphical
+image or USB write. See builds/managed-build-root-20261102 for retained evidence.

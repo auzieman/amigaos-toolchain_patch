@@ -1,0 +1,15 @@
+Expose the existing PowerPC UAPI data under the restored SPE userspace tuple.
+Keep Debian Architecture:all header metadata and normal payloads.
+No target kernel or userspace code is compiled by this data export.
+
+--- a/debian/rules.real
++++ b/debian/rules.real
+@@ -400,7 +400,7 @@
+ 	dh_install --all --sourcedir $(DIR) usr
+ 
+ # Generate symlink farms for every supported multiarch identifier
+-	for spec in $(ALL_LIBCDEV_MULTIARCHES); do \
++	for spec in $(ALL_LIBCDEV_MULTIARCHES) powerpc-linux-gnuspe:powerpc; do \
+ 		IFS=: read -r MULTIARCH KERNELARCH <<< "$$spec"; \
+ 		dh_link --all $$(find $(DIR)/usr/lib/linux/uapi/$$KERNELARCH/asm -type f -name '*.h' -printf "usr/lib/linux/uapi/$$KERNELARCH/asm/%P usr/include/$$MULTIARCH/asm/%P\\n");  \
+ 	done

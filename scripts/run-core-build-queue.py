@@ -67,15 +67,17 @@ def attempt(package, iteration, settings, preflight):
                '--cpus=' + str(settings['cpus']), '--memory=' + settings['memory'],
                '--pids-limit=' + str(settings['pids_limit']), '--network=none',
                '--entrypoint', 'python3']
-    for source, target in [(str(a.project), '/project'),
-                           (str(base / settings['source_cache']), '/cache'),
-                           (str(base / settings['tools']), '/tools'),
-                           (str(base / settings['sysroot']), '/sysroot')]:
+    mounts = [(str(a.project), '/project'), (str(base / settings['source_cache']), '/cache')]
+    if settings.get('tools_prefix', '/tools') == '/tools':
+        mounts.append((str(base / settings['tools']), '/tools'))
+    if settings.get('sysroot_prefix', '/sysroot') == '/sysroot':
+        mounts.append((str(base / settings['sysroot']), '/sysroot'))
+    for source, target in mounts:
         command += ['-v', source + ':' + target + ':ro']
     command += ['-v', str(base / 'work') + ':/work', settings['image_id'],
                 '/project/scripts/build-debian-package.py', '--project', '/project',
                 '--cache', '/cache', '--tools', settings.get('tools_prefix', '/tools'),
-                '--sysroot', '/sysroot', '--work', '/work/' + work.name,
+                '--sysroot', settings.get('sysroot_prefix', '/sysroot'), '--work', '/work/' + work.name,
                 '--source-lock', settings['source_lock'], '--package', package,
                 '--image-id', settings['image_id'], '--jobs', str(settings['cpus'])]
     if preflight:
@@ -85,6 +87,10 @@ def attempt(package, iteration, settings, preflight):
             command.append(flag)
     if 'build_profiles' in settings:
         command += ['--build-profiles', settings['build_profiles']]
+    if settings.get('preserve_debian_version'):
+        command += ['--preserve-debian-version']
+    if settings.get('package_managed_root'):
+        command += ['--package-managed-root']
     with (a.output / (package + '-' + suffix + '.log')).open('w') as log:
         try:
             t = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT,

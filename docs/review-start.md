@@ -13,7 +13,7 @@ The [minimal image package plan](minimal-package-plan.md) records the requested
 8 GiB/Radeon target, staged E/GL payload and optional browser, without claiming
 a completed target dependency solution or image.
 
-Current Linux increment: [R730 rescue-image workflow](r730-live-image.md),
+Earlier Linux increment: [R730 rescue-image workflow](r730-live-image.md),
 with [native SSH/CLI evidence](builds/r730-live-20261031/results-ascii.txt).
 The VM132-inspired desktop remains a subsequent source-built increment.
 
@@ -28,7 +28,31 @@ shared C++ execution and exact EFL/E/Terminology source seeds.
 - [Patch plan](patch-set-plan.md), [Debian iterations](debian-iterations.md),
   [source inventory](vendor-source-intake.md).
 
-## Actual patch status
+## Current status — 2026-11-02
+
+The active [managed build-root transition](builds/managed-build-root-20261102/README.md)
+replaces copied target development files with real apt/dpkg installation and
+Debian dependency checks. Patched libc6/libc6-dev coinstallation and UAPI header
+ownership have passed; nine subsequent ordinary source builds pass. The next
+shared blocker is the compiler default sysroot (issue14); its fresh GCC8.5
+rebuild is running, with installation and consumer acceptance still pending. This is an isolated cross-build root, not a configured target
+installation or new graphical boot.
+
+Corrected GCC8.5 SPE PIC/C++ unwinding and selected glibc runtime tests have
+passed in QEMU; see [libc/compiler evidence](builds/glibc-debian-20261101/007-runtime-result.md).
+The source-level restoration/packaging series now has seven patches. Directed
+rounding remains issue3; full-feature libc, full ABI acceptance and modern GCC
+backend restoration remain separate gates. GCC8 is the current bootstrap
+compiler, not a claim of restored GCC14 support.
+
+Signed archive010 contains64 artifacts; GMP301 packaging passes. The73-source
+readiness group is working scope, not proof of dependency closure. No accepted
+normally configured Trixie desktop root exists yet. E black client interiors
+(issue8), target-root integration (issue7), packaged runtime acceptance (issue11),
+UAPI registration (issue12), libc tool selection (issue13), and physical board
+acceptance remain separately tracked until their actual gates pass.
+
+## Initial investigation — 2026-10-30
 
 - patches/linux/0001-powerpc-tabor-initial-machine-dts.patch: initial modern
   Tabor machine and vendor-derived DTS, applied in the current kernel experiment.

@@ -1,0 +1,28 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  3.908MB
+Step 1/5 : ARG BUILD_INFRA_IMAGE
+Step 2/5 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 34575c073e8a
+Step 3/5 : COPY packages/ /opt/tabor-target-packages/
+ ---> 38f08d32dcaf
+Step 4/5 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-download --no-install-recommends ./*.deb     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in c0889b47bbfd
+libc6-dev_2.41-12+deb13u4_powerpcspe.deb: OK
+libc6_2.41-12+deb13u4_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  glibc-doc:powerpcspe libc-l10n:powerpcspe locales:powerpcspe
+  libnss-nis:powerpcspe libnss-nisplus:powerpcspe manpages-dev:powerpcspe
+Recommended packages:
+  libidn2-0:powerpcspe
+The following NEW packages will be installed:
+  libc6:powerpcspe libc6-dev:powerpcspe
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+After this operation, 33.0 MB of additional disk space will be used.
+[91mE: Internal Error, Pathname to install is not absolute 'libc6_2.41-12+deb13u4_powerpcspe.deb'
+[0mThe command '/bin/sh -c cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-download --no-install-recommends ./*.deb     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt' returned a non-zero code: 100

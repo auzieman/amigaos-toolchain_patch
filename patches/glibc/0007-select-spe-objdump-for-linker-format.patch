@@ -1,0 +1,14 @@
+The relocated GCC8 driver returns native objdump from -print-prog-name.
+glibc uses that program to derive OUTPUT_FORMAT for libc.so; native objdump
+reports generic elf32-big for PowerPC objects and the cross linker rejects it.
+Select the actual cross objdump for this architecture, matching OBJCOPY.
+
+--- a/debian/sysdeps/powerpcspe.mk
++++ b/debian/sysdeps/powerpcspe.mk
+@@ -3,5 +3,6 @@
+ DEB_GCC_VERSION =
+ # GCC8 does not locate the relocated cross objcopy through print-prog-name.
+ export OBJCOPY = $(DEB_HOST_GNU_TYPE)-objcopy
++export OBJDUMP = $(DEB_HOST_GNU_TYPE)-objdump
+ extra_cflags = -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128
+ extra_config_options = --disable-multi-arch --disable-werror

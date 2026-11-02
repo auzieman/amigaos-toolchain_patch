@@ -1,0 +1,64 @@
+{
+  "recipe_sha256": "c284f61f17772757fc1283ed5b1c1a2cca1fc93caeaf42bb5294066658579bb3",
+  "manifest_sha256": "bdd55024e01cfa652cb57d05dfe143aefc78a3ee9548dcb6a5ed9d0f7f32c149",
+  "dockerfile_sha256": "0051d30f8966407f23628e8851974b9642fb2751e4deb93602598b2c3a357386",
+  "inputs": [
+    {
+      "package": "libcrypt-dev",
+      "file": "libcrypt-dev_4.4.38-1_powerpcspe.deb",
+      "sha256": "d2b2667d11ff7e474e2f5b39a9fa26c7335141b3f6cea5689c1a3f2ad553b72a",
+      "receipt_sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libcrypt1",
+      "file": "libcrypt1_4.4.38-1_powerpcspe.deb",
+      "sha256": "3b88581a1ada647626d150e345b3b2b04472288b1342c9bae610f5a7dc0acb13",
+      "receipt_sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libfribidi-dev",
+      "file": "libfribidi-dev_1.0.16-1_powerpcspe.deb",
+      "sha256": "b2bc7c18f69a8e55546389c18bf36fbe1e3d989e1e827edac546f729ad4f60c9",
+      "receipt_sha256": "057d29611b6e3017271db130f64631370527c64a21fb9bac789c7c59ba65634b",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libfribidi0",
+      "file": "libfribidi0_1.0.16-1_powerpcspe.deb",
+      "sha256": "aa638258aa16d60a796c1e148ce097e563f3d82613691e90df4adc8940184249",
+      "receipt_sha256": "057d29611b6e3017271db130f64631370527c64a21fb9bac789c7c59ba65634b",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libpixman-1-0",
+      "file": "libpixman-1-0_0.44.0-3_powerpcspe.deb",
+      "sha256": "04728cc130f2f39827d164dea0769951f29d18b7f5a90744af00dfc710bc1289",
+      "receipt_sha256": "7fce94f6399506eeaee7ecb17a89c5683e662d26cd441a7562fca880ea4dcc5d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libpixman-1-dev",
+      "file": "libpixman-1-dev_0.44.0-3_powerpcspe.deb",
+      "sha256": "9df563be421e74ed1346d01887f36ea95984d4189e006cf8db410d96d8d8a411",
+      "receipt_sha256": "7fce94f6399506eeaee7ecb17a89c5683e662d26cd441a7562fca880ea4dcc5d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libmtdev-dev",
+      "file": "libmtdev-dev_1.1.7-1_powerpcspe.deb",
+      "sha256": "efcbb9238f88812dfa138ee29b6e744727c9dbbc422bc5cf4769489f5d8e76a4",
+      "receipt_sha256": "eb62427fb5e9a2d9d11722e606192c2f346233f13f81dab32cd68675938b400c",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libmtdev1t64",
+      "file": "libmtdev1t64_1.1.7-1_powerpcspe.deb",
+      "sha256": "e5a94bc9ec1134350061fcfc5a708360b95f2b39ccc49ac246135bb5305e606e",
+      "receipt_sha256": "eb62427fb5e9a2d9d11722e606192c2f346233f13f81dab32cd68675938b400c",
+      "build_profiles": "cross,nocheck"
+    }
+  ],
+  "purpose": "isolated cross-build root; not a final target installation"
+}

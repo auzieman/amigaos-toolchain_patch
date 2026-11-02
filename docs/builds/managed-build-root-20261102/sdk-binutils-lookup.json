@@ -1,0 +1,51 @@
+{
+  "status": "all-nine-cross-binutils-lookups-pass",
+  "tools": {
+    "ar": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/ar",
+      "resolved": "/usr/bin/powerpc-linux-gnu-ar",
+      "sha256": "13cce2490e90875106f3ec68d7464a80dc7f52bb7a17448e670a0df9861cde12"
+    },
+    "as": {
+      "lookup": "/usr/bin/powerpc-linux-gnu-as",
+      "resolved": "/usr/bin/powerpc-linux-gnu-as",
+      "sha256": "fbbdac08236a5871c594e8674dd32f84618ea721c16aee8bf7ec703cfff5c529"
+    },
+    "ld": {
+      "lookup": "/usr/bin/powerpc-linux-gnu-ld",
+      "resolved": "/usr/bin/powerpc-linux-gnu-ld.bfd",
+      "sha256": "8aaf0e2a1314ad622b2dc7a3d1cd02e9c979e00ad3978b043c28d9bd214b2305"
+    },
+    "nm": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/nm",
+      "resolved": "/usr/bin/powerpc-linux-gnu-nm",
+      "sha256": "2cbc37982d225db0f0c899e60b1f542438935e474babe3fe60950a58d6306b7f"
+    },
+    "ranlib": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/ranlib",
+      "resolved": "/usr/bin/powerpc-linux-gnu-ranlib",
+      "sha256": "0d9a07042ebe5ac8590d97e4cf06083c09ae157fd90704e133d3db7c89be4429"
+    },
+    "readelf": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/readelf",
+      "resolved": "/usr/bin/powerpc-linux-gnu-readelf",
+      "sha256": "66e5e5530eb31ec4edfb57377be1d9d5611be4156a961ab027a15eed142c9260"
+    },
+    "objcopy": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/objcopy",
+      "resolved": "/usr/bin/powerpc-linux-gnu-objcopy",
+      "sha256": "898d41af0f3e087a0b725a5b35c3ef50034c44ab21821c6b6b39898796cac02c"
+    },
+    "objdump": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/objdump",
+      "resolved": "/usr/bin/powerpc-linux-gnu-objdump",
+      "sha256": "e3528c679514efbf539a2716eff8603929ee7c936d3ee238081c669af7a21092"
+    },
+    "strip": {
+      "lookup": "/usr/lib/tabor-spe-toolchain/bin/../lib/gcc/powerpc-linux-gnuspe/8.5.0/../../../../powerpc-linux-gnuspe/bin/strip",
+      "resolved": "/usr/bin/powerpc-linux-gnu-strip",
+      "sha256": "d67b2448295408536274b943ad355689f5f932dc71ec45b9fbb50a35d9f8fc7b"
+    }
+  },
+  "target_execution": false
+}

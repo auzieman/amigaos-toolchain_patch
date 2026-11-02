@@ -1,0 +1,13 @@
+{
+  "version": "6.12.113-1",
+  "profiles": {
+    "spe_only": {
+      "path": "patches/linux/headers/0001-package-spe-only-uapi-headers.patch",
+      "sha256": "51f21ce73a8937df1edfe4dda050f03b5c72421e4154435f4b8ff58cb1ea5ee6"
+    },
+    "debian_all_uapi": {
+      "path": "patches/linux/headers/0002-register-spe-uapi-tuple.patch",
+      "sha256": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c"
+    }
+  }
+}

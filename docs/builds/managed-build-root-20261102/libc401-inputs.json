@@ -1,0 +1,13 @@
+{
+  "purpose": "Isolated cross-build root bootstrap only; stage2 is not a final target runtime",
+  "inputs": [
+    {
+      "receipt": "work/debian-glibc-401/receipt.json",
+      "receipt_sha256": "71b5c8c6249810d142b6caaabc68aeebe18e6bbac98c11347ee304a517d962b1",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    }
+  ]
+}

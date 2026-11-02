@@ -1,0 +1,27 @@
+{
+  "scope": "Independent core/graphics foundation builds in the package-managed SPE root; Debian checks readiness; not full desktop closure",
+  "timeout_seconds": 7200,
+  "failure_policy": "Record failures and continue independent sources; install reviewed artifacts in later root updates",
+  "attempts": [
+    {
+      "package": "attr",
+      "iteration": "401"
+    },
+    {
+      "package": "libxcrypt",
+      "iteration": "401"
+    },
+    {
+      "package": "fribidi",
+      "iteration": "401"
+    },
+    {
+      "package": "pixman",
+      "iteration": "401"
+    },
+    {
+      "package": "mtdev",
+      "iteration": "401"
+    }
+  ]
+}

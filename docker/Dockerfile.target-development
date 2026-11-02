@@ -1,0 +1,15 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+RUN rm -rf /opt/tabor-target-packages
+COPY packages/ /opt/tabor-target-packages/
+# Native build tools remain native. Only powerpcspe libraries/headers are
+# installed. Normal shell maintainer scripts use native tools; no target ELF
+# execution or emulation is added.
+RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS \
+    && dpkg --add-architecture powerpcspe \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb \
+    && test -r /usr/include/powerpc-linux-gnuspe/asm/errno.h \
+    && grep -Fq 'OUTPUT_FORMAT(elf32-powerpc)' /usr/lib/powerpc-linux-gnuspe/libc.so \
+    && test -z "$(dpkg --audit)" \
+    && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ENTRYPOINT ["python3"]

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Fresh, hash-locked Debian binary package build against the SPE sysroot.
 
-Uses Debian debian/rules and generated maintainer metadata. Never installs
-foreign packages on the builder or marks an extracted stage as configured.
+Uses Debian debian/rules and generated maintainer metadata. Package installation
+belongs to the pinned build image; compilation never fabricates installed state.
 """
 import argparse, hashlib, json, os, subprocess
 from pathlib import Path
@@ -17,7 +17,13 @@ p.add_argument('--build-profiles', default='cross,nocheck')
 p.add_argument('--arch-only', action='store_true')
 p.add_argument('--indep-only', action='store_true', help='Build Architecture: all scripting/data packages with Debian -A semantics')
 p.add_argument('--check-dependencies-only', action='store_true', help='Fresh source preflight using Debian dependency semantics; do not compile')
+p.add_argument('--preserve-debian-version', action='store_true',
+               help='Keep the pinned Debian changelog/version for normal build-root coinstallation; provenance remains in receipts')
+p.add_argument('--package-managed-root', action='store_true',
+               help='Use installed target development packages, without bootstrap shlibs/sysroot transport overrides')
 a = p.parse_args()
+if a.package_managed_root:
+    assert a.sysroot == Path('/'), 'Package-managed build uses the container root'
 assert not (a.arch_only and a.indep_only)
 assert __import__('re').fullmatch(r'[a-z0-9,-]*', a.build_profiles)
 assert 1 <= a.jobs <= 4
@@ -41,6 +47,9 @@ env.update(PATH=str(a.tools / 'bin') + ':' + env['PATH'], CC=str(cc),
            DEB_BUILD_PROFILES=a.build_profiles.replace(',', ' '), LC_ALL='C.UTF-8',
            TABOR_SYSROOT=str(a.sysroot),
            TABOR_SHLIBS=str(a.project / 'profiles/images/spe-bootstrap.shlibs'))
+if a.package_managed_root:
+    env.pop('TABOR_SYSROOT', None)
+    env.pop('TABOR_SHLIBS', None)
 if a.indep_only:
     # CC otherwise makes dpkg-architecture infer a cross host even for -A.
     # Pure scripting/data builds use host tools and must only emit Arch: all.
@@ -51,15 +60,33 @@ if a.indep_only:
 r = {'status': 'running', 'package': a.package, 'source_version': component['version'],
      'build_profiles': a.build_profiles, 'arch_only': a.arch_only, 'indep_only': a.indep_only,
      'dependency_preflight_only': a.check_dependencies_only,
+     'preserve_debian_version': a.preserve_debian_version,
+     'package_managed_root': a.package_managed_root,
      'image_id': a.image_id, 'recipe_sha256': sha(Path(__file__)),
      'source_lock_sha256': sha(lockpath), 'compiler_sha256': sha(cc),
      'compiler_frontend_sha256': sha(frontend),
      'sysroot_libraries': {str(f.relative_to(a.sysroot)): sha(f)
          for f in sorted((a.sysroot / 'lib').glob('*.so*')) if f.is_file()},
      'flags': [] if a.indep_only else flags,
-     'bootstrap_shlibs_sha256': None if a.indep_only else sha(Path(env['TABOR_SHLIBS'])),
+     'bootstrap_shlibs_sha256': sha(Path(env['TABOR_SHLIBS'])) if 'TABOR_SHLIBS' in env else None,
      'compiler_used': not a.indep_only, 'commands': [], 'target_tests': 'pending',
      'package_installation': 'not-attempted', 'physical_boot': False}
+submission = a.project / 'submission.json'
+if submission.exists():
+    r['submission_sha256'] = sha(submission)
+    manifest = json.loads(submission.read_text())
+    for name, digest in manifest['files'].items():
+        candidate = a.project / name
+        assert candidate.resolve().is_relative_to(a.project.resolve())
+        assert sha(candidate) == digest, 'Submitted build input changed: ' + name
+if a.package_managed_root:
+    installed = subprocess.check_output(['dpkg-query', '-W',
+        '-f=${binary:Package}\t${Version}\t${Architecture}\t${db:Status-Status}\n'], text=True)
+    r['installed_target_packages'] = [line for line in installed.splitlines()
+        if '\tpowerpcspe\tinstalled' in line]
+    assert r['installed_target_packages'], 'Managed root has no configured target packages'
+    r['sysroot_libraries'] = {str(f.relative_to(a.sysroot)): sha(f)
+        for f in sorted((a.sysroot / 'usr/lib/powerpc-linux-gnuspe').glob('*.so*')) if f.is_file()}
 def save():
     temporary = a.work / 'receipt.tmp'
     temporary.write_text(json.dumps(r, indent=2) + '\n')
@@ -91,13 +118,22 @@ with (a.work / 'build.log').open('w') as log:
                 run(['git', 'apply', patch], source)
             r['patch_series_sha256'] = sha(series)
         changelog = source / 'debian/changelog'
+        original_version = subprocess.check_output(['dpkg-parsechangelog', '-l', str(changelog), '-SVersion'], text=True).strip()
+        assert original_version == component['version'], 'Pinned source version disagrees with Debian changelog'
+        r['original_debian_changelog_sha256'] = sha(changelog)
         version = component['version'] + '+tabor1'
         if 'stage2' in a.build_profiles.split(','):
             version += '~stage2'
-        changelog.write_text(f'{a.package} ({version}) tabor-trixie; urgency=medium\n\n'
-            '  * Rebuild for the experimental Tabor SPE sysroot.\n\n'
-            ' -- Tabor lab <root@localhost>  Sun, 01 Nov 2026 16:00:00 +0000\n\n'
-            + changelog.read_text())
+        if a.preserve_debian_version:
+            # Multi-Arch: same libraries must share Debian's exact version and
+            # common documentation with the installed native build tools.
+            # Keep upstream changelog bytes; patch identity lives in receipts.
+            version = component['version']
+        else:
+            changelog.write_text(f'{a.package} ({version}) tabor-trixie; urgency=medium\n\n'
+                '  * Rebuild for the experimental Tabor SPE sysroot.\n\n'
+                ' -- Tabor lab <root@localhost>  Sun, 01 Nov 2026 16:00:00 +0000\n\n'
+                + changelog.read_text())
         r['binary_version'] = version
         if a.package == 'glibc':
             # Debian generates its control from architecture-specific templates.
@@ -134,6 +170,10 @@ with (a.work / 'build.log').open('w') as log:
                                       'architecture': metadata}
             assert packages, 'No Debian binary packages generated'
             r['packages'] = packages
+            if a.package == 'glibc':
+                script = source / 'debian/libc6-dev/usr/lib/powerpc-linux-gnuspe/libc.so'
+                assert 'OUTPUT_FORMAT(elf32-powerpc)' in script.read_text(), 'SPE libc linker script has the wrong BFD format; check cross OBJDUMP selection'
+                r['libc_linker_script'] = {'sha256': sha(script), 'format': 'elf32-powerpc'}
             r['build_metadata'] = {f.name: sha(f) for pattern in ['*.changes', '*.buildinfo']
                                    for f in sorted(a.work.glob(pattern))}
             r['status'] = 'debian-packages-built-not-target-installed'

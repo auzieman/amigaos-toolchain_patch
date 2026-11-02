@@ -1,0 +1,181 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "glibc",
+  "source_version": "2.41-12+deb13u4",
+  "build_profiles": "cross,nocheck,stage2,nobiarch",
+  "arch_only": true,
+  "indep_only": false,
+  "dependency_preflight_only": false,
+  "preserve_debian_version": true,
+  "image_id": "sha256:34575c073e8a81afdda9bd1bef50e49eab77e0c87972081b3c3b0b522825fade",
+  "recipe_sha256": "c496713411c640534b435e27eac7011a62f4da5762c27d1745d9b360895bb4db",
+  "source_lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "compiler_sha256": "fbe48af0ff7e7916e6e4c5978c5a3becc8514b7da7272655fb1cbebb18bb57df",
+  "compiler_frontend_sha256": "421ceaeadbf66483ae389580b96b40fbffd5387b4c30195fcbc300c2c055798f",
+  "sysroot_libraries": {
+    "lib/ld.so.1": "7c6a84dc183889f16d195ee036ac8dcb438c7d1f555797abc880b1f1b5857e37",
+    "lib/libBrokenLocale.so.1": "ef915aeeb1956dd204de9cad78d94025486eaabb3aae9d0a55ba4e1cd586c91e",
+    "lib/libanl.so.1": "95981244395d646ee82e23be81fe7e0e41025d5e240a4cc09f1ce859f58ebcb0",
+    "lib/libc.so.6": "ba1f317ff2580b5f97daea97c7cf3b49af001d007460f0f71b9334e2d8b6b63a",
+    "lib/libc_malloc_debug.so.0": "748a7305f3b170849e01b1e2b5005fb53b029d75ab306b2ae1d84fe49039ab2f",
+    "lib/libdl.so.2": "0fc534fb10f68150dc0401b4ed2c1c7f8b90dab8a5cde6b0ded771fd19463c1f",
+    "lib/libm.so.6": "bc159321e04f4bf5d6b8767e956c5bd4e2a2177c795ab11b13ff1f1044a2f1d0",
+    "lib/libmemusage.so": "51361a50c664c619d14cefcfb4cfc5a758271f9956dc3c38411e2ca9e2a73d18",
+    "lib/libnsl.so.1": "3de38aedc91a1199303f6d460fb2968e7b41e2d4b6852be27d1594ac03e649ee",
+    "lib/libnss_compat.so.2": "28d7d3161d83c56282450a0c03c83d45246960f5c870a29356884644dc137f3b",
+    "lib/libnss_dns.so.2": "20fe5ab0015067adb6ee10d797d143077534046eacc94fc6936c4e514b2d80ba",
+    "lib/libnss_files.so.2": "56a541fd075386814e8bff7e6bee0b4e4879e39e34c04bfac5b93ddce983a70f",
+    "lib/libnss_hesiod.so.2": "554282a50bb4a99d41162084cff0ece53524cdeb2ce3c1cbc49ef0b7a4992ee3",
+    "lib/libpcprofile.so": "dbaf86e5b04600dc5ecbd71f2045c3d30693364e49dafb8ae7e6f3bafafea1bb",
+    "lib/libpthread.so.0": "41e00353d23ae7c3cd07a2c5c4432d8116f0b1e5bc3c9fcaf063e2084c1f168a",
+    "lib/libresolv.so.2": "fd847a155d9a4e0b538db65eaae92e2dfbe066a3eb8e6b80245530a139b2f3d3",
+    "lib/librt.so.1": "4d8f47a3be882a8c3b2540c066875c45f67787cfaf73656315c2287efc331239",
+    "lib/libthread_db.so.1": "e7eb41cace21a6db40dce4638a91cb8978fbbcc32aa53858c6cdab7d9c54d227",
+    "lib/libutil.so.1": "d21ee3d368b2a2feb1d2dbdacef48ae7215b7d6cde3c81536372ea5a55e601a6"
+  },
+  "flags": [
+    "--sysroot=/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128"
+  ],
+  "bootstrap_shlibs_sha256": "2a0fdbc0451fab080c5ba0514bd9288c6547ea0586740f2d66426298ddddce13",
+  "compiler_used": true,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/glibc_2.41-12+deb13u4.dsc",
+      "/work/debian-glibc-401/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0001-restore-historical-e500-sysdeps.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0003-e500-port-internal-syscall-interface.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0004-debian-register-powerpcspe-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0005-explicit-spe-toolchain-and-stage2-dependencies.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0005-explicit-spe-toolchain-and-stage2-dependencies.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/glibc/0006-require-fixed-spe-bootstrap-compiler.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/glibc/0006-require-fixed-spe-bootstrap-compiler.patch"
+    ],
+    [
+      "dpkg-architecture",
+      "-apowerpcspe",
+      "-c",
+      "make -f debian/rules debian/control"
+    ],
+    [
+      "dpkg-buildpackage",
+      "-a",
+      "powerpcspe",
+      "-B",
+      "-us",
+      "-uc"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "patch_series_sha256": "a16fb1d4fb91aa7f3da660abd3b1f94926f2dced640232b2e38ebe60ec886004",
+  "binary_version": "2.41-12+deb13u4",
+  "packages": {
+    "libc-bin_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "02aa20b2c2e0954f16ad4010aa7a670d89cb08b74b1ef17059e60b4ee8298d20",
+      "bytes": 519716,
+      "architecture": "powerpcspe"
+    },
+    "libc-dev-bin_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "316fbc0304bee6edc25388bbdbaf0fd7b98e827fcac04bb07a25ee4b3d4d0e20",
+      "bytes": 58644,
+      "architecture": "powerpcspe"
+    },
+    "libc6-dbg_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "0faaa0377f2eb937d28a25f1a34f42844cc15a97c8c8556432dbda8f4501ed57",
+      "bytes": 10463360,
+      "architecture": "powerpcspe"
+    },
+    "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "f2d9516202e4121ce9eea11acf87b246b03950e210e2eef2691dd7d7e05fe315",
+      "bytes": 1524092,
+      "architecture": "powerpcspe"
+    },
+    "libc6-udeb_2.41-12+deb13u4_powerpcspe.udeb": {
+      "sha256": "ec318e11b7c57f9efe203d6670ad4f1337ebaf61f86af47d0139d9032e65f0e1",
+      "bytes": 1007380,
+      "architecture": "powerpcspe"
+    },
+    "libc6_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "a7dd311b083b5bc4a5c8e819977cd2c0e636afd4dc013a5129ec4a023bca1d05",
+      "bytes": 2376760,
+      "architecture": "powerpcspe"
+    },
+    "nscd_2.41-12+deb13u4_powerpcspe.deb": {
+      "sha256": "21956ba1056ef29ea78c0898caba7fe4e6f7b66d3af533782bb8b91a486d95d3",
+      "bytes": 100004,
+      "architecture": "powerpcspe"
+    }
+  },
+  "build_metadata": {
+    "glibc_2.41-12+deb13u4_powerpcspe.changes": "1a14cf3640c512b62201df8633c04a780f9c4eb764dcc919f29cf257603a4276",
+    "glibc_2.41-12+deb13u4_powerpcspe.buildinfo": "0fc6a91c0c791c154af6eaccd78a413ae8e902648d1c4bba4edd8bf4efc74df6"
+  }
+}

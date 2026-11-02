@@ -1,0 +1,83 @@
+{
+  "status": "failed",
+  "package": "pkgconf",
+  "source_version": "1.8.1-4",
+  "build_profiles": "cross,nocheck",
+  "arch_only": true,
+  "indep_only": false,
+  "dependency_preflight_only": false,
+  "preserve_debian_version": true,
+  "package_managed_root": true,
+  "image_id": "sha256:fd6592c81fb5a47e88b38ce0e3f7d526d759acc0312f8e9f57e2ca8bf9b8c7c1",
+  "recipe_sha256": "bd90e576ea0f1cdd0746184b2db08ff4edc159b43e31abb6512c2b20e316eaa5",
+  "source_lock_sha256": "4d48176a77b1d0f2ecd89d816c4301d5ce8ad92742faa3fc2cc0ca6e570001d8",
+  "compiler_sha256": "fbe48af0ff7e7916e6e4c5978c5a3becc8514b7da7272655fb1cbebb18bb57df",
+  "compiler_frontend_sha256": "421ceaeadbf66483ae389580b96b40fbffd5387b4c30195fcbc300c2c055798f",
+  "sysroot_libraries": {
+    "usr/lib/powerpc-linux-gnuspe/ld.so.1": "0485f869c51c7bab11e3cfee27495233fa3bc7d126d7ab6705925dc90c7a1ee9",
+    "usr/lib/powerpc-linux-gnuspe/libBrokenLocale.so": "87b0b9c96c33ba5e367aab6ebd059263d11cf9686f9fca3d8d68c1a7c9985ffc",
+    "usr/lib/powerpc-linux-gnuspe/libBrokenLocale.so.1": "87b0b9c96c33ba5e367aab6ebd059263d11cf9686f9fca3d8d68c1a7c9985ffc",
+    "usr/lib/powerpc-linux-gnuspe/libanl.so": "c8c6ecfc859474c023e8492c287ea1fe17e2de2008acec2d8d6b852bfcb35d99",
+    "usr/lib/powerpc-linux-gnuspe/libanl.so.1": "c8c6ecfc859474c023e8492c287ea1fe17e2de2008acec2d8d6b852bfcb35d99",
+    "usr/lib/powerpc-linux-gnuspe/libc.so": "f92554baa1109127c823ca205c26621f75a002bc58923a5d4e4e5821a30754f8",
+    "usr/lib/powerpc-linux-gnuspe/libc.so.6": "b0b6a25116475fc10603d2659cb698b40738d11045d680de8153504828a14d90",
+    "usr/lib/powerpc-linux-gnuspe/libc_malloc_debug.so": "b3ed9620a0b68ab63581a80230c6720c80cdc759d4ba006bbff9b944ee721ed0",
+    "usr/lib/powerpc-linux-gnuspe/libc_malloc_debug.so.0": "b3ed9620a0b68ab63581a80230c6720c80cdc759d4ba006bbff9b944ee721ed0",
+    "usr/lib/powerpc-linux-gnuspe/libdl.so.2": "11f484a414d65c4d18941a41329ec2e11170d8bbcff75f5e1132b4fe04f583dd",
+    "usr/lib/powerpc-linux-gnuspe/libm.so": "f1198ab768786644cd06655c1a65c5edaec369228c6b0b3c8c5130624e65dc3a",
+    "usr/lib/powerpc-linux-gnuspe/libm.so.6": "f1198ab768786644cd06655c1a65c5edaec369228c6b0b3c8c5130624e65dc3a",
+    "usr/lib/powerpc-linux-gnuspe/libmemusage.so": "e97cf3ae643ab4b7d76948e2b5054c9cf0f7185c4b446a0535b4dbb06af90f1b",
+    "usr/lib/powerpc-linux-gnuspe/libnsl.so.1": "2a9df1c4b8c9f9a75c9931cf82a488dc3e7605724e020d8f8e42cc12082511ef",
+    "usr/lib/powerpc-linux-gnuspe/libnss_compat.so": "9a06c51fd797f45b68e4c7427a17b5b072dfd0a520ba70605e1844ea9d75baaa",
+    "usr/lib/powerpc-linux-gnuspe/libnss_compat.so.2": "9a06c51fd797f45b68e4c7427a17b5b072dfd0a520ba70605e1844ea9d75baaa",
+    "usr/lib/powerpc-linux-gnuspe/libnss_dns.so.2": "d9ef39ebd6957be3e344dce85fe9838259eb750889942007b1fae9a07788e28d",
+    "usr/lib/powerpc-linux-gnuspe/libnss_files.so.2": "1d8f108522b07c40cf7ae84ea7bd485c276bed55a4a24f87366159208e8aab83",
+    "usr/lib/powerpc-linux-gnuspe/libnss_hesiod.so": "b04dd573d5fcf32f07bd5013fdd796569e6832f3db684cfca69ce178bc989097",
+    "usr/lib/powerpc-linux-gnuspe/libnss_hesiod.so.2": "b04dd573d5fcf32f07bd5013fdd796569e6832f3db684cfca69ce178bc989097",
+    "usr/lib/powerpc-linux-gnuspe/libpcprofile.so": "c02549d11418d73c4a2a2b7d8a0e9e1520dd58f0c88986b6d2041d6183c06d41",
+    "usr/lib/powerpc-linux-gnuspe/libpthread.so.0": "1eac65e4090674e2ef798dbe24fe0cc3ce061af41f117a5099ba177bd7a62f1f",
+    "usr/lib/powerpc-linux-gnuspe/libresolv.so": "d796dbcd841bb24f838cbfe685beb540a88d600230f5b6ccf51705cee763e4f8",
+    "usr/lib/powerpc-linux-gnuspe/libresolv.so.2": "d796dbcd841bb24f838cbfe685beb540a88d600230f5b6ccf51705cee763e4f8",
+    "usr/lib/powerpc-linux-gnuspe/librt.so.1": "f523a720428776b43b47edf06c3ffaea02557d31a5905fa079d1c8b25379b474",
+    "usr/lib/powerpc-linux-gnuspe/libthread_db.so": "6afc3a54ad53336a4d2c8889742256a95cebae33c68a1768acf20c1ac62b1d59",
+    "usr/lib/powerpc-linux-gnuspe/libthread_db.so.1": "6afc3a54ad53336a4d2c8889742256a95cebae33c68a1768acf20c1ac62b1d59",
+    "usr/lib/powerpc-linux-gnuspe/libutil.so.1": "9429c8cfa70c70375b01643790967f4f5a902dfce406d9878b963b1fb495e598"
+  },
+  "flags": [
+    "--sysroot=/",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128"
+  ],
+  "bootstrap_shlibs_sha256": null,
+  "compiler_used": true,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/pkgconf_1.8.1-4.dsc",
+      "/work/debian-pkgconf-401/source"
+    ],
+    [
+      "dpkg-buildpackage",
+      "-a",
+      "powerpcspe",
+      "-B",
+      "-us",
+      "-uc"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "installed_target_packages": [
+    "libc6:powerpcspe\t2.41-12+deb13u4\tpowerpcspe\tinstalled",
+    "libc6-dev:powerpcspe\t2.41-12+deb13u4\tpowerpcspe\tinstalled"
+  ],
+  "binary_version": "1.8.1-4",
+  "error": "Command '['dpkg-buildpackage', '-a', 'powerpcspe', '-B', '-us', '-uc']' returned non-zero exit status 2.",
+  "failed_command_exit": 2
+}

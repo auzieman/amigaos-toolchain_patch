@@ -1,0 +1,12 @@
+{
+  "purpose": "Target cross-build script/personality package; native pkgconf-bin remains the executable",
+  "inputs": [
+    {
+      "receipt": "work/debian-pkgconf-403/receipt.json",
+      "receipt_sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "packages": [
+        "pkgconf"
+      ]
+    }
+  ]
+}

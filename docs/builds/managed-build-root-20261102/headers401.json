@@ -1,0 +1,78 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "architecture": "all",
+  "kernel_architectures": [
+    "alpha",
+    "arm",
+    "arm64",
+    "loongarch",
+    "m68k",
+    "mips",
+    "parisc",
+    "powerpc",
+    "riscv",
+    "s390",
+    "sh",
+    "sparc",
+    "x86"
+  ],
+  "data_export_only": true,
+  "image_id": "sha256:34575c073e8a81afdda9bd1bef50e49eab77e0c87972081b3c3b0b522825fade",
+  "recipe_sha256": "d552aa8092183fccde162c1ef6f8e9d922e9aa7802228dfed819afda29d0bc27",
+  "source_lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/linux_6.12.113-1.dsc",
+      "/work/linux-headers-401/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/headers/0002-register-spe-uapi-tuple.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/headers/0002-register-spe-uapi-tuple.patch"
+    ],
+    [
+      "env",
+      "-u",
+      "DEB_HOST_ARCH",
+      "-u",
+      "DEB_HOST_GNU_TYPE",
+      "dpkg-checkbuilddeps",
+      "-d",
+      "debhelper-compat (= 13), rsync, make, gcc, libc6-dev, bison, flex"
+    ],
+    [
+      "make",
+      "-f",
+      "debian/rules.real",
+      "binary_libc-dev",
+      "ALL_LIBCDEV_KERNELARCHES=alpha arm arm64 loongarch m68k mips parisc powerpc riscv s390 sh sparc x86",
+      "ALL_LIBCDEV_MULTIARCHES=aarch64-linux-gnu:arm64 alpha-linux-gnu:alpha arm-linux-gnueabi:arm arm-linux-gnueabihf:arm hppa-linux-gnu:parisc i386-linux-gnu:x86 loongarch64-linux-gnu:loongarch m68k-linux-gnu:m68k mips-linux-gnu:mips mips64-linux-gnuabi64:mips mips64el-linux-gnuabi64:mips mipsel-linux-gnu:mips mipsisa64r6el-linux-gnuabi64:mips powerpc-linux-gnu:powerpc powerpc64-linux-gnu:powerpc powerpc64le-linux-gnu:powerpc riscv64-linux-gnu:riscv s390x-linux-gnu:s390 sh4-linux-gnu:sh sparc64-linux-gnu:sparc x86_64-linux-gnu:x86 x86_64-linux-gnux32:x86",
+      "PACKAGE_NAME=linux-libc-dev",
+      "DESTDIR=/work/linux-headers-401/source/debian/linux-libc-dev",
+      "DH_OPTIONS=-plinux-libc-dev",
+      "SOURCEVERSION=6.12.113-1",
+      "SOURCE_BASENAME=linux",
+      "UPSTREAMVERSION=6.12",
+      "VERSION=6.12",
+      "BUILDDEB_ARGS=-Zgzip"
+    ]
+  ],
+  "packages": {
+    "linux-libc-dev_6.12.113-1_all.deb": {
+      "sha256": "d83eb60679e780d92790011748e46909b3867642d5fe7fa11ebe14c89e0b65ee",
+      "bytes": 3569074,
+      "architecture": "all"
+    }
+  },
+  "target_installation": false,
+  "patch_sha256": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c"
+}

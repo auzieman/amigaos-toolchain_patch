@@ -16,12 +16,14 @@ p.add_argument('--work',type=Path,required=True)
 p.add_argument('--prefix',type=Path,required=True)
 p.add_argument('--image-id',required=True)
 p.add_argument('--runtime-sysroot',type=Path)
+p.add_argument('--installed-sysroot',type=Path,help='Installed compiler default; runtime-sysroot stays the separate target-library build input')
 p.add_argument('--languages',choices=['c','c,c++'],default='c')
 p.add_argument('--jobs',type=int,default=2)
 p.add_argument('--patch-series',type=Path,help='Reviewed project-relative JSON patch series')
 a=p.parse_args()
 if not 1<=a.jobs<=8:p.error('jobs must be 1..8')
 if a.languages!='c' and not a.runtime_sysroot:p.error('C++ requires a reviewed runtime sysroot')
+if a.installed_sysroot and (not a.runtime_sysroot or not a.installed_sysroot.is_absolute()):p.error('installed-sysroot requires a runtime sysroot and an absolute installed path')
 project,cache,work,prefix=[x.resolve() for x in [a.project,a.cache,a.work,a.prefix]]
 for x in [project,cache,prefix]:
  if work.is_relative_to(x) or x.is_relative_to(work):p.error('independent work and install/input paths required')
@@ -46,7 +48,7 @@ if a.runtime_sysroot:
  if not (a.runtime_sysroot/'usr/include/stdio.h').is_file():p.error('libc headers missing')
  if any(x.is_relative_to(a.runtime_sysroot) or a.runtime_sysroot.is_relative_to(x) for x in [work,prefix]):p.error('independent sysroot required')
  sysroot_hash=tree_digest(a.runtime_sysroot)
-receipt={'status':'started','role':spec['role'],'target':spec['target'],'image_id':a.image_id,'source_sha512':spec['gcc']['sha512'],'commands':[],'runtime_built':False}
+receipt={'status':'started','role':spec['role'],'target':spec['target'],'image_id':a.image_id,'source_sha512':spec['gcc']['sha512'],'recipe_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'commands':[],'runtime_built':False}
 def interrupted(signum,frame):raise RuntimeError('Interrupted by signal '+str(signum))
 signal.signal(signal.SIGTERM,interrupted)
 with (work/'build.log').open('w') as log:
@@ -85,18 +87,25 @@ with (work/'build.log').open('w') as log:
   flags=[f for f in flags if f!='--enable-languages=c']+['--enable-languages='+a.languages]
   if a.runtime_sysroot:
    flags=[f for f in flags if f not in ['--disable-shared','--disable-threads','--without-headers','--with-newlib']]
-   flags+=['--enable-shared','--enable-threads=posix','--with-long-double-128','--with-sysroot='+str(a.runtime_sysroot)]
+   installed_sysroot=a.installed_sysroot or a.runtime_sysroot
+   flags+=['--enable-shared','--enable-threads=posix','--with-long-double-128','--with-sysroot='+str(installed_sysroot)]
+   if a.installed_sysroot:
+    flags+=['--with-build-sysroot='+str(a.runtime_sysroot)]
+   receipt['installed_sysroot']=str(installed_sysroot)
+   receipt['runtime_build_sysroot']=str(a.runtime_sysroot)
    target_flags='-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128'
    flags+=['CFLAGS_FOR_TARGET='+target_flags,'CXXFLAGS_FOR_TARGET='+target_flags]
    receipt['sysroot_tree_sha256']=sysroot_hash
    receipt['target_runtime_flags']=target_flags
   if a.runtime_sysroot:
    bindir=prefix/'bin';bindir.mkdir(parents=True)
+   crossbin=prefix/spec['target']/'bin';crossbin.mkdir(parents=True)
    receipt['binutils_sha256']={}
    for tool in ['ar','as','ld','nm','ranlib','readelf','objcopy','objdump','strip']:
     host=Path('/usr/bin/powerpc-linux-gnu-'+tool)
     if not host.is_file():raise RuntimeError('Missing host binutil: '+str(host))
     (bindir/(spec['target']+'-'+tool)).symlink_to(host)
+    (crossbin/tool).symlink_to(host)
     receipt['binutils_sha256'][tool]=hashlib.sha256(host.read_bytes()).hexdigest()
   run([str(source/'configure')]+flags,obj)
   run(['make','-j'+str(a.jobs),'all-gcc'],obj)
@@ -122,6 +131,15 @@ with (work/'build.log').open('w') as log:
   if 'efsadd' not in asm or 'efdadd' not in asm:raise RuntimeError('Expected SPE instructions absent')
   receipt['compiler_version']=subprocess.check_output([str(cc),'--version'],text=True)
   receipt['target_macros']=subprocess.check_output([str(cc),'-dM','-E','-x','c','-'],input='',text=True)
+  if a.installed_sysroot:
+   receipt['observed_installed_sysroot']=subprocess.check_output([str(cc),'-print-sysroot'],text=True).strip()
+   if receipt['observed_installed_sysroot']!=str(a.installed_sysroot):raise RuntimeError('Installed default sysroot mismatch')
+   for macro in ['#define __SPE__ 1','#define __NO_FPRS__ 1','#define __LDBL_MANT_DIG__ 106','#define __SIZEOF_LONG_DOUBLE__ 16']:
+    if macro not in receipt['target_macros'].splitlines():raise RuntimeError('Installed default ABI missing '+macro)
+   run([str(cc),'-O2','-S',str(probe),'-o',str(work/'default-abi-probe.s')])
+   default_asm=(work/'default-abi-probe.s').read_text()
+   if 'efsadd' not in default_asm or 'efdadd' not in default_asm:raise RuntimeError('Default target does not emit SPE instructions')
+   receipt['default_abi_probe_sha256']=hashlib.sha256((work/'default-abi-probe.s').read_bytes()).hexdigest()
   receipt['probe_sha256']=hashlib.sha256((work/'probe.s').read_bytes()).hexdigest()
   receipt['installed_tree_sha256']=tree_digest(prefix)
   receipt['binutils_version']=subprocess.check_output(['/usr/bin/powerpc-linux-gnu-as','--version'],text=True).splitlines()[0]

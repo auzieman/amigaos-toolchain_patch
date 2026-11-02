@@ -1,0 +1,46 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  65.54kB
+Step 1/6 : ARG BUILD_INFRA_IMAGE
+Step 2/6 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 56facebcfacf
+Step 3/6 : RUN rm -rf /opt/tabor-target-packages
+ ---> Running in dac238980567
+ ---> Removed intermediate container dac238980567
+ ---> 02ae53577bfc
+Step 4/6 : COPY packages/ /opt/tabor-target-packages/
+ ---> ede99e069368
+Step 5/6 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb     && test -r /usr/include/powerpc-linux-gnuspe/asm/errno.h     && grep -Fq 'OUTPUT_FORMAT(elf32-powerpc)' /usr/lib/powerpc-linux-gnuspe/libc.so     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in ce3c3515bd00
+libattr1-dev_2.5.2-3_powerpcspe.deb: OK
+libattr1_2.5.2-3_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  libattr1:powerpcspe libattr1-dev:powerpcspe
+0 upgraded, 2 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/58.4 kB of archives.
+After this operation, 186 kB of additional disk space will be used.
+Get:1 /opt/tabor-target-packages/libattr1_2.5.2-3_powerpcspe.deb libattr1 powerpcspe 1:2.5.2-3 [22.3 kB]
+Get:2 /opt/tabor-target-packages/libattr1-dev_2.5.2-3_powerpcspe.deb libattr1-dev powerpcspe 1:2.5.2-3 [36.1 kB]
+Selecting previously unselected package libattr1:powerpcspe.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 39954 files and directories currently installed.)
+Preparing to unpack .../libattr1_2.5.2-3_powerpcspe.deb ...
+Unpacking libattr1:powerpcspe (1:2.5.2-3) ...
+Selecting previously unselected package libattr1-dev:powerpcspe.
+Preparing to unpack .../libattr1-dev_2.5.2-3_powerpcspe.deb ...
+Unpacking libattr1-dev:powerpcspe (1:2.5.2-3) ...
+Setting up libattr1:powerpcspe (1:2.5.2-3) ...
+Setting up libattr1-dev:powerpcspe (1:2.5.2-3) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...
+ ---> Removed intermediate container ce3c3515bd00
+ ---> cb1737b983c9
+Step 6/6 : ENTRYPOINT ["python3"]
+ ---> Running in 9425ddd1365b
+ ---> Removed intermediate container 9425ddd1365b
+ ---> d506b2ba790f
+Successfully built d506b2ba790f

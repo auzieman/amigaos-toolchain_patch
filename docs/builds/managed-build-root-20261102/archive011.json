@@ -1,0 +1,519 @@
+{
+  "status": "signed-binary-archive-built-not-target-installed",
+  "image_id": "sha256:a147dbc854577bde0d172a86f011e6164ecb0f63cd08f057a9143bc629f6a74f",
+  "recipe_sha256": "209a1624c9e12c6b8801021b56417cbf815c685638097d6273446c478f3dc8aa",
+  "manifest_sha256": "12585558f9f7e0aa360505d686db4a8386c134b480fd4481aed0a4392e88e6ef",
+  "public_key_fingerprint": "89581103440A76F6B5A2EC4FAE060D284AB4C7E7",
+  "source_indexes": false,
+  "artifacts": [
+    {
+      "file": "pool/bootstrap/libc-bin_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "7f63737e5c80884330df1b782ec8935f1b44096a04f8886a41864f53fc8529fd",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-glibc-004/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/libc-dev-bin_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "12ef6dd93cd4d82af410e3d21a626b524fccb77dc390660f7bb8951393fcfb38",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-glibc-004/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/libc6-dbg_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "f9fbd8d7254e90d207253fd9ef734b8fd7009e9388f20f442965caeb14bf2855",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-glibc-004/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/libc6_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "34db6c40f11d28b80f061a679a237a9092eb28c66c7b911c0a250d8ce3ba9db8",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-glibc-004/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/nscd_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "eedfa430c3610a599326e5858ed9ffd0cbd2f8a045d341ecfc35cdd74e1f84e8",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-glibc-004/receipt.json"
+    },
+    {
+      "file": "pool/main/libcap-ng-dev_0.8.5-4+tabor1_powerpcspe.deb",
+      "sha256": "885e80ce874ba1799eb173cd06f8f15c35406420d3c880fae013fd4978a156c2",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libcap-ng-002/receipt.json"
+    },
+    {
+      "file": "pool/main/libcap-ng-utils-dbgsym_0.8.5-4+tabor1_powerpcspe.deb",
+      "sha256": "33ed88bfe128eac3be580821bcd845b2c1e559b00c417d7d078a308d2441bc33",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libcap-ng-002/receipt.json"
+    },
+    {
+      "file": "pool/main/libcap-ng-utils_0.8.5-4+tabor1_powerpcspe.deb",
+      "sha256": "75db044f2ff4cbcc47a9eb07af82e8188eff39820d36afeb3b1e71d3f1d91ffa",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libcap-ng-002/receipt.json"
+    },
+    {
+      "file": "pool/main/libcap-ng0-dbgsym_0.8.5-4+tabor1_powerpcspe.deb",
+      "sha256": "47ba91ed9b887c28c93f3eada272ee1664866988ac461f47b899d7805b7ec509",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libcap-ng-002/receipt.json"
+    },
+    {
+      "file": "pool/main/libcap-ng0_0.8.5-4+tabor1_powerpcspe.deb",
+      "sha256": "50d5b5b9088d8f4e23b23e06b9c6b0bde94dfdeb968147a4c0b4b2458f3bfcb1",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libcap-ng-002/receipt.json"
+    },
+    {
+      "file": "pool/main/libsepol-dev_3.8.1-1+tabor1_powerpcspe.deb",
+      "sha256": "60f0f86be1df6354b9045f111557bdc9395c12dfa1c1a0494ed106d26c1a375b",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libsepol-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libsepol2_3.8.1-1+tabor1_powerpcspe.deb",
+      "sha256": "d38eaef8aed19333fc7227a5ae508f3a3f7915061e45fcdb902c542b00fcb159",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libsepol-001/receipt.json"
+    },
+    {
+      "file": "pool/main/sepol-utils-dbgsym_3.8.1-1+tabor1_powerpcspe.deb",
+      "sha256": "2dcbc956926892ad4662733d2921768d7cbe73d7755b67e96bff5679d791999d",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libsepol-001/receipt.json"
+    },
+    {
+      "file": "pool/main/sepol-utils_3.8.1-1+tabor1_powerpcspe.deb",
+      "sha256": "911fd2d4a23e124ff611066a31ec74666505f3e6a3e793d9762331aacdc0b2bb",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libsepol-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libpcre2-16-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "0d578985745f52a9a91cbb7d2a6e51b7a3d8206616dfbbdc309b662312166308",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libpcre2-32-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "9ff8bc25beabe59585d9eb41f74f67a7624cd8eaffc58d12fd5ce8603193a99b",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libpcre2-8-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "68bf0d438be8bcf9e4e25f0fde799418fe31c311c62494eb1c8896063dbc0adf",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libpcre2-dev_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "04ba1004b222a6494db7102729c72d5b049a81d04204bbce5097b5164931bcd2",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/libpcre2-posix3_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "5216b5c449fa2c7b5fac82a8c26043568f4890c120e89782ab57ce75b909db07",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/pcre2-utils_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "sha256": "dac46d0f251c15443d7dc9c191d9087b09b8c74b4ed38acd3a1d79730ba4eb32",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pcre2-001/receipt.json"
+    },
+    {
+      "file": "pool/main/linux-libc-dev_6.12.113-1_all.deb",
+      "sha256": "d83eb60679e780d92790011748e46909b3867642d5fe7fa11ebe14c89e0b65ee",
+      "architecture": "all",
+      "receipt": "work/linux-headers-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libmd-dev_1.1.0-2+tabor1_powerpcspe.deb",
+      "sha256": "6de13d4fd28852642877fd1d25cc257b1e37418cd43473ecd601418271471e3e",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libmd-006/receipt.json"
+    },
+    {
+      "file": "pool/main/libmd0_1.1.0-2+tabor1_powerpcspe.deb",
+      "sha256": "2c9ef5b675d2d3f0b404a4bc73c16c1349932c995108cf57ca40b177634c13af",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libmd-006/receipt.json"
+    },
+    {
+      "file": "pool/main/attr-dbgsym_2.5.2-3_powerpcspe.deb",
+      "sha256": "36339df171a9d36b2ee593a20db405c1ede88f977c6380be601289abf653e6da",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-attr-401/receipt.json"
+    },
+    {
+      "file": "pool/main/attr_2.5.2-3_powerpcspe.deb",
+      "sha256": "21838aa37437510ba1f44b841b798945b1d29fbe359dd62c77aed5ad40c47e1f",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-attr-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libattr1-dev_2.5.2-3_powerpcspe.deb",
+      "sha256": "cec2f40ff21db2f2d26a0deb096aa679a42f5dbbf46abefd06a5f9db2491281d",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-attr-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libattr1_2.5.2-3_powerpcspe.deb",
+      "sha256": "e5deec92c1a924961523df8324bab86b5f2e0d248023f966967b332004961df6",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-attr-401/receipt.json"
+    },
+    {
+      "file": "pool/main/dash_0.5.12-12+tabor1_powerpcspe.deb",
+      "sha256": "8792e87e8396617e082dddde97fb88de9e289fbccb6047bbef11f6c26d917e88",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-dash-002/receipt.json"
+    },
+    {
+      "file": "pool/main/gzip_1.13-1+deb13u1+tabor1_powerpcspe.deb",
+      "sha256": "e19301d43f0e9bfe4cccd3f94b92f9c60bd527f56fcaaf5d5711c69e675b05fe",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-gzip-004/receipt.json"
+    },
+    {
+      "file": "pool/main/base-files_13.8+deb13u7+tabor1_powerpcspe.deb",
+      "sha256": "7c3393e7f8ea3df32befd823a9880ef3c193d8a56452be1f10c3e2961ee02107",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-base-files-001/receipt.json"
+    },
+    {
+      "file": "pool/main/debianutils-dbgsym_5.23.2+tabor1_powerpcspe.deb",
+      "sha256": "7135d53aa3aee21deaa33d6cd535b2210417df87444ba138a827cf805240ae5d",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-debianutils-003/receipt.json"
+    },
+    {
+      "file": "pool/main/debianutils_5.23.2+tabor1_powerpcspe.deb",
+      "sha256": "ef23639328bb528aaecab17a139e9d6457dd94c2fa19ea801c03f93c8c815356",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-debianutils-003/receipt.json"
+    },
+    {
+      "file": "pool/main/diffutils-dbgsym_3.10-4+tabor1_powerpcspe.deb",
+      "sha256": "fb42c02b3627ee59532c173a7295ea575219714ae45a7d0d123a0c4ff552fe30",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-diffutils-002/receipt.json"
+    },
+    {
+      "file": "pool/main/diffutils_3.10-4+tabor1_powerpcspe.deb",
+      "sha256": "ea4dfa2354fad3d44895accbf4f08303c02a00369736f01c77c9a70f022b24d3",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-diffutils-002/receipt.json"
+    },
+    {
+      "file": "pool/main/mawk_1.3.4.20250131-1+tabor1_powerpcspe.deb",
+      "sha256": "036b954444c195c78fc431cc7659d11c1830ec2060d7d7715173a3f17c44c648",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-mawk-002/receipt.json"
+    },
+    {
+      "file": "pool/main/debconf-doc_1.5.91+tabor1_all.deb",
+      "sha256": "1a3379742be0d448d04962ad4e1327ffbbce469ac1de933eadfd7cbebe86a493",
+      "architecture": "all",
+      "receipt": "work/debian-debconf-003/receipt.json"
+    },
+    {
+      "file": "pool/main/debconf-i18n_1.5.91+tabor1_all.deb",
+      "sha256": "aa7f06dbff316535839fc7d35f36e545a6268e18d3eec7dec672268b679a1284",
+      "architecture": "all",
+      "receipt": "work/debian-debconf-003/receipt.json"
+    },
+    {
+      "file": "pool/main/debconf-utils_1.5.91+tabor1_all.deb",
+      "sha256": "c46c998a494c0d6478c8accb7b5bb2b3048e5d8062667b6bef26f0bfde7dd76f",
+      "architecture": "all",
+      "receipt": "work/debian-debconf-003/receipt.json"
+    },
+    {
+      "file": "pool/main/debconf_1.5.91+tabor1_all.deb",
+      "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+      "architecture": "all",
+      "receipt": "work/debian-debconf-003/receipt.json"
+    },
+    {
+      "file": "pool/main/python3-debconf_1.5.91+tabor1_all.deb",
+      "sha256": "6aa466165ecc2326157599c61e6f5491a9e6921d70cce21b07d03ba58b99417a",
+      "architecture": "all",
+      "receipt": "work/debian-debconf-003/receipt.json"
+    },
+    {
+      "file": "pool/main/init-system-helpers_1.69~deb13u1+tabor1_all.deb",
+      "sha256": "5415bf7eae11db114ad0d0321d81f99e8d325b5134eca0ae52813abf13242986",
+      "architecture": "all",
+      "receipt": "work/debian-init-system-helpers-005/receipt.json"
+    },
+    {
+      "file": "pool/main/media-types_13.0.0+tabor1_all.deb",
+      "sha256": "e39ee919cf9e5f3130b6a732a289d903523f1552ab35895e2dab2ba196fffd19",
+      "architecture": "all",
+      "receipt": "work/debian-media-types-101/receipt.json"
+    },
+    {
+      "file": "pool/main/adduser_3.152+tabor1_all.deb",
+      "sha256": "898a7de190cc04dad9357dba223cf5b52c85a50b05077a3f0d5f59100ca5b822",
+      "architecture": "all",
+      "receipt": "work/debian-adduser-101/receipt.json"
+    },
+    {
+      "file": "pool/main/debian-archive-keyring_2025.1+tabor1_all.deb",
+      "sha256": "fe343ab62ceeed3d23d8a26da50c2ce3b920409140d46d3b5f90bd3291cc7725",
+      "architecture": "all",
+      "receipt": "work/debian-debian-archive-keyring-102/receipt.json"
+    },
+    {
+      "file": "pool/main/ca-certificates_20250419+deb13u1+tabor1_all.deb",
+      "sha256": "145c863fd0640d1e76769a0d8d17d456ebb7d7daa28a6030eadac60dafef59e5",
+      "architecture": "all",
+      "receipt": "work/debian-ca-certificates-102/receipt.json"
+    },
+    {
+      "file": "pool/main/tzdata-legacy_2026c-0+deb13u1+tabor1_all.deb",
+      "sha256": "f004e49aeb1842e36b005079d23d42acba45b697e7b5d8059ac046d4b7ec3532",
+      "architecture": "all",
+      "receipt": "work/debian-tzdata-102/receipt.json"
+    },
+    {
+      "file": "pool/main/tzdata_2026c-0+deb13u1+tabor1_all.deb",
+      "sha256": "5b5d74a1db5188c7f2ce4c66110c5ee01431b9191f27d60b4b0f631475fe86a3",
+      "architecture": "all",
+      "receipt": "work/debian-tzdata-102/receipt.json"
+    },
+    {
+      "file": "pool/main/libpthread-stubs0-dev_0.5-1+tabor1_powerpcspe.deb",
+      "sha256": "0c3b6dff888832a50f754d9a2b7a48a0503bf274fca89feadc7cf3b5883cdc68",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libpthread-stubs-202/receipt.json"
+    },
+    {
+      "file": "pool/main/libxcvt-dev_0.1.3-1+tabor1_powerpcspe.deb",
+      "sha256": "a9374321601e85c8feecbebc00acdc6e9d94f7bee48a0ef7e73e27a713802c5a",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libxcvt-202/receipt.json"
+    },
+    {
+      "file": "pool/main/libxcvt0_0.1.3-1+tabor1_powerpcspe.deb",
+      "sha256": "b62c72b4195c09d5785aca0b9765054e94ab049db345cd68e6e55580e2bf5bcc",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libxcvt-202/receipt.json"
+    },
+    {
+      "file": "pool/main/xcvt_0.1.3-1+tabor1_powerpcspe.deb",
+      "sha256": "b392ac418afcd4a6330125d31c654e5c2eee304b420ec6cd420472ff69cc7eda",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libxcvt-202/receipt.json"
+    },
+    {
+      "file": "pool/main/libminizip-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "sha256": "602787becd9d1f5ec7a792345be16057b168c3cd17cce731f92eeaba35e2c85c",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-zlib-205/receipt.json"
+    },
+    {
+      "file": "pool/main/libminizip1t64_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "sha256": "5edcbc0af0672930781f5bb8b5fd48d172833fa53c5c26423038c45eb2c81a00",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-zlib-205/receipt.json"
+    },
+    {
+      "file": "pool/main/minizip_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "sha256": "0abe11c0d2ebc0c3678743e255db18bd8b042977d5c752d84795c3890546fe58",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-zlib-205/receipt.json"
+    },
+    {
+      "file": "pool/main/zlib1g-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "sha256": "be43db192ee36dcc0be34583450419ea08f25d4ca54d24fddc2f7e07b93e7e8e",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-zlib-205/receipt.json"
+    },
+    {
+      "file": "pool/main/zlib1g_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "sha256": "c07c822b8509fa34f25d6d38fdc8673712ce898986bc2ebd63d313cbeaafdfc0",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-zlib-205/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "fe735e965f30f08c16debad5e9357376ef887761401aa4237c5ca1b2977f79cc",
+      "architecture": "powerpcspe",
+      "receipt": "work/gcc-runtime-package-003/receipt.json"
+    },
+    {
+      "file": "pool/bootstrap/libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "11c28ce87d576f0083dde33a2d2f3c8ecc9c4f445087499f387be614d81dbffa",
+      "architecture": "powerpcspe",
+      "receipt": "work/gcc-runtime-package-003/receipt.json"
+    },
+    {
+      "file": "pool/main/libgmp-dev_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "sha256": "55481deb6bbf5299035e6d4d80a987327cea522b8c1f1b56aab4a0435463b147",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-gmp-301/receipt.json"
+    },
+    {
+      "file": "pool/main/libgmp10-doc_6.3.0+dfsg-3+tabor1_all.deb",
+      "sha256": "40c3f2e2bba18655afe321c2c7b8d1fa2d871db495b19594fea11b67dcf1a92c",
+      "architecture": "all",
+      "receipt": "work/debian-gmp-301/receipt.json"
+    },
+    {
+      "file": "pool/main/libgmp10_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "sha256": "32ede18baca5655bd34249f5df7769e45442867d0e01bf887956f747e55f680f",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-gmp-301/receipt.json"
+    },
+    {
+      "file": "pool/main/libgmp3-dev_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "sha256": "dfbbc503062231b674bdc2daf68e7ce25688b2e553de4ae72e0ed4877d6c2c6e",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-gmp-301/receipt.json"
+    },
+    {
+      "file": "pool/main/libgmpxx4ldbl_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "sha256": "b4e7d5609585d95771b3b8129ac03b523985f624de76699369534ddf4de824de",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-gmp-301/receipt.json"
+    },
+    {
+      "file": "pool/main/libpkgconf-dev_1.8.1-4_powerpcspe.deb",
+      "sha256": "adc2c6f14fe9627c05401da930d5466210dc4736d6d5259ec698f657b8ee80b2",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pkgconf-403/receipt.json"
+    },
+    {
+      "file": "pool/main/libpkgconf3_1.8.1-4_powerpcspe.deb",
+      "sha256": "97442cb6a9288d9c7df4e7bdbe45a359b719618b8002c8d42b7df29d0c092d10",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pkgconf-403/receipt.json"
+    },
+    {
+      "file": "pool/main/pkg-config_1.8.1-4_powerpcspe.deb",
+      "sha256": "788ed9bb3d6a739c3c7a936364d0255f250ff3ce745221b753b11441699516cd",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pkgconf-403/receipt.json"
+    },
+    {
+      "file": "pool/main/pkgconf-bin_1.8.1-4_powerpcspe.deb",
+      "sha256": "21ce6e3de56d88b50c7a2d8fade901b7b0718821663348f8f0abc255d43ef79e",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pkgconf-403/receipt.json"
+    },
+    {
+      "file": "pool/main/pkgconf_1.8.1-4_powerpcspe.deb",
+      "sha256": "75d936e9314fef39b31b4292d94319b4e543cbf6a5a21cfb2dc08244b8759a6d",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pkgconf-403/receipt.json"
+    },
+    {
+      "file": "pool/main/libcrypt-dev_4.4.38-1_powerpcspe.deb",
+      "sha256": "d2b2667d11ff7e474e2f5b39a9fa26c7335141b3f6cea5689c1a3f2ad553b72a",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libxcrypt-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libcrypt1_4.4.38-1_powerpcspe.deb",
+      "sha256": "3b88581a1ada647626d150e345b3b2b04472288b1342c9bae610f5a7dc0acb13",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-libxcrypt-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libxcrypt-source_4.4.38-1_all.deb",
+      "sha256": "9ac36bc1c1e401860c44b5a5616a0d4d0351c0b93bfd99f1f38f4e3404ed7ec1",
+      "architecture": "all",
+      "receipt": "work/debian-libxcrypt-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libfribidi-bin_1.0.16-1_powerpcspe.deb",
+      "sha256": "2822269ffd04986761de756543926660ffa509a40e67a218100da85432c09151",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-fribidi-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libfribidi-dev_1.0.16-1_powerpcspe.deb",
+      "sha256": "b2bc7c18f69a8e55546389c18bf36fbe1e3d989e1e827edac546f729ad4f60c9",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-fribidi-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libfribidi0_1.0.16-1_powerpcspe.deb",
+      "sha256": "aa638258aa16d60a796c1e148ce097e563f3d82613691e90df4adc8940184249",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-fribidi-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libpixman-1-0_0.44.0-3_powerpcspe.deb",
+      "sha256": "04728cc130f2f39827d164dea0769951f29d18b7f5a90744af00dfc710bc1289",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pixman-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libpixman-1-dev_0.44.0-3_powerpcspe.deb",
+      "sha256": "9df563be421e74ed1346d01887f36ea95984d4189e006cf8db410d96d8d8a411",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-pixman-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libmtdev-dev_1.1.7-1_powerpcspe.deb",
+      "sha256": "efcbb9238f88812dfa138ee29b6e744727c9dbbc422bc5cf4769489f5d8e76a4",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-mtdev-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libmtdev1t64_1.1.7-1_powerpcspe.deb",
+      "sha256": "e5a94bc9ec1134350061fcfc5a708360b95f2b39ccc49ac246135bb5305e606e",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-mtdev-401/receipt.json"
+    },
+    {
+      "file": "pool/main/mtdev-tools_1.1.7-1_powerpcspe.deb",
+      "sha256": "3cebdf20cfc5315c416722e48bfe15b9d37a24a25d6902f4aa9fbc51bc03dbf8",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-mtdev-401/receipt.json"
+    },
+    {
+      "file": "pool/main/acl-dbgsym_2.3.2-2_powerpcspe.deb",
+      "sha256": "931a81eabc2854982e29bcb569edb71a3b52bef8f1ca4f2c6a24ee7b4bd335b4",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-acl-401/receipt.json"
+    },
+    {
+      "file": "pool/main/acl_2.3.2-2_powerpcspe.deb",
+      "sha256": "6b1dc3b0307bc8fe23c56667760c6194ce8eb3080ac769870a2bdaaa1bd7cb68",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-acl-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libacl1-dev_2.3.2-2_powerpcspe.deb",
+      "sha256": "880ab1950ae9f9d98ef93d302aa5db96c857c1378ac846566c0ade7ab29907f9",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-acl-401/receipt.json"
+    },
+    {
+      "file": "pool/main/libacl1_2.3.2-2_powerpcspe.deb",
+      "sha256": "4d41649503f3fb0dae1230c0c6650a41064cce1ad19275f78a9ffa0c8252a39f",
+      "architecture": "powerpcspe",
+      "receipt": "work/debian-acl-401/receipt.json"
+    }
+  ],
+  "excluded_artifacts": [
+    {
+      "package": "libc6-dev",
+      "file": "libc6-dev_2.41-12+deb13u4+tabor1~stage2_powerpcspe.deb",
+      "sha256": "b976638228deb668a41de7c497a62192aa1fbc3ff75fba69993c29dfe47c3663",
+      "receipt": "work/debian-glibc-004/receipt.json",
+      "reason": "Issue13: generated linker script uses elf32-big; corrected preserved-version stage2 development package remains build-root-only pending full-feature replacement"
+    }
+  ],
+  "release_sha256": "fe0c765033751176a693df286d61285eb167ecf63bde58d82f377e8bcee5c91e",
+  "inrelease_sha256": "15fc5a2fdda4d3d825aff602ff1ace958e914fcbc7ab363ac3ae0588911a576c"
+}

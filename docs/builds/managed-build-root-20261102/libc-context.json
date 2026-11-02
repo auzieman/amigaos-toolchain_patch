@@ -1,0 +1,22 @@
+{
+  "recipe_sha256": "4eb648f676dbdb66297b661c2eadd8030269b9345937c2e95fe61e49b0f2716d",
+  "manifest_sha256": "458c766262bf2cf50dfd3c1e9fcd7f5fa116fc44653eeee81d5eedbadca0619b",
+  "dockerfile_sha256": "988fcb23e1f4c05f270b01e50c7b9ee2e6533e6accc32fddb114055281b4c4f1",
+  "inputs": [
+    {
+      "package": "libc6-dev",
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "f2d9516202e4121ce9eea11acf87b246b03950e210e2eef2691dd7d7e05fe315",
+      "receipt_sha256": "71b5c8c6249810d142b6caaabc68aeebe18e6bbac98c11347ee304a517d962b1",
+      "build_profiles": "cross,nocheck,stage2,nobiarch"
+    },
+    {
+      "package": "libc6",
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "a7dd311b083b5bc4a5c8e819977cd2c0e636afd4dc013a5129ec4a023bca1d05",
+      "receipt_sha256": "71b5c8c6249810d142b6caaabc68aeebe18e6bbac98c11347ee304a517d962b1",
+      "build_profiles": "cross,nocheck,stage2,nobiarch"
+    }
+  ],
+  "purpose": "isolated cross-build root; not a final target installation"
+}

@@ -27,6 +27,21 @@ removed_libtool_archives = []
 for archive_file in sorted(target.rglob('*.la')):
     removed_libtool_archives.append(str(archive_file.relative_to(target)))
     archive_file.unlink()
+# GCC's -print-prog-name searches PREFIX/TARGET/bin, not just PATH's
+# TARGET-tool aliases. Supply the standard layout in the staged SDK only.
+# Otherwise consumers such as glibc silently pick native objdump/objcopy.
+cross_bin = target / spec['target'] / 'bin'; cross_bin.mkdir(exist_ok=True)
+binutils_search_links = {}
+for name in ['ar', 'as', 'ld', 'nm', 'ranlib', 'readelf', 'objcopy', 'objdump', 'strip']:
+    installed = Path('/usr/bin/powerpc-linux-gnu-' + name)
+    assert installed.is_file(), installed
+    link = cross_bin / name
+    if link.is_symlink():
+        assert os.readlink(link) == str(installed)
+    else:
+        assert not link.exists()
+        link.symlink_to(installed)
+    binutils_search_links[name] = {'target': str(installed), 'sha256': sha(installed)}
 binpath = root / 'usr/bin'; binpath.mkdir(parents=True)
 for tool in sorted((target / 'bin').iterdir()):
     assert tool.name.startswith('powerpc-linux-gnuspe-')
@@ -60,5 +75,6 @@ subprocess.run(['dpkg-deb', '--root-owner-group', '-Zgzip', '-Snone', '--build',
     'frontend_sha256': sha(cc1), 'compiler_sha256': sha(a.tools / 'bin/powerpc-linux-gnuspe-gcc'),
     'package_sha256': sha(package), 'bytes': package.stat().st_size,
     'removed_libtool_archives': removed_libtool_archives,
+    'binutils_search_links': binutils_search_links,
     'target_runtime_package': False}, indent=2) + '\n')
 print(package)
