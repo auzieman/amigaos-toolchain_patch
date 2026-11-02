@@ -1,0 +1,99 @@
+{
+  "package": "libxcb",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "x11-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/debian-libmd-503/receipt.json",
+      "sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "packages": [
+        "libmd0",
+        "libmd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libbsd-540/receipt.json",
+      "sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291",
+      "packages": [
+        "libbsd0",
+        "libbsd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-glibc-402/receipt.json",
+      "sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxcrypt-401/receipt.json",
+      "sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "packages": [
+        "libcrypt1",
+        "libcrypt-dev"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/debian-pkgconf-403/receipt.json",
+      "sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "packages": [
+        "pkgconf"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-009/receipt.json",
+      "sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-libxdmcp-006/receipt.json",
+      "sha256": "f6fd50c63391e948d7e7b5b2d0afabadbeca7569f43cf4310723c3125f849528",
+      "packages": [
+        "libxdmcp6",
+        "libxdmcp-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxau-503/receipt.json",
+      "sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "packages": [
+        "libxau6",
+        "libxau-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libpthread-stubs-510/receipt.json",
+      "sha256": "3d8a58b700b9b190b3dacead441059543749866996cdea8feac92afb97a52f4e",
+      "packages": [
+        "libpthread-stubs0-dev"
+      ]
+    }
+  ],
+  "scope": "Fixed-base X11 dependency build with standard sbuild/apt; prior accepted SPE libraries are real extra-package inputs, not installation acceptance.",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/sdk-system-root-002/receipt.json",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86",
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1"
+}

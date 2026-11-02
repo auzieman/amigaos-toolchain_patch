@@ -1,0 +1,20 @@
+{
+  "defaults": "profiles/sbuild/libxcb.json",
+  "prerequisite": "work/sbuild-libxcb-001/receipt.json",
+  "run_prefix": "sbuild-x11-20261102-001",
+  "packages": [
+    "libx11",
+    "libxext",
+    "libxrender",
+    "libxfixes",
+    "libxdamage",
+    "libxcomposite",
+    "libxi",
+    "libxinerama",
+    "libxcursor",
+    "libxrandr",
+    "libxtst",
+    "libxss"
+  ],
+  "scope": "Fixed selected X11 source sequence; standard apt resolves each source in a fresh frozen root; continue independent attempts after failure"
+}

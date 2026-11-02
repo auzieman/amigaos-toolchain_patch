@@ -1219,3 +1219,12 @@ Base lock and root hashes gate subsequent builds; no rolling-mirror fallback.
 SPE UAPI009 rebuild is running on that root. Standard SPE libxdmcp acceptance,
 remaining desktop closure and QEMU validation are pending. See
 [standard-builder evidence](builds/debian-standard-builder-20261102/README.md).
+
+
+2026-11-02 current fixed-path spot check: UAPI009 and libxdmcp006 pass standard
+sbuild/apt in frozen root002. Historical resolver/source preparation failures
+are retained as history, not asserted against these successful rebuilt outputs.
+Libxcb001 continues the X11 dependency chain. User requests letting the build
+finish, then launching the newly assembled image in QEMU; this remains pending
+image assembly and normal package-install/configuration checks. No replacement
+of the image by an older diagnostic boot is authorized by that request.

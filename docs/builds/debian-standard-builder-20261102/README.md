@@ -46,3 +46,27 @@ frozen-installed-versions.json retain root/manifest hashes and all native
 package versions. UAPI009 now rebuilds the SPE tuple patch from source6.12.115-2
 in that frozen standard root. Add its accepted receipt to the libxdmcp input
 set only after packaging and static inspection pass; no accepted009 result yet.
+
+## Current fixed-path acceptance
+
+UAPI009 passes: linux-libc-dev6.12.115-2+spe1, normal Debian source/header-only
+profiles, package/static-inspection hashes in linux-uapi009.json. Libxdmcp006
+then passes unpatched source1:1.1.5-1 with real dependencies resolved/installed
+by apt in frozen root002. It produces libxdmcp6 and libxdmcp-dev SPE packages,
+normal .changes/.buildinfo and static payload verification (libxdmcp006.json).
+Documentation olink warnings were nonfatal; sbuild and inspection passed.
+These current results supersede the earlier blockers for these exact slices.
+They do not claim target runtime or a newly assembled desktop image yet.
+Libxcb001 now runs through the same standard path. The viewport summary has
+been updated from its stale legacy queue failure summary.
+
+Libxcb001 also passes standard sbuild packaging and payload inspection, with its
+receipt retained as libxcb001.json. The serial X11 sequence starts libx11 next,
+then eleven remaining selected X11 libraries. scripts/run-sbuild-sequence.py is
+only a serial dispatcher: each source still uses sbuild/apt in a fresh frozen
+root; accepted output artifacts enter subsequent standard extra-package inputs.
+It does not decide dependency closure, bypass failures or assemble a target root.
+The R730 service is tabor-sbuild-sequence, output work/sbuild-x11-sequence-001;
+resource ceiling is4 CPUs/6GiB and the existing live summary shows this queue.
+The QEMU-after-new-image request remains pending accepted image assembly; no
+old diagnostic image is relabeled as this fixed build.

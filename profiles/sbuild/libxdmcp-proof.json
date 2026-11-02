@@ -50,6 +50,14 @@
       "packages": [
         "pkgconf"
       ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-009/receipt.json",
+      "sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
     }
   ],
   "scope": "Standard sbuild SPE cross-build proof in a clean mmdebstrap root. Genuine stage2 libc and GCC8 build-root providers are explicit bootstrap inputs; not final target/runtime acceptance.",

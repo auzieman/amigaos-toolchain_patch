@@ -1,0 +1,159 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "3348be1cc41d77ff5ba653c81994d6cb3f85e32def4aeb65982f17a7f50f040c",
+  "recipe_sha256": "39bee787ee3667e67b974e8f1bc4632aa17b366cf27299dcaf00f5e3bda01e8c",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "source_inputs": [
+    {
+      "filename": "libxdmcp_1.1.5-1.dsc",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5-1.dsc",
+      "size": 2331,
+      "sha256": "d4a124405528eba3cf8794cc4fb8c4339ad74e79dd916fc0565b3a30c9fc1fe3"
+    },
+    {
+      "filename": "libxdmcp_1.1.5.orig.tar.gz",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5.orig.tar.gz",
+      "size": 442597,
+      "sha256": "31a7abc4f129dcf6f27ae912c3eedcb94d25ad2e8f317f69df6eda0bc4e4f2f3"
+    },
+    {
+      "filename": "libxdmcp_1.1.5.orig.tar.gz.asc",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5.orig.tar.gz.asc",
+      "size": 833,
+      "sha256": "0c7666da02d66ab785584cd16a6f9324f0d949555734e70b3b1385e525c7860b"
+    },
+    {
+      "filename": "libxdmcp_1.1.5-1.diff.gz",
+      "url": "https://deb.debian.org/debian/pool/main/libx/libxdmcp/libxdmcp_1.1.5-1.diff.gz",
+      "size": 9764,
+      "sha256": "7ec2e7da28c38723aa115ce2bd18389f7d73e716b0f50bec9e6e0d1b24f19954"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libmd-dev_1.1.0-2+b1_powerpcspe.deb",
+      "sha256": "3c3480a840d53f83497d210ac605be1fcf0967e1d050d46bdddcd0d3942c0e1f",
+      "receipt_sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b"
+    },
+    {
+      "file": "libmd0_1.1.0-2+b1_powerpcspe.deb",
+      "sha256": "01b955578c909c5f342681fb38be68d9f0fa9adf3514ef86dc090d391f6b6306",
+      "receipt_sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b"
+    },
+    {
+      "file": "libbsd-dev_0.12.2-2_powerpcspe.deb",
+      "sha256": "cbe174e4afd71a9f586d765f18491c5fd0dac041ef8c738fdf580d4c3d276a7a",
+      "receipt_sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291"
+    },
+    {
+      "file": "libbsd0_0.12.2-2_powerpcspe.deb",
+      "sha256": "fd920d4c55e18e85e418a069549f5c0c15615e5ceb5742a60aec869ffc0fed0e",
+      "receipt_sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291"
+    },
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "libcrypt-dev_4.4.38-1_powerpcspe.deb",
+      "sha256": "d2b2667d11ff7e474e2f5b39a9fa26c7335141b3f6cea5689c1a3f2ad553b72a",
+      "receipt_sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e"
+    },
+    {
+      "file": "libcrypt1_4.4.38-1_powerpcspe.deb",
+      "sha256": "3b88581a1ada647626d150e345b3b2b04472288b1342c9bae610f5a7dc0acb13",
+      "receipt_sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "pkgconf_1.8.1-4_powerpcspe.deb",
+      "sha256": "75d936e9314fef39b31b4292d94319b4e543cbf6a5a21cfb2dc08244b8759a6d",
+      "receipt_sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+    },
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+      "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck",
+      "--build-dep-resolver=apt",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006",
+      "--no-arch-all",
+      "--extra-package=/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006/extra-packages",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006/sources/libxdmcp_1.1.5-1.dsc"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-libxdmcp-006/project/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libxdmcp-006/payload-inspection.json"
+    ]
+  ],
+  "package": "libxdmcp",
+  "source_version": "1:1.1.5-1",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "sbuild_exit": 0,
+  "packages": {
+    "libxdmcp-dev_1.1.5-1_powerpcspe.deb": {
+      "sha256": "438183879628dcd563053966c836340134b8b61a113c3aaf2e9bc971a0a757f7",
+      "bytes": 43636
+    },
+    "libxdmcp6_1.1.5-1_powerpcspe.deb": {
+      "sha256": "b6e4d739723d5a34a9365c1d71aaf806050b5f46e0087a3f5e26533a434a6156",
+      "bytes": 27336
+    }
+  },
+  "build_metadata": {
+    "libxdmcp_1.1.5-1_powerpcspe.buildinfo": "3a2c3a74b44080d0d07e763256240ecacafcabf8eae49eaa9b7b86bcb39d3713",
+    "libxdmcp_1.1.5-1_powerpcspe.changes": "a9934e2bdc1a73ea9dbf67532818e7eb814ee15f770b23ade8712fd01cfaa8d4"
+  },
+  "payload_inspection_sha256": "e6576c13fa1c42a7c3d9434543fee0a7c49fe8abc04090033421e716840fa88c"
+}

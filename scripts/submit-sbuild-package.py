@@ -12,7 +12,7 @@ settings=json.loads(spec.read_text());base='/srv/data1/tabor-build/linux-live-00
 helper=project.parent/'lab/consolidation-20261002/r730-prep-20261031'
 def remote(cmd,root=False,**kw):
  return subprocess.run(['python3',str(helper/('sudo.py' if root else 'remote.py')),shlex.join(cmd)],check=True,**kw)
-for unit in ['tabor-core-queue.service','tabor-native-scope-prerequisites.service','tabor-sbuild-proof.service','tabor-frozen-buildd-root.service','tabor-current-uapi-intake.service']:
+for unit in ['tabor-core-queue.service','tabor-native-scope-prerequisites.service','tabor-sbuild-proof.service','tabor-frozen-buildd-root.service','tabor-current-uapi-intake.service','tabor-sbuild-sequence.service']:
  r=subprocess.run(['python3',str(helper/'sudo.py'),shlex.join(['systemctl','is-active','--quiet',unit])],capture_output=True)
  assert r.returncode!=0,'Existing heavy task: '+unit
 snapshot=base+'/submissions/'+a.run_id+'/project'

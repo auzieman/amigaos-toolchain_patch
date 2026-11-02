@@ -1,0 +1,128 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "2690dfba826821959da56a4644672817987fedd10d75245814bbf5a75ba750a1",
+  "recipe_sha256": "39bee787ee3667e67b974e8f1bc4632aa17b366cf27299dcaf00f5e3bda01e8c",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "amd64",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "source_inputs": [
+    {
+      "filename": "linux_6.12.115-2.dsc",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115-2.dsc",
+      "size": 294628,
+      "sha256": "0baf11fbc9cd651c2238c1b394142a9d58006bba604e5840f38086331286ee5c"
+    },
+    {
+      "filename": "linux_6.12.115.orig.tar.xz",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115.orig.tar.xz",
+      "size": 151676884,
+      "sha256": "eaccd6c987f438de08039859df5507600a31245bb041ca62f2ef3fd30bd2172d"
+    },
+    {
+      "filename": "linux_6.12.115-2.debian.tar.xz",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115-2.debian.tar.xz",
+      "size": 1986428,
+      "sha256": "6dfede7b22c69e60578764470734eeccead495111e1b417b224303d7a2de5df9"
+    }
+  ],
+  "extra_package_inputs": [],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/linux_6.12.115-2.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/patched-source",
+      "apply",
+      "--check",
+      "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-linux-uapi-009/project/patches/linux/headers/0002-register-spe-uapi-tuple.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/patched-source",
+      "apply",
+      "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-linux-uapi-009/project/patches/linux/headers/0002-register-spe-uapi-tuple.patch"
+    ],
+    [
+      "make",
+      "-f",
+      "debian/rules",
+      "debian/control"
+    ],
+    [
+      "make",
+      "-f",
+      "debian/rules",
+      "debian/control"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/patched-source"
+    ],
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=amd64",
+      "--dist=trixie",
+      "--profiles=nocheck,nodoc,pkg.linux.nokernel,pkg.linux.notools,pkg.linux.nosource",
+      "--build-dep-resolver=apt",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009",
+      "--arch-all",
+      "--no-arch-any",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/sources/linux_6.12.115-2+spe1.dsc"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-linux-uapi-009/project/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-linux-uapi-009/payload-inspection.json"
+    ]
+  ],
+  "package": "linux",
+  "source_version": "6.12.115-2+spe1",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "upstream_debian_source_version": "6.12.115-2",
+  "patched_source": {
+    "dsc": "linux_6.12.115-2+spe1.dsc",
+    "sha256": "f099bdbaa99824ef7056fe09727a8827ac31ea378060ccfa5c49af522bdfb66c",
+    "patch_sha256": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c",
+    "version": "6.12.115-2+spe1"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "linux-libc-dev_6.12.115-2+spe1_all.deb": {
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "bytes": 3050168
+    }
+  },
+  "build_metadata": {
+    "linux_6.12.115-2+spe1_all.buildinfo": "83e9c90bc70cc59f69634061ca0a8b6703c87ff1936aec76b6e1b7190dfee755",
+    "linux_6.12.115-2+spe1_all.changes": "0695c72e46cc23366a09f3e7d68793325e179324feb9a7b1b88a14de263f0189"
+  },
+  "payload_inspection_sha256": "0025ff1d3940596a357c90d20ba7d99722474c0dac3b735098bab41487378d4c"
+}
