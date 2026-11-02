@@ -1,0 +1,2182 @@
+{
+  "status": "source-closure-intake-planned-not-built",
+  "input_sha256": "26c703fe5483f1867ddcf620256868dd7acce324fe91db637e30341f3b51e8f5",
+  "sources": {
+    "connman": {
+      "version": "1.44-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "connman-dev": {
+          "provider": "connman-dev",
+          "consumers": [
+            "e17"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gobject-introspection": {
+      "version": "1.84.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "gir1.2-freetype2-2.0-dev": {
+          "provider": "gir1.2-freedesktop-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        },
+        "libgirepository1.0-dev": {
+          "provider": "libgirepository1.0-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "glib2.0": {
+      "version": "2.84.4-3~deb13u5",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "gir1.2-gobject-2.0-dev": {
+          "provider": "gir1.2-glib-2.0-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        },
+        "libglib2.0-dev": {
+          "provider": "libglib2.0-dev",
+          "consumers": [
+            "cdebconf",
+            "dbus",
+            "efl",
+            "harfbuzz",
+            "xkeyboard-config"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "heimdal": {
+      "version": "7.8.git20221117.28daf24+dfsg-9+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "heimdal-dev": {
+          "provider": "heimdal-dev",
+          "consumers": [
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "apparmor": {
+      "version": "4.1.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libapparmor-dev": {
+          "provider": "libapparmor-dev",
+          "consumers": [
+            "dbus",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libarchive": {
+      "version": "3.7.4-4+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libarchive-dev": {
+          "provider": "libarchive-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "alsa-lib": {
+      "version": "1.2.14-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libasound2-dev": {
+          "provider": "libasound2-dev",
+          "consumers": [
+            "e17",
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "audit": {
+      "version": "1:4.0.2-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libaudit-dev": {
+          "provider": "libaudit-dev",
+          "consumers": [
+            "dbus",
+            "openssh",
+            "pam",
+            "systemd",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "avahi": {
+      "version": "0.8-16",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libavahi-client-dev": {
+          "provider": "libavahi-client-dev",
+          "consumers": [
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "util-linux": {
+      "version": "2.41.5-0+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libblkid-dev": {
+          "provider": "libblkid-dev",
+          "consumers": [
+            "efl",
+            "systemd"
+          ]
+        },
+        "libfdisk-dev": {
+          "provider": "libfdisk-dev",
+          "consumers": [
+            "systemd"
+          ]
+        },
+        "libmount-dev": {
+          "provider": "libmount-dev",
+          "consumers": [
+            "efl",
+            "systemd"
+          ]
+        },
+        "uuid-dev": {
+          "provider": "uuid-dev",
+          "consumers": [
+            "e17",
+            "fontconfig"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "bluez": {
+      "version": "5.82-1.1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libbluetooth-dev": {
+          "provider": "libbluetooth-dev",
+          "consumers": [
+            "e17"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "brotli": {
+      "version": "1.1.0-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libbrotli-dev": {
+          "provider": "libbrotli-dev",
+          "consumers": [
+            "curl",
+            "freetype"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libbsd": {
+      "version": "0.12.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libbsd-dev": {
+          "provider": "libbsd-dev",
+          "consumers": [
+            "libxdmcp",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "cairo": {
+      "version": "1.18.4-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libcairo2-dev": {
+          "provider": "libcairo2-dev",
+          "consumers": [
+            "cdebconf",
+            "harfbuzz"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libcap2": {
+      "version": "1:2.75-10+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libcap-dev": {
+          "provider": "libcap-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "chafa": {
+      "version": "1.14.5-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libchafa-dev": {
+          "provider": "libchafa-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "cryptsetup": {
+      "version": "2:2.7.5-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libcryptsetup-dev": {
+          "provider": "libcryptsetup-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "curl": {
+      "version": "8.14.1-2+deb13u7",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libcurl4-openssl-dev": {
+          "provider": "libcurl4-openssl-dev",
+          "consumers": [
+            "efl",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "db-defaults": {
+      "version": "5.3.4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdb-dev": {
+          "provider": "libdb-dev",
+          "consumers": [
+            "pam"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "dbus": {
+      "version": "1.16.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdbus-1-dev": {
+          "provider": "libdbus-1-dev",
+          "consumers": [
+            "efl",
+            "systemd",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "cdebconf": {
+      "version": "0.280",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdebconfclient0-dev": {
+          "provider": "libdebconfclient0-dev",
+          "consumers": [
+            "base-passwd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libdebian-installer": {
+      "version": "0.125",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdebian-installer-dev": {
+          "provider": "libdebian-installer4-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        },
+        "libdebian-installer4-dev": {
+          "provider": "libdebian-installer4-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libdrm": {
+      "version": "2.4.124-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdrm-dev": {
+          "provider": "libdrm-dev",
+          "consumers": [
+            "mesa",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "elfutils": {
+      "version": "0.192-4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libdw-dev": {
+          "provider": "libdw-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libedit": {
+      "version": "3.1-20250104-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libedit-dev": {
+          "provider": "libedit-dev",
+          "consumers": [
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "efl": {
+      "version": "1.28.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libefl-all-dev": {
+          "provider": "libefl-all-dev",
+          "consumers": [
+            "e17",
+            "terminology"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "mesa": {
+      "version": "25.0.7-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libegl1-mesa-dev": {
+          "provider": "libegl1-mesa-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libgbm-dev": {
+          "provider": "libgbm-dev",
+          "consumers": [
+            "efl",
+            "xorg-server"
+          ]
+        },
+        "libgles2-mesa-dev": {
+          "provider": "libgles2-mesa-dev",
+          "consumers": [
+            "efl"
+          ]
+        },
+        "mesa-common-dev": {
+          "provider": "mesa-common-dev",
+          "consumers": [
+            "efl",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libepoxy": {
+      "version": "1.5.10-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libepoxy-dev": {
+          "provider": "libepoxy-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libexif": {
+      "version": "0.6.25-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libexif-dev": {
+          "provider": "libexif-dev",
+          "consumers": [
+            "e17"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libfido2": {
+      "version": "1.15.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libfido2-dev": {
+          "provider": "libfido2-dev",
+          "consumers": [
+            "openssh",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "flex": {
+      "version": "2.6.4-8.2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libfl-dev": {
+          "provider": "libfl-dev",
+          "consumers": [
+            "pam"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "flac": {
+      "version": "1.5.0+ds-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libflac-dev": {
+          "provider": "libflac-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "fontconfig": {
+      "version": "2.15.0-2.3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libfontconfig-dev": {
+          "provider": "libfontconfig-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "freetype": {
+      "version": "2.13.3+dfsg-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libfreetype-dev": {
+          "provider": "libfreetype-dev",
+          "consumers": [
+            "efl",
+            "fontconfig",
+            "harfbuzz"
+          ]
+        },
+        "libfreetype6-dev": {
+          "provider": "libfreetype-dev",
+          "consumers": [
+            "libxfont"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libgcrypt20": {
+      "version": "1.11.0-7+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgcrypt-dev": {
+          "provider": "libgcrypt20-dev",
+          "consumers": [
+            "efl"
+          ]
+        },
+        "libgcrypt20-dev": {
+          "provider": "libgcrypt20-dev",
+          "consumers": [
+            "libvncserver",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libglvnd": {
+      "version": "1.7.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libglvnd-core-dev": {
+          "provider": "libglvnd-core-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libglvnd-dev": {
+          "provider": "libglvnd-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gnutls28": {
+      "version": "3.8.9-3+deb13u4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgnutls28-dev": {
+          "provider": "libgnutls28-dev",
+          "consumers": [
+            "curl",
+            "libvncserver"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "graphite2": {
+      "version": "1.3.14-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgraphite2-dev": {
+          "provider": "libgraphite2-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gst-plugins-base1.0": {
+      "version": "1.26.2-1+deb13u2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgstreamer-plugins-base1.0-dev": {
+          "provider": "libgstreamer-plugins-base1.0-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gstreamer1.0": {
+      "version": "1.26.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgstreamer1.0-dev": {
+          "provider": "libgstreamer1.0-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gtk+3.0": {
+      "version": "3.24.49-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgtk-3-dev": {
+          "provider": "libgtk-3-dev",
+          "consumers": [
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "gtk+2.0": {
+      "version": "2.24.33-7",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libgtk2.0-dev": {
+          "provider": "libgtk2.0-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "harfbuzz": {
+      "version": "10.2.0-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libharfbuzz-dev": {
+          "provider": "libharfbuzz-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libheif": {
+      "version": "1.23.6-2~deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libheif-dev": {
+          "provider": "libheif-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "icu": {
+      "version": "76.1-4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libicu-dev": {
+          "provider": "libicu-dev",
+          "consumers": [
+            "harfbuzz"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libidn2": {
+      "version": "2.3.8-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libidn2-dev": {
+          "provider": "libidn2-dev",
+          "consumers": [
+            "curl",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libinput": {
+      "version": "1.28.1-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libinput-dev": {
+          "provider": "libinput-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "iptables": {
+      "version": "1.8.11-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libiptc-dev": {
+          "provider": "libiptc-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "jpeg-xl": {
+      "version": "0.11.2-0.1~deb13u3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libjxl-dev": {
+          "provider": "libjxl-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "kmod": {
+      "version": "34.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libkmod-dev": {
+          "provider": "libkmod-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "krb5": {
+      "version": "1.21.3-5+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libkrb5-dev": {
+          "provider": "libkrb5-dev",
+          "consumers": [
+            "audit",
+            "curl",
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "openldap": {
+      "version": "2.6.10+dfsg-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libldap2-dev": {
+          "provider": "libldap2-dev",
+          "consumers": [
+            "audit",
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "lua5.1": {
+      "version": "5.1.5-11",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "liblua5.1-dev": {
+          "provider": "liblua5.1-0-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "lzo2": {
+      "version": "2.10-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "liblzo2-dev": {
+          "provider": "liblzo2-dev",
+          "consumers": [
+            "libvncserver"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libmicrohttpd": {
+      "version": "1.0.1-4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libmicrohttpd-dev": {
+          "provider": "libmicrohttpd-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "lame": {
+      "version": "3.100-6",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libmp3lame-dev": {
+          "provider": "libmp3lame-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "mpg123": {
+      "version": "1.32.10-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libmpg123-dev": {
+          "provider": "libmpg123-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "newt": {
+      "version": "0.52.25-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libnewt-dev": {
+          "provider": "libnewt-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "nghttp2": {
+      "version": "1.64.0-1.1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libnghttp2-dev": {
+          "provider": "libnghttp2-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "nghttp3": {
+      "version": "1.8.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libnghttp3-dev": {
+          "provider": "libnghttp3-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "ngtcp2": {
+      "version": "1.11.0-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libngtcp2-crypto-gnutls-dev": {
+          "provider": "libngtcp2-crypto-gnutls-dev",
+          "consumers": [
+            "curl"
+          ]
+        },
+        "libngtcp2-dev": {
+          "provider": "libngtcp2-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libogg": {
+      "version": "1.3.5-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libogg-dev": {
+          "provider": "libogg-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "openjpeg2": {
+      "version": "2.5.3-2.1~deb13u2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libopenjp2-7-dev": {
+          "provider": "libopenjp2-7-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "opus": {
+      "version": "1.5.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libopus-dev": {
+          "provider": "libopus-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "p11-kit": {
+      "version": "0.25.5-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libp11-kit-dev": {
+          "provider": "libp11-kit-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "pam": {
+      "version": "1.7.0-5",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpam-dev": {
+          "provider": "libpam0g-dev",
+          "consumers": [
+            "openssh"
+          ]
+        },
+        "libpam0g-dev": {
+          "provider": "libpam0g-dev",
+          "consumers": [
+            "e17",
+            "libcap2",
+            "openssh",
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "policykit-1": {
+      "version": "126-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpolkit-gobject-1-dev": {
+          "provider": "libpolkit-gobject-1-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "poppler": {
+      "version": "25.03.0-5+deb13u4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpoppler-cpp-dev": {
+          "provider": "libpoppler-cpp-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libpsl": {
+      "version": "0.21.2-1.1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpsl-dev": {
+          "provider": "libpsl-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "pulseaudio": {
+      "version": "17.0+dfsg1-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpulse-dev": {
+          "provider": "libpulse-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libpwquality": {
+      "version": "1.4.5-5",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpwquality-dev": {
+          "provider": "libpwquality-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "python3-defaults": {
+      "version": "3.13.5-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libpython3-all-dev": {
+          "provider": "libpython3-all-dev",
+          "consumers": [
+            "audit",
+            "libselinux"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "qrencode": {
+      "version": "4.1.1-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libqrencode-dev": {
+          "provider": "libqrencode-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libraw": {
+      "version": "0.21.4-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libraw-dev": {
+          "provider": "libraw-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "readline": {
+      "version": "8.2-6",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libreadline-dev": {
+          "provider": "libreadline-dev",
+          "consumers": [
+            "cdebconf",
+            "lua5.1"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "librsvg": {
+      "version": "2.60.0+dfsg-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "librsvg2-dev": {
+          "provider": "librsvg2-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "rtmpdump": {
+      "version": "2.4+20151223.gitfa8646d.1-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "librtmp-dev": {
+          "provider": "librtmp-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "cyrus-sasl2": {
+      "version": "2.1.28+dfsg1-9",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libsasl2-dev": {
+          "provider": "libsasl2-dev",
+          "consumers": [
+            "libvncserver"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "scim": {
+      "version": "1.4.18+git20211204-0.2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libscim-dev": {
+          "provider": "libscim-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libselinux": {
+      "version": "3.8.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libselinux-dev": {
+          "provider": "libselinux1-dev",
+          "consumers": [
+            "cdebconf",
+            "sed"
+          ]
+        },
+        "libselinux1-dev": {
+          "provider": "libselinux1-dev",
+          "consumers": [
+            "base-passwd",
+            "cdebconf",
+            "coreutils",
+            "dbus",
+            "dpkg",
+            "findutils",
+            "openssh",
+            "pam",
+            "systemd",
+            "tar",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "lm-sensors": {
+      "version": "1:3.6.2-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libsensors-dev": {
+          "provider": "libsensors-dev",
+          "consumers": [
+            "mesa"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "slang2": {
+      "version": "2.3.3-5",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libslang2-dev": {
+          "provider": "libslang2-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libsndfile": {
+      "version": "1.2.2-2+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libsndfile-dev": {
+          "provider": "libsndfile1-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libspectre": {
+      "version": "0.2.12-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libspectre-dev": {
+          "provider": "libspectre-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "speex": {
+      "version": "1.2.1-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libspeex-dev": {
+          "provider": "libspeex-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libssh2": {
+      "version": "1.11.1-1+deb13u2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libssh2-1-dev": {
+          "provider": "libssh2-1-dev",
+          "consumers": [
+            "curl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "openssl": {
+      "version": "3.5.7-1~deb13u3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libssl-dev": {
+          "provider": "libssl-dev",
+          "consumers": [
+            "coreutils",
+            "curl",
+            "efl",
+            "openssh",
+            "systemd",
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "systemd": {
+      "version": "257.13-1~deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libsystemd-dev": {
+          "provider": "libsystemd-dev",
+          "consumers": [
+            "coreutils",
+            "dbus",
+            "efl",
+            "pam",
+            "xorg-server"
+          ]
+        },
+        "libudev-dev": {
+          "provider": "libudev-dev",
+          "consumers": [
+            "efl",
+            "libdrm",
+            "xorg-server",
+            "xserver-xorg-input-evdev"
+          ]
+        },
+        "systemd-dev": {
+          "provider": "systemd-dev",
+          "consumers": [
+            "e17",
+            "efl",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libtextwrap": {
+      "version": "0.1-17",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libtextwrap-dev": {
+          "provider": "libtextwrap-dev",
+          "consumers": [
+            "cdebconf"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "tiff": {
+      "version": "4.7.0-3+deb13u3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libtiff-dev": {
+          "provider": "libtiff-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "tpm2-tss": {
+      "version": "4.1.3-1.2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libtss2-dev": {
+          "provider": "libtss2-dev",
+          "consumers": [
+            "systemd"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libunibreak": {
+      "version": "6.1-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libunibreak-dev": {
+          "provider": "libunibreak-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libunwind": {
+      "version": "1.8.1-0.1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libunwind-dev": {
+          "provider": "libunwind-dev",
+          "consumers": [
+            "efl",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libva": {
+      "version": "2.22.0-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libva-dev": {
+          "provider": "libva-dev",
+          "consumers": [
+            "mesa"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libvdpau": {
+      "version": "1.5-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libvdpau-dev": {
+          "provider": "libvdpau-dev",
+          "consumers": [
+            "mesa"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "vlc": {
+      "version": "3.0.24-0+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libvlc-dev": {
+          "provider": "libvlc-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libvncserver": {
+      "version": "0.9.15+dfsg-1+deb13u2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libvncserver-dev": {
+          "provider": "libvncserver-dev",
+          "consumers": [
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libvorbis": {
+      "version": "1.3.7-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libvorbis-dev": {
+          "provider": "libvorbis-dev",
+          "consumers": [
+            "libsndfile"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "wayland": {
+      "version": "1.23.1-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libwayland-dev": {
+          "provider": "libwayland-dev",
+          "consumers": [
+            "efl",
+            "libxkbcommon",
+            "mesa"
+          ]
+        },
+        "libwayland-egl-backend-dev": {
+          "provider": "libwayland-egl-backend-dev",
+          "consumers": [
+            "mesa"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libwebp": {
+      "version": "1.5.0-0.1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libwebp-dev": {
+          "provider": "libwebp-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "tcp-wrappers": {
+      "version": "7.6.q-36",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libwrap0-dev": {
+          "provider": "libwrap0-dev",
+          "consumers": [
+            "audit",
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "wtmpdb": {
+      "version": "0.73.0-3+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libwtmpdb-dev": {
+          "provider": "libwtmpdb-dev",
+          "consumers": [
+            "openssh"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libx11": {
+      "version": "2:1.8.12-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libx11-dev": {
+          "provider": "libx11-dev",
+          "consumers": [
+            "dbus",
+            "efl",
+            "freetype",
+            "libdrm",
+            "libxcomposite",
+            "libxcursor",
+            "libxdamage",
+            "libxext",
+            "libxfixes",
+            "libxi",
+            "libxinerama",
+            "libxkbfile",
+            "libxrandr",
+            "libxrender",
+            "libxss",
+            "libxtst",
+            "mesa",
+            "x11-xkb-utils",
+            "xinit",
+            "xorg-server"
+          ]
+        },
+        "libx11-xcb-dev": {
+          "provider": "libx11-xcb-dev",
+          "consumers": [
+            "efl",
+            "mesa",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxaw": {
+      "version": "2:1.0.16-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxaw7-dev": {
+          "provider": "libxaw7-dev",
+          "consumers": [
+            "x11-xkb-utils",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxcb": {
+      "version": "1.17.0-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-dri2-0-dev": {
+          "provider": "libxcb-dri2-0-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libxcb-dri3-dev": {
+          "provider": "libxcb-dri3-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libxcb-glx0-dev": {
+          "provider": "libxcb-glx0-dev",
+          "consumers": [
+            "mesa",
+            "xorg-server"
+          ]
+        },
+        "libxcb-present-dev": {
+          "provider": "libxcb-present-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libxcb-randr0-dev": {
+          "provider": "libxcb-randr0-dev",
+          "consumers": [
+            "mesa",
+            "xorg-server"
+          ]
+        },
+        "libxcb-render0-dev": {
+          "provider": "libxcb-render0-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libxcb-shape0-dev": {
+          "provider": "libxcb-shape0-dev",
+          "consumers": [
+            "e17",
+            "xorg-server"
+          ]
+        },
+        "libxcb-shm0-dev": {
+          "provider": "libxcb-shm0-dev",
+          "consumers": [
+            "efl",
+            "mesa",
+            "xcb-util-image",
+            "xorg-server"
+          ]
+        },
+        "libxcb-sync-dev": {
+          "provider": "libxcb-sync-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libxcb-xf86dri0-dev": {
+          "provider": "libxcb-xf86dri0-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libxcb-xfixes0-dev": {
+          "provider": "libxcb-xfixes0-dev",
+          "consumers": [
+            "mesa"
+          ]
+        },
+        "libxcb-xkb-dev": {
+          "provider": "libxcb-xkb-dev",
+          "consumers": [
+            "libxkbcommon",
+            "xorg-server"
+          ]
+        },
+        "libxcb-xv0-dev": {
+          "provider": "libxcb-xv0-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libxcb1-dev": {
+          "provider": "libxcb1-dev",
+          "consumers": [
+            "efl",
+            "libx11",
+            "xcb-util",
+            "xcb-util-image",
+            "xcb-util-keysyms",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "xcb-util-wm": {
+      "version": "0.4.2-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-icccm4-dev": {
+          "provider": "libxcb-icccm4-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "xcb-util-image": {
+      "version": "0.4.0-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-image0-dev": {
+          "provider": "libxcb-image0-dev",
+          "consumers": [
+            "efl",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "xcb-util-keysyms": {
+      "version": "0.4.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-keysyms1-dev": {
+          "provider": "libxcb-keysyms1-dev",
+          "consumers": [
+            "e17",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "xcb-util-renderutil": {
+      "version": "0.3.10-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-render-util0-dev": {
+          "provider": "libxcb-render-util0-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "xcb-util": {
+      "version": "0.4.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcb-util-dev": {
+          "provider": "libxcb-util-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libxcb-util0-dev": {
+          "provider": "libxcb-util0-dev",
+          "consumers": [
+            "xcb-util-image"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxcomposite": {
+      "version": "1:0.4.6-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcomposite-dev": {
+          "provider": "libxcomposite-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxcursor": {
+      "version": "1:1.2.3-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcursor-dev": {
+          "provider": "libxcursor-dev",
+          "consumers": [
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxcvt": {
+      "version": "0.1.3-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxcvt-dev": {
+          "provider": "libxcvt-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxdamage": {
+      "version": "1:1.1.6-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxdamage-dev": {
+          "provider": "libxdamage-dev",
+          "consumers": [
+            "efl",
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxdmcp": {
+      "version": "1:1.1.5-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxdmcp-dev": {
+          "provider": "libxdmcp-dev",
+          "consumers": [
+            "libxcb",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxext": {
+      "version": "2:1.3.4-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxext-dev": {
+          "provider": "libxext-dev",
+          "consumers": [
+            "e17",
+            "efl",
+            "libxi",
+            "libxinerama",
+            "libxrandr",
+            "libxss",
+            "libxtst",
+            "mesa",
+            "x11vnc",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxfixes": {
+      "version": "1:6.0.0-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxfixes-dev": {
+          "provider": "libxfixes-dev",
+          "consumers": [
+            "libxcomposite",
+            "libxcursor",
+            "libxdamage",
+            "libxi",
+            "mesa",
+            "x11vnc",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxfont": {
+      "version": "1:2.0.6-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxfont-dev": {
+          "provider": "libxfont-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxi": {
+      "version": "2:1.8.2-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxi-dev": {
+          "provider": "libxi-dev",
+          "consumers": [
+            "efl",
+            "libxtst",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxinerama": {
+      "version": "2:1.1.4-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxinerama-dev": {
+          "provider": "libxinerama-dev",
+          "consumers": [
+            "efl",
+            "x11vnc",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxkbcommon": {
+      "version": "1.7.0-2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxkbcommon-x11-dev": {
+          "provider": "libxkbcommon-x11-dev",
+          "consumers": [
+            "e17",
+            "efl"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxkbfile": {
+      "version": "1:1.1.0-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxkbfile-dev": {
+          "provider": "libxkbfile-dev",
+          "consumers": [
+            "x11-xkb-utils",
+            "xorg-server",
+            "xserver-xorg-input-evdev"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxml2": {
+      "version": "2.12.7+dfsg+really2.9.14-2.1+deb13u3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxml2-dev": {
+          "provider": "libxml2-dev",
+          "consumers": [
+            "libxkbcommon"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxmu": {
+      "version": "2:1.1.3-3",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxmu-dev": {
+          "provider": "libxmu-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        },
+        "libxmuu-dev": {
+          "provider": "libxmuu-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxpm": {
+      "version": "1:3.5.17-1+deb13u1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxpm-dev": {
+          "provider": "libxpm-dev",
+          "consumers": [
+            "efl",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxrandr": {
+      "version": "2:1.5.4-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxrandr-dev": {
+          "provider": "libxrandr-dev",
+          "consumers": [
+            "efl",
+            "mesa",
+            "x11-xkb-utils",
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxrender": {
+      "version": "1:0.9.12-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxrender-dev": {
+          "provider": "libxrender-dev",
+          "consumers": [
+            "efl",
+            "libxcursor",
+            "libxrandr",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxres": {
+      "version": "2:1.2.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxres-dev": {
+          "provider": "libxres-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxss": {
+      "version": "1:1.2.3-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxss-dev": {
+          "provider": "libxss-dev",
+          "consumers": [
+            "efl",
+            "x11vnc"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxt": {
+      "version": "1:1.2.1-1.2",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxt-dev": {
+          "provider": "libxt-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxtst": {
+      "version": "2:1.2.5-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxtst-dev": {
+          "provider": "libxtst-dev",
+          "consumers": [
+            "efl",
+            "x11vnc",
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    },
+    "libxv": {
+      "version": "2:1.0.11-1.1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxv-dev": {
+          "provider": "libxv-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "libxxf86vm": {
+      "version": "1:1.1.4-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "libxxf86vm-dev": {
+          "provider": "libxxf86vm-dev",
+          "consumers": [
+            "mesa"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "nettle": {
+      "version": "3.10.1-1",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "nettle-dev": {
+          "provider": "nettle-dev",
+          "consumers": [
+            "xorg-server"
+          ]
+        }
+      },
+      "already_in_recipe_scope": false
+    },
+    "xorg-server": {
+      "version": "2:21.1.16-1.3+deb13u4",
+      "reason": "Actual unmet target development/library dependency",
+      "binary_requirements": {
+        "xserver-xorg-dev": {
+          "provider": "xserver-xorg-dev",
+          "consumers": [
+            "xserver-xorg-input-evdev"
+          ]
+        }
+      },
+      "already_in_recipe_scope": true
+    }
+  },
+  "native_or_role_review": [
+    {
+      "package": "bluez",
+      "role": null,
+      "consumer": "e17"
+    },
+    {
+      "package": "imagemagick",
+      "role": null,
+      "consumer": "e17"
+    },
+    {
+      "package": "rfkill",
+      "role": null,
+      "consumer": "e17"
+    },
+    {
+      "package": "xwayland",
+      "role": null,
+      "consumer": "e17"
+    },
+    {
+      "package": "python3",
+      "role": null,
+      "consumer": "mesa"
+    },
+    {
+      "package": "python3-yaml",
+      "role": null,
+      "consumer": "mesa"
+    },
+    {
+      "package": "dh-sequence-gir",
+      "role": null,
+      "consumer": "harfbuzz"
+    },
+    {
+      "package": "gtk-doc-tools",
+      "role": null,
+      "consumer": "harfbuzz"
+    },
+    {
+      "package": "valgrind-if-available",
+      "role": null,
+      "consumer": "dbus"
+    },
+    {
+      "package": "asciidoc",
+      "role": null,
+      "consumer": "libxi"
+    },
+    {
+      "package": "dh-sequence-dlopenlibdeps",
+      "role": null,
+      "consumer": "systemd"
+    },
+    {
+      "package": "dh-sequence-installnss",
+      "role": null,
+      "consumer": "systemd"
+    },
+    {
+      "package": "python3-pefile",
+      "role": "native",
+      "consumer": "systemd"
+    },
+    {
+      "package": "libfl-dev",
+      "role": "native",
+      "consumer": "pam"
+    }
+  ],
+  "unmapped": [
+    {
+      "package": "libwrap-dev",
+      "consumers": [
+        "openssh"
+      ]
+    }
+  ],
+  "target_execution": false
+}

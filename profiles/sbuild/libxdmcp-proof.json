@@ -1,0 +1,68 @@
+{
+  "package": "libxdmcp",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "x11-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/debian-libmd-503/receipt.json",
+      "sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "packages": [
+        "libmd0",
+        "libmd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libbsd-540/receipt.json",
+      "sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291",
+      "packages": [
+        "libbsd0",
+        "libbsd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-glibc-402/receipt.json",
+      "sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxcrypt-401/receipt.json",
+      "sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "packages": [
+        "libcrypt1",
+        "libcrypt-dev"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/debian-pkgconf-403/receipt.json",
+      "sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "packages": [
+        "pkgconf"
+      ]
+    }
+  ],
+  "scope": "Standard sbuild SPE cross-build proof in a clean mmdebstrap root. Genuine stage2 libc and GCC8 build-root providers are explicit bootstrap inputs; not final target/runtime acceptance.",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/sdk-system-root-002/receipt.json",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86",
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1"
+}

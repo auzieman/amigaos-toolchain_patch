@@ -1,0 +1,20 @@
+{
+  "package": "linux",
+  "source_lock": "profiles/current-uapi-sources.lock.json",
+  "source_cache": "current-uapi-source-cache-20261102",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "amd64",
+  "indep_only": true,
+  "build_profiles": "nocheck,nodoc,pkg.linux.nokernel,pkg.linux.notools,pkg.linux.nosource",
+  "source_patch": {
+    "path": "patches/linux/headers/0002-register-spe-uapi-tuple.patch",
+    "sha256": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c",
+    "version": "6.12.115-2+spe1",
+    "prepare_debian_control": true
+  },
+  "extra_receipts": [],
+  "scope": "Standard Debian source/profile build of universal Architecture:all UAPI data with SPE tuple registration; not another compiled architecture or target execution",
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1"
+}

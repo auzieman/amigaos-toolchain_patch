@@ -1,0 +1,20 @@
+{
+  "status": "native-buildd-root-created",
+  "command": [
+    "mmdebstrap",
+    "--variant=buildd",
+    "--architectures=amd64",
+    "--include=ca-certificates",
+    "--format=tar",
+    "trixie",
+    "/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261102T220000Z/ trixie main",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261102T220000Z/ trixie-updates main",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian-security/20261102T220000Z/ trixie-security main"
+  ],
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "target_execution": false,
+  "exit": 0,
+  "sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "installed_versions_sha256": "569a02c3a65e14aa187d8f3ebeb1ad7b14db6db8dcc7f156b9bbb436dd3846b1"
+}

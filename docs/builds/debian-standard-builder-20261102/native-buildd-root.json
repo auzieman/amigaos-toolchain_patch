@@ -1,0 +1,14 @@
+{
+  "status": "native-buildd-root-created",
+  "command": [
+    "mmdebstrap",
+    "--variant=buildd",
+    "--architectures=amd64",
+    "--format=tar",
+    "trixie",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-buildd-root-001/trixie-amd64.tar"
+  ],
+  "exit": 0,
+  "target_execution": false,
+  "sha256": "dd60d6f19f02867e3667aa9981e289a6dde2ef07ff39f240cd1d06e35c0b4375"
+}

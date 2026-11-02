@@ -5,7 +5,11 @@ implementation targets Linux/SPE on A1222/Tabor; AmigaOS SDK integration still
 needs its host/target/runtime contract. The repository name does not establish
 that Linux glibc can serve as an AmigaOS C runtime.
 
-Current checkpoint: ncurses/zstd/LZ4 and image/font development packages pass
+Current direction: [Debian workflow audit](debian-workflow-audit-20261102.md)
+replaces custom dependency management with a standard sbuild/apt proof. The
+cumulative-root results remain bootstrap evidence.
+
+Previous checkpoint: ncurses/zstd/LZ4 and image/font development packages pass
 build/normal cross-root installation. The remaining70-source core queue is
 running; a fresh desktop image still needs complete target package setup.
 See [acceptance evidence](builds/sdk-defaults-20261102/README.md).
@@ -119,3 +123,11 @@ still pending. Black client interiors persist with SysV shared-memory segments
 attached in software-e007; issue8 stays open. Exact board revision remains to
 verify despite the user-reported age/A1222 Plus reference. Evidence is under
 builds/r730-packaged-session-20261031. No USB writes occurred.
+
+
+2026-11-02 desktop build-service handoff: preserve the compiler/ABI research and
+verified bootstrap packages. Further desktop closure uses a fresh native
+mmdebstrap buildd root and Debian sbuild/unshare with apt resolution, accumulating
+artifacts rather than permanent root mutations. See debian-workflow-audit-20261102.md.
+The first versioned universal UAPI source/profile build is in progress; a clean
+SPE libxdmcp cross-build proof follows. No new desktop/boot acceptance yet.

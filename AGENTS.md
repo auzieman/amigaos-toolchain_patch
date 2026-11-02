@@ -36,3 +36,24 @@ orchestration; do not expand target dependency work into rebuilding amd64 libc
 or other native counterparts. Keep host compiler tooling outside the target
 archive. Cross-compilation has a host and a target, but this is not a multi-target
 archive rebuild. Resolve target dependencies in the target environment.
+
+
+Standard-builder correction (user direction, 2026-11-02): use Debian-created
+build roots (mmdebstrap buildd) and sbuild's normal dependency resolver for
+ongoing package closure. Archive/pool artifacts accumulate; individual build
+roots remain disposable. Keep lab wrappers limited to source/patch/hash intake,
+resource bounds and result retention. Do not expand the legacy cumulative-root
+queue or diagnostic-name planner into a replacement dependency solver. The
+reviewed source Build-Depends/profiles and genuine package repository metadata
+are authoritative. Existing direct-build scripts are bootstrap/diagnostic
+evidence, not the default build-service architecture. Follow the current
+docs/debian-workflow-audit-20261102.md and record actual acceptance before
+claiming the52-source gap or a new desktop image is complete.
+
+
+Frozen base (user direction, 2026-11-02): profiles/trixie-spe-base.lock.json pins
+Linux6.12.115-2, glibc2.41-12+deb13u4, GCC8.5.0/SPE SDKtabor5 and the immutable
+20261102T220000Z Debian/debian-security snapshot. No automatic base refresh or
+live-mirror fallback. A mismatch fails and remains recorded; upgrades require
+an explicit reviewed baseline change. Build roots must carry the matching lock
+hash. A newer mirror package is not a reason to chase another base version.

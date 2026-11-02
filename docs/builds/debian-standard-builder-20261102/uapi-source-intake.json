@@ -1,0 +1,20 @@
+{
+  "status": "sources-cached-verified-license-review-pending",
+  "recipe_sha256": "f06f000ad4074ea791320c8418c9fad0d554fbf71085db50898b396d6ae70bb0",
+  "manifest_sha256": "11b8f6cac68b4933f86f7abcb0ca00c631fb9ffa76eff057d6dac5b1c8a8db5d",
+  "target_execution": false,
+  "components": {
+    "linux": {
+      "version": "6.12.115-2",
+      "reason": "Clean native buildd root already has this header version; rebase SPE UAPI export without downgrading Debian",
+      "copyright_sha256": "2ae27ed8a5581e2cc4969c266e655a280a8982f87dfe72c011c3f03d91897076",
+      "source_index_sha256": "df18deb424a37f518b3a837e78766d6088689f08755c56fa264bb7dba0467342"
+    }
+  },
+  "release_files": {
+    "deb.debian.org_debian_dists_trixie-updates_InRelease": "bdbf565ac25279597518e1a51fcef6b3f2bb65f915788566edcffee9ba6efe99",
+    "deb.debian.org_debian-security_dists_trixie-security_InRelease": "01590ffbf20362d6138369dbf543ee42d3d8ec62589d31cfb93a085afcad4f3c",
+    "deb.debian.org_debian_dists_trixie_InRelease": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675"
+  },
+  "lock_sha256": "1d911186defe5267f6d29db14cfeb6dd1881a82ab91d0a5793b4ac26519a4bbe"
+}

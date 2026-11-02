@@ -1,0 +1,31 @@
+{
+  "scope": "Frozen Trixie SPE desktop base. No automatic source or repository refresh; explicit reviewed change required.",
+  "snapshot": "20261102T220000Z",
+  "repositories": [
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/",
+      "suite": "trixie"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/",
+      "suite": "trixie-updates"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/",
+      "suite": "trixie-security"
+    }
+  ],
+  "native_foundation": {
+    "linux-libc-dev": "6.12.115-2",
+    "libc6": "2.41-12+deb13u4"
+  },
+  "target_foundation": {
+    "linux": "6.12.115-2",
+    "linux_uapi_local": "6.12.115-2+spe1",
+    "glibc": "2.41-12+deb13u4",
+    "gcc": "8.5.0",
+    "sdk": "8.5.0+tabor5"
+  },
+  "authentication": "Normal Debian archive signatures; validity expiry disabled only for immutable historical snapshot entries.",
+  "upgrade_policy": "Mismatch fails; never advance snapshot or foundation versions automatically."
+}

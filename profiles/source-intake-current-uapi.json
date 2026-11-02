@@ -1,0 +1,9 @@
+{
+  "scope": "Refresh pinned universal UAPI source to match the clean Trixie buildd root; SPE tuple patch only",
+  "components": {
+    "linux": {
+      "version": "6.12.115-2",
+      "reason": "Clean native buildd root already has this header version; rebase SPE UAPI export without downgrading Debian"
+    }
+  }
+}

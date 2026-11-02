@@ -1,0 +1,30 @@
+{
+  "scope": "Refresh pinned universal UAPI source to match the clean Trixie buildd root; SPE tuple patch only",
+  "signature_verification": "apt authenticated Release/Sources checksums; separate DSC signer verification not performed",
+  "components": {
+    "linux": {
+      "version": "6.12.115-2",
+      "dsc": "linux_6.12.115-2.dsc",
+      "files": [
+        {
+          "filename": "linux_6.12.115-2.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115-2.dsc",
+          "size": 294628,
+          "sha256": "0baf11fbc9cd651c2238c1b394142a9d58006bba604e5840f38086331286ee5c"
+        },
+        {
+          "filename": "linux_6.12.115.orig.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115.orig.tar.xz",
+          "size": 151676884,
+          "sha256": "eaccd6c987f438de08039859df5507600a31245bb041ca62f2ef3fd30bd2172d"
+        },
+        {
+          "filename": "linux_6.12.115-2.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/l/linux/linux_6.12.115-2.debian.tar.xz",
+          "size": 1986428,
+          "sha256": "6dfede7b22c69e60578764470734eeccead495111e1b417b224303d7a2de5df9"
+        }
+      ]
+    }
+  }
+}

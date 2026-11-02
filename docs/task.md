@@ -1194,3 +1194,28 @@ limitation has a source patch pending full packaging. See
 [cumulative evidence](builds/cumulative-dependencies-20261102/README.md).
 Full target configuration, required binding/libc rebuilds and new boot acceptance
 remain pending; no USB/image changes are claimed.
+
+
+2026-11-02 workflow correction after user review: the custom cumulative-root
+queue is bootstrap infrastructure, not a substitute for Debian's resolver/build
+service. Freeze further custom solver expansion. The standard sbuild proof now uses
+a clean mmdebstrap buildd root and genuine bootstrap packages as extra-package
+inputs, with build=amd64/host=powerpcspe. Native build-dep superset completion is
+not target readiness. See [source-backed workflow audit](debian-workflow-audit-20261102.md).
+Continue remaining-source closure through the standard path after the proof;
+retain resolver, infrastructure and source failures separately.
+
+
+2026-11-02 validation direction: once the base load is package-managed, run a
+separate serial QEMU validation stage for package batches, including normal apt
+configuration, package tests/smoke tests and a final desktop/session gate.
+Cross-building stays separate from target execution. QEMU and physical A1222
+acceptance remain distinct. See [validation gates](qemu-package-validation.md).
+
+
+2026-11-02 frozen baseline established: native buildd root002 passes exact
+Linux headers6.12.115-2/glibc2.41-12+deb13u4 checks against snapshot20261102T220000Z.
+Base lock and root hashes gate subsequent builds; no rolling-mirror fallback.
+SPE UAPI009 rebuild is running on that root. Standard SPE libxdmcp acceptance,
+remaining desktop closure and QEMU validation are pending. See
+[standard-builder evidence](builds/debian-standard-builder-20261102/README.md).

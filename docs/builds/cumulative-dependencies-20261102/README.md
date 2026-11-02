@@ -114,3 +114,15 @@ readiness still requires genuine SPE libraries, not these native counterparts.
 The source-closure planner maps real unmet library/development relationships to
 authenticated source metadata and lists native/ambiguous roles separately. Its
 output is candidate intake, not build readiness or an authoritative order.
+
+
+The first-level source-closure metadata plan finds92 additional source candidates
+beyond the existing scope, plus43 already known providers. These are candidates
+for full-feature dependency closure, including alternative providers, not92
+packages already ready to build. One unresolved alternate libwrap-dev is covered
+by the existing libwrap0-dev alternative. Required source count is wider than
+the queue count; no count alone establishes a complete desktop. Preserve normal
+Debian feature/dependency semantics and admit the foundational sources first.
+Source intake, license/hash qualification and dependency preflight are still
+required for those candidates. See source-closure-intake-plan.json and
+source-closure-plan-receipt.json.
