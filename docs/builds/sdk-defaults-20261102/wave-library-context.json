@@ -1,0 +1,162 @@
+{
+  "recipe_sha256": "c284f61f17772757fc1283ed5b1c1a2cca1fc93caeaf42bb5294066658579bb3",
+  "manifest_sha256": "2fc45e76dd467e1185bd3b2f129a6e013d971b491c94a2ad218d08e04e84123d",
+  "dockerfile_sha256": "0051d30f8966407f23628e8851974b9642fb2751e4deb93602598b2c3a357386",
+  "inputs": [
+    {
+      "package": "libbz2-1.0",
+      "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+      "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libbz2-dev",
+      "file": "libbz2-dev_1.0.8-6_powerpcspe.deb",
+      "sha256": "54a10d92c29152b639f4507b1b43ed5c83bdc069bbda4087c0bb1ec8534815ff",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgmp-dev",
+      "file": "libgmp-dev_6.3.0+dfsg-3_powerpcspe.deb",
+      "sha256": "58ff2b18d103d6f80692617a443b388d1868b3aeef09c2e5e8fcc5ad2b0af986",
+      "receipt_sha256": "fcc2e0e50503a16fcfa55fbccd71ac0ec3814e15fa393a45295a30f56c118c0d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgmp10",
+      "file": "libgmp10_6.3.0+dfsg-3_powerpcspe.deb",
+      "sha256": "f567d545a5c09f49c4cd440bb9f747b16a46468d8858892dc7cc61ee048f71bb",
+      "receipt_sha256": "fcc2e0e50503a16fcfa55fbccd71ac0ec3814e15fa393a45295a30f56c118c0d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgmp3-dev",
+      "file": "libgmp3-dev_6.3.0+dfsg-3_powerpcspe.deb",
+      "sha256": "56979567311089730d1833103cb316ae135a8875ca19b23c32b78f0775461bf7",
+      "receipt_sha256": "fcc2e0e50503a16fcfa55fbccd71ac0ec3814e15fa393a45295a30f56c118c0d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgmpxx4ldbl",
+      "file": "libgmpxx4ldbl_6.3.0+dfsg-3_powerpcspe.deb",
+      "sha256": "d3f1e36a1a963d802eccdc9d114e369072e7040ddea7d7f19a3cd1b9c4b96189",
+      "receipt_sha256": "fcc2e0e50503a16fcfa55fbccd71ac0ec3814e15fa393a45295a30f56c118c0d",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libexpat1-dev",
+      "file": "libexpat1-dev_2.9.0-1~deb13u1_powerpcspe.deb",
+      "sha256": "fa42222d8bcee65e6ad27418e19568aeb944c4b63a127b0ab5b30dcbd349aa22",
+      "receipt_sha256": "788d960277b12ebf136d4a9843592cac3ca11f54bf7619a303623d5f8404ed7f",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libexpat1",
+      "file": "libexpat1_2.9.0-1~deb13u1_powerpcspe.deb",
+      "sha256": "8b3bebae28b4cdc14de87d41ff0a3a3d167a9319317753e5759cbd02a3c43cfc",
+      "receipt_sha256": "788d960277b12ebf136d4a9843592cac3ca11f54bf7619a303623d5f8404ed7f",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgif-dev",
+      "file": "libgif-dev_5.2.2-1+deb13u1_powerpcspe.deb",
+      "sha256": "ad1d1d1a648850ec2bf474835b191e964ccdc0d80a98440ab3142cf55f197710",
+      "receipt_sha256": "3033429f2798329cb71d194ff2abaa9226266743721167915d24b14c53670d06",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libgif7",
+      "file": "libgif7_5.2.2-1+deb13u1_powerpcspe.deb",
+      "sha256": "a848eb356f755bad586111be50f28fb1d4c871da52158ded7ce8dfcaaac3fb36",
+      "receipt_sha256": "3033429f2798329cb71d194ff2abaa9226266743721167915d24b14c53670d06",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libevdev-dev",
+      "file": "libevdev-dev_1.13.4+dfsg-1_powerpcspe.deb",
+      "sha256": "a72f7a3c88e3ce3b08625809ae22ede940bfd1e3d27af1aec9499acfabef4734",
+      "receipt_sha256": "360223738c28d44f7a68e6d6a1d20cbf8cc19608eaf8f58b70b7f7b084d36841",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libevdev2",
+      "file": "libevdev2_1.13.4+dfsg-1_powerpcspe.deb",
+      "sha256": "6ce9a9dc0c5c96e39a7be2ab74e0a65e0a646973f67940004ff082813b33293d",
+      "receipt_sha256": "360223738c28d44f7a68e6d6a1d20cbf8cc19608eaf8f58b70b7f7b084d36841",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libxau-dev",
+      "file": "libxau-dev_1.0.11-1_powerpcspe.deb",
+      "sha256": "39f1a3b7c8bfc37fb3d49b44fb5d360a8b2eba42a0b50696dfe4c6900546bdce",
+      "receipt_sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libxau6",
+      "file": "libxau6_1.0.11-1_powerpcspe.deb",
+      "sha256": "88bce720ebcd8d662cdc8dd81436f99d4f0bf3e3935c545e21474ff8633501ca",
+      "receipt_sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libxshmfence-dev",
+      "file": "libxshmfence-dev_1.3.3-1_powerpcspe.deb",
+      "sha256": "d8719c304632b685ff51449778245308a8c48bab418134102ebd5f1e4a1ffc5e",
+      "receipt_sha256": "4baf65f0cfcdb7be9266d8d207d404b60b33265d9425a187ace49ea060e4f9ff",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libxshmfence1",
+      "file": "libxshmfence1_1.3.3-1_powerpcspe.deb",
+      "sha256": "6a1405fa091bda348df2876f0219036bed8380adcd20bc684be02e6cbcf13822",
+      "receipt_sha256": "4baf65f0cfcdb7be9266d8d207d404b60b33265d9425a187ace49ea060e4f9ff",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "zlib1g-dev",
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "85bb98bc0a407d3a3c81ce80a37f41eec0c270fdf641f7ad71c43c41984fa621",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "zlib1g",
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "liblzma-dev",
+      "file": "liblzma-dev_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "edce6964e32f43c60e190eb54902ff0f0a04cd066bdfa9f068d74c1dee7ab6a1",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "liblzma5",
+      "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "tabor-spe-libgcc-s1",
+      "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "build_profiles": null
+    },
+    {
+      "package": "tabor-spe-libstdc++6",
+      "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "build_profiles": null
+    }
+  ],
+  "purpose": "isolated cross-build root; not a final target installation"
+}

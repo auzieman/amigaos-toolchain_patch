@@ -37,7 +37,13 @@ ownership have passed; nine subsequent ordinary source builds pass. The next
 compiler default-sysroot defect (issue14) is fixed: installed SDK5 C/C++
 checks and fresh libsepol/PCRE2 packaging pass. See
 [compiler-default evidence](builds/sdk-defaults-20261102/README.md). Native build
-tools and further development dependencies are the next installation wave. This is an isolated cross-build root, not a configured target
+tools are installed. The first20-source dependency wave passes15; xz then
+passes in normal architecture-only mode. Genuine installed runtime providers
+and GMP development packages close the host/target runtime-identity gap in
+the isolated cross-build root. Further dependency waves remain in progress. JPEG/GPM/PCI/font registration
+retries pass; selected artifacts pass static payload inspection and development
+packages install normally. LZ4 builds and installs; ncurses GNU/SPE feature-test registration is under
+fresh verification (issue18), followed by zstd with its prerequisites installed. This is an isolated cross-build root, not a configured target
 installation or new graphical boot.
 
 Corrected GCC8.5 SPE PIC/C++ unwinding and selected glibc runtime tests have

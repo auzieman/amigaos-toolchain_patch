@@ -1,0 +1,22 @@
+{
+  "scope": "Single binary-only changelog stanza with preserved upstream header; strict SPE/JNI symbol availability registration; normal Debian packaging checks retained",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "gpm",
+      "iteration": "507"
+    },
+    {
+      "package": "libjpeg-turbo",
+      "iteration": "507"
+    },
+    {
+      "package": "libpciaccess",
+      "iteration": "507"
+    },
+    {
+      "package": "libfontenc",
+      "iteration": "507"
+    }
+  ]
+}

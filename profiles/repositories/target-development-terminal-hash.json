@@ -1,0 +1,21 @@
+{
+  "purpose": "Install actual GPM and xxHash prerequisites for normal ncurses and LZ4 builds",
+  "inputs": [
+    {
+      "receipt": "work/debian-gpm-507/receipt.json",
+      "receipt_sha256": "3a7b414d8ba32367869df9253ac44e1b758be9659d9189de625e4b69e7bb5106",
+      "packages": [
+        "libgpm2",
+        "libgpm-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-xxhash-505/receipt.json",
+      "receipt_sha256": "c3fc0373eac306ee1faf81451db88470ae15e5b29762e635ca9d70ca7e2f0a9b",
+      "packages": [
+        "libxxhash0",
+        "libxxhash-dev"
+      ]
+    }
+  ]
+}

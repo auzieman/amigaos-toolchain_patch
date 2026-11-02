@@ -1,0 +1,14 @@
+{
+  "scope": "Build normal ncurses and LZ4 against actual installed GPM/xxHash and managed runtime/development dependencies",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "lz4",
+      "iteration": "508"
+    },
+    {
+      "package": "ncurses",
+      "iteration": "508"
+    }
+  ]
+}

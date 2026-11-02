@@ -1,0 +1,18 @@
+{
+  "status": "real-runtime-providers-gmp-install-and-dependency-generation-passed",
+  "recipe_sha256": "855fcc92912f2a1295141f2351d881a505bec842a23c7673fb4b623b9cfcb003",
+  "target_execution": false,
+  "canonical_receipt_sha256": "74eae3fb5693dd07107f71f26eb5d78e5027c028e1bcb8568652351f779fc166",
+  "provider_receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+  "installed": "libgcc-s1:amd64\t14.2.0-19\tamd64\tinstalled\tlibgcc1 (= 1:14.2.0-19)\nlibgmp-dev:powerpcspe\t2:6.3.0+dfsg-3\tpowerpcspe\tinstalled\tlibgmp10-dev\nlibgmpxx4ldbl:powerpcspe\t2:6.3.0+dfsg-3\tpowerpcspe\tinstalled\t\nlibstdc++6:amd64\t14.2.0-19\tamd64\tinstalled\t\ntabor-spe-libgcc-s1:powerpcspe\t8.5.0+tabor1\tpowerpcspe\tinstalled\tlibgcc-s1 (= 8.5.0+tabor1)\ntabor-spe-libstdc++6:powerpcspe\t8.5.0+tabor1\tpowerpcspe\tinstalled\tlibstdc++6 (= 8.5.0+tabor1)\n",
+  "canonical_dependencies": "shlibs:Depends=libc6 (>= 2.41), libgcc-s1 (>= 8.5.0+tabor1), libstdc++6 (>= 8.5.0+tabor1)\n",
+  "raw_compiler_runtime_sha256": {
+    "libgcc_s.so.1": "278f325e11d52160119ada517bb7acc433266c77986e26411fbb5ad0dddd310c",
+    "libstdc++.so.6.0.25": "374bece693aaabdfdb639deec81a1a8fbf4c359d09729eb514908ca68258ef79"
+  },
+  "packaged_runtime_sha256": {
+    "libgcc_s.so.1": "fa76f5d4ec7e665f43888a69165f58c04a03fb511b4ab24c516441d040136301",
+    "libstdc++.so.6.0.25": "60b7cbdb34a9e63e1896d6d14ebaa19e87ca965e25e01f9dcfa6dc3356dc3d57"
+  },
+  "payload_note": "Compare canonical/provider packages after normal debhelper stripping, then installed bytes"
+}

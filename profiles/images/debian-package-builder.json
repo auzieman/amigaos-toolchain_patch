@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "image_id": "sha256:7971d167773181eb2fb1d5d44eaec6b6e64d998d06c0dba29f571eee7620cd68",
+  "image_id": "sha256:7745692c5d09f3ca84f1afc187ff0db86541a93b8be247dfd84fd36412ba6292",
   "server_base": "/srv/data1/tabor-build/linux-live-001",
   "cpus": 4,
   "memory": "6g",
@@ -110,18 +110,23 @@
     "systemd",
     "pam",
     "cdebconf",
-    "pkgconf"
+    "pkgconf",
+    "gpm",
+    "lz4",
+    "xxhash"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
     "attr": {
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/essential-sources.lock.json",
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "arch_only": true
     },
     "dash": {
       "source_cache": "bootstrap-source-cache",
-      "source_lock": "profiles/essential-sources.lock.json"
+      "source_lock": "profiles/essential-sources.lock.json",
+      "arch_only": true
     },
     "glibc": {
       "source_cache": "tabor-source-cache",
@@ -164,7 +169,8 @@
     "libcap2": {
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/bootstrap-libraries.lock.json",
-      "arch_only": true
+      "arch_only": true,
+      "binary_nmu": 3
     },
     "gzip": {
       "source_cache": "bootstrap-source-cache",
@@ -288,224 +294,228 @@
     "zlib": {
       "source_cache": "desktop-base-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 1
     },
     "libpng1.6": {
       "source_cache": "desktop-base-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "pixman": {
       "source_cache": "desktop-base-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "efl": {
       "source_cache": "desktop-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "e17": {
       "source_cache": "desktop-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "terminology": {
       "source_cache": "desktop-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libdrm": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "mesa": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libpciaccess": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 3
     },
     "libevdev": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "xserver-xorg-input-evdev": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "xinit": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "xorg-server": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "mtdev": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxcrypt": {
       "source_cache": "libxcrypt-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "openssh": {
       "source_cache": "openssh-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "expat": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "freetype": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "fontconfig": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libjpeg-turbo": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "fribidi": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "harfbuzz": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "openssl": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "curl": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "dbus": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "lua5.1": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxkbcommon": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxkbfile": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 4
     },
     "libfontenc": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 2
     },
     "libxfont": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxcvt": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxshmfence": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
@@ -519,21 +529,21 @@
     "x11-xkb-utils": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libvncserver": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "x11vnc": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
@@ -547,14 +557,14 @@
     "libsndfile": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "giflib": {
       "source_cache": "session-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
@@ -575,21 +585,21 @@
     "libpthread-stubs": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxau": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxdmcp": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
@@ -603,161 +613,168 @@
     "libxcb": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 1
     },
     "libx11": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxext": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 3
     },
     "libxrender": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxfixes": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 4
     },
     "libxdamage": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 2
     },
     "libxcomposite": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxi": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxinerama": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 4
     },
     "libxcursor": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxrandr": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 3
     },
     "libxtst": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "libxss": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 3
     },
     "xcb-util": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "xcb-util-image": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "xcb-util-keysyms": {
       "source_cache": "x11-source-cache",
       "source_lock": "profiles/expanded-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
     },
     "bzip2": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "xz-utils": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "libzstd": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "ncurses": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "gmp": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "systemd": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "pam": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "cdebconf": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "arch_only": false,
+      "arch_only": true,
       "build_profiles": "cross,nocheck"
     },
     "pkgconf": {
@@ -769,10 +786,30 @@
     "libmd": {
       "binary_nmu": 1,
       "arch_only": true
+    },
+    "gpm": {
+      "source_cache": "closure-source-cache-20261102-002",
+      "source_lock": "profiles/terminal-compression-sources.lock.json",
+      "arch_only": true,
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 2
+    },
+    "lz4": {
+      "source_cache": "closure-source-cache-20261102-002",
+      "source_lock": "profiles/terminal-compression-sources.lock.json",
+      "arch_only": true,
+      "build_profiles": "cross,nocheck"
+    },
+    "xxhash": {
+      "source_cache": "closure-hash-source-cache-20261102",
+      "source_lock": "profiles/hash-sources.lock.json",
+      "arch_only": true,
+      "build_profiles": "cross,nocheck"
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",
   "sysroot_prefix": "/",
   "package_managed_root": true,
-  "preserve_debian_version": true
+  "preserve_debian_version": true,
+  "arch_only": true
 }

@@ -1,0 +1,26 @@
+{
+  "status": "sources-cached-verified-license-review-pending",
+  "recipe_sha256": "1e5318236df835ad8c0529e917c6700aa2a30a9014e4acc11701ec4eb6a1fef0",
+  "manifest_sha256": "54c3f61ca749a5794a74e171c1be811253bf72e82addadf034885612b93befec",
+  "target_execution": false,
+  "components": {
+    "gpm": {
+      "version": "1.20.7-11",
+      "reason": "ncurses declares libgpm-dev on linux-any",
+      "copyright_sha256": "af426f7725c95262acf16f5840830bb085c7bb3c067ba556e9afe9a418e00724",
+      "source_index_sha256": "5e6b94635f8a4b7a12f62b857473d817ec7edd09d0726c115794c03a207ee73c"
+    },
+    "lz4": {
+      "version": "1.10.0-4",
+      "reason": "zstd declares liblz4-dev",
+      "copyright_sha256": "8dce0cb8c5a4486e4aac00466e4dd4b0b5b28d70efe3b3256ea4594099a8509c",
+      "source_index_sha256": "150fc486346835cf0f786f11fe6ca4bbad631a87c847375a855dea86ad773bc3"
+    }
+  },
+  "release_files": {
+    "deb.debian.org_debian_dists_trixie-updates_InRelease": "34507e00782424756b7c4d46b1717e6c055722b59dac6e713f3f88b0505a476f",
+    "deb.debian.org_debian-security_dists_trixie-security_InRelease": "0796dd8165e0abf519d5159e23cb762b4c8bc35b45a71272d0951c01fdcb659a",
+    "deb.debian.org_debian_dists_trixie_InRelease": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675"
+  },
+  "lock_sha256": "4c93f782059d958899c4fc4cd6be472ac644c772023dca59666558691a25e8b0"
+}

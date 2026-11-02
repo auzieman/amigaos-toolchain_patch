@@ -1,0 +1,617 @@
+{
+  "status": "package-hashes-and-elf32-big-endian-powerpc-payloads-verified",
+  "recipe_sha256": "7476df0893719e8eb28419cd909ab5dae23a2b7133049a3e32f666155d48556c",
+  "target_execution": false,
+  "sources": [
+    {
+      "receipt": "/work/debian-gpm-507/receipt.json",
+      "receipt_sha256": "3a7b414d8ba32367869df9253ac44e1b758be9659d9189de625e4b69e7bb5106",
+      "packages": [
+        {
+          "file": "gpm-dbgsym_1.20.7-11+b2_powerpcspe.deb",
+          "sha256": "6e3b96a902d7132c6597871a6fc6eac7a6fb4e3b1be32dc6dac681b3fa82c671",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/gpm.debug"
+          ]
+        },
+        {
+          "file": "gpm_1.20.7-11+b2_powerpcspe.deb",
+          "sha256": "ceb20f17cdb171ef8b616b6bae9deeed5fbebe9288e3d177094353cc17236382",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/mev",
+            "./usr/lib/gpm/gpm_has_mouse_control",
+            "./usr/sbin/gpm",
+            "./usr/sbin/gpm-mouse-test"
+          ]
+        },
+        {
+          "file": "libgpm-dev_1.20.7-11+b2_powerpcspe.deb",
+          "sha256": "89b3774add16b6746e1693e244dac927d4d8514d307ddbbd7e4667cd2710db63",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libgpm2_1.20.7-11+b2_powerpcspe.deb",
+          "sha256": "b5e48565639cae445a30717f72de764a2e965c1ff3133ea86bb01afe19e869d5",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libgpm.so.2"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libjpeg-turbo-507/receipt.json",
+      "receipt_sha256": "6c9f45fbcc53ffb7c7d80681172b34a79ccb80f661a759708aabac31d957c2e6",
+      "packages": [
+        {
+          "file": "libjpeg-dev_2.1.5-4_powerpcspe.deb",
+          "sha256": "2398fce0a4ed45a9919b9e4bc9e144069b6c87e33c1b0594214169b607de94f0",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libjpeg-turbo-progs-dbgsym_2.1.5-4_powerpcspe.deb",
+          "sha256": "2bacd5b553e1b24cc6cb21b9bbbb7c1de3d196d3b361be98143429f1a08c4042",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libjpeg-turbo-progs.debug"
+          ]
+        },
+        {
+          "file": "libjpeg-turbo-progs_2.1.5-4_powerpcspe.deb",
+          "sha256": "975b2655deeb0d46c6c855c03cf8338ed36e17c7d62c8785fab7b723a8a1b7eb",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/cjpeg",
+            "./usr/bin/djpeg",
+            "./usr/bin/jpegexiforient",
+            "./usr/bin/jpegtran",
+            "./usr/bin/rdjpgcom",
+            "./usr/bin/tjbench",
+            "./usr/bin/wrjpgcom"
+          ]
+        },
+        {
+          "file": "libjpeg62-turbo-dev_2.1.5-4_powerpcspe.deb",
+          "sha256": "9548389973cf3974c39db7a60e5a69e370d8cced2658af273edc4f1b8ec7c7a5",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libjpeg62-turbo_2.1.5-4_powerpcspe.deb",
+          "sha256": "29faa77f39945d8cf56ee1bd4b5276002157cee61a7d2363cc0e152f5de39020",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libjpeg.so.62.3.0"
+          ]
+        },
+        {
+          "file": "libturbojpeg0-dev_2.1.5-4_powerpcspe.deb",
+          "sha256": "eb074118c84b0ae54f4f3acfb4bf117d707bf876f4ffb2a6c776de18abca950b",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libturbojpeg0_2.1.5-4_powerpcspe.deb",
+          "sha256": "bf54c6cd26464104425e5974a300fae6dbbecef955f4da0073f30382f8601bdb",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libturbojpeg.so.0.2.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libpciaccess-507/receipt.json",
+      "receipt_sha256": "04b4259488ca01a5aedb9f6488b6f9f64412e9122d169cb84b43ee4156dc160a",
+      "packages": [
+        {
+          "file": "libpciaccess-dev_0.17-3+b3_powerpcspe.deb",
+          "sha256": "ac4f50a9240bb15e8be3a77c770da32b371ebb547868760517f1b825719d97da",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libpciaccess0-udeb_0.17-3+b3_powerpcspe.udeb",
+          "sha256": "c50329aa7266c9dddb16805725540e16ca7c490bc9f74915f8212ba4bd658a1f",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libpciaccess.so.0.11.1"
+          ]
+        },
+        {
+          "file": "libpciaccess0_0.17-3+b3_powerpcspe.deb",
+          "sha256": "faf6d4e6fae65fc4d5ff81da4e338f73ae05db31bbd95b9bf3e280c01399e3a4",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libpciaccess.so.0.11.1"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libfontenc-507/receipt.json",
+      "receipt_sha256": "0128e863a5709d95773de21ac1857f9e747e662809ab336fba0963c0b360c499",
+      "packages": [
+        {
+          "file": "libfontenc-dev_1.1.8-1+b2_powerpcspe.deb",
+          "sha256": "4892696567c46192e429a21a8390a2b3fbff09424351fd731ea56637d0d10d8d",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libfontenc1-udeb_1.1.8-1+b2_powerpcspe.udeb",
+          "sha256": "93e7f3b9e4c597e77cfd34e9e64480302472e8f2b6d7c33b78c374b67297c921",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libfontenc.so.1.0.0"
+          ]
+        },
+        {
+          "file": "libfontenc1_1.1.8-1+b2_powerpcspe.deb",
+          "sha256": "827b6e9e0b5c9fa2e3d59596e78b4caac4ed6db9d3be9bd80891bdead9ac1aab",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libfontenc.so.1.0.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-gmp-506/receipt.json",
+      "receipt_sha256": "1734510811cc9b8b140569512dff9df81bfaf05d38dc887d7f36b9c62c29ad22",
+      "packages": [
+        {
+          "file": "libgmp-dev_6.3.0+dfsg-3_powerpcspe.deb",
+          "sha256": "58ff2b18d103d6f80692617a443b388d1868b3aeef09c2e5e8fcc5ad2b0af986",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libgmp10_6.3.0+dfsg-3_powerpcspe.deb",
+          "sha256": "f567d545a5c09f49c4cd440bb9f747b16a46468d8858892dc7cc61ee048f71bb",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libgmp.so.10.5.0"
+          ]
+        },
+        {
+          "file": "libgmp3-dev_6.3.0+dfsg-3_powerpcspe.deb",
+          "sha256": "56979567311089730d1833103cb316ae135a8875ca19b23c32b78f0775461bf7",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libgmpxx4ldbl_6.3.0+dfsg-3_powerpcspe.deb",
+          "sha256": "ed6dadeb014fc9c1234324c7e62496bb5b24e15043975251d288166a378acddb",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libgmpxx.so.4.7.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libpng1.6-506/receipt.json",
+      "receipt_sha256": "c77864b4208fc967679b00e822621ef88b096942e27586be54dfb0a81706c8fd",
+      "packages": [
+        {
+          "file": "libpng-dev_1.6.48-1+deb13u6_powerpcspe.deb",
+          "sha256": "e61bdfbeecc676e0f7bf6da6bd24ab1c275934fd8252efc33a0cc47b013d00ed",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libpng-tools-dbgsym_1.6.48-1+deb13u6_powerpcspe.deb",
+          "sha256": "b42a88152bb81adf0138e6e028b5a1a34b9833703263a23304f17eac15a2c74c",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libpng-tools.debug"
+          ]
+        },
+        {
+          "file": "libpng-tools_1.6.48-1+deb13u6_powerpcspe.deb",
+          "sha256": "7164d8d5b1fa6443826c44c7d65a6127248e1009f0b2d3e38e731549878f73dd",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/png-fix-itxt",
+            "./usr/bin/pngfix"
+          ]
+        },
+        {
+          "file": "libpng16-16-udeb_1.6.48-1+deb13u6_powerpcspe.udeb",
+          "sha256": "462cf1c0acfabf2b510be8e9e526f0e47e47a5fc9f7249e834a1d68925c1960a",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./lib/libpng16.so.16.48.0"
+          ]
+        },
+        {
+          "file": "libpng16-16t64_1.6.48-1+deb13u6_powerpcspe.deb",
+          "sha256": "587851b6249b7f23d6204b0fa5c0e5de2a8d64db45d24e6a71fd03fe8a251dee",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libpng16.so.16.48.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-xxhash-505/receipt.json",
+      "receipt_sha256": "c3fc0373eac306ee1faf81451db88470ae15e5b29762e635ca9d70ca7e2f0a9b",
+      "packages": [
+        {
+          "file": "libxxhash-dev_0.8.3-2_powerpcspe.deb",
+          "sha256": "11bfa3ecf33c4f46863a4ccbdf34a352906508054101bb430316dd1e9485f7dc",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libxxhash0_0.8.3-2_powerpcspe.deb",
+          "sha256": "0265a56fd2740ca2c15d3a3fe31c507c76c9933eeedd9540a3ecb32cb4b90c7a",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libxxhash.so.0.8.3"
+          ]
+        },
+        {
+          "file": "xxhash_0.8.3-2_powerpcspe.deb",
+          "sha256": "3769136f1d6d53a73f24ce87eefca7fbb966cd359b5708558ee0b79980473c7b",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/xxhsum"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-bzip2-503/receipt.json",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae",
+      "packages": [
+        {
+          "file": "bzip2-dbgsym_1.0.8-6_powerpcspe.deb",
+          "sha256": "b032b1d9fb23a338d27dd3674d644a56104c84b91597798867aa6e948dacacfe",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/bzip2.debug"
+          ]
+        },
+        {
+          "file": "bzip2-doc_1.0.8-6_all.deb",
+          "sha256": "745ec8cb13a35064915dff781776f577fcd15a180eda25b0049cea87f8d5a973",
+          "architecture": "all",
+          "elf_files": []
+        },
+        {
+          "file": "bzip2_1.0.8-6_powerpcspe.deb",
+          "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/bzip2",
+            "./usr/bin/bzip2recover"
+          ]
+        },
+        {
+          "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+          "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libbz2.so.1.0.4"
+          ]
+        },
+        {
+          "file": "libbz2-dev_1.0.8-6_powerpcspe.deb",
+          "sha256": "54a10d92c29152b639f4507b1b43ed5c83bdc069bbda4087c0bb1ec8534815ff",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-expat-503/receipt.json",
+      "receipt_sha256": "788d960277b12ebf136d4a9843592cac3ca11f54bf7619a303623d5f8404ed7f",
+      "packages": [
+        {
+          "file": "expat_2.9.0-1~deb13u1_powerpcspe.deb",
+          "sha256": "dcaf388334e7c3f2437dd4d8fcadbb1bf957bb4f86740a0371cf0e0483a05f4f",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/xmlwf"
+          ]
+        },
+        {
+          "file": "libexpat1-dev_2.9.0-1~deb13u1_powerpcspe.deb",
+          "sha256": "fa42222d8bcee65e6ad27418e19568aeb944c4b63a127b0ab5b30dcbd349aa22",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libexpat1-udeb_2.9.0-1~deb13u1_powerpcspe.udeb",
+          "sha256": "90fa38bd9975dbf1dfd60b1acbbd7f5889f4bad79e51d51273af76360db66c59",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libexpat.so.1.13.0"
+          ]
+        },
+        {
+          "file": "libexpat1_2.9.0-1~deb13u1_powerpcspe.deb",
+          "sha256": "8b3bebae28b4cdc14de87d41ff0a3a3d167a9319317753e5759cbd02a3c43cfc",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libexpat.so.1.13.0",
+            "./usr/lib/powerpc-linux-gnuspe/libexpatw.so.1.13.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-giflib-503/receipt.json",
+      "receipt_sha256": "3033429f2798329cb71d194ff2abaa9226266743721167915d24b14c53670d06",
+      "packages": [
+        {
+          "file": "giflib-tools-dbgsym_5.2.2-1+deb13u1_powerpcspe.deb",
+          "sha256": "8e08568afe300a4e510008865d35e2c588cbdbc5b70a63754aa72c08761b5807",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/giflib-tools.debug"
+          ]
+        },
+        {
+          "file": "giflib-tools_5.2.2-1+deb13u1_powerpcspe.deb",
+          "sha256": "e46b68ba786be3652ec3b3f938c6b2778f8f956bff19402446f0d5d79fd9c4ca",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/gif2rgb",
+            "./usr/bin/gifbuild",
+            "./usr/bin/gifclrmp",
+            "./usr/bin/giffix",
+            "./usr/bin/giftext",
+            "./usr/bin/giftool"
+          ]
+        },
+        {
+          "file": "libgif-dev_5.2.2-1+deb13u1_powerpcspe.deb",
+          "sha256": "ad1d1d1a648850ec2bf474835b191e964ccdc0d80a98440ab3142cf55f197710",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libgif7_5.2.2-1+deb13u1_powerpcspe.deb",
+          "sha256": "a848eb356f755bad586111be50f28fb1d4c871da52158ded7ce8dfcaaac3fb36",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libgif.so.7.2.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libevdev-503/receipt.json",
+      "receipt_sha256": "360223738c28d44f7a68e6d6a1d20cbf8cc19608eaf8f58b70b7f7b084d36841",
+      "packages": [
+        {
+          "file": "libevdev-dev_1.13.4+dfsg-1_powerpcspe.deb",
+          "sha256": "a72f7a3c88e3ce3b08625809ae22ede940bfd1e3d27af1aec9499acfabef4734",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libevdev-doc_1.13.4+dfsg-1_all.deb",
+          "sha256": "cd8c2081d5fdfd8dd2c84988f6472fc2442a02a2bc363f9ceee95e2bbb2b5e20",
+          "architecture": "all",
+          "elf_files": []
+        },
+        {
+          "file": "libevdev-tools-dbgsym_1.13.4+dfsg-1_powerpcspe.deb",
+          "sha256": "099652c2a3964b5d6387858216ee1b3e58f4392f198b8222a4e4379aec0ada2f",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libevdev-tools.debug"
+          ]
+        },
+        {
+          "file": "libevdev-tools_1.13.4+dfsg-1_powerpcspe.deb",
+          "sha256": "4b6e0ad3725a3a7f1ae23c6b169e4bab9c8202458642009685e2148962a3b502",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/libevdev-tweak-device",
+            "./usr/bin/mouse-dpi-tool",
+            "./usr/bin/touchpad-edge-detector"
+          ]
+        },
+        {
+          "file": "libevdev2-udeb_1.13.4+dfsg-1_powerpcspe.udeb",
+          "sha256": "291376ec04d1ce61b5ddc0a4b1e4802d913d62dcacffb5b6d519d92a340e33ac",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libevdev.so.2.3.0"
+          ]
+        },
+        {
+          "file": "libevdev2_1.13.4+dfsg-1_powerpcspe.deb",
+          "sha256": "6ce9a9dc0c5c96e39a7be2ab74e0a65e0a646973f67940004ff082813b33293d",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libevdev.so.2.3.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libxau-503/receipt.json",
+      "receipt_sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "packages": [
+        {
+          "file": "libxau-dev_1.0.11-1_powerpcspe.deb",
+          "sha256": "39f1a3b7c8bfc37fb3d49b44fb5d360a8b2eba42a0b50696dfe4c6900546bdce",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libxau6-udeb_1.0.11-1_powerpcspe.udeb",
+          "sha256": "b7c304abde48c7f8bf0e337399991a89c09691d0910855187dc01fd8b3d056e1",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libXau.so.6.0.0"
+          ]
+        },
+        {
+          "file": "libxau6_1.0.11-1_powerpcspe.deb",
+          "sha256": "88bce720ebcd8d662cdc8dd81436f99d4f0bf3e3935c545e21474ff8633501ca",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libXau.so.6.0.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libxshmfence-503/receipt.json",
+      "receipt_sha256": "4baf65f0cfcdb7be9266d8d207d404b60b33265d9425a187ace49ea060e4f9ff",
+      "packages": [
+        {
+          "file": "libxshmfence-dev_1.3.3-1_powerpcspe.deb",
+          "sha256": "d8719c304632b685ff51449778245308a8c48bab418134102ebd5f1e4a1ffc5e",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libxshmfence1-udeb_1.3.3-1_powerpcspe.udeb",
+          "sha256": "e257a4890fea24b09e75ab54566eaf335e71d859f30a5018ea3100bdeaa85e7f",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libxshmfence.so.1.0.0"
+          ]
+        },
+        {
+          "file": "libxshmfence1_1.3.3-1_powerpcspe.deb",
+          "sha256": "6a1405fa091bda348df2876f0219036bed8380adcd20bc684be02e6cbcf13822",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libxshmfence.so.1.0.0"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-zlib-504/receipt.json",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7",
+      "packages": [
+        {
+          "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+          "sha256": "739ac38eb75b37185ad8d5d8182c921788b33585696f7a15b528977d43841a3d",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+          "sha256": "0eaa797ab27cdedff4eb452026ea7e3d1e8c645895855948a719b2c36150f79a",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libminizip.so.1.0.0"
+          ]
+        },
+        {
+          "file": "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+          "sha256": "23be35e2f909fc74d85e54923359e8242828ae7b202e1b342ce22d47c8b91db0",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/miniunzip",
+            "./usr/bin/minizip"
+          ]
+        },
+        {
+          "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+          "sha256": "85bb98bc0a407d3a3c81ce80a37f41eec0c270fdf641f7ad71c43c41984fa621",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "zlib1g-udeb_1.3.dfsg+really1.3.1-1+b1_powerpcspe.udeb",
+          "sha256": "db61b769770509a3a83864f6a362fceded787afb44dde73f12ad100af7aba811",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/libminizip.so.1.0.0",
+            "./usr/lib/libz.so.1.3.1"
+          ]
+        },
+        {
+          "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+          "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libz.so.1.3.1"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-xz-utils-504/receipt.json",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a",
+      "packages": [
+        {
+          "file": "liblzma-dev_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "edce6964e32f43c60e190eb54902ff0f0a04cd066bdfa9f068d74c1dee7ab6a1",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "liblzma5-udeb_5.8.1-1+deb13u2_powerpcspe.udeb",
+          "sha256": "d8ac112b2bf266d2098acae9f5c9c031ae8eef8dfa16ca3eb45f161f0591963c",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/liblzma.so.5.8.1"
+          ]
+        },
+        {
+          "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/liblzma.so.5.8.1"
+          ]
+        },
+        {
+          "file": "xz-utils-dbgsym_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "25c0b5bcb018620b9e4806a968fc047ba2a19230141d2a77ed197deb469f6e65",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/xz-utils.debug"
+          ]
+        },
+        {
+          "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/lzmainfo",
+            "./usr/bin/xz"
+          ]
+        },
+        {
+          "file": "xzdec-dbgsym_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "50e078b827e45da049d884214a759e6f49ed7cabe48c3658afa86d7d69861632",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/xzdec.debug"
+          ]
+        },
+        {
+          "file": "xzdec_5.8.1-1+deb13u2_powerpcspe.deb",
+          "sha256": "c901d19798782d17fe77a0516a66cd1357feb8e735b965eaea85c7982229b163",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/lzmadec",
+            "./usr/bin/xzdec"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_count": 15,
+  "package_count": 67,
+  "elf_count": 69
+}

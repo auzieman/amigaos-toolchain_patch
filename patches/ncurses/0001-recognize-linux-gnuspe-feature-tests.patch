@@ -1,0 +1,35 @@
+Recognize the Linux/SPE GNU ABI in the existing GNU/Linux feature-test branch.
+The generic fallback fails to expose wcwidth with the selected libc headers.
+Preserve normal GNU feature selection and implicit-declaration diagnostics.
+
+--- a/aclocal.m4
++++ b/aclocal.m4
+@@ -10334,7 +10334,7 @@
+ 	cf_xopen_source="-D_SGI_SOURCE"
+ 	cf_XOPEN_SOURCE=
+ 	;;
+-(linux*gnu|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
++(linux*gnu|linux*gnuspe|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
+ 	CF_GNU_SOURCE($cf_XOPEN_SOURCE)
+ 	;;
+ linux*musl)
+--- a/configure
++++ b/configure
+@@ -9830,7 +9830,7 @@
+ WHICH_XTERM=$with_xterm_new
+ 
+ case $host_os in
+-(linux*gnu|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc|linux*musl)
++(linux*gnu|linux*gnuspe|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc|linux*musl)
+ 	want_xterm_kbs=DEL
+ 	;;
+ (*)
+@@ -10773,7 +10773,7 @@
+ 	cf_xopen_source="-D_SGI_SOURCE"
+ 	cf_XOPEN_SOURCE=
+ 	;;
+-(linux*gnu|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
++(linux*gnu|linux*gnuspe|linux*gnuabi64|linux*gnuabin32|linux*gnueabi|linux*gnueabihf|linux*gnux32|uclinux*|gnu*|mint*|k*bsd*-gnu|cygwin|msys|mingw*|linux*uclibc)
+ 
+ cf_gnu_xopen_source=$cf_XOPEN_SOURCE
+ 

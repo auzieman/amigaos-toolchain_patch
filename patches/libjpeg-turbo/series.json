@@ -1,0 +1,18 @@
+{
+  "version": "1:2.1.5-4",
+  "purpose": "Preserve Debian features while selecting native cross-build generator executables",
+  "patches": [
+    {
+      "path": "patches/libjpeg-turbo/0001-qualify-native-code-generators.patch",
+      "sha256": "e9a2b648f2ae438ce933d5fa0f127117744f54a45196bf1793febf88745ddeda"
+    },
+    {
+      "path": "patches/libjpeg-turbo/0002-use-native-benchmark-for-cross-manpage.patch",
+      "sha256": "f2e2f913e2fd757317d4fbfdb041c32f9c421a22c268d4f7a4effd77aa281dae"
+    },
+    {
+      "path": "patches/libjpeg-turbo/0003-register-spe-java-symbol-availability.patch",
+      "sha256": "60ae9bd4d7a3e1e294fe2f649c9156debee7e7ef25f0f87e15807bb4c05bf2c2"
+    }
+  ]
+}

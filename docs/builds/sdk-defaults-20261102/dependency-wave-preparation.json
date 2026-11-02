@@ -1,0 +1,80 @@
+{
+  "status": "completed-with-deferred-items",
+  "recipe_sha256": "60e460d65ee710ef4d92859b86a7734d7f3b9a5a5826ef16a443644719684322",
+  "commands": [
+    [
+      "docker",
+      "build",
+      "--cpuset-cpus=0-3",
+      "--memory=6g",
+      "--build-arg",
+      "BUILD_INFRA_IMAGE=sha256:2b490874154132f3bbd7bb89e58189cf102fa573653e117eeebae50ee69e946f",
+      "--iidfile",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/native-bin-nmu/image.id",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/native-bin-nmu"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project/scripts/prepare-target-build-context.py",
+      "--base",
+      "/srv/data1/tabor-build/linux-live-001",
+      "--manifest",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project/profiles/repositories/target-development-selinux-prerequisites.json",
+      "--dockerfile",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project/docker/Dockerfile.target-development",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/target-development"
+    ],
+    [
+      "docker",
+      "build",
+      "--cpuset-cpus=0-3",
+      "--memory=6g",
+      "--build-arg",
+      "BUILD_INFRA_IMAGE=sha256:1da11d91d31aaf5dfbb787731620bd9dd1f4cdd4af79771945911b227fa24665",
+      "--iidfile",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/target-development/image.id",
+      "--network=none",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/target-development"
+    ],
+    [
+      "docker",
+      "run",
+      "--rm",
+      "--name",
+      "tabor-managed-default-check-002",
+      "--cpus=1",
+      "--memory=1g",
+      "--pids-limit=64",
+      "--network=none",
+      "-v",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project:/project:ro",
+      "-v",
+      "/srv/data1/tabor-build/linux-live-001/work:/work",
+      "sha256:205a448b5ae788e8e20d001085a905673b3f4f42836da792f15d6c9fdae8da61",
+      "/project/scripts/verify-spe-managed-toolchain.py",
+      "--output",
+      "/work/managed-dependency-wave-20261102-001/installed-default-check"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project/scripts/run-core-build-queue.py",
+      "--project",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project",
+      "--queue",
+      "/srv/data1/tabor-build/linux-live-001/submissions/managed-dependency-wave-20261102-001/project/profiles/queues/managed-dependency-wave-20261102.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/managed-dependency-wave-20261102-001/queue"
+    ]
+  ],
+  "images": {
+    "native-prerequisites": "sha256:2b490874154132f3bbd7bb89e58189cf102fa573653e117eeebae50ee69e946f",
+    "native-bin-nmu": "sha256:1da11d91d31aaf5dfbb787731620bd9dd1f4cdd4af79771945911b227fa24665",
+    "target-development": "sha256:205a448b5ae788e8e20d001085a905673b3f4f42836da792f15d6c9fdae8da61"
+  },
+  "target_installation": false,
+  "boot_image_ready": false,
+  "native_dockerfile_sha256": "6fda3d9305fe700a0cd1014d280be8d06c3cb5e4e7fbbfac16eddb6508e3579d",
+  "builder_profile_before_sha256": "065bc24577e868ee57b14c872af28af0277bd932c2074729e89c28261e388f56",
+  "builder_profile_sha256": "c6a1af9a06b470a2bf19ef77b5392673978999abe71fe1681768d6291ea34302"
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Fresh -B target retries, reviewed native generator qualification, and actual GPM/LZ4 prerequisites. No consumer workaround for xz documentation, no skipped Debian dependency checks.",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "zlib",
+      "iteration": "504"
+    },
+    {
+      "package": "xz-utils",
+      "iteration": "504"
+    },
+    {
+      "package": "libjpeg-turbo",
+      "iteration": "504"
+    },
+    {
+      "package": "gpm",
+      "iteration": "504"
+    },
+    {
+      "package": "lz4",
+      "iteration": "504"
+    }
+  ]
+}

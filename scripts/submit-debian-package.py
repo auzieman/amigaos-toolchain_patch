@@ -6,12 +6,15 @@ p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--package', required=True)
 p.add_argument('--iteration', required=True)
 p.add_argument('--check-dependencies-only', action='store_true')
+p.add_argument('--expected-image', help='Refuse submission if the selected build-root digest differs')
 a = p.parse_args()
 assert re.fullmatch(r'[0-9]{3}', a.iteration)
 project = Path(__file__).resolve().parents[1]
 profile = json.loads((project / 'profiles/images/debian-package-builder.json').read_text())
 assert a.package in profile['packages'], 'Package needs reviewed intake and recipe first'
 profile.update(profile.get('package_inputs', {}).get(a.package, {}))
+if a.expected_image:
+    assert profile['image_id'] == a.expected_image, 'Selected build root differs from the explicitly expected digest'
 helper = project.parent / 'lab/consolidation-20261002/r730-prep-20261031'
 base = profile['server_base']
 queue_active = subprocess.run(['python3', str(helper / 'sudo.py'),

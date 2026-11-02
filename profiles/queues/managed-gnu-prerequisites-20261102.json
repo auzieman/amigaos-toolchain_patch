@@ -1,0 +1,14 @@
+{
+  "scope": "Fresh GNU/SPE ncurses feature-test registration and zstd with actual installed compression prerequisites; normal flags/checks/features",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "ncurses",
+      "iteration": "509"
+    },
+    {
+      "package": "libzstd",
+      "iteration": "509"
+    }
+  ]
+}

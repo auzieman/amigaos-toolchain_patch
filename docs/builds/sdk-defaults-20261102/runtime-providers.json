@@ -1,0 +1,35 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "tabor-gcc-runtime",
+  "image_id": "sha256:23458e70b4deee701c21b82ae0a615af091599acb9b861fb98073d209415a4e4",
+  "build_root_only": true,
+  "runtime_package_names": {
+    "libgcc-s1": "tabor-spe-libgcc-s1",
+    "libstdc++6": "tabor-spe-libstdc++6"
+  },
+  "source_version": "8.5.0",
+  "binary_version": "8.5.0+tabor1",
+  "recipe_sha256": "ca8eea0d623800e09d61c9296f4812a3eebcb7e1de803ec68db7384fe141db88",
+  "compiler_receipt_sha256": "886a0b084367d68ae0ee49cec8097887a4dacbf5990629f8838422a5837c1932",
+  "source_sha512": "92f599680e6b7fbce88bcdda810f468777d541e5fddfbb287f7977d51093de2a5178bd0e6a08dfe37090ea10a0508a43ccd00220041abbbec33f1179bfc174d8",
+  "input_libraries": {
+    "libgcc_s.so.1": "278f325e11d52160119ada517bb7acc433266c77986e26411fbb5ad0dddd310c",
+    "libstdc++.so.6.0.25": "374bece693aaabdfdb639deec81a1a8fbf4c359d09729eb514908ca68258ef79"
+  },
+  "build_phase": "assembly-of-existing-recorded-target-compilation",
+  "libc_header_sha256": "aee91ddee895a880d42e86506a7da85f8766690003f3c66eb1895d13de10d1ba",
+  "target_execution": false,
+  "package_installation": "not-attempted",
+  "packages": {
+    "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb": {
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "bytes": 58644,
+      "architecture": "powerpcspe"
+    },
+    "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb": {
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "bytes": 383556,
+      "architecture": "powerpcspe"
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "purpose": "Install actual successful target library/development pairs through normal apt; source receipts pin each artifact",
+  "inputs": [
+    {
+      "receipt": "work/debian-bzip2-503/receipt.json",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae",
+      "packages": [
+        "libbz2-1.0",
+        "libbz2-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-gmp-503/receipt.json",
+      "receipt_sha256": "fcc2e0e50503a16fcfa55fbccd71ac0ec3814e15fa393a45295a30f56c118c0d",
+      "packages": [
+        "libgmp10",
+        "libgmpxx4ldbl",
+        "libgmp-dev",
+        "libgmp3-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-expat-503/receipt.json",
+      "receipt_sha256": "788d960277b12ebf136d4a9843592cac3ca11f54bf7619a303623d5f8404ed7f",
+      "packages": [
+        "libexpat1",
+        "libexpat1-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-giflib-503/receipt.json",
+      "receipt_sha256": "3033429f2798329cb71d194ff2abaa9226266743721167915d24b14c53670d06",
+      "packages": [
+        "libgif7",
+        "libgif-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libevdev-503/receipt.json",
+      "receipt_sha256": "360223738c28d44f7a68e6d6a1d20cbf8cc19608eaf8f58b70b7f7b084d36841",
+      "packages": [
+        "libevdev2",
+        "libevdev-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxau-503/receipt.json",
+      "receipt_sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "packages": [
+        "libxau6",
+        "libxau-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxshmfence-503/receipt.json",
+      "receipt_sha256": "4baf65f0cfcdb7be9266d8d207d404b60b33265d9425a187ace49ea060e4f9ff",
+      "packages": [
+        "libxshmfence1",
+        "libxshmfence-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-zlib-504/receipt.json",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7",
+      "packages": [
+        "zlib1g",
+        "zlib1g-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-xz-utils-504/receipt.json",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a",
+      "packages": [
+        "liblzma5",
+        "liblzma-dev"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ]
+    }
+  ]
+}

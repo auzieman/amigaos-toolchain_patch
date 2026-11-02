@@ -1,0 +1,20 @@
+{
+  "status": "sources-cached-verified-license-review-pending",
+  "recipe_sha256": "1e5318236df835ad8c0529e917c6700aa2a30a9014e4acc11701ec4eb6a1fef0",
+  "manifest_sha256": "9b50a5298e34040937106a8c6ae7eb13070ef5070437e42af0b2ef09af0cee1b",
+  "target_execution": false,
+  "components": {
+    "xxhash": {
+      "version": "0.8.3-2",
+      "reason": "LZ4 declares libxxhash-dev; source version also matches the installed native library",
+      "copyright_sha256": "81affefe3047c8a88a9e4c94c8c698f51a7e0787e75b58e901bf1f8fcd433f58",
+      "source_index_sha256": "4bc90f765bb5c9039ad49a4cf72c2de69c9e6874c74298c668ea009535d40045"
+    }
+  },
+  "release_files": {
+    "deb.debian.org_debian_dists_trixie-updates_InRelease": "34507e00782424756b7c4d46b1717e6c055722b59dac6e713f3f88b0505a476f",
+    "deb.debian.org_debian-security_dists_trixie-security_InRelease": "0796dd8165e0abf519d5159e23cb762b4c8bc35b45a71272d0951c01fdcb659a",
+    "deb.debian.org_debian_dists_trixie_InRelease": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675"
+  },
+  "lock_sha256": "0596488b709020e8f985e8340e5c1950d8f4c4b368f19c8646abf86d9fe53589"
+}

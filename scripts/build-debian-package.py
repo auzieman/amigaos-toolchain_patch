@@ -21,7 +21,7 @@ p.add_argument('--preserve-debian-version', action='store_true',
                help='Keep the pinned Debian changelog/version for normal build-root coinstallation; provenance remains in receipts')
 p.add_argument('--package-managed-root', action='store_true',
                help='Use installed target development packages, without bootstrap shlibs/sysroot transport overrides')
-p.add_argument('--binary-nmu', type=int, default=0, help='Reviewed Debian binary-only rebuild number; uses dch, not binary metadata rewriting')
+p.add_argument('--binary-nmu', type=int, default=0, help='Reviewed Debian binary-only rebuild number; uses Debian source-changelog writer, not binary metadata rewriting')
 a = p.parse_args()
 assert 0 <= a.binary_nmu <= 9
 if a.binary_nmu:
@@ -150,13 +150,30 @@ with (a.work / 'build.log').open('w') as log:
                 ' -- Tabor lab <root@localhost>  Sun, 01 Nov 2026 16:00:00 +0000\n\n'
                 + changelog.read_text())
         if a.binary_nmu:
-            env.update(DEBFULLNAME='Tabor lab', DEBEMAIL='root@localhost')
-            for _ in range(a.binary_nmu):
-                run(['dch', '--bin-nmu', '--distribution', 'trixie', '--preserve',
-                     'SPE binary rebuild for the reviewed Debian cross-build root.'], source)
-            version = subprocess.check_output(['dpkg-parsechangelog', '-l', str(changelog), '-SVersion'], text=True).strip()
-            assert version == component['version'] + '+b' + str(a.binary_nmu)
+            # One binary-only stanza is essential: repeated dch --bin-nmu
+            # calls leave intermediate entries in shared changelog files.
+            # Debian's writer formats the entry; preserve upstream bytes below.
+            from debian.changelog import Changelog
+            from email.utils import formatdate
+            original_bytes = changelog.read_bytes()
+            upstream = Changelog(original_bytes.decode('utf-8'), strict=True)
+            version = component['version'] + '+b' + str(a.binary_nmu)
+            entry = Changelog()
+            entry.new_block(package=upstream.package, version=version,
+                distributions='trixie', urgency='medium', other_pairs={'binary-only': 'yes'},
+                author='Tabor lab <root@localhost>', date=formatdate(localtime=False))
+            entry.add_change('')
+            entry.add_change('  * Binary-only cross-build for powerpcspe; no source changes.')
+            entry.add_change('')
+            changelog.write_bytes((str(entry).rstrip('\n') + '\n\n').encode('utf-8') + original_bytes)
+            parsed = list(Changelog(changelog.read_text(), strict=True))
+            assert str(parsed[0].version) == version
+            assert str(parsed[1].version) == component['version'], 'Binary rebuild stanza lost the original source header'
+            observed = subprocess.check_output(['dpkg-parsechangelog', '-l', str(changelog), '-SVersion'], text=True).strip()
+            assert observed == version
             r['binary_nmu'] = a.binary_nmu
+            r['binary_nmu_writer'] = 'python-debian Changelog; one binary-only stanza'
+            r['binary_nmu_changelog_sha256'] = sha(changelog)
         r['binary_version'] = version
         if a.package == 'glibc':
             # Debian generates its control from architecture-specific templates.

@@ -1,0 +1,96 @@
+{
+  "inventory": "native-coinstall-inventory.tsv",
+  "purpose": "Reviewed source-matched native binary versions for normal Multi-Arch:same coinstallation; not architecture or installed-state rewriting",
+  "sources": [
+    {
+      "source": "libmd",
+      "source_version": "1.1.0-2",
+      "binary_version": "1.1.0-2+b1",
+      "binary_nmu": 1
+    },
+    {
+      "source": "libcap-ng",
+      "source_version": "0.8.5-4",
+      "binary_version": "0.8.5-4+b1",
+      "binary_nmu": 1
+    },
+    {
+      "source": "libcap2",
+      "source_version": "1:2.75-10+deb13u1",
+      "binary_version": "1:2.75-10+deb13u1+b3",
+      "binary_nmu": 3
+    },
+    {
+      "source": "acl",
+      "source_version": "2.3.2-2",
+      "binary_version": "2.3.2-2+b1",
+      "binary_nmu": 1
+    },
+    {
+      "source": "zlib",
+      "source_version": "1:1.3.dfsg+really1.3.1-1",
+      "binary_version": "1:1.3.dfsg+really1.3.1-1+b1",
+      "binary_nmu": 1
+    },
+    {
+      "source": "libpciaccess",
+      "source_version": "0.17-3",
+      "binary_version": "0.17-3+b3",
+      "binary_nmu": 3
+    },
+    {
+      "source": "libxkbfile",
+      "source_version": "1:1.1.0-1",
+      "binary_version": "1:1.1.0-1+b4",
+      "binary_nmu": 4
+    },
+    {
+      "source": "libfontenc",
+      "source_version": "1:1.1.8-1",
+      "binary_version": "1:1.1.8-1+b2",
+      "binary_nmu": 2
+    },
+    {
+      "source": "libxcb",
+      "source_version": "1.17.0-2",
+      "binary_version": "1.17.0-2+b1",
+      "binary_nmu": 1
+    },
+    {
+      "source": "libxext",
+      "source_version": "2:1.3.4-1",
+      "binary_version": "2:1.3.4-1+b3",
+      "binary_nmu": 3
+    },
+    {
+      "source": "libxfixes",
+      "source_version": "1:6.0.0-2",
+      "binary_version": "1:6.0.0-2+b4",
+      "binary_nmu": 4
+    },
+    {
+      "source": "libxdamage",
+      "source_version": "1:1.1.6-1",
+      "binary_version": "1:1.1.6-1+b2",
+      "binary_nmu": 2
+    },
+    {
+      "source": "libxinerama",
+      "source_version": "2:1.1.4-3",
+      "binary_version": "2:1.1.4-3+b4",
+      "binary_nmu": 4
+    },
+    {
+      "source": "libxrandr",
+      "source_version": "2:1.5.4-1",
+      "binary_version": "2:1.5.4-1+b3",
+      "binary_nmu": 3
+    },
+    {
+      "source": "libxss",
+      "source_version": "1:1.2.3-1",
+      "binary_version": "1:1.2.3-1+b3",
+      "binary_nmu": 3
+    }
+  ]
+}

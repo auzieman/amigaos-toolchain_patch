@@ -1,0 +1,13 @@
+{
+  "purpose": "Install actual LZ4 runtime/development prerequisite for zstd",
+  "inputs": [
+    {
+      "receipt": "work/debian-lz4-508/receipt.json",
+      "receipt_sha256": "57d91393c2079e68ffe98bc3ed26294279e9dbebcdc0362a2902293aedeb2631",
+      "packages": [
+        "liblz4-1",
+        "liblz4-dev"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "scope": "Normal target builds with actual installed C/C++ runtime providers and development dependencies; reviewed binary rebuild counters; source-level native generator fix",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "gpm",
+      "iteration": "505"
+    },
+    {
+      "package": "libjpeg-turbo",
+      "iteration": "505"
+    },
+    {
+      "package": "xxhash",
+      "iteration": "505"
+    },
+    {
+      "package": "gmp",
+      "iteration": "505"
+    },
+    {
+      "package": "libpng1.6",
+      "iteration": "505"
+    },
+    {
+      "package": "libpciaccess",
+      "iteration": "505"
+    },
+    {
+      "package": "libfontenc",
+      "iteration": "505"
+    }
+  ]
+}

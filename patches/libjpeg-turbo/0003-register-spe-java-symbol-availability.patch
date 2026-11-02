@@ -1,0 +1,92 @@
+Register SPE alongside existing 32-bit PowerPC JNI availability metadata.
+The package's existing JAVA_ARCHS whitelist does not build JNI on powerpcspe;
+keep strict symbol checking and align its declared architecture exceptions.
+
+--- a/debian/control
++++ b/debian/control
+@@ -5,7 +5,7 @@
+ Uploaders: Mike Gabriel <sunweaver@debian.org>
+ Build-Depends: cmake,
+                debhelper-compat (= 13),
+-               default-jdk:native [!hppa !hurd-any !powerpc],
++               default-jdk:native [!hppa !hurd-any !powerpc !powerpcspe],
+                help2man,
+                javahelper,
+                nasm:native,
+--- a/debian/libturbojpeg0.symbols
++++ b/debian/libturbojpeg0.symbols
+@@ -1,42 +1,42 @@
+ libturbojpeg.so.0 libturbojpeg0 #MINVER#
+ * Build-Depends-Package: libturbojpeg0-dev
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_compressFromYUV___3_3B_3II_3III_3BII@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3BIIIIII_3BIII@TURBOJPEG_1.3 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3BIIII_3BIII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3IIIIIII_3BIII@TURBOJPEG_1.3 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3IIIII_3BIII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_destroy@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3BIIIIII_3_3B_3I_3III@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3BIIII_3BII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3IIIIIII_3_3B_3I_3III@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3IIIII_3BII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJCompressor_init@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decodeYUV___3_3B_3I_3II_3BIIIIIII@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decodeYUV___3_3B_3I_3II_3IIIIIIII@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressHeader@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressToYUV___3BI_3BI@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressToYUV___3BI_3_3B_3II_3III@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3BIIIII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3BIIIIIII@TURBOJPEG_1.3 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3IIIIII@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3IIIIIIII@TURBOJPEG_1.3 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_destroy@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJDecompressor_init@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJTransformer_init@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJTransformer_transform@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_bufSize@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_bufSizeYUV__III@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_bufSizeYUV__IIII@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_getScalingFactors@TURBOJPEG_1.2 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_planeHeight__III@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_planeSizeYUV__IIIII@TURBOJPEG_1.4 1:2.0.6
+- (arch=!hppa !hurd-any !powerpc)Java_org_libjpegturbo_turbojpeg_TJ_planeWidth__III@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_compressFromYUV___3_3B_3II_3III_3BII@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3BIIIIII_3BIII@TURBOJPEG_1.3 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3BIIII_3BIII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3IIIIIII_3BIII@TURBOJPEG_1.3 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_compress___3IIIII_3BIII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_destroy@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3BIIIIII_3_3B_3I_3III@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3BIIII_3BII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3IIIIIII_3_3B_3I_3III@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_encodeYUV___3IIIII_3BII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJCompressor_init@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decodeYUV___3_3B_3I_3II_3BIIIIIII@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decodeYUV___3_3B_3I_3II_3IIIIIIII@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressHeader@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressToYUV___3BI_3BI@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompressToYUV___3BI_3_3B_3II_3III@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3BIIIII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3BIIIIIII@TURBOJPEG_1.3 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3IIIIII@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_decompress___3BI_3IIIIIIII@TURBOJPEG_1.3 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_destroy@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJDecompressor_init@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJTransformer_init@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJTransformer_transform@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_bufSize@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_bufSizeYUV__III@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_bufSizeYUV__IIII@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_getScalingFactors@TURBOJPEG_1.2 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_planeHeight__III@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_planeSizeYUV__IIIII@TURBOJPEG_1.4 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)Java_org_libjpegturbo_turbojpeg_TJ_planeWidth__III@TURBOJPEG_1.4 1:2.0.6
+  TJBUFSIZE@TURBOJPEG_1.0 1.2.90
+  TJBUFSIZEYUV@TURBOJPEG_1.1 1.2.90
+  TURBOJPEG_1.0@TURBOJPEG_1.0 1.2.90
+  TURBOJPEG_1.1@TURBOJPEG_1.1 1.2.90
+  TURBOJPEG_1.2@TURBOJPEG_1.2 1.2.90
+- (arch=!hppa !hurd-any !powerpc)TURBOJPEG_1.3@TURBOJPEG_1.3 1:2.0.6
++ (arch=!hppa !hurd-any !powerpc !powerpcspe)TURBOJPEG_1.3@TURBOJPEG_1.3 1:2.0.6
+  TURBOJPEG_1.4@TURBOJPEG_1.4 1:1.4.0
+  TURBOJPEG_2.0@TURBOJPEG_2.0 1:2.0.2
+  tjAlloc@TURBOJPEG_1.2 1.2.90

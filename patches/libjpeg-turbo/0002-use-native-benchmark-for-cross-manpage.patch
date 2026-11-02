@@ -1,0 +1,32 @@
+Use the matching Debian native tjbench only for cross-build documentation.
+Keep normal native builds and manual-page installation; never execute the
+newly compiled SPE program on the build host.
+
+--- a/debian/control
++++ b/debian/control
+@@ -9,6 +9,7 @@
+                help2man,
+                javahelper,
+                nasm:native,
++               libjpeg-turbo-progs:native (= 1:2.1.5-4) <cross>,
+ Rules-Requires-Root: no
+ Standards-Version: 4.7.0
+ Homepage: https://www.libjpeg-turbo.org/
+--- a/debian/rules
++++ b/debian/rules
+@@ -97,8 +97,14 @@
+ # See debhelper:
+ DEFAULT_BUILD_DIRECTORY = obj-$(DEB_HOST_GNU_TYPE)
+ 
++ifeq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
++TJBENCH_BUILD_PATH = $(CURDIR)/$(DEFAULT_BUILD_DIRECTORY)
++else
++TJBENCH_BUILD_PATH = /usr/bin:/bin
++endif
++
+ debian/tjbench.1: debian/tjbench.1.in
+-	PATH=$(CURDIR)/$(DEFAULT_BUILD_DIRECTORY) \
++	PATH=$(TJBENCH_BUILD_PATH) \
+ 		/usr/bin/help2man --no-info --include=$< --output=$@ \
+ 		--name="benchmark the performance of libjpeg-turbo" \
+ 		--version-string=$(DEB_VERSION_UPSTREAM) `basename $@ .1`

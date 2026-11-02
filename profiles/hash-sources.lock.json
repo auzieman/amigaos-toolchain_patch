@@ -1,0 +1,30 @@
+{
+  "scope": "Declared libxxhash-dev dependency of LZ4; generic Linux target library",
+  "signature_verification": "apt authenticated Release/Sources checksums; separate DSC signer verification not performed",
+  "components": {
+    "xxhash": {
+      "version": "0.8.3-2",
+      "dsc": "xxhash_0.8.3-2.dsc",
+      "files": [
+        {
+          "filename": "xxhash_0.8.3-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/x/xxhash/xxhash_0.8.3-2.dsc",
+          "size": 1969,
+          "sha256": "9d1f7aaace7871fbdb8775d756c6eaca84e6ad5d8e9c6ac465b7e0adc06ff90c"
+        },
+        {
+          "filename": "xxhash_0.8.3.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xxhash/xxhash_0.8.3.orig.tar.gz",
+          "size": 1147630,
+          "sha256": "aae608dfe8213dfd05d909a57718ef82f30722c392344583d3f39050c7f29a80"
+        },
+        {
+          "filename": "xxhash_0.8.3-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/x/xxhash/xxhash_0.8.3-2.debian.tar.xz",
+          "size": 5144,
+          "sha256": "13824bfb2b2367225dfe3090d0ae050614f1c470a47db7232a2e9d4b2b14ad31"
+        }
+      ]
+    }
+  }
+}

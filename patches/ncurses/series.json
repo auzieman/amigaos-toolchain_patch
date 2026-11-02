@@ -1,0 +1,10 @@
+{
+  "version": "6.5+20250216-2",
+  "purpose": "Register the SPE GNU/Linux tuple in ncurses standard libc feature-test selection",
+  "patches": [
+    {
+      "path": "patches/ncurses/0001-recognize-linux-gnuspe-feature-tests.patch",
+      "sha256": "fcce19d312ae5a8d05094f1ee2ee6254c943c032db92dc6c0345e92122e2d6d9"
+    }
+  ]
+}

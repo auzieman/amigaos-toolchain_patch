@@ -1,0 +1,59 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+            environment-variable.
+
+Sending build context to Docker daemon  201.7kB
+Step 1/6 : ARG BUILD_INFRA_IMAGE
+Step 2/6 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 5c6567a7e1e6
+Step 3/6 : RUN rm -rf /opt/tabor-target-packages
+ ---> Using cache
+ ---> 07620f9cc082
+Step 4/6 : COPY packages/ /opt/tabor-target-packages/
+ ---> 235c48614ef9
+Step 5/6 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb     && test -r /usr/include/powerpc-linux-gnuspe/asm/errno.h     && grep -Fq 'OUTPUT_FORMAT(elf32-powerpc)' /usr/lib/powerpc-linux-gnuspe/libc.so     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in eb9caf25fef1
+libgpm-dev_1.20.7-11+b2_powerpcspe.deb: OK
+libgpm2_1.20.7-11+b2_powerpcspe.deb: OK
+libxxhash-dev_0.8.3-2_powerpcspe.deb: OK
+libxxhash0_0.8.3-2_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  gpm:powerpcspe
+The following NEW packages will be installed:
+  libgpm-dev:powerpcspe libgpm2:powerpcspe libxxhash-dev:powerpcspe
+  libxxhash0:powerpcspe
+0 upgraded, 4 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/191 kB of archives.
+After this operation, 688 kB of additional disk space will be used.
+Get:1 /opt/tabor-target-packages/libgpm2_1.20.7-11+b2_powerpcspe.deb libgpm2 powerpcspe 1.20.7-11+b2 [14.6 kB]
+Get:2 /opt/tabor-target-packages/libgpm-dev_1.20.7-11+b2_powerpcspe.deb libgpm-dev powerpcspe 1.20.7-11+b2 [16.7 kB]
+Get:3 /opt/tabor-target-packages/libxxhash0_0.8.3-2_powerpcspe.deb libxxhash0 powerpcspe 0.8.3-2 [49.8 kB]
+Get:4 /opt/tabor-target-packages/libxxhash-dev_0.8.3-2_powerpcspe.deb libxxhash-dev powerpcspe 0.8.3-2 [110 kB]
+Selecting previously unselected package libgpm2:powerpcspe.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 90021 files and directories currently installed.)
+Preparing to unpack .../libgpm2_1.20.7-11+b2_powerpcspe.deb ...
+Unpacking libgpm2:powerpcspe (1.20.7-11+b2) ...
+Selecting previously unselected package libgpm-dev:powerpcspe.
+Preparing to unpack .../libgpm-dev_1.20.7-11+b2_powerpcspe.deb ...
+Unpacking libgpm-dev:powerpcspe (1.20.7-11+b2) ...
+Selecting previously unselected package libxxhash0:powerpcspe.
+Preparing to unpack .../libxxhash0_0.8.3-2_powerpcspe.deb ...
+Unpacking libxxhash0:powerpcspe (0.8.3-2) ...
+Selecting previously unselected package libxxhash-dev:powerpcspe.
+Preparing to unpack .../libxxhash-dev_0.8.3-2_powerpcspe.deb ...
+Unpacking libxxhash-dev:powerpcspe (0.8.3-2) ...
+Setting up libgpm2:powerpcspe (1.20.7-11+b2) ...
+Setting up libgpm-dev:powerpcspe (1.20.7-11+b2) ...
+Setting up libxxhash0:powerpcspe (0.8.3-2) ...
+Setting up libxxhash-dev:powerpcspe (0.8.3-2) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...
+ ---> Removed intermediate container eb9caf25fef1
+ ---> dee53f636c91
+Step 6/6 : ENTRYPOINT ["python3"]
+ ---> Running in fe64c7d2a36c
+ ---> Removed intermediate container fe64c7d2a36c
+ ---> 44fc5e2510bc
+Successfully built 44fc5e2510bc

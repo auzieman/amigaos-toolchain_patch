@@ -28,6 +28,7 @@ for item in spec['inputs']:
  r=json.loads(rp.read_text())
  assert item['kind']=='debian-build'
  assert r['status']=='debian-packages-built-not-target-installed'
+ assert not r.get('build_root_only'), 'Build-root runtime providers are not final target archive artifacts'
  assert not (r.get('preserve_debian_version') and 'stage2' in r.get('build_profiles','').split(',')), 'Preserved-version stage2 libc is a build-root-only bootstrap input'
  packages={name:entry['sha256'] for name,entry in r['packages'].items() if name.endswith('.deb')}
  exclusions=set(item.get('exclude_packages',[]));found_exclusions=set()

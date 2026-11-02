@@ -1,0 +1,40 @@
+{
+  "purpose": "Normal source-built JPEG/PNG, PCI access and font encoding development packages; canonical runtime dependencies",
+  "inputs": [
+    {
+      "receipt": "work/debian-libjpeg-turbo-507/receipt.json",
+      "receipt_sha256": "6c9f45fbcc53ffb7c7d80681172b34a79ccb80f661a759708aabac31d957c2e6",
+      "packages": [
+        "libjpeg62-turbo",
+        "libjpeg62-turbo-dev",
+        "libjpeg-dev",
+        "libturbojpeg0",
+        "libturbojpeg0-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libpng1.6-506/receipt.json",
+      "receipt_sha256": "c77864b4208fc967679b00e822621ef88b096942e27586be54dfb0a81706c8fd",
+      "packages": [
+        "libpng16-16t64",
+        "libpng-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libpciaccess-507/receipt.json",
+      "receipt_sha256": "04b4259488ca01a5aedb9f6488b6f9f64412e9122d169cb84b43ee4156dc160a",
+      "packages": [
+        "libpciaccess0",
+        "libpciaccess-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libfontenc-507/receipt.json",
+      "receipt_sha256": "0128e863a5709d95773de21ac1857f9e747e662809ab336fba0963c0b360c499",
+      "packages": [
+        "libfontenc1",
+        "libfontenc-dev"
+      ]
+    }
+  ]
+}

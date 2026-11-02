@@ -1,0 +1,54 @@
+{
+  "scope": "Declared target dependencies for ncurses and zstd; Linux/SPE libraries, no vendor or AmigaOS runtime reuse",
+  "signature_verification": "apt authenticated Release/Sources checksums; separate DSC signer verification not performed",
+  "components": {
+    "gpm": {
+      "version": "1.20.7-11",
+      "dsc": "gpm_1.20.7-11.dsc",
+      "files": [
+        {
+          "filename": "gpm_1.20.7-11.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/g/gpm/gpm_1.20.7-11.dsc",
+          "size": 1995,
+          "sha256": "bf525d4e3aacaa375b29f2a1888c7d23c912e9133f6b0b016ea1a98cedb0ae71"
+        },
+        {
+          "filename": "gpm_1.20.7.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/g/gpm/gpm_1.20.7.orig.tar.gz",
+          "size": 855027,
+          "sha256": "c7e4661c24e05ae13547176b649bac8e3a0db2575f7dd57559f9e0b509f90f49"
+        },
+        {
+          "filename": "gpm_1.20.7-11.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/g/gpm/gpm_1.20.7-11.debian.tar.xz",
+          "size": 85096,
+          "sha256": "3624196c3c84a01bae2a245c81f7c28c37ca4693430637dc17ace329e826a807"
+        }
+      ]
+    },
+    "lz4": {
+      "version": "1.10.0-4",
+      "dsc": "lz4_1.10.0-4.dsc",
+      "files": [
+        {
+          "filename": "lz4_1.10.0-4.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/l/lz4/lz4_1.10.0-4.dsc",
+          "size": 1941,
+          "sha256": "394c635aa75a21cd5896680e48821c05336645072ae866b2717d53f36b9ba851"
+        },
+        {
+          "filename": "lz4_1.10.0.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/l/lz4/lz4_1.10.0.orig.tar.gz",
+          "size": 387114,
+          "sha256": "537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b"
+        },
+        {
+          "filename": "lz4_1.10.0-4.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/l/lz4/lz4_1.10.0-4.debian.tar.xz",
+          "size": 8080,
+          "sha256": "8d276c3254182c2c9cf319b9a6504cf257c56b441f37d3db8ad97d33d46a0911"
+        }
+      ]
+    }
+  }
+}

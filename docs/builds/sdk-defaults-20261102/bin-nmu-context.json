@@ -1,0 +1,50 @@
+{
+  "recipe_sha256": "c284f61f17772757fc1283ed5b1c1a2cca1fc93caeaf42bb5294066658579bb3",
+  "manifest_sha256": "20b1cfab465977254eefa281207caa39a9eeef7908f591bb78af7a7666c3432d",
+  "dockerfile_sha256": "0051d30f8966407f23628e8851974b9642fb2751e4deb93602598b2c3a357386",
+  "inputs": [
+    {
+      "package": "libmd-dev",
+      "file": "libmd-dev_1.1.0-2+b1_powerpcspe.deb",
+      "sha256": "3c3480a840d53f83497d210ac605be1fcf0967e1d050d46bdddcd0d3942c0e1f",
+      "receipt_sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libmd0",
+      "file": "libmd0_1.1.0-2+b1_powerpcspe.deb",
+      "sha256": "01b955578c909c5f342681fb38be68d9f0fa9adf3514ef86dc090d391f6b6306",
+      "receipt_sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libcap-ng-dev",
+      "file": "libcap-ng-dev_0.8.5-4+b1_powerpcspe.deb",
+      "sha256": "8fa1c4f6f69b66e4a005db61f135125813732f10859814ae2dd7f90d9e895f47",
+      "receipt_sha256": "b290ebfe967d7f4ea377e3049de3d505ed20807c435e22e7604dd018f507d2d9",
+      "build_profiles": "cross,nocheck,nopython"
+    },
+    {
+      "package": "libcap-ng0",
+      "file": "libcap-ng0_0.8.5-4+b1_powerpcspe.deb",
+      "sha256": "f592e9542b374f57c8362d19f6d2bf52040ab78cc30b4cac77258794767ecf97",
+      "receipt_sha256": "b290ebfe967d7f4ea377e3049de3d505ed20807c435e22e7604dd018f507d2d9",
+      "build_profiles": "cross,nocheck,nopython"
+    },
+    {
+      "package": "libacl1-dev",
+      "file": "libacl1-dev_2.3.2-2+b1_powerpcspe.deb",
+      "sha256": "4c27c127f70a64e1d5d5c8afb2ee530947f01a95d2a5dba51e2625b1a36d1fc0",
+      "receipt_sha256": "d163cbe667f311f0a1805172ea42a693a004c74c965036062d741eb109212782",
+      "build_profiles": "cross,nocheck"
+    },
+    {
+      "package": "libacl1",
+      "file": "libacl1_2.3.2-2+b1_powerpcspe.deb",
+      "sha256": "25d7dd1c126fed618f271df646b7be01f11e95e03f7afac63fe6830aa3565bc8",
+      "receipt_sha256": "d163cbe667f311f0a1805172ea42a693a004c74c965036062d741eb109212782",
+      "build_profiles": "cross,nocheck"
+    }
+  ],
+  "purpose": "isolated cross-build root; not a final target installation"
+}

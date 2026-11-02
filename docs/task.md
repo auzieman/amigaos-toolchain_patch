@@ -1133,3 +1133,40 @@ Debian. Retained evidence: builds/sdk-defaults-20261102. Native build-tool
 installation is running; reviewed +b1 binary rebuild support and a20-source
 core/X11 dependency wave are prepared but not yet accepted. Full target root,
 normal-feature libc, graphical/runtime and physical gates remain pending.
+
+2026-11-02 dependency-wave result:15/20 sources pass, xz fails independent-doc
+packaging,4 sources defer on actual Build-Depends. Normal target -B versus
+independent -A selection fixes xz without a source patch; fresh504 passes and
+its real development package installs. Reviewed binary-NMU versions allow normal
+ACL/libmd/libcap-ng coinstallation. Native generators stay native; libjpeg
+compiles but needs a help2man source-recipe correction (issue16). GPM/LZ4/xxHash
+sources are pinned with authenticated apt metadata and preserved licenses.
+
+Actual development-root installation exposes GCC8/host-GCC14 runtime identity
+collision. Real build-root-only runtime providers contain canonical target ELF
+bytes, truthful8.5 versions/Provides, normal shlibs and apt configuration. GMP
+and other library development packages now install with clean audit; native14
+remains present. Static packaged-byte and canonical dependency-generation checks
+pass; no target execution. Providers are barred from the final target archive.
+A queue accidentally submitted against an earlier root is retained separately;
+verified-root retries follow checked validation. See sdk-defaults-20261102.
+Full target configuration, normal-feature libc, ABI/runtime and graphics remain.
+
+2026-11-02 follow-up checkpoint:507 retries pass GPM/JPEG/PCI/font encoding;
+GMP506 and PNG506 also build in the real runtime-managed root. JPEG's ordered
+native-generator/help2man/SPE-symbol-registration patches preserve strict ABI
+symbol checks. GPM +b2 normal coinstallation passes after generating exactly one
+well-separated binary-only changelog stanza; source header bytes are preserved.
+Source outputs from15 selected latest builds pass static inspection:67 package
+artifacts,69 ELF files, all ELF32 big-endian PowerPC. JPEG/PNG/PCI/font target
+development packages install normally. Next serial queue builds ncurses/LZ4
+against actual installed GPM/xxHash. This is still a cross-build root; complete
+target setup, full-feature libc, runtime/graphics and bare-metal gates remain.
+
+Latest follow-up: LZ4-508 source compilation/packaging and normal development
+package installation pass. Ncurses508 exposes missing linux-gnuspe in its
+GNU/Linux feature-test case; wide C lacks wcwidth declaration. Version/hash-
+pinned source patch registers the tuple in existing GNU handling, preserving
+wide support and error checks. Fresh ncurses509 then zstd509 queue runs against
+the verified LZ4-managed root, constrained4CPU/6GiB. Issue18 retains that gate;
+new desktop target image remains unaccepted.

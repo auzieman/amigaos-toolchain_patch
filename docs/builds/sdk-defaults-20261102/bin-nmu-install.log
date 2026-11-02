@@ -1,0 +1,71 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+            environment-variable.
+
+Sending build context to Docker daemon  273.9kB
+Step 1/6 : ARG BUILD_INFRA_IMAGE
+Step 2/6 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 205a448b5ae7
+Step 3/6 : RUN rm -rf /opt/tabor-target-packages
+ ---> Running in e12d9bb451fb
+ ---> Removed intermediate container e12d9bb451fb
+ ---> b380eee90a03
+Step 4/6 : COPY packages/ /opt/tabor-target-packages/
+ ---> 02c6f1b53f4e
+Step 5/6 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb     && test -r /usr/include/powerpc-linux-gnuspe/asm/errno.h     && grep -Fq 'OUTPUT_FORMAT(elf32-powerpc)' /usr/lib/powerpc-linux-gnuspe/libc.so     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in 673d159681c7
+libmd-dev_1.1.0-2+b1_powerpcspe.deb: OK
+libmd0_1.1.0-2+b1_powerpcspe.deb: OK
+libcap-ng-dev_0.8.5-4+b1_powerpcspe.deb: OK
+libcap-ng0_0.8.5-4+b1_powerpcspe.deb: OK
+libacl1-dev_2.3.2-2+b1_powerpcspe.deb: OK
+libacl1_2.3.2-2+b1_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following NEW packages will be installed:
+  libacl1:powerpcspe libacl1-dev:powerpcspe libcap-ng-dev:powerpcspe
+  libcap-ng0:powerpcspe libmd-dev:powerpcspe libmd0:powerpcspe
+0 upgraded, 6 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/261 kB of archives.
+After this operation, 882 kB of additional disk space will be used.
+Get:1 /opt/tabor-target-packages/libacl1_2.3.2-2+b1_powerpcspe.deb libacl1 powerpcspe 2.3.2-2+b1 [31.1 kB]
+Get:2 /opt/tabor-target-packages/libacl1-dev_2.3.2-2+b1_powerpcspe.deb libacl1-dev powerpcspe 2.3.2-2+b1 [92.1 kB]
+Get:3 /opt/tabor-target-packages/libcap-ng0_0.8.5-4+b1_powerpcspe.deb libcap-ng0 powerpcspe 0.8.5-4+b1 [16.6 kB]
+Get:4 /opt/tabor-target-packages/libcap-ng-dev_0.8.5-4+b1_powerpcspe.deb libcap-ng-dev powerpcspe 0.8.5-4+b1 [34.5 kB]
+Get:5 /opt/tabor-target-packages/libmd0_1.1.0-2+b1_powerpcspe.deb libmd0 powerpcspe 1.1.0-2+b1 [33.4 kB]
+Get:6 /opt/tabor-target-packages/libmd-dev_1.1.0-2+b1_powerpcspe.deb libmd-dev powerpcspe 1.1.0-2+b1 [53.1 kB]
+Selecting previously unselected package libacl1:powerpcspe.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 89627 files and directories currently installed.)
+Preparing to unpack .../0-libacl1_2.3.2-2+b1_powerpcspe.deb ...
+Unpacking libacl1:powerpcspe (2.3.2-2+b1) ...
+Selecting previously unselected package libacl1-dev:powerpcspe.
+Preparing to unpack .../1-libacl1-dev_2.3.2-2+b1_powerpcspe.deb ...
+Unpacking libacl1-dev:powerpcspe (2.3.2-2+b1) ...
+Selecting previously unselected package libcap-ng0:powerpcspe.
+Preparing to unpack .../2-libcap-ng0_0.8.5-4+b1_powerpcspe.deb ...
+Unpacking libcap-ng0:powerpcspe (0.8.5-4+b1) ...
+Selecting previously unselected package libcap-ng-dev:powerpcspe.
+Preparing to unpack .../3-libcap-ng-dev_0.8.5-4+b1_powerpcspe.deb ...
+Unpacking libcap-ng-dev:powerpcspe (0.8.5-4+b1) ...
+Selecting previously unselected package libmd0:powerpcspe.
+Preparing to unpack .../4-libmd0_1.1.0-2+b1_powerpcspe.deb ...
+Unpacking libmd0:powerpcspe (1.1.0-2+b1) ...
+Selecting previously unselected package libmd-dev:powerpcspe.
+Preparing to unpack .../5-libmd-dev_1.1.0-2+b1_powerpcspe.deb ...
+Unpacking libmd-dev:powerpcspe (1.1.0-2+b1) ...
+Setting up libacl1:powerpcspe (2.3.2-2+b1) ...
+Setting up libcap-ng0:powerpcspe (0.8.5-4+b1) ...
+Setting up libmd0:powerpcspe (1.1.0-2+b1) ...
+Setting up libcap-ng-dev:powerpcspe (0.8.5-4+b1) ...
+Setting up libmd-dev:powerpcspe (1.1.0-2+b1) ...
+Setting up libacl1-dev:powerpcspe (2.3.2-2+b1) ...
+Processing triggers for man-db (2.13.1-1) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...
+ ---> Removed intermediate container 673d159681c7
+ ---> 8479523143c6
+Step 6/6 : ENTRYPOINT ["python3"]
+ ---> Running in 82b4098b1919
+ ---> Removed intermediate container 82b4098b1919
+ ---> 04aa2571e300
+Successfully built 04aa2571e300

@@ -1,0 +1,29 @@
+{
+  "purpose": "Normal coinstallation of reviewed SPE binary-NMU runtime/development packages beside native tools",
+  "inputs": [
+    {
+      "receipt": "work/debian-libmd-503/receipt.json",
+      "receipt_sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "packages": [
+        "libmd0",
+        "libmd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libcap-ng-503/receipt.json",
+      "receipt_sha256": "b290ebfe967d7f4ea377e3049de3d505ed20807c435e22e7604dd018f507d2d9",
+      "packages": [
+        "libcap-ng0",
+        "libcap-ng-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-acl-503/receipt.json",
+      "receipt_sha256": "d163cbe667f311f0a1805172ea42a693a004c74c965036062d741eb109212782",
+      "packages": [
+        "libacl1",
+        "libacl1-dev"
+      ]
+    }
+  ]
+}

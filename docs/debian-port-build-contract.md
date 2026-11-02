@@ -15,7 +15,10 @@ compiler and libc bootstrap stages can also contain genuine cycles.
 Use Debian apt/build tooling to resolve dependencies in clean build roots;
 use dpkg-checkbuilddeps and normal dpkg-buildpackage/debian/rules to enforce
 readiness. The current JSON package list is an intake/recipe allowlist, not a
-dependency solver or authoritative build order. Do not build a replacement
+dependency solver or authoritative build order. Compiled target jobs use
+Debian autobuilder-style dpkg-buildpackage -B; separately reviewed independent
+scripting/data jobs use -A with native tools. Do not combine optional independent
+documentation production into every cross-architecture binary build. Do not build a replacement
 resolver from directory contents, smoke results or a manually sorted list.
 A file in a sysroot does not satisfy a build dependency's installed-package state.
 

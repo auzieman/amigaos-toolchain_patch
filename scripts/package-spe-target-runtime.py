@@ -11,7 +11,10 @@ p = argparse.ArgumentParser(description=__doc__)
 for n in ['project', 'tools', 'cache', 'compiler-receipt', 'sysroot', 'output']:
     p.add_argument('--' + n, type=Path, required=True)
 p.add_argument('--image-id', required=True)
+p.add_argument('--build-root-providers', action='store_true', help='Real runtime payloads under coinstallable build-root identities; never target-archive artifacts')
 a = p.parse_args(); a.output.mkdir(exist_ok=False)
+packages = {name: ('tabor-spe-' + name if a.build_root_providers else name)
+            for name in ['libgcc-s1', 'libstdc++6']}
 sha = lambda f: hashlib.sha256(f.read_bytes()).hexdigest()
 spec = json.loads((a.project / 'profiles/toolchain-bootstrap.json').read_text())
 original = json.loads(a.compiler_receipt.read_text())
@@ -34,6 +37,20 @@ for f in sorted(a.tools.rglob('*')):
 assert h.hexdigest() == original['installed_tree_sha256'], 'Recorded compiler/runtime tree changed'
 source = a.output / 'source'; source.mkdir()
 shutil.copytree(a.project / 'packaging/gcc-runtime/debian', source / 'debian')
+if a.build_root_providers:
+    control = source/'debian/control'
+    text = control.read_text()
+    for canonical, provider in packages.items():
+        text = text.replace('Package: '+canonical+'\n',
+            'Package: '+provider+'\nProvides: '+canonical+' (= ${binary:Version})\n')
+        for f in list((source/'debian').glob(canonical+'.*')):
+            f.rename(f.with_name(provider+f.name[len(canonical):]))
+    control.write_text(text)
+    rules = source/'debian/rules'
+    text = rules.read_text().replace('\tdh_makeshlibs -V\n',
+        ''.join('\tdh_makeshlibs -p'+provider+" -V'"+canonical+" (>= 8.5.0+tabor1)'\n"
+                for canonical, provider in packages.items()))
+    rules.write_text(text)
 (source / 'debian/rules').chmod(0o755)
 runtime = source / 'runtime'; runtime.mkdir()
 inputs = {}
@@ -64,9 +81,10 @@ for item in original.get('patches', []):
     dest = licenses / 'patches' / Path(item['path']).name
     dest.parent.mkdir(exist_ok=True); shutil.copyfile(a.project / item['path'], dest)
 (source / 'debian/copyright').write_text('GCC 8.5 runtime libraries, Free Software Foundation copyright holders.\nGPL-3.0-or-later with GCC Runtime Library Exception 3.1; upstream notices preserved in attached license files.\nSource: ' + spec['gcc']['url'] + '\n')
-for name in ['libgcc-s1', 'libstdc++6']:
+for name in packages.values():
     (source / ('debian/' + name + '.docs')).write_text('licenses/*\n')
 r = {'status': 'running', 'package': 'tabor-gcc-runtime', 'image_id': a.image_id,
+     'build_root_only': a.build_root_providers, 'runtime_package_names': packages,
      'source_version': '8.5.0', 'binary_version': version, 'recipe_sha256': sha(Path(__file__)),
      'compiler_receipt_sha256': sha(a.compiler_receipt), 'source_sha512': spec['gcc']['sha512'],
      'input_libraries': inputs, 'build_phase': 'assembly-of-existing-recorded-target-compilation',
@@ -82,8 +100,8 @@ try:
         arch = subprocess.check_output(['dpkg-deb', '-f', str(f), 'Architecture'], text=True).strip()
         assert arch == 'powerpcspe'
         r['packages'][f.name] = {'sha256': sha(f), 'bytes': f.stat().st_size, 'architecture': arch}
-    assert any(n.startswith('libgcc-s1_') for n in r['packages'])
-    assert any(n.startswith('libstdc++6_') for n in r['packages'])
+    for name in packages.values():
+        assert any(n.startswith(name+'_') for n in r['packages'])
     r['status'] = 'debian-packages-built-not-target-installed'
 except Exception as e:
     r.update(status='failed', error=str(e)); raise

@@ -1,0 +1,108 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            BuildKit is currently disabled; enable it by removing the DOCKER_BUILDKIT=0
+            environment-variable.
+
+Sending build context to Docker daemon  1.583MB
+Step 1/6 : ARG BUILD_INFRA_IMAGE
+Step 2/6 : FROM ${BUILD_INFRA_IMAGE}
+ ---> 44fc5e2510bc
+Step 3/6 : RUN rm -rf /opt/tabor-target-packages
+ ---> Running in 0ed83a8fd808
+ ---> Removed intermediate container 0ed83a8fd808
+ ---> 69a7bb31b31f
+Step 4/6 : COPY packages/ /opt/tabor-target-packages/
+ ---> 599f25b83097
+Step 5/6 : RUN cd /opt/tabor-target-packages && sha256sum -c SHA256SUMS     && dpkg --add-architecture powerpcspe     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends /opt/tabor-target-packages/*.deb     && test -r /usr/include/powerpc-linux-gnuspe/asm/errno.h     && grep -Fq 'OUTPUT_FORMAT(elf32-powerpc)' /usr/lib/powerpc-linux-gnuspe/libc.so     && test -z "$(dpkg --audit)"     && dpkg-query -W > /opt/tabor-target-development-installed.txt
+ ---> Running in 63012b2f1e56
+libjpeg-dev_2.1.5-4_powerpcspe.deb: OK
+libjpeg62-turbo-dev_2.1.5-4_powerpcspe.deb: OK
+libjpeg62-turbo_2.1.5-4_powerpcspe.deb: OK
+libturbojpeg0-dev_2.1.5-4_powerpcspe.deb: OK
+libturbojpeg0_2.1.5-4_powerpcspe.deb: OK
+libpng-dev_1.6.48-1+deb13u6_powerpcspe.deb: OK
+libpng16-16t64_1.6.48-1+deb13u6_powerpcspe.deb: OK
+libpciaccess-dev_0.17-3+b3_powerpcspe.deb: OK
+libpciaccess0_0.17-3+b3_powerpcspe.deb: OK
+libfontenc-dev_1.1.8-1+b2_powerpcspe.deb: OK
+libfontenc1_1.1.8-1+b2_powerpcspe.deb: OK
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Suggested packages:
+  pciutils:powerpcspe
+Recommended packages:
+  libpng-tools:powerpcspe
+The following NEW packages will be installed:
+  libfontenc-dev:powerpcspe libfontenc1:powerpcspe libjpeg-dev:powerpcspe
+  libjpeg62-turbo:powerpcspe libjpeg62-turbo-dev:powerpcspe
+  libpciaccess-dev:powerpcspe libpciaccess0:powerpcspe libpng-dev:powerpcspe
+  libpng16-16t64:powerpcspe libturbojpeg0:powerpcspe
+  libturbojpeg0-dev:powerpcspe
+0 upgraded, 11 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/1564 kB of archives.
+After this operation, 4460 kB of additional disk space will be used.
+Get:1 /opt/tabor-target-packages/libfontenc1_1.1.8-1+b2_powerpcspe.deb libfontenc1 powerpcspe 1:1.1.8-1+b2 [21.6 kB]
+Get:2 /opt/tabor-target-packages/libfontenc-dev_1.1.8-1+b2_powerpcspe.deb libfontenc-dev powerpcspe 1:1.1.8-1+b2 [23.4 kB]
+Get:3 /opt/tabor-target-packages/libjpeg62-turbo_2.1.5-4_powerpcspe.deb libjpeg62-turbo powerpcspe 1:2.1.5-4 [133 kB]
+Get:4 /opt/tabor-target-packages/libjpeg62-turbo-dev_2.1.5-4_powerpcspe.deb libjpeg62-turbo-dev powerpcspe 1:2.1.5-4 [247 kB]
+Get:5 /opt/tabor-target-packages/libjpeg-dev_2.1.5-4_powerpcspe.deb libjpeg-dev powerpcspe 1:2.1.5-4 [72.2 kB]
+Get:6 /opt/tabor-target-packages/libpciaccess0_0.17-3+b3_powerpcspe.deb libpciaccess0 powerpcspe 0.17-3+b3 [50.1 kB]
+Get:7 /opt/tabor-target-packages/libpciaccess-dev_0.17-3+b3_powerpcspe.deb libpciaccess-dev powerpcspe 0.17-3+b3 [53.6 kB]
+Get:8 /opt/tabor-target-packages/libpng16-16t64_1.6.48-1+deb13u6_powerpcspe.deb libpng16-16t64 powerpcspe 1.6.48-1+deb13u6 [268 kB]
+Get:9 /opt/tabor-target-packages/libpng-dev_1.6.48-1+deb13u6_powerpcspe.deb libpng-dev powerpcspe 1.6.48-1+deb13u6 [349 kB]
+Get:10 /opt/tabor-target-packages/libturbojpeg0_2.1.5-4_powerpcspe.deb libturbojpeg0 powerpcspe 1:2.1.5-4 [160 kB]
+Get:11 /opt/tabor-target-packages/libturbojpeg0-dev_2.1.5-4_powerpcspe.deb libturbojpeg0-dev powerpcspe 1:2.1.5-4 [186 kB]
+Selecting previously unselected package libfontenc1:powerpcspe.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 90043 files and directories currently installed.)
+Preparing to unpack .../00-libfontenc1_1.1.8-1+b2_powerpcspe.deb ...
+Unpacking libfontenc1:powerpcspe (1:1.1.8-1+b2) ...
+Selecting previously unselected package libfontenc-dev:powerpcspe.
+Preparing to unpack .../01-libfontenc-dev_1.1.8-1+b2_powerpcspe.deb ...
+Unpacking libfontenc-dev:powerpcspe (1:1.1.8-1+b2) ...
+Selecting previously unselected package libjpeg62-turbo:powerpcspe.
+Preparing to unpack .../02-libjpeg62-turbo_2.1.5-4_powerpcspe.deb ...
+Unpacking libjpeg62-turbo:powerpcspe (1:2.1.5-4) ...
+Selecting previously unselected package libjpeg62-turbo-dev:powerpcspe.
+Preparing to unpack .../03-libjpeg62-turbo-dev_2.1.5-4_powerpcspe.deb ...
+Unpacking libjpeg62-turbo-dev:powerpcspe (1:2.1.5-4) ...
+Selecting previously unselected package libjpeg-dev:powerpcspe.
+Preparing to unpack .../04-libjpeg-dev_2.1.5-4_powerpcspe.deb ...
+Unpacking libjpeg-dev:powerpcspe (1:2.1.5-4) ...
+Selecting previously unselected package libpciaccess0:powerpcspe.
+Preparing to unpack .../05-libpciaccess0_0.17-3+b3_powerpcspe.deb ...
+Unpacking libpciaccess0:powerpcspe (0.17-3+b3) ...
+Selecting previously unselected package libpciaccess-dev:powerpcspe.
+Preparing to unpack .../06-libpciaccess-dev_0.17-3+b3_powerpcspe.deb ...
+Unpacking libpciaccess-dev:powerpcspe (0.17-3+b3) ...
+Selecting previously unselected package libpng16-16t64:powerpcspe.
+Preparing to unpack .../07-libpng16-16t64_1.6.48-1+deb13u6_powerpcspe.deb ...
+Unpacking libpng16-16t64:powerpcspe (1.6.48-1+deb13u6) ...
+Selecting previously unselected package libpng-dev:powerpcspe.
+Preparing to unpack .../08-libpng-dev_1.6.48-1+deb13u6_powerpcspe.deb ...
+Unpacking libpng-dev:powerpcspe (1.6.48-1+deb13u6) ...
+Selecting previously unselected package libturbojpeg0:powerpcspe.
+Preparing to unpack .../09-libturbojpeg0_2.1.5-4_powerpcspe.deb ...
+Unpacking libturbojpeg0:powerpcspe (1:2.1.5-4) ...
+Selecting previously unselected package libturbojpeg0-dev:powerpcspe.
+Preparing to unpack .../10-libturbojpeg0-dev_2.1.5-4_powerpcspe.deb ...
+Unpacking libturbojpeg0-dev:powerpcspe (1:2.1.5-4) ...
+Setting up libpciaccess0:powerpcspe (0.17-3+b3) ...
+Setting up libpciaccess-dev:powerpcspe (0.17-3+b3) ...
+Setting up libturbojpeg0:powerpcspe (1:2.1.5-4) ...
+Setting up libturbojpeg0-dev:powerpcspe (1:2.1.5-4) ...
+Setting up libfontenc1:powerpcspe (1:1.1.8-1+b2) ...
+Setting up libjpeg62-turbo:powerpcspe (1:2.1.5-4) ...
+Setting up libjpeg62-turbo-dev:powerpcspe (1:2.1.5-4) ...
+Setting up libpng16-16t64:powerpcspe (1.6.48-1+deb13u6) ...
+Setting up libpng-dev:powerpcspe (1.6.48-1+deb13u6) ...
+Setting up libjpeg-dev:powerpcspe (1:2.1.5-4) ...
+Setting up libfontenc-dev:powerpcspe (1:1.1.8-1+b2) ...
+Processing triggers for libc-bin (2.41-12+deb13u4) ...
+Processing triggers for man-db (2.13.1-1) ...
+ ---> Removed intermediate container 63012b2f1e56
+ ---> 6786b09131b8
+Step 6/6 : ENTRYPOINT ["python3"]
+ ---> Running in 13fff5a885da
+ ---> Removed intermediate container 13fff5a885da
+ ---> ab1a50156ead
+Successfully built ab1a50156ead
