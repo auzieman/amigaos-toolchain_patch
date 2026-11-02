@@ -1,0 +1,6 @@
+EVAS_RECT quadrant=0 expected=ff0000 got=ff0000 PASS
+EVAS_RECT quadrant=1 expected=00ff00 got=00ff00 PASS
+EVAS_RECT quadrant=2 expected=0000ff got=0000ff PASS
+EVAS_RECT quadrant=3 expected=ffffff got=ffffff PASS
+ERR<496>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(23, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+Xlib:  extension "DPMS" missing on display ":2".

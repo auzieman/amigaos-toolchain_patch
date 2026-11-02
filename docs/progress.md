@@ -555,3 +555,8 @@ working display1 recording stays live. Missing diagnostic dbus-send also noted;
 no package state fabricated. Keep rendering #8 open. Board tabor-live002 kernel
 compiled successfully; base-files001 genuine Debian SPE package built normally.
 Neither is hardware/installed-root acceptance. Evidence: builds/e-molten-safe-20261101.
+
+2026-11-01 session-base audit: diagnostic guest lacks /dev/shm and /run/user;
+PID1 is a shell, despite mounted proc/sys/dev/devpts. E logs show animator
+delays/DPMS warnings, not a decisive render failure. Retain incomplete Debian
+session setup as an open cause; see builds/e-molten-safe-20261101/session-base-audit.md.

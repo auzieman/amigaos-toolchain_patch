@@ -1005,3 +1005,8 @@ optional-module/locale/software/SHM configuration alone did not fix it.
 Physical tabor-live002 compiled and base-files001 packaged; hardware boot and
 normal Debian Essential root configuration still pending. User clip/still
 located and sampled; original media remains local and was not published.
+
+2026-11-01 session-base audit: diagnostic guest lacks /dev/shm and /run/user;
+PID1 is a shell, despite mounted proc/sys/dev/devpts. E logs show animator
+delays/DPMS warnings, not a decisive render failure. Retain incomplete Debian
+session setup as an open cause; see builds/e-molten-safe-20261101/session-base-audit.md.
