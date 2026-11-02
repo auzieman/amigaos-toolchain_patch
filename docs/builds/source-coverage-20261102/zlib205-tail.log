@@ -1,0 +1,176 @@
+REENTRANT -O3 -Wl,-z -Wl,relro --sysroot=/sysroot -o .libs/miniunzip miniunz.o  -L./../.. ./.libs/libminizip.so -lz -Wl,-rpath -Wl,/usr/lib/powerpc-linux-gnuspe
+make[1]: Leaving directory '/work/debian-zlib-205/source/contrib/minizip'
+touch build-stamp
+dh_testdir
+dh_testroot
+dh_prep
+dh_installdirs
+dh_installdirs: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+/usr/bin/make prefix=/work/debian-zlib-205/source/debian/tmp/usr install
+make[1]: Entering directory '/work/debian-zlib-205/source'
+rm -f /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libz.a
+cp libz.a /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe
+chmod 644 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libz.a
+cp libz.so.1.3.1 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe
+chmod 755 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libz.so.1.3.1
+rm -f /work/debian-zlib-205/source/debian/tmp/usr/share/man/man3/zlib.3
+cp zlib.3 /work/debian-zlib-205/source/debian/tmp/usr/share/man/man3
+chmod 644 /work/debian-zlib-205/source/debian/tmp/usr/share/man/man3/zlib.3
+rm -f /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/pkgconfig/zlib.pc
+cp zlib.pc /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/pkgconfig
+chmod 644 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/pkgconfig/zlib.pc
+rm -f /work/debian-zlib-205/source/debian/tmp/usr/include/zlib.h /work/debian-zlib-205/source/debian/tmp/usr/include/zconf.h
+cp zlib.h zconf.h /work/debian-zlib-205/source/debian/tmp/usr/include
+chmod 644 /work/debian-zlib-205/source/debian/tmp/usr/include/zlib.h /work/debian-zlib-205/source/debian/tmp/usr/include/zconf.h
+make[1]: Leaving directory '/work/debian-zlib-205/source'
+/usr/bin/make -C contrib/minizip prefix=/work/debian-zlib-205/source/debian/tmp/usr install
+make[1]: Entering directory '/work/debian-zlib-205/source/contrib/minizip'
+make[2]: Entering directory '/work/debian-zlib-205/source/contrib/minizip'
+ /usr/bin/mkdir -p '/work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe'
+ /bin/bash ./libtool   --mode=install /usr/bin/install -c   libminizip.la '/work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe'
+libtool: install: /usr/bin/install -c .libs/libminizip.so.1.0.0 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libminizip.so.1.0.0
+libtool: install: (cd /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe && { ln -s -f libminizip.so.1.0.0 libminizip.so.1 || { rm -f libminizip.so.1 && ln -s libminizip.so.1.0.0 libminizip.so.1; }; })
+libtool: install: (cd /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe && { ln -s -f libminizip.so.1.0.0 libminizip.so || { rm -f libminizip.so && ln -s libminizip.so.1.0.0 libminizip.so; }; })
+libtool: install: /usr/bin/install -c .libs/libminizip.lai /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libminizip.la
+libtool: install: /usr/bin/install -c .libs/libminizip.a /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libminizip.a
+libtool: install: chmod 644 /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libminizip.a
+libtool: install: powerpc-linux-gnuspe-ranlib /work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/libminizip.a
+libtool: warning: remember to run 'libtool --finish /usr/lib/powerpc-linux-gnuspe'
+ /usr/bin/mkdir -p '/work/debian-zlib-205/source/debian/tmp/usr/include/minizip'
+ /usr/bin/install -c -m 644 crypt.h ioapi.h mztools.h unzip.h zip.h '/work/debian-zlib-205/source/debian/tmp/usr/include/minizip'
+ /usr/bin/mkdir -p '/work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/pkgconfig'
+ /usr/bin/install -c -m 644 minizip.pc '/work/debian-zlib-205/source/debian/tmp/usr/lib/powerpc-linux-gnuspe/pkgconfig'
+make[2]: Leaving directory '/work/debian-zlib-205/source/contrib/minizip'
+make[1]: Leaving directory '/work/debian-zlib-205/source/contrib/minizip'
+find contrib/minizip
+contrib/minizip
+contrib/minizip/crypt.h
+contrib/minizip/libminizip.la
+contrib/minizip/compile
+contrib/minizip/minizip.pc
+contrib/minizip/config.status
+contrib/minizip/MiniZip64_info.txt
+contrib/minizip/configure.ac
+contrib/minizip/miniunz.o
+contrib/minizip/minizip.c
+contrib/minizip/unzip.lo
+contrib/minizip/minizip.pc.in
+contrib/minizip/ltmain.sh
+contrib/minizip/.deps
+contrib/minizip/.deps/zip.Plo
+contrib/minizip/.deps/mztools.Plo
+contrib/minizip/.deps/unzip.Plo
+contrib/minizip/.deps/minizip.Po
+contrib/minizip/.deps/miniunz.Po
+contrib/minizip/.deps/ioapi.Plo
+contrib/minizip/.deps/iowin32.Plo
+contrib/minizip/mztools.lo
+contrib/minizip/zip.o
+contrib/minizip/configure
+contrib/minizip/aclocal.m4
+contrib/minizip/unzip.c
+contrib/minizip/minizip.1
+contrib/minizip/config.log
+contrib/minizip/ioapi.lo
+contrib/minizip/mztools.h
+contrib/minizip/missing
+contrib/minizip/Makefile
+contrib/minizip/zip.c
+contrib/minizip/ioapi.o
+contrib/minizip/MiniZip64_Changes.txt
+contrib/minizip/mztools.c
+contrib/minizip/unzip.o
+contrib/minizip/install-sh
+contrib/minizip/.libs
+contrib/minizip/.libs/libminizip.la
+contrib/minizip/.libs/libminizip.so.1
+contrib/minizip/.libs/zip.o
+contrib/minizip/.libs/libminizip.so
+contrib/minizip/.libs/libminizip.so.1.0.0
+contrib/minizip/.libs/ioapi.o
+contrib/minizip/.libs/unzip.o
+contrib/minizip/.libs/miniunzip
+contrib/minizip/.libs/mztools.o
+contrib/minizip/.libs/minizip
+contrib/minizip/.libs/libminizip.a
+contrib/minizip/.libs/libminizip.lai
+contrib/minizip/miniunzip
+contrib/minizip/ioapi.h
+contrib/minizip/libtool
+contrib/minizip/autom4te.cache
+contrib/minizip/autom4te.cache/traces.2
+contrib/minizip/autom4te.cache/traces.0
+contrib/minizip/autom4te.cache/requests
+contrib/minizip/autom4te.cache/output.1
+contrib/minizip/autom4te.cache/traces.1
+contrib/minizip/autom4te.cache/output.2
+contrib/minizip/autom4te.cache/output.0
+contrib/minizip/config.sub
+contrib/minizip/depcomp
+contrib/minizip/mztools.o
+contrib/minizip/ioapi.c
+contrib/minizip/Makefile.am
+contrib/minizip/minizip
+contrib/minizip/iowin32.h
+contrib/minizip/miniunz.c
+contrib/minizip/unzip.h
+contrib/minizip/minizip.o
+contrib/minizip/config.guess
+contrib/minizip/Makefile.in
+contrib/minizip/miniunzip.1
+contrib/minizip/zip.h
+contrib/minizip/zip.lo
+contrib/minizip/make_vms.com
+contrib/minizip/iowin32.c
+dh_testdir
+dh_testroot
+mkdir -p debian/tmp/usr/bin
+cp contrib/minizip/.libs/minizip debian/tmp/usr/bin
+cp contrib/minizip/.libs/miniunzip debian/tmp/usr/bin
+dh_installchangelogs -a ChangeLog
+dh_installdocs -a
+dh_installdocs: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_installexamples -a
+dh_installexamples: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_install -a --sourcedir=debian/tmp
+dh_installman -a
+dh_installman: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_lintian -a
+dh_lintian: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_link -a
+dh_link: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_strip -a --dbgsym-migration="zlib1g-dbg (<< 1:1.2.11.dfsg-2~)"
+dh_strip: warning: Could not find the BuildID in debian/zlib1g/usr/lib/powerpc-linux-gnuspe/libz.so.1.3.1
+dh_strip: warning: Could not find the BuildID in debian/libminizip1t64/usr/lib/powerpc-linux-gnuspe/libminizip.so.1.0.0
+dh_strip: warning: Could not find the BuildID in debian/minizip/usr/bin/miniunzip
+dh_strip: warning: Could not find the BuildID in debian/minizip/usr/bin/minizip
+dh_compress -a
+dh_compress: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_compress: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_compress: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_fixperms -a
+dh_makeshlibs -plibminizip1t64 -V"libminizip1t64 (>> 1:1.2.13.dfsg-1)"
+dh_makeshlibs -pzlib1g -V"zlib1g (>= 1:1.2.3.3.dfsg-1)" --add-udeb=zlib1g-udeb
+dh_installdeb -a
+dh_installdeb: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_shlibdeps -a
+dh_shlibdeps: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_shlibdeps: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_shlibdeps: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dh_gencontrol -a
+dh_gencontrol: warning: Use of debian/compat is deprecated and will be removed in debhelper (>= 14~).
+dpkg-gencontrol: warning: package zlib1g-udeb: substitution variable ${shlibs:Depends} unused, but is defined
+dh_md5sums -a
+dh_builddeb -a
+dpkg-deb: building package 'zlib1g' in '../zlib1g_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libminizip1t64' in '../libminizip1t64_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'zlib1g-udeb' in 'debian/.debhelper/scratch-space/build-zlib1g-udeb/zlib1g-udeb_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'libminizip-dev' in '../libminizip-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+	Renaming zlib1g-udeb_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb to zlib1g-udeb_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.udeb
+dpkg-deb: building package 'zlib1g-dev' in '../zlib1g-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+dpkg-deb: building package 'minizip' in '../minizip_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb'.
+ dpkg-genbuildinfo --build=binary -O../zlib_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.buildinfo
+ dpkg-genchanges --build=binary -O../zlib_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.changes
+dpkg-genchanges: info: binary-only upload (no source code included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

@@ -1,0 +1,299 @@
+{
+  "scope": "Broad dependency readiness audit of all verified cached sources without existing archive build receipts; not builds or complete VM132 closure",
+  "preflight_only": true,
+  "timeout_seconds": 1800,
+  "attempts": [
+    {
+      "package": "acl",
+      "iteration": "201"
+    },
+    {
+      "package": "audit",
+      "iteration": "201"
+    },
+    {
+      "package": "base-passwd",
+      "iteration": "201"
+    },
+    {
+      "package": "bash",
+      "iteration": "201"
+    },
+    {
+      "package": "coreutils",
+      "iteration": "201"
+    },
+    {
+      "package": "curl",
+      "iteration": "201"
+    },
+    {
+      "package": "dbus",
+      "iteration": "201"
+    },
+    {
+      "package": "dpkg",
+      "iteration": "201"
+    },
+    {
+      "package": "e17",
+      "iteration": "201"
+    },
+    {
+      "package": "efl",
+      "iteration": "201"
+    },
+    {
+      "package": "expat",
+      "iteration": "201"
+    },
+    {
+      "package": "findutils",
+      "iteration": "201"
+    },
+    {
+      "package": "fontconfig",
+      "iteration": "201"
+    },
+    {
+      "package": "fonts-dejavu",
+      "iteration": "201"
+    },
+    {
+      "package": "freetype",
+      "iteration": "201"
+    },
+    {
+      "package": "fribidi",
+      "iteration": "201"
+    },
+    {
+      "package": "giflib",
+      "iteration": "201"
+    },
+    {
+      "package": "grep",
+      "iteration": "201"
+    },
+    {
+      "package": "harfbuzz",
+      "iteration": "201"
+    },
+    {
+      "package": "libcap2",
+      "iteration": "201"
+    },
+    {
+      "package": "libdrm",
+      "iteration": "201"
+    },
+    {
+      "package": "libevdev",
+      "iteration": "201"
+    },
+    {
+      "package": "libfontenc",
+      "iteration": "201"
+    },
+    {
+      "package": "libjpeg-turbo",
+      "iteration": "201"
+    },
+    {
+      "package": "libpciaccess",
+      "iteration": "201"
+    },
+    {
+      "package": "libpng1.6",
+      "iteration": "201"
+    },
+    {
+      "package": "libpthread-stubs",
+      "iteration": "201"
+    },
+    {
+      "package": "libselinux",
+      "iteration": "201"
+    },
+    {
+      "package": "libsndfile",
+      "iteration": "201"
+    },
+    {
+      "package": "libvncserver",
+      "iteration": "201"
+    },
+    {
+      "package": "libx11",
+      "iteration": "201"
+    },
+    {
+      "package": "libxau",
+      "iteration": "201"
+    },
+    {
+      "package": "libxcb",
+      "iteration": "201"
+    },
+    {
+      "package": "libxcomposite",
+      "iteration": "201"
+    },
+    {
+      "package": "libxcrypt",
+      "iteration": "201"
+    },
+    {
+      "package": "libxcursor",
+      "iteration": "201"
+    },
+    {
+      "package": "libxcvt",
+      "iteration": "201"
+    },
+    {
+      "package": "libxdamage",
+      "iteration": "201"
+    },
+    {
+      "package": "libxdmcp",
+      "iteration": "201"
+    },
+    {
+      "package": "libxext",
+      "iteration": "201"
+    },
+    {
+      "package": "libxfixes",
+      "iteration": "201"
+    },
+    {
+      "package": "libxfont",
+      "iteration": "201"
+    },
+    {
+      "package": "libxi",
+      "iteration": "201"
+    },
+    {
+      "package": "libxinerama",
+      "iteration": "201"
+    },
+    {
+      "package": "libxkbcommon",
+      "iteration": "201"
+    },
+    {
+      "package": "libxkbfile",
+      "iteration": "201"
+    },
+    {
+      "package": "libxrandr",
+      "iteration": "201"
+    },
+    {
+      "package": "libxrender",
+      "iteration": "201"
+    },
+    {
+      "package": "libxshmfence",
+      "iteration": "201"
+    },
+    {
+      "package": "libxss",
+      "iteration": "201"
+    },
+    {
+      "package": "libxtst",
+      "iteration": "201"
+    },
+    {
+      "package": "lua5.1",
+      "iteration": "201"
+    },
+    {
+      "package": "mesa",
+      "iteration": "201"
+    },
+    {
+      "package": "mtdev",
+      "iteration": "201"
+    },
+    {
+      "package": "openssh",
+      "iteration": "201"
+    },
+    {
+      "package": "openssl",
+      "iteration": "201"
+    },
+    {
+      "package": "pixman",
+      "iteration": "201"
+    },
+    {
+      "package": "sed",
+      "iteration": "201"
+    },
+    {
+      "package": "tar",
+      "iteration": "201"
+    },
+    {
+      "package": "terminology",
+      "iteration": "201"
+    },
+    {
+      "package": "x11-xkb-utils",
+      "iteration": "201"
+    },
+    {
+      "package": "x11vnc",
+      "iteration": "201"
+    },
+    {
+      "package": "xcb-proto",
+      "iteration": "201"
+    },
+    {
+      "package": "xcb-util",
+      "iteration": "201"
+    },
+    {
+      "package": "xcb-util-image",
+      "iteration": "201"
+    },
+    {
+      "package": "xcb-util-keysyms",
+      "iteration": "201"
+    },
+    {
+      "package": "xinit",
+      "iteration": "201"
+    },
+    {
+      "package": "xkeyboard-config",
+      "iteration": "201"
+    },
+    {
+      "package": "xorg-server",
+      "iteration": "201"
+    },
+    {
+      "package": "xorgproto",
+      "iteration": "201"
+    },
+    {
+      "package": "xserver-xorg-input-evdev",
+      "iteration": "201"
+    },
+    {
+      "package": "xtrans",
+      "iteration": "201"
+    },
+    {
+      "package": "zlib",
+      "iteration": "201"
+    }
+  ]
+}

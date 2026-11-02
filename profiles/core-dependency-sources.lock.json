@@ -1,0 +1,218 @@
+{
+  "scope": "Trixie Essential/bootstrap source intake",
+  "signature_verification": "HTTPS DSC and payload SHA256; independent archive OpenPGP chain not yet verified",
+  "components": {
+    "bzip2": {
+      "version": "1.0.8-6",
+      "dsc": "bzip2_1.0.8-6.dsc",
+      "files": [
+        {
+          "filename": "bzip2_1.0.8-6.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.8-6.dsc",
+          "size": 1604,
+          "sha256": "cd3bfd77254a6b5ef1be144bdc90a0dd374bc8206afd98ba4abf828741b79820"
+        },
+        {
+          "filename": "bzip2_1.0.8.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.8.orig.tar.gz",
+          "size": 810029,
+          "sha256": "ab5a03176ee106d3f0fa90e381da478ddae405918153cca248e682cd0c4a2269"
+        },
+        {
+          "filename": "bzip2_1.0.8-6.debian.tar.bz2",
+          "url": "https://deb.debian.org/debian/pool/main/b/bzip2/bzip2_1.0.8-6.debian.tar.bz2",
+          "size": 26991,
+          "sha256": "648ed0dac9a041ba6951e0cca521628aa39947cefee78139f7b934a5dc502095"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/bzip2"
+    },
+    "xz-utils": {
+      "version": "5.8.1-1+deb13u2",
+      "dsc": "xz-utils_5.8.1-1+deb13u2.dsc",
+      "files": [
+        {
+          "filename": "xz-utils_5.8.1-1+deb13u2.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xz-utils/xz-utils_5.8.1-1+deb13u2.dsc",
+          "size": 2562,
+          "sha256": "f02574465dcb7da3d5b7bdfc20ea350248c3371b0df36bb005152af80d61cdfc"
+        },
+        {
+          "filename": "xz-utils_5.8.1.orig.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz",
+          "size": 1461872,
+          "sha256": "0b54f79df85912504de0b14aec7971e3f964491af1812d83447005807513cd9e"
+        },
+        {
+          "filename": "xz-utils_5.8.1.orig.tar.xz.asc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xz-utils/xz-utils_5.8.1.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "4138f4ceca1aa7fd2085fb15a23f6d495d27bca6d3c49c429a8520ea622c27ae"
+        },
+        {
+          "filename": "xz-utils_5.8.1-1+deb13u2.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/x/xz-utils/xz-utils_5.8.1-1%2Bdeb13u2.debian.tar.xz",
+          "size": 28044,
+          "sha256": "7dfcff43a8035561c4860a4893f7cf9de5e977e79a90aee4d101053e21912cb0"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/xz-utils"
+    },
+    "libzstd": {
+      "version": "1.5.7+dfsg-1",
+      "dsc": "libzstd_1.5.7+dfsg-1.dsc",
+      "files": [
+        {
+          "filename": "libzstd_1.5.7+dfsg-1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libz/libzstd/libzstd_1.5.7+dfsg-1.dsc",
+          "size": 2371,
+          "sha256": "8f6ab97fa772d921334e50fa5756a0951e23c718dc913e43a228f28c1a23adf9"
+        },
+        {
+          "filename": "libzstd_1.5.7+dfsg.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libz/libzstd/libzstd_1.5.7%2Bdfsg.orig.tar.xz",
+          "size": 1834780,
+          "sha256": "0c092ef267edce57ba7f3f2645c861f72eaf5e76273c6c3632869423464b90a5"
+        },
+        {
+          "filename": "libzstd_1.5.7+dfsg-1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libz/libzstd/libzstd_1.5.7%2Bdfsg-1.debian.tar.xz",
+          "size": 23036,
+          "sha256": "5e88424d919941291f79e1bfada6cb1a6f748671d9de7d4b7d931f361f183a15"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/libzstd"
+    },
+    "ncurses": {
+      "version": "6.5+20250216-2",
+      "dsc": "ncurses_6.5+20250216-2.dsc",
+      "files": [
+        {
+          "filename": "ncurses_6.5+20250216-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/n/ncurses/ncurses_6.5+20250216-2.dsc",
+          "size": 3890,
+          "sha256": "00539cc2bc6bb84be1b8a8a5decf606682e14b6f39b76b9aa090e65d2c2d4580"
+        },
+        {
+          "filename": "ncurses_6.5+20250216.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/n/ncurses/ncurses_6.5%2B20250216.orig.tar.gz",
+          "size": 3774714,
+          "sha256": "b37baafa436e7133bb12a185cb8f60e1599b1947e9f0181c76f3190acf28b6eb"
+        },
+        {
+          "filename": "ncurses_6.5+20250216.orig.tar.gz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/n/ncurses/ncurses_6.5%2B20250216.orig.tar.gz.asc",
+          "size": 729,
+          "sha256": "64f4d17923322176c44079f18f170e2164a59d551d7e4e9c1a6e4eebedc5dd6f"
+        },
+        {
+          "filename": "ncurses_6.5+20250216-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/n/ncurses/ncurses_6.5%2B20250216-2.debian.tar.xz",
+          "size": 50420,
+          "sha256": "546930a8992ae3325d8c38378f290265d969cf6333cfae9648ac6d69e1e8a8a6"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/ncurses"
+    },
+    "gmp": {
+      "version": "2:6.3.0+dfsg-3",
+      "dsc": "gmp_6.3.0+dfsg-3.dsc",
+      "files": [
+        {
+          "filename": "gmp_6.3.0+dfsg-3.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/g/gmp/gmp_6.3.0+dfsg-3.dsc",
+          "size": 2251,
+          "sha256": "f7b64af28f52b7346bb8581e01d3c19daf769639345f234f8ae1e29c42171443"
+        },
+        {
+          "filename": "gmp_6.3.0+dfsg.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/g/gmp/gmp_6.3.0%2Bdfsg.orig.tar.xz",
+          "size": 1870556,
+          "sha256": "bd2966e6d277f79328e894a5a9f3ba3fbf2ed2be81def5f48623e30c23fb1572"
+        },
+        {
+          "filename": "gmp_6.3.0+dfsg-3.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/g/gmp/gmp_6.3.0%2Bdfsg-3.debian.tar.xz",
+          "size": 19912,
+          "sha256": "1d890bbe25dd649d2ddba1926483176520e50f22115a00566f250b613b8c20ad"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/gmp"
+    },
+    "systemd": {
+      "version": "257.13-1~deb13u1",
+      "dsc": "systemd_257.13-1~deb13u1.dsc",
+      "files": [
+        {
+          "filename": "systemd_257.13-1~deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/s/systemd/systemd_257.13-1~deb13u1.dsc",
+          "size": 8696,
+          "sha256": "1b3405d671a82d1e20c9d99f52d4336aafe8543b28d04e91b7f1f586d3a667c7"
+        },
+        {
+          "filename": "systemd_257.13.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/s/systemd/systemd_257.13.orig.tar.gz",
+          "size": 16543653,
+          "sha256": "1eb7d5f9ff8a426ff880a3cded9ce819613ba8003ac5ddde9eca162f14ddabe7"
+        },
+        {
+          "filename": "systemd_257.13-1~deb13u1.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/s/systemd/systemd_257.13-1~deb13u1.debian.tar.xz",
+          "size": 183128,
+          "sha256": "9c6e435d613b996efcdb3b7dd9a4cebaa745333a3f64dc722f3fad646f1fdc1a"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/systemd"
+    },
+    "pam": {
+      "version": "1.7.0-5",
+      "dsc": "pam_1.7.0-5.dsc",
+      "files": [
+        {
+          "filename": "pam_1.7.0-5.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/p/pam/pam_1.7.0-5.dsc",
+          "size": 2210,
+          "sha256": "5c127aa18c7cb52ec9ee91fa2099453b3a851bcc0088e79045384a2a508b341c"
+        },
+        {
+          "filename": "pam_1.7.0.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/p/pam/pam_1.7.0.orig.tar.xz",
+          "size": 507824,
+          "sha256": "57dcd7a6b966ecd5bbd95e1d11173734691e16b68692fa59661cdae9b13b1697"
+        },
+        {
+          "filename": "pam_1.7.0.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/p/pam/pam_1.7.0.orig.tar.xz.asc",
+          "size": 801,
+          "sha256": "7a8ea18ec7d9dd1f8cbf9055c32128cbca8241aa63e9fea44d56ce6f0e15e441"
+        },
+        {
+          "filename": "pam_1.7.0-5.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/p/pam/pam_1.7.0-5.debian.tar.xz",
+          "size": 145640,
+          "sha256": "d776d7cb6fc8b08273f96b7f843299356ef13c6756e30468c594ab28faf1701c"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/pam"
+    },
+    "cdebconf": {
+      "version": "0.280",
+      "dsc": "cdebconf_0.280.dsc",
+      "files": [
+        {
+          "filename": "cdebconf_0.280.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/c/cdebconf/cdebconf_0.280.dsc",
+          "size": 2703,
+          "sha256": "36cdaa45fca445d2164fbdd81faad9918d748fa703678d8af237354d5744b1d1"
+        },
+        {
+          "filename": "cdebconf_0.280.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/c/cdebconf/cdebconf_0.280.tar.xz",
+          "size": 286132,
+          "sha256": "c42115131939845e452a323ceded937efad3b2e3e1b80a1a186f9d5c494a43a2"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/cdebconf"
+    }
+  }
+}

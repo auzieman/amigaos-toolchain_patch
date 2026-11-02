@@ -40,7 +40,76 @@
     "debian-archive-keyring",
     "media-types",
     "tzdata",
-    "ca-certificates"
+    "ca-certificates",
+    "zlib",
+    "libpng1.6",
+    "pixman",
+    "efl",
+    "e17",
+    "terminology",
+    "libdrm",
+    "mesa",
+    "libpciaccess",
+    "libevdev",
+    "xserver-xorg-input-evdev",
+    "xinit",
+    "xorg-server",
+    "mtdev",
+    "libxcrypt",
+    "openssh",
+    "expat",
+    "freetype",
+    "fontconfig",
+    "libjpeg-turbo",
+    "fribidi",
+    "harfbuzz",
+    "openssl",
+    "curl",
+    "dbus",
+    "lua5.1",
+    "libxkbcommon",
+    "libxkbfile",
+    "libfontenc",
+    "libxfont",
+    "libxcvt",
+    "libxshmfence",
+    "xkeyboard-config",
+    "x11-xkb-utils",
+    "libvncserver",
+    "x11vnc",
+    "fonts-dejavu",
+    "libsndfile",
+    "giflib",
+    "xorgproto",
+    "xtrans",
+    "libpthread-stubs",
+    "libxau",
+    "libxdmcp",
+    "xcb-proto",
+    "libxcb",
+    "libx11",
+    "libxext",
+    "libxrender",
+    "libxfixes",
+    "libxdamage",
+    "libxcomposite",
+    "libxi",
+    "libxinerama",
+    "libxcursor",
+    "libxrandr",
+    "libxtst",
+    "libxss",
+    "xcb-util",
+    "xcb-util-image",
+    "xcb-util-keysyms",
+    "bzip2",
+    "xz-utils",
+    "libzstd",
+    "ncurses",
+    "gmp",
+    "systemd",
+    "pam",
+    "cdebconf"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -234,6 +303,550 @@
       "indep_only": true,
       "build_profiles": "",
       "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5"
+    },
+    "zlib": {
+      "source_cache": "desktop-base-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libpng1.6": {
+      "source_cache": "desktop-base-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "pixman": {
+      "source_cache": "desktop-base-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "efl": {
+      "source_cache": "desktop-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "e17": {
+      "source_cache": "desktop-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "terminology": {
+      "source_cache": "desktop-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libdrm": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "mesa": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libpciaccess": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libevdev": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xserver-xorg-input-evdev": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xinit": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xorg-server": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "mtdev": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxcrypt": {
+      "source_cache": "libxcrypt-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "openssh": {
+      "source_cache": "openssh-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "expat": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "freetype": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "fontconfig": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libjpeg-turbo": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "fribidi": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "harfbuzz": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "openssl": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "curl": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "dbus": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "lua5.1": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxkbcommon": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxkbfile": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libfontenc": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxfont": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxcvt": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxshmfence": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xkeyboard-config": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "x11-xkb-utils": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libvncserver": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "x11vnc": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "fonts-dejavu": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "libsndfile": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "giflib": {
+      "source_cache": "session-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xorgproto": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "xtrans": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "libpthread-stubs": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxau": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxdmcp": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xcb-proto": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "libxcb": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libx11": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxext": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxrender": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxfixes": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxdamage": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxcomposite": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxi": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxinerama": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxcursor": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxrandr": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxtst": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libxss": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xcb-util": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xcb-util-image": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xcb-util-keysyms": {
+      "source_cache": "x11-source-cache",
+      "source_lock": "profiles/expanded-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "bzip2": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "xz-utils": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libzstd": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "ncurses": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "gmp": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "systemd": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "pam": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "cdebconf": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/core-dependency-sources.lock.json",
+      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "arch_only": false,
+      "build_profiles": "cross,nocheck"
     }
   }
 }

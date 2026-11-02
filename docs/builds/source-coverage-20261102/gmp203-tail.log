@@ -1,0 +1,26 @@
+# See 633312, http://wiki.debian.org/ReleaseGoals/LAFileRemoval
+sed -i "/dependency_libs/ s/'.*'/''/" `find debian/ -name '*.la'`
+dh_testdir
+dh_testroot
+dh_installchangelogs
+dh_installdocs
+dh_installexamples
+dh_installmenu
+dh_lintian
+dh_strip
+dh_strip: warning: Could not find the BuildID in debian/libgmpxx4ldbl/usr/lib/powerpc-linux-gnuspe/libgmpxx.so.4.7.0
+dh_strip: warning: Could not find the BuildID in debian/libgmp10/usr/lib/powerpc-linux-gnuspe/libgmp.so.10.5.0
+dh_link
+dh_compress
+dh_fixperms
+dh_makeshlibs
+dh_installdeb
+dh_shlibdeps
+dpkg-shlibdeps: error: no dependency information found for /tools/powerpc-linux-gnuspe/lib/libstdc++.so.6 (used by debian/libgmpxx4ldbl/usr/lib/powerpc-linux-gnuspe/libgmpxx.so.4.7.0)
+dpkg-shlibdeps: hint: check if the library actually comes from a package
+dh_shlibdeps: error: dpkg-shlibdeps -Tdebian/libgmpxx4ldbl.substvars debian/libgmpxx4ldbl/usr/lib/powerpc-linux-gnuspe/libgmpxx.so.4.7.0 returned exit code 1
+dh_shlibdeps: error: Aborting due to earlier error
+make[1]: *** [debian/rules:138: binary-common] Error 25
+make[1]: Leaving directory '/work/debian-gmp-203/source'
+make: *** [debian/rules:149: binary-arch] Error 2
+dpkg-buildpackage: error: debian/rules binary subprocess returned exit status 2

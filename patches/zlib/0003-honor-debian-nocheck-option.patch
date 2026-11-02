@@ -1,0 +1,12 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -132,7 +132,9 @@
+ 
+ 	$(MAKE) -C contrib/minizip minizip miniunzip
+ 
++ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+ 	-$(MAKE) test
++endif
+ 
+ 	touch $@
+ 

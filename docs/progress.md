@@ -596,3 +596,31 @@ Both complete/deferred receipts retained in builds/core-queue-20261102.
 
 Reviewed successful queue artifacts added to signed archive008: 48 artifacts;
 signature/selected-library check passes, full Essential/desktop still blocked.
+
+2026-11-02 coverage correction:17 was only the selected queue. Audit verified
+93 distinct pinned cached sources,19 with some archived build evidence plus
+separate Linux route;73 remaining sources entered broad dependency readiness
+queue001. All12 old failures are pre-compilation dependency blocks, including
+already-built dev packages not installed in the effective build environment.
+No new compiler regression demonstrated. See builds/source-coverage-20261102.
+
+Broad readiness completed73 sources:70 dependency-blocked,3 ready. Actual
+ready-source builds pass for libpthread-stubs/libxcvt; zlib exposes missing
+minizip --build/--host tuples. Added pinned source-level packaging fix and
+started fresh203 retry. Cached8 previously missing dependency sources; total
+pinned cache inventory now101 sources. Dedicated9-source retry/dependency build
+pass runs on R730 with failures deferred; full target root still not accepted.
+
+Evaluation update: dependency203 pass finishes7 dependency blocks, GMP C/C++
+compile followed by missing target libstdc++ package metadata, and zlib internal
+link failure after corrected cross configure. Added minizip-style -lz linkage
+to miniunzip and started fresh204 retry. Genuine GCC runtime/development
+packages plus installed target dev state are the highest-leverage next gate.
+
+Final zlib205 packaging passes with3 observed cross-build fixes; no target
+self-tests are attempted on the host with requested nocheck. Target runtime
+remains untested. libpthread-stubs202/libxcvt202 also built. GMP203 remains
+blocked after compilation by unowned target libstdc++ dependency metadata.
+
+Reviewed actual new build receipts indexed in signed archive009: 57 artifacts;
+signature/development subset check passes, full Essential/desktop still blocked.

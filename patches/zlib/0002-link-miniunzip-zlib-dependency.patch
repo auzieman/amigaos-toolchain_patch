@@ -1,0 +1,11 @@
+--- a/contrib/minizip/Makefile.am
++++ b/contrib/minizip/Makefile.am
+@@ -39,7 +39,7 @@
+ EXTRA_PROGRAMS = miniunzip minizip
+ 
+ miniunzip_SOURCES = miniunz.c
+-miniunzip_LDADD = libminizip.la
++miniunzip_LDADD = libminizip.la -lz
+ 
+ minizip_SOURCES = minizip.c
+ minizip_LDADD = libminizip.la -lz

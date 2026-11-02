@@ -1,0 +1,35 @@
+libtoolize: and rerunning libtoolize and aclocal.
+libtoolize: Consider adding '-I m4' to ACLOCAL_AMFLAGS in Makefile.am.
+configure.ac:10: warning: The macro 'AC_HELP_STRING' is obsolete.
+configure.ac:10: You should run autoupdate.
+./lib/autoconf/general.m4:204: AC_HELP_STRING is expanded from...
+configure.ac:10: the top level
+configure.ac:7: installing './compile'
+configure.ac:7: installing './config.guess'
+configure.ac:7: installing './config.sub'
+configure.ac:6: installing './install-sh'
+configure.ac:6: installing './missing'
+Makefile.am: installing './depcomp'
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether sleep supports fractional seconds... yes
+checking filesystem timestamp resolution... 0.01
+checking whether build environment is sane... yes
+checking for a race-free mkdir -p... /usr/bin/mkdir -p
+checking for gawk... gawk
+checking whether make sets $(MAKE)... yes
+checking whether make supports nested variables... yes
+checking xargs -n works... yes
+checking build system type... x86_64-pc-linux-gnu
+checking host system type... x86_64-pc-linux-gnu
+checking how to print strings... printf
+checking whether make supports the include directive... yes (GNU style)
+checking for gcc... /tools/bin/powerpc-linux-gnuspe-gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... configure: error: in '/work/debian-zlib-202/source/contrib/minizip':
+configure: error: cannot run C compiled programs.
+If you meant to cross compile, use '--host'.
+See 'config.log' for more details
+make: *** [debian/rules:87: configure-stamp] Error 77
+dpkg-buildpackage: error: debian/rules binary subprocess returned exit status 2

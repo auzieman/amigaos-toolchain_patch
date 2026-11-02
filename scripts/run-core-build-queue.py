@@ -38,14 +38,15 @@ def save():
     temp = a.output / 'receipt.tmp'
     temp.write_text(json.dumps(r, indent=2) + '\n')
     temp.replace(a.output / 'receipt.json')
-    deferred = [x for x in r['items'] if x['status'] not in ['running', 'debian-packages-built-not-target-installed']]
+    deferred = [x for x in r['items'] if x['status'] not in ['running', 'debian-packages-built-not-target-installed', 'build-dependencies-satisfied-not-built']]
     (a.output / 'deferred.json').write_text(json.dumps(deferred, indent=2) + '\n')
     view = base / 'viewport-live-001/current.json'
     if view.parent.exists() and r['items']:
         done = sum(x['status'] == 'debian-packages-built-not-target-installed' for x in r['items'])
+        ready = sum(x['status'] == 'build-dependencies-satisfied-not-built' for x in r['items'])
         view.write_text(json.dumps({
             'iteration': r['items'][-1].get('active_iteration', 'queue-starting'),
-            'runtime': f'Core queue: {done} source builds complete, {len(deferred)} deferred; target root unconfigured',
+            'runtime': f'Queue: {done} built, {ready} dependency-ready only, {len(deferred)} deferred; target root unconfigured',
             'viewer': 'QEMU/noVNC stopped; this pass builds packages only'}, indent=2) + '\n')
 
 def interrupted(signum, frame):
@@ -124,6 +125,8 @@ try:
             record['preflight'] = preflight
             if preflight['exit'] or preflight['status'] != 'build-dependencies-satisfied-not-built':
                 record['status'] = preflight['status']
+            elif item.get('preflight_only', spec.get('preflight_only', False)):
+                record['status'] = 'build-dependencies-satisfied-not-built'
             else:
                 record['build'] = attempt(package, iteration, settings, False)
                 record['status'] = record['build']['status']
@@ -131,7 +134,7 @@ try:
             record.update(status='attempt-failed', error=str(error))
         save()
         print(package + ': ' + record['status'], flush=True)
-    r['status'] = 'completed' if all(x['status'] == 'debian-packages-built-not-target-installed' for x in r['items']) else 'completed-with-deferred-items'
+    r['status'] = 'completed' if all(x['status'] in ['debian-packages-built-not-target-installed', 'build-dependencies-satisfied-not-built'] for x in r['items']) else 'completed-with-deferred-items'
 except BaseException:
     r['status'] = 'interrupted'
     if r['items'] and r['items'][-1]['status'] == 'running':

@@ -1,0 +1,42 @@
+{
+  "scope": "Zlib cross-configure retry plus eight newly pinned core dependency sources; preflight/build ready sources, defer failures",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "zlib",
+      "iteration": "203"
+    },
+    {
+      "package": "bzip2",
+      "iteration": "203"
+    },
+    {
+      "package": "xz-utils",
+      "iteration": "203"
+    },
+    {
+      "package": "libzstd",
+      "iteration": "203"
+    },
+    {
+      "package": "ncurses",
+      "iteration": "203"
+    },
+    {
+      "package": "gmp",
+      "iteration": "203"
+    },
+    {
+      "package": "systemd",
+      "iteration": "203"
+    },
+    {
+      "package": "pam",
+      "iteration": "203"
+    },
+    {
+      "package": "cdebconf",
+      "iteration": "203"
+    }
+  ]
+}
