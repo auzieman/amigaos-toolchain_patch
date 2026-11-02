@@ -1,0 +1,2 @@
+cf_cv_system_name='linux-gnuspe'
+CPPFLAGS	= -DHAVE_CONFIG_H -DBUILDING_NCURSES -I../ncurses -I. -I${srcdir} -I../include -I${srcdir}/../include -D_LARGEFILE_SOURCE -D_FILE_OFFSET_BITS=64 -D_TIME_BITS=64 -Wdate-time -D_FORTIFY_SOURCE=2 -D_DEFAULT_SOURCE -D_XOPEN_SOURCE=600 -DNDEBUG

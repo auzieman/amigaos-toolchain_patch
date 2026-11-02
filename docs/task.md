@@ -1170,3 +1170,12 @@ pinned source patch registers the tuple in existing GNU handling, preserving
 wide support and error checks. Fresh ncurses509 then zstd509 queue runs against
 the verified LZ4-managed root, constrained4CPU/6GiB. Issue18 retains that gate;
 new desktop target image remains unaccepted.
+
+
+2026-11-02 accepted follow-up: ncurses509/zstd509 packaging and normal target
+runtime/development installation pass; LZ4/ncurses/zstd static payload evidence
+adds21 artifacts/117 ELF. Current constrained70-source iteration510 queue runs
+on the R730; some core sources are dependency-blocked while independent builds
+continue. Full target installation/configuration, full-feature libc and fresh
+QEMU/physical image acceptance remain pending. See
+[accepted dependency evidence](builds/sdk-defaults-20261102/README.md).

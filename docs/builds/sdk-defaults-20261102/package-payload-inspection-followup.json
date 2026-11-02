@@ -1,0 +1,289 @@
+{
+  "status": "package-hashes-and-elf32-big-endian-powerpc-payloads-verified",
+  "recipe_sha256": "7476df0893719e8eb28419cd909ab5dae23a2b7133049a3e32f666155d48556c",
+  "target_execution": false,
+  "sources": [
+    {
+      "receipt": "/work/debian-lz4-508/receipt.json",
+      "receipt_sha256": "57d91393c2079e68ffe98bc3ed26294279e9dbebcdc0362a2902293aedeb2631",
+      "packages": [
+        {
+          "file": "liblz4-1_1.10.0-4_powerpcspe.deb",
+          "sha256": "1a1818ffd0f58094291986735cd71360c36a6185958eada941510375d29004a2",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/liblz4.so.1.10.0"
+          ]
+        },
+        {
+          "file": "liblz4-dev_1.10.0-4_powerpcspe.deb",
+          "sha256": "9538372723c13112d081b3aba74ffc5a50a3a4f12ef29364b96a017e275ed576",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "lz4_1.10.0-4_powerpcspe.deb",
+          "sha256": "3c6c2cbd4b9fab067ea9f26b29c92a13bfe231a7502ea47a9e8b28f11257a753",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/lz4"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-ncurses-509/receipt.json",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5",
+      "packages": [
+        {
+          "file": "libncurses-dev_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "627fe1c4dd5f3a2856b53fcfd019fb84ef97a2ba49944b19c68e3b393d87f852",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libncurses6-dbgsym_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "b0cfebdac9d10869c1441cf76ad8f31a9bb155d03ad453f9c68cd15ac76f5bac",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libncurses6.debug"
+          ]
+        },
+        {
+          "file": "libncurses6_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "544534de12f5f0fc26c4ba5674c05d0ca78c35e3ba9b24d3e510adee242a4e40",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libform.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libmenu.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libncurses.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libpanel.so.6.5"
+          ]
+        },
+        {
+          "file": "libncursesw6-dbgsym_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "570eec24309f7a3b97cb5e9da5fd3684e1475d604ee2b933fd17d8b548d81f09",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libncursesw6.debug"
+          ]
+        },
+        {
+          "file": "libncursesw6-udeb_6.5+20250216-2_powerpcspe.udeb",
+          "sha256": "1d082693a8e5d79f0ce15a13a0e52c483caee0029b5f7efa61fb9604ed193c77",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libncursesw.so.6.5"
+          ]
+        },
+        {
+          "file": "libncursesw6_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "bd3b376bd231b7a24b7312471b14f2f4d2cca138e1c272efbc3becdff1afbe30",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libformw.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libmenuw.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libncursesw.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libpanelw.so.6.5"
+          ]
+        },
+        {
+          "file": "libtinfo6-dbgsym_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "9aeab33a48f2b92a49c25bbd7ac56c8ed5ac9b76d07af2d599f44f75ab4a8e44",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/libtinfo6.debug"
+          ]
+        },
+        {
+          "file": "libtinfo6-udeb_6.5+20250216-2_powerpcspe.udeb",
+          "sha256": "79ba21567a8ea686013463588910a9aa5c75c6df8f41166c0363ae10a8e2e073",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libtinfo.so.6.5"
+          ]
+        },
+        {
+          "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libtic.so.6.5",
+            "./usr/lib/powerpc-linux-gnuspe/libtinfo.so.6.5"
+          ]
+        },
+        {
+          "file": "ncurses-bin-dbgsym_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "31be1be3ad80d74efb666ab007dcee27ffc91558916b0e974873f00f8073f4c4",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/ncurses-bin.debug"
+          ]
+        },
+        {
+          "file": "ncurses-bin_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "d3eb010ea5ea0418fa97b3b3faaf58a0434e889d99aefd7373a6b2c3ece431d5",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/clear",
+            "./usr/bin/infocmp",
+            "./usr/bin/tabs",
+            "./usr/bin/tic",
+            "./usr/bin/toe",
+            "./usr/bin/tput",
+            "./usr/bin/tset"
+          ]
+        },
+        {
+          "file": "ncurses-examples-dbgsym_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "8022f90c1038a9025169eb9cf41b31aaed0f74db19c21150a2dad75021637a4d",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/ncurses-examples.debug"
+          ]
+        },
+        {
+          "file": "ncurses-examples_6.5+20250216-2_powerpcspe.deb",
+          "sha256": "1d5f4d7b3be9ec3736afc24950e4e2c09b843a60022570aeda95b1e768cb8beb",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/libexec/ncurses-examples/back_ground",
+            "./usr/libexec/ncurses-examples/background",
+            "./usr/libexec/ncurses-examples/blue",
+            "./usr/libexec/ncurses-examples/bs",
+            "./usr/libexec/ncurses-examples/cardfile",
+            "./usr/libexec/ncurses-examples/chgat",
+            "./usr/libexec/ncurses-examples/clip_printw",
+            "./usr/libexec/ncurses-examples/color_content",
+            "./usr/libexec/ncurses-examples/color_set",
+            "./usr/libexec/ncurses-examples/combine",
+            "./usr/libexec/ncurses-examples/demo_altkeys",
+            "./usr/libexec/ncurses-examples/demo_defkey",
+            "./usr/libexec/ncurses-examples/demo_forms",
+            "./usr/libexec/ncurses-examples/demo_keyok",
+            "./usr/libexec/ncurses-examples/demo_menus",
+            "./usr/libexec/ncurses-examples/demo_new_pair",
+            "./usr/libexec/ncurses-examples/demo_panels",
+            "./usr/libexec/ncurses-examples/demo_tabs",
+            "./usr/libexec/ncurses-examples/demo_termcap",
+            "./usr/libexec/ncurses-examples/demo_terminfo",
+            "./usr/libexec/ncurses-examples/ditto",
+            "./usr/libexec/ncurses-examples/dots",
+            "./usr/libexec/ncurses-examples/dots_curses",
+            "./usr/libexec/ncurses-examples/dots_mvcur",
+            "./usr/libexec/ncurses-examples/dots_termcap",
+            "./usr/libexec/ncurses-examples/dots_xcurses",
+            "./usr/libexec/ncurses-examples/dup_field",
+            "./usr/libexec/ncurses-examples/echochar",
+            "./usr/libexec/ncurses-examples/extended_color",
+            "./usr/libexec/ncurses-examples/filter",
+            "./usr/libexec/ncurses-examples/firework",
+            "./usr/libexec/ncurses-examples/firstlast",
+            "./usr/libexec/ncurses-examples/foldkeys",
+            "./usr/libexec/ncurses-examples/form_driver_w",
+            "./usr/libexec/ncurses-examples/gdc",
+            "./usr/libexec/ncurses-examples/hanoi",
+            "./usr/libexec/ncurses-examples/hashtest",
+            "./usr/libexec/ncurses-examples/inch_wide",
+            "./usr/libexec/ncurses-examples/inchs",
+            "./usr/libexec/ncurses-examples/ins_wide",
+            "./usr/libexec/ncurses-examples/insdelln",
+            "./usr/libexec/ncurses-examples/inserts",
+            "./usr/libexec/ncurses-examples/key_names",
+            "./usr/libexec/ncurses-examples/keynames",
+            "./usr/libexec/ncurses-examples/knight",
+            "./usr/libexec/ncurses-examples/list_keys",
+            "./usr/libexec/ncurses-examples/lrtest",
+            "./usr/libexec/ncurses-examples/move_field",
+            "./usr/libexec/ncurses-examples/movewindow",
+            "./usr/libexec/ncurses-examples/ncurses",
+            "./usr/libexec/ncurses-examples/newdemo",
+            "./usr/libexec/ncurses-examples/padview",
+            "./usr/libexec/ncurses-examples/pair_content",
+            "./usr/libexec/ncurses-examples/picsmap",
+            "./usr/libexec/ncurses-examples/railroad",
+            "./usr/libexec/ncurses-examples/rain",
+            "./usr/libexec/ncurses-examples/redraw",
+            "./usr/libexec/ncurses-examples/savescreen",
+            "./usr/libexec/ncurses-examples/sp_tinfo",
+            "./usr/libexec/ncurses-examples/tclock",
+            "./usr/libexec/ncurses-examples/test_add_wchstr",
+            "./usr/libexec/ncurses-examples/test_addchstr",
+            "./usr/libexec/ncurses-examples/test_addstr",
+            "./usr/libexec/ncurses-examples/test_addwstr",
+            "./usr/libexec/ncurses-examples/test_arrays",
+            "./usr/libexec/ncurses-examples/test_delwin",
+            "./usr/libexec/ncurses-examples/test_endwin",
+            "./usr/libexec/ncurses-examples/test_get_wstr",
+            "./usr/libexec/ncurses-examples/test_getstr",
+            "./usr/libexec/ncurses-examples/test_instr",
+            "./usr/libexec/ncurses-examples/test_inwstr",
+            "./usr/libexec/ncurses-examples/test_mouse",
+            "./usr/libexec/ncurses-examples/test_opaque",
+            "./usr/libexec/ncurses-examples/test_setupterm",
+            "./usr/libexec/ncurses-examples/test_sgr",
+            "./usr/libexec/ncurses-examples/test_termattrs",
+            "./usr/libexec/ncurses-examples/test_tparm",
+            "./usr/libexec/ncurses-examples/test_unget_wch",
+            "./usr/libexec/ncurses-examples/test_vid_puts",
+            "./usr/libexec/ncurses-examples/test_vidputs",
+            "./usr/libexec/ncurses-examples/testaddch",
+            "./usr/libexec/ncurses-examples/testcurs",
+            "./usr/libexec/ncurses-examples/testscanw",
+            "./usr/libexec/ncurses-examples/view",
+            "./usr/libexec/ncurses-examples/worm",
+            "./usr/libexec/ncurses-examples/xmas"
+          ]
+        }
+      ]
+    },
+    {
+      "receipt": "/work/debian-libzstd-509/receipt.json",
+      "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef",
+      "packages": [
+        {
+          "file": "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb",
+          "sha256": "8497d5fed4a204359ece61c0a9fcb44b36e6c519480477422e856a0fad536b53",
+          "architecture": "powerpcspe",
+          "elf_files": []
+        },
+        {
+          "file": "libzstd1-udeb_1.5.7+dfsg-1_powerpcspe.udeb",
+          "sha256": "0c193fb9c0149c405ebba82032891e440f96fbcc641d291020a2ffac4de48b2b",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libzstd.so.1.5.7"
+          ]
+        },
+        {
+          "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+          "sha256": "b207182192e9d583d1262a7fcf9dea3423e083d59d4bb021eb00c07fb693d1b3",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/powerpc-linux-gnuspe/libzstd.so.1.5.7"
+          ]
+        },
+        {
+          "file": "zstd-dbgsym_1.5.7+dfsg-1_powerpcspe.deb",
+          "sha256": "b0f9447d6046afa2fbaafee1daed5084f2c8d0b43bc6a7cdb7aa33efd6192127",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/lib/debug/.dwz/powerpc-linux-gnuspe/zstd.debug"
+          ]
+        },
+        {
+          "file": "zstd_1.5.7+dfsg-1_powerpcspe.deb",
+          "sha256": "e860946b26fe02bb4769726b8fb2b79d82a58766fcda3d07a6f8b0a9f39ab649",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/pzstd",
+            "./usr/bin/zstd"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_count": 3,
+  "package_count": 21,
+  "elf_count": 117
+}

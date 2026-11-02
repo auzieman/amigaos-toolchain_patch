@@ -1,0 +1,23 @@
+{
+  "purpose": "Normal target ncurses and zstd runtime/development dependencies for the remaining core source pass",
+  "inputs": [
+    {
+      "receipt": "work/debian-ncurses-509/receipt.json",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5",
+      "packages": [
+        "libncurses6",
+        "libncursesw6",
+        "libtinfo6",
+        "libncurses-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libzstd-509/receipt.json",
+      "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef",
+      "packages": [
+        "libzstd1",
+        "libzstd-dev"
+      ]
+    }
+  ]
+}

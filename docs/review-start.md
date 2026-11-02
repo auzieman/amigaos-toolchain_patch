@@ -5,6 +5,11 @@ implementation targets Linux/SPE on A1222/Tabor; AmigaOS SDK integration still
 needs its host/target/runtime contract. The repository name does not establish
 that Linux glibc can serve as an AmigaOS C runtime.
 
+Current checkpoint: ncurses/zstd/LZ4 and image/font development packages pass
+build/normal cross-root installation. The remaining70-source core queue is
+running; a fresh desktop image still needs complete target package setup.
+See [acceptance evidence](builds/sdk-defaults-20261102/README.md).
+
 Start with the [engineering progress log](progress.md) for commit/run context.
 The [matched Mandelbrot demo](../bench/README.md) includes ASCII timings,
 identical fractal images and a side-by-side graphic with explicit QEMU limits.

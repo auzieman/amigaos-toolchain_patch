@@ -189,3 +189,32 @@ existing case in aclocal.m4 and configure. It does not inject caller flags,
 relax diagnostics or disable wide characters. Fresh ncurses509 verification is
 running on R730, followed by zstd509 now that its actual LZ4/LZMA/zlib development
 dependencies and native package-note tool are installed. Acceptance is pending.
+
+
+## Accepted dependency checkpoint and remaining-core pass (2026-11-02)
+
+Ncurses509 and libzstd509 now complete normal Debian architecture-dependent
+packaging. Their real runtime/development packages install normally with clean
+package audit into build image
+`sha256:dcc6c5620d4c07ee3ee9d8e7d1f9535035d9cd64f4b9d71ce7d03fa0b855f971`.
+Ncurses retains wide-character support and strict checks. Follow-up static
+inspection covers LZ4/ncurses/zstd:21 artifacts,117 ELF files, all ELF32,
+big-endian PowerPC. Combined with the disjoint earlier15-source selection,
+that is18 sources,88 artifacts and186 ELF files; this is payload inspection,
+not a runtime, full SPE ABI or graphics acceptance claim.
+
+The serial70-source remaining-core queue `managed-remaining-core-20261102-001`
+(iteration510) is running remotely with4CPU/6GiB limits and an explicit expected
+image digest. Its first results include successful mawk/init-system-helpers/
+debconf packaging and dependency-blocked sed/dpkg/base-passwd/tar; bash is
+running at this checkpoint. Independent work continues past blocked sources;
+blocked dependencies remain unresolved work, not successful packages.
+
+Next image gate: complete target Essential/desktop dependency closure and
+normal Debian installation/configuration in the actual target filesystem,
+including the required full-feature libc stage. Then assemble a new image and
+validate QEMU graphical/runtime behavior before physical A1222 acceptance.
+No new image, USB write or QEMU boot is claimed by this checkpoint.
+Evidence: gnu-prerequisite509-queue.json, ncurses509.json, libzstd509.json,
+ncurses509-feature-selection.txt, ncurses-zstd-install.log/image.id and
+package-payload-inspection-followup.json in this directory.
