@@ -1,0 +1,42 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/init-system-helpers_1.69~deb13u1.dsc', '/work/debian-init-system-helpers-004/source']
+dpkg-source: info: extracting init-system-helpers in /work/debian-init-system-helpers-004/source
+dpkg-source: info: unpacking init-system-helpers_1.69~deb13u1.tar.xz
+$ ['dpkg-buildpackage', '-A', '-us', '-uc']
+dpkg-buildpackage: info: source package init-system-helpers
+dpkg-buildpackage: info: source version 1.69~deb13u1+tabor1
+dpkg-buildpackage: info: source distribution tabor-trixie
+dpkg-buildpackage: info: source changed by Tabor lab <root@localhost>
+ dpkg-source --before-build .
+ debian/rules clean
+dh clean
+   dh_clean
+ debian/rules binary-indep
+dh binary-indep
+   dh_update_autotools_config -i
+   dh_autoreconf -i
+   debian/rules execute_after_dh_auto_build
+make[1]: Entering directory '/work/debian-init-system-helpers-004/source'
+set -e ; \
+for file in script/deb-*; do \
+	pod2man --section=1p --utf8 --center="init-system-helpers" --release=1.69~deb13u1+tabor1 $file $file.1p; \
+done
+set -e ; \
+for file in man8/*.rst ; do \
+	rst2man $file ${file%.rst}.8 ; \
+done
+make[1]: Leaving directory '/work/debian-init-system-helpers-004/source'
+   debian/rules override_dh_auto_test
+make[1]: Entering directory '/work/debian-init-system-helpers-004/source'
+# test with fakechroot
+set -eu; \
+for test in t/*.t; do \
+    echo "======== $(basename $test) (fakechroot) ======="; \
+    fakechroot fakeroot perl $test; \
+done
+======== 001-deb-systemd-helper.t (fakechroot) =======
+test_setup() with fakechroot
+cannot mkdir /usr/share/doc/perl/AUTHORS.gz: No such file or directory at /work/debian-init-system-helpers-004/source/t/./helpers.pm line 81, <$fh> line 731.
+make[1]: *** [debian/rules:45: override_dh_auto_test] Error 2
+make[1]: Leaving directory '/work/debian-init-system-helpers-004/source'
+make: *** [debian/rules:60: binary-indep] Error 2
+dpkg-buildpackage: error: debian/rules binary-indep subprocess returned exit status 2

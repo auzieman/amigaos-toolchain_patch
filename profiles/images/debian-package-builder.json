@@ -27,7 +27,11 @@
     "findutils",
     "grep",
     "sed",
-    "mawk"
+    "mawk",
+    "dpkg",
+    "base-passwd",
+    "init-system-helpers",
+    "debconf"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -100,13 +104,13 @@
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/boot-essential-sources.lock.json",
       "arch_only": true,
-      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+      "image_id": "sha256:1ce8c185e4b24672a9d1878536fa391cbcb6af918878909194741bf57690be83"
     },
     "diffutils": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/boot-essential-sources.lock.json",
       "arch_only": true,
-      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+      "image_id": "sha256:1ce8c185e4b24672a9d1878536fa391cbcb6af918878909194741bf57690be83"
     },
     "findutils": {
       "source_cache": "boot-source-cache",
@@ -130,7 +134,33 @@
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/boot-essential-sources.lock.json",
       "arch_only": true,
-      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+      "image_id": "sha256:1ce8c185e4b24672a9d1878536fa391cbcb6af918878909194741bf57690be83"
+    },
+    "dpkg": {
+      "arch_only": true,
+      "image_id": "sha256:1ce8c185e4b24672a9d1878536fa391cbcb6af918878909194741bf57690be83"
+    },
+    "base-passwd": {
+      "arch_only": true,
+      "image_id": "sha256:1ce8c185e4b24672a9d1878536fa391cbcb6af918878909194741bf57690be83",
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-install-sources.lock.json"
+    },
+    "init-system-helpers": {
+      "arch_only": false,
+      "image_id": "sha256:6165468e4b6bf50044b0203d87676cbe4864ffa18c02e3928edf4041afa9d58a",
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-install-sources.lock.json",
+      "indep_only": true,
+      "build_profiles": ""
+    },
+    "debconf": {
+      "arch_only": false,
+      "image_id": "sha256:d62000ed4197412a92e8e5af20e17fdd0c86b19a71b49e693a26fa399770b53a",
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-install-sources.lock.json",
+      "indep_only": true,
+      "build_profiles": ""
     }
   }
 }

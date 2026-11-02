@@ -1,0 +1,11 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+# Only Debian-converted runtime library packages enter this bootstrap image.
+# Development-package closure is a separate gate, not faked installed state.
+COPY packages/ /opt/tabor-cross-packages/
+RUN cd /opt/tabor-cross-packages && sha256sum -c SHA256SUMS \
+    && dpkg --install ./*.deb \
+    && printf '%s\n' /usr/powerpc-linux-gnuspe/lib > /etc/ld.so.conf.d/tabor-spe-cross.conf \
+    && dpkg --audit \
+    && dpkg-query -W > /opt/tabor-cross-development-installed.txt
+ENTRYPOINT ["python3"]

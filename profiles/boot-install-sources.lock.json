@@ -1,0 +1,63 @@
+{
+  "scope": "Trixie Essential/bootstrap source intake",
+  "signature_verification": "HTTPS DSC and payload SHA256; independent archive OpenPGP chain not yet verified",
+  "components": {
+    "base-passwd": {
+      "version": "3.6.7",
+      "dsc": "base-passwd_3.6.7.dsc",
+      "files": [
+        {
+          "filename": "base-passwd_3.6.7.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/b/base-passwd/base-passwd_3.6.7.dsc",
+          "size": 1891,
+          "sha256": "23dafe71f85d7595d9e20efba17729c1c975a33bd469cf09bfad9e96b1f542f3"
+        },
+        {
+          "filename": "base-passwd_3.6.7.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/b/base-passwd/base-passwd_3.6.7.tar.xz",
+          "size": 60872,
+          "sha256": "cf869870fed7862b57bfa9e99cd5cd6f365e2349705a1b65af7fc182629bd1ab"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/base-passwd"
+    },
+    "init-system-helpers": {
+      "version": "1.69~deb13u1",
+      "dsc": "init-system-helpers_1.69~deb13u1.dsc",
+      "files": [
+        {
+          "filename": "init-system-helpers_1.69~deb13u1.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/i/init-system-helpers/init-system-helpers_1.69~deb13u1.dsc",
+          "size": 2266,
+          "sha256": "873082d72727267b6207e38df47e3002aeb0ed554f876db17c7bbfeb26174ee6"
+        },
+        {
+          "filename": "init-system-helpers_1.69~deb13u1.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/i/init-system-helpers/init-system-helpers_1.69~deb13u1.tar.xz",
+          "size": 45852,
+          "sha256": "bbd65c63420b6335b91cbf5daad9a70632a087657eb9078ea000f0a16c2d83da"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/init-system-helpers"
+    },
+    "debconf": {
+      "version": "1.5.91",
+      "dsc": "debconf_1.5.91.dsc",
+      "files": [
+        {
+          "filename": "debconf_1.5.91.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/d/debconf/debconf_1.5.91.dsc",
+          "size": 2035,
+          "sha256": "1aa3ceaef24ef533cfffe7f9ca750c6325dbaea86a7abca77cb4439ceae930d8"
+        },
+        {
+          "filename": "debconf_1.5.91.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/d/debconf/debconf_1.5.91.tar.xz",
+          "size": 609964,
+          "sha256": "18f3f43924ccc870be483d7c5f1a9be59e51ae1da403059d654666b5a175bf15"
+        }
+      ],
+      "reference": "https://packages.debian.org/source/trixie/debconf"
+    }
+  }
+}

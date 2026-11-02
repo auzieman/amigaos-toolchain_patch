@@ -1,7 +1,13 @@
 ARG PACKAGE_TOOLS_IMAGE
 FROM ${PACKAGE_TOOLS_IMAGE}
+# Build tests may reconstruct a tool's runtime from dpkg's installed file list.
+# Preserve package payloads rather than inheriting the slim image's exclusions.
+RUN if [ -f /etc/dpkg/dpkg.cfg.d/docker ]; then \
+      mv /etc/dpkg/dpkg.cfg.d/docker /opt/tabor-original-slim-dpkg-exclusions; \
+    fi
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    apt-utils gnupg gpgv sbuild mmdebstrap e2fsprogs less po4a \
+    apt-utils gnupg gpgv sbuild mmdebstrap e2fsprogs less po4a autoconf-dickey dpkg-cross pkgconf python3-docutils dh-exec dh-python libintl-perl fakechroot libtest-deep-perl \
+    && apt-get install -y --no-install-recommends --reinstall perl-base perl \
     && dpkg-query -W > /opt/tabor-debian-build-infra-packages.txt \
     && rm -rf /var/lib/apt/lists/*
 ENTRYPOINT ["python3"]

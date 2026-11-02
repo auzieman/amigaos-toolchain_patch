@@ -1,0 +1,320 @@
+elper could be executed
+ok 22 - deb-systemd-helper did not exit due to a signal
+ok 23 - random unit file 'unitjRePi.service' is is-enabled
+ok 24 - deb-systemd-helper could be executed
+ok 25 - deb-systemd-helper did not exit due to a signal
+ok 26 - random unit file 'unitcZ_uw.service' is debian-installed
+ok 27 - deb-systemd-helper could be executed
+ok 28 - deb-systemd-helper did not exit due to a signal
+ok 29 - random unit file 'unitjRePi.service' isnt debian-installed
+1..29
+======== 004-deb-systemd-helper-user.t (DPKG_ROOT) =======
+test_setup() with DPKG_ROOT
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 1 - deb-systemd-helper could be executed
+ok 2 - deb-systemd-helper did not exit due to a signal
+ok 3 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 4 - deb-systemd-helper could be executed
+ok 5 - deb-systemd-helper did not exit due to a signal
+ok 6 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 7 - deb-systemd-helper could be executed
+ok 8 - deb-systemd-helper did not exit due to a signal
+ok 9 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 10 - deb-systemd-helper could be executed
+ok 11 - deb-systemd-helper did not exit due to a signal
+ok 12 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 13 - deb-systemd-helper could be executed
+ok 14 - deb-systemd-helper did not exit due to a signal
+ok 15 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+disabled
+ok 16 - deb-systemd-helper could be executed
+ok 17 - deb-systemd-helper did not exit due to a signal
+ok 18 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 19 - deb-systemd-helper could be executed
+ok 20 - deb-systemd-helper did not exit due to a signal
+ok 21 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 22 - deb-systemd-helper could be executed
+ok 23 - deb-systemd-helper did not exit due to a signal
+ok 24 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 25 - default.target.wants does not exist yet
+ok 26 - enable command succeeded
+ok 27 - unit\x2dTl39u.service was enabled
+ok 28 - symlink points to /tmp/a219GnIkM9/usr/lib/systemd/user/unit\x2dTl39u.service
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 29 - deb-systemd-helper could be executed
+ok 30 - deb-systemd-helper did not exit due to a signal
+ok 31 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 32 - deb-systemd-helper could be executed
+ok 33 - deb-systemd-helper did not exit due to a signal
+ok 34 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+enabled
+ok 35 - deb-systemd-helper could be executed
+ok 36 - deb-systemd-helper did not exit due to a signal
+ok 37 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 38 - deb-systemd-helper could be executed
+ok 39 - deb-systemd-helper did not exit due to a signal
+ok 40 - random unit file 'unit\x2dTl39u.service' is debian-installed
+ok 41 - symlink deleted
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 42 - deb-systemd-helper could be executed
+ok 43 - deb-systemd-helper did not exit due to a signal
+ok 44 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+disabled
+ok 45 - deb-systemd-helper could be executed
+ok 46 - deb-systemd-helper did not exit due to a signal
+ok 47 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 48 - deb-systemd-helper could be executed
+ok 49 - deb-systemd-helper did not exit due to a signal
+ok 50 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 51 - deb-systemd-helper could be executed
+ok 52 - deb-systemd-helper did not exit due to a signal
+ok 53 - random unit file 'unit\x2dTl39u.service' is debian-installed
+ok 54 - enable command succeeded
+disabled
+ok 55 - deb-systemd-helper could be executed
+ok 56 - deb-systemd-helper did not exit due to a signal
+ok 57 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 58 - state file exists
+ok 59 - disable command succeeded
+ok 60 - state file does not exist anymore after purging
+ok 61 - deb-systemd-helper could be executed
+ok 62 - deb-systemd-helper did not exit due to a signal
+ok 63 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 64 - deb-systemd-helper could be executed
+ok 65 - deb-systemd-helper did not exit due to a signal
+ok 66 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 67 - symlink does not exist yet
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 68 - deb-systemd-helper could be executed
+ok 69 - deb-systemd-helper did not exit due to a signal
+ok 70 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+disabled
+ok 71 - deb-systemd-helper could be executed
+ok 72 - deb-systemd-helper did not exit due to a signal
+ok 73 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 74 - enable command succeeded
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 75 - deb-systemd-helper could be executed
+ok 76 - deb-systemd-helper did not exit due to a signal
+ok 77 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 78 - deb-systemd-helper could be executed
+ok 79 - deb-systemd-helper did not exit due to a signal
+ok 80 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+enabled
+ok 81 - deb-systemd-helper could be executed
+ok 82 - deb-systemd-helper did not exit due to a signal
+ok 83 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 84 - deb-systemd-helper could be executed
+ok 85 - deb-systemd-helper did not exit due to a signal
+ok 86 - random unit file 'unit\x2dTl39u.service' is debian-installed
+ok 87 - disable command succeeded
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 88 - deb-systemd-helper could be executed
+ok 89 - deb-systemd-helper did not exit due to a signal
+ok 90 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+disabled
+ok 91 - deb-systemd-helper could be executed
+ok 92 - deb-systemd-helper did not exit due to a signal
+ok 93 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 94 - symlink does not exist yet
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 95 - deb-systemd-helper could be executed
+ok 96 - deb-systemd-helper did not exit due to a signal
+ok 97 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+disabled
+ok 98 - deb-systemd-helper could be executed
+ok 99 - deb-systemd-helper did not exit due to a signal
+ok 100 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 101 - enable command succeeded
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 102 - deb-systemd-helper could be executed
+ok 103 - deb-systemd-helper did not exit due to a signal
+ok 104 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 105 - deb-systemd-helper could be executed
+ok 106 - deb-systemd-helper did not exit due to a signal
+ok 107 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+enabled
+ok 108 - deb-systemd-helper could be executed
+ok 109 - deb-systemd-helper did not exit due to a signal
+ok 110 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 111 - deb-systemd-helper could be executed
+ok 112 - deb-systemd-helper did not exit due to a signal
+ok 113 - random unit file 'unit\x2dTl39u.service' is debian-installed
+ok 114 - purge command succeeded
+disabled
+ok 115 - deb-systemd-helper could be executed
+ok 116 - deb-systemd-helper did not exit due to a signal
+ok 117 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 118 - deb-systemd-helper could be executed
+ok 119 - deb-systemd-helper did not exit due to a signal
+ok 120 - random unit file 'unit\x2dTl39u.service' isnt debian-installed
+ok 121 - symlink does not exist yet
+disabled
+ok 122 - deb-systemd-helper could be executed
+ok 123 - deb-systemd-helper did not exit due to a signal
+ok 124 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 125 - enable command succeeded
+enabled
+ok 126 - deb-systemd-helper could be executed
+ok 127 - deb-systemd-helper did not exit due to a signal
+ok 128 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 129 - deb-systemd-helper could be executed
+ok 130 - deb-systemd-helper did not exit due to a signal
+ok 131 - random unit file 'unit\x2dTl39u.service' is debian-installed
+ok 132 - mask link does not exist yet
+ok 133 - mask command succeeded
+ok 134 - mask link exists
+ok 135 - service masked
+ok 136 - unmask command succeeded
+ok 137 - mask link does not exist anymore
+ok 138 - disable command succeeded
+ok 139 - symlink no longer exists
+ok 140 - mask command succeeded
+ok 141 - mask link exists
+ok 142 - service masked
+ok 143 - unmask command succeeded
+ok 144 - symlink no longer exists
+ok 145 - mask link does not exist yet
+ok 146 - mask link exists
+ok 147 - service masked
+ok 148 - mask command succeeded
+ok 149 - mask link exists
+ok 150 - service still masked
+ok 151 - unmask command succeeded
+ok 152 - mask link exists
+ok 153 - service still masked
+ok 154 - local service file exists
+ok 155 - local service file is not a symlink
+ok 156 - deb-systemd-helper could be executed
+ok 157 - deb-systemd-helper did not exit due to a signal
+ok 158 - deb-systemd-helper exited with exit code 0
+ok 159 - local service file still exists
+ok 160 - local service file is still not a symlink
+ok 161 - deb-systemd-helper could be executed
+ok 162 - deb-systemd-helper did not exit due to a signal
+ok 163 - deb-systemd-helper exited with exit code 0
+ok 164 - local service file still exists
+ok 165 - local service file is still not a symlink
+ok 166 - purge command succeeded
+disabled
+ok 167 - deb-systemd-helper could be executed
+ok 168 - deb-systemd-helper did not exit due to a signal
+ok 169 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9foo\x2dtest.service
+ok 170 - deb-systemd-helper could be executed
+ok 171 - deb-systemd-helper did not exit due to a signal
+ok 172 - random unit file 'foo\x2dtest.service' isnt is-enabled
+ok 173 - alias link does not exist yet
+ok 174 - enable command succeeded
+ok 175 - correct alias link
+enabled
+ok 176 - deb-systemd-helper could be executed
+ok 177 - deb-systemd-helper did not exit due to a signal
+ok 178 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 179 - mask link does not exist yet
+ok 180 - mask command succeeded
+ok 181 - correct alias link
+ok 182 - service masked
+ok 183 - unmask command succeeded
+ok 184 - correct alias link
+ok 185 - mask link does not exist any more
+disabled
+ok 186 - deb-systemd-helper could be executed
+ok 187 - deb-systemd-helper did not exit due to a signal
+ok 188 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 189 - alias link does not exist any more
+ok 190 - purge command succeeded
+ok 191 - enable command succeeded
+ok 192 - correct alias link
+ok 193 - mask command succeeded with uninstalled unit
+ok 194 - correct alias link
+ok 195 - service masked
+ok 196 - purge command succeeded with uninstalled unit
+ok 197 - alias link does not exist any more
+ok 198 - service masked
+ok 199 - unmask command succeeded with uninstalled unit
+ok 200 - mask link does not exist any more
+disabled
+ok 201 - deb-systemd-helper could be executed
+ok 202 - deb-systemd-helper did not exit due to a signal
+ok 203 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9foo\x2dtest.service
+ok 204 - deb-systemd-helper could be executed
+ok 205 - deb-systemd-helper did not exit due to a signal
+ok 206 - random unit file 'foo\x2dtest.service' isnt is-enabled
+ok 207 - enable command succeeded
+enabled
+ok 208 - deb-systemd-helper could be executed
+ok 209 - deb-systemd-helper did not exit due to a signal
+ok 210 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 211 - mask command succeeded
+ok 212 - service masked
+ok 213 - unmask command succeeded
+ok 214 - mask link does not exist any more
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9unit\x2dTl39u.service
+ok 215 - deb-systemd-helper could be executed
+ok 216 - deb-systemd-helper did not exit due to a signal
+ok 217 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+ok 218 - mask link does not exist any more
+disabled
+ok 219 - deb-systemd-helper could be executed
+ok 220 - deb-systemd-helper did not exit due to a signal
+ok 221 - random unit file 'unit\x2dTl39u.service' isnt is-enabled
+/work/debian-init-system-helpers-005/source/t/../script/deb-systemd-helper: error: unable to read /tmp/a219GnIkM9baz\x2dtest.service
+ok 222 - deb-systemd-helper could be executed
+ok 223 - deb-systemd-helper did not exit due to a signal
+ok 224 - random unit file 'baz\x2dtest.service' isnt is-enabled
+ok 225 - alias link does not exist yet
+ok 226 - enable command succeeded
+enabled
+ok 227 - deb-systemd-helper could be executed
+ok 228 - deb-systemd-helper did not exit due to a signal
+ok 229 - random unit file 'unit\x2dTl39u.service' is is-enabled
+ok 230 - alias link does exist
+ok 231 - correct alias link
+1..231
+make[1]: Leaving directory '/work/debian-init-system-helpers-005/source'
+   create-stamp debian/debhelper-build-stamp
+   dh_prep -i
+   dh_installdirs -i
+   dh_install -i
+   debian/rules execute_after_dh_install
+make[1]: Entering directory '/work/debian-init-system-helpers-005/source'
+[ ! -d debian/init-system-helpers ] || sed -i 's/__VERSION__/1.69~deb13u1+tabor1/' debian/init-system-helpers/usr/sbin/service
+make[1]: Leaving directory '/work/debian-init-system-helpers-005/source'
+   dh_installdocs -i
+   dh_installchangelogs -i
+   dh_installman -i
+   dh_bugfiles -i
+   dh_lintian -i
+   debian/rules override_dh_perl
+make[1]: Entering directory '/work/debian-init-system-helpers-005/source'
+dh_perl -d --package=init-system-helpers
+dh_perl --no-package=init-system-helpers
+dh_perl: warning: No packages to build. Possible architecture mismatch: amd64, want: all any
+make[1]: Leaving directory '/work/debian-init-system-helpers-005/source'
+   dh_link -i
+   dh_strip_nondeterminism -i
+   dh_compress -i
+   dh_fixperms -i
+   dh_missing -i
+   dh_installdeb -i
+   debian/rules override_dh_gencontrol
+make[1]: Entering directory '/work/debian-init-system-helpers-005/source'
+if dpkg-vendor --derives-from ubuntu; then \
+	dh_gencontrol -- -Valt:sysvinit=""; \
+else \
+	dh_gencontrol -- -Valt:sysvinit="| sysvinit-core"; \
+fi
+dpkg-gencontrol: warning: Depends field of package init-system-helpers: substitution variable ${perl:Depends} used, but is not defined
+make[1]: Leaving directory '/work/debian-init-system-helpers-005/source'
+   dh_md5sums -i
+   dh_builddeb -i
+dpkg-deb: building package 'init-system-helpers' in '../init-system-helpers_1.69~deb13u1+tabor1_all.deb'.
+ dpkg-genbuildinfo --build=all -O../init-system-helpers_1.69~deb13u1+tabor1_all.buildinfo
+ dpkg-genchanges --build=all -O../init-system-helpers_1.69~deb13u1+tabor1_all.changes
+dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)

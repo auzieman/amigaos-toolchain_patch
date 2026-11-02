@@ -51,7 +51,9 @@ if a.check_dependencies_only:
     command += ['--check-dependencies-only']
 if profile.get('arch_only'):
     command += ['--arch-only']
-if profile.get('build_profiles'):
+if profile.get('indep_only'):
+    command += ['--indep-only']
+if 'build_profiles' in profile:
     command += ['--build-profiles', profile['build_profiles']]
 subprocess.run(['python3', str(helper / 'sudo.py'), shlex.join(command)], check=True)
 print('Submitted', name, 'on R730; no local build or automatic retry')

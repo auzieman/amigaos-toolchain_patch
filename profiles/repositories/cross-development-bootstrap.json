@@ -1,0 +1,20 @@
+{
+  "purpose": "Debian cross-development libc bootstrap; not target installed state",
+  "inputs": [
+    {
+      "receipt": "work/debian-glibc-004/receipt.json",
+      "receipt_sha256": "76d42b550833bfd4d13fc537b52bdd13fa92663ec4c8042e9da0cacc3e23ce2b",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/linux-headers-003/receipt.json",
+      "receipt_sha256": "a4addf6d6c3c95af5cf0e0e1fb774524a741b11f1b66d426661a4683b3b40acc",
+      "packages": [
+        "linux-libc-dev"
+      ]
+    }
+  ]
+}

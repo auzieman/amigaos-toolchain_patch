@@ -15,9 +15,11 @@ p.add_argument('--image-id', required=True)
 p.add_argument('--jobs', type=int, default=4)
 p.add_argument('--build-profiles', default='cross,nocheck')
 p.add_argument('--arch-only', action='store_true')
+p.add_argument('--indep-only', action='store_true', help='Build Architecture: all scripting/data packages with Debian -A semantics')
 p.add_argument('--check-dependencies-only', action='store_true', help='Fresh source preflight using Debian dependency semantics; do not compile')
 a = p.parse_args()
-assert __import__('re').fullmatch(r'[a-z0-9,-]+', a.build_profiles)
+assert not (a.arch_only and a.indep_only)
+assert __import__('re').fullmatch(r'[a-z0-9,-]*', a.build_profiles)
 assert 1 <= a.jobs <= 4
 assert a.image_id.startswith('sha256:') and len(a.image_id) == 71
 a.work.mkdir(parents=True, exist_ok=False)
@@ -35,19 +37,28 @@ env.update(PATH=str(a.tools / 'bin') + ':' + env['PATH'], CC=str(cc),
            DEB_CFLAGS_MAINT_APPEND=' '.join(flags),
            DEB_CXXFLAGS_MAINT_APPEND=' '.join(flags),
            DEB_LDFLAGS_MAINT_APPEND=flags[0],
-           DEB_BUILD_OPTIONS='nocheck parallel=' + str(a.jobs),
+           DEB_BUILD_OPTIONS=('nocheck ' if 'nocheck' in a.build_profiles.split(',') else '') + 'parallel=' + str(a.jobs),
            DEB_BUILD_PROFILES=a.build_profiles.replace(',', ' '), LC_ALL='C.UTF-8',
            TABOR_SYSROOT=str(a.sysroot),
            TABOR_SHLIBS=str(a.project / 'profiles/images/spe-bootstrap.shlibs'))
+if a.indep_only:
+    # CC otherwise makes dpkg-architecture infer a cross host even for -A.
+    # Pure scripting/data builds use host tools and must only emit Arch: all.
+    env['PATH'] = os.environ['PATH']
+    for name in ['CC', 'CXX', 'DEB_CFLAGS_MAINT_APPEND', 'DEB_CXXFLAGS_MAINT_APPEND',
+                 'DEB_LDFLAGS_MAINT_APPEND', 'TABOR_SYSROOT', 'TABOR_SHLIBS']:
+        env.pop(name, None)
 r = {'status': 'running', 'package': a.package, 'source_version': component['version'],
-     'build_profiles': a.build_profiles, 'arch_only': a.arch_only,
+     'build_profiles': a.build_profiles, 'arch_only': a.arch_only, 'indep_only': a.indep_only,
      'dependency_preflight_only': a.check_dependencies_only,
      'image_id': a.image_id, 'recipe_sha256': sha(Path(__file__)),
      'source_lock_sha256': sha(lockpath), 'compiler_sha256': sha(cc),
      'compiler_frontend_sha256': sha(frontend),
      'sysroot_libraries': {str(f.relative_to(a.sysroot)): sha(f)
          for f in sorted((a.sysroot / 'lib').glob('*.so*')) if f.is_file()},
-     'flags': flags, 'bootstrap_shlibs_sha256': sha(Path(env['TABOR_SHLIBS'])), 'commands': [], 'target_tests': 'pending',
+     'flags': [] if a.indep_only else flags,
+     'bootstrap_shlibs_sha256': None if a.indep_only else sha(Path(env['TABOR_SHLIBS'])),
+     'compiler_used': not a.indep_only, 'commands': [], 'target_tests': 'pending',
      'package_installation': 'not-attempted', 'physical_boot': False}
 def save():
     temporary = a.work / 'receipt.tmp'
@@ -94,19 +105,31 @@ with (a.work / 'build.log').open('w') as log:
             run(['dpkg-architecture', '-apowerpcspe', '-c',
                  'make -f debian/rules debian/control'], source)
         if a.check_dependencies_only:
-            command = ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', a.build_profiles]
+            command = ['dpkg-checkbuilddeps']
+            if a.build_profiles:
+                command += ['-P', a.build_profiles]
+            if a.indep_only:
+                command.append('-A')
+            else:
+                command += ['-a', 'powerpcspe']
             if a.arch_only:
                 command.append('-B')
             r['active_phase'] = 'debian-build-dependency-preflight'
             run(command, source)
             r['status'] = 'build-dependencies-satisfied-not-built'
         else:
-            run(['dpkg-buildpackage', '-a', 'powerpcspe',
-                 '-B' if a.arch_only else '-b', '-us', '-uc'], source)
+            command = ['dpkg-buildpackage']
+            if a.indep_only:
+                command.append('-A')
+            else:
+                command += ['-a', 'powerpcspe', '-B' if a.arch_only else '-b']
+            run(command + ['-us', '-uc'], source)
             packages = {}
             for deb in sorted([*a.work.glob('*.deb'), *a.work.glob('*.udeb')]):
                 metadata = subprocess.check_output(['dpkg-deb', '-f', str(deb), 'Architecture'], text=True).strip()
                 assert metadata in ['powerpcspe', 'all'], metadata
+                if a.indep_only:
+                    assert metadata == 'all', 'Independent build produced an architecture-specific package'
                 packages[deb.name] = {'sha256': sha(deb), 'bytes': deb.stat().st_size,
                                       'architecture': metadata}
             assert packages, 'No Debian binary packages generated'

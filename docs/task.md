@@ -1018,3 +1018,14 @@ po4a; Debianutils002 compiles but shlibdeps cannot locate target libc. Essential
 preflights retained (diffutils ready; findutils/grep/sed/mawk dependencies missing).
 Next correction is a shared genuine package-aware build environment, not more
 per-package shlibs overrides. See builds/debian-desktop-closure-20261101/README.md.
+
+2026-11-01 shared cross-libc packaging repair: receipt-pinned Debian dpkg-cross
+conversion plus normal host cross-runtime package installation fixes library
+discovery without new per-package shlibs patches. Debianutils003, Diffutils002
+and Mawk002 build genuine SPE packages. Corrected pure scripting/data -A mode
+removes target CC/sysroot and permits normal tests; no amd64 binary packages
+are emitted. Debconf003 builds; init-system-helpers005 passes8 suites/1064 TAP
+checks after restoring host Perl files excluded by the slim image. Signed
+archive007 contains42 artifacts; full Essential/desktop closure still blocked.
+Next: actual target development dependency closure for dpkg/base-passwd and
+normal Essential configuration, not RAM-root patching. Evidence: builds/cross-development-20261101/README.md.

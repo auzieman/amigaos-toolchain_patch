@@ -1,0 +1,262 @@
+e[2]: Entering directory '/work/debian-debconf-003/source/doc'
+cd man && po4a po4a/po4a.cfg
+Discard debconf-apt-progress.da.1.pod (32 of 42 strings; only 76.19% translated; need 80%).
+Discard debconf-escape.da.1.pod (7 of 10 strings; only 70% translated; need 80%).
+Discard debconf-communicate.da.1.pod (13 of 17 strings; only 76.47% translated; need 80%).
+Discard debconf-copydb.da.1.pod (12 of 32 strings; only 37.5% translated; need 80%).
+Discard debconf-getlang.da.1.pod (14 of 23 strings; only 60.86% translated; need 80%).
+Discard debconf-loadtemplate.da.1.pod (8 of 12 strings; only 66.66% translated; need 80%).
+Discard debconf-mergetemplate.da.1.pod (7 of 19 strings; only 36.84% translated; need 80%).
+Discard debconf-set-selections.da.1.pod (9 of 25 strings; only 36% translated; need 80%).
+Discard debconf-show.da.1.pod (6 of 17 strings; only 35.29% translated; need 80%).
+Discard dpkg-reconfigure.da.8.pod (16 of 30 strings; only 53.33% translated; need 80%).
+Discard debconf.conf.da.5 (34 of 171 strings; only 19.88% translated; need 80%).
+Discard confmodule.da.3 (5 of 14 strings; only 35.71% translated; need 80%).
+Discard debconf.da.7 (26 of 117 strings; only 22.22% translated; need 80%).
+Discard debconf-devel.da.7 (75 of 239 strings; only 31.38% translated; need 80%).
+Discard debconf.pt_BR.1.pod (10 of 27 strings; only 37.03% translated; need 80%).
+Discard Debconf::Client::ConfModule.pt_BR.3.pod (5 of 18 strings; only 27.77% translated; need 80%).
+Discard debconf-apt-progress.pt_BR.1.pod (5 of 42 strings; only 11.9% translated; need 80%).
+Discard debconf-escape.pt_BR.1.pod (5 of 10 strings; only 50% translated; need 80%).
+Discard debconf-copydb.pt_BR.1.pod (25 of 32 strings; only 78.12% translated; need 80%).
+Discard debconf-get-selections.pt_BR.1.pod (4 of 9 strings; only 44.44% translated; need 80%).
+Discard debconf-mergetemplate.pt_BR.1.pod (11 of 19 strings; only 57.89% translated; need 80%).
+Discard debconf-set-selections.pt_BR.1.pod (8 of 25 strings; only 32% translated; need 80%).
+Discard debconf-show.pt_BR.1.pod (6 of 17 strings; only 35.29% translated; need 80%).
+Discard dpkg-reconfigure.pt_BR.8.pod (17 of 30 strings; only 56.66% translated; need 80%).
+Discard debconf.conf.pt_BR.5 (123 of 171 strings; only 71.92% translated; need 80%).
+Discard debconf.pt_BR.7 (59 of 117 strings; only 50.42% translated; need 80%).
+Discard debconf-devel.pt_BR.7 (15 of 239 strings; only 6.27% translated; need 80%).
+for pod in man/*.pod; do \
+	perl -pi -e '/^=encoding/ and $seen = 1; if (not $seen and /^=head1/) { print "=encoding UTF-8\n\n"; $seen = 1; }' $pod; \
+done
+install -d man/gen
+for num in 1 3 8; do \
+	find man -maxdepth 1 -type f -name "*.$num.pod" -printf '%P\n' | \
+		xargs -i sh -c "cd man ; pod2man -c Debconf -r '' --utf8 --section=$num {} > gen/\`basename {} .pod\`"; \
+done
+pod2man -c Debconf -r '' --utf8 --section=3 ../Debconf/Client/ConfModule.pm \
+	> man/gen/Debconf::Client::ConfModule.3pm
+find .. -maxdepth 1 -perm /100 -type f \( -name debconf -or -name 'debconf-*' \) -printf '%P\n' | \
+	xargs -i sh -c "cd .. ; pod2man -c Debconf -r '' --utf8 --section=1 {} > doc/man/gen/{}.1"
+find .. -maxdepth 1 -perm /100 -type f -name 'dpkg-*' -printf '%P\n' | \
+	xargs -i sh -c "cd .. ; pod2man -c Debconf -r '' --utf8 --section=8 {} > doc/man/gen/{}.8"
+./graph.pl `find .. -name \*.pm` > hierarchy.txt
+make[2]: Leaving directory '/work/debian-debconf-003/source/doc'
+make -C po
+make[2]: Entering directory '/work/debian-debconf-003/source/po'
+msgfmt -o ar.mo ar.po
+msgfmt -o ast.mo ast.po
+msgfmt -o bg.mo bg.po
+msgfmt -o bn.mo bn.po
+msgfmt -o bs.mo bs.po
+msgfmt -o ca.mo ca.po
+msgfmt -o cs.mo cs.po
+msgfmt -o da.mo da.po
+msgfmt -o de.mo de.po
+msgfmt -o dz.mo dz.po
+msgfmt -o el.mo el.po
+msgfmt -o eo.mo eo.po
+msgfmt -o es.mo es.po
+msgfmt -o eu.mo eu.po
+msgfmt -o fi.mo fi.po
+msgfmt -o fr.mo fr.po
+msgfmt -o gl.mo gl.po
+msgfmt -o he.mo he.po
+msgfmt -o hu.mo hu.po
+msgfmt -o id.mo id.po
+msgfmt -o it.mo it.po
+msgfmt -o ja.mo ja.po
+msgfmt -o ka.mo ka.po
+msgfmt -o km.mo km.po
+msgfmt -o ko.mo ko.po
+msgfmt -o ku.mo ku.po
+msgfmt -o mr.mo mr.po
+msgfmt -o nb.mo nb.po
+msgfmt -o ne.mo ne.po
+msgfmt -o nl.mo nl.po
+msgfmt -o nn.mo nn.po
+msgfmt -o oc.mo oc.po
+msgfmt -o pa.mo pa.po
+msgfmt -o pl.mo pl.po
+msgfmt -o pt.mo pt.po
+msgfmt -o pt_BR.mo pt_BR.po
+msgfmt -o ro.mo ro.po
+msgfmt -o ru.mo ru.po
+msgfmt -o ru_UA.mo ru_UA.po
+msgfmt -o sk.mo sk.po
+msgfmt -o sl.mo sl.po
+msgfmt -o sv.mo sv.po
+msgfmt -o th.mo th.po
+msgfmt -o tl.mo tl.po
+msgfmt -o tr.mo tr.po
+msgfmt -o uk.mo uk.po
+msgfmt -o vi.mo vi.po
+msgfmt -o zh_CN.mo zh_CN.po
+msgfmt -o zh_TW.mo zh_TW.po
+make[2]: Leaving directory '/work/debian-debconf-003/source/po'
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   dh_auto_test -i
+   create-stamp debian/debhelper-build-stamp
+   dh_prep -i
+   debian/rules override_dh_auto_install
+make[1]: Entering directory '/work/debian-debconf-003/source'
+/usr/bin/make prefix=`pwd`/debian/debconf-utils install-utils
+make[2]: Entering directory '/work/debian-debconf-003/source'
+install -d /work/debian-debconf-003/source/debian/debconf-utils/usr/bin
+find . -maxdepth 1 -perm /100 -type f -name 'debconf-*' | grep -v debconf-set-selections | grep -v debconf-show | grep -v debconf-copydb | grep -v debconf-communicate | grep -v debconf-apt-progress | grep -v debconf-escape | \
+	xargs -i install {} /work/debian-debconf-003/source/debian/debconf-utils/usr/bin
+make[2]: Leaving directory '/work/debian-debconf-003/source'
+/usr/bin/make prefix=`pwd`/debian/debconf-i18n install-i18n
+make[2]: Entering directory '/work/debian-debconf-003/source'
+/usr/bin/make -C po install
+make[3]: Entering directory '/work/debian-debconf-003/source/po'
+for file in ar.mo ast.mo bg.mo bn.mo bs.mo ca.mo cs.mo da.mo de.mo dz.mo el.mo eo.mo es.mo eu.mo fi.mo fr.mo gl.mo he.mo hu.mo id.mo it.mo ja.mo ka.mo km.mo ko.mo ku.mo mr.mo nb.mo ne.mo nl.mo nn.mo oc.mo pa.mo pl.mo pt.mo pt_BR.mo ro.mo ru.mo ru_UA.mo sk.mo sl.mo sv.mo th.mo tl.mo tr.mo uk.mo vi.mo zh_CN.mo zh_TW.mo; do \
+	lang=`echo $file | sed 's/\.mo//'`; \
+	install -d /work/debian-debconf-003/source/debian/debconf-i18n/usr/share/locale/$lang/LC_MESSAGES/; \
+	install -m 0644 $file /work/debian-debconf-003/source/debian/debconf-i18n/usr/share/locale/$lang/LC_MESSAGES/debconf.mo; \
+done
+make[3]: Leaving directory '/work/debian-debconf-003/source/po'
+make[2]: Leaving directory '/work/debian-debconf-003/source'
+/usr/bin/make prefix=`pwd`/debian/python3-debconf install-python3
+make[2]: Entering directory '/work/debian-debconf-003/source'
+install -d /work/debian-debconf-003/source/debian/python3-debconf/usr/lib/python3/dist-packages
+install -m 0644 debconf.py /work/debian-debconf-003/source/debian/python3-debconf/usr/lib/python3/dist-packages/
+make[2]: Leaving directory '/work/debian-debconf-003/source'
+/usr/bin/make prefix=`pwd`/debian/debconf install-rest
+make[2]: Entering directory '/work/debian-debconf-003/source'
+install -d /work/debian-debconf-003/source/debian/debconf/etc \
+	/work/debian-debconf-003/source/debian/debconf/var/cache/debconf \
+	/work/debian-debconf-003/source/debian/debconf/usr/share/debconf \
+	/work/debian-debconf-003/source/debian/debconf/usr/share/pixmaps
+install -m 0644 debconf.conf /work/debian-debconf-003/source/debian/debconf/etc/
+install -m 0644 debian-logo.png /work/debian-debconf-003/source/debian/debconf/usr/share/pixmaps/
+# This one is the ultimate backup copy.
+grep -v '^#' debconf.conf > /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/debconf.conf
+# Make module directories.
+find Debconf -type d |grep -v CVS | \
+	xargs -i install -d /work/debian-debconf-003/source/debian/debconf//usr/share/perl5/{}
+# Install modules.
+find Debconf -type f -name '*.pm' |grep -v CVS | \
+	xargs -i install -m 0644 {} /work/debian-debconf-003/source/debian/debconf//usr/share/perl5/{}
+# Special case for back-compatability.
+install -d /work/debian-debconf-003/source/debian/debconf//usr/share/perl5/Debian/DebConf/Client
+cp Debconf/Client/ConfModule.stub \
+	/work/debian-debconf-003/source/debian/debconf//usr/share/perl5/Debian/DebConf/Client/ConfModule.pm
+# Other libs and helper stuff.
+install -m 0644 confmodule.sh confmodule /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/
+install frontend /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/
+install -m 0755 fix_db.pl /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/
+# Install essential programs.
+install -d /work/debian-debconf-003/source/debian/debconf/usr/sbin /work/debian-debconf-003/source/debian/debconf/usr/bin
+find . -maxdepth 1 -perm /100 -type f -name 'dpkg-*' | \
+	xargs -i install {} /work/debian-debconf-003/source/debian/debconf/usr/sbin
+find . -maxdepth 1 -perm /100 -type f -name debconf -or -name debconf-show -or -name debconf-copydb -or -name debconf-communicate -or -name debconf-set-selections -or -name debconf-apt-progress -or -name debconf-escape | \
+	xargs -i install {} /work/debian-debconf-003/source/debian/debconf/usr/bin
+# Now strip all pod documentation from all .pm files and scripts.
+find /work/debian-debconf-003/source/debian/debconf//usr/share/perl5/ /work/debian-debconf-003/source/debian/debconf/usr/sbin		\
+     /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/frontend 			\
+     /work/debian-debconf-003/source/debian/debconf/usr/share/debconf/*.pl /work/debian-debconf-003/source/debian/debconf/usr/bin		\
+     -name '*.pl' -or -name '*.pm' -or -name 'dpkg-*' -or	\
+     -name 'debconf-*' -or -name 'frontend' | 			\
+     grep -v Client/ConfModule | xargs perl -i.bak -ne ' print $_."# This file was preprocessed, do not edit!\n" if m:^#!/usr/bin/perl:; $cutting=1 if /^=/; $cutting="" if /^=cut/; next if /use lib/; next if $cutting || /^(=|\s*#)/; print $_ '
+find /work/debian-debconf-003/source/debian/debconf -name '*.bak' | xargs rm -f
+make[2]: Leaving directory '/work/debian-debconf-003/source'
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   dh_install -i
+   debian/rules override_dh_installdocs
+make[1]: Entering directory '/work/debian-debconf-003/source'
+dh_installdocs -Ndebconf-doc --link-doc=debconf
+dh_installdocs -pdebconf-doc
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   debian/rules execute_before_dh_installchangelogs
+make[1]: Entering directory '/work/debian-debconf-003/source'
+# Changelog reduction hack for debconf. Only include top 100 entries.
+perl -ne '$c++ if /^debconf /; last if $c > 100 ; print $_' \
+	< debian/changelog > debian/debconf.changelog
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   dh_installchangelogs -i
+   dh_installexamples -i
+   dh_installman -i
+   debian/rules override_dh_installdebconf
+make[1]: Entering directory '/work/debian-debconf-003/source'
+# Don't modify postrm, I purge differently than normal packages
+# using me
+dh_installdebconf -n
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   dh_python3 -i
+   dh_lintian -i
+   dh_perl -i
+   dh_link -i
+   dh_strip_nondeterminism -i
+	Normalized debian/debconf-i18n/usr/share/locale/uk/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ru_UA/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/bs/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/eu/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/nl/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/bn/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/sv/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ca/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ru/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/mr/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/nn/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/es/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/it/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/km/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/tl/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ast/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/fr/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/pt_BR/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ka/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/id/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/bg/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ko/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/tr/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/dz/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/fi/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/zh_CN/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ku/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/th/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/da/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/de/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/nb/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/pa/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/sl/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/el/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/he/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ar/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/vi/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/pl/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ro/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ne/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/cs/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/pt/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/ja/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/sk/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/eo/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/zh_TW/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/gl/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/oc/LC_MESSAGES/debconf.mo
+	Normalized debian/debconf-i18n/usr/share/locale/hu/LC_MESSAGES/debconf.mo
+   debian/rules override_dh_compress
+make[1]: Entering directory '/work/debian-debconf-003/source'
+dh_compress -X demo.templates -X tutorial.templates
+make[1]: Leaving directory '/work/debian-debconf-003/source'
+   dh_fixperms -i
+   dh_missing -i
+   dh_installdeb -i
+   dh_gencontrol -i
+dpkg-gencontrol: warning: package debconf: substitution variable ${perl:Depends} unused, but is defined
+dpkg-gencontrol: warning: package debconf-utils: substitution variable ${perl:Depends} unused, but is defined
+   dh_md5sums -i
+   dh_builddeb -i
+dpkg-deb: building package 'debconf' in '../debconf_1.5.91+tabor1_all.deb'.
+dpkg-deb: building package 'python3-debconf' in '../python3-debconf_1.5.91+tabor1_all.deb'.
+dpkg-deb: building package 'debconf-doc' in '../debconf-doc_1.5.91+tabor1_all.deb'.
+dpkg-deb: building package 'debconf-utils' in '../debconf-utils_1.5.91+tabor1_all.deb'.
+dpkg-deb: building package 'debconf-i18n' in '../debconf-i18n_1.5.91+tabor1_all.deb'.
+ dpkg-genbuildinfo --build=all -O../debconf_1.5.91+tabor1_all.buildinfo
+ dpkg-genchanges --build=all -O../debconf_1.5.91+tabor1_all.changes
+dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)
+ dpkg-source --after-build .
+dpkg-buildpackage: info: binary-only upload (no source included)
