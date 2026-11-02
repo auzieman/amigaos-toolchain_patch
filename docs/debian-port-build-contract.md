@@ -109,3 +109,13 @@ candidate, not a numerical acceptance threshold. Acceptance requires the
 selected packages' real dependency closure, successful Debian configuration,
 then boot, SSH, X11, E and GL checks. Preserve failures and continue independent
 dependency-ready sources rather than reducing that closure to meet a count.
+
+
+Cumulative cross-root update (2026-11-02): opt-in serial queues may install
+receipt/hash-pinned Multi-Arch:same SPE libraries into immutable child build
+images through ordinary offline apt, with no removals, clean audit and unchanged
+native package state. Retry blocked sources after installed dependencies change;
+keep compile failures for reviewed fixes and preserve required full bootstrap
+rebuilds. Native apt build-dep provides a host-tool superset, never evidence that
+a target library is installed. This does not promote outputs to the target
+archive or replace the target filesystem's normal package configuration stage.

@@ -1,0 +1,10 @@
+{
+  "version": "3.11-4",
+  "purpose": "Preserve grep behavior with the pinned GCC8 bootstrap compiler",
+  "patches": [
+    {
+      "path": "patches/grep/0001-allow-declaration-after-label-with-gcc8.patch",
+      "sha256": "f658eddb1fd38d6df0423015fdf322e4a2fe54eb42fa3b044670d3796b58ec02"
+    }
+  ]
+}

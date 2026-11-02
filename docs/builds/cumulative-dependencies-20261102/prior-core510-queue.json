@@ -1,0 +1,2488 @@
+{
+  "status": "completed-with-deferred-items",
+  "queue_sha256": "2eb2508af270853e646d3e691042c487a6566d47ff3d0b5b1435039357b7d636",
+  "builder_profile_sha256": "0da1843fde0ab117e63e9c8a2679d5cb950f11fde2f9fad3226add1331dac4b7",
+  "recipe_sha256": "2c485505749becf441be92735f197184a1aa445a7d433ad51607094c36be7cb9",
+  "snapshot_files": {
+    "docker/Dockerfile.bootstrap": "8a0f0f1b6363e47573abd6b6c7dfdfced49c16fdeed2d02b6e0386f4e8fc5467",
+    "docker/Dockerfile.cross-development": "fcf27a8f365810ba2ee18a427b722d6a8976a850156300f158179d7aca906116",
+    "docker/Dockerfile.debian-build-infra": "2ebd9f2e0100bd137c28b9bac19d58025e2cf51459b2826277c6863934b25067",
+    "docker/Dockerfile.desktop-tools": "3bc0bc45b95bd2b883839449768cb7928e6252bb19693f93a8cb26b225555869",
+    "docker/Dockerfile.glibc-package-tools": "c88ca1671483332e4663a438b9f5cdd85be7e8a43dbe3331c99787b296e73204",
+    "docker/Dockerfile.graphics-tools": "e9c31b0e3ec209652094911efd9ad6308646c66822c9231022620ec41795c962",
+    "docker/Dockerfile.kernel": "2d64f441949b9a43aec71ee2a1df12e42906b62b4a170baa05f921c67c746ffa",
+    "docker/Dockerfile.live-tools": "f717d09cd83d28a1f4e235a0633aa1ab53a0818f1bfc8b4e7a178b7c6dec4ec0",
+    "docker/Dockerfile.native-bin-nmu": "dbd26799ffb622e6fe39901aee8240408bd345b603fcded286ef801e3d82c6fe",
+    "docker/Dockerfile.native-build-dependencies": "6fda3d9305fe700a0cd1014d280be8d06c3cb5e4e7fbbfac16eddb6508e3579d",
+    "docker/Dockerfile.package-tools": "ae60d6648766aaa0022cdbafe27e0c88ba021b5d8e85abd7424deb71888171fc",
+    "docker/Dockerfile.ppc-debug-tools": "19767a47f081e440396967f3b2f0d056d15d7a6e85ddf0934a66d2d027417d6c",
+    "docker/Dockerfile.qemu": "e3389ea835fba1909e654e1f2a9e335552e2c36c3189ea0a01cb945d419b9691",
+    "docker/Dockerfile.sdk-runtime-build-env": "26f955fbec18a336cda98a448fb65a2cc7652983783de6f241cd6c29909f1451",
+    "docker/Dockerfile.session-tools": "3bb133ac336cadd743aa1b10d6d7f1552a401b6ff207bcf312afabee85605543",
+    "docker/Dockerfile.spe-toolchain-update": "48c0e7548b560c98f6f21e3184d16ed6b66b9d44affe455d60bd72f095c879e1",
+    "docker/Dockerfile.target-development": "0051d30f8966407f23628e8851974b9642fb2751e4deb93602598b2c3a357386",
+    "docker/Dockerfile.x11-probe-server": "9574660b4e7f96983cf6d3ad7ca2883cab7280780bcd32caf5cd1a0ccad54937",
+    "packaging/gcc-runtime/debian/control": "065c0c38948f67f649d2e233c576a2b7194b6c7dd29c4695c33edff9cd031136",
+    "packaging/gcc-runtime/debian/libgcc-s1.install": "2d9c96c59ddca2605b926ed5dad3dd6b59ba2bd914815ae48e0ecd56ec8076b0",
+    "packaging/gcc-runtime/debian/libstdc++6.install": "0758fd617976414dffc0374bd279ff1c6d927b3a6667586106ab5d2b3102ced2",
+    "packaging/gcc-runtime/debian/libstdc++6.links": "547c5d38826075c595e1e9dd80a52a771bce1d3857a98ac2e39f77d58f927ab0",
+    "packaging/gcc-runtime/debian/rules": "1c47b2a4e23a0a146ccd9b0635123e1760eec5d96e6d05b6e03003e85acc42cf",
+    "patches/attr/0001-cross-sysroot-packaging.patch": "6c4a610dd343f1b1a6e414d4e44c949c0139f03d78db13d8934340399c40036f",
+    "patches/attr/series.json": "c2d6bad488d798f14961f439e8b98b1358d62875ee7ccf09406c0878db528721",
+    "patches/binutils/series": "3b844db8ac30cae8a0dca474cb135db54f8466bfcb4b3d1d3dd4e48fd6f48077",
+    "patches/dash/0001-cross-sysroot-packaging.patch": "e03f6a51f64318efb52858217ca83be8188f39e7a0302122d2b870a98c175b63",
+    "patches/dash/0002-separate-native-generator-link-flags.patch": "6b8354390769561db04e3f407111b3e126658a4067731c1da84d53328a1cfbb2",
+    "patches/dash/series.json": "181c473092c8bc01c614a13b6f77f76595da2bedd4a5aad3d7ac5832d7d994e5",
+    "patches/e17/0001-meson-probe-eeze-optionally.patch": "e6cf992c2b261b39a3ab2fcf51bf83f221fc8ac2845087624b585c057040f235",
+    "patches/e17/0002-acpi-guard-eeze-device-watches.patch": "679aeec337047a0790dd3bf98254920202ae217028db59cbc5322d9df0930278",
+    "patches/e17/0003-wizard-keep-null-temperature-list-without-eeze.patch": "ed4a9821b21a1b032196e2d2f4851f572774d73905ecea71eb67de7e400e4ee5",
+    "patches/e17/series.json": "2de9a8ef40ab98939c1e41e5fb5fa08d7f40c2149afc195176cc2f0cd5cf191d",
+    "patches/evdev/0001-configure-optional-libudev-for-manual-devices.patch": "4d16bba3a7b7395b955a8804c69f556e43b50eceb0af41a8e4a321db7061a056",
+    "patches/evdev/series.json": "c3257f1a19067f90eec9802282e7b423a0f15209cd3e53ec229d2c1e3674a358",
+    "patches/gcc/bootstrap-8.5/0001-spe-pic-return-address.patch": "9e620ea601e86bb5a4038f2f6778eb7297bc9ed0bd9678d76473857d28ee9f15",
+    "patches/gcc/bootstrap-8.5/0002-powerpcspe-use-stack-pointer-for-pic-return-address.patch": "f5f3ef8b3ebe99c362a3725d2466756bece09b91a70a8808285d20fdd8688d4f",
+    "patches/gcc/bootstrap-8.5/series.json": "312f5551f084bc7dce19784ff8a298f6a773f1bcf674c5eaf38b96fbd7c7a12a",
+    "patches/gcc/series": "3b844db8ac30cae8a0dca474cb135db54f8466bfcb4b3d1d3dd4e48fd6f48077",
+    "patches/glibc/0001-restore-historical-e500-sysdeps.patch": "141c17f4275a0e70c863702edb23ba743d7c72a40d812107f7ca2d6bd5ab08c8",
+    "patches/glibc/0002-origin.json": "3b5c3d13cb57ad11b9c5fc918add0f35237d246b53dc6091d00da024a5aeded5",
+    "patches/glibc/0002-powerpc-restore-spe-selection-and-state.patch": "aa9b1b61ff308f757f76529407b8278d4ae2f090d19f02c26990651fa3ca6634",
+    "patches/glibc/0003-e500-port-internal-syscall-interface.patch": "cb2f7e97722413cc4dc2a8519840fb4bde88c0d3a06d71b5daf3acea319f9e80",
+    "patches/glibc/0003-origin.json": "70cd518eab05998dee938054a45ba7ef29031da1d44c14274baf49d87f1a40fd",
+    "patches/glibc/0004-debian-register-powerpcspe-packaging.patch": "f58decbed3daba2ccf30657a4bf962d698f964728034be5809319c05edbee62a",
+    "patches/glibc/0005-explicit-spe-toolchain-and-stage2-dependencies.patch": "96bd01f3ca42932e5f540919afdf718bc05b1e812fddcfa880718d7edc0c49e9",
+    "patches/glibc/0006-require-fixed-spe-bootstrap-compiler.patch": "f0e8a5ebc0ad7f464d36cfe41544e43db837bb4a0a401f0296a4c480b3681c72",
+    "patches/glibc/0007-select-spe-objdump-for-linker-format.patch": "7ab55400b735cd35bb1815a9efc6d904784aabd436661cf9a013f8481d701ee3",
+    "patches/glibc/series": "21101c5650c12d23183dc785a117307661bbffff43dbfa138bc424ac207221cf",
+    "patches/glibc/series.json": "b8ac02e63c98599d12f1062b9d5bcc1c4b415e81dad3c651def7c9610053927f",
+    "patches/gzip/0001-cross-bootstrap-library-discovery.patch": "eb12402de992e1cdb97a1a0c799b6daa421d61ec7a5fbc443018be5a69f97e84",
+    "patches/gzip/0002-preserve-caller-maintainer-flags.patch": "6244a71ad34cc213e5019a14ce923bfc1c8202b6e5b1c1c38b4d98f8869c52a8",
+    "patches/gzip/series": "6a2ed823e7a58ad5923a71023b5a9311b2cea4a7121db9668154fe3fda235952",
+    "patches/gzip/series.json": "cdb743654619ab5a0a52b7f570dce8e120337c4096caa86a4d85865c7e8493f3",
+    "patches/libcap-ng/0001-cross-sysroot-packaging.patch": "0e87b1d526bcfba9ad607112117f276d457e8e3597687fbdbbf03b92f937262a",
+    "patches/libcap-ng/series.json": "793449d9275071cf4a081e2326fe56086045d84d1ed325359f0e9978630ffc06",
+    "patches/libjpeg-turbo/0001-qualify-native-code-generators.patch": "e9a2b648f2ae438ce933d5fa0f127117744f54a45196bf1793febf88745ddeda",
+    "patches/libjpeg-turbo/0002-use-native-benchmark-for-cross-manpage.patch": "f2e2f913e2fd757317d4fbfdb041c32f9c421a22c268d4f7a4effd77aa281dae",
+    "patches/libjpeg-turbo/0003-register-spe-java-symbol-availability.patch": "60ae9bd4d7a3e1e294fe2f649c9156debee7e7ef25f0f87e15807bb4c05bf2c2",
+    "patches/libjpeg-turbo/series.json": "8a066374caf8d1300e6a4e79085b43cc64a4cf48764a5e6b263068909d15bdc9",
+    "patches/libmd/0001-cross-sysroot-shlibdeps.patch": "e77f9fad39d7cb3beee682d34222a037b3ee1ed2264c47a02e4fc62b839062d2",
+    "patches/libmd/series.json": "dce191051c8c6fbea1d4a61228661c592cb0af97d292d0072b3d0ea8705afb1c",
+    "patches/libsepol/0001-cross-sysroot-packaging.patch": "aee96807d5b1fe630b2a59cb2dc856d6c556f2f5a27b4c6888ef7d4f8b924e38",
+    "patches/libsepol/series.json": "7e0e851badf4053ae06c9e1bca67b0bfb503d0d7d077330b9e0c7374c54da72a",
+    "patches/linux/0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4",
+    "patches/linux/headers/0001-package-spe-only-uapi-headers.patch": "51f21ce73a8937df1edfe4dda050f03b5c72421e4154435f4b8ff58cb1ea5ee6",
+    "patches/linux/headers/0002-register-spe-uapi-tuple.patch": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c",
+    "patches/linux/headers/profiles.json": "5cfd79d463750f20f6726a542e2ed1127309560c273dae26c7b85424e82d24ac",
+    "patches/linux/series": "1d231e0e0ae8cb5d8108344685962fbfe69fc66fb7e96321f3ef1e0fd0d3f7b6",
+    "patches/ncurses/0001-recognize-linux-gnuspe-feature-tests.patch": "fcce19d312ae5a8d05094f1ee2ee6254c943c032db92dc6c0345e92122e2d6d9",
+    "patches/ncurses/series.json": "81c1b27c2783c385ed994aa914fd8e2d52c66719a28928927b83b1db9fac4202",
+    "patches/pcre2/0001-cross-sysroot-packaging.patch": "fb4938a912cbe8cde70a569399b190ce04ba6f6d7edcedaae247d4a93005069c",
+    "patches/pcre2/series.json": "dc91509430288ccaf83925ad5e6b8b0ba174ac8d2357448feeaa1676987d3f75",
+    "patches/zlib/0001-minizip-configure-cross-tuples.patch": "cd166d9ca2077ddaa693d5baecb8b3219ddac5e6b052606287ab86751d7f7c5f",
+    "patches/zlib/0002-link-miniunzip-zlib-dependency.patch": "4621a1e69175acb9cb15daf5215e2830586b35bf959b74a0c1ac202b0218041f",
+    "patches/zlib/0003-honor-debian-nocheck-option.patch": "29d166a60e9bd2b932d02098b41a2ff63ceb1e7cde77f3a0a0140d0b17cef1c5",
+    "patches/zlib/series": "f8e90943b07663d25fd7401670b16742a005a112f716c52e4470689e0372b364",
+    "patches/zlib/series.json": "67ba0a13ba676f26bdb1686f3fdf0beeb9cfdca94ca364f8d1a1180eae1a387c",
+    "profiles/boot-essential-sources.lock.json": "2af0ba904aa8a866e3bd83ad11d1c5af05c9e8e8c392bb16a2990a5ceee593a9",
+    "profiles/boot-install-sources.lock.json": "3c342941d27f2cdba6b2c121a57d09891a3b9c7f239c56c342384bc02e0052de",
+    "profiles/bootstrap-libraries.lock.json": "eba7c83a0328bfed4724676627ec65079248789e31c194bd5f225a99941b3255",
+    "profiles/build-dependency-sources.lock.json": "4d48176a77b1d0f2ecd89d816c4301d5ce8ad92742faa3fc2cc0ca6e570001d8",
+    "profiles/core-data-sources.lock.json": "c79d9b226a3ec81a910016e63a02facd6779a906a6e32b85b520bd3aee3e950b",
+    "profiles/core-dependency-sources.lock.json": "1486b7c9f4b389587b69032d8a13daed5676711b64789e19887b98ac799f2bad",
+    "profiles/debian-trixie.lock.json": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+    "profiles/desktop-base.lock.json": "d2a089fb743a39d3cde5ab89aec13498b9ca6ae1a027c0402b8fd076aca1bdb4",
+    "profiles/desktop-seeds.lock.json": "46b25c4340c6a170953f5ae06332acb8e81ab1e207499661af382d646ad00dcf",
+    "profiles/e/recording-molten/COPYING": "7ecbd2b3cf806558a049a13d97837c789cefe666e9168e2a03b7eb535f73f4ca",
+    "profiles/e/recording-molten/README.md": "54f6f4c6bcac72139c3a1fe34fac2f85e8be82bc6611664602c50f379117e018",
+    "profiles/e/recording-molten/e.src": "6e6b874dc8e2a2c433cfe32833cd41b66c52b428cc5e011d50a79697d1de7268",
+    "profiles/e/recording-molten/start-test.sh": "eef352c5f8f3d053e283140e702c5df6670ee27f7a4ba1dedfa525d30d886c94",
+    "profiles/e/recording-molten/upstream-e.src": "0de5a07e9f0591b5629313dae0b314a4a86c8617b58dd8d1816dde96452c8ab8",
+    "profiles/essential-sources.lock.json": "e13341e61790ea86e049dd67836cc3bef8611d712f226c9a180e658a8924a852",
+    "profiles/expanded-sources.lock.json": "b130d06d65df1d741e92b385a9796054f3022702e9fe98d240366860edcec100",
+    "profiles/graphics-sources.lock.json": "247f9499cfe301102267bc1f82c86ab11499db88a8900b4c35887a1dcee58426",
+    "profiles/hardware-x11-sources.lock.json": "2ecdd14b1266ac852f353992e639968426baa6047b9128cdb442ce52dfee1027",
+    "profiles/hash-sources.lock.json": "0596488b709020e8f985e8340e5c1950d8f4c4b368f19c8646abf86d9fe53589",
+    "profiles/images/a1222-minimal.json": "62d8165c67ed2d9b1ed74fe72527dbb207bad01b3f35a0d7fb9d949dcfd05fc0",
+    "profiles/images/a1222-theme-selection.json": "8014ae54360e39063ab2d80da758292acfe732ee3ded2784c1d3dea18e6f6f9f",
+    "profiles/images/busybox-rescue.config": "98d55eb348aebeca287171f6e78738f89d23d6801b79665926e6d9a4c5191087",
+    "profiles/images/busybox-shell.config": "3b10224553d11efb68386cf192365fa7c73e493d63e89fdbc6d643117708b642",
+    "profiles/images/debian-package-builder.json": "0da1843fde0ab117e63e9c8a2679d5cb950f11fde2f9fad3226add1331dac4b7",
+    "profiles/images/efl-software-session.json": "750bb549a34093848bb3b95eb2e72cc8c00bc8ed6f5c9aad413cea6a5e8a00b9",
+    "profiles/images/efl-x11-candidate.json": "05cb507753f8d00cb5fbac707b2013516b727caa38065a787ecfd49bb500849e",
+    "profiles/images/mesa-software-demo.json": "1bacb86814a87710d26f985792fc61bd629879ea28d26125faef1403085694ad",
+    "profiles/images/polaris-firmware.json": "83f95a17096b46aa92d7063cab0ea9e1f8cfe56e4a482d0611392da690d21867",
+    "profiles/images/session-package-policy.json": "0e7c145662ba5478646157bec341ed1cfe5a05551081e57605471929de05eeb8",
+    "profiles/images/spe-bootstrap.shlibs": "2a0fdbc0451fab080c5ba0514bd9288c6547ea0586740f2d66426298ddddce13",
+    "profiles/images/tabor-live-kernel.config": "bb856394fda7b451d35f45dbd6a12735451354cbdf3aaee93acd032abb35aea8",
+    "profiles/images/trixie-bootstrap.json": "592c58bbca9c1c63e4db58c8008737344cba5aa0fc72c84ff9b1c270d43c33f5",
+    "profiles/images/trixie-vm132-target.json": "a883aa9a02b21766aa1374a885098395a5ccfeab3b5f319578b9e123f9e0b2e7",
+    "profiles/images/vm132-session-baseline.json": "fe9d5363de0a434d84037a0ec09ecb76fb14e1735375b440a76eadafa838d4a1",
+    "profiles/kernel-vendor-5.4-rc3.json": "fc0b70372aa6ef1d60174cbda97871fde4d9c37139075987d5e944d70ebf290f",
+    "profiles/libxcrypt.lock.json": "9764da3f124841af5538bf7ab7ef273f2aa2c50859ae5249cbd9c77f9b362739",
+    "profiles/openssh-rescue.lock.json": "8ee2544ce2469b621dea667062736592f4e3d16aea38492afab683a347e7db25",
+    "profiles/package-tools.lock.json": "7671e45fc022ea2d5442de40485f5ac2372443cae5c0cd7a47344b63db188114",
+    "profiles/qemu/amigaos-ati.json": "c5114304315f6fff1bac6bb4f304a482319947f2dcf372a8b49cecf69b91af2e",
+    "profiles/qemu/e500v2-live.config": "f8962ff411404f928fb395a0b2cc0a1a59b917a260a1fe6e2157cd321e4fde0b",
+    "profiles/qemu/e500v2-smoke.config": "cfcc3566fa62c0b19538de254dfa6a58448b546fbc917cc9936ab45684f11a78",
+    "profiles/queues/core-20261102.json": "53d7ea702157b4f411c4e24aced52d31bdbdf9739c0b4561821ae3df41bf42b7",
+    "profiles/queues/core-retry-20261102.json": "4acd7daf089471aea7ba5cdf5ee25b0852501a960541d5229c1764a64ce15d91",
+    "profiles/queues/coverage-20261102.json": "6e354f01a816cb90b6cbaffa93882a538e3b1fb8f7c089f4c5e4659483a22c99",
+    "profiles/queues/coverage-ready-20261102.json": "b9991b7d34583ffb12331c543e844732331150c92881cb65b2998bbac4540474",
+    "profiles/queues/managed-closure-20261102.json": "0768935e61989e78c62b0b9a035cc0304cdfe11d6ae376e5919b49a41323c3c5",
+    "profiles/queues/managed-compiler-retry-20261102.json": "74d78a8e8c19342d4fd5977fcccf47fbe742541fe1ba7ceca9b742601833e245",
+    "profiles/queues/managed-core-dependencies-20261102.json": "a441e5bce2bb671ab9228cafae0bb84719653a481edbb15ab7f09a70e708b7d9",
+    "profiles/queues/managed-dependency-wave-20261102.json": "0b430d1f51f174d32e523e09f00273b6f393afa2a2e66fd304791dd69f7c1f27",
+    "profiles/queues/managed-foundation-20261102.json": "d89f5df29d90b7d1c1122b071af249e77cb1363a1b71129730e52dde47902d8d",
+    "profiles/queues/managed-gnu-prerequisites-20261102.json": "d4e03e07c62af2d42a2615bfd4181cab2cc265b0fe24adf80ea038324317b1ec",
+    "profiles/queues/managed-installed-dependencies-20261102.json": "d7b0f21572cc2c9a413964f1ab0a03808bde667916ff363328f09fc136ea10bb",
+    "profiles/queues/managed-mode-dependencies-20261102.json": "68341063de0b3a85a504c7890d5419e64d32be8df88d9e2d7f965f4a76a3ffee",
+    "profiles/queues/managed-registration-retry-20261102.json": "de48a78b4ba16ac8d9064b91d681356595470e404890a4f973c1b6f856015e98",
+    "profiles/queues/managed-remaining-20261102.json": "838c0c93564d33b5a5d57e64920bbef1c57c606211dea953fe67ced76aa779d6",
+    "profiles/queues/managed-remaining-core-20261102.json": "2eb2508af270853e646d3e691042c487a6566d47ff3d0b5b1435039357b7d636",
+    "profiles/queues/managed-terminal-compression-20261102.json": "d783cef05a66760585c3d13cdec1b861cd78107067ee327965db3a469c88efbb",
+    "profiles/queues/zlib-link-retry-20261102.json": "c9b3a579ed57dba8604304370be78c84049aaed481de3bb7729dfdda56116c86",
+    "profiles/queues/zlib-retry-20261102.json": "fb6b4d3ece210f305addeda558c66d19d8e84d541f8434840dc9b1ee260526fa",
+    "profiles/repositories/cross-development-bootstrap.json": "8a98efe36038e546052787b1aab8bee461b05b78f74fb7cd9ed3f0778150b2db",
+    "profiles/repositories/gcc-runtime-cross.json": "de7e721c5b26851fd452235a117e5d9e017206cf81d44b978e324bc34c74816a",
+    "profiles/repositories/tabor-bootstrap.json": "12585558f9f7e0aa360505d686db4a8386c134b480fd4481aed0a4392e88e6ef",
+    "profiles/repositories/target-development-attr.json": "5712a6e953909d8beade25e8a2c0162c41d9981b3ecc430ebfe25f64c262e689",
+    "profiles/repositories/target-development-core-bin-nmu.json": "20b1cfab465977254eefa281207caa39a9eeef7908f591bb78af7a7666c3432d",
+    "profiles/repositories/target-development-image-libraries.json": "95dea33cea1226a5ac1ee8a54e829b9f267db3f476989c55437e3fe83ed27603",
+    "profiles/repositories/target-development-libc.json": "3795a50c801b0fd25abbf54380918212af74ac44589d03c7b77ea0fdb885c948",
+    "profiles/repositories/target-development-libraries.json": "bdd55024e01cfa652cb57d05dfe143aefc78a3ee9548dcb6a5ed9d0f7f32c149",
+    "profiles/repositories/target-development-lz4.json": "5d970663877a0b0a38c1c50b331e7b2c3c68489ff8a66a6388c4a5cccb85d864",
+    "profiles/repositories/target-development-ncurses-zstd.json": "3dfb5c0fffb905ea2503fd83f3cdc1139cce91396d85dc4641faac641113bb79",
+    "profiles/repositories/target-development-pkgconf.json": "d7d4f88806f969706107533a7c84455bfcaaa925bd77f66eb7b56802101d5713",
+    "profiles/repositories/target-development-selinux-prerequisites.json": "c641b19d2a207f51345bb28a21c135ee84912d8c69509da1d158241fbc761dd0",
+    "profiles/repositories/target-development-terminal-hash.json": "b5fa925c3e308111ed2800cbfd2e89c184e40a2785556475a6b2ef4f90faaee0",
+    "profiles/repositories/target-development-uapi.json": "f2ef697795133bd2cc47c6bd230f46111f31424b5c95e58a9c0805b8430899b5",
+    "profiles/repositories/target-development-wave-libraries.json": "2fc45e76dd467e1185bd3b2f129a6e013d971b491c94a2ad218d08e04e84123d",
+    "profiles/session-sources.lock.json": "3832d4861b0293bf86fb6462a406e69b590e4e02fb444110c4dac6c79a26681b",
+    "profiles/source-intake-hash.json": "9b50a5298e34040937106a8c6ae7eb13070ef5070437e42af0b2ef09af0cee1b",
+    "profiles/source-intake-terminal-compression.json": "54c3f61ca749a5794a74e171c1be811253bf72e82addadf034885612b93befec",
+    "profiles/terminal-compression-sources.lock.json": "4c93f782059d958899c4fc4cd6be472ac644c772023dca59666558691a25e8b0",
+    "profiles/toolchain-bootstrap.json": "51ea86dad7b874fa44057dd2c82fc52d02de4a03efb6e2a6a72743d2508bfdb1",
+    "profiles/vendor-sources.lock.json": "d83f3b2e00f3a0ca5b81b185fae5bfb62a28d9a43efa586af714b032d2651d03",
+    "profiles/x11-configure-cache.json": "60eaa7081ef4b4de5e8795cada9625caa17a9905a6e3caa3a5f64a57488ca124",
+    "profiles/x11-sources.lock.json": "52f390626db3b70b7eb11abc6755c013b1583c7ed4cc0a7f7b3e28d10d92bf45",
+    "scripts/archive-installed-root.py": "fdd54ef1b9721f66c3a9f894bbd4863af6c738041df35c2b50a7954546b03607",
+    "scripts/assemble-live-payload.py": "2cce6eceac94b8a10b281fddc745259a759fc5e06ff269eea508ac4a0a9b02e2",
+    "scripts/audit-image-installation.py": "f19e17450838c0da6a3a0d5567cd51adc12d14484462ab795609b4c1c4772e0e",
+    "scripts/bootstrap-spe-compiler.py": "322210b87215c913ec81913ed4f9f0a03bbf4182be2e9b0a1bfd49afed378223",
+    "scripts/build-bootstrap-library-probe.py": "cefb1e8379c709f8158cd3e613d87bce6e4ca998f2590aac6f89d9498dba8bb9",
+    "scripts/build-cross-development-packages.py": "3a5a35b38c3ee47ad89ff16992f5c85bc6206bacf3b77e42b5500368898545fc",
+    "scripts/build-cxx-live-payload.py": "da4d1a54e04501e24abb2e5fbaafa42ce3732b8e572313d910fd2f393e9e83be",
+    "scripts/build-debian-package.py": "d9e3b243212d841bc48b18929f0da90e1ee9f3fd6318385d53ce37c5055acd2d",
+    "scripts/build-desktop-base.py": "fbfb6051fe679a484e09cd97664634a29634b3e640df7514dfe0c949acb40ed1",
+    "scripts/build-efl-session.py": "644b330c518552ca40908848e7b25b71e348c7a73567bbe732ed0872d79fadfe",
+    "scripts/build-evas-pixel-probe.py": "4f5fb01052ce56775068b7363352ec8a059cfffb722a4bb61a80d68cda29482c",
+    "scripts/build-linux-live-payload.py": "e121baebec62ef5dbb642ccbaa746c085de5c4cd0104bf53595309826e517fce",
+    "scripts/build-private-apt-archive.py": "a850746719d32d4132a663c37654aad22abd9ebd678b6c528bfd37c62d2f7988",
+    "scripts/build-qemu-ppc.py": "020e233f92ceccb3ee069ecea8e5e3e4bac59e27e384cef60788507a73028513",
+    "scripts/build-rescue-libxcrypt.py": "8038890d2d2cd89546840237f8714e4470a67a5095143c511e383083478f0b9b",
+    "scripts/build-rescue-openssh.py": "4f9d1982d279f697d9f5522437892d7d1bbc57f793b60d7733bc1a1c6edd9aa4",
+    "scripts/build-return-address-probe.py": "406fdfbb4a9558eb1a6451612bfc8615c8931ecbb752dd1d81e48b354f56ca8a",
+    "scripts/build-session-deps.py": "318f336ee50ba8329788c720e59f27ed72512f9902a31d3ca4cd72d6a6f0a6f9",
+    "scripts/build-skinny-shell.py": "9c1f89a21504eec92f6310c3aec9be428d279997826b45d4166ff92581929461",
+    "scripts/build-spe-libatomic.py": "cdc951fad21bf93ffb2685fa0034500283c6c439c1335de192e84c5dce0c3992",
+    "scripts/build-spe-linux-headers.py": "b8d9100812e74b994bdc7e8b7e9c68936a1d5ef97e6bdef1b74e47fb9560ed16",
+    "scripts/build-usb-fat-image.py": "9e699d1606b8bfb4f4c5f271ffc893f343c9ead0514a20e771d1e58cede58038",
+    "scripts/build-visual-demos.py": "981505ac62c28d4822f51b4e1a41210ad147858c23aeb30b78bd7236be91c83c",
+    "scripts/build-x11-client-probe.py": "84ee26e29f9bf1e2d85c4196385a9a37f733ac38ca5bba0a6447f147f6e72cf5",
+    "scripts/build-x11-clients.py": "8879ef87d12b14a98583d139967a320a8d9f3d0ded11f25603b67bce9cdae62e",
+    "scripts/capture-rfb.py": "a249959cce688e7d55961a85b0624c23ff6754415dea01979f8f78e6e9cd8a2d",
+    "scripts/catalog-pinned-sources.py": "a285d259204de0556b8fc6ef6deb3f4a2a3a72367c49805546d426cc65380319",
+    "scripts/collect-debian-iteration.py": "47f9744359eee11088a45a80ab27c58903e6a148707f89316d8186446db1bedd",
+    "scripts/compress-rescue-initramfs.py": "47c1a24e805b4d3a29dd33f4c06b77e7d88384d8827ae07bd865fb0c5a12660e",
+    "scripts/debian-iterate.py": "0fbe6b7b0a994b77c59bba12883efe4baacf325ff34f33aaf27f4724a830769b",
+    "scripts/edge-dashboard.py": "d05da24d48afbf9f04b1c559828af6d77249a881dfc5db4da6128a59e89beccf",
+    "scripts/export-linux-headers.py": "f40ad44405cc176a841a4f91d3a1bf737425abbd7f2b981906134b9e7137e410",
+    "scripts/extend-rescue-initramfs.py": "e638a2a76e142caf5c8bc3985a08d67df41bbb9a4bc7d43b1a656ba1d5009c59",
+    "scripts/fetch-debian-sources.py": "5a38667dadc20019ebc11e82199c2ba9a5810226be8bb72050c596b0b7f66800",
+    "scripts/fetch-desktop-base.py": "7ea64041bb7bca0543511d4c2c9150b5b5a8b22a6af5c67511582192b90ab1cd",
+    "scripts/fetch-desktop-seeds.py": "ca44d801152979e6e7fb23e06a0ca03eab1fc186f3a0285abbd46bc0bc8575c1",
+    "scripts/fetch-shell-sources.py": "70fc80aa0d271b7035ac58cc1b409811bd115925eaa5eac9c166dd281aa11b13",
+    "scripts/fetch-vendor-sources.py": "a860258c30e9197718792c28a1acb0a442e6e01687a52cc02eeb02a5b9f1d4bb",
+    "scripts/fractal-report.py": "5773d6e76dfffc0aded1ea58aa23b2eeeb88b3add362e70df47e8654af33764f",
+    "scripts/inspect-libc-runtime.py": "eb7030e6ee93c5c9448b21b36acb808645ce69ef6870728ac7d9db51d4fdf5b7",
+    "scripts/inspect-spe-package-payloads.py": "7476df0893719e8eb28419cd909ab5dae23a2b7133049a3e32f666155d48556c",
+    "scripts/intake-debian-bootstrap.py": "c2a05de7e14604f3fe1ecf3d476f212eac87b1b616d0f1bccb595f8ee0a64ae4",
+    "scripts/intake-debian-source-set.py": "1e5318236df835ad8c0529e917c6700aa2a30a9014e4acc11701ec4eb6a1fef0",
+    "scripts/kernel-build.py": "ef382b84bb0ed72dc828de22db0bbd36131a5ff642084418f713181c8384ee68",
+    "scripts/kvm-host-smoke.py": "eb4c14351a749468644248302f3f3fe61ff7a43b0af421cc197a05940542f222",
+    "scripts/lab-iteration.sh": "895cd260dcd6f9a5033cb9e1cdb2cd1e7e859a29e53a7b0607aa16fcae810b22",
+    "scripts/lab-shell-cycle.sh": "7169d3fe5ea07e8b5cb813ec020a27742832d820df6a498f8548a9ab80a202e5",
+    "scripts/launch-software-e-qemu.py": "993e23570865c3b26ba2478797ae0935fd5245c80dbb4b6a5748dcde220a8aed",
+    "scripts/os4-iso-probe.sh": "5e8353c08473edba4c7425ca545f672a9c4a0766c4bc6e245ad2be40cb105940",
+    "scripts/package-board-boot.py": "e16c30d8820e822e1253c8b6234859eae8bad8be9e5fbf9a87ba06ac429a1ab1",
+    "scripts/package-session-root.py": "9b15d138fcdb06336f1c9169c5c28ddd58bd701a44fa91b49efed75080fb0206",
+    "scripts/package-spe-host-toolchain.py": "75bd7e116897fb46d965b6477964d8db0e25e4fcd64eb8975322a6e9af814127",
+    "scripts/package-spe-target-runtime.py": "ca8eea0d623800e09d61c9296f4812a3eebcb7e1de803ec68db7384fe141db88",
+    "scripts/prepare-cross-development-context.py": "114506120955cd55ca9f3e766bdd65019d6651fb9392c7d40dbbeea04d064f8c",
+    "scripts/prepare-debian-build-host.sh": "7583d65565088f98c943af2a3abdabc60cad53fc7e52865d3fea0380e011bafe",
+    "scripts/prepare-os4-ati-overlay.py": "e562c7b448f4be73b05593a3bfae6719dd65d86991c8dd00b898c6d4a1edeefc",
+    "scripts/prepare-target-build-context.py": "c284f61f17772757fc1283ed5b1c1a2cca1fc93caeaf42bb5294066658579bb3",
+    "scripts/probe-desktop-base.py": "90a9b2cbea7724361877f525887032c2e3007bfe033bcf5e4da0b922e38e35ca",
+    "scripts/probe-live-ssh-client.py": "dd892d4be2917c2b3ba690e3b8e4018ea76a852aced7b75424064c4eebbe077f",
+    "scripts/probe-x11-client.py": "02c489b80bfe77ca43ec58812335239423910f0a988fbea77aa327cdb8de682b",
+    "scripts/qemu-ati-probe.py": "c8d7415f8616321eb332c5d1c07d3e887e77975b862793031248e7b40a213506",
+    "scripts/qemu-boot-smoke.py": "bcb5ef6f2d7463c8d89ab76cffb66cbb213548c3424b391c165c2e8c613ec5a8",
+    "scripts/qemu-live-network-probe.py": "94fb2bef87ebb582ae1fa322d468a88621c59c93e074349047608219ba519a8a",
+    "scripts/qemu-serial-entry.py": "2c6f706cb07e7d3254796439002be16071b6990cfa4b07884c8d44334e425d0b",
+    "scripts/qemu-shell-smoke.py": "ca7e64b1c84a11779745163148a5130644019d6b85822fdd06323dbd4b04a05f",
+    "scripts/r730-build-log-view.py": "086781433eb7a655d11108d026d2994e4782479b77478fc812825d1a0a1e3348",
+    "scripts/retain-iteration.py": "250aab98003fe1153ce56f3e8c63ba3ad6a34eb1849cd6fd61c0b2e1bd9999b5",
+    "scripts/run-core-build-queue.py": "2c485505749becf441be92735f197184a1aa445a7d433ad51607094c36be7cb9",
+    "scripts/run-managed-dependency-wave.py": "60e460d65ee710ef4d92859b86a7734d7f3b9a5a5826ef16a443644719684322",
+    "scripts/spe-abi-smoke.py": "b00626c06abfcaa3d117667da30c8fd56b13b5426a9c6f058a9b6ecdf9b99a09",
+    "scripts/spe-cxx-smoke.py": "3eb389c601d1dbd6eb48ed1f21efbf5c22eed3171e8ccf384f7eb8b4470c530f",
+    "scripts/spe-runtime-stage.py": "9bef82cfce6446d3b4976127fd61a888a00556498ca3cdb8862670e13ea2e8ab",
+    "scripts/stage-e-root.py": "8ddac3752f6e66f57a182851dd21ba5392b83ac3b85217e864774610137f30e4",
+    "scripts/stage-physical-test.py": "e0a181f20537900cb5831fac6ec7cf0a8f597663d19fecaf9ec4c7bdaf05be99",
+    "scripts/submit-core-build-queue.py": "eccbb3d7d19c6e3f301fa91677ae8413a0385a2877fa402d3f9f181288e97197",
+    "scripts/submit-debian-iteration.py": "4518c726b94c86a52a6b64eadddd4085c64b6b8319a355947482a3c2f7b71540",
+    "scripts/submit-debian-package.py": "5e396a60be122d33b4dc74640ad3b3201c4f99545b6bae9d31bdb9fe4eaffd8b",
+    "scripts/submit-r730-kernel.py": "72455186671b1e0eec6356b4342b8164d705791391fc9391c6b67006c5028e20",
+    "scripts/test-evas-pixel-probe.py": "62418ebbb11f79b58d4660152165c18f82fe587bbcce93c4043c9c4fe0b33905",
+    "scripts/test-qemu-gzip-package.py": "c33b97b2176c1a1f278117a21ad0d9bfdb274b9012fe674465cceb3d6489ff45",
+    "scripts/test-qemu-libc-runtime.py": "e7b652c4363361df9bd99fc5ef3291816df041307a85f34fc9c6f8f04e2e7097",
+    "scripts/test-qemu-return-address.py": "2908bd9e7a3adcf4d7ad06ec9a76d1409b0f47a7a5014d8cb137bc90a96a90d5",
+    "scripts/test-results-ascii.py": "762198553b5e47a78db64956fedb07dad32f51c8b7ae088b0eee1df70ce50dc2",
+    "scripts/verify-intake.py": "1b0da51c0a7fa77071943c56356ca245cc946fc6c18b6628ba596539459b3c15",
+    "scripts/verify-private-apt-archive.py": "469eaff0fb13beca0cdcb1386355cb20a8022a4f446e20b67972f099ad5d8286",
+    "scripts/verify-spe-managed-toolchain.py": "57fd28800b5bc728d65909a539acc5c604c5efa85b7a70633664fc8982b7bdef",
+    "scripts/verify-spe-runtime-providers.py": "855fcc92912f2a1295141f2351d881a505bec842a23c7673fb4b623b9cfcb003",
+    "scripts/viewports/r730-logs.py": "d23265585a8b8703cd12ea002d9ea58183cdb99db32bc8583204b286098dc80b",
+    "scripts/viewports/r730-status.py": "bd8796c010a5f92eb50d403df92ecd510fd53feb7a645b9e12b130b1fd21f5f6",
+    "scripts/write-verified-usb.py": "ce6cb44013742962dfa8fb1c2c61f1cf9105f8a9595644607742b06a34b34550"
+  },
+  "items": [
+    {
+      "package": "dash",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-dash-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-dash-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "09725fe16e9f89617c325c0470c2631ca733d93a5fc9f402b5e6ff48ccd05484",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying 0018-builtin-Don-t-early-exit-when-first-hash-r-is-found.patch",
+          "dpkg-source: info: applying 0019-builtin-Actually-accept-ulimit-r.patch",
+          "dpkg-source: info: applying 0020-Update-manpages.patch",
+          "dpkg-source: info: applying 0021-jobs-Implement-pipefail-option.patch",
+          "dpkg-source: info: applying 0022-builtin-Align-test-nt-and-ot-with-POSIX.1-2024.patch",
+          "dpkg-source: info: applying 0023-parser-Fix-here-doc-EOF-marker-bug-with-negative-cha.patch",
+          "dpkg-source: info: applying 9001-Add-privmode.diff",
+          "$ ['git', 'apply', '--check', '/project/patches/dash/0001-cross-sysroot-packaging.patch']",
+          "$ ['git', 'apply', '/project/patches/dash/0001-cross-sysroot-packaging.patch']",
+          "$ ['git', 'apply', '--check', '/project/patches/dash/0002-separate-native-generator-link-flags.patch']",
+          "$ ['git', 'apply', '/project/patches/dash/0002-separate-native-generator-link-flags.patch']",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-dash-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "c3846bd28d834283600340b5abf8ee52bd39542e3d786b5dcdcba021aef01163",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "# FIXME: remove this after Trixie together with the preinst",
+          "sed -i '/^misc:Depends=/s/debconf[^,]*[, ]*//' debian/dash.substvars",
+          "make[1]: Leaving directory '/work/debian-dash-510/source'",
+          "   dh_gencontrol -a",
+          "   dh_md5sums -a",
+          "   dh_builddeb -a",
+          "dpkg-deb: building package 'dash' in '../dash_0.5.12-12_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../dash_0.5.12-12_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../dash_0.5.12-12_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "libselinux",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libselinux-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libselinux-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "003796c7e0ac46341b689e56834a94b4d6154a62c1d76794e1b80259efc8d73b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libselinux_3.8.1-1.dsc', '/work/debian-libselinux-preflight-510/source']",
+          "dpkg-source: info: extracting libselinux in /work/debian-libselinux-preflight-510/source",
+          "dpkg-source: info: unpacking libselinux_3.8.1.orig.tar.gz",
+          "dpkg-source: info: unpacking libselinux_3.8.1-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying default",
+          "dpkg-source: info: applying man",
+          "dpkg-source: info: applying x32",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libpython3-all-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libpython3-all-dev"
+        ]
+      }
+    },
+    {
+      "package": "audit",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-audit-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-audit-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "e5d8f17d77c475cdb8e76d5e63ac8465c5836c0b535888eda90361c97adbc0a7",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/audit_4.0.2-2+deb13u1.dsc', '/work/debian-audit-preflight-510/source']",
+          "dpkg-source: info: extracting audit in /work/debian-audit-preflight-510/source",
+          "dpkg-source: info: unpacking audit_4.0.2.orig.tar.gz",
+          "dpkg-source: info: unpacking audit_4.0.2-2+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 01-no-refusemanualstop.patch",
+          "dpkg-source: info: applying 03-Set-log_group-adm.patch",
+          "dpkg-source: info: applying 04-riscv64.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libkrb5-dev libldap2-dev libwrap0-dev libpython3-all-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libkrb5-dev libldap2-dev libwrap0-dev libpython3-all-dev"
+        ]
+      }
+    },
+    {
+      "package": "libcap2",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libcap2-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libcap2-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "9a830b0d0109062db8c00f4edd7a50c9c62568dc3746ddeb5d1d5b9a4d015297",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking libcap2_2.75-10+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying Hide-private-symbols.patch",
+          "dpkg-source: info: applying Filter-out-PIE-flags-when-building-shared-objects.patch",
+          "dpkg-source: info: applying Skip-git-if-not-installed.patch",
+          "dpkg-source: info: applying Glibc-needs-a-constant-to-be-defined-for-puts-to-work.patch",
+          "dpkg-source: info: applying Add-support-for-some-less-mainstream-architectures.patch",
+          "dpkg-source: info: applying Extend-support-further-to-__m68k__-and-possibly-__sparc__.patch",
+          "dpkg-source: info: applying Be-more-systematic-using-the-kernel-signal-handler-APIs.patch",
+          "dpkg-source: info: applying Address-a-potential-TOCTOU-race-condition-in-cap_set_file.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libpam0g-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libpam0g-dev"
+        ]
+      }
+    },
+    {
+      "package": "gzip",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-gzip-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-gzip-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "e6045819b64fec6d95cd22e6878e859020475eac4cab6e7de237c15b45554490",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking gzip_1.13-1+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying gzip_reproducible_build.diff",
+          "dpkg-source: info: applying disable-Werror.patch",
+          "dpkg-source: info: applying CVE-2026-41991-a.patch",
+          "dpkg-source: info: applying CVE-2026-41991-b.patch",
+          "dpkg-source: info: applying CVE-2026-41992.patch",
+          "$ ['git', 'apply', '--check', '/project/patches/gzip/0001-cross-bootstrap-library-discovery.patch']",
+          "$ ['git', 'apply', '/project/patches/gzip/0001-cross-bootstrap-library-discovery.patch']",
+          "$ ['git', 'apply', '--check', '/project/patches/gzip/0002-preserve-caller-maintainer-flags.patch']",
+          "$ ['git', 'apply', '/project/patches/gzip/0002-preserve-caller-maintainer-flags.patch']",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-gzip-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "d7706271f38f876b67c530f0c12f6adf499dcfcc528f8f06b866bb15f380c725",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "dh_md5sums -a",
+          "\tinstall -m0755 -d debian/gzip/DEBIAN",
+          "\tcd debian/gzip >/dev/null && xargs -r0 md5sum | perl -pe 'if (s@^\\\\@@) { s/\\\\\\\\/\\\\/g; }' > DEBIAN/md5sums",
+          "\tchmod 0644 -- debian/gzip/DEBIAN/md5sums",
+          "dh_builddeb -a",
+          "\tdpkg-deb --root-owner-group --build debian/gzip ..",
+          "dpkg-deb: building package 'gzip' in '../gzip_1.13-1+deb13u1_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../gzip_1.13-1+deb13u1_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../gzip_1.13-1+deb13u1_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "base-files",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-base-files-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-base-files-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "1b8581ce84a10d54e498ad3fb76dab577b5d31c9c0026c3efb30cdec5e0cdc21",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/base-files_13.8+deb13u7.dsc', '/work/debian-base-files-preflight-510/source']",
+          "dpkg-source: info: extracting base-files in /work/debian-base-files-preflight-510/source",
+          "dpkg-source: info: unpacking base-files_13.8+deb13u7.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-base-files-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "0a4ce1545ca6baa579dd901d506f410810835f2187d522f2317839d64e3ed073",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "  '-DUSR_MERGE_MULTILIB=lib32 lib64 libo32 libx32' \\",
+          "  '-DUSR_MERGE_RTLDLIB='",
+          "make[1]: Leaving directory '/work/debian-base-files-510/source'",
+          "   dh_gencontrol -a",
+          "   dh_md5sums -a",
+          "   dh_builddeb -a",
+          "dpkg-deb: building package 'base-files' in '../base-files_13.8+deb13u7_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../base-files_13.8+deb13u7_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../base-files_13.8+deb13u7_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "debianutils",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-debianutils-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debianutils-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "de989cfe39d1009e62de68956b4b5dc1af999fad5ebd1760939bf9b67ae54de5",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/debianutils_5.23.2.dsc', '/work/debian-debianutils-preflight-510/source']",
+          "dpkg-source: info: extracting debianutils in /work/debian-debianutils-preflight-510/source",
+          "dpkg-source: info: unpacking debianutils_5.23.2.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debianutils-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "45133b15d9e547a5ec5f76ef4c9a8df59927f4a9adce44e540e84fd9f9ffdb2b",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_shlibdeps -a",
+          "   dh_installdeb -a",
+          "   dh_gencontrol -a",
+          "   dh_md5sums -a",
+          "   dh_builddeb -a",
+          "dpkg-deb: building package 'debianutils' in '../debianutils_5.23.2_powerpcspe.deb'.",
+          "dpkg-deb: building package 'debianutils-dbgsym' in '../debianutils-dbgsym_5.23.2_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../debianutils_5.23.2_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../debianutils_5.23.2_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "diffutils",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-diffutils-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-diffutils-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "7e21f2094ca22c0ccdfd5f48a43e25c83d9d4fde7f17c2ca8e3ea6ea95f02b68",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/diffutils_3.10-4.dsc', '/work/debian-diffutils-preflight-510/source']",
+          "dpkg-source: info: extracting diffutils in /work/debian-diffutils-preflight-510/source",
+          "dpkg-source: info: unpacking diffutils_3.10.orig.tar.xz",
+          "dpkg-source: info: unpacking diffutils_3.10-4.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-diffutils-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "2ba5d9d49960627a65ed235d112e08888853bfb07ff710f898c4af1c2b63cc88",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_shlibdeps -a",
+          "   dh_installdeb -a",
+          "   dh_gencontrol -a",
+          "   dh_md5sums -a",
+          "   dh_builddeb -a",
+          "dpkg-deb: building package 'diffutils-dbgsym' in '../diffutils-dbgsym_3.10-4_powerpcspe.deb'.",
+          "dpkg-deb: building package 'diffutils' in '../diffutils_3.10-4_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../diffutils_3.10-4_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../diffutils_3.10-4_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "findutils",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-findutils-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-findutils-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "7a3d3595c3f56ffec2d8215b75c754428ffe6a5ac900d31e2fce290e14f0302b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/findutils_4.10.0-3.dsc', '/work/debian-findutils-preflight-510/source']",
+          "dpkg-source: info: extracting findutils in /work/debian-findutils-preflight-510/source",
+          "dpkg-source: info: unpacking findutils_4.10.0.orig.tar.xz",
+          "dpkg-source: info: unpacking findutils_4.10.0-3.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ]
+      }
+    },
+    {
+      "package": "grep",
+      "iteration": "510",
+      "status": "failed",
+      "active_iteration": "debian-grep-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-grep-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "af58bcf6fd719f50a425fc7ec3c16a37a79fceee3fa73409e29d898c98a2ee2d",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "dpkg-source: info: extracting grep in /work/debian-grep-preflight-510/source",
+          "dpkg-source: info: unpacking grep_3.11.orig.tar.xz",
+          "dpkg-source: info: unpacking grep_3.11-4.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying XFAIL-test-regex.patch",
+          "dpkg-source: info: applying 01-disable-egrep-fgrep-warnings.patch",
+          "dpkg-source: info: applying 02-man_egrep_fgrep_rgrep.patch",
+          "dpkg-source: info: applying 05-grep-wrapper-sh.patch",
+          "dpkg-source: info: applying 1019724-handle-backslash-warning.patch",
+          "dpkg-source: info: applying grep-dirfd.patch",
+          "dpkg-source: info: applying clean.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-grep-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "4958c6736c9066bb3533c0e585b19bdaff3a66a14e5e30094441f457ff63282f",
+        "status": "failed",
+        "diagnostic_tail": [
+          "make[4]: *** [Makefile:3097: libgreputils_a-dfa.o] Error 1",
+          "make[4]: *** Waiting for unfinished jobs....",
+          "make[4]: Leaving directory '/work/debian-grep-510/source/lib'",
+          "make[3]: *** [Makefile:2549: all] Error 2",
+          "make[3]: Leaving directory '/work/debian-grep-510/source/lib'",
+          "make[2]: *** [Makefile:1844: all-recursive] Error 1",
+          "make[2]: Leaving directory '/work/debian-grep-510/source'",
+          "make[1]: *** [Makefile:1785: all] Error 2",
+          "make[1]: Leaving directory '/work/debian-grep-510/source'",
+          "dh_auto_build: error: make -j4 returned exit code 2",
+          "make: *** [debian/rules:26: binary-arch] Error 25",
+          "dpkg-buildpackage: error: debian/rules binary-arch subprocess returned exit status 2"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "sed",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-sed-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-sed-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "34ecb831f5b1f9df25179e26ad2a7fe5765350568ff43eeac385ca55fa7f511c",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/sed_4.9-2+deb13u1.dsc', '/work/debian-sed-preflight-510/source']",
+          "dpkg-source: info: extracting sed in /work/debian-sed-preflight-510/source",
+          "dpkg-source: info: unpacking sed_4.9.orig.tar.xz",
+          "dpkg-source: info: unpacking sed_4.9-2+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying sed-i-follow-symlinks-fix-TOCTOU-race-CVE-2026-5958.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux-dev"
+        ]
+      }
+    },
+    {
+      "package": "mawk",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-mawk-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-mawk-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "6abafe4038c25880361432d0d41b8697e73fe2b6d282ba80bcfe7375a013f748",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/mawk_1.3.4.20250131-1.dsc', '/work/debian-mawk-preflight-510/source']",
+          "dpkg-source: info: extracting mawk in /work/debian-mawk-preflight-510/source",
+          "dpkg-source: info: unpacking mawk_1.3.4.20250131.orig.tar.gz",
+          "dpkg-source: info: unpacking mawk_1.3.4.20250131-1.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-mawk-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "240170c02aa011571b34d1abf3b73f0f835d007ed0422a6ac02c4f77ef6636bd",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_makeshlibs -a -O--no-parallel",
+          "   dh_shlibdeps -a -O--no-parallel",
+          "   dh_installdeb -a -O--no-parallel",
+          "   dh_gencontrol -a -O--no-parallel",
+          "   dh_md5sums -a -O--no-parallel",
+          "   dh_builddeb -a -O--no-parallel",
+          "dpkg-deb: building package 'mawk' in '../mawk_1.3.4.20250131-1_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../mawk_1.3.4.20250131-1_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../mawk_1.3.4.20250131-1_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "dpkg",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-dpkg-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-dpkg-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "79c041a7b67911146519456d28173089787012bc7c54c83069f5420b3c1d2fd6",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/dpkg_1.22.22.dsc', '/work/debian-dpkg-preflight-510/source']",
+          "dpkg-source: info: extracting dpkg in /work/debian-dpkg-preflight-510/source",
+          "dpkg-source: info: unpacking dpkg_1.22.22.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ]
+      }
+    },
+    {
+      "package": "base-passwd",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-base-passwd-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-base-passwd-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "aa2fabda6e65124da5836291be3f44179ebc676906b97e638d67387712bd5cd7",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/base-passwd_3.6.7.dsc', '/work/debian-base-passwd-preflight-510/source']",
+          "dpkg-source: info: extracting base-passwd in /work/debian-base-passwd-preflight-510/source",
+          "dpkg-source: info: unpacking base-passwd_3.6.7.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdebconfclient0-dev libselinux1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdebconfclient0-dev libselinux1-dev"
+        ]
+      }
+    },
+    {
+      "package": "init-system-helpers",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-init-system-helpers-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-init-system-helpers-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "62756bee03cf8593f42d2ff16071d37b3da0fe583dc821bb79a23b4066468444",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/init-system-helpers_1.69~deb13u1.dsc', '/work/debian-init-system-helpers-preflight-510/source']",
+          "dpkg-source: info: extracting init-system-helpers in /work/debian-init-system-helpers-preflight-510/source",
+          "dpkg-source: info: unpacking init-system-helpers_1.69~deb13u1.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-init-system-helpers-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "\tdh_gencontrol -- -Valt:sysvinit=\"| sysvinit-core\"; \\",
+          "fi",
+          "dpkg-gencontrol: warning: Depends field of package init-system-helpers: substitution variable ${perl:Depends} used, but is not defined",
+          "make[1]: Leaving directory '/work/debian-init-system-helpers-510/source'",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'init-system-helpers' in '../init-system-helpers_1.69~deb13u1_all.deb'.",
+          " dpkg-genbuildinfo --build=all -O../init-system-helpers_1.69~deb13u1_all.buildinfo",
+          " dpkg-genchanges --build=all -O../init-system-helpers_1.69~deb13u1_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "debconf",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-debconf-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debconf-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "0ec4a10d875479bee478b53de247b756e709ab94cbfce2e8fb57d997b2a55e68",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/debconf_1.5.91.dsc', '/work/debian-debconf-preflight-510/source']",
+          "dpkg-source: info: extracting debconf in /work/debian-debconf-preflight-510/source",
+          "dpkg-source: info: unpacking debconf_1.5.91.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debconf-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "d9c03e8fac3dfc87f6f85d7a561f4322f5ad0d1d458dd17f882180e563b75008",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'python3-debconf' in '../python3-debconf_1.5.91_all.deb'.",
+          "dpkg-deb: building package 'debconf-doc' in '../debconf-doc_1.5.91_all.deb'.",
+          "dpkg-deb: building package 'debconf' in '../debconf_1.5.91_all.deb'.",
+          "dpkg-deb: building package 'debconf-utils' in '../debconf-utils_1.5.91_all.deb'.",
+          "dpkg-deb: building package 'debconf-i18n' in '../debconf-i18n_1.5.91_all.deb'.",
+          " dpkg-genbuildinfo --build=all -O../debconf_1.5.91_all.buildinfo",
+          " dpkg-genchanges --build=all -O../debconf_1.5.91_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "tar",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-tar-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-tar-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "894a53890ea0f37514ba80a0e5aa505dda2166b7027cf0eef0fe0d1cef1a3d5c",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking tar_1.35+dfsg.orig.tar.xz",
+          "dpkg-source: info: unpacking tar_1.35+dfsg-3.1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying pristine-tar.diff",
+          "dpkg-source: info: applying listed03-linux-only",
+          "dpkg-source: info: applying oldgnu-unknown-mode-bits.patch",
+          "dpkg-source: info: applying proper_it_translation.patch",
+          "dpkg-source: info: applying exclude17.patch",
+          "dpkg-source: info: applying exclude18.patch",
+          "dpkg-source: info: applying tar-1.35-revert-fix-savannah-bug-633567.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+        ]
+      }
+    },
+    {
+      "package": "bash",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-bash-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-bash-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "3e47794b06b722a034d5927d5d0945e2d4e553e402a6b2e059dc306de71380fe",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying man-test.diff",
+          "dpkg-source: info: applying man-test2.diff",
+          "dpkg-source: info: applying rbash-manpage.diff",
+          "dpkg-source: info: applying bash-default-editor.diff",
+          "dpkg-source: info: applying input-err.diff",
+          "dpkg-source: info: applying exec-redirections-doc.diff",
+          "dpkg-source: info: applying bash-aliases-repeat.diff",
+          "dpkg-source: info: applying use-system-texi2html.diff",
+          "dpkg-source: info: applying man-macro-warnings.diff",
+          "dpkg-source: info: applying man-vx-opts.diff",
+          "dpkg-source: info: applying fix-rl_do_undo-crash.diff",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-bash-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "dh_fixperms -pbash-static",
+          "dh_installdeb -pbash-static",
+          "dh_gencontrol -pbash-static -- \\",
+          "\t'-Vglibc:Source=glibc (= 2.41-12+deb13u4), '",
+          "dh_md5sums -pbash-static",
+          "dh_builddeb -pbash-static",
+          "dpkg-deb: building package 'bash-static' in '../bash-static_5.2.37-2_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../bash_5.2.37-2_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../bash_5.2.37-2_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "coreutils",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-coreutils-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-coreutils-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "b80c94192b2f4fc20595dc1ab68cc47a21eda598902844b55829a09a5d87208c",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/coreutils_9.7-3.dsc', '/work/debian-coreutils-preflight-510/source']",
+          "dpkg-source: info: extracting coreutils in /work/debian-coreutils-preflight-510/source",
+          "dpkg-source: info: unpacking coreutils_9.7.orig.tar.xz",
+          "dpkg-source: info: unpacking coreutils_9.7-3.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 72_id_checkngroups.patch",
+          "dpkg-source: info: applying gnulib-nfs-acl.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev (>= 1.32) libssl-dev libsystemd-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev (>= 1.32) libssl-dev libsystemd-dev"
+        ]
+      }
+    },
+    {
+      "package": "adduser",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-adduser-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-adduser-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "280ec6fb2d2666337caf1186f3d07b4b66bbd004e8f067e4b3de243ae03e2371",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/adduser_3.152.dsc', '/work/debian-adduser-preflight-510/source']",
+          "dpkg-source: info: extracting adduser in /work/debian-adduser-preflight-510/source",
+          "dpkg-source: info: unpacking adduser_3.152.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-adduser-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "a91983c4ca22f537cf18846aa367963398641c658baba33b261b635048b49f18",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_missing -i",
+          "   dh_installdeb -i",
+          "   dh_gencontrol -i",
+          "dpkg-gencontrol: warning: package adduser: substitution variable ${perl:Depends} unused, but is defined",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'adduser' in '../adduser_3.152_all.deb'.",
+          " dpkg-genbuildinfo --build=all -O../adduser_3.152_all.buildinfo",
+          " dpkg-genchanges --build=all -O../adduser_3.152_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "debian-archive-keyring",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-debian-archive-keyring-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debian-archive-keyring-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "06b11894d2f574de81a3bbfed91c6c9b9a8187120f2ed34261a4a46cc3a3b7da",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/debian-archive-keyring_2025.1.dsc', '/work/debian-debian-archive-keyring-preflight-510/source']",
+          "dpkg-source: info: extracting debian-archive-keyring in /work/debian-debian-archive-keyring-preflight-510/source",
+          "dpkg-source: info: unpacking debian-archive-keyring_2025.1.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debian-archive-keyring-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "f26e62157d8e35c7df95d7f492ce708bd7ebcc3cb476ead63424617481a066de",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_installdeb -i",
+          "   dh_gencontrol -i",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'debian-archive-keyring' in '../debian-archive-keyring_2025.1_all.deb'.",
+          "dpkg-deb: building package 'debian-archive-keyring-udeb' in 'debian/.debhelper/scratch-space/build-debian-archive-keyring-udeb/debian-archive-keyring-udeb_2025.1_all.deb'.",
+          "\tRenaming debian-archive-keyring-udeb_2025.1_all.deb to debian-archive-keyring-udeb_2025.1_all.udeb",
+          " dpkg-genbuildinfo --build=all -O../debian-archive-keyring_2025.1_all.buildinfo",
+          " dpkg-genchanges --build=all -O../debian-archive-keyring_2025.1_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "media-types",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-media-types-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-media-types-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "92b2ccf266f52a390a2a712f00a6903e1a7f268c7f350a50a40962beefe92261",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/media-types_13.0.0.dsc', '/work/debian-media-types-preflight-510/source']",
+          "dpkg-source: info: extracting media-types in /work/debian-media-types-preflight-510/source",
+          "dpkg-source: info: unpacking media-types_13.0.0.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-media-types-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "ccc7d2115a9dd3b26d7007f46a0af560ae3fe888187923711c190043afc8ae8e",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_fixperms -i",
+          "   dh_missing -i",
+          "   dh_installdeb -i",
+          "   dh_gencontrol -i",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'media-types' in '../media-types_13.0.0_all.deb'.",
+          " dpkg-genbuildinfo --build=all -O../media-types_13.0.0_all.buildinfo",
+          " dpkg-genchanges --build=all -O../media-types_13.0.0_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "tzdata",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-tzdata-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-tzdata-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "8bedae3bcdfb798acfff6224ea28379b8b9f25ec5be554380bb2c0c47e8a24a9",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/tzdata_2026c-0+deb13u1.dsc', '/work/debian-tzdata-preflight-510/source']",
+          "dpkg-source: info: extracting tzdata in /work/debian-tzdata-preflight-510/source",
+          "dpkg-source: info: unpacking tzdata_2026c.orig.tar.gz",
+          "dpkg-source: info: unpacking tzdata_2026c-0+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying Correct-timezone-symlinks-when-using-BACKWARD-backward-PA.patch",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-tzdata-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "7dc697fa15582711167456667117f548e2ed28503530da23a2093e9c4423ee89",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_missing -i",
+          "   dh_installdeb -i",
+          "   dh_gencontrol -i",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'tzdata' in '../tzdata_2026c-0+deb13u1_all.deb'.",
+          "dpkg-deb: building package 'tzdata-legacy' in '../tzdata-legacy_2026c-0+deb13u1_all.deb'.",
+          " dpkg-genbuildinfo --build=all -O../tzdata_2026c-0+deb13u1_all.buildinfo",
+          " dpkg-genchanges --build=all -O../tzdata_2026c-0+deb13u1_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "ca-certificates",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-ca-certificates-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-ca-certificates-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "5b47255aace48d86db98273e821cfd4d6452b3fab62396305beb694b85bbb2c9",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/ca-certificates_20250419+deb13u1.dsc', '/work/debian-ca-certificates-preflight-510/source']",
+          "dpkg-source: info: extracting ca-certificates in /work/debian-ca-certificates-preflight-510/source",
+          "dpkg-source: info: unpacking ca-certificates_20250419+deb13u1.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-A']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-ca-certificates-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "d37caf58273dc9675545f899ed303a2c9078bfc67044c375e99192d17d2756ab",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_installdeb -i",
+          "   dh_gencontrol -i",
+          "   dh_md5sums -i",
+          "   dh_builddeb -i",
+          "dpkg-deb: building package 'ca-certificates' in '../ca-certificates_20250419+deb13u1_all.deb'.",
+          "dpkg-deb: building package 'ca-certificates-udeb' in 'debian/.debhelper/scratch-space/build-ca-certificates-udeb/ca-certificates-udeb_20250419+deb13u1_all.deb'.",
+          "\tRenaming ca-certificates-udeb_20250419+deb13u1_all.deb to ca-certificates-udeb_20250419+deb13u1_all.udeb",
+          " dpkg-genbuildinfo --build=all -O../ca-certificates_20250419+deb13u1_all.buildinfo",
+          " dpkg-genchanges --build=all -O../ca-certificates_20250419+deb13u1_all.changes",
+          "dpkg-genchanges: info: binary-only arch-indep upload (source code and arch-specific packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "efl",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-efl-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-efl-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "8c2013f3163d75cbc9b3d9fbdb88308481191c41447452860c3c093e00cd0b41",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: extracting efl in /work/debian-efl-preflight-510/source",
+          "dpkg-source: info: unpacking efl_1.28.1.orig.tar.xz",
+          "dpkg-source: info: unpacking efl_1.28.1-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 10_remove_google_analytics.diff",
+          "dpkg-source: info: applying 20_disable_doxygen_timestamps.diff",
+          "dpkg-source: info: applying 30_disable_chm_docs.diff",
+          "dpkg-source: info: applying 25_exactness_use_system_python3.diff",
+          "dpkg-source: info: applying 45_disable_doc_pack.diff",
+          "dpkg-source: info: applying 99-always-regen-shaders.diff",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libblkid-dev libcurl4-openssl-dev libdbus-1-dev libfontconfig-dev libfreetype-dev libgbm-dev libgcrypt-dev libgles2-mesa-dev libglib2.0-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libharfbuzz-dev libheif-dev libinput-dev libjxl-dev l"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libblkid-dev libcurl4-openssl-dev libdbus-1-dev libfontconfig-dev libfreetype-dev libgbm-dev libgcrypt-dev libgles2-mesa-dev libglib2.0-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev libharfbuzz-dev libheif-dev libinput-dev libjxl-dev liblua5.1-dev libmount-dev libopenjp2-7-dev libpoppler-cpp-dev libpulse-dev libraw-dev librsvg2-dev libscim-dev libsndfile-dev libspectre-dev libssl-dev libsystemd-dev libtiff-dev libudev-dev libunibreak-dev (>= 5.1) libunwind-dev libvlc-dev libwayland-dev libwebp-dev libx11-dev libx11-xcb-dev libxcb-image0-dev libxcb-shm0-dev libxcb1-dev libxcomposite-dev libxcursor-dev libxdamage-dev libxext-dev libxi-dev libxinerama-dev libxkbcommon-x11-dev libxpm-dev libxrandr-dev libxrender-dev libxss-dev libxtst-dev mesa-common-dev systemd-dev"
+        ]
+      }
+    },
+    {
+      "package": "e17",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-e17-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-e17-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "262c06410c2ef334f1cd9b702c5dbbb4f4115ca042a02529aea36763159c338f",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking e17_0.27.1.orig.tar.xz",
+          "dpkg-source: info: unpacking e17_0.27.1-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 04_evry_fix_default_path_for_terminal.diff",
+          "$ ['git', 'apply', '--check', '/project/patches/e17/0001-meson-probe-eeze-optionally.patch']",
+          "$ ['git', 'apply', '/project/patches/e17/0001-meson-probe-eeze-optionally.patch']",
+          "$ ['git', 'apply', '--check', '/project/patches/e17/0002-acpi-guard-eeze-device-watches.patch']",
+          "$ ['git', 'apply', '/project/patches/e17/0002-acpi-guard-eeze-device-watches.patch']",
+          "$ ['git', 'apply', '--check', '/project/patches/e17/0003-wizard-keep-null-temperature-list-without-eeze.patch']",
+          "$ ['git', 'apply', '/project/patches/e17/0003-wizard-keep-null-temperature-list-without-eeze.patch']",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: bluez connman-dev imagemagick libasound2-dev libbluetooth-dev libefl-all-dev (>= 1.28.0) libexif-dev libpam0g-dev libxcb-keysyms1-dev libxcb-shape0-dev libxext-dev libxkbcommon-x11-dev rfkill systemd-dev uuid-dev xwayland"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: bluez connman-dev imagemagick libasound2-dev libbluetooth-dev libefl-all-dev (>= 1.28.0) libexif-dev libpam0g-dev libxcb-keysyms1-dev libxcb-shape0-dev libxext-dev libxkbcommon-x11-dev rfkill systemd-dev uuid-dev xwayland"
+        ]
+      }
+    },
+    {
+      "package": "terminology",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-terminology-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-terminology-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "a4304a5b5ef2cb4922ebcc834238345df133eed18f428ae0c71407b64e565376",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/terminology_1.14.0-1.dsc', '/work/debian-terminology-preflight-510/source']",
+          "dpkg-source: info: extracting terminology in /work/debian-terminology-preflight-510/source",
+          "dpkg-source: info: unpacking terminology_1.14.0.orig.tar.xz",
+          "dpkg-source: info: unpacking terminology_1.14.0-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying fix-del-backspace-key.patch",
+          "dpkg-source: info: applying 0002-Fix-tests-for-debian-packaging.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libefl-all-dev (>= 1.26)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libefl-all-dev (>= 1.26)"
+        ]
+      }
+    },
+    {
+      "package": "libdrm",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libdrm-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libdrm-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "663210a00a5dbdcda5dab2aa5b37ce6ec9a584f1572be7a79ba5f63a312e68d1",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libdrm_2.4.124-2.dsc', '/work/debian-libdrm-preflight-510/source']",
+          "dpkg-source: info: extracting libdrm in /work/debian-libdrm-preflight-510/source",
+          "dpkg-source: info: unpacking libdrm_2.4.124.orig.tar.xz",
+          "dpkg-source: info: unpacking libdrm_2.4.124-2.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 01_default_perms.diff",
+          "dpkg-source: info: applying amdgpu-add-env-support-for-amdgpu-ids.patch",
+          "dpkg-source: info: applying xf86drm-Handle-NULL-in-drmCopyVersion.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libudev-dev libx11-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libudev-dev libx11-dev"
+        ]
+      }
+    },
+    {
+      "package": "mesa",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-mesa-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-mesa-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "bfd03d80ac424bf3a1cebf835467727981a58e5b0ef9ea2cfb23ece1e0ddd737",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying path_max.diff",
+          "dpkg-source: info: applying src_glx_dri_common.h.diff",
+          "dpkg-source: info: applying disable_ppc64el_assembly.diff",
+          "dpkg-source: info: applying etnaviv-add-support-for-texelfetch.patch",
+          "dpkg-source: info: applying Revert-hasvk-elk-stop-turning-load_push_constants-in.patch",
+          "dpkg-source: info: applying kopper-Revert-kopper-Explicitly-choose-zink.patch",
+          "dpkg-source: info: applying backport_STACK_ARRAY.patch",
+          "dpkg-source: info: applying CVE-2026-40393-part1.patch",
+          "dpkg-source: info: applying CVE-2026-40393-part2.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdrm-dev (>= 2.4.121) libx11-dev libxxf86vm-dev libsensors-dev libxfixes-dev libxext-dev libva-dev (>= 1.6.0) libvdpau-dev (>= 1.5) libx11-xcb-dev libxcb-dri2-0-dev (>= 1.8) libxcb-glx0-dev (>= 1.8.1) libxcb-xfixes0-dev libxcb-dri3-dev libxcb-p"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdrm-dev (>= 2.4.121) libx11-dev libxxf86vm-dev libsensors-dev libxfixes-dev libxext-dev libva-dev (>= 1.6.0) libvdpau-dev (>= 1.5) libx11-xcb-dev libxcb-dri2-0-dev (>= 1.8) libxcb-glx0-dev (>= 1.8.1) libxcb-xfixes0-dev libxcb-dri3-dev libxcb-present-dev libxcb-randr0-dev libxcb-shm0-dev libxcb-sync-dev libxrandr-dev python3 python3-yaml libwayland-dev (>= 1.15.0) libwayland-egl-backend-dev (>= 1.15.0) libglvnd-core-dev (>= 1.3.2)"
+        ]
+      }
+    },
+    {
+      "package": "xserver-xorg-input-evdev",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xserver-xorg-input-evdev-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xserver-xorg-input-evdev-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "01d9e97a99bbbb2dbe0b9bf5a1c6422873f026f87cae3a7410908a281d09c256",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/xserver-xorg-input-evdev_2.11.0-1.dsc', '/work/debian-xserver-xorg-input-evdev-preflight-510/source']",
+          "dpkg-source: info: extracting xserver-xorg-input-evdev in /work/debian-xserver-xorg-input-evdev-preflight-510/source",
+          "dpkg-source: info: unpacking xserver-xorg-input-evdev_2.11.0.orig.tar.gz",
+          "dpkg-source: info: applying xserver-xorg-input-evdev_2.11.0-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-xserver-xorg-input-evdev-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-xserver-xorg-input-evdev-preflight-510/source/ChangeLog",
+          " /work/debian-xserver-xorg-input-evdev-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: xserver-xorg-dev (>= 2:1.15.99) libxkbfile-dev libudev-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: xserver-xorg-dev (>= 2:1.15.99) libxkbfile-dev libudev-dev"
+        ]
+      }
+    },
+    {
+      "package": "xinit",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xinit-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xinit-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "5b946beaebcee97a0320bbe9c2e916221407bb42d1c4ca3773880f2637d4312c",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/xinit_1.4.2-1.dsc', '/work/debian-xinit-preflight-510/source']",
+          "dpkg-source: info: extracting xinit in /work/debian-xinit-preflight-510/source",
+          "dpkg-source: info: unpacking xinit_1.4.2.orig.tar.gz",
+          "dpkg-source: info: applying xinit_1.4.2-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-xinit-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-xinit-preflight-510/source/ChangeLog",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ]
+      }
+    },
+    {
+      "package": "xorg-server",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xorg-server-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xorg-server-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "7961a23a28b4dc46994322f29e902839a41873c9d4e54a161b44d4854c16dcf7",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          " /work/debian-xorg-server-preflight-510/source/doc/c-extensions",
+          " /work/debian-xorg-server-preflight-510/source/hw/kdrive/Xkdrive.man",
+          " /work/debian-xorg-server-preflight-510/source/hw/xfree86/os-support/bsd/bsd_ev56.c",
+          " /work/debian-xorg-server-preflight-510/source/hw/xfree86/os-support/linux/lnx_ev56.c",
+          " /work/debian-xorg-server-preflight-510/source/hw/xfree86/os-support/shared/platform_noop.c",
+          " /work/debian-xorg-server-preflight-510/source/hw/xquartz/GL/glcontextmodes.c",
+          " /work/debian-xorg-server-preflight-510/source/hw/xquartz/GL/glcontextmodes.h",
+          " /work/debian-xorg-server-preflight-510/source/hw/xwin/winauth.h",
+          " /work/debian-xorg-server-preflight-510/source/test/scripts/build-travis-osx.sh",
+          " /work/debian-xorg-server-preflight-510/source/xkb/XKM_file_format.txt",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcvt-dev libxdmcp-dev (>= 1:0.99.1) libxfont-dev (>= 1:2.0.1) libxkbfile-dev (>= 1:0.99.1) nettle-dev libudev-dev (>= 151-3) libselinux1-dev (>= 2.0.80) libaudit-dev libdrm-dev (>= 2.4.107-5~) libglvnd-dev mesa-common-dev libunwind-dev libxmuu"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcvt-dev libxdmcp-dev (>= 1:0.99.1) libxfont-dev (>= 1:2.0.1) libxkbfile-dev (>= 1:0.99.1) nettle-dev libudev-dev (>= 151-3) libselinux1-dev (>= 2.0.80) libaudit-dev libdrm-dev (>= 2.4.107-5~) libglvnd-dev mesa-common-dev libunwind-dev libxmuu-dev (>= 1:0.99.1) libxext-dev (>= 1:0.99.1) libx11-dev (>= 2:1.6) libxrender-dev (>= 1:0.9.0) libxi-dev (>= 2:1.8) libxpm-dev (>= 1:3.5.3) libxaw7-dev (>= 1:0.99.1) libxt-dev (>= 1:0.99.1) libxmu-dev (>= 1:0.99.1) libxtst-dev (>= 1:0.99.1) libxres-dev (>= 1:0.99.1) libxfixes-dev (>= 1:3.0.0) libxv-dev libxinerama-dev libepoxy-dev libegl1-mesa-dev libgbm-dev (>= 10.2) libx11-xcb-dev libxcb1-dev libxcb-xkb-dev libxcb-shape0-dev libxcb-render0-dev libxcb-render-util0-dev libxcb-util-dev libxcb-image0-dev libxcb-icccm4-dev libxcb-shm0-dev libxcb-keysyms1-dev libxcb-randr0-dev libxcb-xv0-dev libxcb-glx0-dev libxcb-xf86dri0-dev (>= 1.6) libbsd-dev libdbus-1-dev (>= 1.0) libsystemd-dev systemd-dev"
+        ]
+      }
+    },
+    {
+      "package": "openssh",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-openssh-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-openssh-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "1d00c9c7b7b5b4f7d3ff6b8808121d9bb6ddec4f0c99ff0e11d57de146a10fdf",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying CVE-2026-35387.patch",
+          "dpkg-source: info: applying CVE-2026-35414.patch",
+          "dpkg-source: info: applying CVE-2026-35386-1.patch",
+          "dpkg-source: info: applying CVE-2026-35386-2.patch",
+          "dpkg-source: info: applying CVE-2026-35386-3.patch",
+          "dpkg-source: info: applying ipqos-interactive-ef.patch",
+          "dpkg-source: info: applying ipqos-deprecate-tos-keywords.patch",
+          "dpkg-source: info: applying ipqos-set-at-runtime.patch",
+          "dpkg-source: info: applying ipqos-set-extended-type.patch",
+          "dpkg-source: info: applying avoid-channel-isatty-overloading.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libaudit-dev libedit-dev libfido2-dev (>= 1.5.0) libgtk-3-dev libkrb5-dev | heimdal-dev libpam0g-dev | libpam-dev libselinux1-dev libssl-dev (>= 1.1.1) libwrap0-dev | libwrap-dev libwtmpdb-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libaudit-dev libedit-dev libfido2-dev (>= 1.5.0) libgtk-3-dev libkrb5-dev | heimdal-dev libpam0g-dev | libpam-dev libselinux1-dev libssl-dev (>= 1.1.1) libwrap0-dev | libwrap-dev libwtmpdb-dev"
+        ]
+      }
+    },
+    {
+      "package": "freetype",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-freetype-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-freetype-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "003c037a4109f41a1e9cb33a922748cb1c6a9ad2e684ade9aea022fe7bee8f39",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking freetype_2.13.3+dfsg.orig.tar.xz",
+          "dpkg-source: info: unpacking freetype_2.13.3+dfsg.orig-ft2demos.tar.xz",
+          "dpkg-source: info: unpacking freetype_2.13.3+dfsg.orig-ft2docs.tar.xz",
+          "dpkg-source: info: unpacking freetype_2.13.3+dfsg-1+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying enable-gxvalid-otvalid.patch",
+          "dpkg-source: info: applying ftoption.patch",
+          "dpkg-source: info: applying no-web-fonts.patch",
+          "dpkg-source: info: applying hide-donations-information.patch",
+          "dpkg-source: info: applying CVE-2026-23865.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbrotli-dev libx11-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbrotli-dev libx11-dev"
+        ]
+      }
+    },
+    {
+      "package": "fontconfig",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-fontconfig-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-fontconfig-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "7c03d3e390d505dd647b14e30df233f0ab9646f5065459a79500569a4c4624fd",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: unpacking fontconfig_2.15.0.orig.tar.xz",
+          "dpkg-source: info: unpacking fontconfig_2.15.0-2.3.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 02_indic_names.patch",
+          "dpkg-source: info: applying 04_mgopen_fonts.patch",
+          "dpkg-source: info: applying skip-dpkg-tmp-files.patch",
+          "dpkg-source: info: applying disable-crbug1004354.patch",
+          "dpkg-source: info: applying make-byteReverse-hidden.patch",
+          "dpkg-source: info: applying change-default-mono-font-for-latin.patch",
+          "dpkg-source: info: applying fix-emoji-no-bitmap-font.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libfreetype-dev (>= 2.8.1) uuid-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libfreetype-dev (>= 2.8.1) uuid-dev"
+        ]
+      }
+    },
+    {
+      "package": "harfbuzz",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-harfbuzz-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-harfbuzz-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "5c5b12b390a2b31d01632da46e8bac4d1b63947feec617640dd8cf48b30298d5",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/harfbuzz_10.2.0-1+deb13u1.dsc', '/work/debian-harfbuzz-preflight-510/source']",
+          "dpkg-source: info: extracting harfbuzz in /work/debian-harfbuzz-preflight-510/source",
+          "dpkg-source: info: unpacking harfbuzz_10.2.0.orig.tar.xz",
+          "dpkg-source: info: unpacking harfbuzz_10.2.0-1+deb13u1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 0001-cmap-malloc-fail-test-5710.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-gir gir1.2-freetype2-2.0-dev gir1.2-gobject-2.0-dev libglib2.0-dev libcairo2-dev libchafa-dev libfreetype-dev libicu-dev libgraphite2-dev libgirepository1.0-dev gtk-doc-tools"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-gir gir1.2-freetype2-2.0-dev gir1.2-gobject-2.0-dev libglib2.0-dev libcairo2-dev libchafa-dev libfreetype-dev libicu-dev libgraphite2-dev libgirepository1.0-dev gtk-doc-tools"
+        ]
+      }
+    },
+    {
+      "package": "openssl",
+      "iteration": "510",
+      "status": "failed",
+      "active_iteration": "debian-openssl-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-openssl-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "cd9e283213f11f745892a43310a1502e85e501519e73a7cbe2ccb73906e460ce",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying New-implementation-of-stream-reassembly-for-QUIC.patch",
+          "dpkg-source: info: applying Limit-packet-buffer-overhead-to-64kB-per-stream.patch",
+          "dpkg-source: info: applying Enforce-final-size-for-streams.patch",
+          "dpkg-source: info: applying Add-explicit-tests-to-check-some-typical-stream-reassembl.patch",
+          "dpkg-source: info: applying test-cover-FIN-final-size-against-buffered-data.patch",
+          "dpkg-source: info: applying test-cover-zero-length-read-of-a-QUIC-rstream.patch",
+          "dpkg-source: info: applying test-cover-two-sided-overlap-of-direct-tail-chunk.patch",
+          "dpkg-source: info: applying test-cover-cleansing-of-dropped-duplicate-bytes.patch",
+          "dpkg-source: info: applying test-cover-sc_data_trim_right-function.patch",
+          "dpkg-source: info: applying make-ch_cleanup-just-safe-enough-to-be-called-by-quic_str.patch",
+          "dpkg-source: info: applying Add-ossl_list_TYPE_join-head-tail-function.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-openssl-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "aaa883b652f259bfd590f77f17923d8f4e2f6a14f946daf44462f9db710fa86c",
+        "status": "failed",
+        "diagnostic_tail": [
+          "/bin/sh: 1: powerpc-linux-gnuspe-/usr/lib/tabor-spe-toolchain/bin/powerpc-linux-gnuspe-gcc: not found",
+          "make[3]: *** [Makefile:5991: apps/lib/libapps-lib-app_libctx.o] Error 127",
+          "make[3]: *** Waiting for unfinished jobs....",
+          "/bin/sh: 1: powerpc-linux-gnuspe-/usr/lib/tabor-spe-toolchain/bin/powerpc-linux-gnuspe-gcc: not found",
+          "make[3]: *** [Makefile:5995: apps/lib/libapps-lib-app_params.o] Error 127",
+          "make[3]: Leaving directory '/work/debian-openssl-510/source/build_shared'",
+          "make[2]: *** [Makefile:4105: build_sw] Error 2",
+          "make[2]: Leaving directory '/work/debian-openssl-510/source/build_shared'",
+          "make[1]: *** [debian/rules:74: override_dh_auto_build-arch] Error 2",
+          "make[1]: Leaving directory '/work/debian-openssl-510/source'",
+          "make: *** [debian/rules:53: binary-arch] Error 2",
+          "dpkg-buildpackage: error: debian/rules binary-arch subprocess returned exit status 2"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "curl",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-curl-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-curl-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "b156334f845a90840c43df302b78dfb51d9f3dc789bd8fa1757ae6aaf97b65b8",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying CVE-2026-6253.patch",
+          "dpkg-source: info: applying CVE-2026-5773.patch",
+          "dpkg-source: info: applying CVE-2026-6276.patch",
+          "dpkg-source: info: applying CVE-2026-7168.patch",
+          "dpkg-source: info: applying CVE-2026-6429.patch",
+          "dpkg-source: info: applying openssl_fix_openssl_engines.patch",
+          "dpkg-source: info: applying CVE-2026-8286.patch",
+          "dpkg-source: info: applying CVE-2026-8924.patch",
+          "dpkg-source: info: applying CVE-2026-8927.patch",
+          "dpkg-source: info: applying CVE-2026-92392.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbrotli-dev libgnutls28-dev libidn2-dev libkrb5-dev libldap2-dev libnghttp2-dev libpsl-dev librtmp-dev libssh2-1-dev libssl-dev libngtcp2-dev (>= 1.2.0) libngtcp2-crypto-gnutls-dev (>= 1.2.0) libnghttp3-dev (>= 1.1.0)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbrotli-dev libgnutls28-dev libidn2-dev libkrb5-dev libldap2-dev libnghttp2-dev libpsl-dev librtmp-dev libssh2-1-dev libssl-dev libngtcp2-dev (>= 1.2.0) libngtcp2-crypto-gnutls-dev (>= 1.2.0) libnghttp3-dev (>= 1.1.0)"
+        ]
+      }
+    },
+    {
+      "package": "dbus",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-dbus-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-dbus-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "570a62efbc100f6183c33d0c94315aa30af35a1685357779fed36eeb27a39e95",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/dbus_1.16.2-2.dsc', '/work/debian-dbus-preflight-510/source']",
+          "dpkg-source: info: extracting dbus in /work/debian-dbus-preflight-510/source",
+          "dpkg-source: info: unpacking dbus_1.16.2.orig.tar.xz",
+          "dpkg-source: info: unpacking dbus_1.16.2-2.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying debian/tests-Multiply-timeouts-by-20-on-riscv64.patch",
+          "dpkg-source: info: applying debian/sysusers.d-Set-user-s-home-directory-to-nonexistent.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libapparmor-dev libaudit-dev libglib2.0-dev libselinux1-dev libsystemd-dev libx11-dev valgrind-if-available"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libapparmor-dev libaudit-dev libglib2.0-dev libselinux1-dev libsystemd-dev libx11-dev valgrind-if-available"
+        ]
+      }
+    },
+    {
+      "package": "lua5.1",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-lua5.1-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-lua5.1-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "74d91551630b268b323726b23f93b65cffc991ee9f7235a9754f51ecabcada60",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/lua5.1_5.1.5-11.dsc', '/work/debian-lua5.1-preflight-510/source']",
+          "dpkg-source: info: extracting lua5.1 in /work/debian-lua5.1-preflight-510/source",
+          "dpkg-source: info: unpacking lua5.1_5.1.5.orig.tar.gz",
+          "dpkg-source: info: unpacking lua5.1_5.1.5-11.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 0001-debian_make.patch",
+          "dpkg-source: info: applying 0002-module_paths.patch",
+          "dpkg-source: info: applying 0003-extern_C.patch",
+          "dpkg-source: info: applying 0004-Fix-stack-overflow-in-vararg-functions.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libreadline-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libreadline-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxkbcommon",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxkbcommon-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxkbcommon-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "c3388c4f60e8668d9618ef4417e7d473e5b904befbbd4142b7a61cdddc8e411e",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxkbcommon_1.7.0-2.dsc', '/work/debian-libxkbcommon-preflight-510/source']",
+          "dpkg-source: info: extracting libxkbcommon in /work/debian-libxkbcommon-preflight-510/source",
+          "dpkg-source: info: unpacking libxkbcommon_1.7.0.orig.tar.xz",
+          "dpkg-source: info: unpacking libxkbcommon_1.7.0-2.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libwayland-dev libxcb-xkb-dev libxml2-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libwayland-dev libxcb-xkb-dev libxml2-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxkbfile",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxkbfile-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxkbfile-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "0e839b243e2422379117b041f163d67b1954b16d416f6bd35e51b5dfd731bb8b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxkbfile_1.1.0-1.dsc', '/work/debian-libxkbfile-preflight-510/source']",
+          "dpkg-source: info: extracting libxkbfile in /work/debian-libxkbfile-preflight-510/source",
+          "dpkg-source: info: unpacking libxkbfile_1.1.0.orig.tar.gz",
+          "dpkg-source: info: applying libxkbfile_1.1.0-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxkbfile-preflight-510/source/ChangeLog",
+          " /work/debian-libxkbfile-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.3.3-2)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.3.3-2)"
+        ]
+      }
+    },
+    {
+      "package": "libxfont",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxfont-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxfont-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "670a4aaaa7b71066665ca95cdbdbd933f6a512515603fcdc4e6bfee6070cc661",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxfont_2.0.6-1+deb13u1.dsc', '/work/debian-libxfont-preflight-510/source']",
+          "dpkg-source: info: extracting libxfont in /work/debian-libxfont-preflight-510/source",
+          "dpkg-source: info: unpacking libxfont_2.0.6.orig.tar.gz",
+          "dpkg-source: info: applying libxfont_2.0.6-1+deb13u1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxfont-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxfont-preflight-510/source/ChangeLog",
+          " /work/debian-libxfont-preflight-510/source/autogen.sh",
+          " /work/debian-libxfont-preflight-510/source/src/bitmap/bitscale.c",
+          " /work/debian-libxfont-preflight-510/source/src/bitmap/pcfread.c",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libfreetype6-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libfreetype6-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxcvt",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-libxcvt-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxcvt-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "bb49146214850c40dc3d4d7746a0be8aefadc8952e14929676024fb33fb6bc5d",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxcvt_0.1.3-1.dsc', '/work/debian-libxcvt-preflight-510/source']",
+          "dpkg-source: info: extracting libxcvt in /work/debian-libxcvt-preflight-510/source",
+          "dpkg-source: info: unpacking libxcvt_0.1.3.orig.tar.xz",
+          "dpkg-source: info: unpacking libxcvt_0.1.3-1.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxcvt-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "68e3bfa17a610dfd8713488a9e9adff99efb929b4cec8ad1329c8fb8329cf6d2",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_md5sums -a",
+          "   dh_builddeb -a",
+          "dpkg-deb: building package 'libxcvt0' in '../libxcvt0_0.1.3-1_powerpcspe.deb'.",
+          "dpkg-deb: building package 'xcvt' in '../xcvt_0.1.3-1_powerpcspe.deb'.",
+          "dpkg-deb: building package 'libxcvt-dev' in '../libxcvt-dev_0.1.3-1_powerpcspe.deb'.",
+          "dpkg-deb: building package 'libxcvt0-udeb' in 'debian/.debhelper/scratch-space/build-libxcvt0-udeb/libxcvt0-udeb_0.1.3-1_powerpcspe.deb'.",
+          "\tRenaming libxcvt0-udeb_0.1.3-1_powerpcspe.deb to libxcvt0-udeb_0.1.3-1_powerpcspe.udeb",
+          " dpkg-genbuildinfo --build=any -O../libxcvt_0.1.3-1_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../libxcvt_0.1.3-1_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "xkeyboard-config",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xkeyboard-config-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xkeyboard-config-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "51949de7bc7de9389cd32c089fa3662dc7eea911a3913a6fd3b9d753e441728b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: extracting xkeyboard-config in /work/debian-xkeyboard-config-preflight-510/source",
+          "dpkg-source: info: unpacking xkeyboard-config_2.42.orig.tar.gz",
+          "dpkg-source: info: applying xkeyboard-config_2.42-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci/evdev.in",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci/generate-evdev-keycodes.py",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci/generate-evdev-keysyms.py",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci/inet.in",
+          " /work/debian-xkeyboard-config-preflight-510/source/.gitlab-ci/yaml-to-junit-xml.py",
+          "$ ['dpkg-checkbuilddeps', '-A']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libglib2.0-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libglib2.0-dev"
+        ]
+      }
+    },
+    {
+      "package": "x11-xkb-utils",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-x11-xkb-utils-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-x11-xkb-utils-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "4fcc5c73a4bf283605872cedfa075045bf3acd012e238f199b8d51adb9abbbba",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/x11-xkb-utils_7.7+9.dsc', '/work/debian-x11-xkb-utils-preflight-510/source']",
+          "dpkg-source: info: extracting x11-xkb-utils in /work/debian-x11-xkb-utils-preflight-510/source",
+          "dpkg-source: info: unpacking x11-xkb-utils_7.7+9.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxaw7-dev libxkbfile-dev libxrandr-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxaw7-dev libxkbfile-dev libxrandr-dev"
+        ]
+      }
+    },
+    {
+      "package": "libvncserver",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libvncserver-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libvncserver-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "7c2b39b1db9b2f9006674037921949833acca2124576ffba7411a39acebc36d5",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libvncserver_0.9.15+dfsg-1+deb13u2.dsc', '/work/debian-libvncserver-preflight-510/source']",
+          "dpkg-source: info: extracting libvncserver in /work/debian-libvncserver-preflight-510/source",
+          "dpkg-source: info: unpacking libvncserver_0.9.15+dfsg.orig.tar.xz",
+          "dpkg-source: info: unpacking libvncserver_0.9.15+dfsg-1+deb13u2.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 0001_CVE-2026-32853.patch",
+          "dpkg-source: info: applying 0002_CVE-2026-32854.patch",
+          "dpkg-source: info: applying 0003_CVE-2026-44988.patch",
+          "dpkg-source: info: applying 0004_CVE-2026-50538.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libgnutls28-dev liblzo2-dev libgcrypt20-dev libsasl2-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libgnutls28-dev liblzo2-dev libgcrypt20-dev libsasl2-dev"
+        ]
+      }
+    },
+    {
+      "package": "x11vnc",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-x11vnc-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-x11vnc-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "204177f4c3c373a89ae9b47c2e16bb97187ccc9ebd6e31223d7efdbddf951f1a",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/x11vnc_0.9.17-1.dsc', '/work/debian-x11vnc-preflight-510/source']",
+          "dpkg-source: info: extracting x11vnc in /work/debian-x11vnc-preflight-510/source",
+          "dpkg-source: info: unpacking x11vnc_0.9.17.orig.tar.gz",
+          "dpkg-source: info: unpacking x11vnc_0.9.17-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying 0000-usepkgconfig.diff",
+          "dpkg-source: info: applying 0001-Xdummy-man-page.patch",
+          "dpkg-source: info: applying 0002-fix-typos.patch",
+          "dpkg-source: info: applying 1001-use-bash-for-Xdummy-script.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libavahi-client-dev libssl-dev libvncserver-dev (>= 0.9.13+dfsg-4~) libxdamage-dev libxext-dev libxfixes-dev libxinerama-dev libxrandr-dev libxss-dev libxtst-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libavahi-client-dev libssl-dev libvncserver-dev (>= 0.9.13+dfsg-4~) libxdamage-dev libxext-dev libxfixes-dev libxinerama-dev libxrandr-dev libxss-dev libxtst-dev"
+        ]
+      }
+    },
+    {
+      "package": "libsndfile",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libsndfile-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libsndfile-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "9ff6c27bcc019b34a5ec1d3f8e6a584f92cce4ad6ab248830a5efe7a5bf93503",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-6.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-7.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-8.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-9.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-10.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-11.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-12.patch",
+          "dpkg-source: info: applying CVE-2022-33065/CVE-2022-33065-13.patch",
+          "dpkg-source: info: applying 0039-src-ogg-better-error-checking-for-vorbis.-Fixes-1035.patch",
+          "dpkg-source: info: applying CVE-2025-56226.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libasound2-dev libflac-dev libmp3lame-dev libmpg123-dev libogg-dev libopus-dev libspeex-dev libvorbis-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libasound2-dev libflac-dev libmp3lame-dev libmpg123-dev libogg-dev libopus-dev libspeex-dev libvorbis-dev"
+        ]
+      }
+    },
+    {
+      "package": "libpthread-stubs",
+      "iteration": "510",
+      "status": "debian-packages-built-not-target-installed",
+      "active_iteration": "debian-libpthread-stubs-510",
+      "preflight": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libpthread-stubs-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "5b406afdb5cdf08a468f223d445c885cf5fdebdac834beadd704ee3c4a49e0ed",
+        "status": "build-dependencies-satisfied-not-built",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libpthread-stubs_0.5-1.dsc', '/work/debian-libpthread-stubs-preflight-510/source']",
+          "dpkg-source: info: extracting libpthread-stubs in /work/debian-libpthread-stubs-preflight-510/source",
+          "dpkg-source: info: unpacking libpthread-stubs_0.5.orig.tar.gz",
+          "dpkg-source: info: applying libpthread-stubs_0.5-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libpthread-stubs-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libpthread-stubs-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']"
+        ],
+        "unmet_dependencies": []
+      },
+      "build": {
+        "exit": 0,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libpthread-stubs-510/receipt.json",
+        "phase": "build",
+        "receipt_sha256": "3d8a58b700b9b190b3dacead441059543749866996cdea8feac92afb97a52f4e",
+        "status": "debian-packages-built-not-target-installed",
+        "diagnostic_tail": [
+          "   dh_makeshlibs -a -O--builddirectory=build",
+          "   dh_shlibdeps -a -O--builddirectory=build",
+          "   dh_installdeb -a -O--builddirectory=build",
+          "   dh_gencontrol -a -O--builddirectory=build",
+          "   dh_md5sums -a -O--builddirectory=build",
+          "   dh_builddeb -a -O--builddirectory=build",
+          "dpkg-deb: building package 'libpthread-stubs0-dev' in '../libpthread-stubs0-dev_0.5-1_powerpcspe.deb'.",
+          " dpkg-genbuildinfo --build=any -O../libpthread-stubs_0.5-1_powerpcspe.buildinfo",
+          " dpkg-genchanges --build=any -O../libpthread-stubs_0.5-1_powerpcspe.changes",
+          "dpkg-genchanges: info: binary-only arch-specific upload (source code and arch-indep packages not included)",
+          " dpkg-source --after-build .",
+          "dpkg-buildpackage: info: binary-only upload (no source included)"
+        ],
+        "unmet_dependencies": []
+      }
+    },
+    {
+      "package": "libxdmcp",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxdmcp-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxdmcp-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "1345255da9aae259f9cc4e4e627dcc8a4e9e708bb2b5c88d3fa084fe23889a0d",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxdmcp_1.1.5-1.dsc', '/work/debian-libxdmcp-preflight-510/source']",
+          "dpkg-source: info: extracting libxdmcp in /work/debian-libxdmcp-preflight-510/source",
+          "dpkg-source: info: unpacking libxdmcp_1.1.5.orig.tar.gz",
+          "dpkg-source: info: applying libxdmcp_1.1.5-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxdmcp-preflight-510/source/.gitlab-ci.yml",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbsd-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libbsd-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxcb",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxcb-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxcb-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "fdc1162d80f9864cdf1afa063019e726ce6c65568422000f61efa5542f901434",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxcb_1.17.0-2.dsc', '/work/debian-libxcb-preflight-510/source']",
+          "dpkg-source: info: extracting libxcb in /work/debian-libxcb-preflight-510/source",
+          "dpkg-source: info: unpacking libxcb_1.17.0.orig.tar.gz",
+          "dpkg-source: info: applying libxcb_1.17.0-2.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxcb-preflight-510/source/.autom4te.cfg",
+          " /work/debian-libxcb-preflight-510/source/.gitlab-ci.yml",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxdmcp-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxdmcp-dev"
+        ]
+      }
+    },
+    {
+      "package": "libx11",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libx11-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libx11-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "91952f0692ffd0074ba5bbeed59fdb2b116926bc7bab955b920723e169012ff5",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libx11_1.8.12-1.dsc', '/work/debian-libx11-preflight-510/source']",
+          "dpkg-source: info: extracting libx11 in /work/debian-libx11-preflight-510/source",
+          "dpkg-source: info: unpacking libx11_1.8.12.orig.tar.gz",
+          "dpkg-source: info: applying libx11_1.8.12-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libx11-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libx11-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxext",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxext-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxext-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "e7bf7f349995d0d90f4f0840a7404da4360c13c47dbb3e06d5126d1c8cfaa258",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxext_1.3.4-1.dsc', '/work/debian-libxext-preflight-510/source']",
+          "dpkg-source: info: extracting libxext in /work/debian-libxext-preflight-510/source",
+          "dpkg-source: info: unpacking libxext_1.3.4.orig.tar.gz",
+          "dpkg-source: info: applying libxext_1.3.4-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxext-preflight-510/source/ChangeLog",
+          " /work/debian-libxext-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.6)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.6)"
+        ]
+      }
+    },
+    {
+      "package": "libxrender",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxrender-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxrender-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "4a4d0d106344ebc36da974981d265346c1185f6d610f73b72110379457dcd7e6",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxrender_0.9.12-1.dsc', '/work/debian-libxrender-preflight-510/source']",
+          "dpkg-source: info: extracting libxrender in /work/debian-libxrender-preflight-510/source",
+          "dpkg-source: info: unpacking libxrender_0.9.12.orig.tar.gz",
+          "dpkg-source: info: applying libxrender_0.9.12-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxrender-preflight-510/source/.clang-format",
+          " /work/debian-libxrender-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxrender-preflight-510/source/ChangeLog",
+          " /work/debian-libxrender-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxfixes",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxfixes-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxfixes-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "e7ee2bef6ab53983f2d2408fa35c7548f22a38a30ee46fafa88b0465425aab99",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxfixes_6.0.0-2.dsc', '/work/debian-libxfixes-preflight-510/source']",
+          "dpkg-source: info: extracting libxfixes in /work/debian-libxfixes-preflight-510/source",
+          "dpkg-source: info: unpacking libxfixes_6.0.0.orig.tar.gz",
+          "dpkg-source: info: applying libxfixes_6.0.0-2.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxfixes-preflight-510/source/ChangeLog",
+          " /work/debian-libxfixes-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxdamage",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxdamage-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxdamage-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "2fd8efc7c76a670195c4a7f176aadd81061da09ec06a50321a74eb05e351f330",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxdamage_1.1.6-1.dsc', '/work/debian-libxdamage-preflight-510/source']",
+          "dpkg-source: info: extracting libxdamage in /work/debian-libxdamage-preflight-510/source",
+          "dpkg-source: info: unpacking libxdamage_1.1.6.orig.tar.gz",
+          "dpkg-source: info: unpacking libxdamage_1.1.6-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying autogen.sh-install",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxfixes-dev (>= 1:3.0.0-4)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxfixes-dev (>= 1:3.0.0-4)"
+        ]
+      }
+    },
+    {
+      "package": "libxcomposite",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxcomposite-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxcomposite-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "b02e854bedd9454c8b1de5fc0e115cf03b5db7d3b671c5d33b7513fdeeb87937",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxcomposite_0.4.6-1.dsc', '/work/debian-libxcomposite-preflight-510/source']",
+          "dpkg-source: info: extracting libxcomposite in /work/debian-libxcomposite-preflight-510/source",
+          "dpkg-source: info: unpacking libxcomposite_0.4.6.orig.tar.gz",
+          "dpkg-source: info: applying libxcomposite_0.4.6-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxcomposite-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxcomposite-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxfixes-dev (>= 1:3.0.0-4)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxfixes-dev (>= 1:3.0.0-4)"
+        ]
+      }
+    },
+    {
+      "package": "libxi",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxi-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxi-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "47d36f3457be19be0f985c90da1ed1717852e5ee5e4617eea1b330b1084cf60e",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxi_1.8.2-1.dsc', '/work/debian-libxi-preflight-510/source']",
+          "dpkg-source: info: extracting libxi in /work/debian-libxi-preflight-510/source",
+          "dpkg-source: info: unpacking libxi_1.8.2.orig.tar.gz",
+          "dpkg-source: info: applying libxi_1.8.2-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxi-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxi-preflight-510/source/ChangeLog",
+          " /work/debian-libxi-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxext-dev libxfixes-dev asciidoc"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxext-dev libxfixes-dev asciidoc"
+        ]
+      }
+    },
+    {
+      "package": "libxinerama",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxinerama-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxinerama-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "049b5d21dd32f03c790b192c42d6242cffdfd0dd177567ce838195047a83eb4b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxinerama_1.1.4-3.dsc', '/work/debian-libxinerama-preflight-510/source']",
+          "dpkg-source: info: extracting libxinerama in /work/debian-libxinerama-preflight-510/source",
+          "dpkg-source: info: unpacking libxinerama_1.1.4.orig.tar.gz",
+          "dpkg-source: info: applying libxinerama_1.1.4-3.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxinerama-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.3.3-2) libxext-dev (>= 2:1.1.1-3)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 2:1.3.3-2) libxext-dev (>= 2:1.1.1-3)"
+        ]
+      }
+    },
+    {
+      "package": "libxcursor",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxcursor-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxcursor-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "e3e5c7215c2603c4882778ae13b46b5efd21b8d9325b3bd73315d2394e03c773",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxcursor_1.2.3-1.dsc', '/work/debian-libxcursor-preflight-510/source']",
+          "dpkg-source: info: extracting libxcursor in /work/debian-libxcursor-preflight-510/source",
+          "dpkg-source: info: unpacking libxcursor_1.2.3.orig.tar.gz",
+          "dpkg-source: info: unpacking libxcursor_1.2.3-1.debian.tar.xz",
+          "dpkg-source: info: using patch list from debian/patches/series",
+          "dpkg-source: info: applying autogen.sh-install",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxrender-dev libxfixes-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxrender-dev libxfixes-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxrandr",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxrandr-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxrandr-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "87aad2c6041960a4588dac792312e2bf8aee7a9aeb168cd0ac806b7f995365ba",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxrandr_1.5.4-1.dsc', '/work/debian-libxrandr-preflight-510/source']",
+          "dpkg-source: info: extracting libxrandr in /work/debian-libxrandr-preflight-510/source",
+          "dpkg-source: info: unpacking libxrandr_1.5.4.orig.tar.gz",
+          "dpkg-source: info: applying libxrandr_1.5.4-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxrandr-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxrandr-preflight-510/source/ChangeLog",
+          " /work/debian-libxrandr-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxext-dev (>= 1:0.99.1) libxrender-dev (>= 1:0.9.0-2)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxext-dev (>= 1:0.99.1) libxrender-dev (>= 1:0.9.0-2)"
+        ]
+      }
+    },
+    {
+      "package": "libxtst",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxtst-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxtst-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "87322209ead19473f6987ef87c37a8fdad3768d5a49f55f95b25fb3a28ac84e7",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxtst_1.2.5-1.dsc', '/work/debian-libxtst-preflight-510/source']",
+          "dpkg-source: info: extracting libxtst in /work/debian-libxtst-preflight-510/source",
+          "dpkg-source: info: unpacking libxtst_1.2.5.orig.tar.gz",
+          "dpkg-source: info: applying libxtst_1.2.5-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxtst-preflight-510/source/.gitlab-ci.yml",
+          " /work/debian-libxtst-preflight-510/source/ChangeLog",
+          " /work/debian-libxtst-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxext-dev libxi-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev libxext-dev libxi-dev"
+        ]
+      }
+    },
+    {
+      "package": "libxss",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-libxss-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libxss-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "289e44d90c92df5e541e7f04e260be97f0eac1ac17cdf7b46afa3780d69539c7",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/libxss_1.2.3-1.dsc', '/work/debian-libxss-preflight-510/source']",
+          "dpkg-source: info: extracting libxss in /work/debian-libxss-preflight-510/source",
+          "dpkg-source: info: unpacking libxss_1.2.3.orig.tar.gz",
+          "dpkg-source: info: applying libxss_1.2.3-1.diff.gz",
+          "dpkg-source: info: upstream files that have been modified: ",
+          " /work/debian-libxss-preflight-510/source/autogen.sh",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxext-dev (>= 1:0.99.1)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libx11-dev (>= 1:0.99.2) libxext-dev (>= 1:0.99.1)"
+        ]
+      }
+    },
+    {
+      "package": "xcb-util",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xcb-util-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xcb-util-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "c76f390d80196668739dec4902c1e6d97a850418c52860695fc1e89a3576a982",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/xcb-util_0.4.1-1.dsc', '/work/debian-xcb-util-preflight-510/source']",
+          "dpkg-source: info: extracting xcb-util in /work/debian-xcb-util-preflight-510/source",
+          "dpkg-source: info: unpacking xcb-util_0.4.1.orig.tar.gz",
+          "dpkg-source: info: unpacking xcb-util_0.4.1-1.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev (>= 1.6)"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev (>= 1.6)"
+        ]
+      }
+    },
+    {
+      "package": "xcb-util-image",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xcb-util-image-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xcb-util-image-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "fd93ad2839d74da47f6df41a3f91c453746bd3a6f097cb1fa39fec0714b6952b",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/xcb-util-image_0.4.0-2.dsc', '/work/debian-xcb-util-image-preflight-510/source']",
+          "dpkg-source: info: extracting xcb-util-image in /work/debian-xcb-util-image-preflight-510/source",
+          "dpkg-source: info: unpacking xcb-util-image_0.4.0.orig.tar.bz2",
+          "dpkg-source: info: unpacking xcb-util-image_0.4.0-2.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev (>= 1.6) libxcb-util0-dev libxcb-shm0-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev (>= 1.6) libxcb-util0-dev libxcb-shm0-dev"
+        ]
+      }
+    },
+    {
+      "package": "xcb-util-keysyms",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-xcb-util-keysyms-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-xcb-util-keysyms-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "191d5076bb8df90a24dbca0021bea6c3c87dc9860f2c19ae3cda703584879c60",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/xcb-util-keysyms_0.4.1-1.dsc', '/work/debian-xcb-util-keysyms-preflight-510/source']",
+          "dpkg-source: info: extracting xcb-util-keysyms in /work/debian-xcb-util-keysyms-preflight-510/source",
+          "dpkg-source: info: unpacking xcb-util-keysyms_0.4.1.orig.tar.xz",
+          "dpkg-source: info: unpacking xcb-util-keysyms_0.4.1-1.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libxcb1-dev"
+        ]
+      }
+    },
+    {
+      "package": "systemd",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-systemd-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-systemd-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "90a46f83a4339176de3e655a9159b11d55a7584f4e9b0244d817276e6f559e37",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/systemd_257.13-1~deb13u1.dsc', '/work/debian-systemd-preflight-510/source']",
+          "dpkg-source: info: extracting systemd in /work/debian-systemd-preflight-510/source",
+          "dpkg-source: info: unpacking systemd_257.13.orig.tar.gz",
+          "dpkg-source: info: unpacking systemd_257.13-1~deb13u1.debian.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-dlopenlibdeps dh-sequence-installnss libcap-dev libpam0g-dev libapparmor-dev (>= 2.13) libidn2-dev libiptc-dev libaudit-dev libdbus-1-dev (>= 1.3.2) libcryptsetup-dev (>= 2:2.4) libselinux1-dev (>= 2.1.9) libcurl4-openssl-dev libmicro"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-dlopenlibdeps dh-sequence-installnss libcap-dev libpam0g-dev libapparmor-dev (>= 2.13) libidn2-dev libiptc-dev libaudit-dev libdbus-1-dev (>= 1.3.2) libcryptsetup-dev (>= 2:2.4) libselinux1-dev (>= 2.1.9) libcurl4-openssl-dev libmicrohttpd-dev libgcrypt20-dev libkmod-dev (>= 15) libblkid-dev (>= 2.24) libmount-dev (>= 2.30) libfdisk-dev (>= 2.33) libdw-dev (>= 0.158) libpolkit-gobject-1-dev libtss2-dev libfido2-dev libp11-kit-dev libssl-dev libqrencode-dev libpwquality-dev libarchive-dev python3-pefile:native"
+        ]
+      }
+    },
+    {
+      "package": "pam",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-pam-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-pam-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "f1f132631c8adff56cc2f89820d0cf9cd5e377233fb4a536cb3c22fdb31b63a0",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "dpkg-source: info: applying update-motd",
+          "dpkg-source: info: applying lib_security_multiarch_compat",
+          "dpkg-source: info: applying nullok_secure-compat.patch",
+          "dpkg-source: info: applying pam_mkhomedir_stat_before_opendir",
+          "dpkg-source: info: applying 0018-Libpam-is-both-shared-and-static.patch",
+          "dpkg-source: info: applying upstream/0019-pam_inline-introduce-pam_asprintf-pam_snprintf-and-p.patch",
+          "dpkg-source: info: applying upstream/0020-pam_namespace-from-v1.7.1.patch",
+          "dpkg-source: info: applying 0001-pam_access-fix-group-name-match-regression.patch",
+          "dpkg-source: info: applying upstream/0022-pam_access-rework-resolving-of-tokens-as-hostname.patch",
+          "dpkg-source: info: applying 0023-Reapply-man-page-section-changes-after-importing-1.7.patch",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdb-dev libselinux1-dev libsystemd-dev libaudit-dev libfl-dev libfl-dev:native"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libdb-dev libselinux1-dev libsystemd-dev libaudit-dev libfl-dev libfl-dev:native"
+        ]
+      }
+    },
+    {
+      "package": "cdebconf",
+      "iteration": "510",
+      "status": "build-dependencies-blocked",
+      "active_iteration": "debian-cdebconf-preflight-510",
+      "preflight": {
+        "exit": 1,
+        "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-cdebconf-preflight-510/receipt.json",
+        "phase": "preflight",
+        "receipt_sha256": "85fcba8aedb494dd121fe83dcd61e267cd146435b3a30c7c4faf7278ef5302d1",
+        "status": "build-dependencies-blocked",
+        "diagnostic_tail": [
+          "$ ['dpkg-source', '--no-check', '-x', '/cache/cdebconf_0.280.dsc', '/work/debian-cdebconf-preflight-510/source']",
+          "dpkg-source: info: extracting cdebconf in /work/debian-cdebconf-preflight-510/source",
+          "dpkg-source: info: unpacking cdebconf_0.280.tar.xz",
+          "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libslang2-dev libnewt-dev libtextwrap-dev libreadline-dev (>= 8.1.2-1.1) libdebian-installer4-dev | libdebian-installer-dev libglib2.0-dev libgtk2.0-dev libcairo2-dev libselinux1-dev | libselinux-dev"
+        ],
+        "unmet_dependencies": [
+          "dpkg-checkbuilddeps: error: unmet build dependencies: libslang2-dev libnewt-dev libtextwrap-dev libreadline-dev (>= 8.1.2-1.1) libdebian-installer4-dev | libdebian-installer-dev libglib2.0-dev libgtk2.0-dev libcairo2-dev libselinux1-dev | libselinux-dev"
+        ]
+      }
+    }
+  ],
+  "target_installation": false,
+  "boot_image_ready": false
+}

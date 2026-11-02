@@ -1,0 +1,24 @@
+{
+  "status": "package-hashes-and-elf32-big-endian-powerpc-payloads-verified",
+  "recipe_sha256": "7476df0893719e8eb28419cd909ab5dae23a2b7133049a3e32f666155d48556c",
+  "target_execution": false,
+  "sources": [
+    {
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-grep-520/receipt.json",
+      "receipt_sha256": "c7dc22f5b20cd6f012ca28276456b221d5014d8d96bfbe601dac578b8af6f5ab",
+      "packages": [
+        {
+          "file": "grep_3.11-4_powerpcspe.deb",
+          "sha256": "22f1b1ac904f755a8eef0f15ccb3f71ea85b47a82d329a3564c172feb565f411",
+          "architecture": "powerpcspe",
+          "elf_files": [
+            "./usr/bin/grep"
+          ]
+        }
+      ]
+    }
+  ],
+  "source_count": 1,
+  "package_count": 1,
+  "elf_count": 1
+}

@@ -735,3 +735,18 @@ on the R730; some core sources are dependency-blocked while independent builds
 continue. Full target installation/configuration, full-feature libc and fresh
 QEMU/physical image acceptance remain pending. See
 [accepted dependency evidence](builds/sdk-defaults-20261102/README.md).
+
+
+2026-11-02 cumulative dependency correction: real apt installs of SPE libxcvt,
+SELinux C development/runtime, libbsd and readline now update subsequent build
+roots. Grep520, libselinux520 (supported library bootstrap), libbsd/readline540
+and previously blocked findutils/sed540 package successfully. Queue history
+retains the local-apt option failure and metadata/workload guard failure; later
+entries marked attempt-failed are infrastructure skips, not compiler failures.
+Three scheduler regression tests pass. Native prerequisites now derive from
+Debian build-dep across the source scope; missing target-source intake remains
+explicit. OpenSSL's compiler path is fixed; its GCC8 register-clearing flag
+limitation has a source patch pending full packaging. See
+[cumulative evidence](builds/cumulative-dependencies-20261102/README.md).
+Full target configuration, required binding/libc rebuilds and new boot acceptance
+remain pending; no USB/image changes are claimed.

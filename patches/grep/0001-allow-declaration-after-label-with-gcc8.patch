@@ -1,0 +1,18 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] dfa: keep the stray-backslash label valid before C23
+
+The Debian warning patch places a declaration directly after this label.
+Add an empty statement so GCC 8 can compile it under the existing dialect.
+No parser behavior or warning policy changes. Local compatibility patch
+against Debian grep 3.11-4; retains upstream GNU licensing.
+
+--- a/lib/dfa.c
++++ b/lib/dfa.c
+@@ -1559,6 +1559,6 @@
+           if (!backslash)
+             goto normal_char;
+-        stray_backslash:
++        stray_backslash: ;
+           char const *userevalwarn;
+           userevalwarn = getenv ("DEB_GREP_ENABLE_STRAY_BACKSLASH_WARN");
+           if ((dfa->syntax.dfaopts & DFA_STRAY_BACKSLASH_WARN) &&

@@ -1,0 +1,248 @@
+{
+  "scope": "Cumulative dependency closure from core510 failures; normal Debian readiness and library installation, not final OS acceptance",
+  "accumulate_build_dependencies": true,
+  "max_passes": 20,
+  "timeout_seconds": 7200,
+  "required_full_rebuilds": [
+    {
+      "package": "libselinux",
+      "reason": "Temporary supported nopython/noruby library bootstrap; full bindings still required once their target dependencies exist"
+    }
+  ],
+  "seed_receipts": [
+    {
+      "receipt": "work/debian-libxcvt-510/receipt.json",
+      "sha256": "68e3bfa17a610dfd8713488a9e9adff99efb929b4cec8ad1329c8fb8329cf6d2"
+    },
+    {
+      "receipt": "work/debian-libselinux-520/receipt.json",
+      "sha256": "727a32885884a037d4d7160c0c6cd0748e0f3a9be1da4256b19564152a63842a"
+    }
+  ],
+  "attempts": [
+    {
+      "package": "openssl",
+      "iteration": "540"
+    },
+    {
+      "package": "libxdmcp",
+      "iteration": "540"
+    },
+    {
+      "package": "libbsd",
+      "iteration": "540"
+    },
+    {
+      "package": "brotli",
+      "iteration": "540"
+    },
+    {
+      "package": "readline",
+      "iteration": "540"
+    },
+    {
+      "package": "libffi",
+      "iteration": "540"
+    },
+    {
+      "package": "audit",
+      "iteration": "540"
+    },
+    {
+      "package": "libcap2",
+      "iteration": "540"
+    },
+    {
+      "package": "findutils",
+      "iteration": "540"
+    },
+    {
+      "package": "sed",
+      "iteration": "540"
+    },
+    {
+      "package": "dpkg",
+      "iteration": "540"
+    },
+    {
+      "package": "base-passwd",
+      "iteration": "540"
+    },
+    {
+      "package": "tar",
+      "iteration": "540"
+    },
+    {
+      "package": "coreutils",
+      "iteration": "540"
+    },
+    {
+      "package": "efl",
+      "iteration": "540"
+    },
+    {
+      "package": "e17",
+      "iteration": "540"
+    },
+    {
+      "package": "terminology",
+      "iteration": "540"
+    },
+    {
+      "package": "libdrm",
+      "iteration": "540"
+    },
+    {
+      "package": "mesa",
+      "iteration": "540"
+    },
+    {
+      "package": "xserver-xorg-input-evdev",
+      "iteration": "540"
+    },
+    {
+      "package": "xinit",
+      "iteration": "540"
+    },
+    {
+      "package": "xorg-server",
+      "iteration": "540"
+    },
+    {
+      "package": "openssh",
+      "iteration": "540"
+    },
+    {
+      "package": "freetype",
+      "iteration": "540"
+    },
+    {
+      "package": "fontconfig",
+      "iteration": "540"
+    },
+    {
+      "package": "harfbuzz",
+      "iteration": "540"
+    },
+    {
+      "package": "curl",
+      "iteration": "540"
+    },
+    {
+      "package": "dbus",
+      "iteration": "540"
+    },
+    {
+      "package": "lua5.1",
+      "iteration": "540"
+    },
+    {
+      "package": "libxkbcommon",
+      "iteration": "540"
+    },
+    {
+      "package": "libxkbfile",
+      "iteration": "540"
+    },
+    {
+      "package": "libxfont",
+      "iteration": "540"
+    },
+    {
+      "package": "xkeyboard-config",
+      "iteration": "540"
+    },
+    {
+      "package": "x11-xkb-utils",
+      "iteration": "540"
+    },
+    {
+      "package": "libvncserver",
+      "iteration": "540"
+    },
+    {
+      "package": "x11vnc",
+      "iteration": "540"
+    },
+    {
+      "package": "libsndfile",
+      "iteration": "540"
+    },
+    {
+      "package": "libxcb",
+      "iteration": "540"
+    },
+    {
+      "package": "libx11",
+      "iteration": "540"
+    },
+    {
+      "package": "libxext",
+      "iteration": "540"
+    },
+    {
+      "package": "libxrender",
+      "iteration": "540"
+    },
+    {
+      "package": "libxfixes",
+      "iteration": "540"
+    },
+    {
+      "package": "libxdamage",
+      "iteration": "540"
+    },
+    {
+      "package": "libxcomposite",
+      "iteration": "540"
+    },
+    {
+      "package": "libxi",
+      "iteration": "540"
+    },
+    {
+      "package": "libxinerama",
+      "iteration": "540"
+    },
+    {
+      "package": "libxcursor",
+      "iteration": "540"
+    },
+    {
+      "package": "libxrandr",
+      "iteration": "540"
+    },
+    {
+      "package": "libxtst",
+      "iteration": "540"
+    },
+    {
+      "package": "libxss",
+      "iteration": "540"
+    },
+    {
+      "package": "xcb-util",
+      "iteration": "540"
+    },
+    {
+      "package": "xcb-util-image",
+      "iteration": "540"
+    },
+    {
+      "package": "xcb-util-keysyms",
+      "iteration": "540"
+    },
+    {
+      "package": "systemd",
+      "iteration": "540"
+    },
+    {
+      "package": "pam",
+      "iteration": "540"
+    },
+    {
+      "package": "cdebconf",
+      "iteration": "540"
+    }
+  ]
+}

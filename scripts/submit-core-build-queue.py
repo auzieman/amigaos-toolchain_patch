@@ -28,9 +28,12 @@ def remote(command, root=False, **kw):
     return subprocess.run(['python3', str(helper / ('sudo.py' if root else 'remote.py')), command], check=True, **kw)
 assert subprocess.run(['python3', str(helper / 'sudo.py'),
     'systemctl is-active --quiet tabor-core-queue.service'], capture_output=True).returncode != 0
+for unit in ['tabor-native-closure-tools.service', 'tabor-native-scope-prerequisites.service']:
+    assert subprocess.run(['python3', str(helper / 'sudo.py'),
+        shlex.join(['systemctl', 'is-active', '--quiet', unit])], capture_output=True).returncode != 0, 'Native prerequisite preparation is still active: ' + unit
 active = subprocess.check_output(['python3', str(helper / 'sudo.py'),
-    "docker ps --filter name=tabor- --format '{{.Names}}'"], text=True).strip()
-assert not active, 'Another task build is active: ' + active
+    "docker ps --filter name=tabor- --format '{{.Names}}\t{{.Label \"org.tabor.workload\"}}'"], text=True).strip()
+assert not [line for line in active.splitlines() if line.split('\t')[-1] != 'metadata'], 'Another task build is active: ' + active
 snapshot = base + '/submissions/' + a.run_id + '/project'
 remote(shlex.join(['python3', '-c',
     'from pathlib import Path; Path(' + repr(snapshot) + ').mkdir(parents=True, exist_ok=False)']))

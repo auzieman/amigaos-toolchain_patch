@@ -16,11 +16,13 @@ assert not source.exists()
 configured=[]
 for f in Path('/etc/apt/sources.list.d').glob('*.sources'):
     configured.extend(Deb822.iter_paragraphs(f.open()))
-keys={x['Signed-By'] for x in configured if 'trixie' in x.get('Suites','').split()
-      and 'deb.debian.org/debian' in x.get('URIs','') and 'Signed-By' in x}
-assert len(keys)==1, 'Reuse the existing Debian source trust configuration'
-key=keys.pop();assert Path(key).is_file()
-source.write_text('Types: deb-src\nURIs: https://deb.debian.org/debian\nSuites: trixie\nComponents: main\nSigned-By: '+key+'\n')
+selected=[]
+for record in configured:
+ if any(suite in ['trixie','trixie-updates','trixie-security'] for suite in record.get('Suites','').split()) and any(host in record.get('URIs','') for host in ['deb.debian.org/debian','security.debian.org/debian-security']):
+  assert 'Signed-By' in record and Path(record['Signed-By']).is_file()
+  entry=Deb822(record);entry['Types']='deb-src';entry['Components']='main';selected.append(entry)
+assert selected, 'Reuse existing authenticated Debian source configuration'
+source.write_text('\n'.join(str(x) for x in selected))
 subprocess.run(['apt-get','update'],check=True)
 r={'status':'running','recipe_sha256':sha(Path(__file__)),'manifest_sha256':sha(a.manifest),
    'target_execution':False,'components':{}}
@@ -38,7 +40,7 @@ try:
    if not line.strip():continue
    digest,size,filename=line.split();assert Path(filename).name==filename
    f=a.cache/filename;assert f.stat().st_size==int(size) and sha(f)==digest
-   files.append({'filename':filename,'url':'https://deb.debian.org/debian/'+record['Directory']+'/'+filename,'size':int(size),'sha256':digest})
+   files.append({'filename':filename,'url':('https://security.debian.org/debian-security/' if record['Directory'].startswith('pool/updates/') else 'https://deb.debian.org/debian/')+record['Directory']+'/'+filename,'size':int(size),'sha256':digest})
   dsc=next(x['filename'] for x in files if x['filename'].endswith('.dsc'))
   lock['components'][name]={'version':version,'dsc':dsc,'files':files}
   tree=a.output/(name+'-source')

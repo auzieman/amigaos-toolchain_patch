@@ -1,0 +1,12 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+# Existing Debian native binaries only: packaging helpers, documentation/code
+# generators, and host-side lex support. No native source rebuilds.
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    asciidoc gtk-doc-tools dh-sequence-gir dh-sequence-dlopenlibdeps \
+    dh-sequence-installnss python3-pefile libfl-dev flex bison gperf \
+    valgrind-if-available \
+    && test -z "$(dpkg --audit)" \
+    && dpkg-query -W > /opt/tabor-native-closure-tools-installed.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

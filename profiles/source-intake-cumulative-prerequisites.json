@@ -1,0 +1,21 @@
+{
+  "scope": "Missing native-cross-root target library prerequisites for dependency closure; Linux/SPE only",
+  "components": {
+    "libbsd": {
+      "version": "0.12.2-2",
+      "reason": "libbsd-dev blocks libxdmcp and the X11 dependency chain"
+    },
+    "readline": {
+      "version": "8.2-6",
+      "reason": "readline development dependencies for Lua and core tools"
+    },
+    "libffi": {
+      "version": "3.4.8-2",
+      "reason": "FFI dependency for Python and GLib source closure"
+    },
+    "brotli": {
+      "version": "1.1.0-2+deb13u1",
+      "reason": "Freetype/curl compression dependency, matching installed native security source"
+    }
+  }
+}

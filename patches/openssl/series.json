@@ -1,0 +1,10 @@
+{
+  "version": "3.5.7-1~deb13u3",
+  "purpose": "Detect unsupported register-clearing mitigation with the actual bootstrap target compiler; record limitation",
+  "patches": [
+    {
+      "path": "patches/openssl/0001-probe-register-clearing-with-target-compiler.patch",
+      "sha256": "49a919e894a65802217d57afd9697f0c618b3268c0de71b372e21dd34f0b36f8"
+    }
+  ]
+}

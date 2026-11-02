@@ -1,0 +1,31 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] Configure: probe Debian register clearing with the target compiler
+
+Debian OpenSSL 3.5.7 requests -fzero-call-used-regs unconditionally. The
+pinned GCC8 SPE bootstrap compiler does not implement that newer option.
+Compile-only probe the actual resolved cross compiler and retain the
+mitigation whenever supported. Report its unavailability explicitly for
+older compilers; all other Debian flags/features remain unchanged. This
+is a documented bootstrap hardening limitation, not equivalent mitigation.
+Local compatibility patch; OpenSSL licensing/notices remain unchanged.
+
+--- a/Configure
++++ b/Configure
+@@ -3,4 +3,17 @@
+     ? compiler_predefined($config{CROSS_COMPILE}.$config{CXX})
+     : ();
+ 
++# Debian requests this mitigation globally, but bootstrap compilers may not
++# implement it. Probe the resolved target compiler, never a native fallback.
++my $debian_zero_regs = "-fzero-call-used-regs=used-gpr";
++if (($target{cflags} // "") =~ /\Q$debian_zero_regs\E/) {
++    require Text::ParseWords;
++    my @cc = Text::ParseWords::shellwords($config{CROSS_COMPILE}.$config{CC});
++    if (system(@cc, $debian_zero_regs, "-Werror", "-x", "c", "-c",
++               "/dev/null", "-o", "/dev/null") != 0) {
++        warn "Target compiler lacks $debian_zero_regs; this mitigation is unavailable\n";
++        $target{cflags} =~ s/\Q$debian_zero_regs\E//g;
++    }
++}
++
+ unless ($disabled{asm}) {

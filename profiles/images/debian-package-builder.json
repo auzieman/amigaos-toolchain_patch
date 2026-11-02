@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "image_id": "sha256:dcc6c5620d4c07ee3ee9d8e7d1f9535035d9cd64f4b9d71ce7d03fa0b855f971",
+  "image_id": "sha256:2a7ec2a794837b994c84a3a8f4cd01d63041845407e3fa284c9c57786d5c8e70",
   "server_base": "/srv/data1/tabor-build/linux-live-001",
   "cpus": 4,
   "memory": "6g",
@@ -113,7 +113,11 @@
     "pkgconf",
     "gpm",
     "lz4",
-    "xxhash"
+    "xxhash",
+    "libbsd",
+    "readline",
+    "libffi",
+    "brotli"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -804,6 +808,34 @@
       "source_cache": "closure-hash-source-cache-20261102",
       "source_lock": "profiles/hash-sources.lock.json",
       "arch_only": true,
+      "build_profiles": "cross,nocheck"
+    },
+    "libbsd": {
+      "source_cache": "cumulative-source-cache-20261102",
+      "source_lock": "profiles/cumulative-prerequisite-sources.lock.json",
+      "arch_only": true,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "readline": {
+      "source_cache": "cumulative-source-cache-20261102",
+      "source_lock": "profiles/cumulative-prerequisite-sources.lock.json",
+      "arch_only": true,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "libffi": {
+      "source_cache": "cumulative-source-cache-20261102",
+      "source_lock": "profiles/cumulative-prerequisite-sources.lock.json",
+      "arch_only": true,
+      "indep_only": false,
+      "build_profiles": "cross,nocheck"
+    },
+    "brotli": {
+      "source_cache": "cumulative-source-cache-20261102",
+      "source_lock": "profiles/cumulative-prerequisite-sources.lock.json",
+      "arch_only": true,
+      "indep_only": false,
       "build_profiles": "cross,nocheck"
     }
   },

@@ -1,0 +1,38 @@
+{
+  "status": "sources-cached-verified-license-review-pending",
+  "recipe_sha256": "f06f000ad4074ea791320c8418c9fad0d554fbf71085db50898b396d6ae70bb0",
+  "manifest_sha256": "3399c120a173d8b3980b874b0ebd756a27939f2dd793c08dac7554aa1bf70093",
+  "target_execution": false,
+  "components": {
+    "libbsd": {
+      "version": "0.12.2-2",
+      "reason": "libbsd-dev blocks libxdmcp and the X11 dependency chain",
+      "copyright_sha256": "47eaa031b1741a33a93e7cc8909bfe153acaec7ddff12e4dc7377d0e2ec10e91",
+      "source_index_sha256": "ba9e9ebf4be7ad013c3d85c24bd318fc8067224deb07a3c09e6ce6596ac11856"
+    },
+    "readline": {
+      "version": "8.2-6",
+      "reason": "readline development dependencies for Lua and core tools",
+      "copyright_sha256": "854c6f5f249a109a913e1e58528445c4fec96f063ae8ba496bfb2b460bcc6866",
+      "source_index_sha256": "bf94be9061f3300f6a20a0478cb1d7759339c7a7491b1da1f44bbe6fc3f03e45"
+    },
+    "libffi": {
+      "version": "3.4.8-2",
+      "reason": "FFI dependency for Python and GLib source closure",
+      "copyright_sha256": "25ee86cfccc2b7eb9a156a127f1e1b38c46c231f516ff201912223eaf62ee186",
+      "source_index_sha256": "588c06b2e80858c178b49716786bfad084028a15e42f0e43e3ee905cf4201f02"
+    },
+    "brotli": {
+      "version": "1.1.0-2+deb13u1",
+      "reason": "Freetype/curl compression dependency, matching installed native security source",
+      "copyright_sha256": "24a64e5bb83d0960d1835696a1e23c0896ad6055b0ca47c66ab0eb9a766324b1",
+      "source_index_sha256": "73189967e292d9f5fd300c60a4996e59b2386824243693c211d548cad2b65234"
+    }
+  },
+  "release_files": {
+    "deb.debian.org_debian_dists_trixie-updates_InRelease": "bdbf565ac25279597518e1a51fcef6b3f2bb65f915788566edcffee9ba6efe99",
+    "deb.debian.org_debian-security_dists_trixie-security_InRelease": "01590ffbf20362d6138369dbf543ee42d3d8ec62589d31cfb93a085afcad4f3c",
+    "deb.debian.org_debian_dists_trixie_InRelease": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675"
+  },
+  "lock_sha256": "ac7e9cfe0b8604bc5541f61e5aa40ad5d2432001db48205116237474ef805acf"
+}

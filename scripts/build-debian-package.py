@@ -63,6 +63,10 @@ if a.package_managed_root:
     for required in ['#define __SPE__ 1', '#define __NO_FPRS__ 1',
                      '#define __LONG_DOUBLE_128__ 1', '#define __BYTE_ORDER__ __ORDER_BIG_ENDIAN__']:
         assert required in macros, 'Incorrect default target ABI: ' + required
+    # Debian cross rules choose the standard tuple-prefixed tools. An absolute
+    # CC is not portable: OpenSSL prepends CROSS_COMPILE to that value.
+    env.pop('CC', None)
+    env.pop('CXX', None)
     flags = []
 
 if a.indep_only:

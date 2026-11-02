@@ -1,0 +1,108 @@
+{
+  "scope": "Missing native-cross-root target library prerequisites for dependency closure; Linux/SPE only",
+  "signature_verification": "apt authenticated Release/Sources checksums; separate DSC signer verification not performed",
+  "components": {
+    "libbsd": {
+      "version": "0.12.2-2",
+      "dsc": "libbsd_0.12.2-2.dsc",
+      "files": [
+        {
+          "filename": "libbsd_0.12.2-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libb/libbsd/libbsd_0.12.2-2.dsc",
+          "size": 2446,
+          "sha256": "01eb1d0c896096f9038213f5f00376ecfd1c0d1def21b7042f28ae070e4837e3"
+        },
+        {
+          "filename": "libbsd_0.12.2.orig.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libb/libbsd/libbsd_0.12.2.orig.tar.xz",
+          "size": 446032,
+          "sha256": "b88cc9163d0c652aaf39a99991d974ddba1c3a9711db8f1b5838af2a14731014"
+        },
+        {
+          "filename": "libbsd_0.12.2.orig.tar.xz.asc",
+          "url": "https://deb.debian.org/debian/pool/main/libb/libbsd/libbsd_0.12.2.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "620dc92f158ebe0a650c0e92214a8121b927276895dc9a1dcaa38f627fa0fcb0"
+        },
+        {
+          "filename": "libbsd_0.12.2-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libb/libbsd/libbsd_0.12.2-2.debian.tar.xz",
+          "size": 18688,
+          "sha256": "36c878a32c1f190ca2cb474de5c6139990a6c029906493d3566770b1ebd569bf"
+        }
+      ]
+    },
+    "readline": {
+      "version": "8.2-6",
+      "dsc": "readline_8.2-6.dsc",
+      "files": [
+        {
+          "filename": "readline_8.2-6.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/r/readline/readline_8.2-6.dsc",
+          "size": 2810,
+          "sha256": "6f94c7144d6b6b1ff88aaebd81480e87f8773b7638031782aac12ef93ffd2e71"
+        },
+        {
+          "filename": "readline_8.2.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/r/readline/readline_8.2.orig.tar.gz",
+          "size": 3043952,
+          "sha256": "3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35"
+        },
+        {
+          "filename": "readline_8.2-6.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/r/readline/readline_8.2-6.debian.tar.xz",
+          "size": 38396,
+          "sha256": "d1cf806644dbce298cf929f1cc9b3af5a50cd7db97b6f69db280c1eb2f544376"
+        }
+      ]
+    },
+    "libffi": {
+      "version": "3.4.8-2",
+      "dsc": "libffi_3.4.8-2.dsc",
+      "files": [
+        {
+          "filename": "libffi_3.4.8-2.dsc",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8-2.dsc",
+          "size": 1948,
+          "sha256": "4424defe3f37c0084f062e03330b2ba3d3f927367c33be455cfacf7f85a78161"
+        },
+        {
+          "filename": "libffi_3.4.8.orig.tar.gz",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8.orig.tar.gz",
+          "size": 595051,
+          "sha256": "cbb7f0b3b095dc506387ec1e35b891bfb4891d05b90a495bc69a10f2293f80ff"
+        },
+        {
+          "filename": "libffi_3.4.8-2.debian.tar.xz",
+          "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8-2.debian.tar.xz",
+          "size": 11220,
+          "sha256": "f23ac79a19895ebb6bbb539263d0d945ebc2d3e91217a597f5819777f08b401c"
+        }
+      ]
+    },
+    "brotli": {
+      "version": "1.1.0-2+deb13u1",
+      "dsc": "brotli_1.1.0-2+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "brotli_1.1.0-2+deb13u1.dsc",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/b/brotli/brotli_1.1.0-2+deb13u1.dsc",
+          "size": 2469,
+          "sha256": "64a1cd7422150e5c639d9892d6ffa837438b341f521e68ac4e75f6ef4eca49a2"
+        },
+        {
+          "filename": "brotli_1.1.0.orig.tar.gz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/b/brotli/brotli_1.1.0.orig.tar.gz",
+          "size": 512036,
+          "sha256": "10973f4b4199eafa1d5735ef661ddb2ec2f97319ee9fd1824d4aabe08cff5265"
+        },
+        {
+          "filename": "brotli_1.1.0-2+deb13u1.debian.tar.xz",
+          "url": "https://security.debian.org/debian-security/pool/updates/main/b/brotli/brotli_1.1.0-2+deb13u1.debian.tar.xz",
+          "size": 7764,
+          "sha256": "848994612c6eb5e413d7df0e307ec7661855f5383c8cd10507e890fb7ee809ff"
+        }
+      ]
+    }
+  }
+}
