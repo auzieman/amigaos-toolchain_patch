@@ -1,0 +1,8 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/sed_4.9-2+deb13u1.dsc', '/work/debian-sed-001/source']
+dpkg-source: info: extracting sed in /work/debian-sed-001/source
+dpkg-source: info: unpacking sed_4.9.orig.tar.xz
+dpkg-source: info: unpacking sed_4.9-2+deb13u1.debian.tar.xz
+dpkg-source: info: using patch list from debian/patches/series
+dpkg-source: info: applying sed-i-follow-symlinks-fix-TOCTOU-race-CVE-2026-5958.patch
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck', '-B']
+dpkg-checkbuilddeps: error: unmet build dependencies: libselinux-dev libacl1-dev

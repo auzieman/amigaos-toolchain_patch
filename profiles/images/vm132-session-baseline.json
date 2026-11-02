@@ -82,7 +82,8 @@
     ],
     "remote": [
       "openssh-client",
-      "openssh-server"
+      "openssh-server",
+      "x11vnc"
     ],
     "optional_login_manager": [
       "lightdm",
@@ -92,6 +93,12 @@
       "apt",
       "ca-certificates",
       "debian-archive-keyring"
+    ],
+    "graphics_tests": [
+      "mesa-utils"
+    ],
+    "browser": [
+      "netsurf-gtk"
     ]
   },
   "boot_policy": "Shell-first is allowed. Start the desktop through the packaged PAM/login and Xsession path; LightDM can follow. A single human account does not remove service users or session dependencies.",
@@ -137,5 +144,21 @@
     "status": "planned-not-deployed",
     "source": "docs/package-repository-plan.md"
   },
-  "essential_bootstrap_contract": "Resolve the selected Debian Essential: yes set and its implicit runtime dependencies as well as explicit Depends/Pre-Depends; BusyBox applets are not assumed compatible replacements for package-maintenance tools."
+  "essential_bootstrap_contract": "Resolve the selected Debian Essential: yes set and its implicit runtime dependencies as well as explicit Depends/Pre-Depends; BusyBox applets are not assumed compatible replacements for package-maintenance tools.",
+  "required_seed_groups": [
+    "installation",
+    "session",
+    "desktop",
+    "graphics",
+    "desktop_services",
+    "remote",
+    "package_management",
+    "graphics_tests",
+    "browser"
+  ],
+  "dependency_policy": {
+    "install_recommends": true,
+    "resolver": "apt on real target package indexes; reference metadata is planning evidence only",
+    "acceptance": "Full desktop seed closure must resolve and configure; an Essential-only simulation is not desktop acceptance"
+  }
 }

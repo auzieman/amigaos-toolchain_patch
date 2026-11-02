@@ -1,0 +1,6 @@
+$ ['dpkg-source', '--no-check', '-x', '/cache/mawk_1.3.4.20250131-1.dsc', '/work/debian-mawk-001/source']
+dpkg-source: info: extracting mawk in /work/debian-mawk-001/source
+dpkg-source: info: unpacking mawk_1.3.4.20250131.orig.tar.gz
+dpkg-source: info: unpacking mawk_1.3.4.20250131-1.debian.tar.xz
+$ ['dpkg-checkbuilddeps', '-a', 'powerpcspe', '-P', 'cross,nocheck', '-B']
+dpkg-checkbuilddeps: error: unmet build dependencies: autoconf-dickey

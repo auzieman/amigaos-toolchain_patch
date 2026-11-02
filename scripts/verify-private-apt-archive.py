@@ -16,17 +16,25 @@ commands={'update':['apt-get',*options,'update'],
  'policy':['apt-cache',*options,'policy','libc6:powerpcspe','libcap-ng0:powerpcspe','libsepol2:powerpcspe','libpcre2-8-0:powerpcspe'],
  'install-simulation':['apt-get',*options,'--simulate','--no-install-recommends','install','libc6:powerpcspe','libsepol-dev:powerpcspe','libpcre2-dev:powerpcspe','libcap-ng-dev:powerpcspe']}
 if a.seed_profile:
- seeds=json.loads(a.seed_profile.read_text())['package_seeds']['installation']
+ profile=json.loads(a.seed_profile.read_text())
+ seeds=profile['package_seeds']['installation']
  commands['essential-simulation']=['apt-get',*options,'--simulate','--no-install-recommends','install',*seeds]
+ if profile.get('required_seed_groups'):
+  desktop_seeds=list(dict.fromkeys(pkg for group in profile['required_seed_groups'] for pkg in profile['package_seeds'][group]))
+  commands['desktop-simulation']=['apt-get',*options,'-o','APT::Install-Recommends=true','--simulate','install',*desktop_seeds]
+  r['desktop_seed_groups']=profile['required_seed_groups']
+  r['desktop_install_recommends']=True
 try:
  for name,cmd in commands.items():
   t=subprocess.run(cmd,text=True,capture_output=True)
   (a.output/(name+'.log')).write_text(t.stdout+t.stderr)
   r['tests'][name]={'command':cmd,'exit':t.returncode,'log_sha256':hashlib.sha256((t.stdout+t.stderr).encode()).hexdigest()}
-  if name not in ['install-simulation','essential-simulation']:assert t.returncode==0, name
+  if name not in ['install-simulation','essential-simulation','desktop-simulation']:assert t.returncode==0, name
   if name=='policy':
    for pkg in ['libc6:powerpcspe','libcap-ng0:powerpcspe','libsepol2:powerpcspe','libpcre2-8-0:powerpcspe']:assert pkg.split(':')[0]+':' in t.stdout
  if a.seed_profile:r['essential_closure_ready']=r['tests']['essential-simulation']['exit']==0
- r['status']='archive-verified-selected-dependencies-'+('ready' if r['tests']['install-simulation']['exit']==0 else 'blocked')
+ if 'desktop-simulation' in r['tests']:r['desktop_closure_ready']=r['tests']['desktop-simulation']['exit']==0
+ gate='desktop-simulation' if 'desktop-simulation' in r['tests'] else 'install-simulation'
+ r['status']='archive-verified-'+('desktop' if gate=='desktop-simulation' else 'selected')+'-dependencies-'+('ready' if r['tests'][gate]['exit']==0 else 'blocked')
 finally:(a.output/'receipt.json').write_text(json.dumps(r,indent=2)+'\n')
 print(r['status'])

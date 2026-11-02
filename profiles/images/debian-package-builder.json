@@ -22,7 +22,12 @@
     "libcap2",
     "gzip",
     "base-files",
-    "debianutils"
+    "debianutils",
+    "diffutils",
+    "findutils",
+    "grep",
+    "sed",
+    "mawk"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -95,7 +100,37 @@
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/boot-essential-sources.lock.json",
       "arch_only": true,
-      "image_id": "sha256:12a8d468c2516c571863357929387e511a22ee46c68e9db3c7e82a42b98508c5"
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+    },
+    "diffutils": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-essential-sources.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+    },
+    "findutils": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-essential-sources.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+    },
+    "grep": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-essential-sources.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+    },
+    "sed": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-essential-sources.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
+    },
+    "mawk": {
+      "source_cache": "boot-source-cache",
+      "source_lock": "profiles/boot-essential-sources.lock.json",
+      "arch_only": true,
+      "image_id": "sha256:750dd940c9a5660d694c5b103108127aab8749d15ce771313d6c9339764733f9"
     }
   }
 }

@@ -560,3 +560,11 @@ Neither is hardware/installed-root acceptance. Evidence: builds/e-molten-safe-20
 PID1 is a shell, despite mounted proc/sys/dev/devpts. E logs show animator
 delays/DPMS warnings, not a decisive render failure. Retain incomplete Debian
 session setup as an open cause; see builds/e-molten-safe-20261101/session-base-audit.md.
+
+2026-11-01 complete desktop gate: full selected application closure with normal
+APT recommendations is required, beyond Essential/development subsets. Actual
+signed-archive desktop simulation008 fails as expected. Infra006 adds host
+po4a; Debianutils002 compiles but shlibdeps cannot locate target libc. Essential
+preflights retained (diffutils ready; findutils/grep/sed/mawk dependencies missing).
+Next correction is a shared genuine package-aware build environment, not more
+per-package shlibs overrides. See builds/debian-desktop-closure-20261101/README.md.
