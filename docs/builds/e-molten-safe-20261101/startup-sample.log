@@ -1,0 +1,426 @@
+ESTART: 0.00019 [0.00019] - Begin Startup
+ESTART: 0.00092 [0.00073] - Signal Trap
+ESTART: 0.00110 [0.00019] - Signal Trap Done
+ESTART: 0.00114 [0.00003] - Eina Init
+ESTART: 0.03240 [0.03126] - Eina Init Done
+ESTART: 0.03246 [0.00006] - Determine Prefix
+ESTART: 0.03372 [0.00126] - Determine Prefix Done
+ESTART: 0.03419 [0.00047] - Environment Variables
+ESTART: 0.03448 [0.00029] - Environment Variables Done
+ESTART: 0.03454 [0.00007] - Parse Arguments
+ESTART: 0.03479 [0.00025] - Parse Arguments Done
+ESTART: 0.03486 [0.00006] - Eet Init
+ESTART: 0.04751 [0.01266] - Eet Init Done
+ESTART: 0.04760 [0.00009] - Ecore Init
+ESTART: 0.25877 [0.21117] - Ecore Init Done
+ESTART: 0.25897 [0.00020] - E Comp Canvas Intercept Init
+ESTART: 0.26812 [0.00915] - E Comp Canvas Intercept Init Done
+ESTART: 0.26830 [0.00018] - EFX Init
+ESTART: 0.27540 [0.00710] - EFX Init Done
+ESTART: 0.27546 [0.00006] - EIO Init
+ERR<345>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(23, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+ESTART: 1.82037 [1.54491] - EIO Init Done
+ESTART: 1.85278 [0.03241] - Ecore Event Handlers
+ESTART: 1.85304 [0.00026] - Ecore Event Handlers Done
+ESTART: 1.85311 [0.00006] - Ecore_File Init
+ESTART: 1.87148 [0.01837] - Ecore_File Init Done
+ESTART: 1.87170 [0.00022] - Ecore_Con Init
+ESTART: 1.87186 [0.00017] - Ecore_Con Init Done
+ESTART: 1.87194 [0.00007] - Ecore_Ipc Init
+ESTART: 1.87204 [0.00010] - Ecore_Ipc Init Done
+ESTART: 1.88085 [0.00881] - Ecore_Evas Init
+ESTART: 2.08119 [0.20034] - Ecore_Evas Init Done
+ESTART: 2.08145 [0.00026] - Elementary Init
+ESTART: 3.47180 [1.39035] - Elementary Init Done
+ESTART: 3.47204 [0.00024] - Emotion Init
+ESTART: 3.48035 [0.00831] - Emotion Init Done
+ESTART: 3.48742 [0.00706] - Ecore_Evas Engine Check
+ESTART: 3.48757 [0.00015] - Ecore_Evas Engine Check Done
+ESTART: 3.48769 [0.00012] - E Intl Init
+ESTART: 3.48813 [0.00044] - E Intl Init Done
+ESTART: 3.48826 [0.00014] - E_Alert Init
+ESTART: 3.48831 [0.00005] - E_Alert Init Done
+ESTART: 3.48836 [0.00005] - E Directories Init
+ESTART: 3.50418 [0.01581] - E Directories Init Done
+ESTART: 3.50434 [0.00017] - E_Filereg Init
+ESTART: 3.50447 [0.00013] - E_Filereg Init Done
+ESTART: 3.50452 [0.00005] - E_Config Init
+ESTART: 3.52795 [0.02344] - E_Config Init Done
+ESTART: 3.52813 [0.00017] - E_Env Init
+ESTART: 3.52819 [0.00006] - E_Env Init Done
+ESTART: 3.52849 [0.00030] - E Paths Init
+ESTART: 3.52893 [0.00045] - E Paths Init Done
+ESTART: 3.52901 [0.00008] - E_Precache
+PRECACHE: SPAWN
+PRECACHE: BEGIN
+ESTART: 3.53541 [0.00640] - E_Precache Done
+ESTART: 3.53551 [0.00010] - E_Ipc Init
+ERR<344>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:386 _efl_net_server_fd_reuse_port_set() setsockopt(39, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+ESTART: 3.55237 [0.01686] - E_Ipc Init Done
+ESTART: 3.55253 [0.00015] - E_State Init
+ESTART: 3.55260 [0.00007] - E_State Init Done
+ESTART: 3.55265 [0.00005] - E_Font Init
+ESTART: 3.55274 [0.00009] - E_Font Init Done
+ESTART: 3.55279 [0.00005] - E_Font Apply
+ESTART: 3.55291 [0.00012] - E_Font Apply Done
+ESTART: 3.55298 [0.00006] - E_Theme Init
+ESTART: 3.55315 [0.00018] - E_Theme Init Done
+ESTART: 3.55322 [0.00007] - E_Moveresize Init
+ESTART: 3.55333 [0.00011] - E_Moveresize Init Done
+ESTART: 3.55339 [0.00006] - E_Msgbus Init
+ESTART: 3.68409 [0.13070] - E_Msgbus Init Done
+ESTART: 3.68429 [0.00021] - Efreet Init
+ESTART: 3.68446 [0.00017] - Efreet Init Done
+ESTART: 3.68459 [0.00013] - E_Intl Post Init
+ESTART: 3.68630 [0.00171] - E_Intl Post Init Done
+ESTART: 3.68640 [0.00010] - E_Configure Init
+ESTART: 3.69961 [0.01321] - E_Configure Init Done
+ESTART: 3.69991 [0.00030] - E_Actions Init
+ESTART: 3.75634 [0.05643] - E_Actions Init Done
+PRECACHE: [0.23106] [/usr/share/elementary/themes/default.edj] DONE
+ESTART: 3.78358 [0.02724] - E_System Init
+PRECACHE: [0.37400] [/usr/share/elementary/themes/Molten-Steel-Theme-Liquid-Menu-20261026.edj] DONE
+PRECACHE: TOTAL [0.68070]
+PRECACHE: SUM=e67a934d, READS=11054
+ESTART: 4.26795 [0.48437] - E_System Init Done
+ESTART: 4.32766 [0.05971] - E_Powersave Init
+ESTART: 4.35142 [0.02376] - E_Powersave Init Done
+ESTART: 4.35155 [0.00013] - E_Sound Init
+ESTART: 4.47148 [0.11993] - Screens Init
+ESTART: 4.47168 [0.00020] -   screens: client
+ESTART: 4.49581 [0.02413] - E_Screensaver Init
+ESTART: 4.49599 [0.00019] -   screens: client volume
+ESTART: 4.49614 [0.00015] -   screens: win
+ESTART: 4.53546 [0.03932] - Compositor Init
+CF: fallback to system config config file for [e_comp]
+CF: system config load for /usr/share/enlightenment/data/config/standard/e_comp.cfg failed
+Xlib:  extension "DPMS" missing on display ":2.0".
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x120f0860
+RRR: 'screen' 0 0 1024x768
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1024x768
+RRR: result max: 1024x768
+RRR: loaded existing config
+RRR: check lid for screen...
+RRR: re-get info before applying..
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x120f4160
+RRR: 'screen' 0 0 1024x768
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1024x768
+RRR: result max: 1024x768
+RRR: apply config...
+RRR: apply 'screen'...
+RRR: check lid for screen...
+RRR: connected =  1
+RRR: ... enabled
+RRR: ... priority = 0
+RRR: really apply rotation=0
+RRR: really apply 'screen' ignore discon 0
+RRR: takeover config...
+RRR: eval config...
+RRR:--------------------------------1
+RRR: screen config eval this...
+RRR: screen do 'screen'
+RRR: 'screen' cloneset 0x120c18d8 1
+RRR: find base/root for list=0x120c18d8 count=1
+RRR: clone=0x120ec200 mode=1
+RRR: _screen_config_do 2
+RRR: _screen_config_do 3
+RRR: screen config do 1024x768 rotation=0
+RRR: _screen_config_do 4
+RRR: _screen_config_do 6
+RRR:--------------------------------2
+RRR: s: 'screen' @ 0 0 - 1024x768
+RRR:--- 0 0 -> 1024 768
+RRR: really apply config...
+RRR: cur size: 1024x768
+RRR: size range: 1x1 -> 1024x768
+RRR: cur size: 1024x768
+RRR: set vsize: 1024x768
+RRR: crtcs=0x120f09a0 outputs=0x120effc0
+RRR: find output for 'screen'
+RRR:   enabled: 1
+RRR:     crtc slot empty: 0
+RRR:       assign slot out: 3c
+RRR: modes for 'screen' are 0x120f2920 [1]
+RRR: crtc on: 0 = 'screen'     @ 0 0    - 1024x768 orient 1 mode 3a out 3c
+RRR: set vsize2: 1024x768
+RRR: cur size: 1024x768
+RRR: done config...
+xinerama screen 0 0 1024x768
+xinerama setup............... 1 (nil)
+DEV: CHANGES ... have 6 devices, changed=1
+XKB: e_xkb_init
+XKB: _e_xkb_type_reconfig
+XKB: _e_x_xkb_reconfig
+/bin/sh: setxkbmap: not found
+ESTART: 11.77945 [7.24399] - Compositor Init Done
+ESTART: 11.79563 [0.01618] - Desk Restore
+ESTART: 11.96974 [0.17411] - Desk Restore Done
+ESTART: 11.96995 [0.00021] - E_Dnd Init
+ESTART: 12.11702 [0.14707] - E_Dnd Init Done
+ESTART: 12.11715 [0.00013] - Screens Init Done
+ESTART: 12.11721 [0.00006] - E_Pointer Init
+ESTART: 12.11732 [0.00011] - E_Pointer Init Done
+ESTART: 12.13142 [0.01410] - E_Scale Init
+ESTART: 13.56254 [1.43112] - E_Scale Init Done
+ESTART: 13.56271 [0.00017] - E_Splash Init
+ESTART: 13.56283 [0.00012] - E_Splash Init Done
+ESTART: 13.56289 [0.00007] - E_Splash Show
+ESTART: 14.72689 [1.16400] - E_Splash Show Done
+ESTART: 14.72709 [0.00020] - Add Icon Extensions
+ESTART: 14.76810 [0.04100] - Add Icon Extensions Done
+ESTART: 14.76824 [0.00014] - E_Acpi Init
+ESTART: 14.76839 [0.00015] - E_Acpi Init Done
+ESTART: 14.76853 [0.00014] - E_Auth Init
+ESTART: 14.79536 [0.02683] - E_Auth Init Done
+ESTART: 14.79545 [0.00009] - E_Backlight Init
+ESTART: 14.80854 [0.01309] - E_Backlight Init Done
+ESTART: 14.80872 [0.00018] - E_Dpms Init
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+ESTART: 14.80965 [0.00093] - E_Dpms Init Done
+ESTART: 14.80971 [0.00006] - E_Desklock Init
+ESTART: 14.80982 [0.00011] - E_Desklock Init Done
+ESTART: 14.80988 [0.00005] - Efreet Paths
+ESTART: 14.81024 [0.00036] - Efreet Paths Done
+ESTART: 14.81032 [0.00008] - E_Sys Init
+ESTART: 14.87955 [0.06923] - E_Sys Init Done
+ESTART: 14.87971 [0.00016] - E_Exec Init
+ESTART: 14.89545 [0.01574] - E_Exec Init Done
+ESTART: 14.89565 [0.00020] - E_Comp Freeze
+ESTART: 14.89587 [0.00022] - E_Comp Freeze Done
+ESTART: 14.89597 [0.00010] - E_Fm2 Init
+ESTART: 14.92800 [0.03203] - E_Fm2 Init Done
+ESTART: 14.92811 [0.00012] - E_Msg Init
+ESTART: 14.92819 [0.00008] - E_Msg Init Done
+ESTART: 14.92825 [0.00006] - E_Grabinput Init
+ESTART: 14.92830 [0.00005] - E_Grabinput Init Done
+ESTART: 14.92834 [0.00005] - E_Module Init
+ESTART: 14.92842 [0.00008] - E_Module Init Done
+ESTART: 14.92847 [0.00005] - E_Remember Init
+CF: fallback to system config config file for [e_remember_restart]
+CF: system config load for /usr/share/enlightenment/data/config/standard/e_remember_restart.cfg failed
+ESTART: 14.95292 [0.02445] - E_Remember Init Done
+ESTART: 14.95305 [0.00014] - E_Gadcon Init
+ESTART: 14.95319 [0.00014] - E_Gadcon Init Done
+ESTART: 14.95324 [0.00006] - E_Toolbar Init
+ESTART: 14.95941 [0.00616] - E_Toolbar Init Done
+ESTART: 14.95948 [0.00007] - E_Bg Init
+ESTART: 14.96775 [0.00827] - E_Bg Init Done
+ESTART: 14.96784 [0.00009] - E_Mouse Init
+DEV: CHANGES ... have 6 devices, changed=1
+ESTART: 14.99668 [0.02884] - E_Mouse Init Done
+ESTART: 14.99681 [0.00013] - E_Bindings Init
+ESTART: 15.00533 [0.00852] - E_Bindings Init Done
+ESTART: 15.00553 [0.00019] - E_Thumb Init
+ESTART: 15.00563 [0.00011] - E_Thumb Init Done
+ESTART: 15.00570 [0.00007] - E_Icon Init
+ESTART: 15.00575 [0.00005] - E_Icon Init Done
+ESTART: 15.00579 [0.00004] - E_Update Init
+ESTART: 15.01231 [0.00652] - E_Update Init Done
+ESTART: 15.01241 [0.00010] - E_Deskenv Init
+ESTART: 15.01259 [0.00018] - E_Deskenv Init Done
+ESTART: 15.01265 [0.00006] - E_Order Init
+ESTART: 15.01292 [0.00027] - E_Order Init Done
+ESTART: 15.01301 [0.00008] - E_Comp_Canvas Keys Grab
+ESTART: 15.02782 [0.01482] - E_Comp_Canvas Keys Grab Done
+ESTART: 15.02792 [0.00010] - Run Startup Apps
+ESTART: 15.02816 [0.00024] - Run Startup Apps Done
+ESTART: 15.02831 [0.00015] - E_Comp Thaw
+ESTART: 15.02891 [0.00059] - E_Comp Thaw Done
+ESTART: 15.02901 [0.00010] - E_Test Init
+ESTART: 15.02906 [0.00006] - E_Test Done
+ESTART: 15.02911 [0.00005] - Load Modules
+ESTART: 25.31165 [10.28254] - Load Modules Done
+ESTART: 25.33985 [0.02820] - E_Shelf Init
+ESTART: 26.52497 [1.18512] - start
+ESTART: 27.57791 [1.05294] - start Done
+ESTART: 27.57813 [0.00022] - pager
+ESTART: 33.42349 [5.84536] - pager Done
+ESTART: 33.42373 [0.00024] - ibar
+ESTART: 34.07449 [0.65076] - ibar Done
+ESTART: 34.07472 [0.00023] - clock
+ESTART: 36.57857 [2.50385] - clock Done
+ESTART: 36.57877 [0.00020] - tasks
+ESTART: 36.68792 [0.10915] - tasks Done
+ESTART: 37.28924 [0.60131] - E_Shelf Init Done
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1192.15637 should have slept ~ 0.01667s but took 0.03591s!
+ESTART: 37.41240 [0.12316] - MAIN LOOP AT LAST
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1192.24437 should have slept ~ 0.01667s but took 0.05191s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1192.96862 should have slept ~ 0.01667s but took 0.03559s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1193.67229 should have slept ~ 0.01667s but took 0.04565s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1194.56838 should have slept ~ 0.01667s but took 0.03626s!
+ESTART: 40.27160 [2.85920] - SLEEP
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1195.10846 should have slept ~ 0.01667s but took 0.03581s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1195.18985 should have slept ~ 0.01667s but took 0.03714s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1195.30030 should have slept ~ 0.01667s but took 0.03594s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1195.73299 should have slept ~ 0.01667s but took 0.04320s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1198.92435 should have slept ~ 0.01667s but took 0.04390s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1199.22443 should have slept ~ 0.01667s but took 0.03367s!
+RRR: CB screen change...
+RRR: CB output change...
+COMPX: _e_comp_x_mapping_change
+COMPX: _e_comp_x_mapping_change
+XKB: _e_x_xkb_update
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+E: efreet didn't notify about cache update
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1201.48437 should have slept ~ 0.01667s but took 0.04860s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1201.55630 should have slept ~ 0.01667s but took 0.03759s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1202.12241 should have slept ~ 0.01667s but took 0.03387s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1202.23636 should have slept ~ 0.01667s but took 0.09384s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1203.86427 should have slept ~ 0.01667s but took 0.03595s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1204.18836 should have slept ~ 0.01667s but took 0.04792s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1204.90029 should have slept ~ 0.01667s but took 0.03602s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+RRR: ... 1 0
+RRR: reconfigure screens due to event...
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x1231da20
+RRR: 'screen' 0 0 1024x768
+RRR: check fingerprint...
+RRR: ... fingerprint says 0
+RRR: screens lists 1 -> 1
+RRR: --------
+RRR: --------
+RRR: --------
+RRR: screens 1 -> 1
+RRR: --------
+RRR: look at r2 screen ID screen/
+RRR: look at r1 screen ID screen/
+RRR: skip change because of single laptop lid
+RRR: --------
+RRR: changed = 0
+--------------------------------------------------
+RRR: out id=screen/:  connected=1 enabled=1 configured=0
+RRR: check lid for screen...
+--------------------------------------------------
+RRR: scr: screen/ lid=0 conn=1
+RRR: is not lid, is connected, ext++
+RRR: prev_scr: screen/ lid=0 conn=1
+RRR: lids=0 closed=0 ext=1 prev_ext=1
+RRR: change = 0
+RRR: ................. info get!
+RRR: NEW SCREEN ...
+RRR: .... out screen
+RRR: ...... lid_closed = 0 (0 && 0)
+RRR: ...... connected 1
+RRR: ...... modes 0x1231da20
+RRR: 'screen' 0 0 1024x768
+RRR:-------------------------------- 2
+RRR: 'screen': 0 0 1024x768
+RRR: result max: 1024x768
+xinerama screen 0 0 1024x768
+xinerama setup............... 1 0x120c18f8
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@ match screens 0x12441e80[0] = 0 0 1024x768 -- 0
+@ matches existing zone 0x12100170
+   move resize 0 0 1024x768 -> 0 0 1024x768
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1219.80821 should have slept ~ 0.01667s but took 0.03603s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1220.00036 should have slept ~ 0.01667s but took 0.04406s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1220.30078 should have slept ~ 0.01667s but took 0.03556s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1220.54084 should have slept ~ 0.01667s but took 0.03932s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1222.00149 should have slept ~ 0.01667s but took 0.03874s!
+ERR<344>:evas_main ../efl-source/src/lib/evas/canvas/evas_render.c:2758 evas_render_rendering_wait() timeout waiting for async rendering
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1222.75241 should have slept ~ 0.01667s but took 0.04023s!
+ERR<344>:evas_main ../efl-source/src/lib/evas/canvas/evas_render.c:2758 evas_render_rendering_wait() timeout waiting for async rendering
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1223.80215 should have slept ~ 0.01667s but took 0.03812s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1237.57189 should have slept ~ 0.01667s but took 0.04038s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1249.60052 should have slept ~ 0.01667s but took 0.05576s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1259.10046 should have slept ~ 0.01667s but took 0.05578s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1260.32182 should have slept ~ 0.01667s but took 0.04062s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1260.67290 should have slept ~ 0.01667s but took 0.04335s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1261.97304 should have slept ~ 0.01667s but took 0.03522s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1268.18444 should have slept ~ 0.01667s but took 0.03582s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1268.82891 should have slept ~ 0.01667s but took 0.05588s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1268.92443 should have slept ~ 0.01667s but took 0.11978s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1269.87240 should have slept ~ 0.01667s but took 0.05519s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1269.96839 should have slept ~ 0.01667s but took 0.06074s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1281.03397 should have slept ~ 0.01667s but took 0.10266s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1284.36852 should have slept ~ 0.01667s but took 0.06816s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1284.55292 should have slept ~ 0.01667s but took 0.04756s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1290.88441 should have slept ~ 0.01667s but took 0.10781s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1294.06893 should have slept ~ 0.01667s but took 0.03532s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1302.30324 should have slept ~ 0.01667s but took 0.03711s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1302.68539 should have slept ~ 0.01667s but took 0.03900s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1302.75782 should have slept ~ 0.01667s but took 0.06309s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1304.30937 should have slept ~ 0.01667s but took 0.04768s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1305.87194 should have slept ~ 0.01667s but took 0.05242s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1312.27776 should have slept ~ 0.01667s but took 0.10191s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1312.69258 should have slept ~ 0.01667s but took 0.10378s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1314.92080 should have slept ~ 0.01667s but took 0.10517s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1319.47869 should have slept ~ 0.01667s but took 0.04576s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1326.47239 should have slept ~ 0.01667s but took 0.05427s!
+Xlib:  extension "DPMS" missing on display ":2.0".
+Xlib:  extension "DPMS" missing on display ":2.0".
+SCRSV: someone else messed with screen dpms timeouts!
+Xlib:  extension "DPMS" missing on display ":2.0".
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1329.90191 should have slept ~ 0.01667s but took 0.07936s!
+ERROR: ecore_animator thread - epoll_wait(..., 200) at 1334.28532 should have slept ~ 0.01667s but took 0.05920s!

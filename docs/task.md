@@ -996,3 +996,12 @@ write is claimed. Next: finish board-kernel build, preflight/build base-files
 and Debianutils, then close actual Essential dependencies and run normal target
 package configuration before assembling the new disk-root image.
 Evidence: builds/boot-candidate-20261101/README.md.
+
+2026-11-01 safe Molten Steel follow-up: source profile, isolated launcher and
+failed black-desktop evidence retained in profiles/e/recording-molten and
+builds/e-molten-safe-20261101. Do not promote to recording view while #8 is open.
+Next rendering gate: isolate Evas primitive output from compositor readback;
+optional-module/locale/software/SHM configuration alone did not fix it.
+Physical tabor-live002 compiled and base-files001 packaged; hardware boot and
+normal Debian Essential root configuration still pending. User clip/still
+located and sampled; original media remains local and was not published.

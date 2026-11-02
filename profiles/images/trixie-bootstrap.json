@@ -34,9 +34,10 @@
     "libsepol": "Four Debian artifacts built; packaged library policydb allocation/free smoke passes under QEMU libc004; target installation pending",
     "pcre2": "Normal Debian SPE artifacts built; packaged 8-bit runtime passes ASCII/nonmatch/UTF-8 smoke with JIT disabled under QEMU libc004; target installation pending",
     "linux-libc-dev": "Debian libc-dev rules built a genuine powerpcspe-only UAPI package with gnuspe tuple; signed archive index and target-only dependency simulation pass; target install pending",
-    "gzip": "Debian package built with explicit SPE flags; packaged executable roundtrips data under QEMU/private libc004; maintainer setup and target installation pending"
+    "gzip": "Debian package built with explicit SPE flags; packaged executable roundtrips data under QEMU/private libc004; maintainer setup and target installation pending",
+    "base-files": "Normal Debian source rules built powerpcspe package with maintainer metadata; target configuration pending"
   },
-  "kernel_delta": "qemu-live-008 boots: two CPUs, 8240288 kB MemTotal, cgroup v2 controllers, virtio/ext4 write/unmount/remount verified. Physical tabor-live-002 rebuilding; hardware untested.",
+  "kernel_delta": "qemu-live008 platform/storage checks pass; physical tabor-live002 compiled with selected board fragment, hardware boot pending",
   "next_dependency_gates": [
     "Complete libc packaging/compiler and target build-dependency bootstrap",
     "Debianutils and GNU tar/Essential tooling with their dependency closure",

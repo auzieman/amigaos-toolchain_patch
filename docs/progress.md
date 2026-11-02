@@ -546,3 +546,12 @@ write is claimed. Next: finish board-kernel build, preflight/build base-files
 and Debianutils, then close actual Essential dependencies and run normal target
 package configuration before assembling the new disk-root image.
 Evidence: builds/boot-candidate-20261101/README.md.
+
+2026-11-01 Molten Steel profile: conservative standard-derived E configuration
+prepared and tested on isolated display2/private HOME. Molten theme precaches,
+E reaches shelf/startup, but final screenshot remains black even with software
+rendering/no DRI swap/no SHM/C locale. Test stopped and loopback5925 removed;
+working display1 recording stays live. Missing diagnostic dbus-send also noted;
+no package state fabricated. Keep rendering #8 open. Board tabor-live002 kernel
+compiled successfully; base-files001 genuine Debian SPE package built normally.
+Neither is hardware/installed-root acceptance. Evidence: builds/e-molten-safe-20261101.

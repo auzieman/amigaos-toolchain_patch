@@ -1,0 +1,25 @@
+{
+  "status": "profile-prepared-runtime-black-not-promoted",
+  "guest": "software-e011",
+  "display": ":2",
+  "private_home": "/home/tabor/e-molten-safe",
+  "recording_display_unchanged": ":1",
+  "theme": "Molten-Steel-Theme-Liquid-Menu-20261026.edj",
+  "wallpaper": "Molten-Steel-Wallpaper-Still-20261026.edj",
+  "config_tool_image": "sha256:d07f9edb80960f37cc40921171283aa7870151ae513d4789095d542e96f186d9",
+  "files_sha256": {
+    "profiles/e/recording-molten/e.src": "6e6b874dc8e2a2c433cfe32833cd41b66c52b428cc5e011d50a79697d1de7268",
+    "profiles/e/recording-molten/start-test.sh": "eef352c5f8f3d053e283140e702c5df6670ee27f7a4ba1dedfa525d30d886c94",
+    "docs/builds/e-molten-safe-20261101/preview-003.png": "e7600aec684f58cafdb4a52866587cc57f0dac4ddb7e4b550ad9d8fa1af9e098",
+    "docs/builds/e-molten-safe-20261101/startup-sample.log": "84c54cbc23a516175ba5db91ad0e539a4188b968a3ad09eff9a82c44c1dfee35"
+  },
+  "tests": [
+    "isolated home and standard profile without wizard",
+    "optional service modules disabled",
+    "Molten theme and still wallpaper selected",
+    "C locale, software engine, DRI swap disabled, MIT-SHM disabled"
+  ],
+  "result": "E process and selected theme precache start, but captured desktop remains black",
+  "cleanup": "Isolated Xvfb and VNC stopped; temporary R730 loopback5925 forward removed",
+  "physical_kernel": "tabor-live002 compiled; not hardware boot tested"
+}
