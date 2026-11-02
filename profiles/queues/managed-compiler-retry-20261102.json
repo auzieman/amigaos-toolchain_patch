@@ -1,0 +1,14 @@
+{
+  "scope": "Retry the two compiler-default sysroot failures with installed SDK5 and no injected target flags",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "libsepol",
+      "iteration": "502"
+    },
+    {
+      "package": "pcre2",
+      "iteration": "502"
+    }
+  ]
+}

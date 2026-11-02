@@ -21,7 +21,11 @@ p.add_argument('--preserve-debian-version', action='store_true',
                help='Keep the pinned Debian changelog/version for normal build-root coinstallation; provenance remains in receipts')
 p.add_argument('--package-managed-root', action='store_true',
                help='Use installed target development packages, without bootstrap shlibs/sysroot transport overrides')
+p.add_argument('--binary-nmu', type=int, default=0, help='Reviewed Debian binary-only rebuild number; uses dch, not binary metadata rewriting')
 a = p.parse_args()
+assert 0 <= a.binary_nmu <= 9
+if a.binary_nmu:
+    assert a.preserve_debian_version and a.arch_only and not a.indep_only
 if a.package_managed_root:
     assert a.sysroot == Path('/'), 'Package-managed build uses the container root'
 assert not (a.arch_only and a.indep_only)
@@ -48,8 +52,19 @@ env.update(PATH=str(a.tools / 'bin') + ':' + env['PATH'], CC=str(cc),
            TABOR_SYSROOT=str(a.sysroot),
            TABOR_SHLIBS=str(a.project / 'profiles/images/spe-bootstrap.shlibs'))
 if a.package_managed_root:
-    env.pop('TABOR_SYSROOT', None)
-    env.pop('TABOR_SHLIBS', None)
+    # Debian packages may legitimately replace MAINT_APPEND. Architecture and
+    # installed-root defaults therefore belong to the compiler, not CFLAGS.
+    for name in ['TABOR_SYSROOT', 'TABOR_SHLIBS', 'DEB_CFLAGS_MAINT_APPEND',
+                 'DEB_CXXFLAGS_MAINT_APPEND', 'DEB_LDFLAGS_MAINT_APPEND']:
+        env.pop(name, None)
+    observed_root = subprocess.check_output([str(cc), '-print-sysroot'], text=True).strip()
+    assert observed_root == '/', 'Managed builds require a compiler configured for the installed root'
+    macros = subprocess.check_output([str(cc), '-dM', '-E', '-'], input='', text=True)
+    for required in ['#define __SPE__ 1', '#define __NO_FPRS__ 1',
+                     '#define __LONG_DOUBLE_128__ 1', '#define __BYTE_ORDER__ __ORDER_BIG_ENDIAN__']:
+        assert required in macros, 'Incorrect default target ABI: ' + required
+    flags = []
+
 if a.indep_only:
     # CC otherwise makes dpkg-architecture infer a cross host even for -A.
     # Pure scripting/data builds use host tools and must only emit Arch: all.
@@ -134,6 +149,14 @@ with (a.work / 'build.log').open('w') as log:
                 '  * Rebuild for the experimental Tabor SPE sysroot.\n\n'
                 ' -- Tabor lab <root@localhost>  Sun, 01 Nov 2026 16:00:00 +0000\n\n'
                 + changelog.read_text())
+        if a.binary_nmu:
+            env.update(DEBFULLNAME='Tabor lab', DEBEMAIL='root@localhost')
+            for _ in range(a.binary_nmu):
+                run(['dch', '--bin-nmu', '--distribution', 'trixie', '--preserve',
+                     'SPE binary rebuild for the reviewed Debian cross-build root.'], source)
+            version = subprocess.check_output(['dpkg-parsechangelog', '-l', str(changelog), '-SVersion'], text=True).strip()
+            assert version == component['version'] + '+b' + str(a.binary_nmu)
+            r['binary_nmu'] = a.binary_nmu
         r['binary_version'] = version
         if a.package == 'glibc':
             # Debian generates its control from architecture-specific templates.

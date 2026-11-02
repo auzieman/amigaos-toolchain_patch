@@ -1,0 +1,134 @@
+{
+  "status": "reference-cxx-runtime-built-not-executed",
+  "role": "historical SPE reference/bootstrap only; modern GCC restoration remains separate",
+  "target": "powerpc-linux-gnuspe",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "source_sha512": "92f599680e6b7fbce88bcdda810f468777d541e5fddfbb287f7977d51093de2a5178bd0e6a08dfe37090ea10a0508a43ccd00220041abbbec33f1179bfc174d8",
+  "recipe_sha256": "322210b87215c913ec81913ed4f9f0a03bbf4182be2e9b0a1bfd49afed378223",
+  "commands": [
+    [
+      "tar",
+      "-xJf",
+      "/cache/gcc-8.5.0.tar.xz",
+      "-C",
+      "/work/gcc-system-root-001"
+    ],
+    [
+      "patch",
+      "--batch",
+      "--fuzz=0",
+      "-p1",
+      "-i",
+      "/project/patches/gcc/bootstrap-8.5/0002-powerpcspe-use-stack-pointer-for-pic-return-address.patch"
+    ],
+    [
+      "/work/gcc-system-root-001/gcc-8.5.0/configure",
+      "--target=powerpc-linux-gnuspe",
+      "--prefix=/tools-output/gcc-system-root-001",
+      "--enable-obsolete",
+      "--disable-bootstrap",
+      "--disable-multilib",
+      "--disable-nls",
+      "--disable-libsanitizer",
+      "--disable-libssp",
+      "--disable-libquadmath",
+      "--disable-libgomp",
+      "--disable-libatomic",
+      "--disable-libvtv",
+      "--disable-werror",
+      "--with-system-zlib",
+      "--with-cpu=8548",
+      "--with-float=hard",
+      "--enable-e500_double",
+      "--with-as=/usr/bin/powerpc-linux-gnu-as",
+      "--with-ld=/usr/bin/powerpc-linux-gnu-ld",
+      "--enable-languages=c,c++",
+      "--enable-shared",
+      "--enable-threads=posix",
+      "--with-long-double-128",
+      "--with-sysroot=/",
+      "--with-build-sysroot=/sysroot",
+      "CFLAGS_FOR_TARGET=-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+      "CXXFLAGS_FOR_TARGET=-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128"
+    ],
+    [
+      "make",
+      "-j4",
+      "all-gcc"
+    ],
+    [
+      "make",
+      "install-gcc"
+    ],
+    [
+      "make",
+      "-j4",
+      "all-target-libgcc"
+    ],
+    [
+      "make",
+      "install-target-libgcc"
+    ],
+    [
+      "make",
+      "-j4",
+      "all-target-libstdc++-v3"
+    ],
+    [
+      "make",
+      "install-target-libstdc++-v3"
+    ],
+    [
+      "/tools-output/gcc-system-root-001/bin/powerpc-linux-gnuspe-gcc",
+      "-O2",
+      "-mcpu=8548",
+      "-mabi=spe",
+      "-mspe",
+      "-mfloat-gprs=double",
+      "-S",
+      "/work/gcc-system-root-001/probe.c",
+      "-o",
+      "/work/gcc-system-root-001/probe.s"
+    ],
+    [
+      "/tools-output/gcc-system-root-001/bin/powerpc-linux-gnuspe-gcc",
+      "-O2",
+      "-S",
+      "/work/gcc-system-root-001/probe.c",
+      "-o",
+      "/work/gcc-system-root-001/default-abi-probe.s"
+    ]
+  ],
+  "runtime_built": true,
+  "patch_series_sha256": "312f5551f084bc7dce19784ff8a298f6a773f1bcf674c5eaf38b96fbd7c7a12a",
+  "patches": [
+    {
+      "path": "patches/gcc/bootstrap-8.5/0002-powerpcspe-use-stack-pointer-for-pic-return-address.patch",
+      "sha256": "f5f3ef8b3ebe99c362a3725d2466756bece09b91a70a8808285d20fdd8688d4f"
+    }
+  ],
+  "installed_sysroot": "/",
+  "runtime_build_sysroot": "/sysroot",
+  "sysroot_tree_sha256": "76b19cb32e754f8191e337da8d570a06b6e59cd7fd1c14839e7ca1ebdf9a6536",
+  "target_runtime_flags": "-O2 -g0 -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128",
+  "binutils_sha256": {
+    "ar": "13cce2490e90875106f3ec68d7464a80dc7f52bb7a17448e670a0df9861cde12",
+    "as": "fbbdac08236a5871c594e8674dd32f84618ea721c16aee8bf7ec703cfff5c529",
+    "ld": "8aaf0e2a1314ad622b2dc7a3d1cd02e9c979e00ad3978b043c28d9bd214b2305",
+    "nm": "2cbc37982d225db0f0c899e60b1f542438935e474babe3fe60950a58d6306b7f",
+    "ranlib": "0d9a07042ebe5ac8590d97e4cf06083c09ae157fd90704e133d3db7c89be4429",
+    "readelf": "66e5e5530eb31ec4edfb57377be1d9d5611be4156a961ab027a15eed142c9260",
+    "objcopy": "898d41af0f3e087a0b725a5b35c3ef50034c44ab21821c6b6b39898796cac02c",
+    "objdump": "e3528c679514efbf539a2716eff8603929ee7c936d3ee238081c669af7a21092",
+    "strip": "d67b2448295408536274b943ad355689f5f932dc71ec45b9fbb50a35d9f8fc7b"
+  },
+  "backend_selection": "out_file=$(srcdir)/config/powerpcspe/powerpcspe.c",
+  "backend_source_sha256": "3e39a3c3a1fa15356e2db4c01542ae35df0f4a96d237e313f34d9773e3ff9506",
+  "compiler_version": "powerpc-linux-gnuspe-gcc (GCC) 8.5.0\nCopyright (C) 2018 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n\n",
+  "target_macros": "#define __DBL_MIN_EXP__ (-1021)\n#define __FLT32X_MAX_EXP__ 1024\n#define __UINT_LEAST16_MAX__ 0xffff\n#define __ATOMIC_ACQUIRE 2\n#define __FLT_MIN__ 1.17549435082228750796873653722225e-38F\n#define __GCC_IEC_559_COMPLEX 2\n#define __UINT_LEAST8_TYPE__ unsigned char\n#define __INTMAX_C(c) c ## LL\n#define __CHAR_BIT__ 8\n#define __UINT8_MAX__ 0xff\n#define __WINT_MAX__ 0xffffffffU\n#define __FLT32_MIN_EXP__ (-125)\n#define __ORDER_LITTLE_ENDIAN__ 1234\n#define __SIZE_MAX__ 0xffffffffU\n#define __WCHAR_MAX__ 0x7fffffffL\n#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_1 1\n#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_2 1\n#define __GCC_HAVE_SYNC_COMPARE_AND_SWAP_4 1\n#define __DBL_DENORM_MIN__ ((double)4.94065645841246544176568792868221e-324L)\n#define __GCC_ATOMIC_CHAR_LOCK_FREE 2\n#define __GCC_IEC_559 2\n#define __FLT32X_DECIMAL_DIG__ 17\n#define __FLT_EVAL_METHOD__ 0\n#define __unix__ 1\n#define __FLT64_DECIMAL_DIG__ 17\n#define __GCC_ATOMIC_CHAR32_T_LOCK_FREE 2\n#define __UINT_FAST64_MAX__ 0xffffffffffffffffULL\n#define __SIG_ATOMIC_TYPE__ int\n#define __DBL_MIN_10_EXP__ (-307)\n#define __FINITE_MATH_ONLY__ 0\n#define __GNUC_PATCHLEVEL__ 0\n#define __FLT32_HAS_DENORM__ 1\n#define __UINT_FAST8_MAX__ 0xff\n#define __has_include(STR) __has_include__(STR)\n#define __DEC64_MAX_EXP__ 385\n#define __INT8_C(c) c\n#define __INT_LEAST8_WIDTH__ 8\n#define __UINT_LEAST64_MAX__ 0xffffffffffffffffULL\n#define __SHRT_MAX__ 0x7fff\n#define __LDBL_MAX__ 1.79769313486231580793728971405301e+308L\n#define __UINT_LEAST8_MAX__ 0xff\n#define __GCC_ATOMIC_BOOL_LOCK_FREE 2\n#define _ARCH_PPC 1\n#define __UINTMAX_TYPE__ long long unsigned int\n#define __linux 1\n#define __DEC32_EPSILON__ 1E-6DF\n#define __FLT_EVAL_METHOD_TS_18661_3__ 0\n#define __CHAR_UNSIGNED__ 1\n#define __UINT32_MAX__ 0xffffffffU\n#define __LDBL_MAX_EXP__ 1024\n#define __WINT_MIN__ 0U\n#define __linux__ 1\n#define __INT_LEAST16_WIDTH__ 16\n#define __SCHAR_MAX__ 0x7f\n#define __WCHAR_MIN__ (-__WCHAR_MAX__ - 1)\n#define __INT64_C(c) c ## LL\n#define __DBL_DIG__ 15\n#define __GCC_ATOMIC_POINTER_LOCK_FREE 2\n#define __SIZEOF_INT__ 4\n#define __SIZEOF_POINTER__ 4\n#define __USER_LABEL_PREFIX__ \n#define __STDC_HOSTED__ 1\n#define __LDBL_HAS_INFINITY__ 1\n#define __FLT32_DIG__ 6\n#define __FLT_EPSILON__ 1.19209289550781250000000000000000e-7F\n#define __SHRT_WIDTH__ 16\n#define _CALL_SYSV 1\n#define __LDBL_MIN__ 2.00416836000897277799610805135016e-292L\n#define __STDC_UTF_16__ 1\n#define __DEC32_MAX__ 9.999999E96DF\n#define __FLT32X_HAS_INFINITY__ 1\n#define __INT32_MAX__ 0x7fffffff\n#define __INT_WIDTH__ 32\n#define __SIZEOF_LONG__ 4\n#define __STDC_IEC_559__ 1\n#define __STDC_ISO_10646__ 201706L\n#define __UINT16_C(c) c\n#define __PTRDIFF_WIDTH__ 32\n#define __DECIMAL_DIG__ 33\n#define __FLT64_EPSILON__ 2.22044604925031308084726333618164e-16F64\n#define __gnu_linux__ 1\n#define __INTMAX_WIDTH__ 64\n#define __has_include_next(STR) __has_include_next__(STR)\n#define __LDBL_HAS_QUIET_NAN__ 1\n#define __FLT64_MANT_DIG__ 53\n#define __GNUC__ 8\n#define __FLT_HAS_DENORM__ 1\n#define __SIZEOF_LONG_DOUBLE__ 16\n#define __NO_LWSYNC__ 1\n#define __BIGGEST_ALIGNMENT__ 16\n#define __FLT64_MAX_10_EXP__ 308\n#define __DBL_MAX__ ((double)1.79769313486231570814527423731704e+308L)\n#define __INT_FAST32_MAX__ 0x7fffffff\n#define __DBL_HAS_INFINITY__ 1\n#define __DEC32_MIN_EXP__ (-94)\n#define __INTPTR_WIDTH__ 32\n#define __FLT32X_HAS_DENORM__ 1\n#define __INT_FAST16_TYPE__ int\n#define __LDBL_HAS_DENORM__ 1\n#define __DEC128_MAX__ 9.999999999999999999999999999999999E6144DL\n#define __INT_LEAST32_MAX__ 0x7fffffff\n#define __DEC32_MIN__ 1E-95DF\n#define __DBL_MAX_EXP__ 1024\n#define __WCHAR_WIDTH__ 32\n#define __FLT32_MAX__ 3.40282346638528859811704183484517e+38F32\n#define __DEC128_EPSILON__ 1E-33DL\n#define __PTRDIFF_MAX__ 0x7fffffff\n#define __FLT32_HAS_QUIET_NAN__ 1\n#define __LONG_LONG_MAX__ 0x7fffffffffffffffLL\n#define __SIZEOF_SIZE_T__ 4\n#define __PPC__ 1\n#define __SIZEOF_WINT_T__ 4\n#define __LONG_LONG_WIDTH__ 64\n#define __FLT32_MAX_EXP__ 128\n#define __GXX_ABI_VERSION 1013\n#define __FLT_MIN_EXP__ (-125)\n#define __INT_FAST64_TYPE__ long long int\n#define __FLT64_DENORM_MIN__ 4.94065645841246544176568792868221e-324F64\n#define __DBL_MIN__ ((double)2.22507385850720138309023271733240e-308L)\n#define __LONGDOUBLE128 1\n#define __FLT32X_EPSILON__ 2.22044604925031308084726333618164e-16F32x\n#define __FLT64_MIN_EXP__ (-1021)\n#define __FLT64_MIN_10_EXP__ (-307)\n#define __DEC128_MIN__ 1E-6143DL\n#define __REGISTER_PREFIX__ \n#define __UINT16_MAX__ 0xffff\n#define __DBL_HAS_DENORM__ 1\n#define __FLT32_MIN__ 1.17549435082228750796873653722225e-38F32\n#define __UINT8_TYPE__ unsigned char\n#define __NO_INLINE__ 1\n#define __FLT_MANT_DIG__ 24\n#define __LDBL_DECIMAL_DIG__ 33\n#define __VERSION__ \"8.5.0\"\n#define __UINT64_C(c) c ## ULL\n#define powerpc 1\n#define _STDC_PREDEF_H 1\n#define __BIG_ENDIAN__ 1\n#define __GCC_ATOMIC_INT_LOCK_FREE 2\n#define __FLT32_MANT_DIG__ 24\n#define __FLOAT_WORD_ORDER__ __ORDER_BIG_ENDIAN__\n#define __STDC_IEC_60559_BFP__ 201404L\n#define __STDC_IEC_60559_COMPLEX__ 201404L\n#define __STDC_IEC_559_COMPLEX__ 1\n#define __SCHAR_WIDTH__ 8\n#define __INT32_C(c) c\n#define __DEC64_EPSILON__ 1E-15DD\n#define __ORDER_PDP_ENDIAN__ 3412\n#define __DEC128_MIN_EXP__ (-6142)\n#define __FLT32_MAX_10_EXP__ 38\n#define __INT_FAST32_TYPE__ int\n#define __powerpc__ 1\n#define __UINT_LEAST16_TYPE__ short unsigned int\n#define unix 1\n#define __ibm128 long double\n#define __INT16_MAX__ 0x7fff\n#define __SIZE_TYPE__ unsigned int\n#define __UINT64_MAX__ 0xffffffffffffffffULL\n#define __INT8_TYPE__ signed char\n#define __ELF__ 1\n#define __HAVE_BSWAP__ 1\n#define __FLT_RADIX__ 2\n#define __INT_LEAST16_TYPE__ short int\n#define __LDBL_EPSILON__ 4.94065645841246544176568792868221e-324L\n#define __UINTMAX_C(c) c ## ULL\n#define __SIG_ATOMIC_MAX__ 0x7fffffff\n#define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2\n#define __SIZEOF_PTRDIFF_T__ 4\n#define __FLT32X_MANT_DIG__ 53\n#define __FLT32X_MIN_EXP__ (-1021)\n#define __DEC32_SUBNORMAL_MIN__ 0.000001E-95DF\n#define __INT_FAST16_MAX__ 0x7fffffff\n#define __FLT64_DIG__ 15\n#define __UINT_FAST32_MAX__ 0xffffffffU\n#define __UINT_LEAST64_TYPE__ long long unsigned int\n#define __FLT_HAS_QUIET_NAN__ 1\n#define __FLT_MAX_10_EXP__ 38\n#define __LONG_MAX__ 0x7fffffffL\n#define __DEC128_SUBNORMAL_MIN__ 0.000000000000000000000000000000001E-6143DL\n#define __FLT_HAS_INFINITY__ 1\n#define __unix 1\n#define __UINT_FAST16_TYPE__ unsigned int\n#define __DEC64_MAX__ 9.999999999999999E384DD\n#define __INT_FAST32_WIDTH__ 32\n#define __CHAR16_TYPE__ short unsigned int\n#define __PRAGMA_REDEFINE_EXTNAME 1\n#define __SIZE_WIDTH__ 32\n#define __INT_LEAST16_MAX__ 0x7fff\n#define __LONG_DOUBLE_IBM128__ 1\n#define __DEC64_MANT_DIG__ 16\n#define __INT64_MAX__ 0x7fffffffffffffffLL\n#define __UINT_LEAST32_MAX__ 0xffffffffU\n#define __FLT32_DENORM_MIN__ 1.40129846432481707092372958328992e-45F32\n#define __GCC_ATOMIC_LONG_LOCK_FREE 2\n#define __SIG_ATOMIC_WIDTH__ 32\n#define __INT_LEAST64_TYPE__ long long int\n#define __INT16_TYPE__ short int\n#define __INT_LEAST8_TYPE__ signed char\n#define __STDC_VERSION__ 201710L\n#define __DEC32_MAX_EXP__ 97\n#define _BIG_ENDIAN 1\n#define __INT_FAST8_MAX__ 0x7f\n#define __INTPTR_MAX__ 0x7fffffff\n#define linux 1\n#define __FLT64_HAS_QUIET_NAN__ 1\n#define __PPC 1\n#define __FLT32_MIN_10_EXP__ (-37)\n#define __FLT32X_DIG__ 15\n#define __SPE__ 1\n#define __LDBL_MANT_DIG__ 106\n#define __DBL_HAS_QUIET_NAN__ 1\n#define __FLT64_HAS_INFINITY__ 1\n#define __SIG_ATOMIC_MIN__ (-__SIG_ATOMIC_MAX__ - 1)\n#define __INTPTR_TYPE__ int\n#define __UINT16_TYPE__ short unsigned int\n#define __WCHAR_TYPE__ long int\n#define __SIZEOF_FLOAT__ 4\n#define __UINTPTR_MAX__ 0xffffffffU\n#define __INT_FAST64_WIDTH__ 64\n#define __DEC64_MIN_EXP__ (-382)\n#define __NO_FPRS__ 1\n#define __FLT32_DECIMAL_DIG__ 9\n#define __INT_FAST64_MAX__ 0x7fffffffffffffffLL\n#define __GCC_ATOMIC_TEST_AND_SET_TRUEVAL 1\n#define __FLT_DIG__ 6\n#define __FLT32_HAS_INFINITY__ 1\n#define __powerpc 1\n#define __UINT_FAST64_TYPE__ long long unsigned int\n#define __INT_MAX__ 0x7fffffff\n#define __LONG_DOUBLE_128__ 1\n#define __INT64_TYPE__ long long int\n#define __FLT_MAX_EXP__ 128\n#define __DBL_MANT_DIG__ 53\n#define __INT_LEAST64_MAX__ 0x7fffffffffffffffLL\n#define __GCC_ATOMIC_CHAR16_T_LOCK_FREE 2\n#define __DEC64_MIN__ 1E-383DD\n#define __WINT_TYPE__ unsigned int\n#define __UINT_LEAST32_TYPE__ unsigned int\n#define __SIZEOF_SHORT__ 2\n#define __LDBL_MIN_EXP__ (-968)\n#define __FLT64_MAX__ 1.79769313486231570814527423731704e+308F64\n#define __WINT_WIDTH__ 32\n#define __INT_LEAST8_MAX__ 0x7f\n#define __FLT32X_MAX_10_EXP__ 308\n#define __LDBL_MAX_10_EXP__ 308\n#define __ATOMIC_RELAXED 0\n#define __DBL_EPSILON__ ((double)2.22044604925031308084726333618164e-16L)\n#define __UINT8_C(c) c\n#define PPC 1\n#define __FLT64_MAX_EXP__ 1024\n#define __INT_LEAST32_TYPE__ int\n#define __SIZEOF_WCHAR_T__ 4\n#define __UINT64_TYPE__ long long unsigned int\n#define __INT_FAST8_TYPE__ signed char\n#define __GNUC_STDC_INLINE__ 1\n#define __FLT64_HAS_DENORM__ 1\n#define __FLT32_EPSILON__ 1.19209289550781250000000000000000e-7F32\n#define __DBL_DECIMAL_DIG__ 17\n#define __STDC_UTF_32__ 1\n#define __INT_FAST8_WIDTH__ 8\n#define __DEC_EVAL_METHOD__ 2\n#define __FLT32X_MAX__ 1.79769313486231570814527423731704e+308F32x\n#define __VEC_ELEMENT_REG_ORDER__ __ORDER_BIG_ENDIAN__\n#define __ORDER_BIG_ENDIAN__ 4321\n#define __UINT32_C(c) c ## U\n#define __INTMAX_MAX__ 0x7fffffffffffffffLL\n#define __BYTE_ORDER__ __ORDER_BIG_ENDIAN__\n#define __FLT_DENORM_MIN__ 1.40129846432481707092372958328992e-45F\n#define __INT8_MAX__ 0x7f\n#define __LONG_WIDTH__ 32\n#define __UINT_FAST32_TYPE__ unsigned int\n#define __CHAR32_TYPE__ unsigned int\n#define __FLT_MAX__ 3.40282346638528859811704183484517e+38F\n#define __INT32_TYPE__ int\n#define __SIZEOF_DOUBLE__ 8\n#define __FLT_MIN_10_EXP__ (-37)\n#define __FLT64_MIN__ 2.22507385850720138309023271733240e-308F64\n#define __INT_LEAST32_WIDTH__ 32\n#define __INTMAX_TYPE__ long long int\n#define __DEC128_MAX_EXP__ 6145\n#define __FLT32X_HAS_QUIET_NAN__ 1\n#define __ATOMIC_CONSUME 1\n#define __GNUC_MINOR__ 5\n#define __INT_FAST16_WIDTH__ 32\n#define __UINTMAX_MAX__ 0xffffffffffffffffULL\n#define __DEC32_MANT_DIG__ 7\n#define __FLT32X_DENORM_MIN__ 4.94065645841246544176568792868221e-324F32x\n#define __DBL_MAX_10_EXP__ 308\n#define __LDBL_DENORM_MIN__ 4.94065645841246544176568792868221e-324L\n#define __INT16_C(c) c\n#define __STDC__ 1\n#define __PTRDIFF_TYPE__ int\n#define __ATOMIC_SEQ_CST 5\n#define __UINT32_TYPE__ unsigned int\n#define __FLT32X_MIN_10_EXP__ (-307)\n#define __UINTPTR_TYPE__ unsigned int\n#define __DEC64_SUBNORMAL_MIN__ 0.000000000000001E-383DD\n#define __DEC128_MANT_DIG__ 34\n#define __LDBL_MIN_10_EXP__ (-291)\n#define __SIZEOF_LONG_LONG__ 8\n#define __GCC_ATOMIC_LLONG_LOCK_FREE 1\n#define __FLT32X_MIN__ 2.22507385850720138309023271733240e-308F32x\n#define __LDBL_DIG__ 31\n#define __FLT_DECIMAL_DIG__ 9\n#define __UINT_FAST16_MAX__ 0xffffffffU\n#define __GCC_ATOMIC_SHORT_LOCK_FREE 2\n#define __INT_LEAST64_WIDTH__ 64\n#define __UINT_FAST8_TYPE__ unsigned char\n#define __ATOMIC_ACQ_REL 4\n#define __ATOMIC_RELEASE 3\n",
+  "observed_installed_sysroot": "/",
+  "default_abi_probe_sha256": "71a15e2f5a9626911f48113c33b04aaf4254fd0cae64d53d6676315b602ef498",
+  "probe_sha256": "71a15e2f5a9626911f48113c33b04aaf4254fd0cae64d53d6676315b602ef498",
+  "installed_tree_sha256": "47648b86d015f2f37bb0cd58ec32cd2f1a5a3e475d287e501dd8027d7e83b025",
+  "binutils_version": "GNU assembler (GNU Binutils for Debian) 2.44"
+}

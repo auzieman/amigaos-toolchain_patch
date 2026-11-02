@@ -1,0 +1,154 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "pcre2",
+  "source_version": "10.46-1~deb13u3",
+  "build_profiles": "cross,nocheck",
+  "arch_only": true,
+  "indep_only": false,
+  "dependency_preflight_only": false,
+  "preserve_debian_version": true,
+  "package_managed_root": true,
+  "image_id": "sha256:7971d167773181eb2fb1d5d44eaec6b6e64d998d06c0dba29f571eee7620cd68",
+  "recipe_sha256": "866516419b8f5c24af8b9732350e6f6b25e9a0bcca5f5d3b7555440d2b5cb8c5",
+  "source_lock_sha256": "eba7c83a0328bfed4724676627ec65079248789e31c194bd5f225a99941b3255",
+  "compiler_sha256": "8237ccac1bb9c7cbbc8ad856a0b9f6c078c49b08432a5f84185f9b048d64d336",
+  "compiler_frontend_sha256": "0f23bb386ecae4b685fb3eb6d04c2a7d95f34dc3b83a77c6bafb5c58b41166de",
+  "sysroot_libraries": {
+    "usr/lib/powerpc-linux-gnuspe/ld.so.1": "543a58f0bbff28c7ad0eac2e58f02f552f9abe2aa55192f18da9e23d9b3c5242",
+    "usr/lib/powerpc-linux-gnuspe/libBrokenLocale.so": "87b0b9c96c33ba5e367aab6ebd059263d11cf9686f9fca3d8d68c1a7c9985ffc",
+    "usr/lib/powerpc-linux-gnuspe/libBrokenLocale.so.1": "87b0b9c96c33ba5e367aab6ebd059263d11cf9686f9fca3d8d68c1a7c9985ffc",
+    "usr/lib/powerpc-linux-gnuspe/libanl.so": "c8c6ecfc859474c023e8492c287ea1fe17e2de2008acec2d8d6b852bfcb35d99",
+    "usr/lib/powerpc-linux-gnuspe/libanl.so.1": "c8c6ecfc859474c023e8492c287ea1fe17e2de2008acec2d8d6b852bfcb35d99",
+    "usr/lib/powerpc-linux-gnuspe/libattr.so": "e214193fc1534d2f3766904861ead4b4d41de12b0489ab158c8c7cd1284fcbdd",
+    "usr/lib/powerpc-linux-gnuspe/libattr.so.1": "e214193fc1534d2f3766904861ead4b4d41de12b0489ab158c8c7cd1284fcbdd",
+    "usr/lib/powerpc-linux-gnuspe/libattr.so.1.1.2502": "e214193fc1534d2f3766904861ead4b4d41de12b0489ab158c8c7cd1284fcbdd",
+    "usr/lib/powerpc-linux-gnuspe/libc.so": "bc96c3a689b7c001718d5b4607b5da31c99709a416656a1c9fcb08870c984b82",
+    "usr/lib/powerpc-linux-gnuspe/libc.so.6": "8fe7d16b75145d20e6d0acd501e326d9741ba73690b60d69076a629e629512a9",
+    "usr/lib/powerpc-linux-gnuspe/libc_malloc_debug.so": "08603d60db43c9e6d5197742db5c9768750b0d2daf5e80068ace336c684fd8d2",
+    "usr/lib/powerpc-linux-gnuspe/libc_malloc_debug.so.0": "08603d60db43c9e6d5197742db5c9768750b0d2daf5e80068ace336c684fd8d2",
+    "usr/lib/powerpc-linux-gnuspe/libcrypt.so": "b1181f69c35b4e8bec75e7f34fde716636a617b3df47ef118a3a5296c24467d2",
+    "usr/lib/powerpc-linux-gnuspe/libcrypt.so.1": "b1181f69c35b4e8bec75e7f34fde716636a617b3df47ef118a3a5296c24467d2",
+    "usr/lib/powerpc-linux-gnuspe/libcrypt.so.1.1.0": "b1181f69c35b4e8bec75e7f34fde716636a617b3df47ef118a3a5296c24467d2",
+    "usr/lib/powerpc-linux-gnuspe/libdl.so.2": "11f484a414d65c4d18941a41329ec2e11170d8bbcff75f5e1132b4fe04f583dd",
+    "usr/lib/powerpc-linux-gnuspe/libfribidi.so": "7eeccc825daf23edd2695da825abac154b1f52a3be75b49595b26de30ce97284",
+    "usr/lib/powerpc-linux-gnuspe/libfribidi.so.0": "7eeccc825daf23edd2695da825abac154b1f52a3be75b49595b26de30ce97284",
+    "usr/lib/powerpc-linux-gnuspe/libfribidi.so.0.4.0": "7eeccc825daf23edd2695da825abac154b1f52a3be75b49595b26de30ce97284",
+    "usr/lib/powerpc-linux-gnuspe/libm.so": "f1198ab768786644cd06655c1a65c5edaec369228c6b0b3c8c5130624e65dc3a",
+    "usr/lib/powerpc-linux-gnuspe/libm.so.6": "f1198ab768786644cd06655c1a65c5edaec369228c6b0b3c8c5130624e65dc3a",
+    "usr/lib/powerpc-linux-gnuspe/libmemusage.so": "e97cf3ae643ab4b7d76948e2b5054c9cf0f7185c4b446a0535b4dbb06af90f1b",
+    "usr/lib/powerpc-linux-gnuspe/libmtdev.so": "39cb6f148324c63df4acf236710a7701dac41a7ab724561bfad82c73609e97fc",
+    "usr/lib/powerpc-linux-gnuspe/libmtdev.so.1": "39cb6f148324c63df4acf236710a7701dac41a7ab724561bfad82c73609e97fc",
+    "usr/lib/powerpc-linux-gnuspe/libmtdev.so.1.0.0": "39cb6f148324c63df4acf236710a7701dac41a7ab724561bfad82c73609e97fc",
+    "usr/lib/powerpc-linux-gnuspe/libnsl.so.1": "2a9df1c4b8c9f9a75c9931cf82a488dc3e7605724e020d8f8e42cc12082511ef",
+    "usr/lib/powerpc-linux-gnuspe/libnss_compat.so": "9a06c51fd797f45b68e4c7427a17b5b072dfd0a520ba70605e1844ea9d75baaa",
+    "usr/lib/powerpc-linux-gnuspe/libnss_compat.so.2": "9a06c51fd797f45b68e4c7427a17b5b072dfd0a520ba70605e1844ea9d75baaa",
+    "usr/lib/powerpc-linux-gnuspe/libnss_dns.so.2": "d9ef39ebd6957be3e344dce85fe9838259eb750889942007b1fae9a07788e28d",
+    "usr/lib/powerpc-linux-gnuspe/libnss_files.so.2": "1d8f108522b07c40cf7ae84ea7bd485c276bed55a4a24f87366159208e8aab83",
+    "usr/lib/powerpc-linux-gnuspe/libnss_hesiod.so": "b04dd573d5fcf32f07bd5013fdd796569e6832f3db684cfca69ce178bc989097",
+    "usr/lib/powerpc-linux-gnuspe/libnss_hesiod.so.2": "b04dd573d5fcf32f07bd5013fdd796569e6832f3db684cfca69ce178bc989097",
+    "usr/lib/powerpc-linux-gnuspe/libpcprofile.so": "c02549d11418d73c4a2a2b7d8a0e9e1520dd58f0c88986b6d2041d6183c06d41",
+    "usr/lib/powerpc-linux-gnuspe/libpixman-1.so": "d534f43bcfc98246594f265cac4e05af9d9128fdf31764ece122998e5fca8afc",
+    "usr/lib/powerpc-linux-gnuspe/libpixman-1.so.0": "d534f43bcfc98246594f265cac4e05af9d9128fdf31764ece122998e5fca8afc",
+    "usr/lib/powerpc-linux-gnuspe/libpixman-1.so.0.44.0": "d534f43bcfc98246594f265cac4e05af9d9128fdf31764ece122998e5fca8afc",
+    "usr/lib/powerpc-linux-gnuspe/libpthread.so.0": "1eac65e4090674e2ef798dbe24fe0cc3ce061af41f117a5099ba177bd7a62f1f",
+    "usr/lib/powerpc-linux-gnuspe/libresolv.so": "d796dbcd841bb24f838cbfe685beb540a88d600230f5b6ccf51705cee763e4f8",
+    "usr/lib/powerpc-linux-gnuspe/libresolv.so.2": "d796dbcd841bb24f838cbfe685beb540a88d600230f5b6ccf51705cee763e4f8",
+    "usr/lib/powerpc-linux-gnuspe/librt.so.1": "f523a720428776b43b47edf06c3ffaea02557d31a5905fa079d1c8b25379b474",
+    "usr/lib/powerpc-linux-gnuspe/libthread_db.so": "6afc3a54ad53336a4d2c8889742256a95cebae33c68a1768acf20c1ac62b1d59",
+    "usr/lib/powerpc-linux-gnuspe/libthread_db.so.1": "6afc3a54ad53336a4d2c8889742256a95cebae33c68a1768acf20c1ac62b1d59",
+    "usr/lib/powerpc-linux-gnuspe/libutil.so.1": "9429c8cfa70c70375b01643790967f4f5a902dfce406d9878b963b1fb495e598"
+  },
+  "flags": [],
+  "bootstrap_shlibs_sha256": null,
+  "compiler_used": true,
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/pcre2_10.46-1~deb13u3.dsc",
+      "/work/debian-pcre2-502/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/pcre2/0001-cross-sysroot-packaging.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/pcre2/0001-cross-sysroot-packaging.patch"
+    ],
+    [
+      "dpkg-buildpackage",
+      "-a",
+      "powerpcspe",
+      "-B",
+      "-us",
+      "-uc"
+    ]
+  ],
+  "target_tests": "pending",
+  "package_installation": "not-attempted",
+  "physical_boot": false,
+  "installed_target_packages": [
+    "libattr1:powerpcspe\t1:2.5.2-3\tpowerpcspe\tinstalled",
+    "libattr1-dev:powerpcspe\t1:2.5.2-3\tpowerpcspe\tinstalled",
+    "libc6:powerpcspe\t2.41-12+deb13u4\tpowerpcspe\tinstalled",
+    "libc6-dev:powerpcspe\t2.41-12+deb13u4\tpowerpcspe\tinstalled",
+    "libcrypt-dev:powerpcspe\t1:4.4.38-1\tpowerpcspe\tinstalled",
+    "libcrypt1:powerpcspe\t1:4.4.38-1\tpowerpcspe\tinstalled",
+    "libfribidi-dev:powerpcspe\t1.0.16-1\tpowerpcspe\tinstalled",
+    "libfribidi0:powerpcspe\t1.0.16-1\tpowerpcspe\tinstalled",
+    "libmtdev-dev:powerpcspe\t1.1.7-1\tpowerpcspe\tinstalled",
+    "libmtdev1t64:powerpcspe\t1.1.7-1\tpowerpcspe\tinstalled",
+    "libpixman-1-0:powerpcspe\t0.44.0-3\tpowerpcspe\tinstalled",
+    "libpixman-1-dev:powerpcspe\t0.44.0-3\tpowerpcspe\tinstalled",
+    "pkgconf:powerpcspe\t1.8.1-4\tpowerpcspe\tinstalled"
+  ],
+  "patch_series_sha256": "dc91509430288ccaf83925ad5e6b8b0ba174ac8d2357448feeaa1676987d3f75",
+  "original_debian_changelog_sha256": "e091980fdfd6c63ddefd179e3a64f0c90dd0d7befcda18853769f0325d5c22d1",
+  "binary_version": "10.46-1~deb13u3",
+  "packages": {
+    "libpcre2-16-0_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "899224c949e1edcc86d9c3eb6e34ad07e2c1cbb907898ef40189fc542d6fa1dc",
+      "bytes": 171220,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-32-0_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "8968fe638726ed807fa2f86fe499999608f7ef7cc221e0eac0693c3e2335b88e",
+      "bytes": 166488,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-8-0-udeb_10.46-1~deb13u3_powerpcspe.udeb": {
+      "sha256": "18e6dd7bb6f6c1ff0ba8b6e64bb34f165569e1c4b02db0ddd762e11e52a014ce",
+      "bytes": 120048,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-8-0_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "82625e944fb6cbcac16c2d47ed8a5472f6072dfe03bdfd44d1bfa16b63cbce8e",
+      "bytes": 181256,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-dev_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "885316c4f2faae56a50cb042cb21ff6f1ab82e33c63afc27fb5dc66baca727d0",
+      "bytes": 592812,
+      "architecture": "powerpcspe"
+    },
+    "libpcre2-posix3_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "78ddd60475bb1e684e3897018764b9eb6cb08fc1ad331a2f767c45bec5932ed6",
+      "bytes": 63868,
+      "architecture": "powerpcspe"
+    },
+    "pcre2-utils_10.46-1~deb13u3_powerpcspe.deb": {
+      "sha256": "5d41cd6ed662e250cfc5e0998747bff10b9dba750d38f620f877add135d7c18c",
+      "bytes": 174312,
+      "architecture": "powerpcspe"
+    }
+  },
+  "build_metadata": {
+    "pcre2_10.46-1~deb13u3_powerpcspe.changes": "07aeab7c6bf73eeb8ad42e04e5b28787e8fca9e76fa8481399603d5f3e6adfa5",
+    "pcre2_10.46-1~deb13u3_powerpcspe.buildinfo": "555f66af8358a80e1c6b02523910b79ec063a66a4806dc45d539a782515f6d43"
+  }
+}

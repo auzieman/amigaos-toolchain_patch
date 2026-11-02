@@ -87,6 +87,8 @@ def attempt(package, iteration, settings, preflight):
             command.append(flag)
     if 'build_profiles' in settings:
         command += ['--build-profiles', settings['build_profiles']]
+    if settings.get('binary_nmu'):
+        command += ['--binary-nmu', str(settings['binary_nmu'])]
     if settings.get('preserve_debian_version'):
         command += ['--preserve-debian-version']
     if settings.get('package_managed_root'):

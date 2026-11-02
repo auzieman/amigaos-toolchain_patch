@@ -34,8 +34,10 @@ The active [managed build-root transition](builds/managed-build-root-20261102/RE
 replaces copied target development files with real apt/dpkg installation and
 Debian dependency checks. Patched libc6/libc6-dev coinstallation and UAPI header
 ownership have passed; nine subsequent ordinary source builds pass. The next
-shared blocker is the compiler default sysroot (issue14); its fresh GCC8.5
-rebuild is running, with installation and consumer acceptance still pending. This is an isolated cross-build root, not a configured target
+compiler default-sysroot defect (issue14) is fixed: installed SDK5 C/C++
+checks and fresh libsepol/PCRE2 packaging pass. See
+[compiler-default evidence](builds/sdk-defaults-20261102/README.md). Native build
+tools and further development dependencies are the next installation wave. This is an isolated cross-build root, not a configured target
 installation or new graphical boot.
 
 Corrected GCC8.5 SPE PIC/C++ unwinding and selected glibc runtime tests have

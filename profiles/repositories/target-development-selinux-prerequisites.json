@@ -1,0 +1,24 @@
+{
+  "purpose": "Install actual SPE SELinux build dependencies; native tools remain native",
+  "inputs": [
+    {
+      "receipt": "work/debian-libsepol-502/receipt.json",
+      "receipt_sha256": "b153dc469b0776d3303e72ed0791bad5913009418fba0fe574a7e4614bd37bfc",
+      "packages": [
+        "libsepol2",
+        "libsepol-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-pcre2-502/receipt.json",
+      "receipt_sha256": "514d3c7c2b8f988388ef441ba40892d49db2b30f9aa6f74b41438fc2bf8c29aa",
+      "packages": [
+        "libpcre2-8-0",
+        "libpcre2-16-0",
+        "libpcre2-32-0",
+        "libpcre2-posix3",
+        "libpcre2-dev"
+      ]
+    }
+  ]
+}

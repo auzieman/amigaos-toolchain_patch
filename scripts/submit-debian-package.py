@@ -71,6 +71,8 @@ if profile.get('indep_only'):
     command += ['--indep-only']
 if 'build_profiles' in profile:
     command += ['--build-profiles', profile['build_profiles']]
+if profile.get('binary_nmu'):
+    command += ['--binary-nmu', str(profile['binary_nmu'])]
 if profile.get('preserve_debian_version'):
     command += ['--preserve-debian-version']
 if profile.get('package_managed_root'):

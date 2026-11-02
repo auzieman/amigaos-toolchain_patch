@@ -1,0 +1,55 @@
+{
+  "status": "native-toolchain-package-built-not-installed",
+  "version": "8.5.0+tabor5",
+  "recipe_sha256": "75bd7e116897fb46d965b6477964d8db0e25e4fcd64eb8975322a6e9af814127",
+  "compiler_receipt_sha256": "0f5046f7f4c58dc3b93c8196f263e267190a79fa7e0940cba1acd5f0149b33e6",
+  "frontend_sha256": "0f23bb386ecae4b685fb3eb6d04c2a7d95f34dc3b83a77c6bafb5c58b41166de",
+  "compiler_sha256": "8237ccac1bb9c7cbbc8ad856a0b9f6c078c49b08432a5f84185f9b048d64d336",
+  "package_sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+  "bytes": 40360492,
+  "removed_libtool_archives": [
+    "libexec/gcc/powerpc-linux-gnuspe/8.5.0/liblto_plugin.la",
+    "powerpc-linux-gnuspe/lib/libstdc++.la",
+    "powerpc-linux-gnuspe/lib/libstdc++fs.la",
+    "powerpc-linux-gnuspe/lib/libsupc++.la"
+  ],
+  "binutils_search_links": {
+    "ar": {
+      "target": "/usr/bin/powerpc-linux-gnu-ar",
+      "sha256": "13cce2490e90875106f3ec68d7464a80dc7f52bb7a17448e670a0df9861cde12"
+    },
+    "as": {
+      "target": "/usr/bin/powerpc-linux-gnu-as",
+      "sha256": "fbbdac08236a5871c594e8674dd32f84618ea721c16aee8bf7ec703cfff5c529"
+    },
+    "ld": {
+      "target": "/usr/bin/powerpc-linux-gnu-ld",
+      "sha256": "8aaf0e2a1314ad622b2dc7a3d1cd02e9c979e00ad3978b043c28d9bd214b2305"
+    },
+    "nm": {
+      "target": "/usr/bin/powerpc-linux-gnu-nm",
+      "sha256": "2cbc37982d225db0f0c899e60b1f542438935e474babe3fe60950a58d6306b7f"
+    },
+    "ranlib": {
+      "target": "/usr/bin/powerpc-linux-gnu-ranlib",
+      "sha256": "0d9a07042ebe5ac8590d97e4cf06083c09ae157fd90704e133d3db7c89be4429"
+    },
+    "readelf": {
+      "target": "/usr/bin/powerpc-linux-gnu-readelf",
+      "sha256": "66e5e5530eb31ec4edfb57377be1d9d5611be4156a961ab027a15eed142c9260"
+    },
+    "objcopy": {
+      "target": "/usr/bin/powerpc-linux-gnu-objcopy",
+      "sha256": "898d41af0f3e087a0b725a5b35c3ef50034c44ab21821c6b6b39898796cac02c"
+    },
+    "objdump": {
+      "target": "/usr/bin/powerpc-linux-gnu-objdump",
+      "sha256": "e3528c679514efbf539a2716eff8603929ee7c936d3ee238081c669af7a21092"
+    },
+    "strip": {
+      "target": "/usr/bin/powerpc-linux-gnu-strip",
+      "sha256": "d67b2448295408536274b943ad355689f5f932dc71ec45b9fbb50a35d9f8fc7b"
+    }
+  },
+  "target_runtime_package": false
+}

@@ -1,0 +1,17 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+# These are host executables or architecture-independent protocol/document data.
+# Target development libraries are installed separately from our SPE artifacts.
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+    docbook docbook-utils docbook-to-man docbook2x xmlto xorg-sgml-doctools \
+    w3m xsltproc doxygen graphviz ducktype yelp-tools libxml2-utils \
+    texi2html sharutils patchelf indent swig python3-pip \
+    chrpath help2man javahelper default-jdk nasm \
+    libfont-ttf-perl woff-tools woff2 fontforge-nox autogen \
+    x11proto-dev x11proto-xext-dev x11proto-core-dev x11proto-scrnsaver-dev \
+    xfonts-utils xtrans-dev xcb-proto python3-xcbgen wayland-protocols \
+    python3-all-dev dh-sequence-ruby dh-runit libxml-parser-perl python3-ply python3-yaml \
+    && test -z "$(dpkg --audit)" \
+    && dpkg-query -W > /opt/tabor-native-build-dependencies-installed.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

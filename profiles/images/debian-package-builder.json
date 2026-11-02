@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "image_id": "sha256:a147dbc854577bde0d172a86f011e6164ecb0f63cd08f057a9143bc629f6a74f",
+  "image_id": "sha256:7971d167773181eb2fb1d5d44eaec6b6e64d998d06c0dba29f571eee7620cd68",
   "server_base": "/srv/data1/tabor-build/linux-live-001",
   "cpus": 4,
   "memory": "6g",
@@ -138,7 +138,8 @@
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/bootstrap-libraries.lock.json",
       "build_profiles": "cross,nocheck,nopython",
-      "arch_only": true
+      "arch_only": true,
+      "binary_nmu": 1
     },
     "libsepol": {
       "source_cache": "bootstrap-source-cache",
@@ -231,7 +232,8 @@
       "source_cache": "bootstrap-source-cache",
       "source_lock": "profiles/essential-sources.lock.json",
       "arch_only": true,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "binary_nmu": 1
     },
     "tar": {
       "source_cache": "bootstrap-source-cache",
@@ -763,6 +765,10 @@
       "source_lock": "profiles/build-dependency-sources.lock.json",
       "arch_only": true,
       "build_profiles": "cross,nocheck"
+    },
+    "libmd": {
+      "binary_nmu": 1,
+      "arch_only": true
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",

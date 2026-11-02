@@ -1,0 +1,8 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+# Debian's normal source-changelog tool creates reviewed binary-only rebuilds.
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends devscripts \
+    && test -z "$(dpkg --audit)" \
+    && dpkg-query -W > /opt/tabor-bin-nmu-tools-installed.txt \
+    && rm -rf /var/lib/apt/lists/*
+ENTRYPOINT ["python3"]

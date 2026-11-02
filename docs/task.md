@@ -1122,3 +1122,14 @@ separate read-only build sysroot, running on R730 at 4CPU/6GiB; acceptance and
 consumer retries pending. Archive011 has83 artifacts with bad old libc6-dev
 explicitly excluded; full dependency closure remains blocked. No new graphical
 image or USB write. See builds/managed-build-root-20261102 for retained evidence.
+
+2026-11-02 compiler-default correction verified: fresh GCC8.5 source build
+system-root001 and native SDK5 install pass. The installed compiler selects /
+and the SPE/no-FPR/IBM128 big-endian ABI by default. C/C++ header/compile/link
+checks pass without injected target flags; all9 tool lookups select cross
+binutils. Libsepol502 and PCRE2-502 then complete normal Debian packaging.
+Managed recipes now validate those defaults and leave maintainer flags to
+Debian. Retained evidence: builds/sdk-defaults-20261102. Native build-tool
+installation is running; reviewed +b1 binary rebuild support and a20-source
+core/X11 dependency wave are prepared but not yet accepted. Full target root,
+normal-feature libc, graphical/runtime and physical gates remain pending.
