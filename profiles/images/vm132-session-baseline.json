@@ -160,5 +160,6 @@
     "install_recommends": true,
     "resolver": "apt on real target package indexes; reference metadata is planning evidence only",
     "acceptance": "Full desktop seed closure must resolve and configure; an Essential-only simulation is not desktop acceptance"
-  }
+  },
+  "scope": "Minimum base/session acceptance gate only; complete VM132 functional package/application target is tracked in trixie-vm132-target.json"
 }

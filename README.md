@@ -6,7 +6,9 @@ Build policy: [Debian-first powerpcspe port](docs/debian-port-build-contract.md)
 
 For Steven: [Linux reference and AmigaOS4 engineering roadmap](docs/hyperion-roadmap.md).
 
-Current recording/build checkpoint: [kernel008 storage proof, live fractal/GL session and remaining Trixie root gates](docs/builds/boot-candidate-20261101/README.md).
+Current core build workflow: [VM132-directed fail-forward queue and retained results](docs/builds/core-queue-20261102/README.md).
+
+Previous recording/build checkpoint: [kernel008 storage proof, live fractal/GL session and remaining Trixie root gates](docs/builds/boot-candidate-20261101/README.md).
 
 Previous work: [normal Trixie bootstrap packages, libc packaging and disk-root prerequisites](docs/builds/trixie-bootstrap-20261101/README.md). The older BusyBox roots remain diagnostics, not an accepted Debian installation.
 

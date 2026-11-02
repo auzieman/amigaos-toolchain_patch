@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "purpose": "Functional reference for a source-built PPC/SPE live image; not an amd64 binary clone",
+  "purpose": "VM132 functional package/application scope rebuilt for powerpcspe; minimal boot/desktop are intermediate milestones",
   "reference": {
     "vmid": 132,
     "name": "trixie-smoke-132",
@@ -40,7 +40,12 @@
       "qemu",
       "a1222"
     ],
-    "session_baseline": "profiles/images/vm132-session-baseline.json"
+    "session_baseline": "profiles/images/vm132-session-baseline.json",
+    "reference_inventory": "docs/builds/vm132-comparison-20261101/packages.json",
+    "reference_inventory_count": 2337,
+    "scope": "Base, desktop and broader VM132 application collection, staged through dependency-ready source builds; unavailable or architecture-specific components require explicit review/defer records",
+    "queue_policy": "Continue independent package attempts after a failure; retain failures and unmet dependencies for later passes. Never disable Debian dependency checks to force progress.",
+    "flatpak": "Excluded by prior user instruction"
   },
   "current_increment": {
     "filesystem": "2 GiB MBR/FAT32 boot media with RAM rescue filesystem",

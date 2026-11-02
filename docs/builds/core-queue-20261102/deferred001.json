@@ -1,0 +1,400 @@
+[
+  {
+    "package": "base-passwd",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-base-passwd-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-base-passwd-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "bd4d7b6a620949472d27e6caa0c8511ab254fa4d9f26dfed3d3d052b4a716d03",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/base-passwd_3.6.7.dsc', '/work/debian-base-passwd-preflight-101/source']",
+        "dpkg-source: info: extracting base-passwd in /work/debian-base-passwd-preflight-101/source",
+        "dpkg-source: info: unpacking base-passwd_3.6.7.tar.xz",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: docbook docbook-utils libdebconfclient0-dev libselinux1-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: docbook docbook-utils libdebconfclient0-dev libselinux1-dev"
+      ]
+    }
+  },
+  {
+    "package": "debian-archive-keyring",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-debian-archive-keyring-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-debian-archive-keyring-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "12a9b39c42fb36f9a03be2474e4c7c2ac56399aa686714da4d9b58a63e0e5d0b",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/debian-archive-keyring_2025.1.dsc', '/work/debian-debian-archive-keyring-preflight-101/source']",
+        "dpkg-source: info: extracting debian-archive-keyring in /work/debian-debian-archive-keyring-preflight-101/source",
+        "dpkg-source: info: unpacking debian-archive-keyring_2025.1.tar.xz",
+        "$ ['dpkg-checkbuilddeps', '-A']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: jetring"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: jetring"
+      ]
+    }
+  },
+  {
+    "package": "ca-certificates",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-ca-certificates-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-ca-certificates-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "bf933547359c8570bbeaaa9dc17aa41c9b16ee48c91b291d379124a2afad65bc",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/ca-certificates_20250419+deb13u1.dsc', '/work/debian-ca-certificates-preflight-101/source']",
+        "dpkg-source: info: extracting ca-certificates in /work/debian-ca-certificates-preflight-101/source",
+        "dpkg-source: info: unpacking ca-certificates_20250419+deb13u1.tar.xz",
+        "$ ['dpkg-checkbuilddeps', '-A']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: python3-cryptography"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: python3-cryptography"
+      ]
+    }
+  },
+  {
+    "package": "tzdata",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-tzdata-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-tzdata-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "e471309db75744aa3286a8236d6f2208d4d8011bee6e165cad3aae3e64b9cb4c",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/tzdata_2026c-0+deb13u1.dsc', '/work/debian-tzdata-preflight-101/source']",
+        "dpkg-source: info: extracting tzdata in /work/debian-tzdata-preflight-101/source",
+        "dpkg-source: info: unpacking tzdata_2026c.orig.tar.gz",
+        "dpkg-source: info: unpacking tzdata_2026c-0+deb13u1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying Correct-timezone-symlinks-when-using-BACKWARD-backward-PA.patch",
+        "$ ['dpkg-checkbuilddeps', '-A']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: python3-debian python3-natsort python3-polib"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: python3-debian python3-natsort python3-polib"
+      ]
+    }
+  },
+  {
+    "package": "dpkg",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-dpkg-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-dpkg-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "26f1c3207e24f325948f5c675e077c3ce7589a517aea3a4ceee1cb4532842bd1",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/dpkg_1.22.22.dsc', '/work/debian-dpkg-preflight-101/source']",
+        "dpkg-source: info: extracting dpkg in /work/debian-dpkg-preflight-101/source",
+        "dpkg-source: info: unpacking dpkg_1.22.22.tar.xz",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: pkgconf libmd-dev zlib1g-dev libbz2-dev liblzma-dev (>= 5.4.0) libzstd-dev (>= 1.4.0) libselinux1-dev libncurses-dev (>= 6.1+20180210)"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: pkgconf libmd-dev zlib1g-dev libbz2-dev liblzma-dev (>= 5.4.0) libzstd-dev (>= 1.4.0) libselinux1-dev libncurses-dev (>= 6.1+20180210)"
+      ]
+    }
+  },
+  {
+    "package": "acl",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-acl-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-acl-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "73929d04908c2ab6d6e41bcd11524f70dee222ebcba53a468de9181ccbeddf4e",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/acl_2.3.2-2.dsc', '/work/debian-acl-preflight-101/source']",
+        "dpkg-source: info: extracting acl in /work/debian-acl-preflight-101/source",
+        "dpkg-source: info: unpacking acl_2.3.2.orig.tar.xz",
+        "dpkg-source: info: unpacking acl_2.3.2-2.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying 0001-libmisc-__acl_get_uid-fix-memory-wasting-loop-if-use.patch",
+        "dpkg-source: info: applying getfacl-fix-uninitialized-variable.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libattr1-dev (>= 1:2.4.46-8)"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libattr1-dev (>= 1:2.4.46-8)"
+      ]
+    }
+  },
+  {
+    "package": "bash",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-bash-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-bash-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "9a5835128db2b8ab8a5741731158af4760f60b9cfc1c98b0ca630e8b99df0c2f",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "dpkg-source: info: applying man-test2.diff",
+        "dpkg-source: info: applying rbash-manpage.diff",
+        "dpkg-source: info: applying bash-default-editor.diff",
+        "dpkg-source: info: applying input-err.diff",
+        "dpkg-source: info: applying exec-redirections-doc.diff",
+        "dpkg-source: info: applying bash-aliases-repeat.diff",
+        "dpkg-source: info: applying use-system-texi2html.diff",
+        "dpkg-source: info: applying man-macro-warnings.diff",
+        "dpkg-source: info: applying man-vx-opts.diff",
+        "dpkg-source: info: applying fix-rl_do_undo-crash.diff",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libncurses5-dev texi2html sharutils"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libncurses5-dev texi2html sharutils"
+      ]
+    }
+  },
+  {
+    "package": "coreutils",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-coreutils-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-coreutils-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "2ef8322068a545970a3655eb4250e10399d3146b05e52ccabe0bcbc11cbbd0c8",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/coreutils_9.7-3.dsc', '/work/debian-coreutils-preflight-101/source']",
+        "dpkg-source: info: extracting coreutils in /work/debian-coreutils-preflight-101/source",
+        "dpkg-source: info: unpacking coreutils_9.7.orig.tar.xz",
+        "dpkg-source: info: unpacking coreutils_9.7-3.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying 72_id_checkngroups.patch",
+        "dpkg-source: info: applying gnulib-nfs-acl.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libattr1-dev libacl1-dev libselinux1-dev (>= 1.32) libgmp3-dev libssl-dev libsystemd-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libattr1-dev libacl1-dev libselinux1-dev (>= 1.32) libgmp3-dev libssl-dev libsystemd-dev"
+      ]
+    }
+  },
+  {
+    "package": "tar",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-tar-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-tar-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "1f285410be2b490e9fb746eab6f4d249d1593125a4dcb7e7964fa9ad22b18bb2",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "dpkg-source: info: unpacking tar_1.35+dfsg.orig.tar.xz",
+        "dpkg-source: info: unpacking tar_1.35+dfsg-3.1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying pristine-tar.diff",
+        "dpkg-source: info: applying listed03-linux-only",
+        "dpkg-source: info: applying oldgnu-unknown-mode-bits.patch",
+        "dpkg-source: info: applying proper_it_translation.patch",
+        "dpkg-source: info: applying exclude17.patch",
+        "dpkg-source: info: applying exclude18.patch",
+        "dpkg-source: info: applying tar-1.35-revert-fix-savannah-bug-633567.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libacl1-dev libselinux1-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libacl1-dev libselinux1-dev"
+      ]
+    }
+  },
+  {
+    "package": "grep",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-grep-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-grep-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "5200b066247966c84fea561e7be98a592e93e2d8f078fa5527da2fdd3fd72b39",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "dpkg-source: info: unpacking grep_3.11.orig.tar.xz",
+        "dpkg-source: info: unpacking grep_3.11-4.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying XFAIL-test-regex.patch",
+        "dpkg-source: info: applying 01-disable-egrep-fgrep-warnings.patch",
+        "dpkg-source: info: applying 02-man_egrep_fgrep_rgrep.patch",
+        "dpkg-source: info: applying 05-grep-wrapper-sh.patch",
+        "dpkg-source: info: applying 1019724-handle-backslash-warning.patch",
+        "dpkg-source: info: applying grep-dirfd.patch",
+        "dpkg-source: info: applying clean.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libpcre2-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libpcre2-dev"
+      ]
+    }
+  },
+  {
+    "package": "findutils",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-findutils-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-findutils-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "9bbe5a8d9d63ca0756180c875a9c2374f36c4a09b027452c8c3674a6fea2cfb0",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/findutils_4.10.0-3.dsc', '/work/debian-findutils-preflight-101/source']",
+        "dpkg-source: info: extracting findutils in /work/debian-findutils-preflight-101/source",
+        "dpkg-source: info: unpacking findutils_4.10.0.orig.tar.xz",
+        "dpkg-source: info: unpacking findutils_4.10.0-3.debian.tar.xz",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux1-dev"
+      ]
+    }
+  },
+  {
+    "package": "sed",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-sed-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-sed-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "2cd81e57d26df06b51810cc886e2a010265fdff594a431d2f7ba38472572741b",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/sed_4.9-2+deb13u1.dsc', '/work/debian-sed-preflight-101/source']",
+        "dpkg-source: info: extracting sed in /work/debian-sed-preflight-101/source",
+        "dpkg-source: info: unpacking sed_4.9.orig.tar.xz",
+        "dpkg-source: info: unpacking sed_4.9-2+deb13u1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying sed-i-follow-symlinks-fix-TOCTOU-race-CVE-2026-5958.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux-dev libacl1-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libselinux-dev libacl1-dev"
+      ]
+    }
+  },
+  {
+    "package": "libselinux",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-libselinux-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libselinux-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "2abb80e7ecef6d500436973fa896969432ca35fdb60d777b57afffb34310e500",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/libselinux_3.8.1-1.dsc', '/work/debian-libselinux-preflight-101/source']",
+        "dpkg-source: info: extracting libselinux in /work/debian-libselinux-preflight-101/source",
+        "dpkg-source: info: unpacking libselinux_3.8.1.orig.tar.gz",
+        "dpkg-source: info: unpacking libselinux_3.8.1-1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying default",
+        "dpkg-source: info: applying man",
+        "dpkg-source: info: applying x32",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-ruby libsepol-dev (>= 3.8.1) libpcre2-dev libpython3-all-dev python3-all-dev:any python3-pip swig"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: dh-sequence-ruby libsepol-dev (>= 3.8.1) libpcre2-dev libpython3-all-dev python3-all-dev:any python3-pip swig"
+      ]
+    }
+  },
+  {
+    "package": "libcap2",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-libcap2-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-libcap2-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "0003abf3776137b339d4ce85267642e26f2fad97793363a44485647dabd721e9",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "dpkg-source: info: unpacking libcap2_2.75-10+deb13u1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying Hide-private-symbols.patch",
+        "dpkg-source: info: applying Filter-out-PIE-flags-when-building-shared-objects.patch",
+        "dpkg-source: info: applying Skip-git-if-not-installed.patch",
+        "dpkg-source: info: applying Glibc-needs-a-constant-to-be-defined-for-puts-to-work.patch",
+        "dpkg-source: info: applying Add-support-for-some-less-mainstream-architectures.patch",
+        "dpkg-source: info: applying Extend-support-further-to-__m68k__-and-possibly-__sparc__.patch",
+        "dpkg-source: info: applying Be-more-systematic-using-the-kernel-signal-handler-APIs.patch",
+        "dpkg-source: info: applying Address-a-potential-TOCTOU-race-condition-in-cap_set_file.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: patchelf indent libpam0g-dev"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: patchelf indent libpam0g-dev"
+      ]
+    }
+  },
+  {
+    "package": "audit",
+    "iteration": "101",
+    "status": "build-dependencies-blocked",
+    "active_iteration": "debian-audit-preflight-101",
+    "preflight": {
+      "exit": 1,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/debian-audit-preflight-101/receipt.json",
+      "phase": "preflight",
+      "receipt_sha256": "4399b7edd1bc1d42fa84c8bc7ef7cb6607cb3c7ed379cf2c8637268662689db7",
+      "status": "build-dependencies-blocked",
+      "diagnostic_tail": [
+        "$ ['dpkg-source', '--no-check', '-x', '/cache/audit_4.0.2-2+deb13u1.dsc', '/work/debian-audit-preflight-101/source']",
+        "dpkg-source: info: extracting audit in /work/debian-audit-preflight-101/source",
+        "dpkg-source: info: unpacking audit_4.0.2.orig.tar.gz",
+        "dpkg-source: info: unpacking audit_4.0.2-2+deb13u1.debian.tar.xz",
+        "dpkg-source: info: using patch list from debian/patches/series",
+        "dpkg-source: info: applying 01-no-refusemanualstop.patch",
+        "dpkg-source: info: applying 03-Set-log_group-adm.patch",
+        "dpkg-source: info: applying 04-riscv64.patch",
+        "$ ['dpkg-checkbuilddeps', '-P', 'cross,nocheck', '-a', 'powerpcspe', '-B']",
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libcap-ng-dev libkrb5-dev libldap2-dev libwrap0-dev python3-all-dev:any libpython3-all-dev swig"
+      ],
+      "unmet_dependencies": [
+        "dpkg-checkbuilddeps: error: unmet build dependencies: libcap-ng-dev libkrb5-dev libldap2-dev libwrap0-dev python3-all-dev:any libpython3-all-dev swig"
+      ]
+    }
+  }
+]

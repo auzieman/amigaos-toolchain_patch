@@ -1,0 +1,18 @@
+{
+  "scope": "Retry three independent core/data sources after actual host dependency installation",
+  "timeout_seconds": 7200,
+  "attempts": [
+    {
+      "package": "debian-archive-keyring",
+      "iteration": "102"
+    },
+    {
+      "package": "ca-certificates",
+      "iteration": "102"
+    },
+    {
+      "package": "tzdata",
+      "iteration": "102"
+    }
+  ]
+}

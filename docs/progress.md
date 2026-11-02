@@ -579,3 +579,20 @@ checks after restoring host Perl files excluded by the slim image. Signed
 archive007 contains42 artifacts; full Essential/desktop closure still blocked.
 Next: actual target development dependency closure for dpkg/base-passwd and
 normal Essential configuration, not RAM-root patching. Evidence: builds/cross-development-20261101/README.md.
+
+2026-11-02 scope/fail-forward correction: VM132 functional application collection
+is the target; the66-seed desktop is an intermediate gate. R730 core queue001
+attempts17 pinned sources from a frozen snapshot, one constrained container at
+a time, independent of laptop/editor lifetime. Debian preflights remain enabled;
+failures/blocked items are retained in deferred.json while later sources run.
+Observed base-passwd blocked followed by a successful media-types build.
+See builds/core-queue-20261102/README.md; this is not a completed target root.
+
+Core queue001 finished17 attempts: media-types/adduser built,15 deferred.
+Installed real host tools in infra012 and retry queue002 built keyring,
+ca-certificates and tzdata with tests enabled. Combined:5 new source builds,
+12 still dependency-blocked; normal target dependency/root acceptance pending.
+Both complete/deferred receipts retained in builds/core-queue-20261102.
+
+Reviewed successful queue artifacts added to signed archive008: 48 artifacts;
+signature/selected-library check passes, full Essential/desktop still blocked.

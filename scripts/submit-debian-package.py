@@ -14,6 +14,9 @@ assert a.package in profile['packages'], 'Package needs reviewed intake and reci
 profile.update(profile.get('package_inputs', {}).get(a.package, {}))
 helper = project.parent / 'lab/consolidation-20261002/r730-prep-20261031'
 base = profile['server_base']
+queue_active = subprocess.run(['python3', str(helper / 'sudo.py'),
+    'systemctl is-active --quiet tabor-core-queue.service'], capture_output=True)
+assert queue_active.returncode != 0, 'The serial core queue owns package submission; add work to a later queue pass'
 # Serial submission: refuse to add a second active package build.
 active = subprocess.check_output(['python3', str(helper / 'sudo.py'),
     "docker ps --filter name=tabor- --format '{{.Names}}'"], text=True).strip()
