@@ -1,0 +1,34 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  40.77MB
+Step 1/5 : ARG BUILD_INFRA_IMAGE
+Step 2/5 : FROM ${BUILD_INFRA_IMAGE}
+ ---> b4302ee2f7c9
+Step 3/5 : COPY packages/ /opt/tabor-sdk-runtime-packages/
+ ---> d9c3fd4fd0c6
+Step 4/5 : RUN cd /opt/tabor-sdk-runtime-packages && sha256sum -c SHA256SUMS     && dpkg --install ./*.deb     && test -z "$(find /usr/lib/tabor-spe-toolchain -name '*.la' -print -quit)"     && dpkg --audit     && dpkg-query -W > /opt/tabor-sdk-runtime-installed.txt
+ ---> Running in 2fbf9c9e50a5
+libgcc-s1-powerpcspe-cross_8.5.0+tabor1_all.deb: OK
+libstdc++6-powerpcspe-cross_8.5.0+tabor1_all.deb: OK
+tabor-spe-toolchain_8.5.0+tabor3_amd64.deb: OK
+Selecting previously unselected package libgcc-s1-powerpcspe-cross.
+(Reading database ... 39246 files and directories currently installed.)
+Preparing to unpack .../libgcc-s1-powerpcspe-cross_8.5.0+tabor1_all.deb ...
+Unpacking libgcc-s1-powerpcspe-cross (8.5.0+tabor1) ...
+Selecting previously unselected package libstdc++6-powerpcspe-cross.
+Preparing to unpack .../libstdc++6-powerpcspe-cross_8.5.0+tabor1_all.deb ...
+Unpacking libstdc++6-powerpcspe-cross (8.5.0+tabor1) ...
+Preparing to unpack .../tabor-spe-toolchain_8.5.0+tabor3_amd64.deb ...
+Unpacking tabor-spe-toolchain (8.5.0+tabor3) over (8.5.0+tabor2) ...
+Setting up libgcc-s1-powerpcspe-cross (8.5.0+tabor1) ...
+Setting up libstdc++6-powerpcspe-cross (8.5.0+tabor1) ...
+Setting up tabor-spe-toolchain (8.5.0+tabor3) ...
+ ---> Removed intermediate container 2fbf9c9e50a5
+ ---> 8065b45a83ac
+Step 5/5 : ENTRYPOINT ["python3"]
+ ---> Running in baadabc5ecae
+ ---> Removed intermediate container baadabc5ecae
+ ---> 34575c073e8a
+Successfully built 34575c073e8a

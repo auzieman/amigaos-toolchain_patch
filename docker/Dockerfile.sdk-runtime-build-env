@@ -1,0 +1,9 @@
+ARG BUILD_INFRA_IMAGE
+FROM ${BUILD_INFRA_IMAGE}
+COPY packages/ /opt/tabor-sdk-runtime-packages/
+RUN cd /opt/tabor-sdk-runtime-packages && sha256sum -c SHA256SUMS \
+    && dpkg --install ./*.deb \
+    && test -z "$(find /usr/lib/tabor-spe-toolchain -name '*.la' -print -quit)" \
+    && dpkg --audit \
+    && dpkg-query -W > /opt/tabor-sdk-runtime-installed.txt
+ENTRYPOINT ["python3"]

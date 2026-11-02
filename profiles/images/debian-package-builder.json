@@ -823,9 +823,10 @@
     "gmp": {
       "source_cache": "boot-source-cache",
       "source_lock": "profiles/core-dependency-sources.lock.json",
-      "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+      "image_id": "sha256:34575c073e8a81afdda9bd1bef50e49eab77e0c87972081b3c3b0b522825fade",
       "arch_only": false,
-      "build_profiles": "cross,nocheck"
+      "build_profiles": "cross,nocheck",
+      "tools_prefix": "/usr/lib/tabor-spe-toolchain"
     },
     "systemd": {
       "source_cache": "boot-source-cache",

@@ -1,0 +1,43 @@
+{
+  "status": "started",
+  "image_id": "sha256:b4302ee2f7c93bddc3d934f604b7ea10bdf184eb3cdecd92217ed8d81ac377a5",
+  "archive_receipt_sha256": "5d2debc48cd08fe680e0990c59b2269a7d77e785bb200d85eee049de153b9c9a",
+  "target_installation": false,
+  "boot_image_ready": false,
+  "tests": {
+    "update": {
+      "command": [
+        "apt-get",
+        "-o",
+        "APT::Architecture=powerpcspe",
+        "-o",
+        "APT::Architectures=powerpcspe",
+        "-o",
+        "Dir::State::status=/work/apt-check-011/target-status",
+        "-o",
+        "Dir::Etc::sourcelist=/work/apt-archive-010/tabor.sources",
+        "-o",
+        "Dir::Etc::sourceparts=/work/apt-check-011/sourceparts",
+        "-o",
+        "Dir::State::lists=/work/apt-check-011/lists",
+        "-o",
+        "Acquire::Languages=none",
+        "update"
+      ],
+      "exit": 100,
+      "log_sha256": "0fa151cb94fa78407c0a940c8977ded5cd7ba39b59fb56cf79d0de175d078b1a"
+    }
+  },
+  "desktop_seed_groups": [
+    "installation",
+    "session",
+    "desktop",
+    "graphics",
+    "desktop_services",
+    "remote",
+    "package_management",
+    "graphics_tests",
+    "browser"
+  ],
+  "desktop_install_recommends": true
+}

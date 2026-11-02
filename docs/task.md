@@ -1068,3 +1068,22 @@ Final zlib205 packaging passes with3 observed cross-build fixes; no target
 self-tests are attempted on the host with requested nocheck. Target runtime
 remains untested. libpthread-stubs202/libxcvt202 also built. GMP203 remains
 blocked after compilation by unowned target libstdc++ dependency metadata.
+
+2026-11-02 runtime packaging: created genuine target libgcc-s1/libstdc++6
+packages from the provenance-checked recorded GCC8.5 build, with debhelper
+shlibs/Depends and upstream notices. Converted those real artifacts only for
+host cross-development metadata. Cleaned four bootstrap libtool archives from
+the relocated host SDK; original tools tree unchanged. Offline environment
+installed all3 packages normally and passed dpkg audit. Fresh GMP301 runs with
+the installed SDK on R730 (4CPU/6GiB). No target execution in the build stage;
+73 sources is working scope, not dependency/boot acceptance by count. Details:
+builds/runtime-packaging-20261102. Full target root and graphical gates remain.
+
+GMP301 finishes normal Debian packaging:5 packages, with target library
+RUNPATH checks clean of /tools, /work and compiler SDK prefixes. This resolves
+the demonstrated GMP203 metadata/build-path blockers; target runtime tests are
+still pending. Signed archive010 now contains64 artifacts (was57). Its
+signature/update and selected dependency checks pass; full Essential/desktop
+closure remains blocked. No new accepted root, graphical boot or USB write.
+Next: install genuine already-built target development packages and close the
+remaining core dependency source chain. See runtime-packaging-20261102.

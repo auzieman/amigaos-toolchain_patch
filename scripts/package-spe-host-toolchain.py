@@ -20,6 +20,13 @@ cc1=Path(subprocess.check_output([str(a.tools/'bin/powerpc-linux-gnuspe-gcc'),'-
 assert cc1.is_relative_to(a.tools.resolve())
 root = a.output / 'root'; target = root / 'usr/lib/tabor-spe-toolchain'
 shutil.copytree(a.tools, target, symlinks=True)
+# Libtool archives retain the original bootstrap install prefix. Consumers then
+# embed /tools RUNPATHs even after GCC itself has been relocated correctly.
+# Shared/static libraries remain; .la files are not required by the compiler.
+removed_libtool_archives = []
+for archive_file in sorted(target.rglob('*.la')):
+    removed_libtool_archives.append(str(archive_file.relative_to(target)))
+    archive_file.unlink()
 binpath = root / 'usr/bin'; binpath.mkdir(parents=True)
 for tool in sorted((target / 'bin').iterdir()):
     assert tool.name.startswith('powerpc-linux-gnuspe-')
@@ -52,5 +59,6 @@ subprocess.run(['dpkg-deb', '--root-owner-group', '-Zgzip', '-Snone', '--build',
     'version': a.version, 'recipe_sha256': sha(Path(__file__)), 'compiler_receipt_sha256': sha(a.compiler_receipt),
     'frontend_sha256': sha(cc1), 'compiler_sha256': sha(a.tools / 'bin/powerpc-linux-gnuspe-gcc'),
     'package_sha256': sha(package), 'bytes': package.stat().st_size,
+    'removed_libtool_archives': removed_libtool_archives,
     'target_runtime_package': False}, indent=2) + '\n')
 print(package)

@@ -92,3 +92,17 @@ orchestration; do not expand target dependency work into rebuilding amd64 libc
 or other native counterparts. Keep host compiler tooling outside the target
 archive. Cross-compilation has a host and a target, but this is not a multi-target
 archive rebuild. Resolve target dependencies in the target environment.
+
+Build-stage execution clarification (2026-11-02): the x86 build host runs
+native compilers, packaging tools and required native code generators. It does
+not run the newly compiled powerpcspe binaries as part of cross compilation.
+Use Debian's supported cross/nocheck profiles where appropriate and patch
+recipes that incorrectly execute target tools. Architecture:all scripting/data
+outputs are permitted. Target runtime tests belong to a separately recorded
+QEMU or physical A1222 stage; a successful package build does not imply they ran.
+
+The 73-source readiness group is the working scope for the first graphical
+candidate, not a numerical acceptance threshold. Acceptance requires the
+selected packages' real dependency closure, successful Debian configuration,
+then boot, SSH, X11, E and GL checks. Preserve failures and continue independent
+dependency-ready sources rather than reducing that closure to meet a count.

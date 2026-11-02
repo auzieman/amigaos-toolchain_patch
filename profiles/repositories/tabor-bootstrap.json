@@ -171,6 +171,20 @@
       "component": "main",
       "kind": "debian-build",
       "evidence": "docs/builds/source-coverage-20261102/zlib205.json"
+    },
+    {
+      "receipt": "work/gcc-runtime-package-003/receipt.json",
+      "receipt_sha256": "74eae3fb5693dd07107f71f26eb5d78e5027c028e1bcb8568652351f779fc166",
+      "component": "bootstrap",
+      "kind": "debian-build",
+      "evidence": "docs/builds/runtime-packaging-20261102/target-runtime-receipt.json"
+    },
+    {
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "receipt_sha256": "699bc558b3b85587d6e54af53a1f3db6b95200fb165a39ed254c8109c06d6728",
+      "component": "main",
+      "kind": "debian-build",
+      "evidence": "docs/builds/runtime-packaging-20261102/gmp301-receipt.json"
     }
   ]
 }

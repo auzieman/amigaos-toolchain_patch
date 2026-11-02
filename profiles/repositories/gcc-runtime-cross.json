@@ -1,0 +1,13 @@
+{
+  "purpose": "Real GCC runtime cross-development metadata for the host build image only",
+  "inputs": [
+    {
+      "receipt": "work/gcc-runtime-package-003/receipt.json",
+      "receipt_sha256": "74eae3fb5693dd07107f71f26eb5d78e5027c028e1bcb8568652351f779fc166",
+      "packages": [
+        "libgcc-s1",
+        "libstdc++6"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+Source: tabor-gcc-runtime
+Section: libs
+Priority: optional
+Maintainer: Tabor lab <root@localhost>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: libgcc-s1
+Architecture: powerpcspe
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Recorded GCC 8.5 SPE shared runtime
+ Target runtime from the pinned, patched GCC bootstrap compilation.
+
+Package: libstdc++6
+Architecture: powerpcspe
+Multi-Arch: same
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Recorded GCC 8.5 SPE C++ shared runtime
+ Target runtime from the pinned, patched GCC bootstrap compilation.
