@@ -1,0 +1,17 @@
+Source: tabor-spe-cross-build-essential
+Section: devel
+Priority: optional
+Maintainer: Tabor SPE lab <root@localhost>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: crossbuild-essential-powerpcspe
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, tabor-spe-toolchain:amd64 (= 8.5.0+tabor5), binutils-powerpc-linux-gnu:amd64, libc6-dev:powerpcspe, linux-libc-dev:amd64 (= 6.12.115-2+spe1), tabor-spe-libgcc-s1:powerpcspe (= 8.5.0+tabor1), tabor-spe-libstdc++6:powerpcspe (= 8.5.0+tabor1), dpkg-dev, make
+Description: Experimental frozen Tabor SPE cross-build foundation
+ Dependency-only entry point for the real packaged SPE compiler, cross-binutils,
+ target libc development files and versioned universal Linux UAPI headers.
+ The selected native SDK runs on amd64. This private port adapter contains no
+ compiler or target runtime binaries and does not assert full libc acceptance.

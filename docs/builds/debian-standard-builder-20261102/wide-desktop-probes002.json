@@ -1,0 +1,58 @@
+{
+  "status": "wide-desktop-dependency-probes-completed",
+  "target_execution": false,
+  "application_build_started": false,
+  "image_selection_changed": false,
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "dependency_audit_sha256": "56efdccc7ff0ba7acd2d31d3f41039a1d3b8949e98b98233a675042261ebdd4a",
+  "source_indexes": [
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie/main/source/Sources.xz",
+      "sha256": "6002f81f463a2d976d84b34170367cc16da2d60bd0ba9ab9d868d6e1c1a935d9"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie-updates/main/source/Sources.xz",
+      "sha256": "79552ccddf12a94348fe953e53a8584881b00a2c3eb984c871ae26783d67e391"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/dists/trixie-security/main/source/Sources.xz",
+      "sha256": "685074d809f449fb00250e1bec6a241bbe55694152a64955ac9d8918b6b4ae91"
+    }
+  ],
+  "sources": {
+    "firefox-esr": {
+      "version": "153.6.0esr-1~deb13u1",
+      "architecture": "any all",
+      "build_depends": "debhelper-compat (= 12), libx11-dev, libx11-xcb-dev, libxt-dev, libgtk-3-dev, libglib2.0-dev, libdrm-dev, libstartup-notification0-dev, libjpeg-dev, zlib1g-dev, libreadline-dev, python3 (>= 3.8), libnspr4-dev (>= 2:4.32~), libvpx-dev (>= 1.10.0), libdbus-1-dev, libffi-dev, libevent-dev, libpulse-dev, libasound2-dev, nasm (>= 2.14) [amd64 i386], rustc-web (>= 1.90), cargo-web (>= 1.90), llvm-dev, libclang-dev, clang, libc++-dev-wasm32, libclang-rt-dev-wasm32, lld, cbindgen-web (>= 0.29.4), nodejs (>= 12.22.1), zip, unzip, locales, xvfb, xfonts-base, xauth, ttf-bitstream-vera, fonts-freefont-ttf, fonts-dejima-mincho, iso-codes",
+      "build_depends_arch": null,
+      "build_depends_indep": null
+    },
+    "gnome-control-center": {
+      "version": "1:48.4-1~deb13u1",
+      "architecture": "any all",
+      "build_depends": "debhelper-compat (= 13), desktop-file-utils, dh-sequence-gnome (>= 0.22.2), gnome-settings-daemon-dev (>= 48~rc), gsettings-desktop-schemas-dev (>= 48~alpha), gtk-doc-tools, libaccountsservice-dev (>= 23.11.69), libadwaita-1-dev (>= 1.7~alpha), libcolord-dev, libcolord-gtk4-dev (>= 0.1.24), libcups2-dev, libgcr-4-dev [linux-any], libgdk-pixbuf-2.0-dev, libgirepository1.0-dev, libglib2.0-dev (>= 2.76.6), libgnome-bg-4-dev, libgnome-bluetooth-ui-3.0-dev [linux-any], libgnome-desktop-4-dev, libgnome-rr-4-dev, libgnutls28-dev, libgoa-1.0-dev (>= 3.51.0), libgoa-backend-1.0-dev (>= 3.51.0), libgsound-dev, libgtk-4-dev (>= 4.15.2), libgtop2-dev, libgudev-1.0-dev [linux-any], libhandy-1-dev (>= 1.2.0), libibus-1.0-dev, libjson-glib-dev, libkrb5-dev, libmalcontent-0-dev [amd64 arm64 armel armhf i386 mips64el ppc64el riscv64 s390x hppa powerpc ppc64 x32], libmm-glib-dev [linux-any], libnm-dev [linux-any], libnma-gtk4-dev (>= 1.10.2) [linux-any], libpolkit-gobject-1-dev, libpulse-dev, libpwquality-dev, libsecret-1-dev, libsmbclient-dev, libsoup-3.0-dev, libudisks2-dev, libupower-glib-dev (>= 1.90.6), libwacom-dev [linux-any], libx11-dev (>= 2:1.8), libxft-dev, libxi-dev, libxklavier-dev, libxml2-dev, libxml2-utils, locales, meson (>= 0.57.0), polkitd, python3-dbusmock, shared-mime-info, tecla (>= 47), tzdata <!nocheck>, xvfb",
+      "build_depends_arch": null,
+      "build_depends_indep": null
+    }
+  },
+  "binary_inputs": {
+    "native_sha256": "2272039eb57b1e9fef4552936d5224ebe251e46e83bd7d7e54236a168685ef23",
+    "spe_sha256": "4c91ee029ec8edd55a2bd10c63e1992f287b5ddfddd59378620b33e3b2ec7e0b"
+  },
+  "dose_exit": 1,
+  "report_sha256": "3f1a9b9d2554fcd2e41172cffba817bde442cb9d963b22469c55172629ef2911",
+  "command": [
+    "dose-builddebcheck",
+    "--deb-native-arch=amd64",
+    "--deb-host-arch=powerpcspe",
+    "--deb-profiles=cross,nocheck",
+    "--deb-drop-b-d-indep",
+    "--deb-emulate-sbuild",
+    "--failures",
+    "--successes",
+    "--explain",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-dependency-audit-005/NativePackages",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-dependency-audit-005/SpePackages",
+    "/srv/data1/tabor-build/linux-live-001/work/wide-desktop-dependency-probes-002/Sources"
+  ]
+}

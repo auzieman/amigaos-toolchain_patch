@@ -57,3 +57,14 @@ Linux6.12.115-2, glibc2.41-12+deb13u4, GCC8.5.0/SPE SDKtabor5 and the immutable
 live-mirror fallback. A mismatch fails and remains recorded; upgrades require
 an explicit reviewed baseline change. Build roots must carry the matching lock
 hash. A newer mirror package is not a reason to chase another base version.
+
+
+R730 concurrency (explicit user direction, 2026-11-02): use up to4 independent
+Debian-dependency-ready package jobs concurrently, each bounded to4 compiler
+jobs/4 CPUs and6GiB, after checking server headroom. The native metadata planner
+is capped at1 CPU/3GiB and the controller at1 CPU/1GiB. This supersedes the
+single-heavy-job default for this reviewed R730 package batch only; the laptop
+still runs no builds. Debian dose-builddebcheck determines dependency-set
+installability; sbuild/apt installs the actual native tools and SPE development
+packages before compiling. Recheck after accepted artifacts change. Do not
+queue known-blocked consumers merely because their names follow a failed source.

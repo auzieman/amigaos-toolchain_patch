@@ -1,0 +1,1317 @@
+{
+  "checked_relations": 99,
+  "blocking_relations": [
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libxt-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-3",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxt-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgtk-3-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-4",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgtk-3-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libglib2.0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-5",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libglib2.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libdrm-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-6",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libdrm-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libstartup-notification0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-7",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libstartup-notification0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "python3 (>= 3.8)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-11",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "python3:powerpcspe (>= 3.8)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libnspr4-dev (>= 2:4.32~)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-12",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libnspr4-dev:powerpcspe (>= 2:4.32~)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libvpx-dev (>= 1.10.0)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-13",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libvpx-dev:powerpcspe (>= 1.10.0)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libdbus-1-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-14",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libdbus-1-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libffi-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-15",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libffi-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libevent-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-16",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libevent-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libpulse-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-17",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libpulse-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libasound2-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-18",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libasound2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "rustc-web (>= 1.90)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-20",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "rustc-web:powerpcspe (>= 1.90)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "cargo-web (>= 1.90)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-21",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "cargo-web:powerpcspe (>= 1.90)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "llvm-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-22",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "llvm-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libclang-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-23",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libclang-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "clang",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-24",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "clang:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libc++-dev-wasm32",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-25",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libc++-dev-wasm32:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libclang-rt-dev-wasm32",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-26",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libclang-rt-dev-wasm32:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "lld",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-27",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "lld:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "cbindgen-web (>= 0.29.4)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-28",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "cbindgen-web:powerpcspe (>= 0.29.4)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "nodejs (>= 12.22.1)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-29",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "nodejs:powerpcspe (>= 12.22.1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "locales",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-32",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "locales:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "firefox-esr",
+      "source_version": "153.6.0esr-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "ttf-bitstream-vera",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-firefox-esr-build-depends-36",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "ttf-bitstream-vera:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "gnome-settings-daemon-dev (>= 48~rc)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-3",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "gnome-settings-daemon-dev:powerpcspe (>= 48~rc)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "gsettings-desktop-schemas-dev (>= 48~alpha)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-4",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "gsettings-desktop-schemas-dev:powerpcspe (>= 48~alpha)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libaccountsservice-dev (>= 23.11.69)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-6",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libaccountsservice-dev:powerpcspe (>= 23.11.69)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libadwaita-1-dev (>= 1.7~alpha)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-7",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libadwaita-1-dev:powerpcspe (>= 1.7~alpha)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libcolord-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-8",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libcolord-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libcolord-gtk4-dev (>= 0.1.24)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-9",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libcolord-gtk4-dev:powerpcspe (>= 0.1.24)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libcups2-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-10",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libcups2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgcr-4-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-11",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgcr-4-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgdk-pixbuf-2.0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-12",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgdk-pixbuf-2.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgirepository1.0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-13",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgirepository1.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libglib2.0-dev (>= 2.76.6)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-14",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libglib2.0-dev:powerpcspe (>= 2.76.6)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgnome-bg-4-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-15",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgnome-bg-4-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgnome-bluetooth-ui-3.0-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-16",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgnome-bluetooth-ui-3.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgnome-desktop-4-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-17",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgnome-desktop-4-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgnome-rr-4-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-18",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgnome-rr-4-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgnutls28-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-19",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgnutls28-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgoa-1.0-dev (>= 3.51.0)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-20",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgoa-1.0-dev:powerpcspe (>= 3.51.0)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgoa-backend-1.0-dev (>= 3.51.0)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-21",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgoa-backend-1.0-dev:powerpcspe (>= 3.51.0)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgsound-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-22",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgsound-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgtk-4-dev (>= 4.15.2)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-23",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgtk-4-dev:powerpcspe (>= 4.15.2)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgtop2-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-24",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgtop2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libgudev-1.0-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-25",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libgudev-1.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libhandy-1-dev (>= 1.2.0)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-26",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libhandy-1-dev:powerpcspe (>= 1.2.0)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libibus-1.0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-27",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libibus-1.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libjson-glib-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-28",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libjson-glib-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libkrb5-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-29",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libkrb5-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libmm-glib-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-31",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libmm-glib-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libnm-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-32",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libnm-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libnma-gtk4-dev (>= 1.10.2) [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-33",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libnma-gtk4-dev:powerpcspe (>= 1.10.2)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libpolkit-gobject-1-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-34",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libpolkit-gobject-1-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libpulse-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-35",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libpulse-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libpwquality-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-36",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libpwquality-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libsecret-1-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-37",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libsecret-1-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libsmbclient-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-38",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libsmbclient-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libsoup-3.0-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-39",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libsoup-3.0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libudisks2-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-40",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libudisks2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libupower-glib-dev (>= 1.90.6)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-41",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libupower-glib-dev:powerpcspe (>= 1.90.6)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libwacom-dev [linux-any]",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-42",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libwacom-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libxft-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-44",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxft-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libxi-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-45",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxi-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libxklavier-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-46",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxklavier-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "libxml2-dev",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-47",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxml2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "locales",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-49",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "locales:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "source": "gnome-control-center",
+      "source_version": "1:48.4-1~deb13u1",
+      "field": "Build-Depends",
+      "relation": "tecla (>= 47)",
+      "solver_explanation": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "probe-gnome-control-center-build-depends-54",
+              "version": "1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "tecla:powerpcspe (>= 47)"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "scope": "Individual declared relation coverage; whole-source coinstallability remains a separate gate"
+}

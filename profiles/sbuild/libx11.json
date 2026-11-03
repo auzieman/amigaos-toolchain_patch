@@ -1,0 +1,179 @@
+{
+  "package": "libx11",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "x11-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/debian-libmd-503/receipt.json",
+      "sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "packages": [
+        "libmd0",
+        "libmd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libbsd-540/receipt.json",
+      "sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291",
+      "packages": [
+        "libbsd0",
+        "libbsd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-glibc-402/receipt.json",
+      "sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxcrypt-401/receipt.json",
+      "sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "packages": [
+        "libcrypt1",
+        "libcrypt-dev"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/debian-pkgconf-403/receipt.json",
+      "sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "packages": [
+        "pkgconf"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-009/receipt.json",
+      "sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-libxdmcp-006/receipt.json",
+      "sha256": "f6fd50c63391e948d7e7b5b2d0afabadbeca7569f43cf4310723c3125f849528",
+      "packages": [
+        "libxdmcp6",
+        "libxdmcp-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxau-503/receipt.json",
+      "sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "packages": [
+        "libxau6",
+        "libxau-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libpthread-stubs-510/receipt.json",
+      "sha256": "3d8a58b700b9b190b3dacead441059543749866996cdea8feac92afb97a52f4e",
+      "packages": [
+        "libpthread-stubs0-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxcb-001/receipt.json",
+      "sha256": "5ef42f46c658410253ba6ba197ac38a89ad0ac84e0cb50ceedee20ca04ae45e9",
+      "packages": [
+        "libxcb-xkb-dev",
+        "libxcb-record0",
+        "libxcb-res0-dev",
+        "libxcb-glx0-dev",
+        "libxcb-dri2-0",
+        "libxcb-screensaver0",
+        "libxcb-glx0",
+        "libxcb-xinput-dev",
+        "libxcb-record0-dev",
+        "libxcb-damage0-dev",
+        "libxcb-present0",
+        "libxcb1",
+        "libxcb-dri3-dev",
+        "libxcb-present-dev",
+        "libxcb-xkb1",
+        "libxcb-xtest0-dev",
+        "libxcb-res0",
+        "libxcb-damage0",
+        "libxcb-xfixes0-dev",
+        "libxcb-shm0-dev",
+        "libxcb-xinerama0",
+        "libxcb-xinerama0-dev",
+        "libxcb-xv0",
+        "libxcb-dri3-0",
+        "libxcb-dpms0-dev",
+        "libxcb-dpms0",
+        "libxcb-sync1",
+        "libxcb-shape0-dev",
+        "libxcb-xf86dri0",
+        "libxcb-xv0-dev",
+        "libxcb-composite0-dev",
+        "libxcb1-dev",
+        "libxcb-render0",
+        "libxcb-composite0",
+        "libxcb-dri2-0-dev",
+        "libxcb-xvmc0-dev",
+        "libxcb-randr0-dev",
+        "libxcb-xtest0",
+        "libxcb-screensaver0-dev",
+        "libxcb-xinput0",
+        "libxcb-xf86dri0-dev",
+        "libxcb-render0-dev",
+        "libxcb-xvmc0",
+        "libxcb-shm0",
+        "libxcb-xfixes0",
+        "libxcb-shape0",
+        "libxcb-sync-dev",
+        "libxcb-randr0"
+      ]
+    },
+    {
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true
+    }
+  ],
+  "scope": "Fixed-base libX11 standard sbuild retry with the existing separately measured SPE allocator configure result; no target test execution in the cross build.",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/sdk-system-root-002/receipt.json",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86",
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "configure_cache": {
+    "path": "profiles/x11-configure-cache.json",
+    "sha256": "60eaa7081ef4b4de5e8795cada9625caa17a9905a6e3caa3a5f64a57488ca124",
+    "evidence": [
+      {
+        "path": "bench/x11-alloc-check.c",
+        "sha256": "c1f9ba19bdf91c39feebeb6d49801a13c49013280fbf866ed5f7bd0493fc7298"
+      },
+      {
+        "path": "docs/builds/r730-x11-20261031/alloc-probe/receipt.json",
+        "sha256": "cc93142731a1c48c09b4ac84a72ca7c91a37bb71af1d52ca88f5b4029c7dfba5"
+      },
+      {
+        "path": "docs/builds/r730-x11-20261031/alloc-probe/guest.log",
+        "sha256": "6b9d39f4caaab042a40cacfd9de8d112c19e344bd08643f44aacf9d46d04c8f6"
+      }
+    ]
+  }
+}

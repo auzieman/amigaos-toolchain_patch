@@ -53,7 +53,7 @@ Apt owns dependency selection and installation in each disposable root.
 
 The port-specific core configuration names the genuine packaged SDK, native
 cross-binutils and real SPE libc development package. It uses sbuild's documented
-configuration; it does not invent a crossbuild-essential package or ignore
+configuration; it does not fake compiler/runtime package identities or ignore
 Build-Depends. Official Debian mirror indexes are restricted to the architectures
 they actually publish; locally built SPE packages enter via the separate
 sbuild temporary archive/private port archive. Target builds remain SPE-only;
@@ -124,3 +124,43 @@ claim the selected newer header package or kernel has been built yet.
 
 Builds should accumulate accepted package artifacts from this baseline. QEMU
 validation is a separate downstream gate; see qemu-package-validation.md.
+
+## Dependency-first parallel dispatch
+
+The first X11 continuation exposed a real missing cross-configure answer:
+libX11 attempted the malloc-zero runtime probe. The existing separately measured
+SPE result is now hash-pinned through sbuild BUILD_ENVIRONMENT; libx11-002 passes.
+That failure should have prevented dispatch of its known dependent consumers.
+
+The cross-build foundation now has a real dependency-only Debian package:
+crossbuild-essential-powerpcspe1.0+spe1, source tabor-spe-cross-build-essential.
+It depends on the genuine native SDK/binutils and the exact SPE libc development
+and UAPI inputs. It contains no compiler/runtime payload and no fake Provides.
+Its ordinary native Architecture:all source build, .dsc/.changes/.buildinfo and
+static no-ELF inspection pass. Actual apt installation in all four new build
+roots also passes. This supplies the standard port entry point expected by
+Debian dose-builddebcheck and sbuild, replacing the earlier direct core map.
+
+Audit005 uses archive-signature/checksum-verified native Packages from the frozen
+snapshot plus actual receipt/hash-pinned SPE binary controls and pinned DSC
+Build-Depends. With build=amd64/host=powerpcspe and cross,nocheck, Debian's solver
+finds66 installable source dependency sets and42 blocked sets out of108 reviewed
+sources. These are readiness results, not66 successful source builds. Full
+failure chains and installation sets are retained on R730. No implicit
+Essential checks are disabled in the accepted audit.
+
+The first parallel pool mistakenly included obsolete stage2 libc versions and
+apt rejected them before compiling. Stop evidence remains in ready-sbuild-batch-001.
+Audit005 excludes those variants in favor of the pinned libc402 receipt. Batch002
+uses the solver's installation sets to supply required artifacts; four concurrent
+jobs have passed normal apt preinstallation of the real cross-build core. Each
+job is capped at4 CPUs/6GiB, with native metadata1 CPU/3GiB. The controller checks
+again after each wave so only dependency-ready sources run. Existing successful
+artifacts are made available; this does not treat target payloads as executable
+build-host tools or claim final target root configuration.
+
+Not every missing dependency means another target library port: source build
+profiles and native tool qualifiers must be reviewed too (for example Ruby/Java
+helpers). The solver's explanations retain those distinctions for correction
+at the proper source/packaging layer. Data-only source builds remain separately
+pending where the arch-only audit does not establish their full dependencies.

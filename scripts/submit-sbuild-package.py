@@ -12,7 +12,7 @@ settings=json.loads(spec.read_text());base='/srv/data1/tabor-build/linux-live-00
 helper=project.parent/'lab/consolidation-20261002/r730-prep-20261031'
 def remote(cmd,root=False,**kw):
  return subprocess.run(['python3',str(helper/('sudo.py' if root else 'remote.py')),shlex.join(cmd)],check=True,**kw)
-for unit in ['tabor-core-queue.service','tabor-native-scope-prerequisites.service','tabor-sbuild-proof.service','tabor-frozen-buildd-root.service','tabor-current-uapi-intake.service','tabor-sbuild-sequence.service']:
+for unit in ['tabor-core-queue.service','tabor-native-scope-prerequisites.service','tabor-sbuild-proof.service','tabor-frozen-buildd-root.service','tabor-current-uapi-intake.service','tabor-sbuild-sequence.service','tabor-ready-batch.service']:
  r=subprocess.run(['python3',str(helper/'sudo.py'),shlex.join(['systemctl','is-active','--quiet',unit])],capture_output=True)
  assert r.returncode!=0,'Existing heavy task: '+unit
 snapshot=base+'/submissions/'+a.run_id+'/project'
@@ -21,8 +21,11 @@ stream=io.BytesIO()
 with tarfile.open(fileobj=stream,mode='w') as tar:
  for name in ['scripts/run-sbuild-package.py',
               'scripts/inspect-spe-package-payloads.py',str(spec.relative_to(project)),
-              settings['source_lock'],settings['base_lock']]+([settings['source_patch']['path']] if settings.get('source_patch') else []):
+              settings['source_lock'],settings['base_lock']]+([settings['configure_cache']['path']]+[e['path'] for e in settings['configure_cache']['evidence']] if settings.get('configure_cache') else [])+([settings['source_patch']['path']] if settings.get('source_patch') else []):
   tar.add(project/name,arcname=name)
+ if settings.get('quilt_patch_series'):
+  path=settings['quilt_patch_series']['path'];tar.add(project/path,arcname=path)
+  for patch in json.loads((project/path).read_text())['patches']:tar.add(project/patch['path'],arcname=patch['path'])
 remote(['tar','-xf','-','-C',snapshot],input=stream.getvalue())
 remote(['systemd-run','--unit=tabor-sbuild-proof','--collect','--property=CPUQuota=400%',
         '--property=MemoryMax=6G','--property=TasksMax=256','--description=Debian sbuild package proof',

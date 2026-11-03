@@ -81,6 +81,14 @@
       "packages": [
         "libpthread-stubs0-dev"
       ]
+    },
+    {
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true
     }
   ],
   "scope": "Fixed-base X11 dependency build with standard sbuild/apt; prior accepted SPE libraries are real extra-package inputs, not installation acceptance.",

@@ -11,7 +11,7 @@ Local compatibility patch; OpenSSL licensing/notices remain unchanged.
 
 --- a/Configure
 +++ b/Configure
-@@ -3,4 +3,17 @@
+@@ -1684,6 +1684,19 @@
      ? compiler_predefined($config{CROSS_COMPILE}.$config{CXX})
      : ();
  
@@ -29,3 +29,6 @@ Local compatibility patch; OpenSSL licensing/notices remain unchanged.
 +}
 +
  unless ($disabled{asm}) {
+     # big endian systems can use ELFv2 ABI
+     if ($target eq "linux-ppc64" || $target eq "BSD-ppc64") {
+

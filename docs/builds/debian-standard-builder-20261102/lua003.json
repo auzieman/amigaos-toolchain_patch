@@ -1,0 +1,200 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "0b07078924940387b35cf0ca4817142b99f3a9d4b8f59511473f86bd847b6326",
+  "recipe_sha256": "0ab0b3463c7a3cf221477ca7f32fb8ed690fd2f5ed20e692fd54b8896e6e9c2e",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "source_inputs": [
+    {
+      "filename": "lua5.1_5.1.5-11.dsc",
+      "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5-11.dsc",
+      "size": 1929,
+      "sha256": "e892023e902f4649b4acc9b06bcc12f9121a180d0607ab775ba9521393fae079"
+    },
+    {
+      "filename": "lua5.1_5.1.5.orig.tar.gz",
+      "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5.orig.tar.gz",
+      "size": 221213,
+      "sha256": "2640fc56a795f29d28ef15e13c34a47e223960b0240e8cb0a82d9b0738695333"
+    },
+    {
+      "filename": "lua5.1_5.1.5-11.debian.tar.xz",
+      "url": "https://deb.debian.org/debian/pool/main/l/lua5.1/lua5.1_5.1.5-11.debian.tar.xz",
+      "size": 16300,
+      "sha256": "66eaa71b60744a5fa5ae98e815952ec70b339c934e45a9ba8c1049f4ca4b8b35"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "bash_5.2.37-2_powerpcspe.deb",
+      "sha256": "ef81561d76d3c58d227fcb7aff7bcc34d20c2b3d9e62a8ba412bc556d79ec22e",
+      "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796"
+    },
+    {
+      "file": "bzip2_1.0.8-6_powerpcspe.deb",
+      "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+      "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe2_all.deb",
+      "sha256": "291ef643f09370f724554adb5c8592c6cebe9cb9865eb9f246b3275e32436dfc",
+      "receipt_sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a"
+    },
+    {
+      "file": "debconf_1.5.91+tabor1_all.deb",
+      "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+      "receipt_sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429"
+    },
+    {
+      "file": "init-system-helpers_1.69~deb13u1_all.deb",
+      "sha256": "addf78073e1cbc5a5508937e11d2571055e29835e00ee8fab52a66775649378f",
+      "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198"
+    },
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "libncurses-dev_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "627fe1c4dd5f3a2856b53fcfd019fb84ef97a2ba49944b19c68e3b393d87f852",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "libncurses6_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "544534de12f5f0fc26c4ba5674c05d0ca78c35e3ba9b24d3e510adee242a4e40",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "libncursesw6_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "bd3b376bd231b7a24b7312471b14f2f4d2cca138e1c272efbc3becdff1afbe30",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "libreadline-dev_8.2-6_powerpcspe.deb",
+      "sha256": "66ad7f2186471ac0b863355a44c8aeb6ff1560421d8593ac11ead6ed5da9c633",
+      "receipt_sha256": "74c5052e716ef7bcaba7f1f3d258bad5b685b09389d032e4db272be2b45fa7f6"
+    },
+    {
+      "file": "libreadline8t64_8.2-6_powerpcspe.deb",
+      "sha256": "2bf161f9e1cb6dc1806596f3be88c4c97ffad4f67bfcf35a377f0d91a9f883a0",
+      "receipt_sha256": "74c5052e716ef7bcaba7f1f3d258bad5b685b09389d032e4db272be2b45fa7f6"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+      "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck",
+      "--build-dep-resolver=apt",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1",
+      "--no-arch-all",
+      "--extra-package=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1/extra-packages",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1/sources/lua5.1_5.1.5-11.dsc"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/ready-sbuild-batch-003/project/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-003-lua5.1/payload-inspection.json"
+    ]
+  ],
+  "package": "lua5.1",
+  "source_version": "5.1.5-11",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "sbuild_exit": 0,
+  "packages": {
+    "liblua5.1-0_5.1.5-11_powerpcspe.deb": {
+      "sha256": "1eaac4b32c6d14e8ce13d8de34c87d015aaac4cf1f71925831eecf6677b52d32",
+      "bytes": 97404
+    },
+    "lua5.1-dbgsym_5.1.5-11_powerpcspe.deb": {
+      "sha256": "bb270a89c1e1fb5fbb8e3abd657c7ba785f765b407b11506a4d6c4faa7b482d3",
+      "bytes": 19504
+    },
+    "liblua5.1-0-dbgsym_5.1.5-11_powerpcspe.deb": {
+      "sha256": "63c3e8e7ecb2ad5d4ab3a7c1c94b6eb349db27f5aac07e7b5dc82d786bd902c8",
+      "bytes": 9440
+    },
+    "liblua5.1-0-dev_5.1.5-11_powerpcspe.deb": {
+      "sha256": "8a7ca480608e2f899d9d64a5d21855398385cb46ea9535cb9f0a717ee443dd6f",
+      "bytes": 123736
+    },
+    "lua5.1_5.1.5-11_powerpcspe.deb": {
+      "sha256": "8fe7f055de3474e67041ce36832c60c2644403587e19d420a503ea39ef8f700f",
+      "bytes": 79988
+    }
+  },
+  "build_metadata": {
+    "lua5.1_5.1.5-11_powerpcspe.buildinfo": "b5c7b1f14b7c174ed81374d8e05a16d2b653d4d3aab98e9fcf6be7022a0184dd",
+    "lua5.1_5.1.5-11_powerpcspe.changes": "a1ecbc04334cd351b089f23b3ce258cd6f715572c3307f2871abc06fde6c7982"
+  },
+  "payload_inspection_sha256": "18a2ec01ac458d01ad0842a6fb08d05158931bea9ce30f68e915b460c6ca280b"
+}

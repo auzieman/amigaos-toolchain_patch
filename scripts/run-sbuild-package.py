@@ -51,11 +51,12 @@ try:
    assert set(item['packages']) <= {'tabor-spe-libgcc-s1','tabor-spe-libstdc++6'}
   found=set()
   for name,entry in record['packages'].items():
-   if not name.endswith('.deb'):continue
+   if not name.endswith('.deb') or (item.get('files') and name not in item['files']):continue
    assert Path(name).name==name
-   src=receipt.parent/name;assert sha(src)==entry['sha256']
-   package=subprocess.check_output(['dpkg-deb','-f',str(src),'Package'],text=True).strip()
+   package=name.split('_',1)[0]
    if package not in item['packages']:continue
+   src=receipt.parent/name;assert sha(src)==entry['sha256']
+   assert subprocess.check_output(['dpkg-deb','-f',str(src),'Package'],text=True).strip()==package
    arch=subprocess.check_output(['dpkg-deb','-f',str(src),'Architecture'],text=True).strip()
    assert arch=='powerpcspe' or (arch=='all' and item.get('allow_arch_all'))
    assert not (extras/name).exists();shutil.copyfile(src,extras/name)
@@ -76,6 +77,27 @@ try:
  root_tar=root_receipt.parent/'trixie-amd64.tar';assert sha(root_tar)==root_record['sha256']
  r['native_root_receipt_sha256']=sha(root_receipt);r['native_root_sha256']=sha(root_tar)
  dsc=sources/component['dsc']
+ if spec.get('quilt_patch_series'):
+  series_spec=spec['quilt_patch_series'];series_path=a.project/series_spec['path']
+  assert sha(series_path)==series_spec['sha256']
+  series=json.loads(series_path.read_text());assert series['version']==component['version']
+  tree=sources/'quilt-source'
+  assert run(['dpkg-source','--no-check','-x',dsc,tree],'source-extract')==0
+  assert (tree/'debian/source/format').read_text().strip()=='3.0 (quilt)'
+  patchdir=tree/'debian/patches';patchdir.mkdir(exist_ok=True)
+  quilt_series=patchdir/'series';previous=quilt_series.read_text() if quilt_series.exists() else ''
+  for index,item in enumerate(series['patches']):
+   patch=a.project/item['path'];assert sha(patch)==item['sha256']
+   assert run(['git','-C',tree,'apply','--check',patch],'quilt-patch-check-'+str(index))==0
+   name='tabor-'+patch.name;assert not (patchdir/name).exists()
+   shutil.copyfile(patch,patchdir/name);previous=previous.rstrip()+'\n'+name+'\n';quilt_series.write_text(previous.lstrip())
+   assert run(['quilt','push'],'quilt-patch-apply-'+str(index),env={**os.environ,'QUILT_PATCHES':'debian/patches','QUILT_PATCH_OPTS':'--fuzz=0'},cwd=tree)==0
+  patched=sources/'patched-output';patched.mkdir()
+  for entry in component['files']:
+   if '.orig.tar.' in entry['filename']:os.link(sources/entry['filename'],patched/entry['filename'])
+  assert run(['dpkg-source','-b',tree],'source-package',env={**os.environ,'XZ_OPT':'-T1'},cwd=patched)==0
+  dsc=patched/component['dsc'];assert dsc.exists()
+  r['patched_source']={'dsc':str(dsc.relative_to(a.output)),'sha256':sha(dsc),'version':component['version'],'quilt_series':series_spec,'patches':series['patches'],'preserve_debian_version':True}
  if spec.get('source_patch'):
   patch_spec=spec['source_patch'];patch=a.project/patch_spec['path'];assert sha(patch)==patch_spec['sha256']
   tree=sources/'patched-source'
@@ -105,7 +127,17 @@ try:
  config=a.output/'sbuild.conf'
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
- config.write_text("$crossbuild_core_depends = { powerpcspe => ['tabor-spe-toolchain:native (= 8.5.0+tabor5)', 'binutils-powerpc-linux-gnu:native', 'libc6-dev:powerpcspe', 'linux-libc-dev:native (= "+uapi_version+")'] };\n1;\n")
+ config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= 1.0+spe2)'] };\n1;\n")
+ if spec.get('configure_cache'):
+  cache_spec=spec['configure_cache'];cache_path=a.project/cache_spec['path']
+  assert sha(cache_path)==cache_spec['sha256']
+  measured=json.loads(cache_path.read_text());values=measured['values']
+  assert set(values)=={'xorg_cv_malloc0_returns_null'} and values['xorg_cv_malloc0_returns_null'] in ['yes','no']
+  for evidence in cache_spec['evidence']:
+   assert sha(a.project/evidence['path'])==evidence['sha256']
+  r['configure_cache']=cache_spec;r['configure_cache_values']=values
+  with config.open('a') as f:
+   f.write("$build_environment = { 'xorg_cv_malloc0_returns_null' => '"+values['xorg_cv_malloc0_returns_null']+"' };\n1;\n")
  owner=pwd.getpwnam('owner');os.chown(a.output,owner.pw_uid,owner.pw_gid)
  # CROSSBUILD_CORE_DEPENDS is a documented sbuild per-port extension. Every
  # entry names a real installed/package-managed tool or target development pkg.

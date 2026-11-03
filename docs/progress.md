@@ -784,3 +784,37 @@ Libxcb001 continues the X11 dependency chain. User requests letting the build
 finish, then launching the newly assembled image in QEMU; this remains pending
 image assembly and normal package-install/configuration checks. No replacement
 of the image by an older diagnostic boot is authorized by that request.
+
+
+2026-11-02 dependency-first correction: libx11-002 passes using the previously
+measured SPE configure answer. A real dependency-only crossbuild-essential SPE
+port package now connects standard Debian dependency tooling to the genuine
+frozen SDK/libc/UAPI inputs. Audit005 checks108 reviewed source groups:66 have
+installable cross-build dependency sets,42 are blocked with full explanations.
+Of49 still missing successful package receipts,12 are dependency-ready (data-only
+work remains separate). Parallel batch002 runs up to4 jobs x4 compiler jobs/6GiB,
+with apt installing native tools and SPE development packages before compilation.
+The initial mixed-old-libc pool was rejected by apt and stopped; corrected inputs
+pin libc402 and use Debian solver installation sets. All first4 jobs now pass
+preinstallation and architecture checks. Full target image/QEMU acceptance stays
+pending; see [current evidence](builds/debian-standard-builder-20261102/README.md).
+
+
+2026-11-02 broad dependency coverage: control-center/Firefox ESR metadata from
+the frozen snapshot yields99 individual relation probes,69 blocked. This expands
+visibility, not the image selection. Parallel batch002 accepts16 source builds;
+3 further attempts fail apt version selection and Lua fails shlibs packaging.
+Exact Debian solver package/version/architecture/file identities now drive the
+input set; cross-core metapackage2 includes real target compiler runtimes. Lua
+passes in batch003. Dpkg/tar continue, while OpenSSL needs a retry with normalized
+quilt patch line ranges. Earlier bootstrap source successes are preserved and
+full-feature rebuild gates stay open. See current standard-builder evidence.
+
+
+2026-11-02 verified follow-up: dpkg/tar/Lua now pass in batch003, bringing this
+round to19 additional accepted source groups. The installed target compiler
+runtime dependencies and exact solver-selected versions close those earlier
+preinstall/shlibs failures. OpenSSL retry004 passes normal quilt --fuzz=0 and
+source-package preparation, then proceeds to standard sbuild; final packaging
+is pending. GNOME/control-center and Firefox remain dependency coverage probes,
+not new image/application selections. Frozen kernel/glibc/compiler pins remain.

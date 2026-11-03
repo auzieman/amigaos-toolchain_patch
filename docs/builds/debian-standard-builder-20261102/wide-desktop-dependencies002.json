@@ -1,0 +1,51 @@
+{
+  "output-version": "1.2",
+  "native-architecture": "amd64",
+  "foreign-architecture": "powerpcspe",
+  "host-architecture": "powerpcspe",
+  "report": [
+    {
+      "package": "firefox-esr",
+      "version": "153.6.0esr-1~deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "firefox-esr",
+              "version": "153.6.0esr-1~deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxt-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "gnome-control-center",
+      "version": "1:48.4-1~deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "gnome-control-center",
+              "version": "1:48.4-1~deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "gnome-settings-daemon-dev:powerpcspe (>= 48~rc)"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "binary-packages": "70656",
+  "source-packages": "2",
+  "broken-packages": "2"
+}

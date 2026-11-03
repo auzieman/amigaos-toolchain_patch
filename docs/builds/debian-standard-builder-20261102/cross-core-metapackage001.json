@@ -1,0 +1,28 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "tabor-spe-cross-build-essential",
+  "method": "Native architecture-independent Debian port metapackage source build",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "source_files": {
+    "debian/rules": "4a137aac0bc1ad2e455aa688026a08ac1dcff6b581838abecd75a5c808811016",
+    "debian/control": "a9047ad15577588f1825dd1b8edfcae9ff25feca3eb0b339dfd67422053aefa4",
+    "debian/changelog": "fc9ee80e3f5265d78ae22d28e627fc6307013e5b1d046c19a90614c71f32442d",
+    "debian/copyright": "09e01c018c190cf82bafea8a07adb3ec5975521a386567cd19094bae73417015",
+    "debian/source/format": "e8e18df40bcd69d6aa404282679186d9b8256ac63a5b4e80d7f081e8a0095a2e"
+  },
+  "packages": {
+    "crossbuild-essential-powerpcspe_1.0+spe1_all.deb": {
+      "sha256": "8baae743495c386743a263cf36a92d236977ea3229ff9b2498e4492fdf26b97b",
+      "bytes": 2320
+    }
+  },
+  "build_metadata": {
+    "tabor-spe-cross-build-essential_1.0+spe1.dsc": "417af8d282f1777fc1193a4168754ef9c761bcf305db7445ec83b815ad02f425",
+    "tabor-spe-cross-build-essential_1.0+spe1.tar.xz": "5e3f07c7ae1629b1dd731b49677b18d968ad5cbd752c832d0416909318793d15",
+    "tabor-spe-cross-build-essential_1.0+spe1_all.changes": "695317d7a930561738560e0db0c784a8593285a5c6ed532ea74fd70524ddf1cc",
+    "tabor-spe-cross-build-essential_1.0+spe1_all.buildinfo": "a09b40d07a51f3b9f75ee464e9da4d7a3c4d4a714f1533b24fac75af6340fc5b"
+  },
+  "payload_inspection_sha256": "f26db9e4091cb83d3e47d162f9438f3a7a16ad50333dd6c15ff15ed3bf917a93"
+}

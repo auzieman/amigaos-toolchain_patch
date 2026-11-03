@@ -4,13 +4,15 @@ Start with [review status and prompts](docs/review-start.md).
 
 Build policy: [Debian-first powerpcspe port](docs/debian-port-build-contract.md).
 
+Current workflow: [frozen Debian sbuild roots, dependency audit and bounded parallel builds](docs/builds/debian-standard-builder-20261102/README.md).
+
 For Steven: [Linux reference and AmigaOS4 engineering roadmap](docs/hyperion-roadmap.md).
 
 Verified [compiler defaults and consumer retries](docs/builds/sdk-defaults-20261102/README.md).
 
-Current cross-build foundation: [real target development packages, UAPI registration and compiler tool lookup](docs/builds/managed-build-root-20261102/README.md).
+Previous cross-build foundation: [real target development packages, UAPI registration and compiler tool lookup](docs/builds/managed-build-root-20261102/README.md).
 
-Core build workflow: [VM132-directed fail-forward queue and retained results](docs/builds/core-queue-20261102/README.md).
+Previous core build workflow: [VM132-directed fail-forward queue and retained results](docs/builds/core-queue-20261102/README.md).
 
 Previous recording/build checkpoint: [kernel008 storage proof, live fractal/GL session and remaining Trixie root gates](docs/builds/boot-candidate-20261101/README.md).
 
