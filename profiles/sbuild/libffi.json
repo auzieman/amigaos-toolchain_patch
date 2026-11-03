@@ -1,0 +1,203 @@
+{
+  "package": "libffi",
+  "source_lock": "profiles/cumulative-prerequisite-sources.lock.json",
+  "source_cache": "cumulative-source-cache-20261102",
+  "extra_receipts": [
+    {
+      "receipt": "work/debian-libmd-503/receipt.json",
+      "sha256": "ec42b69ec3df38e55f5a68b98fb2265fbf352aab14c778495c03881f63a7d44b",
+      "packages": [
+        "libmd0",
+        "libmd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libbsd-540/receipt.json",
+      "sha256": "a5030787235adca2a08b7714ea89ad1f1a9dffae56874f54d5298cb1a6aed291",
+      "packages": [
+        "libbsd0",
+        "libbsd-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-glibc-402/receipt.json",
+      "sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxcrypt-401/receipt.json",
+      "sha256": "ea4ff2bea678791947393e82bb06bf93e476d1d2292da8573107965d0162869e",
+      "packages": [
+        "libcrypt1",
+        "libcrypt-dev"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/debian-pkgconf-403/receipt.json",
+      "sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9",
+      "packages": [
+        "pkgconf"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-009/receipt.json",
+      "sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-libxdmcp-006/receipt.json",
+      "sha256": "f6fd50c63391e948d7e7b5b2d0afabadbeca7569f43cf4310723c3125f849528",
+      "packages": [
+        "libxdmcp6",
+        "libxdmcp-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libxau-503/receipt.json",
+      "sha256": "c573222ed29467012bbcf1ba4e0d9826413995e335696a976eb58bf7b32fe1b3",
+      "packages": [
+        "libxau6",
+        "libxau-dev"
+      ]
+    },
+    {
+      "receipt": "work/debian-libpthread-stubs-510/receipt.json",
+      "sha256": "3d8a58b700b9b190b3dacead441059543749866996cdea8feac92afb97a52f4e",
+      "packages": [
+        "libpthread-stubs0-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxcb-001/receipt.json",
+      "sha256": "5ef42f46c658410253ba6ba197ac38a89ad0ac84e0cb50ceedee20ca04ae45e9",
+      "packages": [
+        "libxcb-xkb-dev",
+        "libxcb-record0",
+        "libxcb-res0-dev",
+        "libxcb-glx0-dev",
+        "libxcb-dri2-0",
+        "libxcb-screensaver0",
+        "libxcb-glx0",
+        "libxcb-xinput-dev",
+        "libxcb-record0-dev",
+        "libxcb-damage0-dev",
+        "libxcb-present0",
+        "libxcb1",
+        "libxcb-dri3-dev",
+        "libxcb-present-dev",
+        "libxcb-xkb1",
+        "libxcb-xtest0-dev",
+        "libxcb-res0",
+        "libxcb-damage0",
+        "libxcb-xfixes0-dev",
+        "libxcb-shm0-dev",
+        "libxcb-xinerama0",
+        "libxcb-xinerama0-dev",
+        "libxcb-xv0",
+        "libxcb-dri3-0",
+        "libxcb-dpms0-dev",
+        "libxcb-dpms0",
+        "libxcb-sync1",
+        "libxcb-shape0-dev",
+        "libxcb-xf86dri0",
+        "libxcb-xv0-dev",
+        "libxcb-composite0-dev",
+        "libxcb1-dev",
+        "libxcb-render0",
+        "libxcb-composite0",
+        "libxcb-dri2-0-dev",
+        "libxcb-xvmc0-dev",
+        "libxcb-randr0-dev",
+        "libxcb-xtest0",
+        "libxcb-screensaver0-dev",
+        "libxcb-xinput0",
+        "libxcb-xf86dri0-dev",
+        "libxcb-render0-dev",
+        "libxcb-xvmc0",
+        "libxcb-shm0",
+        "libxcb-xfixes0",
+        "libxcb-shape0",
+        "libxcb-sync-dev",
+        "libxcb-randr0"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libatomic-provider-002/receipt.json",
+      "sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d",
+      "packages": [
+        "tabor-spe-libatomic1"
+      ],
+      "files": [
+        "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/sbuild-libatomic-canonical-002/receipt.json",
+      "sha256": "96dc3daabf34669c7220738ab2334bffccbe2b81b95eb78820e52245d57ceff3",
+      "packages": [
+        "tabor-spe-libatomic-dev"
+      ],
+      "files": [
+        "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/cross-core-metapackage-004/receipt.json",
+      "sha256": "0c3e92d6e9404a49fc3d85e007e12763ad6712a48f853c7c26de140fd20f3e87",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe4_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-dh-golang-host-001/receipt.json",
+      "sha256": "21b3288b430eac53c52a6add7de85cf3efc8e43f5b94680dc0acacd148cd100f",
+      "packages": [
+        "dh-golang"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "dh-golang_1.63+spe1_all.deb"
+      ]
+    }
+  ],
+  "scope": "Register actual SPE complex symbol availability; retain strict ABI symbol checks",
+  "native_root_receipt": "work/port-build-server-001/receipt.json",
+  "native_root_receipt_sha256": "d8578cdb546ca21e16ed073e57fe6ca6d20264b9a0871f14e1a12696e928ebec",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/sdk-system-root-002/receipt.json",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86",
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe4",
+  "source_patch": {
+    "path": "patches/libffi/0001-register-spe-complex-symbol-availability.patch",
+    "sha256": "cb0b4b1863e5d890b887cd6b6c80cc51b16339bcbc61016ef028c0f370c3e9c4",
+    "version": "3.4.8-2",
+    "preserve_debian_version": true
+  }
+}

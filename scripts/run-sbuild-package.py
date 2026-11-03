@@ -24,6 +24,7 @@ def sha(path):
 r={'status':'preparing','spec_sha256':sha(a.spec),'recipe_sha256':sha(Path(__file__)),
    'method':'Debian mmdebstrap buildd root and sbuild unshare apt resolver',
    'build_architecture':'amd64','host_architecture':spec.get('host_architecture','powerpcspe'),
+   'build_profiles':spec.get('build_profiles','cross,nocheck'),'bootstrap':bool(spec.get('bootstrap')),'required_full_rebuild':bool(spec.get('required_full_rebuild')),
    'target_execution':False,'target_installation':False,'boot_image_ready':False,
    'build_root_only':bool(spec.get('build_root_only')),'bootstrap_assembly':bool(spec.get('bootstrap_assembly')),
    'source_inputs':[],'extra_package_inputs':[],'commands':[], 'package':spec['package']}
@@ -32,6 +33,8 @@ def run(cmd,name,env=None,cwd=None):
  r['commands'].append(list(map(str,cmd)));save()
  with (a.output/(name+'.log')).open('w') as log:
   return subprocess.run(list(map(str,cmd)),stdout=log,stderr=subprocess.STDOUT,env=env,cwd=cwd).returncode
+class SourcePreparationComplete(Exception):
+ pass
 try:
  lock=json.loads((a.project/spec['source_lock']).read_text())
  component=lock['components'][spec['package']]
@@ -106,12 +109,15 @@ try:
   assert run(['git','-C',tree,'apply','--check',patch],'source-patch-check')==0
   assert run(['git','-C',tree,'apply',patch],'source-patch')==0
   version=patch_spec['version']
-  assert version.startswith(component['version']+'+')
+  preserve=bool(patch_spec.get('preserve_debian_version'))
+  assert version==component['version'] if preserve else version.startswith(component['version']+'+')
   changelog=tree/'debian/changelog'
+  message=patch_spec.get('changelog_entry','Register the SPE userspace UAPI include tuple in normal Debian export.')
+  assert '\n' not in message
   entry=(spec['package']+' ('+version+') UNRELEASED; urgency=medium\n\n'
-         '  * Register the SPE userspace UAPI include tuple in normal Debian export.\n\n'
+         '  * '+message+'\n\n'
          ' -- Tabor lab <root@localhost>  Mon, 02 Nov 2026 22:00:00 +0000\n\n')
-  changelog.write_text(entry+changelog.read_text())
+  if not preserve:changelog.write_text(entry+changelog.read_text())
   if patch_spec.get('prepare_debian_control'):
    # Debian Linux explicitly requires control regeneration before automated
    # builds. Its control-real target intentionally returns 1 after success.
@@ -120,11 +126,19 @@ try:
     message=(a.output/'source-control-generation.log').read_text()
     assert result==2 and 'been generated SUCCESSFULLY.' in message, 'Control generation failed'
    assert run(['make','-f','debian/rules','debian/control'],'source-control-validation',env={**os.environ,'PYTHONDONTWRITEBYTECODE':'1'},cwd=tree)==0
-  assert run(['dpkg-source','-b',tree],'source-package',{**os.environ,'XZ_OPT':'-T1'},cwd=sources)==0
-  candidates=[x for x in sources.glob('*.dsc') if x.name!=component['dsc']]
+  destination=sources
+  if preserve:
+   destination=sources/'debian-patched-output';destination.mkdir()
+   for item in component['files']:
+    if '.orig.tar.' in item['filename']:os.link(sources/item['filename'],destination/item['filename'])
+  assert run(['dpkg-source','-b',tree],'source-package',{**os.environ,'XZ_OPT':'-T1'},cwd=destination)==0
+  candidates=list(destination.glob('*.dsc')) if preserve else [x for x in sources.glob('*.dsc') if x.name!=component['dsc']]
   assert len(candidates)==1;dsc=candidates[0]
   r['upstream_debian_source_version']=component['version'];r['source_version']=version
-  r['patched_source']={'dsc':dsc.name,'sha256':sha(dsc),'patch_sha256':sha(patch),'version':version}
+  r['patched_source']={'dsc':str(dsc.relative_to(a.output)),'sha256':sha(dsc),'patch_sha256':sha(patch),'version':version,'preserve_debian_version':preserve}
+ if spec.get('prepare_only'):
+  r.update(status='debian-source-prepared-not-built',prepared_source={'path':str(dsc.relative_to(a.output)),'sha256':sha(dsc)})
+  raise SourcePreparationComplete()
  config=a.output/'sbuild.conf'
  # Large dependency templates must unpack on server storage, not /tmp tmpfs:
  # tmpfs pages count against the package job's memory limit before compilation.
@@ -138,7 +152,7 @@ try:
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
  core_version=spec.get('cross_core_version','1.0+spe2')
- assert core_version in ['1.0+spe2','1.0+spe3']
+ assert core_version in ['1.0+spe2','1.0+spe3','1.0+spe4']
  config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
  with config.open('a') as f:
   f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")
@@ -177,6 +191,8 @@ try:
  assert run(['python3',a.project/'scripts/inspect-spe-package-payloads.py','--receipt',a.output/'receipt.json',
              '--output',a.output/'payload-inspection.json'],'payload-inspection')==0
  r['payload_inspection_sha256']=sha(a.output/'payload-inspection.json')
+except SourcePreparationComplete:
+ pass
 except Exception as error:
  r.update(status='failed',error=str(error));raise
 finally:save()

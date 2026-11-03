@@ -1,12 +1,11 @@
 {
   "defaults": "profiles/sbuild/libx11.json",
-  "initial_audit": "work/sbuild-ready-20261102-005-dependencies-3",
-  "initial_audit_sha256": "e8f3bc2435b1838babaf6a793c9478867ab351f511d199a5b636686db144a5da",
-  "concurrency": 1,
-  "run_prefix": "sbuild-ready-20261103-008",
-  "unit_prefix": "tabor-ready8-build",
+  "initial_audit": "work/debian-dependency-audit-009",
+  "initial_audit_sha256": "678525bec2be0407e4bbfce40b1c98f6faba80a5bf5ce5bd8fa6dffa65ccfc7c",
+  "concurrency": 4,
+  "run_prefix": "sbuild-ready-20261103-009",
+  "unit_prefix": "tabor-ready9-build",
   "packages": [
-    "fuse3",
     "audit",
     "libcap2",
     "base-passwd",
@@ -37,27 +36,20 @@
     "libffi",
     "brotli",
     "alsa-lib",
-    "apache2",
     "apparmor",
-    "apr",
     "avahi",
     "bluez",
     "connman",
     "e2fsprogs",
     "elfutils",
-    "gem2deb",
     "glib2.0",
     "gnutls28",
-    "gobject-introspection",
     "krb5",
     "libarchive",
     "libsm",
     "libtool",
     "libxaw",
     "libxt",
-    "python3-defaults",
-    "sphinx",
-    "systemtap",
     "util-linux",
     "wayland",
     "glibc",
@@ -66,8 +58,10 @@
     "newt",
     "p11-kit",
     "popt",
-    "ruby3.3",
-    "tcltk-defaults"
+    "tcltk-defaults",
+    "sqlite3",
+    "tcl8.6",
+    "icu"
   ],
   "configure_cache_sources": [
     "libxext",
@@ -90,7 +84,7 @@
     "libxt",
     "libxaw"
   ],
-  "scope": "Build all remaining reviewed workstation/port dependency producers; normal Debian solver/apt, four independent SPE jobs; foundation candidates remain metadata-only.",
+  "scope": "Base libraries first, then selected Debian X11/E/Mesa/session/SSH/VNC package closure. The metadata inventory is not an instruction to port every discovered source.",
   "patch_series": {
     "openssl": {
       "path": "patches/openssl/series.json",
@@ -105,5 +99,49 @@
     "gcc-14": "Frozen SPE compiler is GCC8.5; do not silently switch compiler/runtime base",
     "gcc-defaults": "Requires GCC14 port; retain actual frozen SDK until reviewed compiler restoration",
     "java-common": "No SPE OpenJDK runtime/default selection; retain failed build, native Java tools remain installed"
-  }
+  },
+  "deferred_scope_candidates": {
+    "apache2": "Not selected for the desktop image; appears through AppArmor Apache-module build requirements. Review the base library bootstrap before adding a target web server build.",
+    "apr": "Apache-module chain; not an independently selected base desktop library.",
+    "gem2deb": "Ruby packaging helper; review native role instead of automatically porting a Ruby toolchain.",
+    "ruby3.3": "No selected desktop runtime requires Ruby at this stage; base C libraries use their supported bootstrap profiles when necessary.",
+    "python3-defaults": "Defer target language defaults until a selected binary or unavoidable target library build requires them; existing native Python remains available.",
+    "sphinx": "Native documentation helper is already provisioned; no further target documentation-tool port is selected.",
+    "gobject-introspection": "Review native generator versus required target library role before scheduling this chain.",
+    "systemtap": "Do not build a target tracing suite automatically; establish any required SDK/header-only output first."
+  },
+  "registry": "profiles/port-package-overrides.json",
+  "bootstrap_packages": [
+    "libtool",
+    "db5.3",
+    "libffi",
+    "libselinux",
+    "tcl8.6",
+    "icu",
+    "sqlite3",
+    "util-linux",
+    "libsm",
+    "libxt",
+    "libxaw",
+    "freetype",
+    "fontconfig",
+    "harfbuzz",
+    "libdrm",
+    "libxfont",
+    "libxkbcommon",
+    "p11-kit",
+    "gnutls28",
+    "libarchive",
+    "e2fsprogs",
+    "alsa-lib",
+    "libsndfile",
+    "libcap2",
+    "pam"
+  ],
+  "force_full_rebuild": [
+    "glibc"
+  ],
+  "require_patched_sources": [
+    "glibc"
+  ]
 }

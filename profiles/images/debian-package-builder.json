@@ -158,7 +158,10 @@
     "p11-kit",
     "popt",
     "ruby3.3",
-    "tcltk-defaults"
+    "tcltk-defaults",
+    "sqlite3",
+    "icu",
+    "tcl8.6"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -1042,6 +1045,18 @@
     "tcltk-defaults": {
       "source_lock": "profiles/port-dependency-sources-002.lock.json",
       "source_cache": "port-dependency-source-cache-002"
+    },
+    "sqlite3": {
+      "source_lock": "profiles/base-library-sources.lock.json",
+      "source_cache": "base-library-source-cache-001"
+    },
+    "icu": {
+      "source_lock": "profiles/sqlite-build-dependencies.lock.json",
+      "source_cache": "sqlite-build-dependency-source-cache-001"
+    },
+    "tcl8.6": {
+      "source_lock": "profiles/sqlite-build-dependencies.lock.json",
+      "source_cache": "sqlite-build-dependency-source-cache-001"
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",

@@ -1,0 +1,22 @@
+{
+  "package": "dh-golang",
+  "source_lock": "profiles/host-helper-sources.lock.json",
+  "source_cache": "host-helper-source-cache-001",
+  "extra_receipts": [],
+  "scope": "Native Architecture:all build helper correction; no target Go implementation or additional target architecture",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "amd64",
+  "native_toolchain_inputs": [],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe3",
+  "indep_only": true,
+  "build_profiles": "nocheck",
+  "source_patch": {
+    "path": "patches/dh-golang/0001-defer-go-environment-until-backend-selected.patch",
+    "sha256": "320afc5a3ccfa7d9b73340624f4bdfbd37a1443fc2b7c5bfa3a4c8e2d9105b95",
+    "version": "1.63+spe1",
+    "changelog_entry": "Defer Go environment setup until the build backend is selected."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "package": "xorgproto",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "x11-source-cache",
+  "extra_receipts": [],
+  "scope": "Normal Debian Architecture:all X11 protocol header/data packaging; strict dh_missing preserved",
+  "native_root_receipt": "work/port-build-server-001/receipt.json",
+  "native_root_receipt_sha256": "d8578cdb546ca21e16ed073e57fe6ca6d20264b9a0871f14e1a12696e928ebec",
+  "host_architecture": "amd64",
+  "native_toolchain_inputs": [],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe4",
+  "indep_only": true,
+  "build_profiles": "nocheck",
+  "source_patch": {
+    "path": "patches/xorgproto/0001-drop-unassigned-generated-pdfs.patch",
+    "sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51",
+    "version": "2024.1-1+spe1",
+    "changelog_entry": "Remove generated PDFs outside the existing text-only package manifest."
+  }
+}

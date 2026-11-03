@@ -1,0 +1,823 @@
+{
+  "sbuild-dh-golang-host-001": {
+    "status": "debian-packages-built-not-target-installed",
+    "spec_sha256": "c4d9d7199b5c3c63f96edfaea9f1be5047000ce57586eeef367633cbcbc8f66c",
+    "recipe_sha256": "308ba1f9a4758d57d1e1b9a6e79cade01738624cc888b40a6cfbb845fb582c80",
+    "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+    "build_architecture": "amd64",
+    "host_architecture": "amd64",
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "build_root_only": false,
+    "bootstrap_assembly": false,
+    "source_inputs": [
+      {
+        "filename": "dh-golang_1.63.dsc",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/dh-golang/dh-golang_1.63.dsc",
+        "size": 1842,
+        "sha256": "27c02bfef1a3f3c93aa2ab019417c698b07594e37416831887a86ade904f3033"
+      },
+      {
+        "filename": "dh-golang_1.63.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/dh-golang/dh-golang_1.63.tar.xz",
+        "size": 20044,
+        "sha256": "e4fab36b69bfb9e7b8a2e46d157bfd01055019fd0d325135304f92edf429a7ad"
+      }
+    ],
+    "extra_package_inputs": [],
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/dh-golang_1.63.dsc",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source",
+        "apply",
+        "--check",
+        "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-dh-golang-host-001/project/patches/dh-golang/0001-defer-go-environment-until-backend-selected.patch"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source",
+        "apply",
+        "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-dh-golang-host-001/project/patches/dh-golang/0001-defer-go-environment-until-backend-selected.patch"
+      ],
+      [
+        "dpkg-source",
+        "-b",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source"
+      ],
+      [
+        "runuser",
+        "-u",
+        "owner",
+        "--",
+        "env",
+        "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sbuild.conf",
+        "DEB_BUILD_OPTIONS=nocheck parallel=4",
+        "sbuild",
+        "--chroot-mode=unshare",
+        "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+        "--build=amd64",
+        "--host=amd64",
+        "--dist=trixie",
+        "--profiles=nocheck",
+        "--build-dep-resolver=apt",
+        "--no-run-lintian",
+        "--nolog",
+        "--jobs=4",
+        "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001",
+        "--arch-all",
+        "--no-arch-any",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/dh-golang_1.63+spe1.dsc"
+      ],
+      [
+        "python3",
+        "/srv/data1/tabor-build/linux-live-001/submissions/sbuild-dh-golang-host-001/project/scripts/inspect-spe-package-payloads.py",
+        "--receipt",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/receipt.json",
+        "--output",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/payload-inspection.json"
+      ]
+    ],
+    "package": "dh-golang",
+    "source_version": "1.63+spe1",
+    "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+    "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+    "upstream_debian_source_version": "1.63",
+    "patched_source": {
+      "dsc": "dh-golang_1.63+spe1.dsc",
+      "sha256": "4bab327344b673566f0bed84167bb20f1555075203268483f16aeb701012e9a5",
+      "patch_sha256": "320afc5a3ccfa7d9b73340624f4bdfbd37a1443fc2b7c5bfa3a4c8e2d9105b95",
+      "version": "1.63+spe1"
+    },
+    "sbuild_exit": 0,
+    "packages": {
+      "dh-golang_1.63+spe1_all.deb": {
+        "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+        "bytes": 24540
+      }
+    },
+    "build_metadata": {
+      "dh-golang_1.63+spe1_all.buildinfo": "5c9f1e03e081de2166c5fc2927d66fe2ab11d9c66629737a597c475cc1c2e37a",
+      "dh-golang_1.63+spe1_all.changes": "10cc4bd2c961d6eede0439454c463d941f83ae1e46372308cd869266f11dd49f"
+    },
+    "payload_inspection_sha256": "c865de0caecc35412da17365bd2086d50d2bd40b58d4952e625f08edeea99763"
+  },
+  "dh-golang-regression-004": {
+    "status": "native-helper-regression-passed",
+    "target_execution": false,
+    "native_regression": true,
+    "items": [
+      {
+        "test": "original-c-spe",
+        "exit": 255,
+        "expected_success": false
+      },
+      {
+        "test": "patched-c-spe",
+        "exit": 0,
+        "expected_success": true
+      },
+      {
+        "test": "patched-go-spe",
+        "exit": 255,
+        "expected_success": false
+      },
+      {
+        "test": "patched-go-native",
+        "exit": 0,
+        "expected_success": true
+      }
+    ]
+  },
+  "cross-core-metapackage-004": {
+    "status": "debian-packages-built-not-target-installed",
+    "package": "tabor-spe-cross-build-essential",
+    "method": "Native architecture-independent Debian port metapackage source build",
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "source_files": {
+      "debian/rules": "4a137aac0bc1ad2e455aa688026a08ac1dcff6b581838abecd75a5c808811016",
+      "debian/control": "619aa6afdaff6c5062b6d29377e7dfbfa2f0f76fa9d3edde1b13aa951e84399b",
+      "debian/changelog": "599cd6f41fa9e6e59c6cbb8e56001c2ce2b2e79cda745ad5df627be8ec02733c",
+      "debian/copyright": "09e01c018c190cf82bafea8a07adb3ec5975521a386567cd19094bae73417015",
+      "debian/source/format": "e8e18df40bcd69d6aa404282679186d9b8256ac63a5b4e80d7f081e8a0095a2e"
+    },
+    "packages": {
+      "crossbuild-essential-powerpcspe_1.0+spe4_all.deb": {
+        "sha256": "cf39873287252e2495e24b75500e3783cf2e94335e5cad7b99e8498340beceb9",
+        "bytes": 2660
+      }
+    },
+    "build_metadata": {
+      "tabor-spe-cross-build-essential_1.0+spe4.dsc": "2bdc5b83d2655d5b83b447034eec987b4f88cf0755f714d1becb733aece71c6c",
+      "tabor-spe-cross-build-essential_1.0+spe4.tar.xz": "2e7bd62aaa420ec928aba8a0babe0040aaccb5524dfe6310c6a3530b6460df98",
+      "tabor-spe-cross-build-essential_1.0+spe4_all.changes": "78f84fa4cb24c3bfa1c0af2669a2c5e8ff034e1fdb72b801c793f8920ce9ed6a",
+      "tabor-spe-cross-build-essential_1.0+spe4_all.buildinfo": "cde2d0599845be60fd38e58134bcc269f64fa1944f4442b96003f6367018f4cb"
+    },
+    "payload_inspection_sha256": "2fc5ee2b5a16d5d4872bfc830c22803f3f1749e36fdc7ca2866b268d00e72113"
+  },
+  "sbuild-xorgproto-002": {
+    "status": "debian-packages-built-not-target-installed",
+    "spec_sha256": "2146aa51402fd59189ba47236182f7990c7f5c160155a468484834bde57c6790",
+    "recipe_sha256": "3cd7b3f9a40bb610e0549ac705a32654b091a7fe4d11e2e556f939154ddb3bcc",
+    "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+    "build_architecture": "amd64",
+    "host_architecture": "amd64",
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "build_root_only": false,
+    "bootstrap_assembly": false,
+    "source_inputs": [
+      {
+        "filename": "xorgproto_2024.1-1.dsc",
+        "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1-1.dsc",
+        "size": 3336,
+        "sha256": "56c08773592f3cf529bc087449de421aac0645b5c43fad41387b856b5e29fab7"
+      },
+      {
+        "filename": "xorgproto_2024.1.orig.tar.gz",
+        "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1.orig.tar.gz",
+        "size": 1115486,
+        "sha256": "4f6b9b4faf91e5df8265b71843a91fc73dc895be6210c84117a996545df296ce"
+      },
+      {
+        "filename": "xorgproto_2024.1.orig.tar.gz.asc",
+        "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1.orig.tar.gz.asc",
+        "size": 195,
+        "sha256": "41d650fd19f3df1ae8ad24c2570638d5cdadff819613f8cff96d17310d35347c"
+      },
+      {
+        "filename": "xorgproto_2024.1-1.diff.gz",
+        "url": "https://deb.debian.org/debian/pool/main/x/xorgproto/xorgproto_2024.1-1.diff.gz",
+        "size": 25061,
+        "sha256": "f250a5bc693079f84dc0caad3cc282433940d3665ff9a77b8dc4dc0961f83d1b"
+      }
+    ],
+    "extra_package_inputs": [],
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/xorgproto_2024.1-1.dsc",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/patched-source"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/patched-source",
+        "apply",
+        "--check",
+        "/srv/data1/tabor-build/linux-live-001/submissions/gap-closure-20261103-002/project/patches/xorgproto/0001-drop-unassigned-generated-pdfs.patch"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/patched-source",
+        "apply",
+        "/srv/data1/tabor-build/linux-live-001/submissions/gap-closure-20261103-002/project/patches/xorgproto/0001-drop-unassigned-generated-pdfs.patch"
+      ],
+      [
+        "dpkg-source",
+        "-b",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/patched-source"
+      ],
+      [
+        "runuser",
+        "-u",
+        "owner",
+        "--",
+        "env",
+        "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sbuild.conf",
+        "DEB_BUILD_OPTIONS=nocheck parallel=4",
+        "sbuild",
+        "--chroot-mode=unshare",
+        "--chroot=/srv/data1/tabor-build/linux-live-001/work/port-build-server-001/trixie-amd64.tar",
+        "--build=amd64",
+        "--host=amd64",
+        "--dist=trixie",
+        "--profiles=nocheck",
+        "--build-dep-resolver=apt",
+        "--no-run-lintian",
+        "--nolog",
+        "--jobs=4",
+        "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002",
+        "--arch-all",
+        "--no-arch-any",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/sources/xorgproto_2024.1-1+spe1.dsc"
+      ],
+      [
+        "python3",
+        "/srv/data1/tabor-build/linux-live-001/submissions/gap-closure-20261103-002/project/scripts/inspect-spe-package-payloads.py",
+        "--receipt",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/receipt.json",
+        "--output",
+        "/srv/data1/tabor-build/linux-live-001/work/sbuild-xorgproto-002/payload-inspection.json"
+      ]
+    ],
+    "package": "xorgproto",
+    "source_version": "2024.1-1+spe1",
+    "native_root_receipt_sha256": "d8578cdb546ca21e16ed073e57fe6ca6d20264b9a0871f14e1a12696e928ebec",
+    "native_root_sha256": "7da1094030337d45e894623ee6da30fd5ada4ff3fee307c01d332861ab5efa05",
+    "upstream_debian_source_version": "2024.1-1",
+    "patched_source": {
+      "dsc": "xorgproto_2024.1-1+spe1.dsc",
+      "sha256": "60f117347d5d4a9351d71511567ca5107dd5e8f4717e2672dc73734adb1da4c2",
+      "patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51",
+      "version": "2024.1-1+spe1"
+    },
+    "sbuild_exit": 0,
+    "packages": {
+      "x11proto-record-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "a1396668f6ec3db039d8c3ff24148ecb845288bcc9e80006556d7cee3cf67c51",
+        "bytes": 3432
+      },
+      "x11proto-scrnsaver-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "7b1d12819c3083cca9bc1e583c5cc9780ab92e1d23d613f9064582bded0a5ffd",
+        "bytes": 3436
+      },
+      "x11proto-render-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "304adbddd7df608f5de6c80ad3ef99b516214ac218e7f550ef53756b770346a9",
+        "bytes": 3436
+      },
+      "x11proto-dri2-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "a9901e4ec9818e86507eed0640ff5a4c8da880d55691c4182ca6667d5978cd65",
+        "bytes": 3428
+      },
+      "x11proto-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "1a135fe0d9054bbbb06b9b71bad44938b9cf96d1db4d43968ad70c5246813e1a",
+        "bytes": 602756
+      },
+      "x11proto-xf86dri-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "505c67095e2e6ee656be15067b8993612231dcf5694448422a1e3f6c40d28ac4",
+        "bytes": 3436
+      },
+      "x11proto-gl-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "222e95abaf29ee18fc39d4b45e093d7d7db7b1bbc33f1701e95364d49e2842c9",
+        "bytes": 3428
+      },
+      "x11proto-input-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "9948004b55019f132f1e6a44781a555556f81110f53fe14242300b52aca7c70d",
+        "bytes": 3432
+      },
+      "x11proto-core-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "c9051a323c733835b613b63a4bdc4f1540da95286d8bcae411355333088568a6",
+        "bytes": 3424
+      },
+      "x11proto-randr-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "5f4d625288fe360db59280e40299b5608f867aabdd11eaadff84f5a0363f30fa",
+        "bytes": 3436
+      },
+      "x11proto-present-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "2aa4c977e3a3e3b92026d8a5bb61b2bcb67daf49357527eb4e6ff372afc4b961",
+        "bytes": 3432
+      },
+      "x11proto-xext-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "d0f35ca80dedec72827e27ab428a93bf77c1aafa97c7e064829d0a5e9a803fc5",
+        "bytes": 3424
+      },
+      "x11proto-kb-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "088951ad01f3d3dd820c17018333c05187fd9700a910dbab7756b9feea695734",
+        "bytes": 3420
+      },
+      "x11proto-xf86vidmode-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "3a66e25a52de97641cfd901431ba40f7105e41ec91b08d2c1c84a8c1063f9ce5",
+        "bytes": 3444
+      },
+      "x11proto-xinerama-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "15ca1efe2d6e41684ac5cc14d3004edb29c33a8e414ee2285fef09136c28dd8f",
+        "bytes": 3436
+      },
+      "x11proto-fonts-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "ff5898b16fb842ca106ade191d01c6c0cb0383b25a097bb2ce0bad7c9bb3a2d1",
+        "bytes": 3432
+      },
+      "x11proto-video-dev_2024.1-1+spe1_all.deb": {
+        "sha256": "6e50a2e6d9a11107d39c3dcb4b4555e88bb55e318479006ce147d0110bdac98c",
+        "bytes": 3432
+      }
+    },
+    "build_metadata": {
+      "xorgproto_2024.1-1+spe1_all.buildinfo": "2e767da4670f44804b42fc00f2f5dbd59a910de7cef39d16650e56361aa8493c",
+      "xorgproto_2024.1-1+spe1_all.changes": "effd1a8056b3d433edaf02123743d3a53887588b55cafe55accd29287609b2b7"
+    },
+    "payload_inspection_sha256": "9e02195183be55c01047eefc451e5452044673163bba39822ee74a0f6eaba198"
+  },
+  "port-pipeline-20261103-001-base-libraries-libtool": {
+    "status": "debian-packages-built-not-target-installed",
+    "spec_sha256": "1cd2638f270b0b442baaa18b95d1591536e49f10e475d96bd22562b98b886fb1",
+    "recipe_sha256": "0a41c699607f3580fc14f8d7a4a78a0e41e98875af6187307d5adabdd86812a9",
+    "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+    "build_architecture": "amd64",
+    "host_architecture": "powerpcspe",
+    "build_profiles": "cross,nocheck",
+    "bootstrap": false,
+    "required_full_rebuild": false,
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "build_root_only": false,
+    "bootstrap_assembly": false,
+    "source_inputs": [
+      {
+        "filename": "libtool_2.5.4-4.dsc",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.dsc",
+        "size": 2232,
+        "sha256": "37d98d7c45d1c12c0b7bd55fb6a90fa05aff8aa9ab2bbd9617ce7a6233b1965e"
+      },
+      {
+        "filename": "libtool_2.5.4.orig.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4.orig.tar.xz",
+        "size": 1069572,
+        "sha256": "d9189031edeaa6aa74695b2aeb80a8c26df50b29d8b72c991667e01adecea42c"
+      },
+      {
+        "filename": "libtool_2.5.4-4.debian.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.debian.tar.xz",
+        "size": 37504,
+        "sha256": "93e8e286db1322a4f17e3120654ec2664a721e6684c017cb37d471daeb380f8e"
+      }
+    ],
+    "extra_package_inputs": [
+      {
+        "file": "bash_5.2.37-2_powerpcspe.deb",
+        "sha256": "ef81561d76d3c58d227fcb7aff7bcc34d20c2b3d9e62a8ba412bc556d79ec22e",
+        "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796"
+      },
+      {
+        "file": "bzip2_1.0.8-6_powerpcspe.deb",
+        "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+        "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+      },
+      {
+        "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+        "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+        "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+      },
+      {
+        "file": "crossbuild-essential-powerpcspe_1.0+spe4_all.deb",
+        "sha256": "cf39873287252e2495e24b75500e3783cf2e94335e5cad7b99e8498340beceb9",
+        "receipt_sha256": "0c3e92d6e9404a49fc3d85e007e12763ad6712a48f853c7c26de140fd20f3e87"
+      },
+      {
+        "file": "debconf_1.5.91+tabor1_all.deb",
+        "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+        "receipt_sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429"
+      },
+      {
+        "file": "dh-golang_1.63+spe1_all.deb",
+        "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+        "receipt_sha256": "21b3288b430eac53c52a6add7de85cf3efc8e43f5b94680dc0acacd148cd100f"
+      },
+      {
+        "file": "init-system-helpers_1.69~deb13u1_all.deb",
+        "sha256": "addf78073e1cbc5a5508937e11d2571055e29835e00ee8fab52a66775649378f",
+        "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198"
+      },
+      {
+        "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+        "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+        "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+      },
+      {
+        "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+        "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+        "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+      },
+      {
+        "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+        "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+        "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+      },
+      {
+        "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+        "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+        "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+      },
+      {
+        "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+        "sha256": "85bb98bc0a407d3a3c81ce80a37f41eec0c270fdf641f7ad71c43c41984fa621",
+        "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+      },
+      {
+        "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+        "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+        "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+      },
+      {
+        "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+        "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+        "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+      },
+      {
+        "file": "libssl3t64_3.5.7-1~deb13u3_powerpcspe.deb",
+        "sha256": "e4c9ca045223c3caebbc631b42ffa438493e067e429f145c966c4b00a9154558",
+        "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+      },
+      {
+        "file": "openssl-provider-legacy_3.5.7-1~deb13u3_powerpcspe.deb",
+        "sha256": "d8ef734b4101295f593f1773f564ca0e815ee76752494149e1aa52414d9215e1",
+        "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+      },
+      {
+        "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+        "sha256": "b207182192e9d583d1262a7fcf9dea3423e083d59d4bb021eb00c07fb693d1b3",
+        "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef"
+      },
+      {
+        "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+        "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+        "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+      },
+      {
+        "file": "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "591cd32b1f31e6a835c173c0f68d9282d997fbdcde1f0078dea666f96d6e235b",
+        "receipt_sha256": "96dc3daabf34669c7220738ab2334bffccbe2b81b95eb78820e52245d57ceff3"
+      },
+      {
+        "file": "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "6774b599135c7600d1da76edc8ce3f03bd4b16cb2731eddb5bd4f2988376098a",
+        "receipt_sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d"
+      },
+      {
+        "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+        "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+      },
+      {
+        "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+        "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+      },
+      {
+        "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+        "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+        "role": "native SPE cross compiler",
+        "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+      }
+    ],
+    "commands": [
+      [
+        "dpkg-source",
+        "--no-check",
+        "-x",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/libtool_2.5.4-4.dsc",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/patched-source"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/patched-source",
+        "apply",
+        "--check",
+        "/srv/data1/tabor-build/linux-live-001/submissions/port-pipeline-20261103-001/project/patches/libtool/0001-limit-fortran-test-dependency-to-check-builds.patch"
+      ],
+      [
+        "git",
+        "-C",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/patched-source",
+        "apply",
+        "/srv/data1/tabor-build/linux-live-001/submissions/port-pipeline-20261103-001/project/patches/libtool/0001-limit-fortran-test-dependency-to-check-builds.patch"
+      ],
+      [
+        "dpkg-source",
+        "-b",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/patched-source"
+      ],
+      [
+        "runuser",
+        "-u",
+        "owner",
+        "--",
+        "env",
+        "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sbuild.conf",
+        "DEB_BUILD_OPTIONS=nocheck parallel=4",
+        "sbuild",
+        "--chroot-mode=unshare",
+        "--chroot=/srv/data1/tabor-build/linux-live-001/work/port-build-server-001/trixie-amd64.tar",
+        "--build=amd64",
+        "--host=powerpcspe",
+        "--dist=trixie",
+        "--profiles=cross,nocheck",
+        "--build-dep-resolver=apt",
+        "--no-run-lintian",
+        "--nolog",
+        "--jobs=4",
+        "--build-dir=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool",
+        "--no-arch-all",
+        "--extra-package=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/extra-packages",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/sources/debian-patched-output/libtool_2.5.4-4.dsc"
+      ],
+      [
+        "python3",
+        "/srv/data1/tabor-build/linux-live-001/submissions/port-pipeline-20261103-001/project/scripts/inspect-spe-package-payloads.py",
+        "--receipt",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/receipt.json",
+        "--output",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-libtool/payload-inspection.json"
+      ]
+    ],
+    "package": "libtool",
+    "source_version": "2.5.4-4",
+    "native_root_receipt_sha256": "d8578cdb546ca21e16ed073e57fe6ca6d20264b9a0871f14e1a12696e928ebec",
+    "native_root_sha256": "7da1094030337d45e894623ee6da30fd5ada4ff3fee307c01d332861ab5efa05",
+    "upstream_debian_source_version": "2.5.4-4",
+    "patched_source": {
+      "dsc": "sources/debian-patched-output/libtool_2.5.4-4.dsc",
+      "sha256": "a8ec5f38d29e4c552eddb9b92ebee9220b664caee1d3bea56dafbc26efa5d4e1",
+      "patch_sha256": "771163e0d24c75b922fac56ebabf6ed25e6ca656ff65cf9c6811f8171639a64d",
+      "version": "2.5.4-4",
+      "preserve_debian_version": true
+    },
+    "sbuild_exit": 0,
+    "packages": {
+      "libltdl7_2.5.4-4_powerpcspe.deb": {
+        "sha256": "62ffbffdb95b09521b6325cb2589225d13a20b1b3ae054c2ab70a325947de785",
+        "bytes": 413212
+      },
+      "libltdl-dev_2.5.4-4_powerpcspe.deb": {
+        "sha256": "d85308b501b3d2bc59411e5369f92f3321067f8fd2dcc4d59c5d965304fdd8f1",
+        "bytes": 165692
+      },
+      "libtool-bin_2.5.4-4_powerpcspe.deb": {
+        "sha256": "64ea776790033f4554d47fff1874e0dcaa5be49463c119a0ae1b97034b8504a8",
+        "bytes": 457496
+      }
+    },
+    "build_metadata": {
+      "libtool_2.5.4-4_powerpcspe.buildinfo": "151a688d71b874cbbfabd53b2c907c8131796c02b1d7a38f7ca2b4e7ec098795",
+      "libtool_2.5.4-4_powerpcspe.changes": "c4b62a39e13a1bbf211a2f4d130ddb2818a27cffa8dd110ccdf4a581b79dac20"
+    },
+    "payload_inspection_sha256": "7450b7fc30d2d09521e887e52b3ec7f79db1c107a0af070cd3fbde3559c8f50a"
+  },
+  "port-pipeline-20261103-001-base-libraries-db5.3": {
+    "status": "debian-packages-built-not-target-installed",
+    "spec_sha256": "b770327570b3586c8a98662dcaff22cb4f4d97d20fcb7b46935b56bb9ac0853e",
+    "recipe_sha256": "0a41c699607f3580fc14f8d7a4a78a0e41e98875af6187307d5adabdd86812a9",
+    "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+    "build_architecture": "amd64",
+    "host_architecture": "powerpcspe",
+    "build_profiles": "cross,nocheck,pkg.db5.3.notcl",
+    "bootstrap": false,
+    "required_full_rebuild": false,
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "build_root_only": false,
+    "bootstrap_assembly": false,
+    "source_inputs": [
+      {
+        "filename": "db5.3_5.3.28+dfsg2-9.dsc",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db5.3/db5.3_5.3.28+dfsg2-9.dsc",
+        "size": 2373,
+        "sha256": "045f392c75dffc9d4f3bd44978b90ca8d45b935cf0ae4202bf79a760f2ce07b1"
+      },
+      {
+        "filename": "db5.3_5.3.28+dfsg2.orig.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db5.3/db5.3_5.3.28+dfsg2.orig.tar.xz",
+        "size": 21287688,
+        "sha256": "ad41b507415dec8316e828b2230242af2251d2c86eefa3c7aa9ef47c5239ef33"
+      },
+      {
+        "filename": "db5.3_5.3.28+dfsg2-9.debian.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db5.3/db5.3_5.3.28+dfsg2-9.debian.tar.xz",
+        "size": 36412,
+        "sha256": "21fe6ee0491c83d0c34fe52e0e0e423946172eff68262584a0cc8ef880c36b74"
+      }
+    ],
+    "extra_package_inputs": [
+      {
+        "file": "bash_5.2.37-2_powerpcspe.deb",
+        "sha256": "ef81561d76d3c58d227fcb7aff7bcc34d20c2b3d9e62a8ba412bc556d79ec22e",
+        "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796"
+      },
+      {
+        "file": "bzip2_1.0.8-6_powerpcspe.deb",
+        "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+        "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+      },
+      {
+        "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+        "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+        "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+      },
+      {
+        "file": "crossbuild-essential-powerpcspe_1.0+spe4_all.deb",
+        "sha256": "cf39873287252e2495e24b75500e3783cf2e94335e5cad7b99e8498340beceb9",
+        "receipt_sha256": "0c3e92d6e9404a49fc3d85e007e12763ad6712a48f853c7c26de140fd20f3e87"
+      },
+      {
+        "file": "debconf_1.5.91+tabor1_all.deb",
+        "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+        "receipt_sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429"
+      },
+      {
+        "file": "dh-golang_1.63+spe1_all.deb",
+        "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+        "receipt_sha256": "21b3288b430eac53c52a6add7de85cf3efc8e43f5b94680dc0acacd148cd100f"
+      },
+      {
+        "file": "init-system-helpers_1.69~deb13u1_all.deb",
+        "sha256": "addf78073e1cbc5a5508937e11d2571055e29835e00ee8fab52a66775649378f",
+        "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198"
+      },
+      {
+        "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+        "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+        "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+      },
+      {
+        "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+        "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+        "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+      },
+      {
+        "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+        "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+        "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+      },
+      {
+        "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+        "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+        "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+      },
+      {
+        "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+        "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+        "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+      },
+      {
+        "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+        "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+        "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+      },
+      {
+        "file": "libssl3t64_3.5.7-1~deb13u3_powerpcspe.deb",
+        "sha256": "e4c9ca045223c3caebbc631b42ffa438493e067e429f145c966c4b00a9154558",
+        "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+      },
+      {
+        "file": "openssl-provider-legacy_3.5.7-1~deb13u3_powerpcspe.deb",
+        "sha256": "d8ef734b4101295f593f1773f564ca0e815ee76752494149e1aa52414d9215e1",
+        "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+      },
+      {
+        "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+        "sha256": "b207182192e9d583d1262a7fcf9dea3423e083d59d4bb021eb00c07fb693d1b3",
+        "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef"
+      },
+      {
+        "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+        "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+        "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+      },
+      {
+        "file": "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "591cd32b1f31e6a835c173c0f68d9282d997fbdcde1f0078dea666f96d6e235b",
+        "receipt_sha256": "96dc3daabf34669c7220738ab2334bffccbe2b81b95eb78820e52245d57ceff3"
+      },
+      {
+        "file": "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "6774b599135c7600d1da76edc8ce3f03bd4b16cb2731eddb5bd4f2988376098a",
+        "receipt_sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d"
+      },
+      {
+        "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+        "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+      },
+      {
+        "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+        "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+        "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+      },
+      {
+        "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+        "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+        "role": "native SPE cross compiler",
+        "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+      }
+    ],
+    "commands": [
+      [
+        "runuser",
+        "-u",
+        "owner",
+        "--",
+        "env",
+        "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3/sbuild.conf",
+        "DEB_BUILD_OPTIONS=nocheck parallel=4",
+        "sbuild",
+        "--chroot-mode=unshare",
+        "--chroot=/srv/data1/tabor-build/linux-live-001/work/port-build-server-001/trixie-amd64.tar",
+        "--build=amd64",
+        "--host=powerpcspe",
+        "--dist=trixie",
+        "--profiles=cross,nocheck,pkg.db5.3.notcl",
+        "--build-dep-resolver=apt",
+        "--no-run-lintian",
+        "--nolog",
+        "--jobs=4",
+        "--build-dir=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3",
+        "--no-arch-all",
+        "--extra-package=/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3/extra-packages",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3/sources/db5.3_5.3.28+dfsg2-9.dsc"
+      ],
+      [
+        "python3",
+        "/srv/data1/tabor-build/linux-live-001/submissions/port-pipeline-20261103-001/project/scripts/inspect-spe-package-payloads.py",
+        "--receipt",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3/receipt.json",
+        "--output",
+        "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261103-001-base-libraries-db5.3/payload-inspection.json"
+      ]
+    ],
+    "package": "db5.3",
+    "source_version": "5.3.28+dfsg2-9",
+    "native_root_receipt_sha256": "d8578cdb546ca21e16ed073e57fe6ca6d20264b9a0871f14e1a12696e928ebec",
+    "native_root_sha256": "7da1094030337d45e894623ee6da30fd5ada4ff3fee307c01d332861ab5efa05",
+    "sbuild_exit": 0,
+    "packages": {
+      "libdb5.3-dev_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "076cb6dc17f340eae08e60755b5eefa4785c2146011a8b4d5125d305a2343f4c",
+        "bytes": 662724
+      },
+      "libdb5.3++t64_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "a35469fd78b82fdac90530bee4cd999af2e7b1cf7b41037be6ed6c76eb72318d",
+        "bytes": 619712
+      },
+      "libdb5.3t64_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "f34b35333d0f8c41518840949b4776a5ccbefcdf4b7b221faac5abc8488fb9b7",
+        "bytes": 593956
+      },
+      "libdb5.3++-dev_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "22147ce677c653394e1bdfc2e759dc41122f2024c968b4bd04558204c8b73835",
+        "bytes": 677120
+      },
+      "libdb5.3-dbg_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "35fb5990a67c7ed8201983e2e7791ba168aaaba5f95ffdb56c1cac5ee567c780",
+        "bytes": 15293384
+      },
+      "db5.3-util_5.3.28+dfsg2-9_powerpcspe.deb": {
+        "sha256": "6ad3d340da1c8ada5be174c18cab9c91e717b746de6a9ea4950a1babcf7daf12",
+        "bytes": 65604
+      }
+    },
+    "build_metadata": {
+      "db5.3_5.3.28+dfsg2-9_powerpcspe.buildinfo": "ee2021ba9d66b1247a920098df73c0c47521b93df09d8255d6c5006cf56f9b51",
+      "db5.3_5.3.28+dfsg2-9_powerpcspe.changes": "c2113131d8658591e28f238c7c31533847533594600daa54c6bd8c65e6efb6dc"
+    },
+    "payload_inspection_sha256": "d18a6103375348e9a2de8396c28d2bc5fb77b30fb0af68192482ce3aae95098c"
+  }
+}

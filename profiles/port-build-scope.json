@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "target_architecture": "powerpcspe",
+  "runtime_reference": "profiles/images/vm132-session-baseline.json",
+  "first_gate": "Normal Debian base, X11, Enlightenment, Mesa/gears, SSH and VNC; optional applications follow that gate",
+  "ordering": [
+    "patched compiler/runtime foundation",
+    "required target base libraries using supported Debian bootstrap profiles for cycles",
+    "selected desktop and service packages",
+    "normal apt/dpkg target configuration and QEMU validation",
+    "physical A1222 validation"
+  ],
+  "native_tools": "Use existing Debian amd64/all binaries; the broad native dependency cache does not expand target scope. A demonstrated native-helper defect may receive a small packaged source fix.",
+  "target_source_rule": "Every queued source must supply a selected runtime package or a necessary target build dependency. Missing native tools do not authorize a new target language/toolchain port.",
+  "bootstrap_rule": "Use profiles already supported by the source, record omitted outputs, and rebuild full packages when required by selected final binaries. Do not invent runtime paths, installation state or substitute a copied filesystem.",
+  "deferred_candidates": {
+    "apache2": "Not selected for the desktop image; appears through AppArmor Apache-module build requirements. Review the base library bootstrap before adding a target web server build.",
+    "apr": "Apache-module chain; not an independently selected base desktop library.",
+    "gem2deb": "Ruby packaging helper; review native role instead of automatically porting a Ruby toolchain.",
+    "ruby3.3": "No selected desktop runtime requires Ruby at this stage; base C libraries use their supported bootstrap profiles when necessary.",
+    "python3-defaults": "Defer target language defaults until a selected binary or unavoidable target library build requires them; existing native Python remains available.",
+    "sphinx": "Native documentation helper is already provisioned; no further target documentation-tool port is selected.",
+    "gobject-introspection": "Review native generator versus required target library role before scheduling this chain.",
+    "systemtap": "Do not build a target tracing suite automatically; establish any required SDK/header-only output first."
+  },
+  "not_selected": [
+    "new Fortran/Go/Java compiler or runtime port",
+    "target web server stack for optional plugin outputs",
+    "full VM132 application inventory before the desktop works"
+  ]
+}

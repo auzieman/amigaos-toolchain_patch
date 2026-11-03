@@ -879,3 +879,26 @@ without changing private source permissions or memory caps. Cross batch008
 and independent-data batch003 are running. A native -A/dose mode builds only
 universal script/data packages; static acceptance excludes ELF and amd64
 binaries. See builds/port-restart-20261103 for evidence and remaining gates.
+
+
+2026-11-03 scripted port cycle: scripts/submit-port-build.py now freezes and
+submits the reviewed scope/recipes to one R730 controller. It prepares modified
+DSCs before profile-aware Debian dependency checks, builds ready sources with
+sbuild, reuses verified artifacts and records classified fallout. Deferred
+metadata candidates are not a build-all list. A queued --after-run round waits
+for its predecessor rather than overlapping package workers.
+
+Verified packaging results: native dh-golang1.63+spe1 fixes C/SPE backend
+discovery without enabling unsupported Go/SPE; four regression checks passed.
+Popt/Tcl-defaults, corrected xorgproto, libtool/libltdl and the DB C library
+built successfully. No SPE Fortran compiler was built: its libtool dependency
+is qualified to the checks that already omit it in nocheck cross builds.
+Receipts are retained under builds/port-pipeline-20261103.
+
+The current round002 is building library prerequisites; round003 is queued
+with corrected libffi symbol metadata. Dependency indexing excludes historical
+source-version variants using actual package controls, keeping reviewed
+foundation exceptions explicit. SQLite/Tcl/ICU producer sources are pinned to
+the same authenticated frozen snapshot. Full patched glibc source registration,
+remaining dependency closure, target installation and a new QEMU/image gate
+remain pending. No USB write or physical Radeon/SMP acceptance occurred.

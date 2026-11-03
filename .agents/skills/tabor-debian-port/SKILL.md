@@ -4,10 +4,23 @@ description: Operate the frozen Trixie powerpcspe package port and A1222 desktop
 ---
 Read AGENTS.md, docs/debian-port-build-contract.md, the latest entries in
 docs/task.md and docs/progress.md, and profiles/trixie-spe-base.lock.json.
+Use profiles/port-build-scope.json to distinguish the selected base/desktop
+closure from metadata-only candidates. The source inventory is not a request
+to build a web server, new language runtime or compiler suite. Use existing
+native helpers for native jobs; target builds need a traceable selected binary
+or necessary target build-library consumer. Prefer supported source profiles
+such as stage1 to break bootstrap cycles before the full services are built.
 Use this workflow for ongoing Debian userspace work. Use tabor-spe-forward-port
 only for a demonstrated compiler/runtime ABI defect, and tabor-kernel-build
 for kernel/board work. Do not restart toolchain investigation for an ordinary
 missing Build-Depends or a broken build-server configuration.
+
+Use scripts/submit-port-build.py and docs/port-build-pipeline.md for normal
+build rounds. Evaluate retained fallout, commit reviewed source fixes/profile
+choices in profiles/port-package-overrides.json, and rerun the pipeline when
+inputs change. One-off package commands are bounded diagnostics, not the
+default workflow. The pipeline prepares source metadata, uses Debian's solver
+and package builder, and reports failures; it must not invent another resolver.
 
 Provision the R730 for the whole selected source scope up front. Keep a broad
 native build-tool/dependency template and downloaded package cache on the

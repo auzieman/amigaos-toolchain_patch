@@ -7,6 +7,8 @@ Build policy: [Debian-first powerpcspe port](docs/debian-port-build-contract.md)
 Default package/desktop skill: [Debian port build service](.agents/skills/tabor-debian-port/SKILL.md),
 with a [reusable continuation prompt](.agents/prompts/debian-port.md).
 
+Build entrypoint: [scripted Debian port cycle](docs/port-build-pipeline.md).
+
 Current workflow: [frozen Debian sbuild roots, dependency audit and bounded parallel builds](docs/builds/debian-standard-builder-20261102/README.md).
 
 For Steven: [Linux reference and AmigaOS4 engineering roadmap](docs/hyperion-roadmap.md).

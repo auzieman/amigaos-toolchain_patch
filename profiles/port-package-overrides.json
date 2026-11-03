@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "packages": {
+    "libtool": {
+      "spec": "profiles/sbuild/libtool.json",
+      "purpose": "C libltdl prerequisite for libffi; no Fortran compiler port"
+    },
+    "xorgproto": {
+      "spec": "profiles/sbuild/xorgproto.json",
+      "purpose": "Universal X11 protocol headers; packaging fix"
+    },
+    "util-linux": {
+      "bootstrap_profiles": "cross,nocheck,stage1,pkg.util-linux.noverity",
+      "full_rebuild_required": true,
+      "purpose": "Debian-supported stage1 libuuid/libblkid/libmount bootstrap, then normal utilities/services"
+    },
+    "db5.3": {
+      "build_profiles": "cross,nocheck,pkg.db5.3.notcl",
+      "purpose": "Database C library for PAM; Tcl binding package is not selected"
+    },
+    "libselinux": {
+      "build_profiles": "cross,nocheck,nopython,noruby",
+      "purpose": "Base C library; Python/Ruby binding packages are not selected"
+    },
+    "libffi": {
+      "spec": "profiles/sbuild/libffi.json",
+      "purpose": "SPE PowerPC symbol availability, preserving strict symbol checks"
+    }
+  }
+}

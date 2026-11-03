@@ -1,5 +1,13 @@
 # Debian-first powerpcspe build contract
 
+Scope clarification (2026-11-03): profiles/port-build-scope.json bounds active
+work to the selected base, X11/E/Mesa and service closure. Broad native build
+prerequisite provisioning and source metadata discovery do not authorize an
+automatic target web-server/language/compiler port. Build base libraries first
+with supported Debian bootstrap profiles as required, then their consumers.
+Record omitted outputs and close full-build gates needed by the selected final
+binary packages. Keep native tools native and preserve Debian installation.
+
 Current package/desktop entrypoint: [.agents/skills/tabor-debian-port](../.agents/skills/tabor-debian-port/SKILL.md).
 The [broad build-server provisioning](builds/port-build-server-20261102/README.md)
 uses the frozen snapshot and original DSC build dependencies to prepare a native

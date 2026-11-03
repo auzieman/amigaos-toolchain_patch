@@ -1,0 +1,18 @@
+Description: Apply existing text-document installation policy to PDFs
+ A fully provisioned build host auto-enables PDF generation. Like the existing
+ HTML/PS/XML cleanup, remove the generated PDFs which are outside the package's
+ text-only install manifest. Keep dh_missing --fail-missing and all headers.
+Author: Tabor port contributors
+Forwarded: not-yet
+Last-Update: 2026-11-03
+
+--- a/debian/rules
++++ b/debian/rules
+@@ -19,6 +19,7 @@
+ 	find debian/tmp/usr/share/doc/ -name '*.db' -delete
+ 	find debian/tmp/usr/share/doc/ -name '*.html' -delete
+ 	find debian/tmp/usr/share/doc/ -name '*.ps' -delete
++	find debian/tmp/usr/share/doc/ -name '*.pdf' -delete
+ 	find debian/tmp/usr/share/doc/ -name '*.svg' -delete
+ 	find debian/tmp/usr/share/doc/ -name '*.xml' -delete
+ 

@@ -18,6 +18,9 @@ import yaml
 p = argparse.ArgumentParser(description=__doc__)
 for key in ['audit', 'source_indexes', 'output']:
     p.add_argument('--' + key.replace('_', '-'), type=Path, required=True)
+p.add_argument('--only-producers',nargs='+',help='Review-bounded intake of these producer sources only')
+p.add_argument('--cache',type=Path,help='Cache archives after bounded producer review')
+p.add_argument('--cache-output',type=Path)
 a = p.parse_args()
 a.output.mkdir(exist_ok=False)
 
@@ -68,10 +71,16 @@ try:
         cmd = ['dose-builddebcheck', '--deb-native-arch=amd64', '--deb-host-arch=powerpcspe',
                '--deb-profiles=cross,nocheck', '--deb-drop-b-d-indep', '--deb-emulate-sbuild',
                '--failures', '--explain', str(native), str(a.audit / 'SpePackages'), str(sources)]
-        with reportpath.open('w') as out, (a.output / ('dose-' + str(wave) + '.log')).open('w') as log:
-            code = subprocess.run(cmd, stdout=out, stderr=log).returncode
-        assert code in [0, 1]
-        report = yaml.load(reportpath.read_text(), Loader=yaml.BaseLoader)
+        if wave == 1:
+            original_report = a.audit / 'dependency-report.yaml'
+            assert sha(original_report) == parent['report_sha256']
+            reportpath.write_bytes(original_report.read_bytes())
+            report = yaml.load(original_report.read_text(), Loader=yaml.BaseLoader)
+        else:
+            with reportpath.open('w') as out, (a.output / ('dose-' + str(wave) + '.log')).open('w') as log:
+                code = subprocess.run(cmd, stdout=out, stderr=log).returncode
+            assert code in [0, 1]
+            report = yaml.load(reportpath.read_text(), Loader=yaml.BaseLoader)
         new = set()
         def visit(node):
             if isinstance(node, dict):
@@ -86,6 +95,8 @@ try:
                             if not matches:
                                 r['unmapped'].append(relation)
                             for producer in matches:
+                                if a.only_producers and producer not in a.only_producers:
+                                    continue
                                 if producer not in available:
                                     r['unmapped'].append(relation + ' -> ' + producer)
                                     continue
@@ -108,6 +119,8 @@ try:
             break
         for name in sorted(new):
             selected[name] = available[name]
+        if a.only_producers:
+            break
     for value in r['producers'].values():
         value['binary_requirements'] = sorted(set(value['binary_requirements']))
     r['native_role_review'] = sorted(set(r['native_role_review']))
@@ -121,5 +134,13 @@ try:
     r.update(status='dependency-producer-intake-planned', discovered_sources=len(plan['components']),
              limitation='Solver failures may expose only one missing relation per source. Re-evaluate after new packages; not proof of complete closure or runtime readiness.',
              plan_sha256=sha(a.output / 'source-intake-plan.json'))
+except Exception as error:
+    r.update(status='failed',error=str(error))
+    raise
 finally:
     (a.output / 'receipt.json').write_text(json.dumps(r, indent=2) + '\n')
+if a.cache:
+    assert a.only_producers and a.cache_output, 'Archive intake requires an explicit reviewed producer list and output'
+    subprocess.run(['python3', str(Path(__file__).with_name('cache-port-dependency-sources.py')),
+        '--intake', str(a.output), '--source-indexes', str(a.source_indexes),
+        '--cache', str(a.cache), '--output', str(a.cache_output)], check=True)

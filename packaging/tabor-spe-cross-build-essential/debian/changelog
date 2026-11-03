@@ -1,3 +1,10 @@
+tabor-spe-cross-build-essential (1.0+spe4) UNRELEASED; urgency=medium
+
+  * Require the real patched native Go debhelper backend so its constructor
+    does not reject unrelated C/C++ source builds during autodetection.
+
+ -- Tabor SPE lab <root@localhost>  Tue, 03 Nov 2026 15:45:00 +0000
+
 tabor-spe-cross-build-essential (1.0+spe3) UNRELEASED; urgency=medium
 
   * Include the real SPE atomic runtime and linker development files needed by

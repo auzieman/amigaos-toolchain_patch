@@ -1,0 +1,27 @@
+Description: Initialize Go environment only for the selected build backend
+ Debhelper may instantiate every installed backend during autodetection.
+ Its Buildsystem API forbids environment setup in constructors. Defer setup
+ to the documented pre_building_step hook, preserving Go cross checks when
+ this backend is actually selected and leaving unrelated packages alone.
+Author: Tabor port contributors
+Forwarded: not-yet
+Last-Update: 2026-11-03
+
+--- a/lib/Debian/Debhelper/Buildsystem/golang.pm
++++ b/lib/Debian/Debhelper/Buildsystem/golang.pm
+@@ -305,9 +305,14 @@
+     my $class = shift;
+     my $this = $class->SUPER::new(@_);
+     $this->prefer_out_of_source_building();
++    return $this;
++}
++
++sub pre_building_step {
++    my $this = shift;
++    $this->SUPER::pre_building_step(@_);
+     _set_dh_gopkg();
+     $this->set_go_env();
+-    return $this;
+ }
+ 
+ sub _set_dh_gopkg {
