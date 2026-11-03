@@ -1,0 +1,314 @@
+{
+  "status": "dependency-producer-intake-planned",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "audit_receipt_sha256": "6b81250270b555cd58be210b6c35c0556a4ec86eff802ceae528bb32f353a422",
+  "source_index_receipt_sha256": "1f798dab042d934b030373563f67072e7ec7e04ce387b6a035a2f91bcf44b785",
+  "target_execution": false,
+  "sources_built": false,
+  "waves": [
+    {
+      "wave": 1,
+      "source_count": 108,
+      "new_producers": [
+        "alsa-lib",
+        "apparmor",
+        "avahi",
+        "connman",
+        "db-defaults",
+        "gem2deb",
+        "gnutls28",
+        "gobject-introspection",
+        "java-common",
+        "krb5",
+        "libtool",
+        "libxaw",
+        "python3-defaults",
+        "slang2",
+        "util-linux",
+        "wayland"
+      ],
+      "report_sha256": "e2a33918fbc126306efba6a643145fae233048ecf44c379cfa4cf1257dd95134"
+    },
+    {
+      "wave": 2,
+      "source_count": 124,
+      "new_producers": [
+        "apache2",
+        "bluez",
+        "e2fsprogs",
+        "gcc-defaults",
+        "glib2.0",
+        "libidn2",
+        "libonig",
+        "libxt",
+        "ruby-defaults",
+        "sphinx"
+      ],
+      "report_sha256": "8c4beb93629897ecc8058e171d9c409f4e16a83194e33c78122a39b406600af6"
+    },
+    {
+      "wave": 3,
+      "source_count": 134,
+      "new_producers": [
+        "apr",
+        "fuse3",
+        "gcc-14",
+        "libsm",
+        "libunistring"
+      ],
+      "report_sha256": "c6f7c6cec9df6172bda3e08c338862c18ff183343a0b72c87d9f29a2200d6251"
+    },
+    {
+      "wave": 4,
+      "source_count": 139,
+      "new_producers": [
+        "libice",
+        "systemtap"
+      ],
+      "report_sha256": "a2328f1042a17d1e9ee14e4b019f4d29cf80efe805481f3b10ab8f30fa3b856e"
+    },
+    {
+      "wave": 5,
+      "source_count": 141,
+      "new_producers": [
+        "elfutils"
+      ],
+      "report_sha256": "3128fa422d70686fe8fcf290c85ac34c08b2efe2eb9ca19828c5840392ceeee6"
+    },
+    {
+      "wave": 6,
+      "source_count": 142,
+      "new_producers": [
+        "libarchive"
+      ],
+      "report_sha256": "9bc01d18923df2a843cfcccdd91ae578aa4c53b53a1140e4281784abcf8bb31e"
+    },
+    {
+      "wave": 7,
+      "source_count": 143,
+      "new_producers": [],
+      "report_sha256": "4b555f692981e59758979ff9f4d9edbab239c7ec2f80fa1048a0f0340d0a86cb"
+    }
+  ],
+  "native_role_review": [],
+  "unmapped": [],
+  "producers": {
+    "python3-defaults": {
+      "version": "3.13.5-1",
+      "binary_requirements": [
+        "libpython3-all-dev:powerpcspe",
+        "libpython3-dev:powerpcspe",
+        "python3:powerpcspe"
+      ]
+    },
+    "gem2deb": {
+      "version": "2.2.5",
+      "binary_requirements": [
+        "dh-sequence-ruby:powerpcspe | dh-sequence-ruby:powerpcspe"
+      ]
+    },
+    "krb5": {
+      "version": "1.21.3-5+deb13u1",
+      "binary_requirements": [
+        "libkrb5-dev:powerpcspe"
+      ]
+    },
+    "util-linux": {
+      "version": "2.41.5-0+deb13u1",
+      "binary_requirements": [
+        "libblkid-dev:powerpcspe",
+        "uuid-dev:powerpcspe"
+      ]
+    },
+    "connman": {
+      "version": "1.44-3",
+      "binary_requirements": [
+        "connman-dev:powerpcspe"
+      ]
+    },
+    "java-common": {
+      "version": "0.76",
+      "binary_requirements": [
+        "default-jdk:powerpcspe"
+      ]
+    },
+    "gobject-introspection": {
+      "version": "1.84.0-1",
+      "binary_requirements": [
+        "dh-sequence-gir:powerpcspe | dh-sequence-gir:powerpcspe"
+      ]
+    },
+    "apparmor": {
+      "version": "4.1.0-1",
+      "binary_requirements": [
+        "libapparmor-dev:powerpcspe"
+      ]
+    },
+    "wayland": {
+      "version": "1.23.1-3",
+      "binary_requirements": [
+        "libwayland-dev:powerpcspe"
+      ]
+    },
+    "libxaw": {
+      "version": "2:1.0.16-1",
+      "binary_requirements": [
+        "libxaw7-dev:powerpcspe"
+      ]
+    },
+    "gnutls28": {
+      "version": "3.8.9-3+deb13u4",
+      "binary_requirements": [
+        "libgnutls28-dev:powerpcspe"
+      ]
+    },
+    "avahi": {
+      "version": "0.8-16",
+      "binary_requirements": [
+        "libavahi-client-dev:powerpcspe"
+      ]
+    },
+    "alsa-lib": {
+      "version": "1.2.14-1+deb13u1",
+      "binary_requirements": [
+        "libasound2-dev:powerpcspe"
+      ]
+    },
+    "db-defaults": {
+      "version": "5.3.4",
+      "binary_requirements": [
+        "libdb-dev:powerpcspe"
+      ]
+    },
+    "slang2": {
+      "version": "2.3.3-5",
+      "binary_requirements": [
+        "libslang2-dev:powerpcspe"
+      ]
+    },
+    "libtool": {
+      "version": "2.5.4-4",
+      "binary_requirements": [
+        "libltdl-dev:powerpcspe"
+      ]
+    },
+    "apache2": {
+      "version": "2.4.69-1~deb13u1",
+      "binary_requirements": [
+        "apache2-dev:powerpcspe"
+      ]
+    },
+    "bluez": {
+      "version": "5.82-1.1",
+      "binary_requirements": [
+        "libbluetooth-dev:powerpcspe"
+      ]
+    },
+    "ruby-defaults": {
+      "version": "1:3.3",
+      "binary_requirements": [
+        "ruby:powerpcspe (>= 1:2.1.0.3~)"
+      ]
+    },
+    "libidn2": {
+      "version": "2.3.8-2",
+      "binary_requirements": [
+        "libidn2-dev:powerpcspe"
+      ]
+    },
+    "glib2.0": {
+      "version": "2.84.4-3~deb13u5",
+      "binary_requirements": [
+        "gir1.2-glib-2.0-dev:powerpcspe (>= 2.82.0)"
+      ]
+    },
+    "e2fsprogs": {
+      "version": "1.47.2-3",
+      "binary_requirements": [
+        "comerr-dev:powerpcspe",
+        "libext2fs-dev:powerpcspe"
+      ]
+    },
+    "gcc-defaults": {
+      "version": "1.220",
+      "binary_requirements": [
+        "gfortran:powerpcspe"
+      ]
+    },
+    "libxt": {
+      "version": "1:1.2.1-1.2",
+      "binary_requirements": [
+        "libxt-dev:powerpcspe (>= 1:0.99.1)"
+      ]
+    },
+    "sphinx": {
+      "version": "8.1.3-5",
+      "binary_requirements": [
+        "python3-sphinx:powerpcspe"
+      ]
+    },
+    "libonig": {
+      "version": "6.9.9-1",
+      "binary_requirements": [
+        "libonig-dev:powerpcspe"
+      ]
+    },
+    "apr": {
+      "version": "1.7.5-1",
+      "binary_requirements": [
+        "libapr1-dev:powerpcspe"
+      ]
+    },
+    "fuse3": {
+      "version": "3.17.2-3",
+      "binary_requirements": [
+        "libfuse3-dev:powerpcspe"
+      ]
+    },
+    "gcc-14": {
+      "version": "14.2.0-19",
+      "binary_requirements": [
+        "gcc-14-base:powerpcspe (>= 14.1.0-4~)"
+      ]
+    },
+    "libunistring": {
+      "version": "1.3-2",
+      "binary_requirements": [
+        "libunistring-dev:powerpcspe"
+      ]
+    },
+    "libsm": {
+      "version": "2:1.2.6-1",
+      "binary_requirements": [
+        "libsm-dev:powerpcspe (>= 1:0.99.1)"
+      ]
+    },
+    "systemtap": {
+      "version": "5.1-5",
+      "binary_requirements": [
+        "systemtap-sdt-dev:powerpcspe"
+      ]
+    },
+    "libice": {
+      "version": "2:1.1.1-1",
+      "binary_requirements": [
+        "libice-dev:powerpcspe (>= 2:1.1.0)"
+      ]
+    },
+    "elfutils": {
+      "version": "0.192-4",
+      "binary_requirements": [
+        "libelf-dev:powerpcspe (>= 0.148)"
+      ]
+    },
+    "libarchive": {
+      "version": "3.7.4-4+deb13u1",
+      "binary_requirements": [
+        "libarchive-dev:powerpcspe"
+      ]
+    }
+  },
+  "discovered_sources": 35,
+  "limitation": "Solver failures may expose only one missing relation per source. Re-evaluate after new packages; not proof of complete closure or runtime readiness.",
+  "plan_sha256": "30593deb5b239cd7842277d04702fdadb7f4d7416878b349baf5e9ff85421b5e"
+}

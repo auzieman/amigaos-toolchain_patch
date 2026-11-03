@@ -834,3 +834,30 @@ it is not installed-image or physical SMP acceptance. This round has20
 additional successful source groups, including partial bootstrap outputs; it
 is not a workstation completion percentage. Full-feature libc, ABI rounding,
 normal target configuration, desktop paint and hardware gates remain open.
+
+
+2026-11-02 Debian port service shift (user direction): ongoing desktop/package
+work now routes to .agents/skills/tabor-debian-port, with a continuation prompt.
+The R730 has roughly1.6TiB free and ample memory; stop minimal per-consumer
+provisioning. port-build-server-001 preinstalls all available native build
+dependencies for108 pinned source groups, including independent tools, in a
+separate frozen Debian buildd template. Original DSC metadata drives apt;
+package archives accumulate. Per-source sbuild roots remain disposable and
+still install actual SPE dependencies normally. No native source rebuild.
+
+The running provisioning pass has19 source groups successfully processed at
+this checkpoint. An nspawn timezone bind initially blocked tzdata's ordinary
+postinst; disabling that bind and normal dpkg configuration/retry fixed the
+container issue without suppressing scripts. Prior attempts remain recorded.
+Full template acceptance requires all selected dependency sets, clean apt/dpkg
+and unchanged foundation versions. It has not passed that final gate yet.
+
+port-dependency-intake-001 uses actual Debian dose failure relations and signed
+frozen source/binary metadata to discover35 producer candidates outside the
+old inventory. port-dependency-source-cache-001 is caching their archives with
+source-index hashes. These candidates include native-helper/profile questions
+and compiler-related producers requiring review, not35 required new target
+ports or permission to change the frozen compiler. No candidate is declared
+ready, built or installed by metadata discovery. Shared prerequisites now
+advance before unchanged blocked consumers are submitted again. See
+docs/builds/port-build-server-20261102 for retained discovery/checkpoint data.

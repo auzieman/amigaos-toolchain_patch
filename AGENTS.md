@@ -1,6 +1,6 @@
 Private Tabor SPE toolchain project. Read README.md and docs/task.md before changes. Keep Linux target, host tools and AmigaOS target ABIs separate. Preserve upstream license notices; vendor sample availability is not permission to relicense. Never import unreleased Hyperion source into a public repository. Pin exact source revisions and patch hashes before builds. Use isolated constrained lab jobs; retain source/toolchain/config/artifact hashes and logs. Build, emulator execution and real A1222 boot are separate acceptance gates. Do not overwrite existing Tabor sources, images or SDKs. No automatic remote publication or deployment.
 
-Project workflows: .agents/skills/tabor-source-intake, tabor-kernel-build and tabor-spe-forward-port. Reusable task starters live in .agents/prompts. Read only the skill for the current slice. docs/kernel-build.md owns the executable kernel recipe.
+Project workflows: use .agents/skills/tabor-debian-port for ongoing Debian package/desktop work; tabor-source-intake, tabor-kernel-build and tabor-spe-forward-port cover source qualification, board/kernel builds and compiler/runtime defects respectively. Reusable task starters live in .agents/prompts. Read only the skill for the current slice. docs/kernel-build.md owns the executable kernel recipe.
 
 Write reviewable commit bodies per CONTRIBUTING.md: motivation, concrete change, validation/evidence and remaining limits. Keep docs/progress.md current for Hyperion collaborators. Preserve published history; add follow-up context rather than rewriting it.
 
@@ -68,3 +68,12 @@ still runs no builds. Debian dose-builddebcheck determines dependency-set
 installability; sbuild/apt installs the actual native tools and SPE development
 packages before compiling. Recheck after accepted artifacts change. Do not
 queue known-blocked consumers merely because their names follow a failed source.
+
+Build-server provisioning (user direction, 2026-11-02): preinstall the full
+selected source scope's available native build dependencies and retain the
+download cache on the R730; use available disk space rather than repeated
+minimal dependency provisioning. Use the frozen snapshot and real apt state.
+Prepare separate templates for genuinely incompatible dependency sets. Extend
+the SPE source inventory to missing library producers and their closure;
+an inventory boundary is not a reason to leave the build service idle. Native
+prerequisite installation does not replace compiling/installing SPE libraries.

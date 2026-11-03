@@ -1,5 +1,11 @@
 # Review starting point
 
+Current package workflow: [Debian port skill](../.agents/skills/tabor-debian-port/SKILL.md)
+and [R730 broad dependency provisioning/source intake](builds/port-build-server-20261102/README.md).
+Provisioning is running; this is not new-image acceptance. See progress.md for
+the latest verified results rather than interpreting older running queues below
+as current worker status.
+
 Private working repository for Auzieman and invited collaborators. Current
 implementation targets Linux/SPE on A1222/Tabor; AmigaOS SDK integration still
 needs its host/target/runtime contract. The repository name does not establish

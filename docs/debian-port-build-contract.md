@@ -1,5 +1,13 @@
 # Debian-first powerpcspe build contract
 
+Current package/desktop entrypoint: [.agents/skills/tabor-debian-port](../.agents/skills/tabor-debian-port/SKILL.md).
+The [broad build-server provisioning](builds/port-build-server-20261102/README.md)
+uses the frozen snapshot and original DSC build dependencies to prepare a native
+tool superset and persistent download cache. This supersedes repeatedly minimal
+native provisioning; per-source sbuild/apt still owns actual cross dependencies.
+Expand intake beyond the recipe inventory when Debian metadata identifies
+missing producers. The existing inventory is not a complete port closure.
+
 User direction, 2026-11-01: this is a Debian Trixie source rebuild for the
 A1222's powerpcspe ABI, founded on our patched compiler, runtime and board
 support. Above that foundation, normal Debian packaging and dependency

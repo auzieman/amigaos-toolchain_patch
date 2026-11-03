@@ -4,6 +4,9 @@ Start with [review status and prompts](docs/review-start.md).
 
 Build policy: [Debian-first powerpcspe port](docs/debian-port-build-contract.md).
 
+Default package/desktop skill: [Debian port build service](.agents/skills/tabor-debian-port/SKILL.md),
+with a [reusable continuation prompt](.agents/prompts/debian-port.md).
+
 Current workflow: [frozen Debian sbuild roots, dependency audit and bounded parallel builds](docs/builds/debian-standard-builder-20261102/README.md).
 
 For Steven: [Linux reference and AmigaOS4 engineering roadmap](docs/hyperion-roadmap.md).
@@ -110,7 +113,7 @@ and hashes, not a duplicate SDK, disk image or vendor code dump.
 ## Project workflows
 
 Project-owned skills live under `.agents/skills/`:
-`tabor-source-intake`, `tabor-kernel-build`, and `tabor-spe-forward-port`.
+`tabor-debian-port`, `tabor-source-intake`, `tabor-kernel-build`, and `tabor-spe-forward-port`.
 Reusable intake, baseline-build, kernel-forward-port and SPE-forward-port prompts
 live in `.agents/prompts/`. These are discovered when working in this project;
 no global agent configuration was changed.
