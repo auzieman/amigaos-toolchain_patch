@@ -126,11 +126,22 @@ try:
   r['upstream_debian_source_version']=component['version'];r['source_version']=version
   r['patched_source']={'dsc':dsc.name,'sha256':sha(dsc),'patch_sha256':sha(patch),'version':version}
  config=a.output/'sbuild.conf'
+ # Large dependency templates must unpack on server storage, not /tmp tmpfs:
+ # tmpfs pages count against the package job's memory limit before compilation.
+ # Keep this outside the private 0750 project parent: the mapped namespace
+ # uid must traverse the temporary path without opening up private sources.
+ build_tmp=a.base.parent.parent/'tabor-sbuild-tmp'
+ build_tmp.mkdir(exist_ok=True)
+ assert not build_tmp.is_symlink() and build_tmp.resolve().is_relative_to(a.base.parent.parent.resolve())
+ assert build_tmp.stat().st_dev==a.base.stat().st_dev, 'Build temp must use the data filesystem'
+ build_tmp.chmod(0o1777)
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
  core_version=spec.get('cross_core_version','1.0+spe2')
  assert core_version in ['1.0+spe2','1.0+spe3']
  config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
+ with config.open('a') as f:
+  f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")
  if spec.get('configure_cache'):
   cache_spec=spec['configure_cache'];cache_path=a.project/cache_spec['path']
   assert sha(cache_path)==cache_spec['sha256']

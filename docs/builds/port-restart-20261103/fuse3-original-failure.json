@@ -1,0 +1,189 @@
+{
+  "status": "failed",
+  "spec_sha256": "a1da39a9ba73d2ebd2429e1a868acac8e96b6bc16a6aa3aaede7635445515663",
+  "recipe_sha256": "dcce196b58f1244054ba9f0526a0639ae805205630f0867a61cb4c9139424c46",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "source_inputs": [
+    {
+      "filename": "fuse3_3.17.2-3.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2-3.dsc",
+      "size": 2428,
+      "sha256": "1339847e7e6512f31d61cf1fe4598341c4b8aa43ea6dc546914b21f96f29deb3"
+    },
+    {
+      "filename": "fuse3_3.17.2.orig.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2.orig.tar.gz",
+      "size": 5627028,
+      "sha256": "3d932431ad94e86179e5265cddde1d67aa3bb2fb09a5bd35c641f86f2b5ed06f"
+    },
+    {
+      "filename": "fuse3_3.17.2.orig.tar.gz.asc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2.orig.tar.gz.asc",
+      "size": 314,
+      "sha256": "df18d3972c68dd0e8f7ad2a544a24ac54d48aa4b42d99b717448f7fe8e71cea4"
+    },
+    {
+      "filename": "fuse3_3.17.2-3.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2-3.debian.tar.xz",
+      "size": 19440,
+      "sha256": "eaf7a177761ae8bf99ea97619f2cccf83f169b4f000e17b6106834e69456b5a2"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "bash_5.2.37-2_powerpcspe.deb",
+      "sha256": "ef81561d76d3c58d227fcb7aff7bcc34d20c2b3d9e62a8ba412bc556d79ec22e",
+      "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796"
+    },
+    {
+      "file": "bzip2_1.0.8-6_powerpcspe.deb",
+      "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+      "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe3_all.deb",
+      "sha256": "c24d4293e226458210d60c0fc73354b3abf1f6a7c219b77c015a4ccbe1fb6b4c",
+      "receipt_sha256": "74e35bf9d6c9ca0c0ddb4c007c93c9148b1197a20787fb5566037c3acc0ccddb"
+    },
+    {
+      "file": "debconf_1.5.91+tabor1_all.deb",
+      "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+      "receipt_sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429"
+    },
+    {
+      "file": "init-system-helpers_1.69~deb13u1_all.deb",
+      "sha256": "addf78073e1cbc5a5508937e11d2571055e29835e00ee8fab52a66775649378f",
+      "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198"
+    },
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+    },
+    {
+      "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "pkgconf_1.8.1-4_powerpcspe.deb",
+      "sha256": "75d936e9314fef39b31b4292d94319b4e543cbf6a5a21cfb2dc08244b8759a6d",
+      "receipt_sha256": "7202728e8c0746ed89308b6db5b7083758e0d53bf01a6d529b96ae77e43209b9"
+    },
+    {
+      "file": "libssl3t64_3.5.7-1~deb13u3_powerpcspe.deb",
+      "sha256": "e4c9ca045223c3caebbc631b42ffa438493e067e429f145c966c4b00a9154558",
+      "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+    },
+    {
+      "file": "openssl-provider-legacy_3.5.7-1~deb13u3_powerpcspe.deb",
+      "sha256": "d8ef734b4101295f593f1773f564ca0e815ee76752494149e1aa52414d9215e1",
+      "receipt_sha256": "47f4c55289d4a6c9390932e5bb2bcbc5520c8160d5f0bc0347b882d4050a2091"
+    },
+    {
+      "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "b207182192e9d583d1262a7fcf9dea3423e083d59d4bb021eb00c07fb693d1b3",
+      "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+    },
+    {
+      "file": "media-types_13.0.0+tabor1_all.deb",
+      "sha256": "e39ee919cf9e5f3130b6a732a289d903523f1552ab35895e2dab2ba196fffd19",
+      "receipt_sha256": "1a9dcaf2878c5bb5b0360b4b6a9c30c56b55b9f9665b337ee076078c1e6873c7"
+    },
+    {
+      "file": "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "591cd32b1f31e6a835c173c0f68d9282d997fbdcde1f0078dea666f96d6e235b",
+      "receipt_sha256": "96dc3daabf34669c7220738ab2334bffccbe2b81b95eb78820e52245d57ceff3"
+    },
+    {
+      "file": "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "6774b599135c7600d1da76edc8ce3f03bd4b16cb2731eddb5bd4f2988376098a",
+      "receipt_sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+      "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-fuse3/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck",
+      "--build-dep-resolver=apt",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-fuse3",
+      "--no-arch-all",
+      "--extra-package=/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-fuse3/extra-packages",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-fuse3/sources/fuse3_3.17.2-3.dsc"
+    ]
+  ],
+  "package": "fuse3",
+  "source_version": "3.17.2-3",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "sbuild_exit": 2,
+  "error": "sbuild failed; retained standard dependency/build log"
+}

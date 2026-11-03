@@ -1,11 +1,12 @@
 {
   "defaults": "profiles/sbuild/libx11.json",
-  "initial_audit": "work/debian-dependency-audit-007",
-  "initial_audit_sha256": "6b81250270b555cd58be210b6c35c0556a4ec86eff802ceae528bb32f353a422",
-  "concurrency": 4,
-  "run_prefix": "sbuild-ready-20261102-004",
-  "unit_prefix": "tabor-ready4-build",
+  "initial_audit": "work/sbuild-ready-20261102-005-dependencies-3",
+  "initial_audit_sha256": "e8f3bc2435b1838babaf6a793c9478867ab351f511d199a5b636686db144a5da",
+  "concurrency": 1,
+  "run_prefix": "sbuild-ready-20261103-008",
+  "unit_prefix": "tabor-ready8-build",
   "packages": [
+    "fuse3",
     "audit",
     "libcap2",
     "base-passwd",
@@ -34,7 +35,39 @@
     "pam",
     "cdebconf",
     "libffi",
-    "brotli"
+    "brotli",
+    "alsa-lib",
+    "apache2",
+    "apparmor",
+    "apr",
+    "avahi",
+    "bluez",
+    "connman",
+    "e2fsprogs",
+    "elfutils",
+    "gem2deb",
+    "glib2.0",
+    "gnutls28",
+    "gobject-introspection",
+    "krb5",
+    "libarchive",
+    "libsm",
+    "libtool",
+    "libxaw",
+    "libxt",
+    "python3-defaults",
+    "sphinx",
+    "systemtap",
+    "util-linux",
+    "wayland",
+    "glibc",
+    "libselinux",
+    "db5.3",
+    "newt",
+    "p11-kit",
+    "popt",
+    "ruby3.3",
+    "tcltk-defaults"
   ],
   "configure_cache_sources": [
     "libxext",
@@ -51,13 +84,26 @@
     "xorg-server",
     "libxkbcommon",
     "libxkbfile",
-    "libxfont"
+    "libxfont",
+    "libice",
+    "libsm",
+    "libxt",
+    "libxaw"
   ],
-  "scope": "Remaining reviewed source groups; dispatch only Debian dose-installable cross-build sets, normal apt preinstallation,4 jobs x4 compiler jobs/6GiB each. Dependencies are rechecked after each wave.",
+  "scope": "Build all remaining reviewed workstation/port dependency producers; normal Debian solver/apt, four independent SPE jobs; foundation candidates remain metadata-only.",
   "patch_series": {
     "openssl": {
       "path": "patches/openssl/series.json",
       "sha256": "1eb248487e90941e64ce9f3e6f1807e67a513f64d6ddf4943bf07136bd9c4e2d"
+    },
+    "fuse3": {
+      "path": "patches/fuse3/series.json",
+      "sha256": "462ed8c9e058d95872c3f8ded53622733ec97c7a9f3e858059104407090af69d"
     }
+  },
+  "deferred_foundation_candidates": {
+    "gcc-14": "Frozen SPE compiler is GCC8.5; do not silently switch compiler/runtime base",
+    "gcc-defaults": "Requires GCC14 port; retain actual frozen SDK until reviewed compiler restoration",
+    "java-common": "No SPE OpenJDK runtime/default selection; retain failed build, native Java tools remain installed"
   }
 }

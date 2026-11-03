@@ -11,6 +11,7 @@ import yaml
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','base','output']:p.add_argument('--'+n,type=Path,required=True)
 p.add_argument('--reuse-native-audit',type=Path)
+p.add_argument('--indep-only',action='store_true',help='Native Arch:all/data build dependency audit')
 a=p.parse_args();a.output.mkdir(exist_ok=False)
 def sha(path):
  h=hashlib.sha256()
@@ -21,7 +22,7 @@ def capture(cmd):return subprocess.check_output(list(map(str,cmd)),text=True)
 profile=json.loads((a.project/'profiles/images/debian-package-builder.json').read_text())
 base_lock=json.loads((a.project/'profiles/trixie-spe-base.lock.json').read_text())
 defaults=json.loads((a.project/'profiles/sbuild/libx11.json').read_text())
-r={'status':'preparing','target_execution':False,'base_lock_sha256':sha(a.project/'profiles/trixie-spe-base.lock.json'),'indexes':[],'missing_sources':[]}
+r={'status':'preparing','target_execution':False,'build_mode':'indep' if a.indep_only else 'cross','base_lock_sha256':sha(a.project/'profiles/trixie-spe-base.lock.json'),'indexes':[],'missing_sources':[]}
 try:
  native=a.output/'NativePackages'
  if a.reuse_native_audit:
@@ -96,9 +97,9 @@ try:
    source=Dsc(dsc.open());source['Package']=source.pop('Source')
    # Same genuine crossbuild-core packages required by our sbuild config.
    core='tabor-spe-toolchain:native (= 8.5.0+tabor5), binutils-powerpc-linux-gnu:native, libc6-dev:powerpcspe, linux-libc-dev:native (= '+defaults['uapi_version']+')'
-   source['Build-Depends']=source.get('Build-Depends','')+(', ' if source.get('Build-Depends') else '')+core
+   if not a.indep_only:source['Build-Depends']=source.get('Build-Depends','')+(', ' if source.get('Build-Depends') else '')+core
    out.write(str(source)+'\n');count+=1
- cmd=['dose-builddebcheck','--deb-native-arch=amd64','--deb-host-arch=powerpcspe','--deb-profiles=cross,nocheck','--deb-drop-b-d-indep','--deb-emulate-sbuild','--failures','--successes','--explain',str(native),str(binaries),str(sources)]
+ cmd=['dose-builddebcheck','--deb-native-arch=amd64','--deb-host-arch='+('amd64' if a.indep_only else 'powerpcspe'),'--deb-profiles='+('nocheck' if a.indep_only else 'cross,nocheck'),'--deb-drop-b-d-arch' if a.indep_only else '--deb-drop-b-d-indep','--deb-emulate-sbuild','--failures','--successes','--explain',str(native),str(binaries),str(sources)]
  with (a.output/'dependency-report.yaml').open('w') as out,(a.output/'dose.log').open('w') as err:
   result=subprocess.run(cmd,stdout=out,stderr=err)
  assert result.returncode in [0,1], 'dose tool error; inspect dose.log'

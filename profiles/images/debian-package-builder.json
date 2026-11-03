@@ -117,7 +117,48 @@
     "libbsd",
     "readline",
     "libffi",
-    "brotli"
+    "brotli",
+    "alsa-lib",
+    "apache2",
+    "apparmor",
+    "apr",
+    "avahi",
+    "bluez",
+    "connman",
+    "db-defaults",
+    "e2fsprogs",
+    "elfutils",
+    "fuse3",
+    "gcc-14",
+    "gcc-defaults",
+    "gem2deb",
+    "glib2.0",
+    "gnutls28",
+    "gobject-introspection",
+    "java-common",
+    "krb5",
+    "libarchive",
+    "libice",
+    "libidn2",
+    "libonig",
+    "libsm",
+    "libtool",
+    "libunistring",
+    "libxaw",
+    "libxt",
+    "python3-defaults",
+    "ruby-defaults",
+    "slang2",
+    "sphinx",
+    "systemtap",
+    "util-linux",
+    "wayland",
+    "db5.3",
+    "newt",
+    "p11-kit",
+    "popt",
+    "ruby3.3",
+    "tcltk-defaults"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -837,6 +878,170 @@
       "arch_only": true,
       "indep_only": false,
       "build_profiles": "cross,nocheck"
+    },
+    "alsa-lib": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "apache2": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "apparmor": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "apr": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "avahi": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "bluez": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "connman": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "db-defaults": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "e2fsprogs": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "elfutils": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "fuse3": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "gcc-14": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "gcc-defaults": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "gem2deb": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "glib2.0": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "gnutls28": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "gobject-introspection": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "java-common": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "krb5": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libarchive": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libice": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libidn2": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libonig": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libsm": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libtool": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libunistring": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libxaw": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "libxt": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "python3-defaults": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "ruby-defaults": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "slang2": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "sphinx": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "systemtap": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "util-linux": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "wayland": {
+      "source_lock": "profiles/port-dependency-sources.lock.json",
+      "source_cache": "port-dependency-source-cache-001"
+    },
+    "db5.3": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
+    },
+    "newt": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
+    },
+    "p11-kit": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
+    },
+    "popt": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
+    },
+    "ruby3.3": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
+    },
+    "tcltk-defaults": {
+      "source_lock": "profiles/port-dependency-sources-002.lock.json",
+      "source_cache": "port-dependency-source-cache-002"
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",

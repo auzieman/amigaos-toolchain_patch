@@ -18,6 +18,13 @@ sets need separate prepared templates, not repeated removal/reinstallation
 in one shared mutable root. Existing native binaries supply native tools;
 do not rebuild an amd64 distribution. All heavy work stays remote.
 
+Large templates unpack on the data filesystem through sbuild's documented
+unshare_tmpdir_template; /tmp is tmpfs on this server and counts against worker
+memory. The temporary path must be traversable by the mapped user without
+relaxing private source-directory permissions. Build Architecture:all data and
+helpers separately with native tools and normal -A dependency semantics;
+their acceptance excludes ELF payloads and native architecture packages.
+
 The source list is an intake inventory, not a closed port. Use Debian's
 architecture/profile-aware dependency reports and authenticated Sources and
 Packages metadata to identify missing producers, including virtual Provides.

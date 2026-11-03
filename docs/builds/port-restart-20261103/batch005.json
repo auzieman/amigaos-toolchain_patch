@@ -1,0 +1,1184 @@
+{
+  "status": "completed-with-deferred-items",
+  "plan_sha256": "86e6356079a0699428fdc02bcf091abf6a682f028e26d7be084edddc1e757301",
+  "items": [
+    {
+      "package": "fuse3",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-fuse3",
+      "status": "failed-see-retained-log",
+      "wave": 1,
+      "exit": 1
+    },
+    {
+      "package": "libice",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-libice",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 1,
+      "exit": 0,
+      "receipt_sha256": "265c435c7c3d31c3729c8c259558f120a744673a9ef2363967dff3c4a5e35866"
+    },
+    {
+      "package": "libonig",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-libonig",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 1,
+      "exit": 0,
+      "receipt_sha256": "2a82cc43ff8dd9f0a66609e198a744400f4120dd310a83ae67977a8298bd23a6"
+    },
+    {
+      "package": "libunistring",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-libunistring",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 1,
+      "exit": 0,
+      "receipt_sha256": "3869adabaf7221c719ed52f52e5f5ed55c04bb4e27cc2549b11e8478bcdf337e"
+    },
+    {
+      "package": "db-defaults",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-db-defaults",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 2,
+      "exit": 0,
+      "receipt_sha256": "adb05e6b256b7d1efc959f8ff61cef3ca7c021d8f794f8476a11253535d549aa"
+    },
+    {
+      "package": "java-common",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-java-common",
+      "status": "failed-see-retained-log",
+      "wave": 2,
+      "exit": 1
+    },
+    {
+      "package": "libidn2",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-libidn2",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 2,
+      "exit": 0,
+      "receipt_sha256": "d385980adb9933c0d417142b1cc1a6e529ae298d20d1c4b2b10d59f6463c4c82"
+    },
+    {
+      "package": "ruby-defaults",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-ruby-defaults",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 2,
+      "exit": 0,
+      "receipt_sha256": "f13791136bf16257808f1df75603494f02f64c081ad3e969e31928b4ed4198dd"
+    },
+    {
+      "package": "slang2",
+      "work": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-slang2",
+      "status": "debian-packages-built-not-target-installed",
+      "wave": 3,
+      "exit": 0,
+      "receipt_sha256": "b14df83567efc26f5a07116faa970e53d6ef1d18d0b7dcdbd411f21b71af66f8"
+    }
+  ],
+  "audits": [
+    {
+      "path": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-dependencies-1",
+      "receipt_sha256": "8017e047f367187cd9cfd796dc2b18afdb0cc75a6626ce3a1d8a9883a9418442"
+    },
+    {
+      "path": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-dependencies-2",
+      "receipt_sha256": "ece12608807c47ea976ddb07fc679a1ae7358b07d97bba0f18aefbc6818dd684"
+    },
+    {
+      "path": "/srv/data1/tabor-build/linux-live-001/work/sbuild-ready-20261102-005-dependencies-3",
+      "receipt_sha256": "e8f3bc2435b1838babaf6a793c9478867ab351f511d199a5b636686db144a5da"
+    }
+  ],
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "qemu_launched": false,
+  "blocked": [
+    {
+      "package": "glibc",
+      "version": "2.41-12+deb13u4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "glibc",
+              "version": "2.41-12+deb13u4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libaudit-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libselinux",
+      "version": "3.8.1-1",
+      "architecture": "linux-any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libselinux",
+              "version": "3.8.1-1",
+              "architecture": "linux-any",
+              "type": "src",
+              "unsat-dependency": "dh-sequence-ruby:powerpcspe | dh-sequence-ruby:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "audit",
+      "version": "1:4.0.2-2+deb13u1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "audit",
+              "version": "1:4.0.2-2+deb13u1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libkrb5-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libcap2",
+      "version": "1:2.75-10+deb13u1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libcap2",
+              "version": "1:2.75-10+deb13u1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libpam0g-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "base-passwd",
+      "version": "3.6.7",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "base-passwd",
+              "version": "3.6.7",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libdebconfclient0-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "coreutils",
+      "version": "9.7-3",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "coreutils",
+              "version": "9.7-3",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libsystemd-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "efl",
+      "version": "1.28.1-1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "efl",
+              "version": "1.28.1-1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libblkid-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "e17",
+      "version": "0.27.1-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "e17",
+              "version": "0.27.1-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "connman-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "terminology",
+      "version": "1.14.0-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "terminology",
+              "version": "1.14.0-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libefl-all-dev:powerpcspe (>= 1.26)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libdrm",
+      "version": "2.4.124-2",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libdrm",
+              "version": "2.4.124-2",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libudev-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "mesa",
+      "version": "25.0.7-2+deb13u1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "mesa",
+              "version": "25.0.7-2+deb13u1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libdrm-dev:powerpcspe (>= 2.4.121)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "xserver-xorg-input-evdev",
+      "version": "1:2.11.0-1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "xserver-xorg-input-evdev",
+              "version": "1:2.11.0-1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "xserver-xorg-dev:powerpcspe (>= 2:1.15.99)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "xorg-server",
+      "version": "2:21.1.16-1.3+deb13u4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "xorg-server",
+              "version": "2:21.1.16-1.3+deb13u4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxfont-dev:powerpcspe (>= 1:2.0.1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "openssh",
+      "version": "1:10.0p1-7+deb13u4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "openssh",
+              "version": "1:10.0p1-7+deb13u4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libaudit-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "freetype",
+      "version": "2.13.3+dfsg-1+deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "freetype",
+              "version": "2.13.3+dfsg-1+deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libbrotli-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "fontconfig",
+      "version": "2.15.0-2.3",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "fontconfig",
+              "version": "2.15.0-2.3",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libfreetype-dev:powerpcspe (>= 2.8.1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "harfbuzz",
+      "version": "10.2.0-1+deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "harfbuzz",
+              "version": "10.2.0-1+deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "dh-sequence-gir:powerpcspe | dh-sequence-gir:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "curl",
+      "version": "8.14.1-2+deb13u7",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "curl",
+              "version": "8.14.1-2+deb13u7",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libbrotli-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "dbus",
+      "version": "1.16.2-2",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "dbus",
+              "version": "1.16.2-2",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libapparmor-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libxkbcommon",
+      "version": "1.7.0-2",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libxkbcommon",
+              "version": "1.7.0-2",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libwayland-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libxfont",
+      "version": "1:2.0.6-1+deb13u1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libxfont",
+              "version": "1:2.0.6-1+deb13u1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libfreetype6-dev:powerpcspe | libfreetype6-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "x11-xkb-utils",
+      "version": "7.7+9",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "x11-xkb-utils",
+              "version": "7.7+9",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libxaw7-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libvncserver",
+      "version": "0.9.15+dfsg-1+deb13u2",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libvncserver",
+              "version": "0.9.15+dfsg-1+deb13u2",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libgnutls28-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "x11vnc",
+      "version": "0.9.17-1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "x11vnc",
+              "version": "0.9.17-1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libavahi-client-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libsndfile",
+      "version": "1.2.2-2+deb13u1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libsndfile",
+              "version": "1.2.2-2+deb13u1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libasound2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "systemd",
+      "version": "257.13-1~deb13u1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "systemd",
+              "version": "257.13-1~deb13u1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libcap-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "pam",
+      "version": "1.7.0-5",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libdb-dev",
+              "version": "5.3.4",
+              "architecture": "powerpcspe",
+              "unsat-dependency": "libdb5.3-dev:powerpcspe"
+            },
+            "depchains": [
+              {
+                "depchain": [
+                  {
+                    "package": "pam",
+                    "version": "1.7.0-5",
+                    "architecture": "any,all",
+                    "type": "src",
+                    "depends": "libdb-dev:powerpcspe"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "package": "cdebconf",
+      "version": "0.280",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "cdebconf",
+              "version": "0.280",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libnewt-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libffi",
+      "version": "3.4.8-2",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libffi",
+              "version": "3.4.8-2",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libltdl-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "brotli",
+      "version": "1.1.0-2+deb13u1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "brotli",
+              "version": "1.1.0-2+deb13u1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libpython3-all-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "alsa-lib",
+      "version": "1.2.14-1+deb13u1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "alsa-lib",
+              "version": "1.2.14-1+deb13u1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libpython3-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "apache2",
+      "version": "2.4.69-1~deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "apache2",
+              "version": "2.4.69-1~deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libapr1-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "apparmor",
+      "version": "4.1.0-1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "apparmor",
+              "version": "4.1.0-1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "apache2-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "apr",
+      "version": "1.7.5-1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "apr",
+              "version": "1.7.5-1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "uuid-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "avahi",
+      "version": "0.8-16",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "avahi",
+              "version": "0.8-16",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "dh-sequence-gir:powerpcspe | dh-sequence-gir:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "bluez",
+      "version": "5.82-1.1",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "bluez",
+              "version": "5.82-1.1",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libdbus-1-dev:powerpcspe (>= 1.6)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "connman",
+      "version": "1.44-3",
+      "architecture": "linux-any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "connman",
+              "version": "1.44-3",
+              "architecture": "linux-any,all",
+              "type": "src",
+              "unsat-dependency": "libbluetooth-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "e2fsprogs",
+      "version": "1.47.2-3",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "e2fsprogs",
+              "version": "1.47.2-3",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libfuse3-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "elfutils",
+      "version": "0.192-4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "elfutils",
+              "version": "0.192-4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libarchive-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "gem2deb",
+      "version": "2.2.5",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "ruby",
+              "version": "1:3.3",
+              "architecture": "powerpcspe",
+              "unsat-dependency": "ruby3.3:powerpcspe"
+            },
+            "depchains": [
+              {
+                "depchain": [
+                  {
+                    "package": "gem2deb",
+                    "version": "2.2.5",
+                    "architecture": "any",
+                    "type": "src",
+                    "depends": "ruby:powerpcspe (>= 1:2.1.0.3~)"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "package": "glib2.0",
+      "version": "2.84.4-3~deb13u5",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "glib2.0",
+              "version": "2.84.4-3~deb13u5",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libdbus-1-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "gnutls28",
+      "version": "3.8.9-3+deb13u4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "gnutls28",
+              "version": "3.8.9-3+deb13u4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libp11-kit-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "gobject-introspection",
+      "version": "1.84.0-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "gobject-introspection",
+              "version": "1.84.0-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "gir1.2-glib-2.0-dev:powerpcspe (>= 2.82.0)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "krb5",
+      "version": "1.21.3-5+deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "krb5",
+              "version": "1.21.3-5+deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "comerr-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libarchive",
+      "version": "3.7.4-4+deb13u1",
+      "architecture": "any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libarchive",
+              "version": "3.7.4-4+deb13u1",
+              "architecture": "any",
+              "type": "src",
+              "unsat-dependency": "libext2fs-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libsm",
+      "version": "2:1.2.6-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libsm",
+              "version": "2:1.2.6-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "uuid-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libtool",
+      "version": "2.5.4-4",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libtool",
+              "version": "2.5.4-4",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "gfortran:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libxaw",
+      "version": "2:1.0.16-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libxaw",
+              "version": "2:1.0.16-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libxt-dev:powerpcspe (>= 1:0.99.1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "libxt",
+      "version": "1:1.2.1-1.2",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "libxt",
+              "version": "1:1.2.1-1.2",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libsm-dev:powerpcspe (>= 1:0.99.1)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "python3-defaults",
+      "version": "3.13.5-1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "python3-defaults",
+              "version": "3.13.5-1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "python3-sphinx:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "systemtap",
+      "version": "5.1-5",
+      "architecture": "linux-any",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "systemtap",
+              "version": "5.1-5",
+              "architecture": "linux-any",
+              "type": "src",
+              "unsat-dependency": "libelf-dev:powerpcspe (>= 0.148)"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "util-linux",
+      "version": "2.41.5-0+deb13u1",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "util-linux",
+              "version": "2.41.5-0+deb13u1",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libaudit-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "package": "wayland",
+      "version": "1.23.1-3",
+      "architecture": "any,all",
+      "type": "src",
+      "status": "broken",
+      "reasons": [
+        {
+          "missing": {
+            "pkg": {
+              "package": "wayland",
+              "version": "1.23.1-3",
+              "architecture": "any,all",
+              "type": "src",
+              "unsat-dependency": "libffi-dev:powerpcspe"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "data_only_pending": [
+    "xkeyboard-config",
+    "sphinx"
+  ]
+}

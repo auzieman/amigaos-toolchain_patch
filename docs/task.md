@@ -1305,3 +1305,21 @@ ports or permission to change the frozen compiler. No candidate is declared
 ready, built or installed by metadata discovery. Shared prerequisites now
 advance before unchanged blocked consumers are submitted again. See
 docs/builds/port-build-server-20261102 for retained discovery/checkpoint data.
+
+
+2026-11-03 post-reboot: R730 retains the completed native provisioning root
+(108 source dependency sets;1,278 installed native packages, clean audit and
+frozen foundation). Cross batch005 accepted libICE, Oniguruma, libunistring,
+db-defaults, libidn2, ruby-defaults and slang2. FUSE needs conditional libatomic
+linkage in its C++ example (issue23); Java defaults lack an SPE runtime mapping.
+Six further authenticated producer sources are cached; base/compiler unchanged.
+
+The full template exposed a server infrastructure issue: /tmp tmpfs charged
+its unpacked root against6GiB worker limits. A first disk path then failed
+mapped-user traversal through the private source parent. Both remain failed
+infrastructure attempts, not source regressions. The current disk temporary
+area is outside that private parent; all four workers reached root extraction
+without changing private source permissions or memory caps. Cross batch008
+and independent-data batch003 are running. A native -A/dose mode builds only
+universal script/data packages; static acceptance excludes ELF and amd64
+binaries. See builds/port-restart-20261103 for evidence and remaining gates.

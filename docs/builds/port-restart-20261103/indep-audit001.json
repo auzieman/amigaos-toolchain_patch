@@ -1,0 +1,46 @@
+{
+  "status": "debian-dependency-audit-completed",
+  "target_execution": false,
+  "build_mode": "indep",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "indexes": [
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie/",
+      "inrelease_sha256": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675",
+      "packages_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie-updates/",
+      "inrelease_sha256": "bdbf565ac25279597518e1a51fcef6b3f2bb65f915788566edcffee9ba6efe99",
+      "packages_sha256": "7b52592d46eb9bf694ffd99b90fb521064a6bfd1d0a9f69f22cabf31cb7ea38e"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/dists/trixie-security/",
+      "inrelease_sha256": "01590ffbf20362d6138369dbf543ee42d3d8ec62589d31cfb93a085afcad4f3c",
+      "packages_sha256": "38ca814a70dea1f035fd078c08b15b9a93f23b9605f3115a7791f30e62a6bf27"
+    }
+  ],
+  "missing_sources": [],
+  "native_index_receipt_sha256": "e8f3bc2435b1838babaf6a793c9478867ab351f511d199a5b636686db144a5da",
+  "native_packages_sha256": "2272039eb57b1e9fef4552936d5224ebe251e46e83bd7d7e54236a168685ef23",
+  "pool_artifacts_sha256": "886c1c19abb7a495ffb105f133d12570c3b00cc30ca067522347e55289a025f5",
+  "source_count": 143,
+  "binary_package_names": 319,
+  "dose_exit": 0,
+  "command": [
+    "dose-builddebcheck",
+    "--deb-native-arch=amd64",
+    "--deb-host-arch=amd64",
+    "--deb-profiles=nocheck",
+    "--deb-drop-b-d-arch",
+    "--deb-emulate-sbuild",
+    "--failures",
+    "--successes",
+    "--explain",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-indep-audit-001/NativePackages",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-indep-audit-001/SpePackages",
+    "/srv/data1/tabor-build/linux-live-001/work/debian-indep-audit-001/Sources"
+  ],
+  "report_sha256": "0928815f7fce6c01d6b2f354417c5c30a21e5efc091c7441cf5c6490b60d9cb5",
+  "pool_inputs_sha256": "1f0ff6a18b770b497877d74587ab3d29ab640e4659d2190a099ff4e28d431fed"
+}

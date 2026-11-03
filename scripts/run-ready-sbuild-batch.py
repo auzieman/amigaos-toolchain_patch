@@ -11,6 +11,7 @@ p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','base','plan','output']:p.add_argument('--'+n,type=Path,required=True)
 a=p.parse_args();plan=json.loads(a.plan.read_text());a.output.mkdir(exist_ok=False)
 assert 1<=plan['concurrency']<=4
+indep=plan.get('build_mode','cross')=='indep'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 r={'status':'running','plan_sha256':sha(a.plan),'items':[],'audits':[],
    'target_execution':False,'target_installation':False,'boot_image_ready':False,'qemu_launched':False}
@@ -26,14 +27,18 @@ def save():
    'viewer':'Package-managed new-image assembly and requested QEMU boot follow build/install acceptance'},indent=2)+'\n')
 def scoped(cmd,unit,cpus,memory,logpath):
  with logpath.open('w') as log:
-  return subprocess.run(['systemd-run','--quiet','--wait','--pipe','--collect','--unit='+unit,
+  result=subprocess.run(['systemd-run','--quiet','--wait','--pipe','--collect','--unit='+unit,
    '--property=CPUQuota='+str(cpus*100)+'%','--property=MemoryMax='+memory,'--property=TasksMax=256',*map(str,cmd)],stdout=log,stderr=subprocess.STDOUT).returncode
+  if result:
+   subprocess.run(['journalctl','--unit='+unit,'--no-pager','-n','30'],stdout=log,stderr=subprocess.STDOUT)
+  return result
 save()
 try:
  defaults=json.loads((a.project/plan['defaults']).read_text())
  profile=json.loads((a.project/'profiles/images/debian-package-builder.json').read_text())
  audit=a.base/plan['initial_audit'];pr=json.loads((audit/'receipt.json').read_text())
  assert pr['status']=='debian-dependency-audit-completed'
+ assert pr.get('build_mode','cross')==('indep' if indep else 'cross')
  assert sha(audit/'receipt.json')==plan['initial_audit_sha256']
  attempted=set()
  for wave in range(1,len(plan['packages'])+1):
@@ -41,9 +46,9 @@ try:
   assert sha(audit/'dependency-report.yaml')==pr['report_sha256']
   ready={x['package'] for x in report['report'] if x['status']=='ok'}
   architecture={x['package']:x['architecture'] for x in report['report']}
-  candidates=[n for n in plan['packages'] if n not in attempted and n in ready and architecture.get(n)!='all']
+  candidates=[n for n in plan['packages'] if n not in attempted and n in ready and (indep or architecture.get(n)!='all')]
   r['blocked']=[x for x in report['report'] if x['package'] in plan['packages'] and x['package'] not in attempted and x['status']=='broken']
-  r['data_only_pending']=[n for n in plan['packages'] if n not in attempted and architecture.get(n)=='all']
+  r['data_only_pending']=[] if indep else [n for n in plan['packages'] if n not in attempted and architecture.get(n)=='all']
   if not candidates:break
   assert sha(audit/'build-pool-inputs.json')==pr['pool_inputs_sha256']
   pool=json.loads((audit/'build-pool-inputs.json').read_text());jobs=[]
@@ -66,6 +71,8 @@ try:
     choices=files.get(entry['receipt'],[])
     if choices:selected.append({**entry,'packages':sorted({x['package'] for x in choices}),'files':[x['file'] for x in choices]})
    spec['extra_receipts']=selected
+   if indep:
+    spec.update(indep_only=True,host_architecture='amd64',build_profiles='nocheck',native_toolchain_inputs=[])
    if name in plan.get('patch_series',{}):spec['quilt_patch_series']=plan['patch_series'][name]
    if name not in plan['configure_cache_sources']:spec.pop('configure_cache',None)
    spec['scope']='Debian dose-ready cross build; apt installs real native/SPE development dependencies before compilation'
@@ -87,6 +94,7 @@ try:
   # Recompute with Debian's solver after newly built artifacts become available.
   next_audit=a.base/'work'/(plan['run_prefix']+'-dependencies-'+str(wave))
   cmd=['python3',a.project/'scripts/audit-sbuild-dependencies.py','--project',a.project,'--base',a.base,'--reuse-native-audit',audit,'--output',next_audit]
+  if indep:cmd.append('--indep-only')
   assert scoped(cmd,plan['unit_prefix']+'-audit',1,'3G',a.output/('audit-'+str(wave)+'.log'))==0
   audit=next_audit;pr=json.loads((audit/'receipt.json').read_text())
   r['audits'].append({'path':str(audit),'receipt_sha256':sha(audit/'receipt.json')});save()

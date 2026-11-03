@@ -1,0 +1,25 @@
+{
+  "defaults": "profiles/sbuild/libx11.json",
+  "initial_audit": "work/debian-indep-audit-001",
+  "initial_audit_sha256": "6b1f75a93a1cefa2ff5b4d735f16b8a5e8d67f169d4ba3b6566119bf9fadd58a",
+  "concurrency": 3,
+  "run_prefix": "sbuild-indep-20261103-003",
+  "unit_prefix": "tabor-indep3-build",
+  "packages": [
+    "xkeyboard-config",
+    "fonts-dejavu",
+    "xorgproto",
+    "xtrans",
+    "xcb-proto",
+    "sphinx"
+  ],
+  "configure_cache_sources": [],
+  "scope": "Architecture-independent desktop data and helper packages, normal native -A build; no native architecture binaries admitted",
+  "patch_series": {},
+  "deferred_foundation_candidates": {
+    "gcc-14": "Frozen SPE compiler is GCC8.5; do not silently switch compiler/runtime base",
+    "gcc-defaults": "Requires GCC14 port; retain actual frozen SDK until reviewed compiler restoration",
+    "java-common": "No SPE OpenJDK runtime/default selection; retain failed build, native Java tools remain installed"
+  },
+  "build_mode": "indep"
+}

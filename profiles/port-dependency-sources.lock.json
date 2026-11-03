@@ -1,0 +1,906 @@
+{
+  "scope": "Frozen dependency producer source intake; candidates, not compiler/base upgrades or accepted builds",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "components": {
+    "alsa-lib": {
+      "version": "1.2.14-1+deb13u1",
+      "dsc": "alsa-lib_1.2.14-1+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "alsa-lib_1.2.14-1+deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/alsa-lib/alsa-lib_1.2.14-1+deb13u1.dsc",
+          "size": 2951,
+          "sha256": "45f15d45b0329394de2e59c85052d0ac084e4e0ac215346ac5299a09432f515e"
+        },
+        {
+          "filename": "alsa-lib_1.2.14.orig.tar.bz2",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/alsa-lib/alsa-lib_1.2.14.orig.tar.bz2",
+          "size": 1115517,
+          "sha256": "be9c88a0b3604367dd74167a2b754a35e142f670292ae47a2fdef27a2ee97a32"
+        },
+        {
+          "filename": "alsa-lib_1.2.14.orig.tar.bz2.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/alsa-lib/alsa-lib_1.2.14.orig.tar.bz2.asc",
+          "size": 833,
+          "sha256": "d4d73561754d9e0956a77aa5edf9c7120f80129bda6832257d98c2010915b3e8"
+        },
+        {
+          "filename": "alsa-lib_1.2.14-1+deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/alsa-lib/alsa-lib_1.2.14-1+deb13u1.debian.tar.xz",
+          "size": 34100,
+          "sha256": "8c04f2d76c4566f21d044ea52eed39d97bdbf5a5a9cb21582662dd76f2dad38e"
+        }
+      ]
+    },
+    "apache2": {
+      "version": "2.4.69-1~deb13u1",
+      "dsc": "apache2_2.4.69-1~deb13u1.dsc",
+      "files": [
+        {
+          "filename": "apache2_2.4.69-1~deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/a/apache2/apache2_2.4.69-1~deb13u1.dsc",
+          "size": 3529,
+          "sha256": "de4332321f0ac4491031ab7fb84bdfd62dfc48d98a93f628a0b2036044f0ffb6"
+        },
+        {
+          "filename": "apache2_2.4.69.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/a/apache2/apache2_2.4.69.orig.tar.gz",
+          "size": 10822928,
+          "sha256": "c551b9861e26f146f57e1b1765e69c89a60b3db0ec252ccab0d36283487016bb"
+        },
+        {
+          "filename": "apache2_2.4.69.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/a/apache2/apache2_2.4.69.orig.tar.gz.asc",
+          "size": 870,
+          "sha256": "68c3ec70702d49fb2f0f9fd9ff6788bfcd88a9f7e4786c0ee0a0b8d6d9741f8e"
+        },
+        {
+          "filename": "apache2_2.4.69-1~deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/a/apache2/apache2_2.4.69-1~deb13u1.debian.tar.xz",
+          "size": 828308,
+          "sha256": "779dac5ec4c04c08eb030e2182652607ad61b65fcc1b24051381c7a6411ab3de"
+        }
+      ]
+    },
+    "apparmor": {
+      "version": "4.1.0-1",
+      "dsc": "apparmor_4.1.0-1.dsc",
+      "files": [
+        {
+          "filename": "apparmor_4.1.0-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0-1.dsc",
+          "size": 3269,
+          "sha256": "db02d7e4a32280d01ee91aaf5b38f31a9b12f3ebf187c74ccd5f903dbde32b50"
+        },
+        {
+          "filename": "apparmor_4.1.0.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0.orig.tar.gz",
+          "size": 8496942,
+          "sha256": "c4422381941a6f30b7a5c9ee1defb7bc4efe3adbee3f99d642aa6e9bb8bcffcf"
+        },
+        {
+          "filename": "apparmor_4.1.0.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0.orig.tar.gz.asc",
+          "size": 870,
+          "sha256": "9c606402ec543f494c43ee9707f993da21a0ac68dccd8cdd4ca3e308b436addb"
+        },
+        {
+          "filename": "apparmor_4.1.0-1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0-1.debian.tar.xz",
+          "size": 93168,
+          "sha256": "85d693ea43458bd07a98fe9504ae6a2da309cb5820eef62871e1a6ed43d34084"
+        }
+      ]
+    },
+    "apr": {
+      "version": "1.7.5-1",
+      "dsc": "apr_1.7.5-1.dsc",
+      "files": [
+        {
+          "filename": "apr_1.7.5-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apr/apr_1.7.5-1.dsc",
+          "size": 2289,
+          "sha256": "e31e60f2e81d7ed9b0d65ba386e546769d29b31426aeae69bddbd43ee6d03786"
+        },
+        {
+          "filename": "apr_1.7.5.orig.tar.bz2",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apr/apr_1.7.5.orig.tar.bz2",
+          "size": 898264,
+          "sha256": "cd0f5d52b9ab1704c72160c5ee3ed5d3d4ca2df4a7f8ab564e3cb352b67232f2"
+        },
+        {
+          "filename": "apr_1.7.5.orig.tar.bz2.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apr/apr_1.7.5.orig.tar.bz2.asc",
+          "size": 833,
+          "sha256": "28b73a98834d022d52c8faae919aa4b9aefe3ebd6d6e78bb74e68a53bdc26ec3"
+        },
+        {
+          "filename": "apr_1.7.5-1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apr/apr_1.7.5-1.debian.tar.xz",
+          "size": 64960,
+          "sha256": "d511152126b62b2904637dda119aa7544c4a726502bf4ee1a6a2da5eed4a3d8d"
+        }
+      ]
+    },
+    "avahi": {
+      "version": "0.8-16",
+      "dsc": "avahi_0.8-16.dsc",
+      "files": [
+        {
+          "filename": "avahi_0.8-16.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/avahi/avahi_0.8-16.dsc",
+          "size": 4005,
+          "sha256": "a8c9a5e3bde8b314b6a2feb385f25fb658bc77960d5f1ed27bc9e159f8691a0a"
+        },
+        {
+          "filename": "avahi_0.8.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/avahi/avahi_0.8.orig.tar.gz",
+          "size": 1591458,
+          "sha256": "060309d7a333d38d951bc27598c677af1796934dbd98e1024e7ad8de798fedda"
+        },
+        {
+          "filename": "avahi_0.8-16.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/avahi/avahi_0.8-16.debian.tar.xz",
+          "size": 52696,
+          "sha256": "2e2f0e6c71186226da0a0a6d93f01dd27a41b6169d4970bbfa3615728fed6d13"
+        }
+      ]
+    },
+    "bluez": {
+      "version": "5.82-1.1",
+      "dsc": "bluez_5.82-1.1.dsc",
+      "files": [
+        {
+          "filename": "bluez_5.82-1.1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/bluez/bluez_5.82-1.1.dsc",
+          "size": 3031,
+          "sha256": "a452a7352488e55a09eb8d8d8ba883db1bf93df1d06a13b0804bf908fe2099ad"
+        },
+        {
+          "filename": "bluez_5.82.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/bluez/bluez_5.82.orig.tar.gz",
+          "size": 3680528,
+          "sha256": "818e2bfa64d3d26b49cc857448f00f4fc7bb76949266de8d7f4c07f8057bf95c"
+        },
+        {
+          "filename": "bluez_5.82-1.1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/bluez/bluez_5.82-1.1.debian.tar.xz",
+          "size": 44568,
+          "sha256": "dd32f06a527859709055912ac8c8a0377030f7f34d7d6a9cc7f5938ed8bac659"
+        }
+      ]
+    },
+    "connman": {
+      "version": "1.44-3",
+      "dsc": "connman_1.44-3.dsc",
+      "files": [
+        {
+          "filename": "connman_1.44-3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/c/connman/connman_1.44-3.dsc",
+          "size": 2436,
+          "sha256": "cff83def2c5f8076c00de2334f1cf3f5e5697281139409d1344778abcb52c8e6"
+        },
+        {
+          "filename": "connman_1.44.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/c/connman/connman_1.44.orig.tar.xz",
+          "size": 827952,
+          "sha256": "2be2b00321632b775f9eff713acd04ef21e31fbf388f6ebf45512ff4289574ff"
+        },
+        {
+          "filename": "connman_1.44-3.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/c/connman/connman_1.44-3.debian.tar.xz",
+          "size": 17224,
+          "sha256": "e1304d92bc46d4f53b08b13d970822fb9bd1eb0338edabc7d3fe42647f99ab32"
+        }
+      ]
+    },
+    "db-defaults": {
+      "version": "5.3.4",
+      "dsc": "db-defaults_5.3.4.dsc",
+      "files": [
+        {
+          "filename": "db-defaults_5.3.4.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db-defaults/db-defaults_5.3.4.dsc",
+          "size": 1585,
+          "sha256": "0709e552cc31edcad465fc057bb04fcfd9f0467637125374bed81432fb922bef"
+        },
+        {
+          "filename": "db-defaults_5.3.4.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db-defaults/db-defaults_5.3.4.tar.xz",
+          "size": 2600,
+          "sha256": "1774d9974b0afba1d8fc02186ed05e38287a97f94623b440b5e7606831e9c442"
+        }
+      ]
+    },
+    "e2fsprogs": {
+      "version": "1.47.2-3",
+      "dsc": "e2fsprogs_1.47.2-3.dsc",
+      "files": [
+        {
+          "filename": "e2fsprogs_1.47.2-3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/e2fsprogs/e2fsprogs_1.47.2-3.dsc",
+          "size": 3035,
+          "sha256": "860abb653ecbe01a11bb7e41c9e09a45e83847bffa585f7a3d3c0f9401c9d4bb"
+        },
+        {
+          "filename": "e2fsprogs_1.47.2.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/e2fsprogs/e2fsprogs_1.47.2.orig.tar.gz",
+          "size": 9996725,
+          "sha256": "6dcd67ff9d8b13274ba3f088e4318be4f5b71412cd863524423fc49d39a6371f"
+        },
+        {
+          "filename": "e2fsprogs_1.47.2.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/e2fsprogs/e2fsprogs_1.47.2.orig.tar.gz.asc",
+          "size": 488,
+          "sha256": "2063f62a198dd3df21f789c990c2cf9b4a5de24ed55f0b78d86e97e98daffc9d"
+        },
+        {
+          "filename": "e2fsprogs_1.47.2-3.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/e2fsprogs/e2fsprogs_1.47.2-3.debian.tar.xz",
+          "size": 103684,
+          "sha256": "5517aae5ce5196e49fa314492f0639ad7a1692c9521d703b6c81acff77a1564e"
+        }
+      ]
+    },
+    "elfutils": {
+      "version": "0.192-4",
+      "dsc": "elfutils_0.192-4.dsc",
+      "files": [
+        {
+          "filename": "elfutils_0.192-4.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/elfutils/elfutils_0.192-4.dsc",
+          "size": 3314,
+          "sha256": "37d101658c45a25afc15d2053a1378df2381dadbb368e262ede2cea79241779f"
+        },
+        {
+          "filename": "elfutils_0.192.orig.tar.bz2",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/elfutils/elfutils_0.192.orig.tar.bz2",
+          "size": 11913897,
+          "sha256": "616099beae24aba11f9b63d86ca6cc8d566d968b802391334c91df54eab416b4"
+        },
+        {
+          "filename": "elfutils_0.192-4.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/e/elfutils/elfutils_0.192-4.debian.tar.xz",
+          "size": 44456,
+          "sha256": "a18efee3ae99ea25e10a0b8c4b731a28dee685361ae89ea8136e9065c86c8942"
+        }
+      ]
+    },
+    "fuse3": {
+      "version": "3.17.2-3",
+      "dsc": "fuse3_3.17.2-3.dsc",
+      "files": [
+        {
+          "filename": "fuse3_3.17.2-3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2-3.dsc",
+          "size": 2428,
+          "sha256": "1339847e7e6512f31d61cf1fe4598341c4b8aa43ea6dc546914b21f96f29deb3"
+        },
+        {
+          "filename": "fuse3_3.17.2.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2.orig.tar.gz",
+          "size": 5627028,
+          "sha256": "3d932431ad94e86179e5265cddde1d67aa3bb2fb09a5bd35c641f86f2b5ed06f"
+        },
+        {
+          "filename": "fuse3_3.17.2.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2.orig.tar.gz.asc",
+          "size": 314,
+          "sha256": "df18d3972c68dd0e8f7ad2a544a24ac54d48aa4b42d99b717448f7fe8e71cea4"
+        },
+        {
+          "filename": "fuse3_3.17.2-3.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fuse3/fuse3_3.17.2-3.debian.tar.xz",
+          "size": 19440,
+          "sha256": "eaf7a177761ae8bf99ea97619f2cccf83f169b4f000e17b6106834e69456b5a2"
+        }
+      ]
+    },
+    "gcc-14": {
+      "version": "14.2.0-19",
+      "dsc": "gcc-14_14.2.0-19.dsc",
+      "files": [
+        {
+          "filename": "gcc-14_14.2.0-19.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0-19.dsc",
+          "size": 47347,
+          "sha256": "7db1e202cce66617e9134a662c877a3a773de5b612fd52179815877e0ecfb847"
+        },
+        {
+          "filename": "gcc-14_14.2.0.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0.orig.tar.gz",
+          "size": 94299633,
+          "sha256": "e162a5ef3f0077ecae598c6556908d2ab80841532df3398072a96a6df6e6aa29"
+        },
+        {
+          "filename": "gcc-14_14.2.0-19.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0-19.debian.tar.xz",
+          "size": 2577016,
+          "sha256": "31cbab4bafa48aa1c540497bd8098cbcf98e673778f927651ed944709f687781"
+        }
+      ]
+    },
+    "gcc-defaults": {
+      "version": "1.220",
+      "dsc": "gcc-defaults_1.220.dsc",
+      "files": [
+        {
+          "filename": "gcc-defaults_1.220.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gcc-defaults/gcc-defaults_1.220.dsc",
+          "size": 36895,
+          "sha256": "abfa2d362033435385e733f97d0cace1fbc917fd4160c81cc89abac38d3cdc37"
+        },
+        {
+          "filename": "gcc-defaults_1.220.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gcc-defaults/gcc-defaults_1.220.tar.xz",
+          "size": 54044,
+          "sha256": "d40fbdb57f351a58e050c3e1037201853e88e3f673242b62357dc20030ad4805"
+        }
+      ]
+    },
+    "gem2deb": {
+      "version": "2.2.5",
+      "dsc": "gem2deb_2.2.5.dsc",
+      "files": [
+        {
+          "filename": "gem2deb_2.2.5.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gem2deb/gem2deb_2.2.5.dsc",
+          "size": 2275,
+          "sha256": "4b8852f0adccc60951d1ee455112c5a8240afde2f478dea54f1a66d70a7b622d"
+        },
+        {
+          "filename": "gem2deb_2.2.5.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gem2deb/gem2deb_2.2.5.tar.xz",
+          "size": 80208,
+          "sha256": "9f8d817f106b650eedb30a330e1fa0a836bc3b589ad20b210898956ec5cdd3cf"
+        }
+      ]
+    },
+    "glib2.0": {
+      "version": "2.84.4-3~deb13u5",
+      "dsc": "glib2.0_2.84.4-3~deb13u5.dsc",
+      "files": [
+        {
+          "filename": "glib2.0_2.84.4-3~deb13u5.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4-3~deb13u5.dsc",
+          "size": 5294,
+          "sha256": "2587beb2f5b90511d0c88a7595c1d3b3ea7a5b7e6582713ecae3713864012858"
+        },
+        {
+          "filename": "glib2.0_2.84.4.orig-unicode-data.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4.orig-unicode-data.tar.xz",
+          "size": 660708,
+          "sha256": "c1742461e8c0e9673a3453a3127671169de9cb0138493e5c916f1b989530efcd"
+        },
+        {
+          "filename": "glib2.0_2.84.4.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4.orig.tar.xz",
+          "size": 5618200,
+          "sha256": "8a9ea10943c36fc117e253f80c91e477b673525ae45762942858aef57631bb90"
+        },
+        {
+          "filename": "glib2.0_2.84.4-3~deb13u5.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4-3~deb13u5.debian.tar.xz",
+          "size": 172260,
+          "sha256": "d8e3603c3780d2cc883d762cf81db9199d8c4c492a82a1a791c117a6d402dbeb"
+        }
+      ]
+    },
+    "gnutls28": {
+      "version": "3.8.9-3+deb13u4",
+      "dsc": "gnutls28_3.8.9-3+deb13u4.dsc",
+      "files": [
+        {
+          "filename": "gnutls28_3.8.9-3+deb13u4.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gnutls28/gnutls28_3.8.9-3+deb13u4.dsc",
+          "size": 3271,
+          "sha256": "f1153e91212bdf60acf66cb62713ad4ed577f2e85f578a04df31a5619624c1e1"
+        },
+        {
+          "filename": "gnutls28_3.8.9.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gnutls28/gnutls28_3.8.9.orig.tar.xz",
+          "size": 6847364,
+          "sha256": "69e113d802d1670c4d5ac1b99040b1f2d5c7c05daec5003813c049b5184820ed"
+        },
+        {
+          "filename": "gnutls28_3.8.9.orig.tar.xz.asc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gnutls28/gnutls28_3.8.9.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "7631d47762865d4ef494492cca794cf0fe6a8be892a4aa02f362ae29006d3054"
+        },
+        {
+          "filename": "gnutls28_3.8.9-3+deb13u4.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gnutls28/gnutls28_3.8.9-3+deb13u4.debian.tar.xz",
+          "size": 140880,
+          "sha256": "f0b9c7d182072f0bbdb281304686aa6e2bfd343dadefa432ec4dab4893e9841f"
+        }
+      ]
+    },
+    "gobject-introspection": {
+      "version": "1.84.0-1",
+      "dsc": "gobject-introspection_1.84.0-1.dsc",
+      "files": [
+        {
+          "filename": "gobject-introspection_1.84.0-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gobject-introspection/gobject-introspection_1.84.0-1.dsc",
+          "size": 4202,
+          "sha256": "cf33962fbdb12b9562889b181ea1054b33dbcb11514c1873feab9e8bfabdd686"
+        },
+        {
+          "filename": "gobject-introspection_1.84.0.orig-glib.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gobject-introspection/gobject-introspection_1.84.0.orig-glib.tar.xz",
+          "size": 5475296,
+          "sha256": "b3764dd6e29b664085921dd4dd6ba2430fc19760ab6857ecfa3ebd4e8c1d114c"
+        },
+        {
+          "filename": "gobject-introspection_1.84.0.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gobject-introspection/gobject-introspection_1.84.0.orig.tar.xz",
+          "size": 1080316,
+          "sha256": "945b57da7ec262e5c266b89e091d14be800cc424277d82a02872b7d794a84779"
+        },
+        {
+          "filename": "gobject-introspection_1.84.0-1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gobject-introspection/gobject-introspection_1.84.0-1.debian.tar.xz",
+          "size": 58824,
+          "sha256": "f06e9414cf0a6781ef133a5ba6234769b7bc0126f9fffefba08da590f7711351"
+        }
+      ]
+    },
+    "java-common": {
+      "version": "0.76",
+      "dsc": "java-common_0.76.dsc",
+      "files": [
+        {
+          "filename": "java-common_0.76.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/j/java-common/java-common_0.76.dsc",
+          "size": 1990,
+          "sha256": "f5760144187b30940c9090934d4f0616e9e80a0cf1fa1ebdd3636d984c194a25"
+        },
+        {
+          "filename": "java-common_0.76.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/j/java-common/java-common_0.76.tar.xz",
+          "size": 13520,
+          "sha256": "36dc1a734f86793d8f5f26c48fd8eedee18131475c447cc8e4474cf87df39589"
+        }
+      ]
+    },
+    "krb5": {
+      "version": "1.21.3-5+deb13u1",
+      "dsc": "krb5_1.21.3-5+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "krb5_1.21.3-5+deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3-5+deb13u1.dsc",
+          "size": 4189,
+          "sha256": "d17d2840bc97fea2c2375245569ca67838a2b557ee083c6cbe42b129a317212c"
+        },
+        {
+          "filename": "krb5_1.21.3.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3.orig.tar.gz",
+          "size": 9136145,
+          "sha256": "b7a4cd5ead67fb08b980b21abd150ff7217e85ea320c9ed0c6dadd304840ad35"
+        },
+        {
+          "filename": "krb5_1.21.3.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "85047c935fe949ef2e275885451b168557b923dd13a5aab0ef8fe6acd27b94d7"
+        },
+        {
+          "filename": "krb5_1.21.3-5+deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3-5+deb13u1.debian.tar.xz",
+          "size": 105252,
+          "sha256": "02b873b239fbe7ddf016dfe44deba4130673f4606c18c93da0622e2bc8500fb4"
+        }
+      ]
+    },
+    "libarchive": {
+      "version": "3.7.4-4+deb13u1",
+      "dsc": "libarchive_3.7.4-4+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "libarchive_3.7.4-4+deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/liba/libarchive/libarchive_3.7.4-4+deb13u1.dsc",
+          "size": 2634,
+          "sha256": "0579aa62c9b547a520fd3af48382b1b071c75dde75643c5063fc5f5dcb80545b"
+        },
+        {
+          "filename": "libarchive_3.7.4.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/liba/libarchive/libarchive_3.7.4.orig.tar.xz",
+          "size": 5417660,
+          "sha256": "f887755c434a736a609cbd28d87ddbfbe9d6a3bb5b703c22c02f6af80a802735"
+        },
+        {
+          "filename": "libarchive_3.7.4.orig.tar.xz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/liba/libarchive/libarchive_3.7.4.orig.tar.xz.asc",
+          "size": 659,
+          "sha256": "400b72233b64fae8d93a180f7330d0015a48fe93cdfb56329190b4d1a099d816"
+        },
+        {
+          "filename": "libarchive_3.7.4-4+deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/liba/libarchive/libarchive_3.7.4-4+deb13u1.debian.tar.xz",
+          "size": 40084,
+          "sha256": "72da9703b642c6c9bc0432704f1ad14919c57f743336396b5f8aefaf9bf79874"
+        }
+      ]
+    },
+    "libice": {
+      "version": "2:1.1.1-1",
+      "dsc": "libice_1.1.1-1.dsc",
+      "files": [
+        {
+          "filename": "libice_1.1.1-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libice/libice_1.1.1-1.dsc",
+          "size": 2021,
+          "sha256": "88722aa66d7f1807d1b0d3ae5bc62f8f06424dc5e970b1c73a0ea2fdf171f0b8"
+        },
+        {
+          "filename": "libice_1.1.1.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libice/libice_1.1.1.orig.tar.gz",
+          "size": 489944,
+          "sha256": "04fbd34a11ba08b9df2e3cdb2055c2e3c1c51b3257f683d7fcf42dabcf8e1210"
+        },
+        {
+          "filename": "libice_1.1.1-1.diff.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libice/libice_1.1.1-1.diff.gz",
+          "size": 7355,
+          "sha256": "8ce8ffaf775b0868e0633053fcd0755850938ddda9d977232e536a206c063d18"
+        }
+      ]
+    },
+    "libidn2": {
+      "version": "2.3.8-2",
+      "dsc": "libidn2_2.3.8-2.dsc",
+      "files": [
+        {
+          "filename": "libidn2_2.3.8-2.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libidn2/libidn2_2.3.8-2.dsc",
+          "size": 2961,
+          "sha256": "af3327227dbbf12fff281f71b7feb90371d2dbe597f3129e38b93c3faadcea61"
+        },
+        {
+          "filename": "libidn2_2.3.8.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libidn2/libidn2_2.3.8.orig.tar.gz",
+          "size": 718637,
+          "sha256": "bbad1678d35d28e2c62e6a2577083829461402d9e47b908791c55314a5cb5e04"
+        },
+        {
+          "filename": "libidn2_2.3.8.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libidn2/libidn2_2.3.8.orig.tar.gz.asc",
+          "size": 1223,
+          "sha256": "8995cab7db361d9d6989eab26d9b521c74236960a5d78250121c8d369b013bd8"
+        },
+        {
+          "filename": "libidn2_2.3.8-2.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libi/libidn2/libidn2_2.3.8-2.debian.tar.xz",
+          "size": 17532,
+          "sha256": "ab95c2bab110557505ba437bc162f67a5a85fa9d8a2e55501245dc7f0fe2e412"
+        }
+      ]
+    },
+    "libonig": {
+      "version": "6.9.9-1",
+      "dsc": "libonig_6.9.9-1.dsc",
+      "files": [
+        {
+          "filename": "libonig_6.9.9-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libo/libonig/libonig_6.9.9-1.dsc",
+          "size": 1862,
+          "sha256": "c20de5d65f043340e776db59d6cfd1599a9e5260f853e48cef9149e13c4bfe06"
+        },
+        {
+          "filename": "libonig_6.9.9.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libo/libonig/libonig_6.9.9.orig.tar.gz",
+          "size": 645616,
+          "sha256": "001aa1202e78448f4c0bf1a48c76e556876b36f16d92ce3207eccfd61d99f2a0"
+        },
+        {
+          "filename": "libonig_6.9.9-1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libo/libonig/libonig_6.9.9-1.debian.tar.xz",
+          "size": 8960,
+          "sha256": "01be609556b8e1f175464054bf87f7d64dc06ae01b2f78a6f731a837a4582a19"
+        }
+      ]
+    },
+    "libsm": {
+      "version": "2:1.2.6-1",
+      "dsc": "libsm_1.2.6-1.dsc",
+      "files": [
+        {
+          "filename": "libsm_1.2.6-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libs/libsm/libsm_1.2.6-1.dsc",
+          "size": 2302,
+          "sha256": "d0ab34a54b145ea728242638b878d05f84bcb71feabf075c5e9510cc608aab93"
+        },
+        {
+          "filename": "libsm_1.2.6.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libs/libsm/libsm_1.2.6.orig.tar.gz",
+          "size": 467497,
+          "sha256": "166b4b50d606cdd83f1ddc61b5b9162600034f848b3e32ccbb0e63536b7d6cdd"
+        },
+        {
+          "filename": "libsm_1.2.6.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libs/libsm/libsm_1.2.6.orig.tar.gz.asc",
+          "size": 833,
+          "sha256": "b5e59abae8a79ae9901e73178dacf5af9d7c3b91704fd86de85d305fd7a17a7f"
+        },
+        {
+          "filename": "libsm_1.2.6-1.diff.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libs/libsm/libsm_1.2.6-1.diff.gz",
+          "size": 13291,
+          "sha256": "7cc1d915c18fa6c34cc57c44ca844b62e99fba79b70c0941466d3747e15f2195"
+        }
+      ]
+    },
+    "libtool": {
+      "version": "2.5.4-4",
+      "dsc": "libtool_2.5.4-4.dsc",
+      "files": [
+        {
+          "filename": "libtool_2.5.4-4.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.dsc",
+          "size": 2232,
+          "sha256": "37d98d7c45d1c12c0b7bd55fb6a90fa05aff8aa9ab2bbd9617ce7a6233b1965e"
+        },
+        {
+          "filename": "libtool_2.5.4.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4.orig.tar.xz",
+          "size": 1069572,
+          "sha256": "d9189031edeaa6aa74695b2aeb80a8c26df50b29d8b72c991667e01adecea42c"
+        },
+        {
+          "filename": "libtool_2.5.4-4.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.debian.tar.xz",
+          "size": 37504,
+          "sha256": "93e8e286db1322a4f17e3120654ec2664a721e6684c017cb37d471daeb380f8e"
+        }
+      ]
+    },
+    "libunistring": {
+      "version": "1.3-2",
+      "dsc": "libunistring_1.3-2.dsc",
+      "files": [
+        {
+          "filename": "libunistring_1.3-2.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libu/libunistring/libunistring_1.3-2.dsc",
+          "size": 2215,
+          "sha256": "0c09938cace7fbbf36c73af8bc2243fd2f70d3fe336539e8d4c10d0e61742571"
+        },
+        {
+          "filename": "libunistring_1.3.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libu/libunistring/libunistring_1.3.orig.tar.xz",
+          "size": 2753448,
+          "sha256": "f245786c831d25150f3dfb4317cda1acc5e3f79a5da4ad073ddca58886569527"
+        },
+        {
+          "filename": "libunistring_1.3.orig.tar.xz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libu/libunistring/libunistring_1.3.orig.tar.xz.asc",
+          "size": 833,
+          "sha256": "62201b5b7ce9c0b033c50cefa5d7769dff4b7cee8205572e0cf917653cae9e33"
+        },
+        {
+          "filename": "libunistring_1.3-2.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libu/libunistring/libunistring_1.3-2.debian.tar.xz",
+          "size": 28480,
+          "sha256": "feaf9761d365430178ea46feefeb602b435c21acf5924918e2257238e0378fc9"
+        }
+      ]
+    },
+    "libxaw": {
+      "version": "2:1.0.16-1",
+      "dsc": "libxaw_1.0.16-1.dsc",
+      "files": [
+        {
+          "filename": "libxaw_1.0.16-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxaw/libxaw_1.0.16-1.dsc",
+          "size": 2401,
+          "sha256": "34a9959c4edbc51aa53e2a4253837347c096306ad5fa2c0b25e53c6f9f24d7c2"
+        },
+        {
+          "filename": "libxaw_1.0.16.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxaw/libxaw_1.0.16.orig.tar.gz",
+          "size": 915371,
+          "sha256": "012f90adf8739f2f023d63a5fee1528949cf2aba92ef7ac1abcfc2ae9cf28798"
+        },
+        {
+          "filename": "libxaw_1.0.16.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxaw/libxaw_1.0.16.orig.tar.gz.asc",
+          "size": 659,
+          "sha256": "4aa8315ff6dd23f31453f33d4caf6019fa0593c175f5d14c6bcce5c733de2b9e"
+        },
+        {
+          "filename": "libxaw_1.0.16-1.diff.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxaw/libxaw_1.0.16-1.diff.gz",
+          "size": 26931,
+          "sha256": "bc43da7aa1ad29b2cd113bcec73a4be47ff4db14abcd5ef934ccb9f2d27dd01f"
+        }
+      ]
+    },
+    "libxt": {
+      "version": "1:1.2.1-1.2",
+      "dsc": "libxt_1.2.1-1.2.dsc",
+      "files": [
+        {
+          "filename": "libxt_1.2.1-1.2.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxt/libxt_1.2.1-1.2.dsc",
+          "size": 2373,
+          "sha256": "780be4cf9b0b90757758691dc8196d85322b30a599c36fb8fe368b7060c7b774"
+        },
+        {
+          "filename": "libxt_1.2.1.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxt/libxt_1.2.1.orig.tar.gz",
+          "size": 1024473,
+          "sha256": "6da1bfa9dd0ed87430a5ce95b129485086394df308998ebe34d98e378e3dfb33"
+        },
+        {
+          "filename": "libxt_1.2.1.orig.tar.gz.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxt/libxt_1.2.1.orig.tar.gz.asc",
+          "size": 358,
+          "sha256": "da406cc94c25ca6773bb37c2055e2eb5665491f7ca6dfc9ea04f0f30ea3fd098"
+        },
+        {
+          "filename": "libxt_1.2.1-1.2.diff.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libx/libxt/libxt_1.2.1-1.2.diff.gz",
+          "size": 45635,
+          "sha256": "d4c510871909584398d88552b69cc5e92e124098ce544be93ef1743d0d112d4c"
+        }
+      ]
+    },
+    "python3-defaults": {
+      "version": "3.13.5-1",
+      "dsc": "python3-defaults_3.13.5-1.dsc",
+      "files": [
+        {
+          "filename": "python3-defaults_3.13.5-1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python3-defaults/python3-defaults_3.13.5-1.dsc",
+          "size": 2346,
+          "sha256": "206e2f527ca126e46f007b3dd668ae9d35a03c7653bee137a03161df33063d2c"
+        },
+        {
+          "filename": "python3-defaults_3.13.5-1.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python3-defaults/python3-defaults_3.13.5-1.tar.gz",
+          "size": 146839,
+          "sha256": "6260f7e3b3df0c5fc60a95b26bd2da5993c6f8fcd901bab74c1c43df45d361dd"
+        }
+      ]
+    },
+    "ruby-defaults": {
+      "version": "1:3.3",
+      "dsc": "ruby-defaults_3.3.dsc",
+      "files": [
+        {
+          "filename": "ruby-defaults_3.3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/r/ruby-defaults/ruby-defaults_3.3.dsc",
+          "size": 2013,
+          "sha256": "a8267649f18b2e06912483d973c8977ae428e5ceb5c6d743b64e37355e516ed6"
+        },
+        {
+          "filename": "ruby-defaults_3.3.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/r/ruby-defaults/ruby-defaults_3.3.tar.xz",
+          "size": 13688,
+          "sha256": "84598d43013039e9169c5316698468528a877f40694833603d1f56e83c778710"
+        }
+      ]
+    },
+    "slang2": {
+      "version": "2.3.3-5",
+      "dsc": "slang2_2.3.3-5.dsc",
+      "files": [
+        {
+          "filename": "slang2_2.3.3-5.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/slang2/slang2_2.3.3-5.dsc",
+          "size": 2266,
+          "sha256": "794817e0287e6270527cac0904e2f5ba1097e85c17f8ca5d64b43f80265e5f60"
+        },
+        {
+          "filename": "slang2_2.3.3.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/slang2/slang2_2.3.3.orig.tar.xz",
+          "size": 1347116,
+          "sha256": "d86128b264933ad88c295b3a58127c2f29c8cb68334dd2e6a310b0a36436c64f"
+        },
+        {
+          "filename": "slang2_2.3.3-5.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/slang2/slang2_2.3.3-5.debian.tar.xz",
+          "size": 60404,
+          "sha256": "2d86ebf1fae6b19347b418ce67316b4711d0aeb1dffc7b2c6ba3cba74c209e7e"
+        }
+      ]
+    },
+    "sphinx": {
+      "version": "8.1.3-5",
+      "dsc": "sphinx_8.1.3-5.dsc",
+      "files": [
+        {
+          "filename": "sphinx_8.1.3-5.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/s/sphinx/sphinx_8.1.3-5.dsc",
+          "size": 3558,
+          "sha256": "123044fc5f4bcbafb4355770ab4a59464d14a3192296e36d06b2c49b2435ba0c"
+        },
+        {
+          "filename": "sphinx_8.1.3.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/s/sphinx/sphinx_8.1.3.orig.tar.gz",
+          "size": 8184611,
+          "sha256": "43c1911eecb0d3e161ad78611bc905d1ad0e523e4ddc202a58a821773dc4c927"
+        },
+        {
+          "filename": "sphinx_8.1.3-5.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/s/sphinx/sphinx_8.1.3-5.debian.tar.xz",
+          "size": 36824,
+          "sha256": "8a9fcaa3213b43f3cce4bfa56cf9bc5c46a6ba819557b6990c4a3b226b9bd2e7"
+        }
+      ]
+    },
+    "systemtap": {
+      "version": "5.1-5",
+      "dsc": "systemtap_5.1-5.dsc",
+      "files": [
+        {
+          "filename": "systemtap_5.1-5.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/systemtap/systemtap_5.1-5.dsc",
+          "size": 2815,
+          "sha256": "e8c733ef237deeeb61af84981536509f1bf643ca7d7428bfb79800dd0bf10be5"
+        },
+        {
+          "filename": "systemtap_5.1.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/systemtap/systemtap_5.1.orig.tar.gz",
+          "size": 6590820,
+          "sha256": "1db8c1d65bb13b65bc3f30e4cee2f7e174d517e908d994bb0fcde0051f181b40"
+        },
+        {
+          "filename": "systemtap_5.1-5.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/systemtap/systemtap_5.1-5.debian.tar.xz",
+          "size": 33340,
+          "sha256": "0d031c0b4921063bc4e2d76d2d8ce62372e86048464056b97c520de546333fa8"
+        }
+      ]
+    },
+    "util-linux": {
+      "version": "2.41.5-0+deb13u1",
+      "dsc": "util-linux_2.41.5-0+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "util-linux_2.41.5-0+deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/u/util-linux/util-linux_2.41.5-0+deb13u1.dsc",
+          "size": 4988,
+          "sha256": "43e9b2cbebd10fdc598c4ad10217c8202c28de53af6eafc892c8e9b5cbf3a3a5"
+        },
+        {
+          "filename": "util-linux_2.41.5.orig.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/u/util-linux/util-linux_2.41.5.orig.tar.xz",
+          "size": 9474992,
+          "sha256": "f586e35d320ff537aab3ffeca37e9ecd482ccbe013590db4429a414d8aa6a728"
+        },
+        {
+          "filename": "util-linux_2.41.5-0+deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/u/util-linux/util-linux_2.41.5-0+deb13u1.debian.tar.xz",
+          "size": 107604,
+          "sha256": "5b327ccd22f0f4ed28a389870aa51d04ecedb8693e52a1d122850f2b3188cbf6"
+        }
+      ]
+    },
+    "wayland": {
+      "version": "1.23.1-3",
+      "dsc": "wayland_1.23.1-3.dsc",
+      "files": [
+        {
+          "filename": "wayland_1.23.1-3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/w/wayland/wayland_1.23.1-3.dsc",
+          "size": 2650,
+          "sha256": "03b4da461e507338731b86183e989e0e9c3fa28f34d8739f0b30d8dd9b88bce8"
+        },
+        {
+          "filename": "wayland_1.23.1.orig.tar.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/w/wayland/wayland_1.23.1.orig.tar.gz",
+          "size": 370199,
+          "sha256": "158ec49af498f2558c7fbf7e8b070d010d4e270cc6076003a18a6c813f87e244"
+        },
+        {
+          "filename": "wayland_1.23.1-3.diff.gz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/w/wayland/wayland_1.23.1-3.diff.gz",
+          "size": 16437,
+          "sha256": "f48a224e6d744d33ab00378b7a7f2b3ab6461706e30b722e320d047d880e70c8"
+        }
+      ]
+    }
+  }
+}
