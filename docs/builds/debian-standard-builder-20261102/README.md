@@ -158,3 +158,19 @@ requirements are outside this arch-only probe. Results use the pre-wave005 SPE
 universe; they are a dated coverage checkpoint, not a claim that every listed
 blocker still exists after later library builds. For whole-source readiness,
 always regenerate the standard solver report against the current artifact set.
+
+
+## Atomic dependency and OpenSSL acceptance
+
+Cross-core metapackage003 adds real GCC8 SPE atomic runtime/development
+packages. libatomic-canonical002.json and libatomic-provider002.json retain
+normal sbuild outputs from hash-pinned, previously compiled bootstrap payloads.
+libatomic-payload-comparison002.json confirms their shared ELF bytes match;
+source preparation003 fixes the source-archive omission of the static input.
+The build-root provider is excluded from final target archive acceptance.
+
+openssl005.json supersedes the missing-atomic dependency failure in004: six
+packages and static inspection pass. The recorded GCC8 hardening limitation
+remains. atomic-runtime-validation001.json/.log record a separate QEMU-user
+e500v2 threaded add/CAS pass (2.77s), against the diagnostic sysroot, not an
+apt-configured new image or actual A1222. Frozen baseline is unchanged.

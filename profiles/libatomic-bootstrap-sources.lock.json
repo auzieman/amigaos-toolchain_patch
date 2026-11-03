@@ -1,0 +1,41 @@
+{
+  "scope": "Private bootstrap assembly of recorded GCC8.5 SPE libatomic; preserve original compiler/source provenance and licenses",
+  "components": {
+    "tabor-spe-libatomic-canonical": {
+      "version": "8.5.0+tabor1",
+      "dsc": "tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc",
+      "files": [
+        {
+          "filename": "tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc",
+          "sha256": "c1ea0c0d467bfbf5ae7ea0e99ad11b573e5fea3c81333cd621d0e303ce9f0721",
+          "size": 727,
+          "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc"
+        },
+        {
+          "filename": "tabor-spe-libatomic-canonical_8.5.0+tabor1.tar.xz",
+          "sha256": "e36f4e4777f2d214e0153dbd960bd8173da6beaefbfdeaa8309378232894ec7c",
+          "size": 27584,
+          "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-canonical_8.5.0+tabor1.tar.xz"
+        }
+      ]
+    },
+    "tabor-spe-libatomic-provider": {
+      "version": "8.5.0+tabor1",
+      "dsc": "tabor-spe-libatomic-provider_8.5.0+tabor1.dsc",
+      "files": [
+        {
+          "filename": "tabor-spe-libatomic-provider_8.5.0+tabor1.dsc",
+          "sha256": "8a013402b8432d3a6531125b535e283560f5ae654784659b3313cf8856d75e50",
+          "size": 659,
+          "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-provider_8.5.0+tabor1.dsc"
+        },
+        {
+          "filename": "tabor-spe-libatomic-provider_8.5.0+tabor1.tar.xz",
+          "sha256": "fff1eacf42866a41f2025e5c3146f40c7b34278d70ed33d2d4607fb0b17167fa",
+          "size": 23524,
+          "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-provider_8.5.0+tabor1.tar.xz"
+        }
+      ]
+    }
+  }
+}

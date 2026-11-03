@@ -1262,3 +1262,19 @@ preinstall/shlibs failures. OpenSSL retry004 passes normal quilt --fuzz=0 and
 source-package preparation, then proceeds to standard sbuild; final packaging
 is pending. GNOME/control-center and Firefox remain dependency coverage probes,
 not new image/application selections. Frozen kernel/glibc/compiler pins remain.
+
+
+2026-11-02 libatomic/OpenSSL acceptance: the existing verified GCC8.5 SPE
+libatomic build is now wrapped in normal Debian source packaging, with
+canonical target runtime/development outputs and an explicitly build-root-only
+runtime provider. This is recorded bootstrap assembly, not a fresh Debian GCC
+source rebuild. Both packaging jobs pass static inspection and their shared
+ELF payload hashes match. Cross-core metapackage3 installs the real atomic
+runtime/development requirements. OpenSSL005 now produces six packages through
+standard frozen-root sbuild; issue21's packaging gate passes. The source probe
+explicitly records GCC8's unsupported register-clearing hardening flag.
+A separate e500v2 QEMU-user threaded atomic64 add/CAS diagnostic passes in2.77s;
+it is not installed-image or physical SMP acceptance. This round has20
+additional successful source groups, including partial bootstrap outputs; it
+is not a workstation completion percentage. Full-feature libc, ABI rounding,
+normal target configuration, desktop paint and hardware gates remain open.

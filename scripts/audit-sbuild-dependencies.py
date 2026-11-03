@@ -50,7 +50,8 @@ try:
  # Gather real successful source-build outputs, not guessed package identities.
  selected={};records={}
  candidates=list(a.base.glob('work/*/receipt.json'))
- explicit={str(a.base/x['receipt']) for x in defaults['extra_receipts']}
+ explicit_specs={str(a.base/x['receipt']):x for x in defaults['extra_receipts']}
+ explicit=set(explicit_specs)
  libc_inputs={str(a.base/x['receipt']) for x in defaults['extra_receipts'] if 'libc6' in x['packages']}
  assert len(libc_inputs)==1, 'Use exactly the reviewed frozen libc input'
  for path in sorted(candidates,key=lambda p:p.stat().st_mtime):
@@ -61,6 +62,7 @@ try:
   if record.get('package') not in profile['packages'] and str(path) not in explicit:continue
   for name,item in record.get('packages',{}).items():
    if not name.endswith('.deb') or name.split('_')[0] in ['libgcc-s1','libstdc++6']:continue
+   if record.get('package') not in profile['packages'] and name.split('_')[0] not in explicit_specs[str(path)]['packages']:continue
    f=path.parent/name
    assert f.resolve().is_relative_to(a.base.resolve()) and sha(f)==item['sha256']
    selected[name]=(path,f,record)

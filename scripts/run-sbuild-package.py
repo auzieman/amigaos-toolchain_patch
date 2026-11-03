@@ -25,6 +25,7 @@ r={'status':'preparing','spec_sha256':sha(a.spec),'recipe_sha256':sha(Path(__fil
    'method':'Debian mmdebstrap buildd root and sbuild unshare apt resolver',
    'build_architecture':'amd64','host_architecture':spec.get('host_architecture','powerpcspe'),
    'target_execution':False,'target_installation':False,'boot_image_ready':False,
+   'build_root_only':bool(spec.get('build_root_only')),'bootstrap_assembly':bool(spec.get('bootstrap_assembly')),
    'source_inputs':[],'extra_package_inputs':[],'commands':[], 'package':spec['package']}
 def save():(a.output/'receipt.json').write_text(json.dumps(r,indent=2)+'\n')
 def run(cmd,name,env=None,cwd=None):
@@ -48,7 +49,7 @@ try:
   record=json.loads(receipt.read_text());assert record['status']=='debian-packages-built-not-target-installed'
   assert bool(record.get('build_root_only'))==bool(item.get('build_root_only')), 'Bootstrap-only input requires explicit role'
   if record.get('build_root_only'):
-   assert set(item['packages']) <= {'tabor-spe-libgcc-s1','tabor-spe-libstdc++6'}
+   assert set(item['packages']) <= {'tabor-spe-libgcc-s1','tabor-spe-libstdc++6','tabor-spe-libatomic1'}
   found=set()
   for name,entry in record['packages'].items():
    if not name.endswith('.deb') or (item.get('files') and name not in item['files']):continue
@@ -127,7 +128,9 @@ try:
  config=a.output/'sbuild.conf'
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
- config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= 1.0+spe2)'] };\n1;\n")
+ core_version=spec.get('cross_core_version','1.0+spe2')
+ assert core_version in ['1.0+spe2','1.0+spe3']
+ config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
  if spec.get('configure_cache'):
   cache_spec=spec['configure_cache'];cache_path=a.project/cache_spec['path']
   assert sha(cache_path)==cache_spec['sha256']

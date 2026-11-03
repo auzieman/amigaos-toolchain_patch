@@ -1,0 +1,179 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "ffa7a9e99fdd2bac729f62e9d0abff243f1d8bfa3fff0651c3defbb6ce4ec6e5",
+  "recipe_sha256": "dcce196b58f1244054ba9f0526a0639ae805205630f0867a61cb4c9139424c46",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": true,
+  "source_inputs": [
+    {
+      "filename": "tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc",
+      "sha256": "c1ea0c0d467bfbf5ae7ea0e99ad11b573e5fea3c81333cd621d0e303ce9f0721",
+      "size": 727,
+      "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc"
+    },
+    {
+      "filename": "tabor-spe-libatomic-canonical_8.5.0+tabor1.tar.xz",
+      "sha256": "e36f4e4777f2d214e0153dbd960bd8173da6beaefbfdeaa8309378232894ec7c",
+      "size": 27584,
+      "url": "private-recorded-bootstrap-source:tabor-spe-libatomic-canonical_8.5.0+tabor1.tar.xz"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "bash_5.2.37-2_powerpcspe.deb",
+      "sha256": "ef81561d76d3c58d227fcb7aff7bcc34d20c2b3d9e62a8ba412bc556d79ec22e",
+      "receipt_sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796"
+    },
+    {
+      "file": "bzip2_1.0.8-6_powerpcspe.deb",
+      "sha256": "b2a00eb26a87d51d8b70ecbcb9f15b4807ec545f1f67184a3eb194e9173f74e1",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+      "sha256": "764f94446ddea0eebe788ac18a315874183ad4876d1d3ea69949a0dfb90d4b11",
+      "receipt_sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe2_all.deb",
+      "sha256": "291ef643f09370f724554adb5c8592c6cebe9cb9865eb9f246b3275e32436dfc",
+      "receipt_sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a"
+    },
+    {
+      "file": "debconf_1.5.91+tabor1_all.deb",
+      "sha256": "2569302c0ef6b2cb8702ba988f1afe25142d5ed1436a57ad08b5c09ed147db3d",
+      "receipt_sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429"
+    },
+    {
+      "file": "init-system-helpers_1.69~deb13u1_all.deb",
+      "sha256": "addf78073e1cbc5a5508937e11d2571055e29835e00ee8fab52a66775649378f",
+      "receipt_sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198"
+    },
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8",
+      "receipt_sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4"
+    },
+    {
+      "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "35be3543c1797f674f32887c7b4bd08ca9502c5f3ea8d1a9d7e56688b0a0bfef",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "303a3ac1dcd6e873bb1b32ec4e05878f13ccd9e1657dd59213eb2f9398262a73",
+      "receipt_sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "85bb98bc0a407d3a3c81ce80a37f41eec0c270fdf641f7ad71c43c41984fa621",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "bc236d075d85b4a60d9304592fe67afbdd9f1c539df4d8a3eb9054a411356a0f",
+      "receipt_sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7"
+    },
+    {
+      "file": "libtinfo6_6.5+20250216-2_powerpcspe.deb",
+      "sha256": "3be04e4869b96ece679defe95b01b707918ef59cc59578e305bf573a406cc98e",
+      "receipt_sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5"
+    },
+    {
+      "file": "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "8497d5fed4a204359ece61c0a9fcb44b36e6c519480477422e856a0fad536b53",
+      "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef"
+    },
+    {
+      "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "b207182192e9d583d1262a7fcf9dea3423e083d59d4bb021eb00c07fb693d1b3",
+      "receipt_sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "d1e9f91a7dbc2925188ebce5e581332f43ea4c7ab39a8b0e15a5f7d9a3d2633a",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb",
+      "sha256": "e7061e7d7c2e0f3baf64e4314c09c178b86a254f8fbe94570dcd7b286ffbd7b5",
+      "receipt_sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43"
+    },
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb",
+      "sha256": "1f6460e790939791b32c9d63bc979cd033b52bdc3025fe7b27667befda17fc5b",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-002/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck",
+      "--build-dep-resolver=apt",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002",
+      "--no-arch-all",
+      "--extra-package=/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002/extra-packages",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002/sources/tabor-spe-libatomic-canonical_8.5.0+tabor1.dsc"
+    ],
+    [
+      "python3",
+      "/srv/data1/tabor-build/linux-live-001/submissions/libatomic-canonical-002/project/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libatomic-canonical-002/payload-inspection.json"
+    ]
+  ],
+  "package": "tabor-spe-libatomic-canonical",
+  "source_version": "8.5.0+tabor1",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "native_root_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "sbuild_exit": 0,
+  "packages": {
+    "libatomic1_8.5.0+tabor1_powerpcspe.deb": {
+      "sha256": "23e43acb7077c168c61dd67de0a075978ac3ed668596f263c9cd4ab5ce828678",
+      "bytes": 25052
+    },
+    "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb": {
+      "sha256": "591cd32b1f31e6a835c173c0f68d9282d997fbdcde1f0078dea666f96d6e235b",
+      "bytes": 25780
+    }
+  },
+  "build_metadata": {
+    "tabor-spe-libatomic-canonical_8.5.0+tabor1_powerpcspe.buildinfo": "f60b7cef685cf8fb87af671fb7ffc74a1aa09f63da6eebe6adaac1014654e81c",
+    "tabor-spe-libatomic-canonical_8.5.0+tabor1_powerpcspe.changes": "7bddfc10670f78d4bd4a1ec9d5b7d5a8da566f492de10c1da3ae925aecca4e32"
+  },
+  "payload_inspection_sha256": "cc83e48e94beeab77ac0f00d8fe538c54b24ff3eb69974c3797f92050bc77d1d"
+}

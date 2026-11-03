@@ -27,17 +27,6 @@
       ]
     },
     {
-      "receipt": "work/cross-core-metapackage-002/receipt.json",
-      "sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a",
-      "packages": [
-        "crossbuild-essential-powerpcspe"
-      ],
-      "allow_arch_all": true,
-      "files": [
-        "crossbuild-essential-powerpcspe_1.0+spe2_all.deb"
-      ]
-    },
-    {
       "receipt": "work/debian-debconf-003/receipt.json",
       "sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429",
       "packages": [
@@ -140,6 +129,38 @@
         "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
         "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb"
       ]
+    },
+    {
+      "receipt": "work/cross-core-metapackage-003/receipt.json",
+      "sha256": "74e35bf9d6c9ca0c0ddb4c007c93c9148b1197a20787fb5566037c3acc0ccddb",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe3_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libatomic-provider-002/receipt.json",
+      "sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d",
+      "packages": [
+        "tabor-spe-libatomic1"
+      ],
+      "files": [
+        "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb"
+      ],
+      "build_root_only": true
+    },
+    {
+      "receipt": "work/sbuild-libatomic-canonical-002/receipt.json",
+      "sha256": "96dc3daabf34669c7220738ab2334bffccbe2b81b95eb78820e52245d57ceff3",
+      "packages": [
+        "tabor-spe-libatomic-dev"
+      ],
+      "files": [
+        "tabor-spe-libatomic-dev_8.5.0+tabor1_powerpcspe.deb"
+      ]
     }
   ],
   "scope": "Standard frozen-base OpenSSL source build with registered target-compiler mitigation probe; GCC8 unsupported hardening remains a documented limitation, not equivalent security.",
@@ -158,5 +179,6 @@
   "quilt_patch_series": {
     "path": "patches/openssl/series.json",
     "sha256": "3316c798d9f341879dd51abf8ae756ea27bb212f50dec319b54af2e54b643e3b"
-  }
+  },
+  "cross_core_version": "1.0+spe3"
 }

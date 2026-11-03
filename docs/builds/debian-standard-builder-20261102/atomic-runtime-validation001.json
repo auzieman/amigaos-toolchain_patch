@@ -1,0 +1,25 @@
+{
+  "status": "pass",
+  "scope": "Separate QEMU-user diagnostic of recorded SPE atomic runtime and sysroot, not an installed Debian image or physical SMP proof",
+  "command": [
+    "runuser",
+    "-u",
+    "owner",
+    "--",
+    "qemu-ppc",
+    "-cpu",
+    "e500v2",
+    "-L",
+    "/srv/data1/tabor-build/linux-live-001/sysroot",
+    "-E",
+    "LD_LIBRARY_PATH=/srv/data1/tabor-build/linux-live-001/work/libatomic-001/stage/usr/lib:/srv/data1/tabor-build/linux-live-001/tools/gcc-unwind-003/powerpc-linux-gnuspe/lib",
+    "/srv/data1/tabor-build/linux-live-001/work/libatomic-001/atomic64-check"
+  ],
+  "elapsed_seconds": 2.771481969000888,
+  "qemu_version": "qemu-ppc version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "input_runtime_sha256": "98c03c3c98f8ec5409b5e8c3d4dbcb9c1b9e986c2c57d257ce4c7bce82d62141",
+  "probe_sha256": "5acdb9dceb63096e15d690eef66a7beaef7ac8a1a3040a801975871c5ff69e5a",
+  "guest_log_sha256": "5b31222beee97988c145bb7f5aa5074df8b977a1ff333ad6afe38c213f83849d",
+  "exit": 0,
+  "physical_hardware": false
+}

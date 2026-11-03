@@ -1,0 +1,161 @@
+{
+  "package": "tabor-spe-libatomic-canonical",
+  "source_lock": "profiles/libatomic-bootstrap-sources.lock.json",
+  "source_cache": "libatomic-packaging-source-cache-003",
+  "extra_receipts": [
+    {
+      "receipt": "work/debian-bash-510/receipt.json",
+      "sha256": "70ece1d396507cac3275b99a64b17f67130b0c4fc29beb33f8cfc120839ba796",
+      "packages": [
+        "bash"
+      ],
+      "files": [
+        "bash_5.2.37-2_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-bzip2-503/receipt.json",
+      "sha256": "47ff0b4a5d052e6329f99392466b14d25f4f115feeeaa6dd401144a0d90c4cae",
+      "packages": [
+        "bzip2",
+        "libbz2-1.0"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "bzip2_1.0.8-6_powerpcspe.deb",
+        "libbz2-1.0_1.0.8-6_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "3fdcfd8f56302efa8351f4c04d06566e18f6935e1b0220f028fbbccf52e21e3a",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe2_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "sha256": "91086db601398d7fa8be677af39b8f6a220d1e243069ea31cbff368a1fc45429",
+      "packages": [
+        "debconf"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "debconf_1.5.91+tabor1_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-init-system-helpers-510/receipt.json",
+      "sha256": "886d944fd2e0578020237a2a8d0178b4a7298149ec5d610bc19ab7c2b0605198",
+      "packages": [
+        "init-system-helpers"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "init-system-helpers_1.69~deb13u1_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-glibc-402/receipt.json",
+      "sha256": "a08ec050045fc803f7af43cea1ec44e6a7487333db817d0942d0b32703130cd4",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ],
+      "files": [
+        "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+        "libc6_2.41-12+deb13u4_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-xz-utils-504/receipt.json",
+      "sha256": "88e00994a622a3456e1affcdc615712e23486ac86242a4ef7ea3c658adbffa5a",
+      "packages": [
+        "liblzma5",
+        "xz-utils"
+      ],
+      "files": [
+        "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+        "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-zlib-504/receipt.json",
+      "sha256": "c04a5f07a01c8d43c8e7a2b4da906e0f5717e615ab94cfebc4b776bfb2b427e7",
+      "packages": [
+        "zlib1g",
+        "zlib1g-dev"
+      ],
+      "files": [
+        "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+        "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-ncurses-509/receipt.json",
+      "sha256": "3dae804a105362f58c634717ee27de88739349261b7acc06bd8194468044bde5",
+      "packages": [
+        "libtinfo6"
+      ],
+      "files": [
+        "libtinfo6_6.5+20250216-2_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/debian-libzstd-509/receipt.json",
+      "sha256": "8fb64fcf6c10b59066669975e39cc4cc0eea2c8df205906c35f9efb10f4da5ef",
+      "packages": [
+        "libzstd-dev",
+        "libzstd1"
+      ],
+      "files": [
+        "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb",
+        "libzstd1_1.5.7+dfsg-1_powerpcspe.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-009/receipt.json",
+      "sha256": "e3e1d5548bbd3f7c2a37c38bcd7ca4a20df4b03cffbb0f314353ba4a229293c0",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "linux-libc-dev_6.12.115-2+spe1_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/runtime-build-root-providers-001/receipt.json",
+      "sha256": "f047c970656f8d65ac320e22fe16fecc04d0aeae3e93c1e7711684a0f119ff43",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6"
+      ],
+      "build_root_only": true,
+      "files": [
+        "tabor-spe-libgcc-s1_8.5.0+tabor1_powerpcspe.deb",
+        "tabor-spe-libstdc++6_8.5.0+tabor1_powerpcspe.deb"
+      ]
+    }
+  ],
+  "scope": "Normal Debian packaging of recorded, source/hash/ABI-checked GCC8.5 SPE libatomic; no fresh GCC compilation or target execution. Provider is build-root-only.",
+  "native_root_receipt": "work/frozen-buildd-root-002/receipt.json",
+  "native_root_receipt_sha256": "e8fd69ee8fbf57c3c7a37dc8d4864aecfac0131e65577902ff6efa2598877f16",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/sdk-system-root-002/receipt.json",
+      "receipt_sha256": "b28cc73ac421b04ad560fb055271ad5a1545d8d882ff618f20293304b1f12d86",
+      "file": "tabor-spe-toolchain_8.5.0+tabor5_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "bootstrap_assembly": true,
+  "build_root_only": false,
+  "cross_core_version": "1.0+spe2"
+}
