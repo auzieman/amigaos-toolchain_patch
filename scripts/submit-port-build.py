@@ -35,7 +35,7 @@ for unit in ['tabor-port-pipeline', 'tabor-port-pipeline-next', 'tabor-ready-bat
     if check.returncode==0 and a.after_run and unit in ['tabor-port-pipeline','tabor-port-pipeline-next']:
         expected=base+'/work/'+a.after_run
         command=subprocess.check_output(['python3',str(helper/'remote.py'),shlex.join(['systemctl','show','--value','--property=ExecStart',unit])],text=True)
-        assert expected in command,'Active pipeline differs from the requested predecessor'
+        assert re.search(r'--output '+re.escape(expected)+r'(?=[ ;}]|$)',command),'Active pipeline differs from the requested predecessor (an after-receipt reference is not its output)'
         submission_unit = 'tabor-port-pipeline-next' if unit=='tabor-port-pipeline' else 'tabor-port-pipeline'
     else:assert check.returncode != 0, 'Existing package controller/job: ' + unit
 snapshot = base + '/submissions/' + a.run_id + '/project'

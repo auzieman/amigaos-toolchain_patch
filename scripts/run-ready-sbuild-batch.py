@@ -8,6 +8,7 @@ changes; it does not implement dependency resolution or execute target programs.
 import argparse,collections,concurrent.futures,hashlib,json,re,subprocess
 from pathlib import Path
 from build_failure_evidence import archive_failures
+from debian.deb822 import Packages
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','base','plan','output']:p.add_argument('--'+n,type=Path,required=True)
 a=p.parse_args();plan=json.loads(a.plan.read_text());a.output.mkdir(exist_ok=False)
@@ -56,7 +57,12 @@ try:
   r['data_only_pending']=[] if indep else [n for n in plan['packages'] if n not in attempted and architecture.get(n)=='all']
   if not candidates:break
   assert sha(audit/'build-pool-inputs.json')==pr['pool_inputs_sha256']
-  pool=json.loads((audit/'build-pool-inputs.json').read_text());jobs=[]
+  pool=json.loads((audit/'build-pool-inputs.json').read_text());jobs=[];native_requests=set()
+  native_keys=set()
+  if plan.get('prefetch_frozen_native_archives'):
+   assert sha(audit/'NativePackages')==pr['native_packages_sha256']
+   with (audit/'NativePackages').open() as stream:
+    native_keys={(x['Package'],x['Version'],x['Architecture']) for x in Packages.iter_paragraphs(stream) if x['Architecture'] in ['amd64','all']}
   for name in candidates[:plan['concurrency']]:
    attempted.add(name);spec=json.loads(json.dumps(defaults));spec['package']=name
    settings=profile.get('package_inputs',{}).get(name,{})
@@ -74,6 +80,7 @@ try:
    spec['bootstrap']='stage1' in spec['build_profiles'].split(',')
    spec['required_full_rebuild']=spec['bootstrap']
    needed={(x['package'],x['version'],x['architecture']) for x in solution['installationset'] if x.get('type')!='src'}
+   native_requests.update((name,version) for name,version,arch in needed if (name,version,arch) in native_keys)
    assert sha(audit/'build-pool-artifacts.json')==pr['pool_artifacts_sha256']
    artifacts=json.loads((audit/'build-pool-artifacts.json').read_text());files={}
    for artifact in artifacts:
@@ -101,6 +108,16 @@ try:
    cmd=['python3',a.project/'scripts/run-sbuild-package.py','--project',a.project,'--base',a.base,'--spec',specpath,'--output',work]
    jobs.append((item,cmd,a.output/(name+'.log')))
   if not jobs:continue
+  if native_requests:
+   cache_output=a.output/('native-cache-'+str(wave))
+   cmd=['python3',a.project/'scripts/cache-frozen-native-archives.py','--audit',audit,
+    '--lock',a.project/defaults['base_lock'],'--cache',a.base.parent.parent/'tabor-apt-cache/pool',
+    '--output',cache_output,'--exact-file-cdn',*[name+'='+version for name,version in sorted(native_requests)]]
+   assert scoped(cmd,plan['unit_prefix']+'-cache-'+str(wave),1,'1G',a.output/('native-cache-'+str(wave)+'.log'))==0, 'Native cache integrity/provenance check failed'
+   proof=cache_output/'receipt.json';cache_record=json.loads(proof.read_text())
+   assert cache_record['status'] in ['cached','partial-acquisition-failure']
+   r.setdefault('native_archive_prefetch',[]).append({'receipt':str(proof),'sha256':sha(proof),'status':cache_record['status']})
+   save()
   with concurrent.futures.ThreadPoolExecutor(max_workers=plan['concurrency']) as workers:
    futures={workers.submit(scoped,cmd,plan['unit_prefix']+'-'+item['package'],4,'6G',log):item for item,cmd,log in jobs}
    for future in concurrent.futures.as_completed(futures):

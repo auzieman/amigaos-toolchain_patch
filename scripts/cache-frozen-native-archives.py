@@ -36,11 +36,16 @@ try:
    repo='debian-security' if x['Filename'].startswith('pool/updates/') else 'debian'
    origin=next(z['url'] for z in lock['repositories'] if '/archive/'+repo+'/' in z['url'])
    original=origin.rstrip('/')+'/'+x['Filename']
-   url=exact_file_cdn(original) if a.exact_file_cdn else original+'?download=1'
    downloaded=a.output/dest.name
-   cmd=['timeout','45','/usr/lib/apt/apt-helper','-o','Acquire::Retries=1','download-file',url,str(downloaded),'SHA256:'+expected]
-   with (a.output/(key[0]+'.log')).open('w') as log:code=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT).returncode
-   item.update(url=url,exit=code)
+   attempts=[]
+   with (a.output/(key[0]+'.log')).open('w') as log:
+    for url in ([exact_file_cdn(original)] if a.exact_file_cdn else [])+[original+'?download=1']:
+     downloaded.unlink(missing_ok=True)
+     cmd=['timeout','45','/usr/lib/apt/apt-helper','-o','Acquire::Retries=1','download-file',url,str(downloaded),'SHA256:'+expected]
+     code=subprocess.run(cmd,stdout=log,stderr=subprocess.STDOUT).returncode
+     attempts.append({'url':url,'exit':code})
+     if code==0:break
+   item.update(url=url,exit=code,attempts=attempts)
    if code==0:
     assert sha(downloaded)==expected
     try:os.link(downloaded,dest)

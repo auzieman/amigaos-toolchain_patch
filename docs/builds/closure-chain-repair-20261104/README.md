@@ -86,3 +86,36 @@ Round014 is explicitly queued after013, carrying the scoped audit scheduling
 and five additional Python prerequisites. It reuses accepted results and does
 not overlap package workers. Source compilation and final gap reduction must
 be reported from subsequent receipts, not these configuration changes.
+
+## Close the remaining native acquisition gap
+
+Round013's first four real jobs produced three successful source builds:
+cyrus-sasl2 eight debs, libdebian-installer three, architecture-properties three.
+Their inspected receipt hashes are in round013-first-passes.json.
+Kmod stopped before compilation on frozen scdoc_1.11.3-1_amd64.deb, Snapshot503.
+
+Native cache fill now runs before each opted-in build wave for the native
+packages in Debian dose's actual installation sets. Exact package/version/arch
+tuples are matched against the retained authenticated NativePackages; custom
+SDK and SPE binaries do not get replaced by native archives. Verified files
+are reused without network. Missing files try exact-file CDN then the same
+pinned Snapshot file with bounded attempts and SHA256 verification. The native
+cache is persistent; ordinary sbuild/apt still installs packages and manages state.
+If network acquisition remains partial, normal apt can still attempt its frozen
+source. An integrity/provenance failure stops the batch instead of publishing
+bad bytes. This is not a live apt mirror or a version change.
+
+Three additional native-cache regressions passed: verified reuse without any
+network call, failed-CDN recovery through the same Snapshot file (discarding
+the failed partial), and rejection of wrong-hash bytes. The real failed scdoc
+artifact was recovered/verified into the shared pool (native-prefetch-proof.json).
+The automatic whole-wave integration is requested in round016, not yet accepted
+as a completed batch result.
+
+Round014 was cancelled while waiting, before any package worker started; its
+prior receipt is retained. Round015 submission failed safely before starting a
+controller (reserved unit and existing immutable snapshot). Also tightened
+predecessor matching to the actual --output argument: a waiting controller's
+--after-receipt reference must not be mistaken for its own run identity.
+Round016 is now queued after013 with native cache prefetch, scoped audits and
+the Python prerequisite group. Round013 workers were not stopped.
