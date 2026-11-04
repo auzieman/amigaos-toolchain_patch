@@ -13,7 +13,7 @@ def sha(path):
  return h.hexdigest()
 root=a.output/'trixie-amd64.tar'
 mirrors=['deb [check-valid-until=no] '+item['url']+' '+item['suite']+' main' for item in lock['repositories']]
-cmd=['mmdebstrap','--variant=buildd','--architectures=amd64','--include=ca-certificates','--format=tar','trixie',str(root),*mirrors]
+cmd=['mmdebstrap','--variant=buildd','--architectures=amd64','--include=ca-certificates,apt-utils','--format=tar','trixie',str(root),*mirrors]
 r={'status':'preparing','command':cmd,'base_lock_sha256':sha(a.lock),'target_execution':False}
 try:
  with (a.output/'mmdebstrap.log').open('w') as log:
@@ -26,6 +26,7 @@ try:
  for paragraph in status.split('\n\n'):
   fields=dict(line.split(': ',1) for line in paragraph.splitlines() if ': ' in line and not line.startswith(' '))
   if fields.get('Status')=='install ok installed':packages[fields['Package']]=fields['Version']
+ assert 'apt-utils' in packages, 'Debian cross resolver requires native apt-utils'
  for name,version in lock['native_foundation'].items():
   assert packages.get(name)==version,(name,packages.get(name),version)
  (a.output/'installed-versions.json').write_text(json.dumps(packages,indent=2)+'\n')

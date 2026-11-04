@@ -99,3 +99,9 @@ consumers. Native index comparison is evidence, not automatic target policy.
 This aligns real package versions for coinstallation, preserving original
 source revisions and package metadata generation. A source-only version match
 is insufficient evidence for reusing a differently numbered binary rebuild.
+
+Native apt-utils is required inside the actual sbuild root. Debian sbuild
+checks /usr/lib/apt/solvers/apt and otherwise declines its cross resolver.
+Both root recipes install that native prerequisite; a child-root correction
+retains the frozen parent and baseline. Verify the resulting package logs
+actually use sbuild-cross-resolver before claiming that correction accepted.

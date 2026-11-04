@@ -164,7 +164,9 @@
     "tcl8.6",
     "libtasn1-6",
     "libxml2",
-    "flex"
+    "flex",
+    "nettle",
+    "unbound"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -1072,6 +1074,14 @@
     "flex": {
       "source_cache": "shared-base-source-cache-002",
       "source_lock": "profiles/shared-base-sources-002.lock.json"
+    },
+    "nettle": {
+      "source_cache": "desktop-prerequisite-source-cache-001",
+      "source_lock": "profiles/desktop-prerequisite-sources.lock.json"
+    },
+    "unbound": {
+      "source_cache": "desktop-prerequisite-source-cache-001",
+      "source_lock": "profiles/desktop-prerequisite-sources.lock.json"
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",

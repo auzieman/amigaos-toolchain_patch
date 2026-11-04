@@ -22,6 +22,12 @@ inputs change. One-off package commands are bounded diagnostics, not the
 default workflow. The pipeline prepares source metadata, uses Debian's solver
 and package builder, and reports failures; it must not invent another resolver.
 
+Require native apt-utils in every actual cross-build root and verify
+/usr/lib/apt/solvers/apt exists. Without it, sbuild falls back instead of
+selecting its own cross resolver; a broad dependency cache alone is insufficient.
+Treat that missing prerequisite as a shared build-root defect, not package
+porting or a reason to add another resolver.
+
 Provision the R730 for the whole selected source scope up front. Keep a broad
 native build-tool/dependency template and downloaded package cache on the
 server. scripts/prepare-port-build-server.py installs the original pinned

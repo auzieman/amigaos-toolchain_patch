@@ -1037,3 +1037,43 @@ apt-config parsing pass (work/apt-retry-hook-check-001). Round003 is submitted
 with the corrected hook. A new image has not been assembled/booted, and no
 qemu-system-ppc process was observed on R730 at this check. QEMU/light session
 validation remains required after package-managed candidate assembly.
+
+
+2026-11-04 closer round003 watch: Oniguruma6.9.9-1+b1 passed normal sbuild
+and payload inspection. S-Lang's earlier dependency attempt still selected
+old Oniguruma and was given back; the base stage is retrying with changed
+inputs alongside util-linux/PAM/newt. These remain unaccepted at checkpoint.
+
+Shared infrastructure finding: the broad native template lacks apt-utils,
+so sbuild ResolverBase.pm1028-1036 explicitly falls back instead of passing
+--solver sbuild-cross-resolver. This is an absent Debian prerequisite, not
+a new reason to invent resolver rules or patch consumers. A versioned child
+template installs native apt-utils through apt, checks ordinary dpkg/apt state
+and unchanged frozen foundations, hashes the actual solver executable, and
+archives separately. Parent template and active workers are unchanged.
+The root recipes now include apt-utils for future builds. Actual invocation
+of Debian cross resolver in a new package job remains the validation gate.
+
+Nettle3.10.1-1 and Unbound1.26.2-0+deb13u1 source archives are authenticated
+and cached for required Xorg/TLS dependencies. Unbound's existing Debian
+pkg.unbound.libonly profile supplies the selected C library without requesting
+a DNS daemon/Python package set. New sources and the qualified child root
+will enter a reviewed follow-up after this active run. Full glibc registration,
+remaining graph, normal target configuration and new QEMU validation remain
+open; source readiness counts do not establish a bootable desktop.
+
+Closer-watch acceptance update: native-cross-resolver-001 completed with
+1,279 native packages, clean apt/dpkg, matching frozen foundations and a
+hash-qualified Debian apt solver. Current sbuild specs pin its receipt;
+round004 waits for003 and uses that child root plus Nettle/Unbound sources.
+Issue25 remains open until a new package log verifies actual cross-resolver
+use. The host infrastructure already included apt-utils; the omission was
+inside the independently created build roots.
+
+Round003 additionally accepted util-linux stage1 and S-Lang2.3.3-5+b2, with
+normal packaging and payload checks. Util-linux provides the real UUID, blkid,
+mount, fdisk and smartcols library packages; full utilities/service rebuild
+remains required. New artifacts made libSM, Fontconfig and e2fsprogs ready,
+and those sources started automatically. PAM was given back on Snapshot504
+fetching native libfakeroot; newt's earlier attempt preceded accepted S-Lang.
+No fresh image/boot validation is claimed. See builds/native-cross-resolver-20261104.

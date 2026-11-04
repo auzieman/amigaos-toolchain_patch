@@ -75,6 +75,13 @@ try:
     if a.resume:
         assert inside(['dpkg', '--configure', '-a'], 'resume-configure') == 0
     assert inside(['apt-get', 'update'], 'apt-update') == 0
+    # Debian sbuild enables its own cross resolver only when this native
+    # solver executable (from apt-utils) exists in the build root.
+    assert inside(['apt-get', '--no-remove', '--no-install-recommends', '-y',
+                   'install', 'apt-utils:amd64'], 'native-cross-resolver') == 0
+    solver = root / 'usr/lib/apt/solvers/apt'
+    assert solver.is_file()
+    r['apt_cross_solver_sha256'] = sha(solver)
     intake = root / 'opt/port-build-inputs'
     intake.mkdir(parents=True, exist_ok=a.resume)
     for name in profile['packages']:

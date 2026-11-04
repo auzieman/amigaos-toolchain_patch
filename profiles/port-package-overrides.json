@@ -72,6 +72,10 @@
     "slang2": {
       "binary_nmu": 2,
       "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
+    },
+    "unbound": {
+      "build_profiles": "cross,nocheck,pkg.unbound.libonly",
+      "purpose": "Existing Debian library-only profile supplies GnuTLS libunbound dependency; DNS server and Python outputs are not selected"
     }
   }
 }
