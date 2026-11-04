@@ -1,0 +1,654 @@
+{
+  "status": "debian-dependency-audit-completed",
+  "target_execution": false,
+  "build_mode": "cross",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "indexes": [
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie/",
+      "inrelease_sha256": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675",
+      "packages_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/dists/trixie-updates/",
+      "inrelease_sha256": "bdbf565ac25279597518e1a51fcef6b3f2bb65f915788566edcffee9ba6efe99",
+      "packages_sha256": "7b52592d46eb9bf694ffd99b90fb521064a6bfd1d0a9f69f22cabf31cb7ea38e"
+    },
+    {
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/dists/trixie-security/",
+      "inrelease_sha256": "01590ffbf20362d6138369dbf543ee42d3d8ec62589d31cfb93a085afcad4f3c",
+      "packages_sha256": "38ca814a70dea1f035fd078c08b15b9a93f23b9605f3115a7791f30e62a6bf27"
+    }
+  ],
+  "missing_sources": [],
+  "historical_variants_not_indexed": [
+    {
+      "file": "libmd-dev_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-002/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "libmd0_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-002/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "libmd-dev_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-005/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "libmd0_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-005/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "libmd-dev_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-006/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "libmd0_1.1.0-2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libmd-006/receipt.json",
+      "source_version": "1.1.0-2+tabor1",
+      "selected_source_version": "1.1.0-2"
+    },
+    {
+      "file": "attr-dbgsym_2.5.2-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-attr-001/receipt.json",
+      "source_version": "1:2.5.2-3+tabor1",
+      "selected_source_version": "1:2.5.2-3"
+    },
+    {
+      "file": "attr_2.5.2-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-attr-001/receipt.json",
+      "source_version": "1:2.5.2-3+tabor1",
+      "selected_source_version": "1:2.5.2-3"
+    },
+    {
+      "file": "libattr1-dev_2.5.2-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-attr-001/receipt.json",
+      "source_version": "1:2.5.2-3+tabor1",
+      "selected_source_version": "1:2.5.2-3"
+    },
+    {
+      "file": "libattr1_2.5.2-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-attr-001/receipt.json",
+      "source_version": "1:2.5.2-3+tabor1",
+      "selected_source_version": "1:2.5.2-3"
+    },
+    {
+      "file": "dash_0.5.12-12+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-dash-002/receipt.json",
+      "source_version": "0.5.12-12+tabor1",
+      "selected_source_version": "0.5.12-12"
+    },
+    {
+      "file": "libcap-ng-dev_0.8.5-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "source_version": "0.8.5-4+tabor1",
+      "selected_source_version": "0.8.5-4"
+    },
+    {
+      "file": "libcap-ng-utils-dbgsym_0.8.5-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "source_version": "0.8.5-4+tabor1",
+      "selected_source_version": "0.8.5-4"
+    },
+    {
+      "file": "libcap-ng-utils_0.8.5-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "source_version": "0.8.5-4+tabor1",
+      "selected_source_version": "0.8.5-4"
+    },
+    {
+      "file": "libcap-ng0-dbgsym_0.8.5-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "source_version": "0.8.5-4+tabor1",
+      "selected_source_version": "0.8.5-4"
+    },
+    {
+      "file": "libcap-ng0_0.8.5-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libcap-ng-002/receipt.json",
+      "source_version": "0.8.5-4+tabor1",
+      "selected_source_version": "0.8.5-4"
+    },
+    {
+      "file": "libsepol-dev_3.8.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libsepol-001/receipt.json",
+      "source_version": "3.8.1-1+tabor1",
+      "selected_source_version": "3.8.1-1"
+    },
+    {
+      "file": "libsepol2_3.8.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libsepol-001/receipt.json",
+      "source_version": "3.8.1-1+tabor1",
+      "selected_source_version": "3.8.1-1"
+    },
+    {
+      "file": "sepol-utils-dbgsym_3.8.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libsepol-001/receipt.json",
+      "source_version": "3.8.1-1+tabor1",
+      "selected_source_version": "3.8.1-1"
+    },
+    {
+      "file": "sepol-utils_3.8.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libsepol-001/receipt.json",
+      "source_version": "3.8.1-1+tabor1",
+      "selected_source_version": "3.8.1-1"
+    },
+    {
+      "file": "libpcre2-16-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "libpcre2-32-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "libpcre2-8-0_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "libpcre2-dev_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "libpcre2-posix3_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "pcre2-utils_10.46-1~deb13u3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-pcre2-001/receipt.json",
+      "source_version": "10.46-1~deb13u3+tabor1",
+      "selected_source_version": "10.46-1~deb13u3"
+    },
+    {
+      "file": "gzip_1.13-1+deb13u1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gzip-003/receipt.json",
+      "source_version": "1.13-1+deb13u1+tabor1",
+      "selected_source_version": "1.13-1+deb13u1"
+    },
+    {
+      "file": "gzip_1.13-1+deb13u1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gzip-004/receipt.json",
+      "source_version": "1.13-1+deb13u1+tabor1",
+      "selected_source_version": "1.13-1+deb13u1"
+    },
+    {
+      "file": "base-files_13.8+deb13u7+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-base-files-001/receipt.json",
+      "source_version": "13.8+deb13u7+tabor1",
+      "selected_source_version": "13.8+deb13u7"
+    },
+    {
+      "file": "debianutils-dbgsym_5.23.2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-debianutils-003/receipt.json",
+      "source_version": "5.23.2+tabor1",
+      "selected_source_version": "5.23.2"
+    },
+    {
+      "file": "debianutils_5.23.2+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-debianutils-003/receipt.json",
+      "source_version": "5.23.2+tabor1",
+      "selected_source_version": "5.23.2"
+    },
+    {
+      "file": "diffutils-dbgsym_3.10-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-diffutils-002/receipt.json",
+      "source_version": "1:3.10-4+tabor1",
+      "selected_source_version": "1:3.10-4"
+    },
+    {
+      "file": "diffutils_3.10-4+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-diffutils-002/receipt.json",
+      "source_version": "1:3.10-4+tabor1",
+      "selected_source_version": "1:3.10-4"
+    },
+    {
+      "file": "mawk_1.3.4.20250131-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-mawk-002/receipt.json",
+      "source_version": "1.3.4.20250131-1+tabor1",
+      "selected_source_version": "1.3.4.20250131-1"
+    },
+    {
+      "file": "init-system-helpers_1.69~deb13u1+tabor1_all.deb",
+      "receipt": "work/debian-init-system-helpers-002/receipt.json",
+      "source_version": "1.69~deb13u1+tabor1",
+      "selected_source_version": "1.69~deb13u1"
+    },
+    {
+      "file": "debconf-doc_1.5.91+tabor1_all.deb",
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "source_version": "1.5.91+tabor1",
+      "selected_source_version": "1.5.91"
+    },
+    {
+      "file": "debconf-i18n_1.5.91+tabor1_all.deb",
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "source_version": "1.5.91+tabor1",
+      "selected_source_version": "1.5.91"
+    },
+    {
+      "file": "debconf-utils_1.5.91+tabor1_all.deb",
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "source_version": "1.5.91+tabor1",
+      "selected_source_version": "1.5.91"
+    },
+    {
+      "file": "debconf_1.5.91+tabor1_all.deb",
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "source_version": "1.5.91+tabor1",
+      "selected_source_version": "1.5.91"
+    },
+    {
+      "file": "python3-debconf_1.5.91+tabor1_all.deb",
+      "receipt": "work/debian-debconf-003/receipt.json",
+      "source_version": "1.5.91+tabor1",
+      "selected_source_version": "1.5.91"
+    },
+    {
+      "file": "init-system-helpers_1.69~deb13u1+tabor1_all.deb",
+      "receipt": "work/debian-init-system-helpers-005/receipt.json",
+      "source_version": "1.69~deb13u1+tabor1",
+      "selected_source_version": "1.69~deb13u1"
+    },
+    {
+      "file": "media-types_13.0.0+tabor1_all.deb",
+      "receipt": "work/debian-media-types-101/receipt.json",
+      "source_version": "13.0.0+tabor1",
+      "selected_source_version": "13.0.0"
+    },
+    {
+      "file": "adduser_3.152+tabor1_all.deb",
+      "receipt": "work/debian-adduser-101/receipt.json",
+      "source_version": "3.152+tabor1",
+      "selected_source_version": "3.152"
+    },
+    {
+      "file": "debian-archive-keyring_2025.1+tabor1_all.deb",
+      "receipt": "work/debian-debian-archive-keyring-102/receipt.json",
+      "source_version": "2025.1+tabor1",
+      "selected_source_version": "2025.1"
+    },
+    {
+      "file": "ca-certificates_20250419+deb13u1+tabor1_all.deb",
+      "receipt": "work/debian-ca-certificates-102/receipt.json",
+      "source_version": "20250419+deb13u1+tabor1",
+      "selected_source_version": "20250419+deb13u1"
+    },
+    {
+      "file": "tzdata-legacy_2026c-0+deb13u1+tabor1_all.deb",
+      "receipt": "work/debian-tzdata-102/receipt.json",
+      "source_version": "2026c-0+deb13u1+tabor1",
+      "selected_source_version": "2026c-0+deb13u1"
+    },
+    {
+      "file": "tzdata_2026c-0+deb13u1+tabor1_all.deb",
+      "receipt": "work/debian-tzdata-102/receipt.json",
+      "source_version": "2026c-0+deb13u1+tabor1",
+      "selected_source_version": "2026c-0+deb13u1"
+    },
+    {
+      "file": "libpthread-stubs0-dev_0.5-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libpthread-stubs-202/receipt.json",
+      "source_version": "0.5-1+tabor1",
+      "selected_source_version": "0.5-1"
+    },
+    {
+      "file": "libxcvt-dev_0.1.3-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libxcvt-202/receipt.json",
+      "source_version": "0.1.3-1+tabor1",
+      "selected_source_version": "0.1.3-1"
+    },
+    {
+      "file": "libxcvt0_0.1.3-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libxcvt-202/receipt.json",
+      "source_version": "0.1.3-1+tabor1",
+      "selected_source_version": "0.1.3-1"
+    },
+    {
+      "file": "xcvt_0.1.3-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-libxcvt-202/receipt.json",
+      "source_version": "0.1.3-1+tabor1",
+      "selected_source_version": "0.1.3-1"
+    },
+    {
+      "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-204/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-204/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "minizip_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-204/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-204/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-204/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-205/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-205/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "minizip_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-205/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-205/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-zlib-205/receipt.json",
+      "source_version": "1:1.3.dfsg+really1.3.1-1+tabor1",
+      "selected_source_version": "1:1.3.dfsg+really1.3.1-1"
+    },
+    {
+      "file": "libgmp-dev_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "source_version": "2:6.3.0+dfsg-3+tabor1",
+      "selected_source_version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "file": "libgmp10-doc_6.3.0+dfsg-3+tabor1_all.deb",
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "source_version": "2:6.3.0+dfsg-3+tabor1",
+      "selected_source_version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "file": "libgmp10_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "source_version": "2:6.3.0+dfsg-3+tabor1",
+      "selected_source_version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "file": "libgmp3-dev_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "source_version": "2:6.3.0+dfsg-3+tabor1",
+      "selected_source_version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "file": "libgmpxx4ldbl_6.3.0+dfsg-3+tabor1_powerpcspe.deb",
+      "receipt": "work/debian-gmp-301/receipt.json",
+      "source_version": "2:6.3.0+dfsg-3+tabor1",
+      "selected_source_version": "2:6.3.0+dfsg-3"
+    },
+    {
+      "file": "x11proto-core-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-dri2-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-fonts-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-gl-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-input-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-kb-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-present-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-randr-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-record-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-render-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-scrnsaver-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-video-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-xext-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-xf86dri-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-xf86vidmode-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "x11proto-xinerama-dev_2024.1-1_all.deb",
+      "receipt": "work/debian-xorgproto-503/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "267bcf01e573057bc8be3832be75b56b97665112c63ceb1693f4381d13f2aa51"
+    },
+    {
+      "file": "libblkid-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libmount-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "fdisk-dbgsym_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libmount1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "liblastlog2-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libfdisk-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libfdisk1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libblkid1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libsmartcols1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "liblastlog2-2_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libsmartcols-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "fdisk_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "uuid-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    },
+    {
+      "file": "libuuid1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "receipt": "work/port-pipeline-20261104-003-base-libraries-util-linux/receipt.json",
+      "reason": "superseded-source-patch",
+      "required_patch_sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4"
+    }
+  ],
+  "native_index_receipt_sha256": "68167042400b7df6617027898eb7f5042653bf6e4fac4077cdd5bee4ff471867",
+  "native_packages_sha256": "2272039eb57b1e9fef4552936d5224ebe251e46e83bd7d7e54236a168685ef23",
+  "pool_artifacts_sha256": "62a7d95e5982adbe0915bc85528ac1e40c5861b9fdc189ceb64b3affc5868a98",
+  "requested_sources": [
+    "json-c",
+    "cyrus-sasl2"
+  ],
+  "source_count": 2,
+  "binary_package_names": 512,
+  "dose_exit": 0,
+  "commands": [
+    [
+      "dose-builddebcheck",
+      "--deb-native-arch=amd64",
+      "--deb-host-arch=powerpcspe",
+      "--deb-profiles=cross,nocheck",
+      "--deb-drop-b-d-indep",
+      "--deb-emulate-sbuild",
+      "--failures",
+      "--successes",
+      "--explain",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/NativePackages",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/SpePackages",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/Sources-0"
+    ],
+    [
+      "dose-builddebcheck",
+      "--deb-native-arch=amd64",
+      "--deb-host-arch=powerpcspe",
+      "--deb-profiles=cross,nocheck,nodoc,pkg.cyrus-sasl2.noldap,pkg.cyrus-sasl2.nogssapi,pkg.cyrus-sasl2.nosql",
+      "--deb-drop-b-d-indep",
+      "--deb-emulate-sbuild",
+      "--failures",
+      "--successes",
+      "--explain",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/NativePackages",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/SpePackages",
+      "/srv/data1/tabor-build/linux-live-001/work/scoped-audit-cli-001/Sources-1"
+    ]
+  ],
+  "source_profiles": {
+    "json-c": "cross,nocheck",
+    "cyrus-sasl2": "cross,nocheck,nodoc,pkg.cyrus-sasl2.noldap,pkg.cyrus-sasl2.nogssapi,pkg.cyrus-sasl2.nosql"
+  },
+  "report_sha256": "74c5ed8ad7caf2db9bd990028202c42541cdabbbcace80aa63a4eb326801aa39",
+  "pool_inputs_sha256": "4e8a7f271abfd0f5ea20b29f976239325790f0b8be1ded117ac54fe80074b8eb"
+}

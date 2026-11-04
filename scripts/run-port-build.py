@@ -166,11 +166,15 @@ try:
     for stage, bootstrap in [('binary-rebuilds', False), ('base-libraries', True), ('desktop-services', False)]:
         names = binary_rebuilds if stage=='binary-rebuilds' else (plan.get('bootstrap_packages', []) if bootstrap else plan['packages'])
         names = [n for n in names if n not in excluded and not already_built(n, bootstrap)]
+        if not names:
+            r['stages'].append({'stage':stage,'status':'reused-no-pending-sources'})
+            save()
+            continue
         audit = a.base / 'work' / (prefix + '-' + stage + '-audit')
         cmd = ['python3', a.project / 'scripts/audit-sbuild-dependencies.py',
             '--project', a.project, '--base', a.base, '--output', audit,
             '--reuse-native-audit', previous_audit, '--registry', a.project / plan['registry'],
-            '--prepared-sources', prepared_path]
+            '--prepared-sources', prepared_path, '--sources', *names]
         if bootstrap:
             cmd.append('--bootstrap')
         assert job(cmd, stage + '-audit') == 0, 'Debian dependency audit failed'

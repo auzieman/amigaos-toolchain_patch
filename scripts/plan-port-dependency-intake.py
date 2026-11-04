@@ -19,6 +19,7 @@ p = argparse.ArgumentParser(description=__doc__)
 for key in ['audit', 'source_indexes', 'output']:
     p.add_argument('--' + key.replace('_', '-'), type=Path, required=True)
 p.add_argument('--only-producers',nargs='+',help='Review-bounded intake of these producer sources only')
+p.add_argument('--reviewed-producers',type=Path,help='Explicit source-to-reason manifest for reviewed prerequisites hidden behind the first solver failure; intake only')
 p.add_argument('--cache',type=Path,help='Cache archives after bounded producer review')
 p.add_argument('--cache-output',type=Path)
 p.add_argument('--exact-file-cdn',action='store_true',help='Explicit hash-pinned cache transport only; frozen metadata remains authoritative')
@@ -126,12 +127,19 @@ try:
         value['binary_requirements'] = sorted(set(value['binary_requirements']))
     r['native_role_review'] = sorted(set(r['native_role_review']))
     r['unmapped'] = sorted(set(r['unmapped']))
+    reviewed = json.loads(a.reviewed_producers.read_text()) if a.reviewed_producers else {}
+    if reviewed:
+        assert a.only_producers and set(reviewed) <= set(a.only_producers)
+        assert all(name in available and isinstance(reason,str) and reason.strip() for name,reason in reviewed.items())
+        r['reviewed_producer_manifest_sha256'] = sha(a.reviewed_producers)
     plan = {'scope': 'Frozen port dependency producer intake; metadata discovery, not build readiness',
             'components': {name: {'version': x['version'],
                 'reason': 'Debian solver missing target dependency: ' + ', '.join(x['binary_requirements'])}
                 for name, x in sorted(r['producers'].items())}}
+    for name, reason in sorted(reviewed.items()):
+        plan['components'][name] = {'version': available[name]['Version'], 'reason': reason}
     (a.output / 'source-intake-plan.json').write_text(json.dumps(plan, indent=2) + '\n')
-    (a.output / 'candidate-Sources').write_text(''.join(str(selected[n]) + '\n' for n in sorted(set(selected) - original)))
+    (a.output / 'candidate-Sources').write_text(''.join(str(available[n]) + '\n' for n in sorted(plan['components'])))
     r.update(status='dependency-producer-intake-planned', discovered_sources=len(plan['components']),
              limitation='Solver failures may expose only one missing relation per source. Re-evaluate after new packages; not proof of complete closure or runtime readiness.',
              plan_sha256=sha(a.output / 'source-intake-plan.json'))

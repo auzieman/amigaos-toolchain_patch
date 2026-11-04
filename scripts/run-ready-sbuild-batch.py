@@ -132,8 +132,13 @@ try:
      item['failure_category']=category
     save()
   # Recompute with Debian's solver after newly built artifacts become available.
+  pending=[name for name in plan['packages'] if name not in attempted]
+  if not pending:
+   r['blocked']=[]
+   r['data_only_pending']=[]
+   break
   next_audit=a.base/'work'/(plan['run_prefix']+'-dependencies-'+str(wave))
-  cmd=['python3',a.project/'scripts/audit-sbuild-dependencies.py','--project',a.project,'--base',a.base,'--reuse-native-audit',audit,'--output',next_audit]
+  cmd=['python3',a.project/'scripts/audit-sbuild-dependencies.py','--project',a.project,'--base',a.base,'--reuse-native-audit',audit,'--output',next_audit,'--sources',*pending]
   if indep:cmd.append('--indep-only')
   for key,flag in [('registry','--registry'),('prepared_sources','--prepared-sources')]:
    if plan.get(key):cmd.extend([flag,str(a.project/plan[key]) if key=='registry' else str(a.base/plan[key])])

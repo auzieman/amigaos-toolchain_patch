@@ -95,6 +95,22 @@
     "elfutils": {
       "build_profiles": "cross,nocheck,pkg.elfutils.nodebuginfod",
       "purpose": "Existing Debian profile builds selected ELF/DWARF libraries without the unselected debuginfod HTTP service/client chain; record debuginfod outputs as follow-up"
+    },
+    "openldap": {
+      "build_profiles": "cross,nocheck,pkg.openldap.noslapd",
+      "purpose": "Declared client-library profile breaks server/Kerberos cycle; slapd is not selected for the workstation."
+    },
+    "cyrus-sasl2": {
+      "build_profiles": "cross,nocheck,nodoc,pkg.cyrus-sasl2.noldap,pkg.cyrus-sasl2.nogssapi,pkg.cyrus-sasl2.nosql",
+      "purpose": "Declared SASL core-library profiles break LDAP/Kerberos cycles; optional LDAP/GSSAPI/SQL plugins are not part of this library slice."
+    },
+    "python3.13": {
+      "build_profiles": "cross,nocheck,nodoc",
+      "purpose": "Actual target libpython producer required by ALSA and later introspection; native Python generators remain native."
+    },
+    "python3-defaults": {
+      "build_profiles": "cross,nocheck,nodoc",
+      "purpose": "Actual libpython3-dev package follows target Python3.13; justified by frozen ALSA Build-Depends."
     }
   }
 }

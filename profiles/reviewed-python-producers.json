@@ -1,0 +1,8 @@
+{
+  "gdbm": "Python3.13 declares libgdbm-dev; this is the actual round013 missing target dependency.",
+  "libnsl": "Python3.13 declares libnsl-dev.",
+  "libtirpc": "libnsl RPC library dependency; native generators remain native.",
+  "rpcsvc-proto": "RPC generator/protocol dependency for libnsl; normal Debian cross semantics determine native tool role.",
+  "blt": "Python3.13 declares blt-dev >= 2.4z.",
+  "tk8.6": "Python3.13 declares tk-dev; target Tcl already exists, complete its Tk producer."
+}

@@ -1,0 +1,9 @@
+{
+  "libmnl": "Frozen iptables and libnftnl Build-Depends: libmnl-dev.",
+  "libnfnetlink": "Frozen iptables dependency chain: libnfnetlink-dev.",
+  "libnetfilter-conntrack": "Frozen iptables Build-Depends: libnetfilter-conntrack-dev.",
+  "libnftnl": "Frozen iptables Build-Depends: libnftnl-dev >= 1.1.6.",
+  "cyrus-sasl2": "Frozen openldap Build-Depends: libsasl2-dev; declared bootstrap profiles break LDAP/Kerberos cycles.",
+  "kmod": "Systemd device-management prerequisite; actual Debian readiness remains authoritative.",
+  "python3.13": "Frozen python3-defaults requires python3.13; ALSA and introspection require target libpython3-dev."
+}

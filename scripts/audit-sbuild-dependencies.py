@@ -15,6 +15,7 @@ p.add_argument('--indep-only',action='store_true',help='Native Arch:all/data bui
 p.add_argument('--prepared-sources',type=Path)
 p.add_argument('--registry',type=Path)
 p.add_argument('--bootstrap',action='store_true')
+p.add_argument('--sources',nargs='+',help='Limit source requests, retaining the complete verified binary dependency pool')
 a=p.parse_args();a.output.mkdir(exist_ok=False)
 def sha(path):
  h=hashlib.sha256()
@@ -110,9 +111,12 @@ try:
  pool=list(grouped.values());(a.output/'build-pool-inputs.json').write_text(json.dumps(pool,indent=2)+'\n')
  (a.output/'build-pool-artifacts.json').write_text(json.dumps(artifacts,indent=2)+'\n')
  r['pool_artifacts_sha256']=sha(a.output/'build-pool-artifacts.json')
+ requested=list(dict.fromkeys(a.sources if a.sources is not None else profile['packages']))
+ assert set(requested)<=set(profile['packages']), 'Audit source request outside registered inventory'
+ r['requested_sources']=requested
  sources=a.output/'Sources';count=0;source_groups={};source_profiles={}
  with sources.open('w') as out:
-  for name in profile['packages']:
+  for name in requested:
    settings={**profile,**profile.get('package_inputs',{}).get(name,{})}
    lock=json.loads((a.project/settings['source_lock']).read_text());component=lock['components'].get(name)
    if not component:r['missing_sources'].append(name);continue

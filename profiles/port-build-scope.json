@@ -18,7 +18,6 @@
     "apr": "Apache-module chain; not an independently selected base desktop library.",
     "gem2deb": "Ruby packaging helper; review native role instead of automatically porting a Ruby toolchain.",
     "ruby3.3": "No selected desktop runtime requires Ruby at this stage; base C libraries use their supported bootstrap profiles when necessary.",
-    "python3-defaults": "Defer target language defaults until a selected binary or unavoidable target library build requires them; existing native Python remains available.",
     "sphinx": "Native documentation helper is already provisioned; no further target documentation-tool port is selected.",
     "gobject-introspection": "Review native generator versus required target library role before scheduling this chain.",
     "systemtap": "Do not build a target tracing suite automatically; establish any required SDK/header-only output first."

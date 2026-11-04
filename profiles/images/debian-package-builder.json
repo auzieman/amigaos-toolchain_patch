@@ -171,7 +171,25 @@
     "keyutils",
     "libevent",
     "libtextwrap",
-    "libgcrypt20"
+    "libgcrypt20",
+    "architecture-properties",
+    "cyrus-sasl2",
+    "iptables",
+    "kmod",
+    "libdebian-installer",
+    "libgpg-error",
+    "libmnl",
+    "libnetfilter-conntrack",
+    "libnfnetlink",
+    "libnftnl",
+    "lzo2",
+    "openldap",
+    "python3.13",
+    "blt",
+    "gdbm",
+    "libnsl",
+    "libtirpc",
+    "tk8.6"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -1105,6 +1123,78 @@
       "source_cache": "closure-source-cache-003"
     },
     "libgcrypt20": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "architecture-properties": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "cyrus-sasl2": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "iptables": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "kmod": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libdebian-installer": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libgpg-error": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libmnl": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libnetfilter-conntrack": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libnfnetlink": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libnftnl": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "lzo2": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "openldap": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "python3.13": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "blt": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "gdbm": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libnsl": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "libtirpc": {
+      "source_lock": "profiles/closure-prerequisite-sources.lock.json",
+      "source_cache": "closure-source-cache-003"
+    },
+    "tk8.6": {
       "source_lock": "profiles/closure-prerequisite-sources.lock.json",
       "source_cache": "closure-source-cache-003"
     }
