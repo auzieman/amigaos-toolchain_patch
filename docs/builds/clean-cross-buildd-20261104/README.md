@@ -21,3 +21,21 @@ using the same pipeline and standard builders as the workstation batch.
 alone is not cross-build acceptance: real cache mounting, resolver selection,
 dependency installation, SDK compilation and .deb inspection still need results.
 No source/ABI/package-state override or target execution is introduced.
+
+Qualification001 passed cache access and the old native libedit-dev conflict;
+PAM installed genuine build dependencies and apt executed its external solver.
+Both sources then failed acquisition, before compilation: Snapshot503/504 on
+fakeroot and several native packaging helpers. See qualification-001-fallout.json.
+
+A bounded same-origin transport probe used Debian apt-helper to fetch the exact
+frozen fakeroot URI with `?download=1`, verified by the authenticated native
+index SHA256. The reusable cache-frozen-native-archives.py accepts only explicit
+package=version requests present in that hash-pinned index, invokes apt-helper
+with the expected SHA256, and retains failures while caching successful files.
+No live mirror or newer metadata is selected; apt still owns installation.
+Native-cache-fill001 verified and cached fakeroot, python3-ruyaml and
+strip-nondeterminism; dose-distcheck was already cached. Five requests still
+failed Snapshot503/504. This route is a partial recovery, not a reliable mirror
+fallback. Source intake for libevent/libtextwrap also stopped on Snapshot .dsc
+acquisition; no unverified source lock or source build was registered.
+Qualification002 retries the same clean-root plan with these newly cached inputs.

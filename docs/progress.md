@@ -1142,3 +1142,9 @@ clean apt/dpkg checks and unchanged foundation; broad caches remain external.
 Standard pipeline qualification now targets util-linux/PAM, the observed
 conflict/cache boundary, before broader retries. Missing-producer source
 intake for libevent/libtextwrap started separately; no new target pass claimed.
+
+2026-11-04: Qualification001 passed prior cache/coinstallation boundaries,
+then failed frozen archive acquisition before compilation. Same-origin
+hash-verified apt-helper recovery cached3 missing native files, reused1;
+5 still503/504. Qualification002 running with those cache additions. Missing
+producer source intake also hit Snapshot; no unverified sources accepted.

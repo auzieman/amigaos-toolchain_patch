@@ -1619,3 +1619,13 @@ plan through the standard pipeline, before widening the workstation batch.
 Cross-build/SDK/package acceptance still pending. Separately started bounded
 frozen source intake for libevent/libtextwrap, directly reported missing
 producers for Unbound/GnuTLS and cdebconf/base-passwd dependency chains.
+
+Qualification001: no cache permission recurrence; util-linux passed the old
+libedit-dev conflict and PAM configured actual dependencies. Both stopped on
+Snapshot503/504 acquisition, not compilation. Bounded exact-version native
+cache fill via Debian apt-helper and same frozen URL with download query
+verified/cached fakeroot, python3-ruyaml and strip-nondeterminism; dose-distcheck
+reused. Five native files remain unavailable. Receipts retained. Libevent
+source intake also failed Snapshot .dsc acquisition; no source lock registered.
+Qualification002 now running with the recovered verified cache inputs. The
+query transport is partial recovery, not a universally working fallback.

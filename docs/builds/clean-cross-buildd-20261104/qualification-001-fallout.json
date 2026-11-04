@@ -1,0 +1,75 @@
+[
+  {
+    "stage": "base-libraries",
+    "package": "util-linux",
+    "work": "/srv/data1/tabor-build/linux-live-001/work/port-qualification-20261104-001-base-libraries-util-linux",
+    "status": "failed-see-retained-log",
+    "wave": 1,
+    "input_fingerprint": "7886dcb81c3fde497791e3f8b2b3650839857ec3dd2fb67785782e07c317c6a8",
+    "exit": 1,
+    "diagnostics": [
+      "Merged Build-Depends: dose-distcheck:amd64",
+      "Filtered Build-Depends: dose-distcheck:amd64",
+      "E: Failed to fetch https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/dose3/dose-distcheck_7.0.0-6%2bb1_amd64.deb  TooManyRequests 503  No healthy backends [IP: 151.101.74.132 443]",
+      "E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?",
+      "E: Package installation failed",
+      "E: Failed to explain bd-uninstallable",
+      "Fail-Stage: explain-bd-uninstallable",
+      "E: Failed to explain bd-uninstallable"
+    ],
+    "failure_stage": "explain-bd-uninstallable",
+    "failure_category": "archive-acquisition"
+  },
+  {
+    "stage": "base-libraries",
+    "package": "pam",
+    "work": "/srv/data1/tabor-build/linux-live-001/work/port-qualification-20261104-001-base-libraries-pam",
+    "status": "failed-see-retained-log",
+    "wave": 1,
+    "input_fingerprint": "d33c96f6990706f6a04f6d12dd9576a780ed6e177ef1feabbae33357957c4daa",
+    "exit": 1,
+    "diagnostics": [
+      "E: Package build dependencies not satisfied; skipping",
+      "Fail-Stage: install-deps",
+      "E: Package build dependencies not satisfied; skipping"
+    ],
+    "failure_stage": "install-deps",
+    "failure_category": "dependency-installation"
+  },
+  {
+    "stage": "desktop-services",
+    "package": "pam",
+    "kind": "debian-dependency-blocked",
+    "reasons": [
+      {
+        "missing": {
+          "pkg": {
+            "package": "pam",
+            "version": "1.7.0-5",
+            "architecture": "any,all",
+            "type": "src",
+            "unsat-dependency": "libsystemd-dev:powerpcspe"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "stage": "desktop-services",
+    "package": "util-linux",
+    "kind": "debian-dependency-blocked",
+    "reasons": [
+      {
+        "missing": {
+          "pkg": {
+            "package": "util-linux",
+            "version": "2.41.5-0+deb13u1",
+            "architecture": "any,all",
+            "type": "src",
+            "unsat-dependency": "libaudit-dev:powerpcspe"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,89 @@
+{
+  "status": "partial-acquisition-failure",
+  "target_execution": false,
+  "installed_state_changed": false,
+  "items": [
+    {
+      "package": "python3-colored",
+      "version": "2.2.4-1",
+      "sha256": "7ca69deef4de4816fce3c7a3fef8cbb078637ea02ac57f4d16a757910bc093bf",
+      "filename": "python3-colored_2.2.4-1_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/c/colored/python3-colored_2.2.4-1_all.deb?download=1",
+      "exit": 100,
+      "status": "acquisition-failed"
+    },
+    {
+      "package": "dh-debputy",
+      "version": "0.1.67.1",
+      "sha256": "e5fb2419800dd8701e4ab706c761c6f0262c22be941c978b31619b5b5bab4bfe",
+      "filename": "dh-debputy_0.1.67.1_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/debputy/dh-debputy_0.1.67.1_all.deb?download=1",
+      "exit": 100,
+      "status": "acquisition-failed"
+    },
+    {
+      "package": "dose-distcheck",
+      "version": "7.0.0-6+b1",
+      "sha256": "ef4041c01daa4c4fcc98bfe31e83e085375c0e872ef6eafc0ef97bc26903efae",
+      "filename": "dose-distcheck_7.0.0-6+b1_amd64.deb",
+      "status": "reused"
+    },
+    {
+      "package": "fakeroot",
+      "version": "1.37.1.1-1",
+      "sha256": "df17a351eaac7168ac56c197abf0d015ae34fc9dbba0c1d507a76409034311de",
+      "filename": "fakeroot_1.37.1.1-1_amd64.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fakeroot/fakeroot_1.37.1.1-1_amd64.deb?download=1",
+      "exit": 0,
+      "status": "cached-verified"
+    },
+    {
+      "package": "lsb-release",
+      "version": "12.1-1",
+      "sha256": "f81c836ce58d50c37039567ee85bbd76c0b6048c0b8f207e55529433694338ae",
+      "filename": "lsb-release_12.1-1_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/l/lsb-release-minimal/lsb-release_12.1-1_all.deb?download=1",
+      "exit": 100,
+      "status": "acquisition-failed"
+    },
+    {
+      "package": "python3-colorlog",
+      "version": "6.9.0-1",
+      "sha256": "19a56ac0aac64d3bd24c2cdfbeafed1b376b46522fe8cb63dabea8a797ac08e4",
+      "filename": "python3-colorlog_6.9.0-1_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python-colorlog/python3-colorlog_6.9.0-1_all.deb?download=1",
+      "exit": 100,
+      "status": "acquisition-failed"
+    },
+    {
+      "package": "python3-distro",
+      "version": "1.9.0-1",
+      "sha256": "b48975ae9c1c6fcc06301a3febeee390a817b21604576228807f7f37af458473",
+      "filename": "python3-distro_1.9.0-1_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python-distro/python3-distro_1.9.0-1_all.deb?download=1",
+      "exit": 124,
+      "status": "acquisition-failed"
+    },
+    {
+      "package": "python3-ruyaml",
+      "version": "0.91.0-5",
+      "sha256": "194e48052b5d9210f093b2880151dfee814c138a883f9d7132494580648faa83",
+      "filename": "python3-ruyaml_0.91.0-5_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python-ruyaml/python3-ruyaml_0.91.0-5_all.deb?download=1",
+      "exit": 0,
+      "status": "cached-verified"
+    },
+    {
+      "package": "strip-nondeterminism",
+      "version": "1.14.1-2",
+      "sha256": "8b3f842a544530746f2d4ac3abdce112c93c189f752bfe70f180831a25034518",
+      "filename": "strip-nondeterminism_1.14.1-2_all.deb",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/s/strip-nondeterminism/strip-nondeterminism_1.14.1-2_all.deb?download=1",
+      "exit": 0,
+      "status": "cached-verified"
+    }
+  ],
+  "audit_receipt_sha256": "678525bec2be0407e4bbfce40b1c98f6faba80a5bf5ce5bd8fa6dffa65ccfc7c",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "recipe_sha256": "c0c9f886be936f35fb0c40b7d5323c79c9fd08d1464908b7645e12b9d87bf59c"
+}
