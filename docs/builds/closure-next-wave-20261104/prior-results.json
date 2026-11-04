@@ -1,0 +1,131 @@
+{
+  "original_request_count": 32,
+  "original_still_deferred": 29,
+  "original_cleared": [
+    "libgcrypt20",
+    "libvncserver",
+    "libxt"
+  ],
+  "new_prerequisites_deferred": [
+    "blt",
+    "libnsl",
+    "libtirpc",
+    "python3-defaults",
+    "python3.13",
+    "tk8.6"
+  ],
+  "passes": [
+    {
+      "source": "libgpg-error",
+      "debs": 4,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libgpg-error/receipt.json",
+      "receipt_sha256": "67de6c83c9fc617395d4ddb724945fcc3a5f7f9e59bac42602a4e73e32ed4b5c",
+      "payload_inspection_sha256": "0ab395b962b6d849affc03326e6505356b78a547c4d5fbe552b7f2b9bc35faa8"
+    },
+    {
+      "source": "openldap",
+      "debs": 5,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-openldap/receipt.json",
+      "receipt_sha256": "a58cff2dcf2f3c0baa03e5de052ab49e9039c827bb91eb926d311323d85d22e6",
+      "payload_inspection_sha256": "543d4221e5a09142fbe8dbf8c82527b72038065c747ff9242442c9fc83deaa64"
+    },
+    {
+      "source": "iptables",
+      "debs": 9,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-iptables/receipt.json",
+      "receipt_sha256": "5366018c4d4dab19ff917d2e3ef7ea53d56abfd244ab591c2f3b6fa9c346d78a",
+      "payload_inspection_sha256": "b297f4aa8b355cf5b3754456d8c9717973d0591f80f5b83f1519233139203832"
+    },
+    {
+      "source": "kmod",
+      "debs": 3,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-desktop-services-kmod/receipt.json",
+      "receipt_sha256": "0106a34cad386d3c078bc3dda97ec114b88669c7c3237ec5c09353bbd9a1c364",
+      "payload_inspection_sha256": "f71f2a674af1d90c7edd7b54e5aa55236e825ba8a46b1de8fc27094c815a83b3"
+    },
+    {
+      "source": "cyrus-sasl2",
+      "debs": 8,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-cyrus-sasl2/receipt.json",
+      "receipt_sha256": "f94ccd827e80f55efd9d0309f228043288e41486be12b63d76ea34d55331bb44",
+      "payload_inspection_sha256": "543d96087d0be8d04abbb3a6dc60a1bd5df962a0d98258e4ffaa95b51f0f81cd"
+    },
+    {
+      "source": "libxt",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libxt/receipt.json",
+      "receipt_sha256": "d6d7869765440b438559ea655ca31bc4a7580c2c863127425bb2dc1da75a935e",
+      "payload_inspection_sha256": "0c69507392b33d3bdeee9219418c1db6aeac0d1a54155f8474bd79c5a8658858"
+    },
+    {
+      "source": "libnetfilter-conntrack",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libnetfilter-conntrack/receipt.json",
+      "receipt_sha256": "dc18f17c3a2dfa3f3e21b6210514f5f9c6bc9e100656b8bf24c9013f4d63a2af",
+      "payload_inspection_sha256": "66fe589c9e2723c31fb0bfafc619affa14216130a2ccabddeb6fcc3a5ea09596"
+    },
+    {
+      "source": "libnfnetlink",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libnfnetlink/receipt.json",
+      "receipt_sha256": "ef06f16fc075900429c04292a42b6c513292ddc113cf28e098ebed0009aa1f21",
+      "payload_inspection_sha256": "ea7263e0c5dc1b3b2ca1340925e972245acece6b4926b59e28eb23dac9a55797"
+    },
+    {
+      "source": "libnftnl",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libnftnl/receipt.json",
+      "receipt_sha256": "7138aca9e6afe26fa4477521ee439e1c63b776baa549ea29ce8b3a80f28821fb",
+      "payload_inspection_sha256": "dc87c79c98a5283f37c3af823bd6790afa0c59da55c8295e56d8ba2200c9b4ed"
+    },
+    {
+      "source": "libdebian-installer",
+      "debs": 3,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libdebian-installer/receipt.json",
+      "receipt_sha256": "777ef774da2f786d2d57f85723c1dc99aa110c0720e652131685aaeb99a1223c",
+      "payload_inspection_sha256": "5d3b152247ac6ddfa089346c9d38dfce50f0983f4357ea18e149c35e4803940b"
+    },
+    {
+      "source": "lzo2",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-lzo2/receipt.json",
+      "receipt_sha256": "7ac0b82e36497bb106a098e0dfda5f692e5cf5cb1ed40201e0a5fefff30b31c1",
+      "payload_inspection_sha256": "88a72e9ae0cf609f58bbba8e7487307f8a7c96c8ea78318e8aa87d5ce5e95b99"
+    },
+    {
+      "source": "architecture-properties",
+      "debs": 3,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-architecture-properties/receipt.json",
+      "receipt_sha256": "0c47755b68ad081a2a3be72ccbf0c5e70702857700cfae004d2fd9e6ff2b2bce",
+      "payload_inspection_sha256": "8d08a25722a81c11bf15808cef08f0bb3ee6f03527f4d7284dc63967cce9cc39"
+    },
+    {
+      "source": "libmnl",
+      "debs": 2,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libmnl/receipt.json",
+      "receipt_sha256": "4d3de30f114b241889d6ca7eae778170a6bed3d735d6a6d2b8c23122b312fa9b",
+      "payload_inspection_sha256": "de61d8a5da6ea02f9b656daa79b473f174ecbfb59f31727678786ec7459ba0bc"
+    },
+    {
+      "source": "libgcrypt20",
+      "debs": 4,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-base-libraries-libgcrypt20/receipt.json",
+      "receipt_sha256": "77ef80499249eecc553689d6002d58292d836b2cbbfe0aca24820725ae672bd5",
+      "payload_inspection_sha256": "1ce0bfbe2e42ebb81422de05727cfa532b07d841f0c7fdf913f07a49b00b3839"
+    },
+    {
+      "source": "libvncserver",
+      "debs": 3,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-013-desktop-services-libvncserver/receipt.json",
+      "receipt_sha256": "595607a9f7e17624d6fe0e8940efa0c240a3cd64d560b67cf3af529c420267ea",
+      "payload_inspection_sha256": "a6e9ffa092b285e348d457dd0e9fe668856af7065e389bcd5e7d7e190137980c"
+    },
+    {
+      "source": "gdbm",
+      "debs": 6,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-016-base-libraries-gdbm/receipt.json",
+      "receipt_sha256": "db652f294ef1487729ac951d38ae02347ffd2d82669b6ffa500ba385e9b4db62",
+      "payload_inspection_sha256": "f37860a6b20c9ba9ff054a749ceba219553301549edff4a2e9f6034d0ba3af18"
+    }
+  ]
+}

@@ -130,7 +130,8 @@ try:
     reviewed = json.loads(a.reviewed_producers.read_text()) if a.reviewed_producers else {}
     if reviewed:
         assert a.only_producers and set(reviewed) <= set(a.only_producers)
-        assert all(name in available and isinstance(reason,str) and reason.strip() for name,reason in reviewed.items())
+        assert set(reviewed)<=set(available), 'Reviewed producers absent from frozen Sources (use the binary index Source field): '+str(sorted(set(reviewed)-set(available)))
+        assert all(isinstance(reason,str) and reason.strip() for reason in reviewed.values()), 'Every reviewed producer needs a concrete intake reason'
         r['reviewed_producer_manifest_sha256'] = sha(a.reviewed_producers)
     plan = {'scope': 'Frozen port dependency producer intake; metadata discovery, not build readiness',
             'components': {name: {'version': x['version'],

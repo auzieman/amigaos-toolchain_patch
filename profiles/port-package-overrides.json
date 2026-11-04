@@ -109,8 +109,16 @@
       "purpose": "Actual target libpython producer required by ALSA and later introspection; native Python generators remain native."
     },
     "python3-defaults": {
-      "build_profiles": "cross,nocheck,nodoc",
-      "purpose": "Actual libpython3-dev package follows target Python3.13; justified by frozen ALSA Build-Depends."
+      "build_profiles": "cross,nocheck",
+      "purpose": "Preserve normal Debian helper dependencies: actual nodoc build still calls rst2man. Native documentation tools remain native."
+    },
+    "libcap2": {
+      "binary_nmu": 3,
+      "binary_nmu_reason": "Frozen native libcap2 is 1:2.75-10+deb13u1+b3; actual systemd stage1 dose report requires same-version Multi-Arch:same coinstallation. Standard binary rebuild only, no source/ABI change."
+    },
+    "cdebconf": {
+      "build_profiles": "cross,nocheck,pkg.cdebconf.nogtk",
+      "purpose": "Existing Debian profile supplies client/text frontend packages needed by base-passwd; GTK installer frontend is not selected for this workstation."
     }
   }
 }
