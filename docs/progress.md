@@ -1202,3 +1202,7 @@ versions or apt sources.6 tests passed; round012 includes recovered producers.
 Round011 also passed AppArmor bootstrap2 debs and GLib13, with payload inspection.
 Full-feature and runtime acceptance remain separate. Results/probe receipts in
 docs/builds/exact-file-cdn-20261104/.
+
+### 2026-11-04 — Desktop log viewer heartbeat
+
+Existing desktop 4 viewer now refreshes a server-clock heartbeat every four seconds, reports latest log-write age and shows controller output between compiler jobs. In-progress fallout is explicitly provisional. Deployed to the existing R730 viewer; Python compilation and server --once rendering passed. Round012 completed with six inspected source-build receipts / 22 debs and 32 unique deferred sources; no image/runtime acceptance implied.
