@@ -1160,3 +1160,10 @@ PAM's7, both clean-root qualification sources now have accepted bootstrap
 outputs. Round007 is active; full rebuild/runtime gates remain. Source-cache
 fall-through fixed and3 injected-failure/reuse/integrity tests passed on R730;
 live source acquisition is tracked independently from the fixture results.
+
+2026-11-04 desktop4 log viewer: existing terminal had a stale SSH session and
+old build.log-only selector. Reconnected only the task log terminal, restored
+desk3,0/zone1 and original920x270 geometry. Server-side bounded viewer now
+follows active pipeline sbuild.log files (up to4 jobs,3 lines each,4s refresh),
+labels completed outputs, and reports audit-only periods. --once verified
+current round007 data; live server process confirmed. No extra browser/views.
