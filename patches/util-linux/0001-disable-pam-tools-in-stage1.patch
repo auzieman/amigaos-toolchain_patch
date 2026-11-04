@@ -1,0 +1,10 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -16,6 +16,7 @@
+ ifneq ($(filter stage1,$(DEB_BUILD_PROFILES)),)
+ 	CONFOPTS += --without-systemd --without-udev --without-audit
+ 	CONFOPTS += --disable-newgrp --disable-login --disable-nologin
++	CONFOPTS += --disable-su --disable-runuser
+ else
+ 	CONFOPTS += --with-systemd --with-udev --with-audit
+ 	CONFOPTS += --enable-newgrp --enable-login --enable-nologin

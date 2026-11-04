@@ -91,3 +91,10 @@ based on source names. References:
 https://wiki.debian.org/CrossCompiling
 https://wiki.debian.org/DebianBootstrap
 https://wiki.debian.org/BuildProfileSpec
+
+Binary-only rebuilds use sbuild's standard --binNMU/--make-binNMU options.
+The frozen native index supplies existing Multi-Arch:same rebuild levels
+(e.g. S-Lang+b2); a reviewed producer stage builds them before consumers.
+This aligns real package versions for coinstallation, preserving original
+source revisions and package metadata generation. A source-only version match
+is insufficient evidence for reusing a differently numbered binary rebuild.

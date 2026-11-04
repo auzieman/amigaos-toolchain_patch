@@ -10,6 +10,7 @@ import json
 import subprocess
 import time
 from pathlib import Path
+from port_binary_versions import native_bin_nmus
 
 p = argparse.ArgumentParser(description=__doc__)
 for name in ['project', 'base', 'plan', 'output', 'native-audit']:
@@ -47,6 +48,10 @@ def job(args, name, memory='3G'):
             '--property=MemoryMax=' + memory, '--property=TasksMax=256',
             *map(str, args)], stdout=log, stderr=subprocess.STDOUT).returncode
 
+native_receipt=json.loads((a.native_audit/'receipt.json').read_text())
+assert sha(a.native_audit/'NativePackages')==native_receipt['native_packages_sha256']
+bin_nmus=native_bin_nmus(a.native_audit/'NativePackages')
+
 def already_built(name, bootstrap):
     options = registry.get(name, {})
     if not bootstrap and name in plan.get('force_full_rebuild', []):
@@ -69,6 +74,8 @@ def already_built(name, bootstrap):
         except (OSError, ValueError):
             continue
         if record.get('status') != 'debian-packages-built-not-target-installed' or record.get('package') != name:
+            continue
+        if record.get('binary_nmu', 0) != bin_nmus.get((name, version), 0):
             continue
         if record.get('source_version') != version or record.get('host_architecture') != 'powerpcspe':
             continue
@@ -142,8 +149,19 @@ try:
     prepared_path = a.output / 'prepared-sources.json'
     prepared_path.write_text(json.dumps(prepared, indent=2) + '\n')
     previous_audit = a.native_audit
-    for stage, bootstrap in [('base-libraries', True), ('desktop-services', False)]:
-        names = plan.get('bootstrap_packages', []) if bootstrap else plan['packages']
+    # Genuine binary-only rebuilds precede consumers that must coinstall with
+    # native Multi-Arch:same libraries already present in the broad template.
+    binary_rebuilds=[]
+    for name in dict.fromkeys(plan.get('bootstrap_packages', []) + plan['packages']):
+        settings={**profile, **profile.get('package_inputs',{}).get(name,{})}
+        version=json.loads((a.project/settings['source_lock']).read_text())['components'][name]['version']
+        if registry.get(name,{}).get('spec'):
+            reviewed=json.loads((a.project/registry[name]['spec']).read_text())
+            version=reviewed.get('source_patch',{}).get('version',version)
+        if bin_nmus.get((name,version),0):
+            binary_rebuilds.append(name)
+    for stage, bootstrap in [('binary-rebuilds', False), ('base-libraries', True), ('desktop-services', False)]:
+        names = binary_rebuilds if stage=='binary-rebuilds' else (plan.get('bootstrap_packages', []) if bootstrap else plan['packages'])
         names = [n for n in names if n not in excluded and not already_built(n, bootstrap)]
         audit = a.base / 'work' / (prefix + '-' + stage + '-audit')
         cmd = ['python3', a.project / 'scripts/audit-sbuild-dependencies.py',

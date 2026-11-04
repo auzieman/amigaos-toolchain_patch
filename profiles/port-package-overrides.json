@@ -12,7 +12,8 @@
     "util-linux": {
       "bootstrap_profiles": "cross,nocheck,stage1,pkg.util-linux.noverity",
       "full_rebuild_required": true,
-      "purpose": "Debian-supported stage1 libuuid/libblkid/libmount bootstrap, then normal utilities/services"
+      "purpose": "Debian-supported stage1 libuuid/libblkid/libmount bootstrap, then normal utilities/services",
+      "spec": "profiles/sbuild/util-linux.json"
     },
     "db5.3": {
       "build_profiles": "cross,nocheck,pkg.db5.3.notcl",

@@ -7,6 +7,7 @@ changes; it does not implement dependency resolution or execute target programs.
 """
 import argparse,collections,concurrent.futures,hashlib,json,re,subprocess
 from pathlib import Path
+from port_binary_versions import native_bin_nmus
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','base','plan','output']:p.add_argument('--'+n,type=Path,required=True)
 a=p.parse_args();plan=json.loads(a.plan.read_text());a.output.mkdir(exist_ok=False)
@@ -41,6 +42,8 @@ try:
  profile=json.loads((a.project/'profiles/images/debian-package-builder.json').read_text())
  audit=a.base/plan['initial_audit'];pr=json.loads((audit/'receipt.json').read_text())
  assert pr['status']=='debian-dependency-audit-completed'
+ assert sha(audit/'NativePackages')==pr['native_packages_sha256']
+ bin_nmus=native_bin_nmus(audit/'NativePackages')
  assert pr.get('build_mode','cross')==('indep' if indep else 'cross')
  assert sha(audit/'receipt.json')==plan['initial_audit_sha256']
  attempted=set()
@@ -87,6 +90,9 @@ try:
     spec.update(indep_only=True,host_architecture='amd64',native_toolchain_inputs=[])
    if name in plan.get('patch_series',{}):spec['quilt_patch_series']=plan['patch_series'][name]
    if name not in plan['configure_cache_sources']:spec.pop('configure_cache',None)
+   component=json.loads((a.project/spec['source_lock']).read_text())['components'][name]
+   effective_version=spec.get('source_patch',{}).get('version',component['version'])
+   spec['binary_nmu']=0 if indep else bin_nmus.get((name,effective_version),0)
    spec['scope']='Debian dose-ready cross build; apt installs real native/SPE development dependencies before compilation'
    fingerprint=hashlib.sha256((json.dumps(spec,sort_keys=True)+sha(a.project/'scripts/run-sbuild-package.py')).encode()).hexdigest()
    if any(x.get('package')==name and x.get('input_fingerprint')==fingerprint for x in plan.get('prior_failures',[])):

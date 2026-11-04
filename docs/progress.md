@@ -970,3 +970,26 @@ libxml2 uses its existing nopython profile for the selected C library. All
 remaining normal-feature and installed-target acceptance gates remain open.
 With GNU feature macros enabled, regression003 reproduces four original header
 failures (mount/rseq/sched/statx); all five corrected combinations pass.
+
+2026-11-03 consumer evaluation: round004 accepted Brotli. The repaired SDK
+removed util-linux's mount-header errors; compilation advanced to a PAM link
+failure in the existing stage1 build. Broad native headers let configure
+select su/runuser although stage1 omits target PAM dependencies. A minimal
+Debian-rules patch now disables these tools only in stage1, retaining ordinary
+full-feature builds. This is a demonstrated profile correction, not a SPE
+consumer code workaround.
+
+Newt was given back before compilation: native libslang2/dev2.3.3-5+b2 cannot
+coinstall with target2.3.3-5 under Multi-Arch:same. The shared runner now derives
+matching binNMU levels from authenticated frozen native package metadata and
+uses standard sbuild --binNMU/--make-binNMU. It does not edit binary package
+control fields. Verified metadata selects slang2+b2 and libXt+b2. An initial
+binary-rebuild producer stage precedes library consumers; artifact reuse also
+checks the requested binary rebuild level. Target compile/package acceptance
+of this integration remains pending.
+
+The final reviewed follow-up is round008, waiting for004. Earlier queued
+005/006/007 snapshots were superseded before any package worker started as
+new evidence changed the reviewed recipe; no running builds were interrupted.
+It includes the cached libtasn1/libxml2/flex sources, binNMU producer stage,
+existing Debian profile choices and the bounded util-linux stage1 fix.

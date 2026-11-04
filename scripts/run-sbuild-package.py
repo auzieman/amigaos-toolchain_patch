@@ -27,7 +27,7 @@ r={'status':'preparing','spec_sha256':sha(a.spec),'recipe_sha256':sha(Path(__fil
    'build_profiles':spec.get('build_profiles','cross,nocheck'),'bootstrap':bool(spec.get('bootstrap')),'required_full_rebuild':bool(spec.get('required_full_rebuild')),
    'target_execution':False,'target_installation':False,'boot_image_ready':False,
    'build_root_only':bool(spec.get('build_root_only')),'bootstrap_assembly':bool(spec.get('bootstrap_assembly')),
-   'source_inputs':[],'extra_package_inputs':[],'commands':[], 'package':spec['package']}
+   'binary_nmu':int(spec.get('binary_nmu',0)), 'source_inputs':[],'extra_package_inputs':[],'commands':[], 'package':spec['package']}
 def save():(a.output/'receipt.json').write_text(json.dumps(r,indent=2)+'\n')
 def run(cmd,name,env=None,cwd=None):
  r['commands'].append(list(map(str,cmd)));save()
@@ -176,6 +176,9 @@ try:
       '--profiles='+spec.get('build_profiles','cross,nocheck'),
       '--build-dep-resolver=apt','--no-run-lintian','--nolog','--jobs=4',
       '--build-dir='+str(a.output),str(dsc)]
+ if spec.get('binary_nmu'):
+  assert not spec.get('indep_only') and 0<int(spec['binary_nmu'])<1000
+  cmd[-1:-1]=['--binNMU='+str(spec['binary_nmu']), '--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.']
  if spec.get('indep_only'):cmd[-1:-1]=['--arch-all','--no-arch-any']
  else:cmd[-1:-1]=['--no-arch-all']
  if list(extras.glob('*.deb')):cmd[-1:-1]=['--extra-package='+str(extras)]
