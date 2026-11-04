@@ -1,0 +1,35 @@
+{
+  "network": "nspawn private-network; no host interfaces",
+  "command": [
+    "systemd-nspawn",
+    "--quiet",
+    "--private-network",
+    "--read-only",
+    "-D",
+    "/srv/data1/tabor-build/linux-live-001/work/native-cross-resolver-001/root",
+    "--bind=/srv/data1/tabor-apt-cache/workers/apt-cache-offline-003:/var/cache/apt/archives",
+    "apt-get",
+    "-o",
+    "Debug::NoLocking=true",
+    "-o",
+    "Dir::Log=/tmp",
+    "-o",
+    "Dir::State::extended_states=/tmp/extended_states",
+    "--download-only",
+    "--reinstall",
+    "-y",
+    "install",
+    "libbrotli1=1.1.0-2+deb13u1"
+  ],
+  "exit": 0,
+  "archives_seeded": 1155,
+  "package": "libbrotli1",
+  "version": "1.1.0-2+deb13u1",
+  "archive_sha256": "db46824c60fee46aff3cc0be3e5f736bc606cae669b1fb17516a41e8073251a9",
+  "apt_output": "\nReading package lists... 0%\n\nReading package lists... 100%\n\nReading package lists... Done\n\n\nBuilding dependency tree... 0%\n\nBuilding dependency tree... 0%\n\nBuilding dependency tree... 50%\n\nBuilding dependency tree... 50%\n\nBuilding dependency tree... Done\n\n0 upgraded, 0 newly installed, 1 reinstalled, 0 to remove and 0 not upgraded.\nNeed to get 0 B/304 kB of archives.\nAfter this operation, 0 B of additional disk space will be used.\nDownload complete and in download only mode\nW: chown to _apt:root of directory /var/lib/apt/lists/auxfiles failed - SetupAPTPartialDirectory (30: Read-only file system)\nW: chmod 0755 of directory /var/lib/apt/lists/auxfiles failed - SetupAPTPartialDirectory (30: Read-only file system)\n",
+  "retention": {
+    "path": "/srv/data1/tabor-apt-cache/workers/apt-cache-offline-003",
+    "promoted_archives": 0,
+    "retained_archives": 1155
+  }
+}

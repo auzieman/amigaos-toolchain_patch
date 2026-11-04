@@ -6,6 +6,7 @@ installed-state rewriting or manual target package installation is performed.
 """
 import argparse,hashlib,json,os,pwd,re,shutil,subprocess
 from pathlib import Path
+from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--base',type=Path,required=True)
@@ -139,6 +140,10 @@ try:
  if spec.get('prepare_only'):
   r.update(status='debian-source-prepared-not-built',prepared_source={'path':str(dsc.relative_to(a.output)),'sha256':sha(dsc)})
   raise SourcePreparationComplete()
+ owner=pwd.getpwnam('owner')
+ cache_base=a.base.parent.parent/'tabor-apt-cache'
+ archive_cache=prepare_apt_cache(cache_base,a.output.name,root_receipt.parent/'root/var/cache/apt/archives',owner.pw_uid,owner.pw_gid)
+ r['apt_archive_cache']={'path':str(archive_cache),'seeded_archives':len(list(archive_cache.glob('*.deb')))}
  config=a.output/'sbuild.conf'
  # Large dependency templates must unpack on server storage, not /tmp tmpfs:
  # tmpfs pages count against the package job's memory limit before compilation.
@@ -156,6 +161,8 @@ try:
  config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
  with config.open('a') as f:
   f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")
+ with config.open('a') as f:
+  f.write("$apt_keep_downloaded_packages = 1;\n$clean_apt_cache = 0;\n$unshare_bind_mounts = [ { directory => '"+str(archive_cache)+"', mountpoint => '/var/cache/apt/archives' } ];\n1;\n")
  if spec.get('configure_cache'):
   cache_spec=spec['configure_cache'];cache_path=a.project/cache_spec['path']
   assert sha(cache_path)==cache_spec['sha256']
@@ -174,7 +181,7 @@ try:
       'DEB_BUILD_OPTIONS=nocheck parallel=4','sbuild','--chroot-mode=unshare','--chroot='+str(root_tar),
       '--build=amd64','--host='+spec.get('host_architecture','powerpcspe'),'--dist=trixie',
       '--profiles='+spec.get('build_profiles','cross,nocheck'),
-      '--build-dep-resolver=apt','--no-run-lintian','--nolog','--jobs=4',
+      '--build-dep-resolver=apt','--no-apt-clean','--no-run-lintian','--nolog','--jobs=4',
       '--build-dir='+str(a.output),str(dsc)]
  if spec.get('binary_nmu'):
   assert not spec.get('indep_only') and 0<int(spec['binary_nmu'])<1000
@@ -201,4 +208,7 @@ except SourcePreparationComplete:
  pass
 except Exception as error:
  r.update(status='failed',error=str(error));raise
-finally:save()
+finally:
+ if 'archive_cache' in globals():
+  r['apt_archive_cache'].update(retain_apt_cache(cache_base,archive_cache))
+ save()

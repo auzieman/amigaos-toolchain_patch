@@ -1106,3 +1106,12 @@ can use the free one of its two controller slots to wait after an active
 follow-up. Round005 is queued after004 with the validated UUID helper fix and
 artifact provenance guard. Full package rebuild/coinstallation remains
 pending; the successful native regression alone does not close that gate.
+
+2026-11-04: Persistent apt download cache corrected. Source intake already
+reuses hash-pinned files; native binary downloads were lost with sbuild roots,
+and sbuild explicitly defaulted retention off. Documented unshare bind mounts
+and retention now connect per-worker apt caches to a shared archive pool,
+including failed/interrupted workers. Seeded1,155 archives; native network-off
+apt reinstall/download-only check passed, requesting0B. Round006 submitted
+with the fix; actual sbuild bind/acquisition and target runtime remain pending.
+Evidence: docs/builds/apt-archive-cache-20261104/README.md.

@@ -1560,3 +1560,13 @@ can use the free one of its two controller slots to wait after an active
 follow-up. Round005 is queued after004 with the validated UUID helper fix and
 artifact provenance guard. Full package rebuild/coinstallation remains
 pending; the successful native regression alone does not close that gate.
+
+2026-11-04 cache correction: retain apt binary downloads outside disposable
+sbuild roots using documented unshare bind mounts/retention. Per-worker locks
+and partial directories avoid concurrent apt lock conflicts; complete files
+accumulate in a hard-linked shared pool, including recovery from retained
+failed/interrupted workers. Source archives already use hash-checked reuse.
+Offline native apt regression passed with1,155 seeded archives and0B requested.
+Round006 submitted. Next gate is actual sbuild bind/acquisition acceptance,
+then continue package closure and image/QEMU validation. Frozen archive misses
+remain network-dependent; no live mirror fallback was added.
