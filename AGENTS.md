@@ -77,3 +77,16 @@ Prepare separate templates for genuinely incompatible dependency sets. Extend
 the SPE source inventory to missing library producers and their closure;
 an inventory boundary is not a reason to leave the build service idle. Native
 prerequisite installation does not replace compiling/installing SPE libraries.
+
+
+Harness boundary (user clarification, 2026-11-04): this is a Debian port, not
+a replacement cross-build system. Wrappers supply reviewed patched sources,
+compiler/architecture registration, standard build requests, resource bounds
+and evidence retention. Debian source metadata/profiles, dpkg, apt and sbuild
+own dependency and cross-build semantics. Diagnostic inventory, artifact
+receipts and native-version comparisons must not become competing dependency
+or automatic version-selection authorities. Resolve incorrect inputs or
+missing package metadata at their source; do not compensate by layering more
+consumer environment overrides, guessed dependency rules or fabricated state.
+Any build-order or binary-rebuild request must remain explicit and traceable
+to Debian metadata and actual bootstrap/coinstallation evidence.

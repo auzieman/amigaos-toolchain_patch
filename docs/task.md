@@ -1453,3 +1453,13 @@ su/runuser, without changing full builds. Freetype dependency installation
 failed through libX11/libxcb coinstallation; libxcb is added to the reviewed
 producer/rebuild scope. Round port-pipeline-20261104-001 is submitted through
 the same standard scripted cycle. No new image or runtime acceptance claimed.
+
+
+2026-11-04 architecture clarification: user reaffirmed that the harness feeds
+Debian cross-build logic; it must not replace it. Current execution does invoke
+Debian dose/sbuild/apt/dpkg, but custom source inventories, phase lists and
+native-version inference are local policy, not Debian authority. Audit those
+boundaries before further orchestration growth. In particular, a native
+binary revision is diagnostic coinstallation evidence, not a universal target
+version policy. Preserve current immutable running inputs; no active build
+was interrupted for this clarification.
