@@ -66,7 +66,7 @@ try:
             if not target.exists():
                 temporary = target.with_name(filename + '.partial')
                 with (a.output / (name + '-download.log')).open('a') as log:
-                    subprocess.run(['curl', '--fail', '--location', '--retry', '3', '--max-time', '900',
+                    subprocess.run(['curl', '--fail', '--location', '--retry', '6', '--retry-delay', '20', '--retry-max-time', '300', '--max-time', '120',
                                     '--silent', '--show-error', url, '-o', str(temporary)],
                                    stdout=log, stderr=subprocess.STDOUT, check=True)
                 assert temporary.stat().st_size == int(entry['size']) and sha(temporary) == entry['sha256']

@@ -2,6 +2,10 @@
 """Package the recorded native SPE cross compiler under its own Debian identity."""
 import argparse, hashlib, json, os, re, shutil, subprocess, tarfile
 from pathlib import Path
+import importlib.util
+module_spec = importlib.util.spec_from_file_location("fixed_headers", Path(__file__).with_name("repair-spe-fixed-headers.py"))
+fixed_headers = importlib.util.module_from_spec(module_spec)
+module_spec.loader.exec_module(fixed_headers)
 p = argparse.ArgumentParser(description=__doc__)
 for name in ['project', 'tools', 'cache', 'compiler-receipt', 'output']:
     p.add_argument('--' + name, type=Path, required=True)
@@ -20,6 +24,9 @@ cc1=Path(subprocess.check_output([str(a.tools/'bin/powerpc-linux-gnuspe-gcc'),'-
 assert cc1.is_relative_to(a.tools.resolve())
 root = a.output / 'root'; target = root / 'usr/lib/tabor-spe-toolchain'
 shutil.copytree(a.tools, target, symlinks=True)
+# GCC8 machine_name fixincludes incorrectly rewrites Linux header path strings.
+# Repair the shared SDK, leaving application sources and other GCC fixes intact.
+fixed_header_repairs = fixed_headers.repair(target / "lib/gcc/powerpc-linux-gnuspe/8.5.0/include-fixed")
 # Libtool archives retain the original bootstrap install prefix. Consumers then
 # embed /tools RUNPATHs even after GCC itself has been relocated correctly.
 # Shared/static libraries remain; .la files are not required by the compiler.
@@ -75,6 +82,8 @@ subprocess.run(['dpkg-deb', '--root-owner-group', '-Zgzip', '-Snone', '--build',
     'frontend_sha256': sha(cc1), 'compiler_sha256': sha(a.tools / 'bin/powerpc-linux-gnuspe-gcc'),
     'package_sha256': sha(package), 'bytes': package.stat().st_size,
     'removed_libtool_archives': removed_libtool_archives,
+    'fixed_header_repairs': fixed_header_repairs,
+    'fixed_header_recipe_sha256': sha(Path(__file__).with_name('repair-spe-fixed-headers.py')),
     'binutils_search_links': binutils_search_links,
     'target_runtime_package': False}, indent=2) + '\n')
 print(package)

@@ -75,3 +75,19 @@ Pool indexing reads actual .deb Source/Version fields and excludes obsolete
 variants outside the selected source version, with explicit foundation
 exceptions. Historical artifacts remain retained; package metadata is never
 rewritten to force coinstallation.
+
+Shared SDK/header acceptance precedes consumer patches. Revision tabor6 repairs
+GCC8-generated quoted Linux header probes at SDK staging time. Current sbuild
+inputs pin SDK6/core5 explicitly; the original immutable base lock and native
+root receipts are retained. See patches/gcc/bootstrap-8.5/README-fixed-headers.md.
+
+The controller imports fingerprinted failures from completed prior rounds.
+An unchanged input set is deferred; changed SDK, source/profile or solver
+installation inputs permit a new attempt. This avoids repeatedly compiling
+the same known failure merely because a new run ID was selected.
+
+Bootstrap/profile choices use original Debian control/rules, not assumptions
+based on source names. References:
+https://wiki.debian.org/CrossCompiling
+https://wiki.debian.org/DebianBootstrap
+https://wiki.debian.org/BuildProfileSpec

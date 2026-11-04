@@ -930,3 +930,43 @@ failing002. Current failure suppression spans stages within one run, not
 completed predecessor rounds. Carry forward predecessor failure evidence
 while allowing a changed recipe/dependency set to retry. Do not submit another
 unchanged broad round. New target image/QEMU/physical tests remain pending.
+
+
+2026-11-03 shared SDK correction: GCC8 fixincludes machine-name rewriting
+corrupted five __has_include Linux path string operands. SDK revision
+8.5.0+tabor6 repairs those generated strings centrally during packaging;
+core adapter1.0+spe5 pins the correction. Compiler source/frontend, SPE ABI,
+target runtimes and frozen Debian baseline are unchanged. All sbuild SDK
+inputs explicitly identify the corrected packaging revision. The immutable
+base lock continues to record its original SDK baseline.
+
+Header regression003 reproduces original mount/rseq failures and passes all
+five corrected header combinations with GNU feature declarations enabled.
+It performs syntax-only checks against genuine extracted target development
+and UAPI packages in the read-only native template. This is not runtime or
+link acceptance. SDK/core receipts are retained under
+builds/shared-sdk-headers-20261103; private issue24 tracks consumer validation.
+
+Existing Debian profiles, verified in original control/rules: PAM/systemd
+stage1 with full rebuilds required; Brotli/newt nopython for selected C
+libraries; Avahi nogir/nopython/pkg.avahi.nogui for selected client libraries.
+These are recipe choices, not per-consumer source edits. Round004 is running
+util-linux/Brotli/newt using the corrected SDK. Controller failure suppression
+now retains fingerprinted completed-round evidence as well as current-stage
+failures. Changed recipes/SDK/dependency inputs can retry normally.
+
+Bounded source intake identifies libtasn1/libxml2 and flex as necessary target
+library producers; initial archive downloads failed HTTP503 from the pinned
+Snapshot server. Background retries keep the same versions/hash verification.
+No mirror substitution or new language/compiler target was introduced.
+Debian cross-build/staged-bootstrap mechanics remain the authority, shared
+with supported PowerPC ports; target ABI and the availability of prebuilt
+target libraries differ from ppc64el.
+
+Source-intake follow-up: pinned Snapshot retries succeeded for libtasn1-6,
+libxml2 and flex. Their authenticated source locks are committed, and reviewed
+round005 waits for004 before building them and their newly ready consumers.
+libxml2 uses its existing nopython profile for the selected C library. All
+remaining normal-feature and installed-target acceptance gates remain open.
+With GNU feature macros enabled, regression003 reproduces four original header
+failures (mount/rseq/sched/statx); all five corrected combinations pass.

@@ -1,3 +1,10 @@
+tabor-spe-cross-build-essential (1.0+spe5) unstable; urgency=medium
+
+  * Select SDK packaging revision tabor6 with corrected GCC8 fixed-header
+    Linux path probes; compiler sources, target ABI and runtime stay pinned.
+
+ -- Tabor SPE lab <root@localhost>  Tue, 03 Nov 2026 12:00:00 -0800
+
 tabor-spe-cross-build-essential (1.0+spe4) UNRELEASED; urgency=medium
 
   * Require the real patched native Go debhelper backend so its constructor

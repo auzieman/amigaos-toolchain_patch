@@ -25,6 +25,32 @@
     "libffi": {
       "spec": "profiles/sbuild/libffi.json",
       "purpose": "SPE PowerPC symbol availability, preserving strict symbol checks"
+    },
+    "brotli": {
+      "build_profiles": "cross,nocheck,nopython",
+      "purpose": "Use the existing Debian nopython profile for the selected C library; Python binding outputs are not selected"
+    },
+    "newt": {
+      "build_profiles": "cross,nocheck,nopython",
+      "purpose": "Use the existing Debian nopython profile for the selected C library; Python binding outputs are not selected"
+    },
+    "pam": {
+      "bootstrap_profiles": "cross,nocheck,stage1",
+      "full_rebuild_required": true,
+      "purpose": "Existing Debian stage1 profile breaks base library bootstrap cycles; full service rebuild remains required"
+    },
+    "systemd": {
+      "bootstrap_profiles": "cross,nocheck,stage1",
+      "full_rebuild_required": true,
+      "purpose": "Existing Debian stage1 profile breaks base library bootstrap cycles; full service rebuild remains required"
+    },
+    "avahi": {
+      "build_profiles": "cross,nocheck,nogir,nopython,pkg.avahi.nogui",
+      "purpose": "Existing Debian profiles build the selected discovery/client libraries without unselected GUI or language bindings"
+    },
+    "libxml2": {
+      "build_profiles": "cross,nocheck,nopython",
+      "purpose": "Existing Debian nopython profile for the required XML C library; Python bindings are not selected"
     }
   }
 }

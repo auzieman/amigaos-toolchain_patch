@@ -152,7 +152,7 @@ try:
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
  core_version=spec.get('cross_core_version','1.0+spe2')
- assert core_version in ['1.0+spe2','1.0+spe3','1.0+spe4']
+ assert core_version in ['1.0+spe2','1.0+spe3','1.0+spe4','1.0+spe5']
  config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
  with config.open('a') as f:
   f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")

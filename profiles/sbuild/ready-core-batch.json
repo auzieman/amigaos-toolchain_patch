@@ -61,7 +61,10 @@
     "tcltk-defaults",
     "sqlite3",
     "tcl8.6",
-    "icu"
+    "icu",
+    "libtasn1-6",
+    "libxml2",
+    "flex"
   ],
   "configure_cache_sources": [
     "libxext",
@@ -136,7 +139,13 @@
     "alsa-lib",
     "libsndfile",
     "libcap2",
-    "pam"
+    "pam",
+    "brotli",
+    "newt",
+    "systemd",
+    "libtasn1-6",
+    "libxml2",
+    "flex"
   ],
   "force_full_rebuild": [
     "glibc"

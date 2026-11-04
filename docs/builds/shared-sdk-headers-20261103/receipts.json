@@ -1,0 +1,210 @@
+{
+  "sdk-header-regression-003": {
+    "status": "fixed-header-regression-passed-not-target-executed",
+    "target_execution": false,
+    "items": [
+      {
+        "phase": "original",
+        "test": "mount",
+        "exit": 1,
+        "log_sha256": "9098c54cb2072166f6c1eeb208142ddcde60da5a7589d30dff65dbed7830eb9a"
+      },
+      {
+        "phase": "original",
+        "test": "rseq",
+        "exit": 1,
+        "log_sha256": "0e99075d45cdee5f2a51f9adf79f36b9e061bc3bc408bf2665652f7443200337"
+      },
+      {
+        "phase": "original",
+        "test": "sched",
+        "exit": 1,
+        "log_sha256": "ae711cd4f5edfdfc6bcac1fe6876b4bba364ed640fd82ace8c868c94e7185118"
+      },
+      {
+        "phase": "original",
+        "test": "statx",
+        "exit": 1,
+        "log_sha256": "27feebf1ae6682dd249a639bcfb0954d69cabab069e4ca8be311e6a27c84dbf9"
+      },
+      {
+        "phase": "original",
+        "test": "close-range",
+        "exit": 0,
+        "log_sha256": "87420285625fb6c750fd9d33d262dcf37a310877e5271c90f7f42a7e564f894c"
+      },
+      {
+        "phase": "corrected",
+        "test": "mount",
+        "exit": 0,
+        "log_sha256": "22652a4fa8d57cb7c4bfb5c9f4de932dc68244d736a49b5783d54526e7006117"
+      },
+      {
+        "phase": "corrected",
+        "test": "rseq",
+        "exit": 0,
+        "log_sha256": "be2d3ef179e02dc148f8ca57c47d3c765740822420bed9a2f867496645f7c287"
+      },
+      {
+        "phase": "corrected",
+        "test": "sched",
+        "exit": 0,
+        "log_sha256": "bc346a527c70c6adab03741e8c9fa947d7abd975d150abd45fa3f50d498b24ea"
+      },
+      {
+        "phase": "corrected",
+        "test": "statx",
+        "exit": 0,
+        "log_sha256": "1fc23090e813487cf9eb347d8d79dc79f0e6fa90fb3981b17c26bffe4eba9a5f"
+      },
+      {
+        "phase": "corrected",
+        "test": "close-range",
+        "exit": 0,
+        "log_sha256": "5919b4156e8edf79f9e990d43f5ea983a6c3e9b731fcaba4e56eaf2f5d73ee76"
+      }
+    ],
+    "inputs": {
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b"
+    },
+    "repairs": [
+      {
+        "file": "sys/mount.h",
+        "before_sha256": "9103e634e868e7ee3cbb7b2add90c8837b3dac61bdc349a9483d808ed8fc00b3",
+        "after_sha256": "2e8c98b845cc13d7c02a7419fba5c8a354bfc63a758356be2c7fa1645fdfa44e"
+      },
+      {
+        "file": "sys/rseq.h",
+        "before_sha256": "73abcd685220928603c528df0277d8a6c251039c6bb432e8d9b9c6fa850592dd",
+        "after_sha256": "4ccf930fd01677b30250ecac9239c51da1064d78239bdc134361a35c45d145d4"
+      },
+      {
+        "file": "bits/sched.h",
+        "before_sha256": "b354519465e58fd8e4a31057f5dcdcaf0e4fe3d8cec00be84cd290e6b1f42221",
+        "after_sha256": "8b567cd62ca1be04b4ea07210b3bf3539de718617f498c9e5158cececb76d237"
+      },
+      {
+        "file": "bits/statx.h",
+        "before_sha256": "91d194f59920eb808c1ee8d107144870f263f47eca42b423fb3b1ea58e7798d2",
+        "after_sha256": "2122c1cbfd7501ba266bb8689d3584336854f35a485f4c98a7a54c0dff72a78d"
+      },
+      {
+        "file": "bits/unistd_ext.h",
+        "before_sha256": "6d4944c56ae1bae48a2edffe1aa3d73066e1c081686cbebd459fcfe64b440eb0",
+        "after_sha256": "990a342d6db1536a4e98a92b4cd9547b8eca5931b7350a955d9ef3fff5da60cf"
+      }
+    ]
+  },
+  "sdk-fixed-headers-001": {
+    "status": "native-toolchain-package-built-not-installed",
+    "version": "8.5.0+tabor6",
+    "recipe_sha256": "45fc49e0d1c5bcb565fc65db80bbc537b780e27946a641c7a3c106f11c9618ea",
+    "compiler_receipt_sha256": "0f5046f7f4c58dc3b93c8196f263e267190a79fa7e0940cba1acd5f0149b33e6",
+    "frontend_sha256": "0f23bb386ecae4b685fb3eb6d04c2a7d95f34dc3b83a77c6bafb5c58b41166de",
+    "compiler_sha256": "8237ccac1bb9c7cbbc8ad856a0b9f6c078c49b08432a5f84185f9b048d64d336",
+    "package_sha256": "42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb",
+    "bytes": 40360530,
+    "removed_libtool_archives": [
+      "libexec/gcc/powerpc-linux-gnuspe/8.5.0/liblto_plugin.la",
+      "powerpc-linux-gnuspe/lib/libstdc++.la",
+      "powerpc-linux-gnuspe/lib/libstdc++fs.la",
+      "powerpc-linux-gnuspe/lib/libsupc++.la"
+    ],
+    "fixed_header_repairs": [
+      {
+        "file": "sys/mount.h",
+        "before_sha256": "9103e634e868e7ee3cbb7b2add90c8837b3dac61bdc349a9483d808ed8fc00b3",
+        "after_sha256": "2e8c98b845cc13d7c02a7419fba5c8a354bfc63a758356be2c7fa1645fdfa44e"
+      },
+      {
+        "file": "sys/rseq.h",
+        "before_sha256": "73abcd685220928603c528df0277d8a6c251039c6bb432e8d9b9c6fa850592dd",
+        "after_sha256": "4ccf930fd01677b30250ecac9239c51da1064d78239bdc134361a35c45d145d4"
+      },
+      {
+        "file": "bits/sched.h",
+        "before_sha256": "b354519465e58fd8e4a31057f5dcdcaf0e4fe3d8cec00be84cd290e6b1f42221",
+        "after_sha256": "8b567cd62ca1be04b4ea07210b3bf3539de718617f498c9e5158cececb76d237"
+      },
+      {
+        "file": "bits/statx.h",
+        "before_sha256": "91d194f59920eb808c1ee8d107144870f263f47eca42b423fb3b1ea58e7798d2",
+        "after_sha256": "2122c1cbfd7501ba266bb8689d3584336854f35a485f4c98a7a54c0dff72a78d"
+      },
+      {
+        "file": "bits/unistd_ext.h",
+        "before_sha256": "6d4944c56ae1bae48a2edffe1aa3d73066e1c081686cbebd459fcfe64b440eb0",
+        "after_sha256": "990a342d6db1536a4e98a92b4cd9547b8eca5931b7350a955d9ef3fff5da60cf"
+      }
+    ],
+    "fixed_header_recipe_sha256": "484233f9a67ecc92d68cd1fff019aa0c7a9276781f5b06f78fd34dd2ed5ed1f3",
+    "binutils_search_links": {
+      "ar": {
+        "target": "/usr/bin/powerpc-linux-gnu-ar",
+        "sha256": "13cce2490e90875106f3ec68d7464a80dc7f52bb7a17448e670a0df9861cde12"
+      },
+      "as": {
+        "target": "/usr/bin/powerpc-linux-gnu-as",
+        "sha256": "fbbdac08236a5871c594e8674dd32f84618ea721c16aee8bf7ec703cfff5c529"
+      },
+      "ld": {
+        "target": "/usr/bin/powerpc-linux-gnu-ld",
+        "sha256": "8aaf0e2a1314ad622b2dc7a3d1cd02e9c979e00ad3978b043c28d9bd214b2305"
+      },
+      "nm": {
+        "target": "/usr/bin/powerpc-linux-gnu-nm",
+        "sha256": "2cbc37982d225db0f0c899e60b1f542438935e474babe3fe60950a58d6306b7f"
+      },
+      "ranlib": {
+        "target": "/usr/bin/powerpc-linux-gnu-ranlib",
+        "sha256": "0d9a07042ebe5ac8590d97e4cf06083c09ae157fd90704e133d3db7c89be4429"
+      },
+      "readelf": {
+        "target": "/usr/bin/powerpc-linux-gnu-readelf",
+        "sha256": "66e5e5530eb31ec4edfb57377be1d9d5611be4156a961ab027a15eed142c9260"
+      },
+      "objcopy": {
+        "target": "/usr/bin/powerpc-linux-gnu-objcopy",
+        "sha256": "898d41af0f3e087a0b725a5b35c3ef50034c44ab21821c6b6b39898796cac02c"
+      },
+      "objdump": {
+        "target": "/usr/bin/powerpc-linux-gnu-objdump",
+        "sha256": "e3528c679514efbf539a2716eff8603929ee7c936d3ee238081c669af7a21092"
+      },
+      "strip": {
+        "target": "/usr/bin/powerpc-linux-gnu-strip",
+        "sha256": "d67b2448295408536274b943ad355689f5f932dc71ec45b9fbb50a35d9f8fc7b"
+      }
+    },
+    "target_runtime_package": false
+  },
+  "cross-core-metapackage-005": {
+    "status": "debian-packages-built-not-target-installed",
+    "package": "tabor-spe-cross-build-essential",
+    "method": "Native architecture-independent Debian port metapackage source build",
+    "target_execution": false,
+    "target_installation": false,
+    "boot_image_ready": false,
+    "source_files": {
+      "debian/rules": "4a137aac0bc1ad2e455aa688026a08ac1dcff6b581838abecd75a5c808811016",
+      "debian/control": "e366346fe0a0cf0af6a85d88b9672e79cd27bdf83ca3ad13154975ebf4a9e55b",
+      "debian/changelog": "6f9df472938c9acca614af0ea035fe84a4291d56e6d559a4bb7a720b707725e5",
+      "debian/copyright": "09e01c018c190cf82bafea8a07adb3ec5975521a386567cd19094bae73417015",
+      "debian/source/format": "e8e18df40bcd69d6aa404282679186d9b8256ac63a5b4e80d7f081e8a0095a2e"
+    },
+    "packages": {
+      "crossbuild-essential-powerpcspe_1.0+spe5_all.deb": {
+        "sha256": "a04be272ebad131ff8dcc6b7c958f965afff039132655624c5d2f1ef87f51fad",
+        "bytes": 2760
+      }
+    },
+    "build_metadata": {
+      "tabor-spe-cross-build-essential_1.0+spe5.dsc": "bfecdbd9de333e93b428c5f000070a4ec709b3ff09c8ea3b800927725f9763e9",
+      "tabor-spe-cross-build-essential_1.0+spe5.tar.xz": "06d0fd42372becf4c01616a524e94d8b83fdf88e99d0fede6037454f2f2b6162",
+      "tabor-spe-cross-build-essential_1.0+spe5_all.changes": "df68ae8e131cd5da2a8cb50be56c634234fc1a9792654fa602dad9a7ab3c82fa",
+      "tabor-spe-cross-build-essential_1.0+spe5_all.buildinfo": "c05bba083734a3b64a44260c50beb7aefba36f6c8c05ccdfdc478892fb0ef604"
+    },
+    "payload_inspection_sha256": "ab7c53c0bd8054339891005bebfee7f418341a4a23bf7a16f2903fda36b9c331"
+  }
+}

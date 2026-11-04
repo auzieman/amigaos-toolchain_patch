@@ -95,6 +95,18 @@ try:
             assert time.monotonic()<deadline, 'Prior pipeline wait timed out'
             time.sleep(10)
         r['status']='running'
+    historical_failures = []
+    r['prior_failure_receipts'] = []
+    for receipt in sorted((a.base / 'work').glob('port-pipeline-*/receipt.json')):
+        if receipt == a.output / 'receipt.json':
+            continue
+        record = json.loads(receipt.read_text())
+        if record.get('status') not in ['selected-build-stages-completed', 'completed-with-fallout']:
+            continue
+        failures = [x for x in record.get('fallout', []) if x.get('input_fingerprint')]
+        if failures:
+            historical_failures.extend(failures)
+            r['prior_failure_receipts'].append({'receipt':str(receipt), 'sha256':sha(receipt)})
     save()
     prepared = {}
     excluded = set(scope['deferred_candidates'])
@@ -145,7 +157,7 @@ try:
             initial_audit_sha256=sha(audit / 'receipt.json'), bootstrap=bootstrap,
             prepared_sources=str(prepared_path.relative_to(a.base)),
             run_prefix=prefix + '-' + stage, unit_prefix=prefix + '-' + stage + '-build')
-        batch['prior_failures']=[x for x in r['fallout'] if x.get('input_fingerprint')]
+        batch['prior_failures']=historical_failures + [x for x in r['fallout'] if x.get('input_fingerprint')]
         batch_path = a.output / (stage + '-plan.json')
         batch_path.write_text(json.dumps(batch, indent=2) + '\n')
         work = a.base / 'work' / (prefix + '-' + stage)
