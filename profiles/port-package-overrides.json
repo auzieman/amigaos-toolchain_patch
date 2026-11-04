@@ -41,9 +41,10 @@
       "purpose": "Existing Debian stage1 profile breaks base library bootstrap cycles; full service rebuild remains required"
     },
     "systemd": {
-      "bootstrap_profiles": "cross,nocheck,stage1",
+      "bootstrap_profiles": "cross,nocheck,noinsttest,stage1",
       "full_rebuild_required": true,
-      "purpose": "Existing Debian stage1 profile breaks base library bootstrap cycles; full service rebuild remains required"
+      "purpose": "Existing Debian stage1 profile breaks base library bootstrap cycles; full service rebuild remains required",
+      "build_profiles": "cross,nocheck,noinsttest"
     },
     "avahi": {
       "build_profiles": "cross,nocheck,nogir,nopython,pkg.avahi.nogui",
@@ -76,6 +77,14 @@
     "unbound": {
       "build_profiles": "cross,nocheck,pkg.unbound.libonly",
       "purpose": "Existing Debian library-only profile supplies GnuTLS libunbound dependency; DNS server and Python outputs are not selected"
+    },
+    "glib2.0": {
+      "build_profiles": "cross,nocheck,noinsttest",
+      "purpose": "Use existing Debian nocheck and noinsttest together to exclude build/installed-test dependencies; retain normal runtime libraries and services"
+    },
+    "dbus": {
+      "build_profiles": "cross,nocheck,noinsttest",
+      "purpose": "Use existing Debian nocheck and noinsttest together to exclude build/installed-test dependencies; retain normal runtime libraries and services"
     }
   }
 }

@@ -1,0 +1,186 @@
+[
+  {
+    "package": "fontconfig",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck",
+    "packages": {
+      "fontconfig_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "b6d83559f1c6bb36d804ee0876d32241f68220bb51aa883c65726556664316f3",
+        "bytes": 461092
+      },
+      "libfontconfig-dev_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "724cd64589d68b0d39ccef7aa4acba6cb0f00b50a71bf576f91ee46a989750ea",
+        "bytes": 397584
+      },
+      "libfontconfig1_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "5fc6d3424fb2b9a0d527675ae500987f0f90e0e756ff8854a687011818de608f",
+        "bytes": 382792
+      },
+      "fontconfig-config_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "f7d970c99026f2dc6a95046ea9b9dc841070eccbfea5e65c5b7a08cc2b5c86e4",
+        "bytes": 318320
+      },
+      "fontconfig-dbgsym_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "d47cc039c26688cda313896f648d5d056a29cfd9ac576084ab9b9ca3315b2fe6",
+        "bytes": 3504
+      },
+      "libfontconfig1-dev_2.15.0-2.3_powerpcspe.deb": {
+        "sha256": "c1631bd0e1de203b604ea911d9c48818d87f0825e8165586090bbebe22aa63a1",
+        "bytes": 269272
+      }
+    },
+    "payload_inspection_sha256": "7f696048767b3268d2ae7f67c2c2a63cfcfca397afb3de4f7b3e4c947b521c53",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-007-base-libraries-fontconfig/receipt.json",
+    "receipt_sha256": "d5d1465220bab6d50b8f661b1eb71dc5ae73a66d786f7e4c5f75a4646dcd5f36"
+  },
+  {
+    "package": "e2fsprogs",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck",
+    "packages": {
+      "e2fsprogs-dbgsym_1.47.2-3_powerpcspe.deb": {
+        "sha256": "e07632eb85b5d9b154baa0a046d73fccaacabe5556abe75c3ceb4cfee862db12",
+        "bytes": 35620
+      },
+      "e2fsprogs_1.47.2-3_powerpcspe.deb": {
+        "sha256": "06b4c666424360b737e237c62a0936d49fd68c996c23cd739434c65e0db80ba4",
+        "bytes": 556744
+      },
+      "logsave_1.47.2-3_powerpcspe.deb": {
+        "sha256": "23292708dac4dce4eb2f6d24a529ed524a60c19b5ddb70d9b20508f257e9c1ba",
+        "bytes": 24168
+      },
+      "libext2fs2t64-dbgsym_1.47.2-3_powerpcspe.deb": {
+        "sha256": "13d0e736c38bc069d7d5db0fd95df10efa2424a81b23f5325b8240cf1ad8872a",
+        "bytes": 6296
+      },
+      "fuse2fs_1.47.2-3_powerpcspe.deb": {
+        "sha256": "7c62c168b5df7cf406d49684e420231f6dc4fc84f8478ee267e484184325c3ce",
+        "bytes": 48108
+      },
+      "libext2fs2t64_1.47.2-3_powerpcspe.deb": {
+        "sha256": "11b934d133b24a3da80c016a57d7aa0867f957e0112f3e7ccba635987d4eebf9",
+        "bytes": 206152
+      },
+      "e2fsck-static_1.47.2-3_powerpcspe.deb": {
+        "sha256": "7ed43ff012169ef821a64846f3d9127fb6a3fdf829a80e224d7a236e11efd926",
+        "bytes": 702336
+      },
+      "libcom-err2_1.47.2-3_powerpcspe.deb": {
+        "sha256": "cd8c5b9fe126aaa1e6233c1f9bce1d5dd3b100fa6a6e8a480181b0f0fc16333c",
+        "bytes": 24328
+      },
+      "libss2_1.47.2-3_powerpcspe.deb": {
+        "sha256": "5b8e4d3f90089296faa05d62c6aeba3cd134a740139a5b1470917d1ba0f491de",
+        "bytes": 28316
+      },
+      "libext2fs-dev_1.47.2-3_powerpcspe.deb": {
+        "sha256": "a1273d5cca4588bad708e68985ae3947b8e89ce7809f91e1c08685a5ad23a74b",
+        "bytes": 291708
+      },
+      "comerr-dev_2.1-1.47.2-3_powerpcspe.deb": {
+        "sha256": "c773fff0c10174fd23ebfceca8c9678b7477caad959ede653a235f0d67630904",
+        "bytes": 56020
+      },
+      "ss-dev_2.0-1.47.2-3_powerpcspe.deb": {
+        "sha256": "306a07cc16bd6107b8b7b3a64a6a433741b4454ec753237f3ce1e49939b0c315",
+        "bytes": 35132
+      }
+    },
+    "payload_inspection_sha256": "b8311774adf1734669bde223c4c6c228df9f2f761803b55e3ae1448fd9fca385",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-007-base-libraries-e2fsprogs/receipt.json",
+    "receipt_sha256": "124d943fcff84245aa7045aa2ac26e4742c78d3b846286f1a79816205cf3b9ad"
+  },
+  {
+    "package": "libsm",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck",
+    "packages": {
+      "libsm6_1.2.6-1_powerpcspe.deb": {
+        "sha256": "e64cbce1c78bb0b2430cdb1490d52c1ac95f3bd5d63b6174a7157516443979f3",
+        "bytes": 35496
+      },
+      "libsm-dev_1.2.6-1_powerpcspe.deb": {
+        "sha256": "74ceb051890279fad6097d41eb6f18c93a35b2ea415579e2582d8c64207ef5ee",
+        "bytes": 38488
+      }
+    },
+    "payload_inspection_sha256": "18a53d75a73d90b858ec3819af7270ca1e77a75bc28723eb8f3f25647a09352d",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-007-base-libraries-libsm/receipt.json",
+    "receipt_sha256": "b7457fb3a5c9a5d1d68d6acc06e31be25b072c7755793c43e3e6a2c2adac7966"
+  },
+  {
+    "package": "libarchive",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck",
+    "packages": {
+      "libarchive-tools_3.7.4-4+deb13u1_powerpcspe.deb": {
+        "sha256": "0ec753b83be6ac97997a53f8bdc86ce66697476d7a4687d98e6472c1a20cae55",
+        "bytes": 83988
+      },
+      "libarchive-dev_3.7.4-4+deb13u1_powerpcspe.deb": {
+        "sha256": "0216cd5c9f43515e175a2d3bd0cb0c4cd88c58467fec266e1612fd5149dedde2",
+        "bytes": 528404
+      },
+      "libarchive-tools-dbgsym_3.7.4-4+deb13u1_powerpcspe.deb": {
+        "sha256": "de16165cbd08a1a426c26068247686696ac018e2b46d3de064e4b74f81dc621e",
+        "bytes": 9608
+      },
+      "libarchive13t64_3.7.4-4+deb13u1_powerpcspe.deb": {
+        "sha256": "df35d41ad4d78610762bb06bf46f4a8d84b8bdb63cfe47bc0acf25b7c7052f49",
+        "bytes": 324060
+      }
+    },
+    "payload_inspection_sha256": "58aaae8402db27efdc0c2e9dd3fbe22bccfcc36058fab723bf4d644b9ca95140",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-007-base-libraries-libarchive/receipt.json",
+    "receipt_sha256": "08cdc5dd4ac60d69956e5ad9ed07281d98181f9f202d4d3f4e5de09166c51171"
+  },
+  {
+    "package": "libcap2",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck",
+    "packages": {
+      "libcap-dev-dbgsym_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "c8d9d38ddecc102afc30007e6c40771c73549f7c8402f812a5272ab7aea0d2d6",
+        "bytes": 31792
+      },
+      "libcap-dev_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "a61845df8fee78fc7d202381151ba45ba0905bb460b0444f3f61dcce126fbbd3",
+        "bytes": 423068
+      },
+      "libpam-cap_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "e72999a9d6675878f8aa7a62cc58204444e81b22a04e21a965e2b6a173440d53",
+        "bytes": 15864
+      },
+      "libcap2-bin_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "2685d1c5a7a9f2fb9b17e04f3faec27b44e0b987dba56e7a0152317576357410",
+        "bytes": 33528
+      },
+      "libcap2_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "3ca72692701d7b895d3e1054037894f0e4daa4bb90019ef6c788e07364dc69a9",
+        "bytes": 25884
+      },
+      "libcap2-dbgsym_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "2c0c95e157d03dc11b92106dc96d4ce9b3f8a69c9e1e0ff68aa711140661b7a8",
+        "bytes": 3336
+      },
+      "libcap2-bin-dbgsym_2.75-10+deb13u1_powerpcspe.deb": {
+        "sha256": "cd7bd08bc9382d7dabb2b29562e560ff93654e643eb23966674b3464a0904eb6",
+        "bytes": 3248
+      }
+    },
+    "payload_inspection_sha256": "fe5b7df9541170ff9289b4b228256ea48d61da3c6467b3ac23067cdbc80c00a4",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-007-base-libraries-libcap2/receipt.json",
+    "receipt_sha256": "7a4416c13d7c32ef38e5f3353c60146be2b4a2d6d063085954a747057c2bcddc"
+  }
+]

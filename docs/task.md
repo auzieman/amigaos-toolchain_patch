@@ -1652,3 +1652,18 @@ checked; incomplete components never enter the lock. Three native fault tests
 passed (fall-through, cache reuse, corrupt-file rejection). Live closure-cache004
 is retrying the existing bounded libevent/libtextwrap intake; do not claim
 sources cached until its receipt and hashes qualify them.
+
+2026-11-04 round007 completed with5 new normal-profile source passes: libcap2,
+e2fsprogs, fontconfig, libsm, libarchive,31 .debs total. All payload inspections
+passed.35 unique sources remain deferred; not35 independent compiler defects.
+Desktop log viewer now retains completed summaries and blockers, rather than
+blanking when the pipeline stops or presenting only3 previous tails.
+
+Reviewed frozen Sources show test relations with separate <!nocheck>
+<!noinsttest> restrictions in GLib/D-Bus/systemd. Selected their supported
+cross,nocheck,noinsttest profiles (plus stage1 where already required for
+systemd). Round008 audit confirms GLib now needs libelf-dev, removing its old
+DBus test edge; full D-Bus/systemd still correctly require AppArmor libraries.
+Round008 is the normal64-source request plan, not another3-package test.
+Bounded source intake005 adds json-c/keyutils and retries libevent/libtextwrap
+from frozen metadata; acquisition is still pending, no new lock registered.

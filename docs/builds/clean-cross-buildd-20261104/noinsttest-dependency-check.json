@@ -1,0 +1,65 @@
+[
+  {
+    "package": "dbus",
+    "version": "1.16.2-2",
+    "architecture": "any,all",
+    "type": "src",
+    "status": "broken",
+    "reasons": [
+      {
+        "missing": {
+          "pkg": {
+            "package": "dbus",
+            "version": "1.16.2-2",
+            "architecture": "any,all",
+            "type": "src",
+            "unsat-dependency": "libapparmor-dev:powerpcspe"
+          }
+        }
+      }
+    ],
+    "build_profiles": "cross,nocheck,noinsttest"
+  },
+  {
+    "package": "systemd",
+    "version": "257.13-1~deb13u1",
+    "architecture": "linux-any,all",
+    "type": "src",
+    "status": "broken",
+    "reasons": [
+      {
+        "missing": {
+          "pkg": {
+            "package": "systemd",
+            "version": "257.13-1~deb13u1",
+            "architecture": "linux-any,all",
+            "type": "src",
+            "unsat-dependency": "libapparmor-dev:powerpcspe (>= 2.13)"
+          }
+        }
+      }
+    ],
+    "build_profiles": "cross,nocheck,noinsttest"
+  },
+  {
+    "package": "glib2.0",
+    "version": "2.84.4-3~deb13u5",
+    "architecture": "any,all",
+    "type": "src",
+    "status": "broken",
+    "reasons": [
+      {
+        "missing": {
+          "pkg": {
+            "package": "glib2.0",
+            "version": "2.84.4-3~deb13u5",
+            "architecture": "any,all",
+            "type": "src",
+            "unsat-dependency": "libelf-dev:powerpcspe"
+          }
+        }
+      }
+    ],
+    "build_profiles": "cross,nocheck,noinsttest"
+  }
+]

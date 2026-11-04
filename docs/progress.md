@@ -1167,3 +1167,10 @@ desk3,0/zone1 and original920x270 geometry. Server-side bounded viewer now
 follows active pipeline sbuild.log files (up to4 jobs,3 lines each,4s refresh),
 labels completed outputs, and reports audit-only periods. --once verified
 current round007 data; live server process confirmed. No extra browser/views.
+
+2026-11-04: round007 produced31 inspected .debs from5 additional normal-profile
+sources (libcap2/e2fsprogs/fontconfig/libsm/libarchive).35 sources deferred.
+Fixed viewer hiding completed progress. Standard noinsttest profile selection
+for GLib/D-Bus/systemd removes test dependency edges; round008 dose report
+confirms GLib progressed from DBus to libelf prerequisite. Full64-source batch
+running; producer intake005 covers json-c/keyutils plus previous archive gaps.
