@@ -993,3 +993,19 @@ The final reviewed follow-up is round008, waiting for004. Earlier queued
 new evidence changed the reviewed recipe; no running builds were interrupted.
 It includes the cached libtasn1/libxml2/flex sources, binNMU producer stage,
 existing Debian profile choices and the bounded util-linux stage1 fix.
+
+
+2026-11-04 shared-runner evaluation: round008 finished with four accepted
+sources: libtasn1-6, libxml2, p11-kit and Wayland. Forty sources remain
+dependency-blocked in its selected reports. Flex/S-Lang never compiled: sbuild
+required --maintainer for binNMUs and the runner omitted it. This shared
+configuration mistake is now corrected; actual binary-rebuild acceptance
+remains pending. It must not be described as a package/SPE compiler defect.
+
+Util-linux's header errors remain resolved. Stage1 then tried the separately
+auto-detected pam_lastlog2 module. The original configure.ac confirms
+--disable-pam-lastlog2; the stage1-only patch now disables that module alongside
+su/runuser, without changing full builds. Freetype dependency installation
+failed through libX11/libxcb coinstallation; libxcb is added to the reviewed
+producer/rebuild scope. Round port-pipeline-20261104-001 is submitted through
+the same standard scripted cycle. No new image or runtime acceptance claimed.

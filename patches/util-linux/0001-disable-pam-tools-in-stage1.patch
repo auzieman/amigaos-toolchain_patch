@@ -4,7 +4,7 @@
  ifneq ($(filter stage1,$(DEB_BUILD_PROFILES)),)
  	CONFOPTS += --without-systemd --without-udev --without-audit
  	CONFOPTS += --disable-newgrp --disable-login --disable-nologin
-+	CONFOPTS += --disable-su --disable-runuser
++	CONFOPTS += --disable-su --disable-runuser --disable-pam-lastlog2
  else
  	CONFOPTS += --with-systemd --with-udev --with-audit
  	CONFOPTS += --enable-newgrp --enable-login --enable-nologin

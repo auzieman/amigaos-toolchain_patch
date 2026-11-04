@@ -10,3 +10,7 @@ reaches missing -lpam/-lpam_misc while linking su.
 branch. No ordinary-build option changes. This is a Debian bootstrap-profile
 correction and must retain the subsequent full rebuild obligation. Original
 source archives are unchanged; the runner prepares a separate reviewed DSC.
+
+Round008 additionally selected pam_lastlog2 from native PAM headers. The
+stage1-only correction includes --disable-pam-lastlog2, confirmed in the pinned
+original configure.ac. No generic PAM module is omitted from full builds.
