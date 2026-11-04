@@ -56,6 +56,14 @@ R730 jobs within AGENTS.md resource bounds and re-evaluate after new artifacts.
 When there is no ready work, advance dependency-source closure or resolve the
 shared infrastructure fault; do not resubmit the unchanged blocked batch.
 
+Before adding consumer patches for repeated header/type/compiler errors,
+reproduce a small foundation probe and inspect actual include traces and SDK
+provenance. GCC8 fixed-header Linux path repair belongs in SDK staging, not in
+each package. Current reviewed sbuild inputs pin SDK tabor6/core spe5; retain
+the immutable original base lock and source versions. Use Debian's existing
+architecture annotations and supported profiles first, including those used
+by maintained PowerPC ports; never substitute their different target ABI.
+
 Separate missing archive inputs, dependency conflicts, infrastructure errors,
 source compilation failures and target runtime failures. Fix shared causes
 before creating per-package patches. Retain failed logs and give a source back
