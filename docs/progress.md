@@ -1189,3 +1189,8 @@ GIR execution during the C-library bootstrap. Fixed classification losing apt
 fetch errors beyond long summaries, including retrospective retry handling;
 2 tests and real AppArmor-log reproduction passed. Round011 running. Snapshot
 source/native acquisition remains a distinct unresolved external limitation.
+
+2026-11-04: GLib is now dose-installable in011. Completed classifier regression
+coverage also preserves original dependency conflicts when the later diagnostic
+explainer hits a network failure;3 tests pass. Reporting follow-up is for future
+snapshots; running011 remains immutable.

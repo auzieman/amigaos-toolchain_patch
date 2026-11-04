@@ -1700,3 +1700,12 @@ tests passed (long summary hides fetch error; real source error stays separate),
 and the scanner reproduced the actual AppArmor504. Round011 submitted with
 GLib profile and corrected retry classification. Crypto source intake006 still
 failed Snapshot acquisition; no unverified lock registered.
+
+Classifier completeness follow-up: do not let a download failure while sbuild
+installs its optional dose explainer replace an earlier real coinstallation
+failure. Archive scanning stops at the first package-installation failure;
+classification uses that primary acquisition evidence rather than secondary
+summary text. A third regression verifies original dependency conflicts remain
+separate. All3 focused tests pass. These follow-up reporting guards apply to
+future submitted snapshots; running011 retains its immutable initial inputs.
+Actual011 dose report now marks GLib installable with the supported nogir profile.

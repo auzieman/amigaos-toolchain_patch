@@ -123,7 +123,7 @@ try:
      text='\n'.join(errors+acquisition)+journal
      if re.search(r'oom-kill|OOM killer|Error creating chroot|Permission denied',text):category='infrastructure'
      elif re.search(r'Syntax error .*apt.conf|apt-utils.*not installed',text):category='build-root-configuration'
-     elif re.search(r'TooManyRequests|No healthy backends|Failed to fetch|503',text):category='archive-acquisition'
+     elif acquisition:category='archive-acquisition'
      elif re.search(r'trying to overwrite|dpkg: error processing archive',text):category='package-coinstallation'
      elif item['failure_stage'] in ['install-deps','apt-get-update']:category='dependency-installation'
      elif re.search(r'dh_missing|dh_install:|dpkg-gencontrol:',text):category='packaging'

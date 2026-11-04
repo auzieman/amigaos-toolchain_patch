@@ -7,6 +7,10 @@ class AcquisitionEvidenceTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as d:
    p=Path(d)/'sbuild.log';p.write_text('E: Failed to fetch https://snapshot.example/file 504 Gateway Timeout\n'+'summary details\n'*900+'Fail-Stage: install-deps\n')
    self.assertTrue(archive_failures(p));self.assertNotIn('Failed to fetch',''.join(p.read_text().splitlines(True)[-700:]))
+ def test_explainer_download_does_not_hide_original_conflict(self):
+  with tempfile.TemporaryDirectory() as d:
+   p=Path(d)/'sbuild.log';p.write_text('The following packages have unmet dependencies:\nE: Package installation failed\nSetup apt archive\nE: Failed to fetch https://snapshot.example/dose 504 Gateway Timeout\n')
+   self.assertEqual(archive_failures(p),[])
  def test_source_error_is_not_acquisition(self):
   with tempfile.TemporaryDirectory() as d:
    p=Path(d)/'sbuild.log';p.write_text('main.c:4: error: invalid type\nFail-Stage: build\n')
