@@ -902,3 +902,31 @@ foundation exceptions explicit. SQLite/Tcl/ICU producer sources are pinned to
 the same authenticated frozen snapshot. Full patched glibc source registration,
 remaining dependency closure, target installation and a new QEMU/image gate
 remain pending. No USB write or physical Radeon/SMP acceptance occurred.
+
+
+2026-11-03 pipeline003 evaluation: rounds002/003 completed-with-fallout;
+no workers remain active. New accepted target package receipts: round002
+libselinux, Tcl8.6, ICU and SQLite; round003 libffi. There is one observed
+source-build failure (util-linux),45 unique dependency-blocked sources, and
+a full patched-glibc source-registration gate. Counts describe selected
+reports, not the complete final installation closure.
+
+util-linux's first error shows both /usr/include/linux/mount.h and the SDK's
+lib/gcc/powerpc-linux-gnuspe/8.5.0/include-fixed/sys/mount.h declaring
+fsconfig_command; mount_attr also conflicts. Investigate stale GCC-fixed
+header provenance/selection and reproduce with a minimal include probe before
+patching util-linux. This is a demonstrated SDK/header integration suspect,
+not evidence of a new util-linux algorithm defect.
+
+Shared dependency chains require supported bootstrap review: libcap2 -> PAM
+-> systemd -> libcap2; audit -> krb5 -> e2fsprogs -> util-linux -> audit;
+DBus -> AppArmor -> Apache development dependency. Python/GIR-qualified
+requirements also block Brotli/ALSA/newt/Harfbuzz/Avahi. Inspect original
+profiles/native annotations rather than automatically adding language or
+web-server ports. X/Mesa/E wait on these foundational libraries.
+
+Controller review: util-linux retried the identical fingerprint in003 after
+failing002. Current failure suppression spans stages within one run, not
+completed predecessor rounds. Carry forward predecessor failure evidence
+while allowing a changed recipe/dependency set to retry. Do not submit another
+unchanged broad round. New target image/QEMU/physical tests remain pending.
