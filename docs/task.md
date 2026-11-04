@@ -1629,3 +1629,12 @@ reused. Five native files remain unavailable. Receipts retained. Libevent
 source intake also failed Snapshot .dsc acquisition; no source lock registered.
 Qualification002 now running with the recovered verified cache inputs. The
 query transport is partial recovery, not a universally working fallback.
+
+Qualification002 actual compiler result: PAM stage1 succeeded,7 .debs including
+3 debug packages. Payload inspection SHA256 recorded in committed
+pam-qualification.json; ELF32BE PowerPC and artifact hashes verified. No target
+installation/execution claimed, required full PAM rebuild remains. Util-linux
+is progressing after native helper downloads recovered. Queued normal
+port-pipeline-20261104-007 after qualification002, using the now exercised clean
+root and accumulating real artifacts. Debian metadata decides newly ready work
+(e.g. PAM development output for libcap2); do not count queued sources as passes.

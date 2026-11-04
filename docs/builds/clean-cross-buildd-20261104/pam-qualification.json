@@ -1,0 +1,53 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "source_version": "1.7.0-5",
+  "package": "pam",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,stage1",
+  "bootstrap": true,
+  "required_full_rebuild": true,
+  "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "native_root_sha256": "54d0df59623706360925f2b7a81952dac5824bdbe424ba3654cb0f1ee1acb9f0",
+  "payload_inspection_sha256": "dcfe0a2d49fe5a8d25dbdc4d0eb1f0a1da97d7a3f68bef8d09ac6335f9900e45",
+  "packages": {
+    "libpam-modules-bin-dbgsym_1.7.0-5_powerpcspe.deb": {
+      "sha256": "b68a3bc3628df218c7f3f6972be26b0752fc82cf2d772afafff3ce07fdba58cb",
+      "bytes": 9680
+    },
+    "libpam-modules_1.7.0-5_powerpcspe.deb": {
+      "sha256": "63e5c13399bd2c07f7a700f93231f4f91e04dda920b9a3ca3a441a6aea66bed3",
+      "bytes": 157560
+    },
+    "libpam-modules-bin_1.7.0-5_powerpcspe.deb": {
+      "sha256": "76e50dd84b8ce3851e1f515ef2ab1202973e68960625d4b9cfe74468d24d5923",
+      "bytes": 45468
+    },
+    "libpam0g-dbgsym_1.7.0-5_powerpcspe.deb": {
+      "sha256": "3ae01a17472a49014bc55ab7af5c1a0edc6d3fff71a98a0ebdc022c9383c272f",
+      "bytes": 4092
+    },
+    "libpam-modules-dbgsym_1.7.0-5_powerpcspe.deb": {
+      "sha256": "257d6aacf11c25951073906cb0fcc8f2a54ca86335ff9582e0fdcf1d69396610",
+      "bytes": 11692
+    },
+    "libpam0g-dev_1.7.0-5_powerpcspe.deb": {
+      "sha256": "add41361c7922ccf1feecdd94a36ef96a03eb998b5d2874c903b4ead23e2ed34",
+      "bytes": 63780
+    },
+    "libpam0g_1.7.0-5_powerpcspe.deb": {
+      "sha256": "55dddc15e15c22e16adc6ae1564da228d92f4303c3678c9fc0f0d5b064e85169",
+      "bytes": 64984
+    }
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/port-qualification-20261104-002-base-libraries-pam",
+    "seeded_archives": 1164,
+    "promoted_archives": 0,
+    "retained_archives": 1164
+  },
+  "target_execution": false,
+  "target_installation": false,
+  "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-qualification-20261104-002-base-libraries-pam/receipt.json",
+  "receipt_sha256": "019487247995ef91ba50f420d00be76be927e5962dfd7114a4f2a6bf533d92b7"
+}

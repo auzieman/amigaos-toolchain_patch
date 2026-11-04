@@ -39,3 +39,17 @@ failed Snapshot503/504. This route is a partial recovery, not a reliable mirror
 fallback. Source intake for libevent/libtextwrap also stopped on Snapshot .dsc
 acquisition; no unverified source lock or source build was registered.
 Qualification002 retries the same clean-root plan with these newly cached inputs.
+
+Qualification002 milestone: PAM1.7.0-5 stage1 cross build succeeded in2m17s,
+producing7 SPE .debs (4 non-debug packages plus3 debug packages). Independent
+inspection verified artifact hashes and ELF32 big-endian PowerPC payloads.
+Native/SPE dependencies installed normally in the clean root. See
+pam-qualification.json. This is bootstrap build acceptance, not full PAM service
+or target runtime acceptance; the required normal rebuild remains recorded.
+Util-linux recovered its missing native downloads and passed dependency setup.
+
+With that actual compiler/package inspection proof and the util-linux conflict
+boundary passed, the normal workstation round port-pipeline-20261104-007 is
+queued after qualification002, without overlapping workers. It reuses accepted
+artifacts/caches and schedules up to4 Debian-dependency-ready sources. Later
+producer/consumer results and image/QEMU gates remain pending.

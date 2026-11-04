@@ -1148,3 +1148,9 @@ then failed frozen archive acquisition before compilation. Same-origin
 hash-verified apt-helper recovery cached3 missing native files, reused1;
 5 still503/504. Qualification002 running with those cache additions. Missing
 producer source intake also hit Snapshot; no unverified sources accepted.
+
+2026-11-04 actual pass: PAM1.7.0-5 stage1 cross build succeeded in clean root002:
+7 .debs (4 non-debug plus3 debug), payload hashes and ELF32BE PowerPC inspected.
+Required full PAM rebuild/runtime acceptance remain open. Util-linux passed
+old dependency conflict and recovered its downloads. Normal workstation round007
+queued after qualification002, max4 dependency-ready jobs, no overlapping batch.
