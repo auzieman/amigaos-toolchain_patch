@@ -52,6 +52,26 @@
     "libxml2": {
       "build_profiles": "cross,nocheck,nopython",
       "purpose": "Existing Debian nopython profile for the required XML C library; Python bindings are not selected"
+    },
+    "flex": {
+      "binary_nmu": 4,
+      "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
+    },
+    "libonig": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
+    },
+    "libxcb": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
+    },
+    "libxt": {
+      "binary_nmu": 2,
+      "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
+    },
+    "slang2": {
+      "binary_nmu": 2,
+      "binary_nmu_reason": "Reviewed frozen native/target Multi-Arch:same coinstallation requirement; standard sbuild binary-only rebuild request, not a source/ABI change"
     }
   }
 }

@@ -10,7 +10,6 @@ import json
 import subprocess
 import time
 from pathlib import Path
-from port_binary_versions import native_bin_nmus
 
 p = argparse.ArgumentParser(description=__doc__)
 for name in ['project', 'base', 'plan', 'output', 'native-audit']:
@@ -50,7 +49,7 @@ def job(args, name, memory='3G'):
 
 native_receipt=json.loads((a.native_audit/'receipt.json').read_text())
 assert sha(a.native_audit/'NativePackages')==native_receipt['native_packages_sha256']
-bin_nmus=native_bin_nmus(a.native_audit/'NativePackages')
+# Binary revisions are explicit reviewed sbuild requests, never inferred policy.
 
 def already_built(name, bootstrap):
     options = registry.get(name, {})
@@ -75,7 +74,7 @@ def already_built(name, bootstrap):
             continue
         if record.get('status') != 'debian-packages-built-not-target-installed' or record.get('package') != name:
             continue
-        if record.get('binary_nmu', 0) != bin_nmus.get((name, version), 0):
+        if record.get('binary_nmu', 0) != options.get('binary_nmu', 0):
             continue
         if record.get('source_version') != version or record.get('host_architecture') != 'powerpcspe':
             continue
@@ -153,12 +152,7 @@ try:
     # native Multi-Arch:same libraries already present in the broad template.
     binary_rebuilds=[]
     for name in dict.fromkeys(plan.get('bootstrap_packages', []) + plan['packages']):
-        settings={**profile, **profile.get('package_inputs',{}).get(name,{})}
-        version=json.loads((a.project/settings['source_lock']).read_text())['components'][name]['version']
-        if registry.get(name,{}).get('spec'):
-            reviewed=json.loads((a.project/registry[name]['spec']).read_text())
-            version=reviewed.get('source_patch',{}).get('version',version)
-        if bin_nmus.get((name,version),0):
+        if registry.get(name,{}).get('binary_nmu',0):
             binary_rebuilds.append(name)
     for stage, bootstrap in [('binary-rebuilds', False), ('base-libraries', True), ('desktop-services', False)]:
         names = binary_rebuilds if stage=='binary-rebuilds' else (plan.get('bootstrap_packages', []) if bootstrap else plan['packages'])

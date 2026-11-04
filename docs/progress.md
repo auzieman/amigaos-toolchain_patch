@@ -1009,3 +1009,20 @@ su/runuser, without changing full builds. Freetype dependency installation
 failed through libX11/libxcb coinstallation; libxcb is added to the reviewed
 producer/rebuild scope. Round port-pipeline-20261104-001 is submitted through
 the same standard scripted cycle. No new image or runtime acceptance claimed.
+
+
+2026-11-04 shared-input follow-up: round20261104-001 accepted flex, libxcb,
+FreeType, libXfont and libxkbcommon. Observed remaining attempted failures are
+before compilation: Snapshot HTTP503 blocked util-linux/PAM downloads; target
+Oniguruma binary coinstallation blocked S-Lang and therefore newt. No new
+compiler/header/ABI error has been demonstrated in those failures.
+
+Round20261104-002 uses standard apt Acquire::Retries in the disposable sbuild
+root setup hook and adds the demonstrated Oniguruma rebuild producer. Binary
+rebuild levels are now explicit reviewed registry requests, passed to sbuild;
+removed automatic native-index inference from orchestration. The comparison
+helper remains diagnostic only. No consumer source patch or speculative SDK
+change was added. Existing corrected SDK and immutable baseline remain in use.
+Multi-consumer compile successes are evidence for that SDK, not full runtime
+or restored-glibc acceptance. Full patched-libc source registration remains
+an explicit gate. The new cycle is submitted; acceptance remains pending.
