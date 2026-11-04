@@ -1,0 +1,90 @@
+[
+  {
+    "package": "apparmor",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck,stage1",
+    "bootstrap": true,
+    "required_full_rebuild": true,
+    "packages": {
+      "libapparmor-dev_4.1.0-1_powerpcspe.deb": {
+        "sha256": "446b4d4c204d919d5ea7240a3b09fc7306233dd54545abc351935e125bf4b29c",
+        "bytes": 73608
+      },
+      "libapparmor1_4.1.0-1_powerpcspe.deb": {
+        "sha256": "0cb11707b0f9aa2c6da281d5651d7b0f173b86afb1083618944acb7c1d4beaf9",
+        "bytes": 40204
+      }
+    },
+    "payload_inspection_sha256": "34179be639003aa87e6471430ba51a9acca949492f6fd3ad4582dfaf4ed3dfa0",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-011-base-libraries-apparmor/receipt.json",
+    "receipt_sha256": "aabb928c5f785abcd2b85dc90231adb7cea66c07179b5e51f4588b021004e8fe"
+  },
+  {
+    "package": "glib2.0",
+    "status": "debian-packages-built-not-target-installed",
+    "build_profiles": "cross,nocheck,noinsttest,nogir",
+    "bootstrap": false,
+    "required_full_rebuild": false,
+    "packages": {
+      "libglib2.0-0t64-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "e40d12ae522712b715dfa0b239518429debfaca5f46bdc49bf4ca78b50e32283",
+        "bytes": 36840
+      },
+      "girepository-tools-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "4c7f5886c7034cc2473fd6eaf04a8194c54a9fd70b77deae141e13a7a82cd0db",
+        "bytes": 7176
+      },
+      "libgirepository-2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "289f7c0b1c9f19ed17e65fd6da54df68f30f3d70847a669c79b07e12d3a75c23",
+        "bytes": 188092
+      },
+      "libglib2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "6055a30ff87f5c4e274513189b4e752faee00f7f6e3f928ef08aa5bbb20bb967",
+        "bytes": 57740
+      },
+      "libglib2.0-dev-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "a6d5d18d96acc2bc460003ffe1c7929cf32a99f3c2199a4478ff1ed7472e861f",
+        "bytes": 56948
+      },
+      "libgio-2.0-dev-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "4a3da6b749f4b755715ccf9e14e7d6ca22290d0d0d003fba58e8dd70ea73e7cc",
+        "bytes": 165640
+      },
+      "libgio-2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "cc33b36fbe41bf5cabc106982d1b48e9555983bd4c8a51eedb415e4f4ef34540",
+        "bytes": 1451828
+      },
+      "libglib2.0-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "1e49b935bae0a9c391f3f7064754c60807401c5e8bd3d9077a94a8ed7d80f763",
+        "bytes": 124344
+      },
+      "libgirepository-2.0-0_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "238cffe2427bac2c034e800931e229057cfc1eddc86281ab65b69acec5962d45",
+        "bytes": 130232
+      },
+      "libglib2.0-0t64_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "615fb99b4cba4881594de1290b2cf17dcaa920a5c3b0255de880cbfbabfefada",
+        "bytes": 1303036
+      },
+      "libglib2.0-bin-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "58b57a2ebe1826b9a9611bf79d93d8ca5f8816cf2f666fcc6ad415246a7dc323",
+        "bytes": 10076
+      },
+      "libgio-2.0-dev-bin-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "66ab1579730a0c57e257e34444d541172c4d709205ce512236356e20771371b2",
+        "bytes": 5828
+      },
+      "girepository-tools_2.84.4-3~deb13u5_powerpcspe.deb": {
+        "sha256": "aff3763faf6eb271020760268c23dea80784b39dcc8848cb6fc9ef852d0093c2",
+        "bytes": 134680
+      }
+    },
+    "payload_inspection_sha256": "c18c97887c1f95a3476a78dd7044062524f688688b798c3d81c29d5724dac2ae",
+    "target_execution": false,
+    "target_installation": false,
+    "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-011-desktop-services-glib2.0/receipt.json",
+    "receipt_sha256": "2c41ff573b8f44a7abcc1ff92af7468feceb4f8111495e305c4e7b11bb5f8e58"
+  }
+]

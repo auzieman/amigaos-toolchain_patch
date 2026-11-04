@@ -69,7 +69,12 @@
     "libxcb",
     "libonig",
     "nettle",
-    "unbound"
+    "unbound",
+    "json-c",
+    "keyutils",
+    "libevent",
+    "libtextwrap",
+    "libgcrypt20"
   ],
   "configure_cache_sources": [
     "libxext",
@@ -157,7 +162,12 @@
     "nettle",
     "unbound",
     "apparmor",
-    "elfutils"
+    "elfutils",
+    "json-c",
+    "keyutils",
+    "libevent",
+    "libtextwrap",
+    "libgcrypt20"
   ],
   "force_full_rebuild": [
     "glibc"

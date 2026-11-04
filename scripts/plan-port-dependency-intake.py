@@ -21,6 +21,7 @@ for key in ['audit', 'source_indexes', 'output']:
 p.add_argument('--only-producers',nargs='+',help='Review-bounded intake of these producer sources only')
 p.add_argument('--cache',type=Path,help='Cache archives after bounded producer review')
 p.add_argument('--cache-output',type=Path)
+p.add_argument('--exact-file-cdn',action='store_true',help='Explicit hash-pinned cache transport only; frozen metadata remains authoritative')
 a = p.parse_args()
 a.output.mkdir(exist_ok=False)
 
@@ -143,4 +144,5 @@ if a.cache:
     assert a.only_producers and a.cache_output, 'Archive intake requires an explicit reviewed producer list and output'
     subprocess.run(['python3', str(Path(__file__).with_name('cache-port-dependency-sources.py')),
         '--intake', str(a.output), '--source-indexes', str(a.source_indexes),
-        '--cache', str(a.cache), '--output', str(a.cache_output)], check=True)
+        '--cache', str(a.cache), '--output', str(a.cache_output),
+        *(['--exact-file-cdn'] if a.exact_file_cdn else [])], check=True)

@@ -1709,3 +1709,15 @@ summary text. A third regression verifies original dependency conflicts remain
 separate. All3 focused tests pass. These follow-up reporting guards apply to
 future submitted snapshots; running011 retains its immutable initial inputs.
 Actual011 dose report now marks GLib installable with the supported nogir profile.
+
+2026-11-04 mirror investigation: bounded R730 probes of exact pinned files show
+Snapshot json-c DSC timeout18s versus Debian CDN0.07s with identical expected
+SHA256; Cloudflare route403. Autoconf archive verified through Snapshot0.33s and
+CDN0.24s after previous failures. Added explicit --exact-file-cdn to cache tools
+and intake CLI. This fetches only immutable hash-pinned pool files; no live apt
+repository, metadata, version or baseline change.3 transport tests +3 existing
+source-cache tests passed. Recovered/verified all4 previously missing source
+sets plus libgcrypt20, registered in closure-prerequisite-sources.lock.json.
+Round012 running with those5 producers added. Round011 actually passed
+AppArmor stage1(2 debs) and GLib nogir(13), both payload-inspected; full AppArmor,
+GIR and runtime gates remain open. Evidence: exact-file-cdn-20261104.

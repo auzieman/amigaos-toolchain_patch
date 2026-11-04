@@ -1,0 +1,63 @@
+{
+  "baseline_unchanged": true,
+  "configuration_changed": false,
+  "results": [
+    {
+      "item": "autoconf-archive",
+      "route": "snapshot",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/autoconf-archive/autoconf-archive_20220903-3_all.deb",
+      "expected_sha256": "9f13a50fa9038cb4381545b275f7440c0a40d43832046a7e7f515f47a4ecbac8",
+      "status": "verified-exact-file",
+      "sha256": "9f13a50fa9038cb4381545b275f7440c0a40d43832046a7e7f515f47a4ecbac8",
+      "bytes": 775392,
+      "seconds": 0.33
+    },
+    {
+      "item": "autoconf-archive",
+      "route": "snapshot-cloudflare",
+      "url": "https://snapshot-cloudflare.debian.org/archive/debian/20261102T220000Z/pool/main/a/autoconf-archive/autoconf-archive_20220903-3_all.deb",
+      "expected_sha256": "9f13a50fa9038cb4381545b275f7440c0a40d43832046a7e7f515f47a4ecbac8",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "seconds": 0.18
+    },
+    {
+      "item": "autoconf-archive",
+      "route": "debian-cdn-exact-file",
+      "url": "https://deb.debian.org/debian/pool/main/a/autoconf-archive/autoconf-archive_20220903-3_all.deb",
+      "expected_sha256": "9f13a50fa9038cb4381545b275f7440c0a40d43832046a7e7f515f47a4ecbac8",
+      "status": "verified-exact-file",
+      "sha256": "9f13a50fa9038cb4381545b275f7440c0a40d43832046a7e7f515f47a4ecbac8",
+      "bytes": 775392,
+      "seconds": 0.24
+    },
+    {
+      "item": "json-c-source",
+      "route": "snapshot",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/j/json-c/json-c_0.18+ds-1.dsc",
+      "expected_sha256": "30f35cab8f920a6481e5fb8e58e789c59dd92945b82a2bcb9cf640a6e6e88594",
+      "status": "failed",
+      "error": "The read operation timed out",
+      "seconds": 18.14
+    },
+    {
+      "item": "json-c-source",
+      "route": "snapshot-cloudflare",
+      "url": "https://snapshot-cloudflare.debian.org/archive/debian/20261102T220000Z/pool/main/j/json-c/json-c_0.18+ds-1.dsc",
+      "expected_sha256": "30f35cab8f920a6481e5fb8e58e789c59dd92945b82a2bcb9cf640a6e6e88594",
+      "status": "failed",
+      "error": "HTTP Error 403: Forbidden",
+      "seconds": 0.07
+    },
+    {
+      "item": "json-c-source",
+      "route": "debian-cdn-exact-file",
+      "url": "https://deb.debian.org/debian/pool/main/j/json-c/json-c_0.18+ds-1.dsc",
+      "expected_sha256": "30f35cab8f920a6481e5fb8e58e789c59dd92945b82a2bcb9cf640a6e6e88594",
+      "status": "verified-exact-file",
+      "sha256": "30f35cab8f920a6481e5fb8e58e789c59dd92945b82a2bcb9cf640a6e6e88594",
+      "bytes": 2102,
+      "seconds": 0.07
+    }
+  ]
+}

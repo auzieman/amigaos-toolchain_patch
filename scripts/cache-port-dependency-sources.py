@@ -10,11 +10,13 @@ import json
 import lzma
 import subprocess
 from pathlib import Path
+from download_transports import exact_file_cdn
 from debian.deb822 import Sources
 
 p = argparse.ArgumentParser(description=__doc__)
 for key in ['intake', 'source-indexes', 'cache', 'output']:
     p.add_argument('--' + key, type=Path, required=True)
+p.add_argument('--exact-file-cdn',action='store_true',help='Fetch exact hash-pinned files via Debian CDN, without changing metadata or versions')
 a = p.parse_args()
 a.output.mkdir(exist_ok=False)
 a.cache.mkdir(exist_ok=True)
@@ -44,7 +46,7 @@ for i, index in enumerate(indexes['source_indexes']):
                 selected[name] = (source, index['url'].split('/dists/')[0] + '/')
 assert set(selected) == set(plan['components'])
 r = {'status': 'downloading', 'items': [], 'target_execution': False,
-     'compiler_selection_changed': False, 'intake_receipt_sha256': sha(a.intake / 'receipt.json')}
+     'compiler_selection_changed': False, 'exact_file_cdn': a.exact_file_cdn, 'intake_receipt_sha256': sha(a.intake / 'receipt.json')}
 lock = {'scope': 'Frozen dependency producer source intake; candidates, not compiler/base upgrades or accepted builds',
         'base_lock_sha256': receipt['base_lock_sha256'], 'components': {}}
 
@@ -68,7 +70,7 @@ try:
                     temporary = target.with_name(filename + '.partial')
                     with (a.output / (name + '-download.log')).open('a') as log:
                         codes=[]
-                        for request_url in [url,url+'?download=1']:
+                        for request_url in ([exact_file_cdn(url)] if a.exact_file_cdn else [])+[url,url+'?download=1']:
                             result=subprocess.run(['curl','--fail','--location','--retry','2','--retry-delay','3',
                                 '--retry-max-time','60','--max-time','45','--silent','--show-error',request_url,'-o',str(temporary)],
                                 stdout=log,stderr=subprocess.STDOUT)

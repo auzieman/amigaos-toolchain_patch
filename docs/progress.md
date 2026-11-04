@@ -1194,3 +1194,11 @@ source/native acquisition remains a distinct unresolved external limitation.
 coverage also preserves original dependency conflicts when the later diagnostic
 explainer hits a network failure;3 tests pass. Reporting follow-up is for future
 snapshots; running011 remains immutable.
+
+2026-11-04: mirror comparison confirmed the blocked json-c file is available
+hash-identical from Debian CDN while Snapshot timed out. Explicit cache-only
+CDN mode recovered all5 missing source sets without changing frozen metadata,
+versions or apt sources.6 tests passed; round012 includes recovered producers.
+Round011 also passed AppArmor bootstrap2 debs and GLib13, with payload inspection.
+Full-feature and runtime acceptance remain separate. Results/probe receipts in
+docs/builds/exact-file-cdn-20261104/.
