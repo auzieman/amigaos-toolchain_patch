@@ -1480,3 +1480,14 @@ change was added. Existing corrected SDK and immutable baseline remain in use.
 Multi-consumer compile successes are evidence for that SDK, not full runtime
 or restored-glibc acceptance. Full patched-libc source registration remains
 an explicit gate. The new cycle is submitted; acceptance remains pending.
+
+
+2026-11-04 round002 status: no new compiled packages. All five attempted
+builds stopped at apt-get-update because sbuild expanded the retry hook's
+printf %s token into its documented shell-command substitution. This was a
+shared wrapper bug, not a Debian/SPE source failure. Replaced the hook with
+plain echo containing no substitution tokens; remote shell output and native
+apt-config parsing pass (work/apt-retry-hook-check-001). Round003 is submitted
+with the corrected hook. A new image has not been assembled/booted, and no
+qemu-system-ppc process was observed on R730 at this check. QEMU/light session
+validation remains required after package-managed candidate assembly.

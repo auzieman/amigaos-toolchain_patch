@@ -181,7 +181,7 @@ try:
   cmd[-1:-1]=['--maintainer=Tabor SPE lab <root@localhost>', '--binNMU='+str(spec['binary_nmu']), '--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.']
  # Standard apt acquisition policy inside this disposable sbuild root.
  # Keep signed snapshot indexes and ordinary dependency/setup semantics.
- cmd[-1:-1]=["--chroot-setup-commands=printf '%s\\n' 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries"]
+ cmd[-1:-1]=["--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries"]
  if spec.get('indep_only'):cmd[-1:-1]=['--arch-all','--no-arch-any']
  else:cmd[-1:-1]=['--no-arch-all']
  if list(extras.glob('*.deb')):cmd[-1:-1]=['--extra-package='+str(extras)]
