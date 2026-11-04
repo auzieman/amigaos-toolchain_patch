@@ -1,0 +1,33 @@
+{
+  "exit": 0,
+  "command": [
+    "runuser",
+    "-u",
+    "owner",
+    "--",
+    "/usr/libexec/sbuild-usernsexec",
+    "--pivotroot",
+    "--nonet",
+    "u:0:100000:65536",
+    "g:0:100000:65536",
+    "/srv/data1/tabor-apt-cache/apt-cache-namespace-003-root",
+    "root",
+    "/",
+    "/srv/data1/tabor-apt-cache/workers/apt-cache-namespace-003",
+    "/var/cache/apt/archives",
+    "--",
+    "sh",
+    "-ec",
+    "id; mkdir -p /var/cache/apt/archives/partial; touch /var/cache/apt/archives/partial/namespace-write-proof; apt-get --download-only --reinstall -y install libbrotli1=1.1.0-2+deb13u1"
+  ],
+  "mapped_root_uid": 100000,
+  "mapped_root_gid": 100000,
+  "native_tar_sha256": "6930c9de0dc20f25acba02551c7b6fcf4629ec575102262723a91c4e12a7b029",
+  "cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/apt-cache-namespace-003",
+    "promoted_archives": 0,
+    "retained_archives": 1155
+  },
+  "network": "sbuild-usernsexec --nonet",
+  "apt_output": "uid=0(root) gid=0(root) groups=0(root)\nReading package lists...\nBuilding dependency tree...\nReading state information...\nThe following NEW packages will be installed:\n  libbrotli1\n0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.\nNeed to get 0 B/304 kB of archives.\nAfter this operation, 886 kB of additional disk space will be used.\nDownload complete and in download only mode\nW: chown to _apt:root of directory /var/lib/apt/lists/auxfiles failed - SetupAPTPartialDirectory (1: Operation not permitted)\nW: chmod 0755 of directory /var/lib/apt/lists/auxfiles failed - SetupAPTPartialDirectory (1: Operation not permitted)\n"
+}

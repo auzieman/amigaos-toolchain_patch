@@ -1115,3 +1115,15 @@ including failed/interrupted workers. Seeded1,155 archives; native network-off
 apt reinstall/download-only check passed, requesting0B. Round006 submitted
 with the fix; actual sbuild bind/acquisition and target runtime remain pending.
 Evidence: docs/builds/apt-archive-cache-20261104/README.md.
+
+2026-11-04: Round006 uncovered cache namespace ownership failure; initial
+nspawn diagnostic missed sbuild's mapped UID boundary. Fixed using sbuild's
+own UID/GID mapping, then verified actual usernsexec/pivotroot/bind with
+network disabled: writable cache, apt requests0B. Round005 had40 unique
+deferred sources, predominantly shared dependency chains; no new success in006.
+
+Shared review also found round005 util-linux blocked by native libedit-dev
+already installed in the broad template versus its Build-Conflicts. A broad
+archive cache is useful; a universally preinstalled dependency superset is not
+necessarily coinstallable. Next root qualification must cover Build-Conflicts
+and the actual sbuild cross-resolver path, not only apt check on the template.

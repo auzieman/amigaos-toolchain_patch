@@ -6,6 +6,7 @@ A failed or interrupted build's retained archives seed subsequent workers too.
 """
 import fcntl
 import os
+import subprocess
 from pathlib import Path
 
 
@@ -21,6 +22,18 @@ def exchange(pool, directories):
             except FileExistsError:
                 pass  # apt validates the requested archive against signed metadata.
     return count
+
+
+def mapped_root_ids(user):
+    # Ask sbuild itself: namespace root uses the subordinate range, not the
+    # invoking owner UID. Host-root nspawn alone cannot validate this boundary.
+    result = subprocess.check_output([
+        'runuser', '-u', user, '--', 'perl', '-MSbuild::Utility', '-e',
+        'for my $m (Sbuild::Utility::read_subuid_subgid()) { print join(":", @$m), "\\n"; }'
+    ], text=True)
+    mappings = {fields[0]: int(fields[2]) for line in result.splitlines()
+                if len(fields := line.split(':')) == 4 and fields[1] == '0'}
+    return mappings['u'], mappings['g']
 
 
 def prepare(cache_base, job, seed, uid, gid):

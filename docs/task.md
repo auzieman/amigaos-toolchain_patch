@@ -1570,3 +1570,21 @@ Offline native apt regression passed with1,155 seeded archives and0B requested.
 Round006 submitted. Next gate is actual sbuild bind/acquisition acceptance,
 then continue package closure and image/QEMU validation. Frozen archive misses
 remain network-dependent; no live mirror fallback was added.
+
+2026-11-04 pulse check: round005 completed with40 distinct deferred sources;
+54 dependency-blocked entries repeat sources between phases. Round006's two
+attempts, PAM/util-linux, failed before compilation on cache directory access.
+Host owner1000 is not namespace root100000. Corrected ownership now comes from
+sbuild's own mapping function, validated by real usernsexec/pivotroot/bind and
+network-off apt reuse (apt-cache-namespace-003). No new package success yet.
+Do not treat host-root-only diagnostics as namespace integration acceptance.
+User requests broader shared-cause review before further narrow batch fixes.
+
+Further shared-cause finding: round005 util-linux failed dependency resolution
+because its dummy package Conflicts:libedit-dev while the broad native template
+already has libedit-dev3.1-20250104-1 installed. This predates the cache failure.
+Keep cached native dependency archives broad, but qualify a clean buildd template
+with apt-utils and let sbuild install each source's dependencies normally; the
+installed native tool superset is not universally compatible with Build-Conflicts.
+Do not submit another unchanged broad-template round as a cure. Preserve the
+existing template and receipts while qualifying an isolated child/base.

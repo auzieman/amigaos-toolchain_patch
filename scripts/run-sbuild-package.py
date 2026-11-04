@@ -6,7 +6,7 @@ installed-state rewriting or manual target package installation is performed.
 """
 import argparse,hashlib,json,os,pwd,re,shutil,subprocess
 from pathlib import Path
-from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache
+from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache, mapped_root_ids
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--base',type=Path,required=True)
@@ -142,7 +142,8 @@ try:
   raise SourcePreparationComplete()
  owner=pwd.getpwnam('owner')
  cache_base=a.base.parent.parent/'tabor-apt-cache'
- archive_cache=prepare_apt_cache(cache_base,a.output.name,root_receipt.parent/'root/var/cache/apt/archives',owner.pw_uid,owner.pw_gid)
+ cache_uid,cache_gid=mapped_root_ids('owner')
+ archive_cache=prepare_apt_cache(cache_base,a.output.name,root_receipt.parent/'root/var/cache/apt/archives',cache_uid,cache_gid)
  r['apt_archive_cache']={'path':str(archive_cache),'seeded_archives':len(list(archive_cache.glob('*.deb')))}
  config=a.output/'sbuild.conf'
  # Large dependency templates must unpack on server storage, not /tmp tmpfs:

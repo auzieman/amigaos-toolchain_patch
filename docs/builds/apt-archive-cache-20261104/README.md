@@ -27,3 +27,16 @@ Round `port-pipeline-20261104-006` includes this correction. Its first full
 sbuild bind-mount/acquisition result is still pending; the native offline check
 does not establish target build, image or runtime acceptance. Uncached files
 still require the frozen archive to respond; retries are retained.
+
+Follow-up: round006 exposed a namespace ownership error before compilation
+for both PAM and util-linux: cache directories belonged to host owner1000,
+whereas sbuild namespace root maps to subordinate UID/GID100000. The host-root
+nspawn test did not cover this boundary. The runner now queries sbuild's own
+`read_subuid_subgid` mapping and owns the worker directory accordingly.
+
+`check-sbuild-cache-namespace.py` validates the actual backend: verified native
+buildd tar extracted under the same mappings, sbuild-usernsexec pivotroot,
+archive bind mount, --nonet, successful cache write and apt download-only with
+0B needed. `apt-cache-namespace-003` passed; see namespace-receipt.json.
+The previous nspawn-only check remains historical evidence, not sufficient
+integration acceptance. No target program or target installation is involved.
