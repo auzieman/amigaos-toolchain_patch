@@ -12,9 +12,11 @@ from pathlib import Path
 p = argparse.ArgumentParser(description=__doc__)
 p.add_argument('--run-id', required=True)
 p.add_argument('--native-audit', required=True, help='Existing verified R730 work/... audit')
+p.add_argument('--plan',default='profiles/sbuild/ready-core-batch.json',help='Reviewed pipeline plan within the project')
 p.add_argument('--after-run',help='Queue this reviewed round after an existing pipeline; never overlap its workers')
 a = p.parse_args()
 assert re.fullmatch(r'[a-z0-9-]+', a.run_id)
+assert re.fullmatch(r'profiles/sbuild/[a-z0-9-]+\.json',a.plan)
 assert re.fullmatch(r'work/[a-z0-9-]+', a.native_audit)
 if a.after_run:assert re.fullmatch(r'[a-z0-9-]+',a.after_run)
 project = Path(__file__).resolve().parents[1]
@@ -53,7 +55,7 @@ remote(['tar', '-xf', '-', '-C', snapshot], input=payload.getvalue())
 command=['systemd-run', '--unit='+submission_unit, '--collect',
     '--property=CPUQuota=100%', '--property=MemoryMax=1G', '--property=TasksMax=128',
     'python3', snapshot + '/scripts/run-port-build.py', '--project', snapshot,
-    '--base', base, '--plan', snapshot + '/profiles/sbuild/ready-core-batch.json',
+    '--base', base, '--plan', snapshot + '/' + a.plan,
     '--native-audit', base + '/' + a.native_audit,
     '--output', base + '/work/' + a.run_id]
 if a.after_run:command.extend(['--after-receipt',base+'/work/'+a.after_run+'/receipt.json'])

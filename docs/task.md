@@ -1607,3 +1607,15 @@ No builder/profile/patch changes, build submission or new acceptance claimed.
 Diff/frontmatter/reference checks passed. Skill quick_validate could not run
 because both local Python interpreters lack PyYAML; no environment changes were
 made merely to validate a documentation edit.
+
+2026-11-04 resumed closure: created clean-cross-buildd-002 from frozen-buildd002
+plus native apt-utils,125 installed packages, native foundation unchanged,
+clean apt/dpkg checks. Explicit parent/metadata receipts and persistent apt
+cache now supported by the existing child-root recipe. Root001 was stopped
+during repeated Snapshot index timeouts; root002 reused retained same-baseline
+indexes and cached apt-utils. Profiles pin the qualified creation receipt.
+Submitted port-qualification-20261104-001 with reviewed util-linux/PAM-only
+plan through the standard pipeline, before widening the workstation batch.
+Cross-build/SDK/package acceptance still pending. Separately started bounded
+frozen source intake for libevent/libtextwrap, directly reported missing
+producers for Unbound/GnuTLS and cdebconf/base-passwd dependency chains.

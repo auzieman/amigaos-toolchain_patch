@@ -1136,3 +1136,9 @@ wording that conflicted with standard Debian roots. Debian's ppc64el workflow
 is a mechanics reference, not an SPE ABI replacement. Documentation only;
 clean-root/build qualification remains pending. Diff and manual structure
 checks passed; skill validator unavailable locally due to missing PyYAML.
+
+2026-11-04: Clean buildd child created with125 native packages and apt-utils,
+clean apt/dpkg checks and unchanged foundation; broad caches remain external.
+Standard pipeline qualification now targets util-linux/PAM, the observed
+conflict/cache boundary, before broader retries. Missing-producer source
+intake for libevent/libtextwrap started separately; no new target pass claimed.
