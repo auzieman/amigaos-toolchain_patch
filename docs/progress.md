@@ -1174,3 +1174,11 @@ Fixed viewer hiding completed progress. Standard noinsttest profile selection
 for GLib/D-Bus/systemd removes test dependency edges; round008 dose report
 confirms GLib progressed from DBus to libelf prerequisite. Full64-source batch
 running; producer intake005 covers json-c/keyutils plus previous archive gaps.
+
+2026-11-04: grouped remaining35 into producer chains, recorded in
+remaining-closure-20261104.md. Existing elfutils nodebuginfod profile addresses
+ELF/GLib prerequisites. AppArmor C-library stage1 packaging prepared; corrected
+patch application,2-versus11 package selection and recipe dry-runs verified,
+actual cross-build pending. Round010 queued after009; crypto producer intake006
+running. Snapshot acquisition still blocks4 missing producers; no unverified
+sources or new runtime acceptance claimed.

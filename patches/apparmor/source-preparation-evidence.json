@@ -1,0 +1,57 @@
+{
+  "status": "debian-source-prepared-not-built",
+  "source_version": "4.1.0-1",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/apparmor_4.1.0-1.dsc",
+    "sha256": "c4227799d86569707c1bbcc99903602f2a049647810e4b4abe53a6d9f1f9a8dd",
+    "patch_sha256": "f81a0d9905f5f1d9a45cc918a784482da8ce49f36394e0f2de03b0b92fe5133f",
+    "version": "4.1.0-1",
+    "preserve_debian_version": true
+  },
+  "prepared_source": {
+    "path": "sources/debian-patched-output/apparmor_4.1.0-1.dsc",
+    "sha256": "c4227799d86569707c1bbcc99903602f2a049647810e4b4abe53a6d9f1f9a8dd"
+  },
+  "source_inputs": [
+    {
+      "filename": "apparmor_4.1.0-1.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0-1.dsc",
+      "size": 3269,
+      "sha256": "db02d7e4a32280d01ee91aaf5b38f31a9b12f3ebf187c74ccd5f903dbde32b50"
+    },
+    {
+      "filename": "apparmor_4.1.0.orig.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0.orig.tar.gz",
+      "size": 8496942,
+      "sha256": "c4422381941a6f30b7a5c9ee1defb7bc4efe3adbee3f99d642aa6e9bb8bcffcf"
+    },
+    {
+      "filename": "apparmor_4.1.0.orig.tar.gz.asc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0.orig.tar.gz.asc",
+      "size": 870,
+      "sha256": "9c606402ec543f494c43ee9707f993da21a0ac68dccd8cdd4ca3e308b436addb"
+    },
+    {
+      "filename": "apparmor_4.1.0-1.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apparmor/apparmor_4.1.0-1.debian.tar.xz",
+      "size": 93168,
+      "sha256": "85d693ea43458bd07a98fe9504ae6a2da309cb5820eef62871e1a6ed43d34084"
+    }
+  ],
+  "target_execution": false,
+  "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-010-source-apparmor/receipt.json",
+  "receipt_sha256": "823dea80e80f3b337927d1c3f07b6fd0c01b701d04ac3d57688add7792674aa3",
+  "native_metadata_checks": {
+    "stage1_packages": [
+      "libapparmor-dev",
+      "libapparmor1"
+    ],
+    "normal_package_count": 11,
+    "stage1_dry_run": [
+      "dh_auto_build -D libraries/libapparmor",
+      "dh_auto_install -D libraries/libapparmor",
+      "dh_install -a"
+    ],
+    "cross_build": "pending"
+  }
+}

@@ -85,6 +85,16 @@
     "dbus": {
       "build_profiles": "cross,nocheck,noinsttest",
       "purpose": "Use existing Debian nocheck and noinsttest together to exclude build/installed-test dependencies; retain normal runtime libraries and services"
+    },
+    "apparmor": {
+      "spec": "profiles/sbuild/apparmor.json",
+      "bootstrap_profiles": "cross,nocheck,stage1",
+      "full_rebuild_required": true,
+      "purpose": "Explicit stage1 C-library bootstrap for D-Bus/systemd; full AppArmor modules/tools remain a required separate rebuild"
+    },
+    "elfutils": {
+      "build_profiles": "cross,nocheck,pkg.elfutils.nodebuginfod",
+      "purpose": "Existing Debian profile builds selected ELF/DWARF libraries without the unselected debuginfod HTTP service/client chain; record debuginfod outputs as follow-up"
     }
   }
 }

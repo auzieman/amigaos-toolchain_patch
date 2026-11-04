@@ -1,0 +1,201 @@
+--- a/debian/control
++++ b/debian/control
+@@ -3,7 +3,7 @@
+ Uploaders: intrigeri <intrigeri@debian.org>
+ Section: admin
+ Priority: optional
+-Build-Depends: apache2-dev,
++Build-Depends: apache2-dev <!stage1>,
+                autoconf,
+                autoconf-archive,
+                automake,
+@@ -12,28 +12,28 @@
+                chrpath,
+                debhelper-compat (= 13),
+                dejagnu <!nocheck>,
+-               dh-apache2,
+-               dh-python,
+-               dh-sequence-python3,
++               dh-apache2 <!stage1>,
++               dh-python <!stage1>,
++               dh-sequence-python3 <!stage1>,
+                flake8 <!nocheck>,
+                flex,
+                liblocale-gettext-perl <!nocheck>,
+-               libpython3-all-dev,
+-               libpam-dev,
++               libpython3-all-dev <!stage1>,
++               libpam-dev <!stage1>,
+                libtool,
+                net-tools <!nocheck>,
+                perl <!nocheck>,
+                pkgconf,
+                po-debconf,
+-               python3:any,
+-               python3-all:any,
+-               python3-all-dev:any,
++               python3:any <!stage1>,
++               python3-all:any <!stage1>,
++               python3-all-dev:any <!stage1>,
+                python3-gi <!nocheck>,
+                python3-notify2 <!nocheck>,
+                python3-psutil <!nocheck>,
+-               python3-setuptools,
++               python3-setuptools <!stage1>,
+                python3-tk <!nocheck>,
+-               swig
++               swig <!stage1>
+ Standards-Version: 4.7.0
+ Vcs-Browser: https://salsa.debian.org/apparmor-team/apparmor/tree/debian/unstable
+ Vcs-Git: https://salsa.debian.org/apparmor-team/apparmor.git -b debian/unstable
+@@ -42,6 +42,7 @@
+ 
+ Package: apparmor
+ Architecture: linux-any
++Build-Profiles: <!stage1>
+ Depends: debconf,
+          ${misc:Depends},
+          ${shlibs:Depends}
+@@ -61,6 +62,7 @@
+ 
+ Package: apparmor-utils
+ Architecture: all
++Build-Profiles: <!stage1>
+ Depends: apparmor,
+          python3-apparmor (= ${binary:Version}),
+          ${misc:Depends},
+@@ -82,6 +84,7 @@
+ 
+ Package: apparmor-profiles
+ Architecture: all
++Build-Profiles: <!stage1>
+ Depends: apparmor,
+          ${misc:Depends}
+ Description: experimental profiles for AppArmor security policies
+@@ -122,6 +125,7 @@
+ 
+ Package: libapache2-mod-apparmor
+ Architecture: linux-any
++Build-Profiles: <!stage1>
+ Section: httpd
+ Depends: ${misc:Depends},
+          ${shlibs:Depends}
+@@ -133,6 +137,7 @@
+ 
+ Package: libpam-apparmor
+ Architecture: linux-any
++Build-Profiles: <!stage1>
+ Depends: ${misc:Depends},
+          ${shlibs:Depends}
+ Description: changehat AppArmor library as a PAM module
+@@ -142,6 +147,7 @@
+ 
+ Package: apparmor-notify
+ Architecture: all
++Build-Profiles: <!stage1>
+ Depends: python3-apparmor,
+          python3-libapparmor,
+          python3-notify2,
+@@ -158,6 +164,7 @@
+ 
+ Package: python3-libapparmor
+ Architecture: linux-any
++Build-Profiles: <!stage1>
+ Section: python
+ Depends: ${misc:Depends},
+          ${python3:Depends},
+@@ -170,6 +177,7 @@
+ 
+ Package: python3-apparmor
+ Architecture: all
++Build-Profiles: <!stage1>
+ Section: python
+ Depends: python3-libapparmor (>= ${source:Upstream-Version}),
+          ${misc:Depends},
+@@ -182,6 +190,7 @@
+ 
+ Package: dh-apparmor
+ Architecture: all
++Build-Profiles: <!stage1>
+ Multi-Arch: foreign
+ Section: devel
+ Depends: ${misc:Depends},
+--- a/debian/rules
++++ b/debian/rules
+@@ -13,15 +13,21 @@
+ export _PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__$(DEB_HOST_ARCH_OS)_$(DEB_HOST_MULTIARCH)
+ endif
+ 
++ifeq (,$(filter stage1,$(DEB_BUILD_PROFILES)))
+ %:
+ 	dh $@ --with=python3,apache2
++else
++%:
++	dh $@
++endif
+ 
+ 
+ override_dh_auto_configure:
+ 	cd libraries/libapparmor && sh ./autogen.sh
+-	dh_auto_configure -D libraries/libapparmor --
+-
+-
++	dh_auto_configure -D libraries/libapparmor -- $(if $(filter stage1,$(DEB_BUILD_PROFILES)),--without-python --without-perl --without-ruby)
++
++
++ifeq (,$(filter stage1,$(DEB_BUILD_PROFILES)))
+ override_dh_auto_build:
+ 	# Replace #VERSION# placeholder in dh_apparmor
+ 	sed -i --regexp-extended \
+@@ -57,6 +63,12 @@
+ 	dh_auto_build --sourcedirectory=changehat/pam_apparmor
+ 
+ 
++else
++override_dh_auto_build:
++	dh_auto_build -D libraries/libapparmor
++
++endif
++
+ override_dh_auto_test:
+ ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
+ 	dh_auto_test -Dlibraries/libapparmor -- V=1
+@@ -103,6 +115,7 @@
+ 	# Remove autoconf build cruft.
+ 	rm -f $(CURDIR)/libraries/libapparmor/test-driver
+ 
++ifeq (,$(filter stage1,$(DEB_BUILD_PROFILES)))
+ override_dh_auto_install:
+ 	# Utils
+ 	cd utils && $(MAKE) \
+@@ -181,6 +194,12 @@
+ 	# Build debhelper documentation.
+ 	pod2man -c Debhelper -r "$(DEB_VERSION)" $(CURDIR)/debian/debhelper/dh_apparmor $(CURDIR)/debian/debhelper/dh_apparmor.1
+ 
++else
++override_dh_auto_install:
++	dh_auto_install -D libraries/libapparmor
++
++endif
++
+ override_dh_installinit:
+ 	dh_installinit --no-start --no-stop-on-upgrade --error-handler=true
+ 
+@@ -203,6 +222,7 @@
+ 	    $(CURDIR)/debian/tmp/etc/apparmor/severity.db
+ 	dh_install
+ 
++ifeq (,$(filter stage1,$(DEB_BUILD_PROFILES)))
+ override_dh_install-arch:
+ 	set -e; for profile in lsb_release nvidia_modprobe; do \
+ 	    DH_AUTOSCRIPTDIR=debian/debhelper/ perl debian/debhelper/dh_apparmor --profile-name=$$profile -papparmor; \
+@@ -212,3 +232,9 @@
+ 	dh_install
+ 	# Fix permissions so that aa-teardown can execute this file
+ 	chmod 0755 $(CURDIR)/debian/apparmor/usr/lib/apparmor/apparmor.systemd
++else
++override_dh_install-arch:
++	dh_install -a
++
++endif
++

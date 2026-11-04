@@ -1667,3 +1667,16 @@ DBus test edge; full D-Bus/systemd still correctly require AppArmor libraries.
 Round008 is the normal64-source request plan, not another3-package test.
 Bounded source intake005 adds json-c/keyutils and retries libevent/libtextwrap
 from frozen metadata; acquisition is still pending, no new lock registered.
+
+2026-11-04 solid closure pass: round008 completed without new outputs; remaining
+fallout is dependency/foundation, not35 source compiler failures. Added explicit
+chain map docs/remaining-closure-20261104.md. Selected existing elfutils
+pkg.elfutils.nodebuginfod for required ELF/DWARF libraries without the unselected
+HTTP debug service. Added explicit AppArmor stage1 library bootstrap packaging;
+normal profile still selects11 packages, stage1 selects2 C-library packages.
+Full AppArmor rebuild remains required. Initial draft009 failed source patch
+parsing; corrected patch passes git apply --check, native dh_listpackages and
+stage1 recipe dry-runs. Actual cross build pending round010, queued after009.
+Crypto producer intake006 is bounded to libgcrypt20/libgpg-error/kmod discovery.
+Earlier4-producer cache005 remained incomplete due Snapshot failures; no lock
+registered. Target Python/GIR and full restored-glibc source gates remain open.
