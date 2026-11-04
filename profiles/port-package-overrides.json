@@ -79,8 +79,8 @@
       "purpose": "Existing Debian library-only profile supplies GnuTLS libunbound dependency; DNS server and Python outputs are not selected"
     },
     "glib2.0": {
-      "build_profiles": "cross,nocheck,noinsttest",
-      "purpose": "Use existing Debian nocheck and noinsttest together to exclude build/installed-test dependencies; retain normal runtime libraries and services"
+      "build_profiles": "cross,nocheck,noinsttest,nogir",
+      "purpose": "Existing Debian nogir builds C libraries without cross-exe-wrapper target execution; GIR typelib outputs remain an explicit later acceptance gate"
     },
     "dbus": {
       "build_profiles": "cross,nocheck,noinsttest",

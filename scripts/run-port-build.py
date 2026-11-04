@@ -10,6 +10,7 @@ import json
 import subprocess
 import time
 from pathlib import Path
+from build_failure_evidence import archive_failures
 
 p = argparse.ArgumentParser(description=__doc__)
 for name in ['project', 'base', 'plan', 'output', 'native-audit']:
@@ -109,7 +110,15 @@ try:
         record = json.loads(receipt.read_text())
         if record.get('status') not in ['selected-build-stages-completed', 'completed-with-fallout']:
             continue
-        failures = [x for x in record.get('fallout', []) if x.get('input_fingerprint') and x.get('failure_category')!='archive-acquisition']
+        failures = []
+        for x in record.get('fallout', []):
+            if not x.get('input_fingerprint') or x.get('failure_category')=='archive-acquisition':
+                continue
+            # Older summaries could hide apt fetch errors outside the700-line
+            # tail. Preserve receipts but do not freeze a transport failure.
+            if x.get('failure_stage') in ['install-deps','apt-get-update','apt-get-dist-upgrade'] and x.get('work') and archive_failures(Path(x['work'])/'sbuild.log'):
+                continue
+            failures.append(x)
         if failures:
             historical_failures.extend(failures)
             r['prior_failure_receipts'].append({'receipt':str(receipt), 'sha256':sha(receipt)})

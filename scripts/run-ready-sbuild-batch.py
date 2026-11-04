@@ -7,6 +7,7 @@ changes; it does not implement dependency resolution or execute target programs.
 """
 import argparse,collections,concurrent.futures,hashlib,json,re,subprocess
 from pathlib import Path
+from build_failure_evidence import archive_failures
 p=argparse.ArgumentParser(description=__doc__)
 for n in ['project','base','plan','output']:p.add_argument('--'+n,type=Path,required=True)
 a=p.parse_args();plan=json.loads(a.plan.read_text());a.output.mkdir(exist_ok=False)
@@ -117,7 +118,9 @@ try:
      item['diagnostics']=errors[-8:]
      item['failure_stage']=next((s.split(':',1)[1].strip() for s in tail if s.startswith('Fail-Stage:')),'needs-review')
      journal=(a.output/(item['package']+'.log')).read_text(errors='replace')[-12000:]
-     text='\n'.join(errors)+journal
+     acquisition=archive_failures(source_log)
+     item['archive_diagnostics']=acquisition
+     text='\n'.join(errors+acquisition)+journal
      if re.search(r'oom-kill|OOM killer|Error creating chroot|Permission denied',text):category='infrastructure'
      elif re.search(r'Syntax error .*apt.conf|apt-utils.*not installed',text):category='build-root-configuration'
      elif re.search(r'TooManyRequests|No healthy backends|Failed to fetch|503',text):category='archive-acquisition'

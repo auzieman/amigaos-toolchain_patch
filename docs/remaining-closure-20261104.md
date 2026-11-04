@@ -28,3 +28,11 @@ The standard full-scope pipeline schedules all dependency-ready jobs, max4;
 no known-blocked consumer is submitted just to fill a worker slot. Crypto intake006
 is a separately bounded metadata/archive job. Each actual result, not this plan,
 advances acceptance. No new image/QEMU claim is made.
+
+Round010 update: elfutils completed11 inspected debs. GLib can now reach its
+GIR wrapper gate; its existing nogir profile is selected in011 for C-library
+builds without target execution, leaving typelib/full introspection acceptance
+explicit. AppArmor stopped before compilation on native autoconf-archive504.
+The retry classifier now preserves acquisition errors outside long summary
+tails and rechecks historical install-failure logs rather than freezing a
+network outage as an unchanged source defect. Round011 consumes these changes.

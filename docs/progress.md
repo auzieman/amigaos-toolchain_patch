@@ -1182,3 +1182,10 @@ patch application,2-versus11 package selection and recipe dry-runs verified,
 actual cross-build pending. Round010 queued after009; crypto producer intake006
 running. Snapshot acquisition still blocks4 missing producers; no unverified
 sources or new runtime acceptance claimed.
+
+2026-11-04: elfutils now passes,11 inspected .debs. AppArmor blocked by native
+archive504 before compilation. Selected supported GLib nogir to avoid target
+GIR execution during the C-library bootstrap. Fixed classification losing apt
+fetch errors beyond long summaries, including retrospective retry handling;
+2 tests and real AppArmor-log reproduction passed. Round011 running. Snapshot
+source/native acquisition remains a distinct unresolved external limitation.

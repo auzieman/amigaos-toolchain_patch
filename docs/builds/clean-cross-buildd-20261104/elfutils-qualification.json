@@ -1,0 +1,56 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "elfutils",
+  "build_profiles": "cross,nocheck,pkg.elfutils.nodebuginfod",
+  "packages": {
+    "libasm1t64-dbgsym_0.192-4_powerpcspe.deb": {
+      "sha256": "ae8836d67f3b574b63343dec9e2e07fdd408fe6c68e6834fd10a5f409f0eea3c",
+      "bytes": 52092
+    },
+    "libelf1t64-dbgsym_0.192-4_powerpcspe.deb": {
+      "sha256": "8b5cd651c5bdbc693a491148b6572f8b97c9db4ed5d2721205aa6abd83251462",
+      "bytes": 198292
+    },
+    "libelf-dev_0.192-4_powerpcspe.deb": {
+      "sha256": "dfe48adf2eb463b052abbebf538f5bafda01102f64ebe824b27db9c071678c39",
+      "bytes": 92312
+    },
+    "libelf1t64_0.192-4_powerpcspe.deb": {
+      "sha256": "ed58048a91f97714f7b5e1e45c6fd030fbbb7e97e728a3791096efe43d270a8a",
+      "bytes": 190036
+    },
+    "elfutils_0.192-4_powerpcspe.deb": {
+      "sha256": "14a6f646324874e1aa9b9d634c0ecd5e9673e9eadd9b22601fe6f49f4020ca60",
+      "bytes": 410252
+    },
+    "libdw1t64-dbgsym_0.192-4_powerpcspe.deb": {
+      "sha256": "48a8a77446de1a1f3672918128d7bd01e429a42f157c8808e4524323650f6208",
+      "bytes": 1032492
+    },
+    "libasm1t64_0.192-4_powerpcspe.deb": {
+      "sha256": "094f35aa04db05df96ac9aa4a457aab8d32150f7b52bb0f3bda935be66ba62f1",
+      "bytes": 28756
+    },
+    "libdw-dev_0.192-4_powerpcspe.deb": {
+      "sha256": "48bebb663ff5b2a67a988daf56e284d1d9a1efead19bb6a0322e77e9d08c298c",
+      "bytes": 326872
+    },
+    "libdw1t64_0.192-4_powerpcspe.deb": {
+      "sha256": "8e2fa830996d92d733cadd89e43fbf5093c1a9d553d81eced667daf38ef02b60",
+      "bytes": 248084
+    },
+    "elfutils-dbgsym_0.192-4_powerpcspe.deb": {
+      "sha256": "db02824f8802b8f53107799d750f35666042f9bdefb35e445afeec3aafcd29f4",
+      "bytes": 2443772
+    },
+    "libasm-dev_0.192-4_powerpcspe.deb": {
+      "sha256": "ec8d256558e2a80fa20ffeee6bdf56774c3c688e9293749e856c2291aa32cb61",
+      "bytes": 30412
+    }
+  },
+  "payload_inspection_sha256": "82920331722fd979e684ef1326286ddbbccc84de2bd17b143fb7302251ff017f",
+  "target_execution": false,
+  "target_installation": false,
+  "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-010-base-libraries-elfutils/receipt.json",
+  "receipt_sha256": "04c53376af5b5d21ed29a2fa813d4fa91444f70e78f6292bbb94f18f2b17403d"
+}

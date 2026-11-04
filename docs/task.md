@@ -1680,3 +1680,23 @@ stage1 recipe dry-runs. Actual cross build pending round010, queued after009.
 Crypto producer intake006 is bounded to libgcrypt20/libgpg-error/kmod discovery.
 Earlier4-producer cache005 remained incomplete due Snapshot failures; no lock
 registered. Target Python/GIR and full restored-glibc source gates remain open.
+
+2026-11-04 round010: elfutils passed with11 inspected .debs using the existing
+nodebuginfod profile. AppArmor did not compile: native autoconf-archive download
+504, not a bootstrap compiler error. Native-cache-fill002 query recovery also
+timed out; original archive remains unavailable. No newer source selected.
+
+GLib's next blocker is cross-exe-wrapper from GIR Build-Depends-Arch, not an
+ordinary missing compiler tool. The actual frozen control/Package-List support
+nogir; selected cross,nocheck,noinsttest,nogir for the C-library slice, retaining
+GIR typelibs as an explicit later requirement. Harfbuzz does not declare that
+profile, so it was not blindly assigned nogir.
+
+Found shared failure-retention defect: an apt error outside the last700 log
+lines was classified as permanent dependency-installation. New bounded archive
+scan retains transport evidence across the entire log; controller also examines
+raw logs before importing historical deterministic install failures.2 regression
+tests passed (long summary hides fetch error; real source error stays separate),
+and the scanner reproduced the actual AppArmor504. Round011 submitted with
+GLib profile and corrected retry classification. Crypto source intake006 still
+failed Snapshot acquisition; no unverified lock registered.
