@@ -1588,3 +1588,22 @@ with apt-utils and let sbuild install each source's dependencies normally; the
 installed native tool superset is not universally compatible with Build-Conflicts.
 Do not submit another unchanged broad-template round as a cure. Preserve the
 existing template and receipts while qualifying an isolated child/base.
+
+2026-11-04 workflow/prompt review: reconciled the Debian-port skill, continuation
+prompt, AGENTS provisioning paragraph, build contract and pipeline guide. They
+had conflated broad server dependency provisioning with each disposable root's
+installed state. Current instructions retain broad caches/tools but require
+clean source roots, normal Build-Conflicts handling and qualification through
+the actual sbuild namespace/resolver before widening a batch. Repeated failure
+entries must be grouped by unique source/shared cause; a zero-progress round
+requires diagnosis rather than another equivalent submission.
+
+Reviewed against Debian Trixie sbuild(1), Debian CrossCompiling and Trixie
+architecture documentation. ppc64el is maintained, but its ABI is not SPE; use
+its packaging mechanics without substituting target binaries/flags. Reviewed
+behavior for the observed libedit-dev conflict, cache namespace mismatch and
+blocked consumers: qualify the environment/producers, not consumer workarounds.
+No builder/profile/patch changes, build submission or new acceptance claimed.
+Diff/frontmatter/reference checks passed. Skill quick_validate could not run
+because both local Python interpreters lack PyYAML; no environment changes were
+made merely to validate a documentation edit.

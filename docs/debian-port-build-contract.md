@@ -10,11 +10,14 @@ binary packages. Keep native tools native and preserve Debian installation.
 
 Current package/desktop entrypoint: [.agents/skills/tabor-debian-port](../.agents/skills/tabor-debian-port/SKILL.md).
 The [broad build-server provisioning](builds/port-build-server-20261102/README.md)
-uses the frozen snapshot and original DSC build dependencies to prepare a native
-tool superset and persistent download cache. This supersedes repeatedly minimal
-native provisioning; per-source sbuild/apt still owns actual cross dependencies.
-Expand intake beyond the recipe inventory when Debian metadata identifies
-missing producers. The existing inventory is not a complete port closure.
+retains native tools and downloads on the R730. Each source build starts from
+a qualified clean buildd base; sbuild/apt installs its dependencies and honors
+Build-Conflicts. Broad provisioning does not mean universally cloning the
+installed host-tool superset into disposable roots. Preserve verified source,
+apt and target-artifact caches independently of installed package state.
+Use authenticated metadata to extend missing producer intake without changing
+the frozen baseline. This clarification supersedes the earlier universal
+native-template wording; old provisioning receipts remain historical evidence.
 
 User direction, 2026-11-01: this is a Debian Trixie source rebuild for the
 A1222's powerpcspe ABI, founded on our patched compiler, runtime and board

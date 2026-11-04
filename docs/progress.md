@@ -1127,3 +1127,12 @@ already installed in the broad template versus its Build-Conflicts. A broad
 archive cache is useful; a universally preinstalled dependency superset is not
 necessarily coinstallable. Next root qualification must cover Build-Conflicts
 and the actual sbuild cross-resolver path, not only apt check on the template.
+
+2026-11-04: Revised the Debian-port skill and starter prompt; aligned AGENTS,
+contract and pipeline documentation. Broad server caches/tools are distinct
+from clean per-source installed state. Actual sbuild-boundary qualification,
+shared-blocker grouping and evidence-driven retries now replace broad-template
+wording that conflicted with standard Debian roots. Debian's ppc64el workflow
+is a mechanics reference, not an SPE ABI replacement. Documentation only;
+clean-root/build qualification remains pending. Diff and manual structure
+checks passed; skill validator unavailable locally due to missing PyYAML.

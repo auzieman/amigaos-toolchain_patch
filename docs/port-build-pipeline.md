@@ -23,7 +23,7 @@ zlib. The pipeline uses Debian's installation set instead.
 Debian dose-builddebcheck evaluates architecture/profile-qualified requirements;
 sbuild/apt installs their genuine packages in disposable roots. The package
 inventory is not a replacement solver. Up to four ready package jobs use the
-completed native dependency template and disk-backed temporary roots, each
+qualified clean buildd base and disk-backed temporary roots, each
 bounded to4 CPUs/6GiB. Successful artifacts accumulate in the pool. Ready sets
 are recalculated after each wave; unrelated failures do not stop ready work.
 
@@ -105,3 +105,21 @@ checks /usr/lib/apt/solvers/apt and otherwise declines its cross resolver.
 Both root recipes install that native prerequisite; a child-root correction
 retains the frozen parent and baseline. Verify the resulting package logs
 actually use sbuild-cross-resolver before claiming that correction accepted.
+
+
+Workflow qualification correction (2026-11-04): broad native provisioning and
+persistent download caches belong on the server. Disposable source roots must
+honor each source's Build-Conflicts; the broad installed template is not the
+default qualification target. Round005 util-linux conflicts with its preinstalled
+libedit-dev; round006 failed earlier on mapped cache ownership. Neither proves
+an ordinary source compiler defect. The namespace cache regression now passes,
+but a clean root plus representative full sbuild builds and cross-resolver
+invocation still needs acceptance. Do not describe this documentation change
+as a qualified root or launch another equivalent broad-template retry.
+
+Authoritative mechanics: [Trixie sbuild manual](https://manpages.debian.org/trixie/sbuild/sbuild.1.en.html)
+(clean build environments, --build/--host and dependencies/conflicts),
+[Debian cross compiling](https://wiki.debian.org/CrossCompiling), and
+[Trixie architectures](https://www.debian.org/releases/trixie/).
+Trixie ppc64el support is evidence of maintained PowerPC packaging practice,
+not evidence of a supported powerpcspe archive or interchangeable ABI.

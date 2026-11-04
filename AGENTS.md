@@ -69,14 +69,13 @@ installability; sbuild/apt installs the actual native tools and SPE development
 packages before compiling. Recheck after accepted artifacts change. Do not
 queue known-blocked consumers merely because their names follow a failed source.
 
-Build-server provisioning (user direction, 2026-11-02): preinstall the full
-selected source scope's available native build dependencies and retain the
-download cache on the R730; use available disk space rather than repeated
-minimal dependency provisioning. Use the frozen snapshot and real apt state.
-Prepare separate templates for genuinely incompatible dependency sets. Extend
-the SPE source inventory to missing library producers and their closure;
-an inventory boundary is not a reason to leave the build service idle. Native
-prerequisite installation does not replace compiling/installing SPE libraries.
+Build-server provisioning (user direction, 2026-11-02; clarified after the
+2026-11-04 workflow review): keep the selected scope's native tools and broad
+verified download cache on the R730. Each source receives a qualified clean
+buildd root; sbuild/apt installs its dependencies and honors Build-Conflicts.
+Do not equate broad server provisioning with a universally preinstalled root.
+Preserve the frozen baseline and genuine package state. Extend SPE dependency
+producer intake from Debian metadata; native tools do not replace SPE libraries.
 
 
 Harness boundary (user clarification, 2026-11-04): this is a Debian port, not

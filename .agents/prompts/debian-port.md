@@ -1,9 +1,18 @@
-Use $tabor-debian-port. Continue the frozen Trixie powerpcspe port on the R730.
-Provision the full selected sources' native build dependencies and package
-cache before compiling. Extend source intake to the missing target dependency
-producers using Debian metadata, keeping the selected baseline fixed. Run up
-to four independent dependency-ready sbuild jobs; retain failures and continue
-other ready work. Resolve shared infrastructure and dependency closure before
-making individual source patches. Preserve Debian package installation and
-configuration behavior. Report actual worker activity and the remaining gate
-to an apt-installed X11/E workstation, then validate the new image in QEMU.
+Use $tabor-debian-port. Continue the frozen Trixie powerpcspe workstation port
+on the R730. First reconcile the last completed round, active jobs, accepted
+artifacts and grouped blockers with the actual submitted input hashes. If the
+last round made no progress, diagnose the shared blocker before resubmission.
+
+Use standard Debian cross-build mechanics and clean disposable buildd roots,
+with broad persistent download caches and real target package artifacts.
+Provision native tools on the server without forcing the whole installed
+superset into every root. Let sbuild/apt honor each source's dependencies and
+Build-Conflicts. Qualify environment changes through the real sbuild namespace,
+cache and cross-resolver path and representative builds before a broad batch.
+
+Once qualified, build up to four independent ready sources, retain failures
+and continue other ready work. Use frozen Debian metadata for missing producer
+intake and supported bootstrap profiles. Preserve required full rebuilds,
+normal package setup and the powerpcspe ABI. Report new accepted outputs and
+shared blockers, then advance apt-installed image and QEMU validation when
+its actual closure is ready. Do not treat retries or source counts as success.
