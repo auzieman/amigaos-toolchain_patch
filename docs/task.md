@@ -1638,3 +1638,17 @@ is progressing after native helper downloads recovered. Queued normal
 port-pipeline-20261104-007 after qualification002, using the now exercised clean
 root and accumulating real artifacts. Debian metadata decides newly ready work
 (e.g. PAM development output for libcap2); do not count queued sources as passes.
+
+2026-11-04 follow-up: util-linux bootstrap qualification002 succeeded with14
+.debs and verified payload inspection, including real libuuid/libblkid/libmount
+development outputs. PAM7 + util-linux14 are bootstrap binary outputs, not21
+completed source ports. Required full builds and runtime remain open. Wider
+round007 is active with the clean root and these inputs. No new compiler or
+consumer patch indicated by current evidence.
+
+Source cache correction retains per-producer download failures and continues
+independent sources. Same frozen origin/query recovery remains size/SHA256
+checked; incomplete components never enter the lock. Three native fault tests
+passed (fall-through, cache reuse, corrupt-file rejection). Live closure-cache004
+is retrying the existing bounded libevent/libtextwrap intake; do not claim
+sources cached until its receipt and hashes qualify them.

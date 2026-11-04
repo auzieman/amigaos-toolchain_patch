@@ -1,0 +1,81 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "package": "util-linux",
+  "source_version": "2.41.5-0+deb13u1",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,stage1,pkg.util-linux.noverity",
+  "bootstrap": true,
+  "required_full_rebuild": true,
+  "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "native_root_sha256": "54d0df59623706360925f2b7a81952dac5824bdbe424ba3654cb0f1ee1acb9f0",
+  "payload_inspection_sha256": "89b759857474228f9d83c64870d98d2d834a5cc2a9a96d565e22b9a56896642d",
+  "packages": {
+    "libblkid-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "fc37a6394b248f12ff7c0ff1ba429c11f7c0a2596a38d3717e9d3709c2fd4b04",
+      "bytes": 204968
+    },
+    "libmount-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "ea8d67d2524a1c25f8df3c6c4da879e945478ac1d396349784d998aef3b11a93",
+      "bytes": 30740
+    },
+    "fdisk-dbgsym_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "0b2caa9797ea7a5b89f10acd82ab0b6db98656cfc5444ae881930879eee82212",
+      "bytes": 25080
+    },
+    "libmount1_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "d1884cefbda7dbe15ba73e3864e348faf3a0513c3036a5e29dfd0cd3e1efec91",
+      "bytes": 188400
+    },
+    "liblastlog2-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "569b45129505a6923556491c2f406c0c13e819603c43093058fe60ce063bcec5",
+      "bytes": 34112
+    },
+    "libfdisk-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "7b3b6abd163870671ad51bc1f56004d1e5b4eba650e37e60f0d35bcab67d9659",
+      "bytes": 29616
+    },
+    "libfdisk1_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "874fa12af1c95a2025d4d37626fe17bde6bbf5af2838c2673f77d9b663433060",
+      "bytes": 211720
+    },
+    "libblkid1_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "5635a52d1471caadcad2047beff35fa53a77d91daa07e493f900a94e4f5b14ce",
+      "bytes": 173336
+    },
+    "libsmartcols1_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "b70f30da50840f44a1cd222201656eb02a7ab6311b2a1f0e77f9a942f93af08d",
+      "bytes": 137152
+    },
+    "liblastlog2-2_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "1fda30f938dc8fe041be82bf082b7b954d2d66f3264b9561f694e6a027886a53",
+      "bytes": 28276
+    },
+    "libsmartcols-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "4dceb4c53bc1b9885053b8f2e6582f3d9437b62fb0411f540b45a43be1b8953c",
+      "bytes": 26908
+    },
+    "fdisk_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "9561e15062664eccd02443709c38faaafa8f035224915935e2a5741b754b8cc0",
+      "bytes": 147008
+    },
+    "uuid-dev_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "c4e5599eb300b62deb8c39c9626e5b590fc06598fef96d437f69bbaad6c5f0de",
+      "bytes": 48496
+    },
+    "libuuid1_2.41.5-0+deb13u1_powerpcspe.deb": {
+      "sha256": "9ad8aa9403dd351875457e93be6b7afb9981cded050934b7b02f02e9222b96d3",
+      "bytes": 39396
+    }
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/port-qualification-20261104-002-base-libraries-util-linux",
+    "seeded_archives": 1164,
+    "promoted_archives": 5,
+    "retained_archives": 1169
+  },
+  "target_execution": false,
+  "target_installation": false,
+  "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-qualification-20261104-002-base-libraries-util-linux/receipt.json",
+  "receipt_sha256": "fd79f7599b4d7b65eb5c795d3b9fdcd195aa3b00f959d03d72f74b86166fec5f"
+}

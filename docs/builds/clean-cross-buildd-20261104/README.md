@@ -53,3 +53,20 @@ boundary passed, the normal workstation round port-pipeline-20261104-007 is
 queued after qualification002, without overlapping workers. It reuses accepted
 artifacts/caches and schedules up to4 Debian-dependency-ready sources. Later
 producer/consumer results and image/QEMU gates remain pending.
+
+Util-linux qualification002 also passed:14 .debs with package hashes and
+ELF32BE PowerPC payload inspection verified. Bootstrap output includes libuuid,
+libblkid, libmount and their development packages; full util-linux remains
+required and currently needs target audit development files. See
+util-linux-qualification.json. Both selected clean-root qualification sources
+now have real accepted build outputs. Normal round007 is active.
+
+Source intake follow-up: the old cache tool raised on the first producer's
+failed download, so an unavailable libevent DSC prevented trying independent
+libtextwrap. It now retains per-source errors and continues, registering only
+complete size/hash-verified components. A bounded retry may request the same
+frozen URL with download query; no mirror, source version or hash changes.
+Three fault-injected native tests passed: first producer failure does not stop
+later intake; verified cached archives cause no new request; corrupt bytes
+never enter the source lock. Synthetic fixtures establish behavior, not source
+archive authenticity. Real closure-cache004 remains a separate acquisition run.

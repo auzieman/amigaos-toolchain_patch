@@ -1154,3 +1154,9 @@ producer source intake also hit Snapshot; no unverified sources accepted.
 Required full PAM rebuild/runtime acceptance remain open. Util-linux passed
 old dependency conflict and recovered its downloads. Normal workstation round007
 queued after qualification002, max4 dependency-ready jobs, no overlapping batch.
+
+2026-11-04: util-linux stage1 passed too:14 inspected SPE .debs. Together with
+PAM's7, both clean-root qualification sources now have accepted bootstrap
+outputs. Round007 is active; full rebuild/runtime gates remain. Source-cache
+fall-through fixed and3 injected-failure/reuse/integrity tests passed on R730;
+live source acquisition is tracked independently from the fixture results.
