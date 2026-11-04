@@ -25,14 +25,16 @@ def remote(args, root=False, **kwargs):
     return subprocess.run(['python3', str(helper / ('sudo.py' if root else 'remote.py')),
                            shlex.join(list(map(str, args)))], check=True, **kwargs)
 
+submission_unit = 'tabor-port-pipeline-next' if a.after_run else 'tabor-port-pipeline'
 for unit in ['tabor-port-pipeline', 'tabor-port-pipeline-next', 'tabor-ready-batch', 'tabor-indep-batch',
              'tabor-sbuild-proof', 'tabor-xorgproto-proof']:
     check = subprocess.run(['python3', str(helper / 'remote.py'),
         shlex.join(['systemctl', 'is-active', '--quiet', unit])], capture_output=True)
-    if check.returncode==0 and a.after_run and unit=='tabor-port-pipeline':
+    if check.returncode==0 and a.after_run and unit in ['tabor-port-pipeline','tabor-port-pipeline-next']:
         expected=base+'/work/'+a.after_run
         command=subprocess.check_output(['python3',str(helper/'remote.py'),shlex.join(['systemctl','show','--value','--property=ExecStart',unit])],text=True)
         assert expected in command,'Active pipeline differs from the requested predecessor'
+        submission_unit = 'tabor-port-pipeline-next' if unit=='tabor-port-pipeline' else 'tabor-port-pipeline'
     else:assert check.returncode != 0, 'Existing package controller/job: ' + unit
 snapshot = base + '/submissions/' + a.run_id + '/project'
 remote(['python3', '-c', 'from pathlib import Path;Path(' + repr(snapshot) + ').mkdir(parents=True,exist_ok=False)'])
@@ -48,7 +50,7 @@ with tarfile.open(fileobj=payload, mode='w') as tar:
         tar.add(project / name, arcname=name, filter=include)
 assert payload.tell() < 32 * 1024 * 1024, 'Unexpectedly large submission; review inputs'
 remote(['tar', '-xf', '-', '-C', snapshot], input=payload.getvalue())
-command=['systemd-run', '--unit='+('tabor-port-pipeline-next' if a.after_run else 'tabor-port-pipeline'), '--collect',
+command=['systemd-run', '--unit='+submission_unit, '--collect',
     '--property=CPUQuota=100%', '--property=MemoryMax=1G', '--property=TasksMax=128',
     'python3', snapshot + '/scripts/run-port-build.py', '--project', snapshot,
     '--base', base, '--plan', snapshot + '/profiles/sbuild/ready-core-batch.json',

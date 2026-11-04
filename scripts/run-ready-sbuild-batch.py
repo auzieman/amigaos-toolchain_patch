@@ -113,7 +113,7 @@ try:
      source_log=Path(item['work'])/'sbuild.log'
      with (source_log if source_log.exists() else a.output/(item['package']+'.log')).open(errors='replace') as f:
       tail=list(collections.deque(f,maxlen=700))
-     errors=[s.strip()[:400] for s in tail if re.search(r'error:|FAILED:|undefined reference|cannot find|unsat-dependency:|Fail-Stage:|OOM|oom-kill|Permission denied|^E:|Depends:|Not using sbuild-cross-resolver',s)]
+     errors=[s.strip()[:400] for s in tail if re.search(r'error:|FAILED:|undefined reference|cannot find|unsat-dependency:|Fail-Stage:|OOM|oom-kill|Permission denied|^E:|Depends:|trying to overwrite|dpkg: error|Not using sbuild-cross-resolver',s)]
      item['diagnostics']=errors[-8:]
      item['failure_stage']=next((s.split(':',1)[1].strip() for s in tail if s.startswith('Fail-Stage:')),'needs-review')
      journal=(a.output/(item['package']+'.log')).read_text(errors='replace')[-12000:]
@@ -121,6 +121,7 @@ try:
      if re.search(r'oom-kill|OOM killer|Error creating chroot|Permission denied',text):category='infrastructure'
      elif re.search(r'Syntax error .*apt.conf|apt-utils.*not installed',text):category='build-root-configuration'
      elif re.search(r'TooManyRequests|No healthy backends|Failed to fetch|503',text):category='archive-acquisition'
+     elif re.search(r'trying to overwrite|dpkg: error processing archive',text):category='package-coinstallation'
      elif item['failure_stage'] in ['install-deps','apt-get-update']:category='dependency-installation'
      elif re.search(r'dh_missing|dh_install:|dpkg-gencontrol:',text):category='packaging'
      elif re.search(r'error:|undefined reference',text):category='source-build'

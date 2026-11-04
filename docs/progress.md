@@ -1077,3 +1077,32 @@ remains required. New artifacts made libSM, Fontconfig and e2fsprogs ready,
 and those sources started automatically. PAM was given back on Snapshot504
 fetching native libfakeroot; newt's earlier attempt preceded accepted S-Lang.
 No fresh image/boot validation is claimed. See builds/native-cross-resolver-20261104.
+
+
+2026-11-04 common-failure evaluation: libSM, Fontconfig and e2fsprogs all
+failed before compilation on the same uuid-dev shared man page. Native
+uuid_generate_random.3 is expanded content, while stage1 uuid-dev ships a
+one-line .so alias because its Debian override skips dh_installman. The
+primary target page is already byte-identical to the native expanded alias
+(SHA256:252d2959ef7abba24e6c74941174f5f85adf8533812bdbfaf2b7b8da6837eecb).
+Normal native dh_installman restored exact native-compatible alias content in
+regression002. The stage1 patch now retains that helper; full builds unchanged.
+No force-overwrite, binary-file substitution or consumer patch is involved.
+
+Artifact intake now rejects superseded source-patch hashes as well as wrong
+source versions, so old UUID artifacts cannot silently re-enter the new pool.
+Archive-acquisition failures are no longer treated as immutable source errors
+for cross-round retry suppression. Improved diagnostics retain coinstallation
+errors. These supply corrected real inputs to Debian apt/sbuild.
+
+PAM log confirms five libfakeroot retries, followed by504. A bounded transport
+probe checked the exact frozen libfakeroot file against authenticated-index
+SHA256: primary Snapshot returned504 and snapshot-cloudflare returned403.
+Neither is a verified usable fallback in this test. No live mirror/base
+switch occurred; retained verified local archives remain necessary.
+
+Round004 started during diagnosis and was left running. The revised runner
+can use the free one of its two controller slots to wait after an active
+follow-up. Round005 is queued after004 with the validated UUID helper fix and
+artifact provenance guard. Full package rebuild/coinstallation remains
+pending; the successful native regression alone does not close that gate.

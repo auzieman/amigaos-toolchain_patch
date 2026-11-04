@@ -14,3 +14,10 @@ source archives are unchanged; the runner prepares a separate reviewed DSC.
 Round008 additionally selected pam_lastlog2 from native PAM headers. The
 stage1-only correction includes --disable-pam-lastlog2, confirmed in the pinned
 original configure.ac. No generic PAM module is omitted from full builds.
+
+Three later consumers exposed a shared-file coinstallation failure: stage1
+skips dh_installman, leaving uuid_generate_random.3 as a .so stub while native
+uuid-dev contains expanded content. The main target page already matches the
+native expanded alias exactly. The patch therefore retains normal
+dh_installman --language=C in stage1. Native packaging regression verifies
+byte-compatible output; complete rebuild/coinstallation acceptance is separate.

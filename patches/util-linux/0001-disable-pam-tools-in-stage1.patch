@@ -8,3 +8,15 @@
  else
  	CONFOPTS += --with-systemd --with-udev --with-audit
  	CONFOPTS += --enable-newgrp --enable-login --enable-nologin
+@@ -146,11 +147,7 @@
+ 	rm -rf debian/*-udeb/usr/share/doc
+ 
+ override_dh_installman:
+-ifneq ($(filter stage1,$(DEB_BUILD_PROFILES)),)
+-	:
+-else
+ 	dh_installman --language=C
+-endif
+ 
+ override_dh_missing:
+ 	dh_missing --list-missing

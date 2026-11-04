@@ -1,0 +1,44 @@
+{
+  "uuid-manpage-regression-002": {
+    "status": "normal-debhelper-manpage-coinstallation-regression-passed",
+    "target_execution": false,
+    "receipt_sha256": "ed00d09c4165e8dbf3b0c000da4c1cc97c0b91b48e594f0700ef25e2dc23e320",
+    "package_sha256": "dff35b1d219ead596acb9b3fdb72d38335badd204ce5615041f1e89ac48d47ce",
+    "before_sha256": "801f9fc358099f80f0e0ca7cf6ff2a3b4b5f323fe9046228a481086b14fd666c",
+    "after_sha256": "252d2959ef7abba24e6c74941174f5f85adf8533812bdbfaf2b7b8da6837eecb",
+    "native_expected_sha256": "252d2959ef7abba24e6c74941174f5f85adf8533812bdbfaf2b7b8da6837eecb",
+    "helper_command": [
+      "systemd-nspawn",
+      "--quiet",
+      "--register=no",
+      "--timezone=off",
+      "--read-only",
+      "--directory=/srv/data1/tabor-build/linux-live-001/work/native-cross-resolver-001/root",
+      "--bind=/srv/data1/tabor-build/linux-live-001/work/uuid-manpage-regression-002/fixture:/mnt",
+      "--chdir=/mnt",
+      "dh_installman",
+      "--language=C"
+    ]
+  },
+  "snapshot-transport-check-001": {
+    "target_execution": false,
+    "native_index_receipt_sha256": "678525bec2be0407e4bbfce40b1c98f6faba80a5bf5ce5bd8fa6dffa65ccfc7c",
+    "package": "libfakeroot",
+    "version": "1.37.1.1-1",
+    "expected_sha256": "9fe004890f90884c23c24c4fb7eaf5afd55b0b79f3bc05c498a9f54191098a81",
+    "items": [
+      {
+        "host": "snapshot.debian.org",
+        "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/fakeroot/libfakeroot_1.37.1.1-1_amd64.deb",
+        "status": "failed",
+        "error": "HTTP Error 504: Gateway Timeout"
+      },
+      {
+        "host": "snapshot-cloudflare.debian.org",
+        "url": "https://snapshot-cloudflare.debian.org/archive/debian/20261102T220000Z/pool/main/f/fakeroot/libfakeroot_1.37.1.1-1_amd64.deb",
+        "status": "failed",
+        "error": "HTTP Error 403: Forbidden"
+      }
+    ]
+  }
+}
