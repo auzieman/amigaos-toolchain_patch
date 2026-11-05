@@ -1773,3 +1773,11 @@ ISO and registered-user update sources; opened product page in existing Opera
 session per user preference. No purchase/account access/download of commercial
 ISO. Prefer existing registration/media access where applicable; do not assume
 cross-edition entitlement. Guest remains prepared, awaiting matched boot files.
+
+## OS4 SSH side option — 2026-11-05
+
+Prepared a public-key/read-only diagnostic ZIP in LAN FTP downloads. Server installation remains unqualified: native OS4 OpenSSH listing provides clients; BebboSSH m68k source has classic MMIO and its Linux reference connection timed out. See [evidence and bundle](amigaos-ssh-preflight-20261105.md). No server, startup or existing Amiga config changed. Next: inspect the device report and qualify a native server or reviewed OS4 port before installation.
+
+## Layered rescue USB — 2026-11-05
+
+Built FAT/ext4 disk-root rescue image with mem=3500M and a temporary U-Boot script. QEMU disk-root boot, key SSH, PTY and matched fractal passed; known fenv failure remains. Unchanged physical kernel/DTB, hardware boot still unverified. See [build evidence](builds/layered-rescue-20261105/README.md). No full Trixie/GCC14 completion claimed.

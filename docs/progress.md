@@ -1241,3 +1241,7 @@ configured PCI devices and stopped at expected missing initrd. No OS install
 or running guest claimed. Matching Pegasos media/Kickstart remain needed;
 existing e500/SPE work unchanged. Scripts, artifact hashes and exact serial
 receipt in docs/builds/amigaos-pegasos2-20261105/.
+
+## Layered rescue USB — 2026-11-05
+
+Built FAT/ext4 disk-root rescue image with mem=3500M and a temporary U-Boot script. QEMU disk-root boot, key SSH, PTY and matched fractal passed; known fenv failure remains. Unchanged physical kernel/DTB, hardware boot still unverified. See [build evidence](builds/layered-rescue-20261105/README.md). No full Trixie/GCC14 completion claimed.

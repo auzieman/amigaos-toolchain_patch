@@ -1,0 +1,105 @@
+{
+  "status": "layered-rescue-image-verified",
+  "image_sha256": "417d4fd0f557b058f45240831b13ed968eaedd41b64078b7d8699527db2801bf",
+  "image_bytes": 2147483648,
+  "root_partuuid": "a1221105-02",
+  "bootargs": "root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1",
+  "rescue_initramfs_input_sha256": "592fcbf6edbba6ce74e8618693b245084778578869b38801ac731cfdf81fdc4c",
+  "board_config_sha256": "1b0bb9ea384f7d95341559c154688245cd9bd3ff7f2b41e79d40d80ca1c496fa",
+  "boot_files_sha256": {
+    "boot/uImage": "b59bcd4545911fe86fc6820eb8903b65d6c04b3795d07a584f5f455c5e7e9650",
+    "boot/tabor.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d",
+    "boot.scr": "cc5faaeb387ece18e6461985dd98912771f87dccf822ad6b03816c86dd94a89b",
+    "boot.cmd": "16307ff8e66f03979154de025da05b99d281b227e3b8ac3fff0f5b8b6ad77d74",
+    "BOOT-README.txt": "b3b15d99d0bdc0bbaea51d082f59e1fa6f8f53b542242cac00fc23931164e8ef"
+  },
+  "kernel_rebuilt": false,
+  "initramfs_used_for_boot": false,
+  "e_desktop_installed": false,
+  "physical_boot": false,
+  "block_device_written": false,
+  "commands": [
+    [
+      "mkimage",
+      "-A",
+      "ppc",
+      "-O",
+      "linux",
+      "-T",
+      "script",
+      "-C",
+      "none",
+      "-n",
+      "A1222 ext4 rescue",
+      "-d",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.cmd",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.scr"
+    ],
+    [
+      "mkfs.fat",
+      "-F",
+      "32",
+      "-n",
+      "A1222_BOOT",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat"
+    ],
+    [
+      "mmd",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "::/boot"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "/srv/data1/tabor-build/linux-live-001/board-boot-001/uImage",
+      "::/boot/uImage"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "/srv/data1/tabor-build/linux-live-001/board-boot-001/tabor.dtb",
+      "::/boot/tabor.dtb"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.scr",
+      "::/boot.scr"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.cmd",
+      "::/boot.cmd"
+    ],
+    [
+      "mcopy",
+      "-i",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/boot.fat",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/BOOT-README.txt",
+      "::/BOOT-README.txt"
+    ],
+    [
+      "mkfs.ext4",
+      "-F",
+      "-L",
+      "A1222_ROOT",
+      "-U",
+      "a1221105-0000-4000-8000-000000000002",
+      "-d",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/root",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/root.ext4"
+    ],
+    [
+      "e2fsck",
+      "-f",
+      "-n",
+      "/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/root.ext4"
+    ]
+  ]
+}
