@@ -63,7 +63,9 @@ Scripts require fresh output directories and write receipts; consult their
    as `client-proof.json` to the probe directory. The probe tests key login,
    uid/home permissions, PTY, image equality/timings and the ABI CLI. Console
    debugging accepts a local `console-command.txt`; no LAN QEMU listener.
-6. `package-board-boot.py` accepts compiled board artifacts and checks hashes,
+6. `package-board-boot.py` requires `--machine-source` pointing to the exact
+   build's `arch/powerpc/platforms/85xx/tabor.c`; it rejects a machine/DTB
+   compatible mismatch before producing boot images. It accepts compiled board artifacts and checks hashes,
    ELF layout, legacy-image CRCs and decompression. Its kernel input directory
    contains `linux-receipt.json`, `vmlinux` and `tabor-a1222.dtb` copied from the
    same iteration. `build-usb-fat-image.py` creates a regular file and verifies

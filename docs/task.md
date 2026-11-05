@@ -1781,3 +1781,7 @@ Prepared a public-key/read-only diagnostic ZIP in LAN FTP downloads. Server inst
 ## Layered rescue USB — 2026-11-05
 
 Built FAT/ext4 disk-root rescue image with mem=3500M and a temporary U-Boot script. QEMU disk-root boot, key SSH, PTY and matched fractal passed; known fenv failure remains. Unchanged physical kernel/DTB, hardware boot still unverified. See [build evidence](builds/layered-rescue-20261105/README.md). No full Trixie/GCC14 completion claimed.
+
+## Tabor physical boot machine-match defect — 2026-11-05
+
+Original-image/vendor review found our kernel matches fsl,tabor but shipped DTB uses varisys,TABOR. Exact source and Linux machine-selection loop verified. Added ordered correction and packaging identity guard; original pair rejected, corrected source passes. No corrected binary/hardware acceptance yet. See [audit](builds/tabor-machine-audit-20261105/README.md).

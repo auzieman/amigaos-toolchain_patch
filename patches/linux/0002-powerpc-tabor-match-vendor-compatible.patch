@@ -1,0 +1,24 @@
+From: Auzieman / AuzieTek
+Subject: [PATCH] powerpc/85xx: match Tabor's vendor device-tree identity
+
+The retained A-EON tabor3.dts and our shipped tabor-a1222.dtb identify
+the machine as varisys,TABOR. The initial forward port accidentally
+matched fsl,tabor instead. setup-common.c skips that machine description
+and spins indefinitely if no other compatible machine is found.
+
+Preserve the vendor DT identity and correct the machine match. This
+restores the identity used by the vendor's former tabor_probe routine.
+This source correction alone does not establish hardware boot acceptance.
+
+diff --git a/arch/powerpc/platforms/85xx/tabor.c b/arch/powerpc/platforms/85xx/tabor.c
+--- a/arch/powerpc/platforms/85xx/tabor.c
++++ b/arch/powerpc/platforms/85xx/tabor.c
+@@ -60,7 +60,7 @@
+ 
+ define_machine(tabor) {
+ 	.name			= "Tabor",
+-	.compatible		= "fsl,tabor",
++	.compatible		= "varisys,TABOR",
+ 	.setup_arch		= tabor_setup_arch,
+ 	.init_IRQ		= tabor_pic_init,
+ #ifdef CONFIG_PCI

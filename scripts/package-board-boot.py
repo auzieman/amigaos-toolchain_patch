@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Package standard U-Boot board payloads; never writes a block device."""
-import argparse, gzip, hashlib, json, os, shutil, struct, subprocess, zlib
+import argparse, gzip, hashlib, json, os, shutil, struct, subprocess, sys, zlib
 from pathlib import Path
 p = argparse.ArgumentParser(description=__doc__)
 for n in ['kernel-results', 'shell-results', 'output']:
     p.add_argument('--'+n, type=Path, required=True)
+p.add_argument('--machine-source', type=Path, required=True,
+               help='Tabor machine source from the exact kernel build being packaged')
 a = p.parse_args()
 sha = lambda f: hashlib.sha256(f.read_bytes()).hexdigest()
 k = json.loads((a.kernel_results/'linux-receipt.json').read_text())
@@ -34,6 +36,9 @@ memory_end = max(x[3]+x[5] for x in loads)
 if memory_end >= 0x04000000:
     p.error('Kernel memory extent overlaps proposed compressed-image staging')
 a.output.mkdir(parents=True, exist_ok=False)
+subprocess.run([sys.executable, str(Path(__file__).with_name('check-tabor-machine-match.py')),
+                '--machine-source', str(a.machine_source), '--dtb', str(dtb),
+                '--output', str(a.output/'machine-match.json')], check=True)
 env = {**os.environ, 'SOURCE_DATE_EPOCH': '0'}
 with (a.output/'packaging.log').open('w') as log:
     raw = a.output/'kernel.bin'
