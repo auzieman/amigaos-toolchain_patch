@@ -184,6 +184,10 @@
     "blt": {
       "spec": "profiles/sbuild/blt.json",
       "purpose": "Guard Debian C23-only variadic syntax for the pinned GCC8 compiler; retain GCC15 support"
+    },
+    "krb5": {
+      "spec": "profiles/sbuild/krb5.json",
+      "purpose": "Use Debian dpkg-cross Kerberos cache predicate measured against the pinned SPE compiler/glibc; feeds RPC/Python and audit/SSH dependencies"
     }
   }
 }

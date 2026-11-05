@@ -1,0 +1,36 @@
+{
+  "status": "measured-in-SPE-QEMU",
+  "target_architecture": "powerpcspe",
+  "cpu": "e500v2",
+  "compiler": "/srv/data1/tabor-build/linux-live-001/work/sdk-fixed-headers-001/root/usr/lib/tabor-spe-toolchain/bin/powerpc-linux-gnuspe-gcc",
+  "compiler_sha256": "8237ccac1bb9c7cbbc8ad856a0b9f6c078c49b08432a5f84185f9b048d64d336",
+  "source_sha256": "1af38c51580d977be9126b3455f3f23029006aa4a75f1fe26a284534c0624ab0",
+  "binary_sha256": "deddd2ce1aa85efd37ab812c24efd98de5dd0e04a2ea52ac1fffb2c7e6086168",
+  "inputs": [
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "1efb96622002f04d46461829cba538bc802327f0df43747f466a4566b7ba5ad8"
+    },
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "82080e16f415e9a89fa72e2a51848e66eee52379468aa19e3f67028a4b5a6a5c"
+    }
+  ],
+  "compile_command": [
+    "/srv/data1/tabor-build/linux-live-001/work/sdk-fixed-headers-001/root/usr/lib/tabor-spe-toolchain/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/srv/data1/tabor-build/linux-live-001/work/constructor-destructor-proof-001/sysroot",
+    "-static",
+    "/tmp/constructor-destructor-check.c",
+    "-o",
+    "/srv/data1/tabor-build/linux-live-001/work/constructor-destructor-proof-001/check"
+  ],
+  "run_command": [
+    "qemu-ppc",
+    "-cpu",
+    "e500v2",
+    "/srv/data1/tabor-build/linux-live-001/work/constructor-destructor-proof-001/check"
+  ],
+  "exit": 0,
+  "krb5_cv_attr_constructor_destructor": "yes,yes",
+  "scope": "static executable constructor/destructor semantics with accepted glibc; not full Kerberos, shared-library unload, or physical hardware validation"
+}

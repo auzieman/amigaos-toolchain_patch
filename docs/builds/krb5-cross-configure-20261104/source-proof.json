@@ -1,0 +1,96 @@
+{
+  "status": "debian-source-prepared-not-built",
+  "spec_sha256": "52b34b42aecdd7ad1ef0cadce175a0768584aaf27eba902f440a2e7670d63b81",
+  "recipe_sha256": "6cfeb1c6cedbc0a5332f58cc758231e263ecc243fc3c76da4f469715b71ac5f5",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck",
+  "bootstrap": false,
+  "required_full_rebuild": false,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "krb5_1.21.3-5+deb13u1.dsc",
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3-5+deb13u1.dsc",
+      "size": 4189,
+      "sha256": "d17d2840bc97fea2c2375245569ca67838a2b557ee083c6cbe42b129a317212c"
+    },
+    {
+      "filename": "krb5_1.21.3.orig.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3.orig.tar.gz",
+      "size": 9136145,
+      "sha256": "b7a4cd5ead67fb08b980b21abd150ff7217e85ea320c9ed0c6dadd304840ad35"
+    },
+    {
+      "filename": "krb5_1.21.3.orig.tar.gz.asc",
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3.orig.tar.gz.asc",
+      "size": 833,
+      "sha256": "85047c935fe949ef2e275885451b168557b923dd13a5aab0ef8fe6acd27b94d7"
+    },
+    {
+      "filename": "krb5_1.21.3-5+deb13u1.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/k/krb5/krb5_1.21.3-5+deb13u1.debian.tar.xz",
+      "size": 105252,
+      "sha256": "02b873b239fbe7ddf016dfe44deba4130673f4606c18c93da0622e2bc8500fb4"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor6_amd64.deb",
+      "sha256": "42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "6024666a269ad4b982c1c120eb8527f4f4623063eee26fbe4ec7536b4b438a1d"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/krb5-source-proof-002/sources/krb5_1.21.3-5+deb13u1.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/krb5-source-proof-002/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/krb5-source-proof-002/sources/patched-source",
+      "apply",
+      "--check",
+      "/tmp/tabor-followup-qualification-003/patches/krb5/0001-measured-spe-cross-configure.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/krb5-source-proof-002/sources/patched-source",
+      "apply",
+      "/tmp/tabor-followup-qualification-003/patches/krb5/0001-measured-spe-cross-configure.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/krb5-source-proof-002/sources/patched-source"
+    ]
+  ],
+  "package": "krb5",
+  "source_version": "1.21.3-5+deb13u1",
+  "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "native_root_sha256": "54d0df59623706360925f2b7a81952dac5824bdbe424ba3654cb0f1ee1acb9f0",
+  "upstream_debian_source_version": "1.21.3-5+deb13u1",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/krb5_1.21.3-5+deb13u1.dsc",
+    "sha256": "60e136b4df47863851ea0d3701e98a52a5ddda8784a650fe83a3dafcd332a7b3",
+    "patch_sha256": "bf8692ed9f5d4e24edda55bbff1199ae94da313c7bb4ac6c4ca8729a1f09d61b",
+    "version": "1.21.3-5+deb13u1",
+    "preserve_debian_version": true
+  },
+  "prepared_source": {
+    "path": "sources/debian-patched-output/krb5_1.21.3-5+deb13u1.dsc",
+    "sha256": "60e136b4df47863851ea0d3701e98a52a5ddda8784a650fe83a3dafcd332a7b3"
+  }
+}

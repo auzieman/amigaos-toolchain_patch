@@ -1,0 +1,24 @@
+Supply the measured SPE constructor/destructor answer during cross builds.
+
+Debian dpkg-cross 2.6.20 already supplies this Autoconf cache value for
+Kerberos. Restrict this recipe to the measured powerpcspe cross target;
+leave native builds and other targets unchanged. No target test is executed
+as a package build step.
+
+--- a/debian/rules
++++ b/debian/rules
+@@ -1,5 +1,14 @@
+ #!/usr/bin/make -f
+ # Based on sample debian/rules that uses debhelper.
+ # GNU copyright 1997 by Joey Hess.
++
++include /usr/share/dpkg/architecture.mk
++ifneq ($(DEB_BUILD_ARCH),$(DEB_HOST_ARCH))
++ifeq ($(DEB_HOST_ARCH),powerpcspe)
++# Verified separately with the pinned compiler/glibc in e500v2 QEMU.
++# Same cache predicate as Debian dpkg-cross's Kerberos configuration.
++export krb5_cv_attr_constructor_destructor = yes,yes
++endif
++endif
+ 
+ # Uncomment this to turn on verbose mode.
