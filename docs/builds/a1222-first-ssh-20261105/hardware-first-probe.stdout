@@ -1,0 +1,411 @@
+Linux tabor-live 6.12.113 #1 SMP 1970-01-01 00:00:00 UTC ppc
+root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1
+processor	: 0
+cpu		: e500v2
+clock		: 1199.880000MHz
+revision	: 5.1 (pvr 8021 1151)
+bogomips	: 99.99
+
+processor	: 1
+cpu		: e500v2
+clock		: 1199.880000MHz
+revision	: 5.1 (pvr 8021 1151)
+bogomips	: 99.99
+
+total bogomips	: 199.98
+timebase	: 49995000
+platform	: Tabor
+model		: varisys,TABOR
+Memory		: 3488 MB
+MemTotal:        3508464 kB
+MemFree:         3477576 kB
+MemAvailable:    3383636 kB
+Buffers:             716 kB
+Cached:             8640 kB
+SwapCached:            0 kB
+Active:             6892 kB
+Inactive:           2968 kB
+Active(anon):          4 kB
+Inactive(anon):      508 kB
+Active(file):       6888 kB
+Inactive(file):     2460 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+HighTotal:       2785272 kB
+HighFree:        2772320 kB
+LowTotal:         723192 kB
+LowFree:          705256 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:                24 kB
+Writeback:             0 kB
+AnonPages:           512 kB
+Mapped:             3976 kB
+Shmem:                 0 kB
+KReclaimable:       1176 kB
+Slab:               6804 kB
+SReclaimable:       1176 kB
+SUnreclaim:         5628 kB
+KernelStack:         648 kB
+PageTables:          124 kB
+SecPageTables:         0 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:     1754232 kB
+Committed_AS:       2400 kB
+VmallocTotal:     237560 kB
+VmallocUsed:        1924 kB
+VmallocChunk:          0 kB
+Percpu:              160 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       4096 kB
+Hugetlb:               0 kB
+/dev/root / ext4 rw,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=1752216k,nr_inodes=179790,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0
+Name:	cat
+Umask:	0077
+State:	R (running)
+Tgid:	122
+Ngid:	0
+Pid:	122
+PPid:	116
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	32
+Groups:	1000 
+NStgid:	122
+NSpid:	122
+NSpgid:	116
+NSsid:	116
+Kthread:	0
+VmPeak:	    1536 kB
+VmSize:	    1536 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	     972 kB
+VmRSS:	     972 kB
+RssAnon:	      28 kB
+RssFile:	     944 kB
+RssShmem:	       0 kB
+VmData:	     156 kB
+VmStk:	     132 kB
+VmExe:	    1192 kB
+VmLib:	       0 kB
+VmPTE:	      12 kB
+VmSwap:	       0 kB
+HugetlbPages:	       0 kB
+CoreDumping:	0
+THP_enabled:	0
+untag_mask:	0xffffffff
+Threads:	1
+SigQ:	0/27378
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000000000000
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	unknown
+SpeculationIndirectBranch:	unsupported
+Cpus_allowed:	3
+Cpus_allowed_list:	0-1
+Mems_allowed:	1
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	0
+nonvoluntary_ctxt_switches:	0
+<6>futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+<6>Machine: varisys,TABOR
+<6>SoC family: QorIQ
+<6>SoC ID: svr:0x80e60011, Revision: 1.1
+<6>NET: Registered PF_NETLINK/PF_ROUTE protocol family
+<6>audit: initializing netlink subsys (disabled)
+<5>audit: type=2000 audit(0.012:1): state=initialized audit_enabled=0 res=1
+<6>Found FSL PCI host bridge at 0x0000000fffe0a000. Firmware bus number: 0->1
+<6>PCI host bridge /pcie@fffe0a000 (primary) ranges:
+<6> MEM 0x0000000c40000000..0x0000000c5fffffff -> 0x00000000e0000000 
+<6>  IO 0x0000000fffc20000..0x0000000fffc2ffff -> 0x0000000000000000
+<6>/pcie@fffe0a000: PCICSRBAR @ 0xdff00000
+<6>setup_pci_atmu: end of DRAM da000000
+<6>/pcie@fffe0a000: Setting PCI inbound window greater than memory size
+<6>PCI: Probing PCI hardware
+<6>fsl-pci fffe0a000.pcie: PCI host bridge to bus 0001:00
+<6>pci_bus 0001:00: root bus resource [io  0x0000-0xffff]
+<6>pci_bus 0001:00: root bus resource [mem 0xc40000000-0xc5fffffff] (bus address [0xe0000000-0xffffffff])
+<6>pci_bus 0001:00: root bus resource [bus 00-ff]
+<6>pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to ff
+<6>pci 0001:00:00.0: [1957:0111] type 01 class 0x060400 PCIe Root Port
+<6>pci 0001:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+<6>pci 0001:00:00.0: PCI bridge to [bus 01]
+<6>pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc502fffff]
+<6>pci 0001:00:00.0: supports D1 D2
+<6>pci 0001:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+<6>pci 0001:01:00.0: [1002:67ff] type 00 class 0x030000 PCIe Legacy Endpoint
+<6>pci 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]
+<6>pci 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]
+<6>pci 0001:01:00.0: BAR 4 [io  0x1000-0x10ff]
+<6>pci 0001:01:00.0: BAR 5 [mem 0xc50200000-0xc5023ffff]
+<6>pci 0001:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+<6>pci 0001:01:00.0: enabling Extended Tags
+<6>pci 0001:01:00.0: supports D1 D2
+<6>pci 0001:01:00.0: PME# supported from D1 D2 D3hot D3cold
+<6>pci 0001:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0001:00:00.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link)
+<6>pci 0001:01:00.1: [1002:aae0] type 00 class 0x040300 PCIe Legacy Endpoint
+<6>pci 0001:01:00.1: BAR 0 [mem 0xc50240000-0xc50243fff 64bit]
+<6>pci 0001:01:00.1: enabling Extended Tags
+<6>pci 0001:01:00.1: supports D1 D2
+<6>pci 0001:00:00.0: PCI bridge to [bus 01-ff]
+<6>pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 01
+<6>pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to 01
+<4>PCI: Cannot allocate resource region 0 of device 0001:00:00.0, will remap
+<7>PCI 0001:00 Cannot reserve Legacy IO [io  0x0000-0x0fff]
+<6>pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: can't assign; no space
+<6>pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: failed to assign
+<6>pci 0001:01:00.0: ROM [mem 0xc50260000-0xc5027ffff pref]: assigned
+<6>pci 0001:00:00.0: PCI bridge to [bus 01]
+<6>pci 0001:00:00.0:   bridge window [io  0x0000-0xffff]
+<6>pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc5fffffff]
+<6>pci_bus 0001:00: Some PCI device resources are unassigned, try booting with pci=realloc
+<6>pci_bus 0001:00: resource 4 [io  0x0000-0xffff]
+<6>pci_bus 0001:00: resource 5 [mem 0xc40000000-0xc5fffffff]
+<6>pci_bus 0001:01: resource 0 [io  0x0000-0xffff]
+<6>pci_bus 0001:01: resource 1 [mem 0xc40000000-0xc5fffffff]
+<7>Setting up Freescale MSI support
+<6>HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+<6>HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+<6>HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+<6>HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+<6>HugeTLB: registered 64.0 MiB page size, pre-allocated 0 pages
+<6>HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+<6>HugeTLB: registered 256 MiB page size, pre-allocated 0 pages
+<6>HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+<6>HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+<6>HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+<6>Freescale Elo series DMA driver
+<6>fsl-elo-dma fffe0c300.dma: #2 (fsl,eloplus-dma-channel), irq 78
+<6>fsl-elo-dma fffe0c300.dma: #3 (fsl,eloplus-dma-channel), irq 79
+<6>fsl-elo-dma fffe21300.dma: #0 (fsl,eloplus-dma-channel), irq 20
+<6>fsl-elo-dma fffe21300.dma: #1 (fsl,eloplus-dma-channel), irq 21
+<6>fsl-elo-dma fffe21300.dma: #2 (fsl,eloplus-dma-channel), irq 22
+<6>fsl-elo-dma fffe21300.dma: #3 (fsl,eloplus-dma-channel), irq 23
+<5>SCSI subsystem initialized
+<7>libata version 3.00 loaded.
+<6>usbcore: registered new interface driver usbfs
+<6>usbcore: registered new interface driver hub
+<6>usbcore: registered new device driver usb
+<6>pps_core: LinuxPPS API ver. 1 registered
+<6>pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+<6>PTP clock support registered
+<6>EDAC MC: Ver: 3.0.0
+<6>Advanced Linux Sound Architecture Driver Initialized.
+<6>pci 0001:01:00.0: vgaarb: setting as boot VGA device
+<6>pci 0001:01:00.0: vgaarb: bridge control possible
+<6>pci 0001:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+<6>vgaarb: loaded
+<6>clocksource: Switched to clocksource timebase
+<6>NET: Registered PF_INET protocol family
+<6>IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+<6>tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+<6>Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+<6>TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+<6>TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+<6>TCP: Hash tables configured (established 8192 bind 8192)
+<6>UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+<6>UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+<6>NET: Registered PF_UNIX/PF_LOCAL protocol family
+<6>RPC: Registered named UNIX socket transport module.
+<6>RPC: Registered udp transport module.
+<6>RPC: Registered tcp transport module.
+<6>RPC: Registered tcp-with-tls transport module.
+<6>RPC: Registered tcp NFSv4.1 backchannel transport module.
+<6>pci 0001:01:00.1: D0 power state depends on 0001:01:00.0
+<6>PCI: CLS 32 bytes, default 32
+<6>workingset: timestamp_bits=30 max_order=20 bucket_order=0
+<5>NFS: Registering the id_resolver key type
+<5>Key type id_resolver registered
+<5>Key type id_legacy registered
+<6>jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+<6>bounce: pool size: 64 pages
+<6>io scheduler mq-deadline registered
+<6>io scheduler kyber registered
+<6>io scheduler bfq registered
+<6>pcieport 0001:00:00.0: enabling device (0106 -> 0107)
+<6>pcieport 0001:00:00.0: PME: Signaling with IRQ 16
+<6>Serial: 8250/16550 driver, 6 ports, IRQ sharing enabled
+<6>printk: legacy console [ttyS0] disabled
+<6>serial8250.0: ttyS0 at MMIO 0xfffe04500 (irq = 42, base_baud = 24997500) is a 16550A
+<6>printk: legacy console [ttyS0] enabled
+<6>serial8250.0: ttyS1 at MMIO 0xfffe04600 (irq = 42, base_baud = 24997500) is a 16550A
+<6>ePAPR hypervisor byte channel driver
+<6>[drm] initializing kernel modesetting (POLARIS11 0x1002:0x67FF 0x1002:0x0B04 0xFF).
+<6>[drm] register mmio base: 0x50200000
+<6>[drm] register mmio size: 262144
+<6>[drm] add ip block number 0 <vi_common>
+<6>[drm] add ip block number 1 <gmc_v8_0>
+<6>[drm] add ip block number 2 <tonga_ih>
+<6>[drm] add ip block number 3 <gfx_v8_0>
+<6>[drm] add ip block number 4 <sdma_v3_0>
+<6>[drm] add ip block number 5 <powerplay>
+<6>[drm] add ip block number 6 <dce_v11_0>
+<6>[drm] add ip block number 7 <uvd_v6_0>
+<6>[drm] add ip block number 8 <vce_v3_0>
+<6>amdgpu 0001:01:00.0: amdgpu: Fetched VBIOS from ROM BAR
+<6>amdgpu: ATOM BIOS: 
+<6>amdgpu 0001:01:00.0: firmware: failed to load amdgpu/polaris11_sdma.bin (-2)
+<4>amdgpu 0001:01:00.0: Direct firmware load for amdgpu/polaris11_sdma.bin failed with error -2
+<3>amdgpu: sdma_v3_0: Failed to load firmware "polaris11_sdma.bin"
+<3>[drm:amdgpu_device_init] *ERROR* early_init of IP block <sdma_v3_0> failed -19
+<6>[drm] UVD is enabled in VM mode
+<6>[drm] UVD ENC is enabled in VM mode
+<6>[drm] VCE enabled in VM mode
+<3>amdgpu 0001:01:00.0: amdgpu: Fatal error during GPU init
+<6>amdgpu 0001:01:00.0: amdgpu: amdgpu: finishing device.
+<6>brd: module loaded
+<6>loop: module loaded
+<6>st: Version 20160209, fixed bufsize 32768, s/g segs 256
+<6>fsl-sata fffe18000.sata: Sata FSL Platform/CSB Driver init
+<6>scsi host0: sata_fsl
+<6>ata1: SATA max UDMA/133 irq 74 lpm-pol 0
+<6>fsl-sata fffe19000.sata: Sata FSL Platform/CSB Driver init
+<6>scsi host1: sata_fsl
+<6>ata2: SATA max UDMA/133 irq 41 lpm-pol 0
+<6>fsl_espi fffe07000.spi: irq = 59
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000: enabled errata workarounds, flags: 0x4
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: mac: 80:34:28:6f:89:5c
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Running with NAPI enabled
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[0]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[1]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[0]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[1]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000: enabled errata workarounds, flags: 0x4
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: mac: d8:47:8f:bb:42:57
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: Running with NAPI enabled
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[0]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[1]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[0]: 256
+<6>fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[1]: 256
+<6>ucc_geth_driver: QE UCC Gigabit Ethernet Controller
+<6>e1000: Intel(R) PRO/1000 Network Driver
+<6>e1000: Copyright (c) 1999-2006 Intel Corporation.
+<6>e1000e: Intel(R) PRO/1000 Network Driver
+<6>e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+<6>igb: Intel(R) Gigabit Ethernet Network Driver
+<6>igb: Copyright (c) 2007-2014 Intel Corporation.
+<6>fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+<6>fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+<6>fsl-ehci fsl-ehci.0: irq 28, io mem 0xfffe22000
+<6>fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+<6>hub 1-0:1.0: USB hub found
+<6>hub 1-0:1.0: 1 port detected
+<6>usbcore: registered new interface driver usb-storage
+<6>i2c_dev: i2c /dev entries driver
+<6>mpc-i2c fffe03000.i2c: timeout 1000000 us
+<6>mpc-i2c fffe03100.i2c: timeout 1000000 us
+<6>rtc-ds1307 1-006f: registered as rtc0
+<6>rtc-ds1307 1-006f: setting system clock to 2026-11-06T00:10:25 UTC (1793923825)
+<6>Freescale(R) MPC85xx EDAC driver, (C) 2006 Montavista Software
+<6>EDAC PCI0: Giving out device to module MPC85xx_edac controller mpc85xx_pci_err: DEV mpc85xx-pci-edac.0.auto (INTERRUPT)
+<6>MPC85xx_edac acquired irq 16 for PCI Err
+<6>MPC85xx_edac PCI err registered
+<6>sdhci: Secure Digital Host Controller Interface driver
+<6>sdhci: Copyright(c) Pierre Ossman
+<6>sdhci-pltfm: SDHCI platform and OF driver helper
+<6>mmc0 bounce up to 128 segments into one, max segment size 65536 bytes
+<6>usbcore: registered new interface driver usbhid
+<6>usbhid: USB HID core driver
+<6>Freescale hypervisor management driver
+<6>fsl-hv: no hypervisor found
+<4>fsl-ssi-dai fffe15000.ssi: No cache defaults, reading back from HW
+<6>ipip: IPv4 and MPLS over IPv4 tunneling driver
+<6>mmc0: SDHCI controller on fffe2e000.sdhc [fffe2e000.sdhc] using DMA
+<6>Initializing XFRM netlink socket
+<6>NET: Registered PF_INET6 protocol family
+<6>Segment Routing with IPv6
+<6>In-situ OAM (IOAM) with IPv6
+<6>sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+<6>NET: Registered PF_PACKET protocol family
+<6>NET: Registered PF_KEY protocol family
+<5>Key type dns_resolver registered
+<6>ALSA device list:
+<6>  No soundcards found.
+<6>mmc0: new high speed SDHC card at address b36b
+<6>mmcblk0: mmc0:b36b CBADS 3.73 GiB
+<6> mmcblk0: p1
+<6>usb 1-1: new high-speed USB device number 2 using fsl-ehci
+<4>ata2: No Device OR PHYRDY change,Hstatus = 0xa0000000
+<6>ata2: SATA link down (SStatus 0 SControl 300)
+<6>ata1: Signature Update detected @ 532 msecs
+<6>hub 1-1:1.0: USB hub found
+<6>hub 1-1:1.0: 4 ports detected
+<6>ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+<4>ata1.00: Model 'CT240BX500SSD1', rev 'M6CR056', applying quirks: nolpm
+<4>ata1.00: LPM support broken, forcing max_power
+<6>ata1.00: ATA-10: CT240BX500SSD1, M6CR056, max UDMA/133
+<6>ata1.00: 468862128 sectors, multi 1: LBA48 NCQ (depth 16/32)
+<4>ata1.00: ATA Identify Device Log not supported
+<4>ata1.00: LPM support broken, forcing max_power
+<6>ata1.00: configured for UDMA/133
+<5>scsi 0:0:0:0: Direct-Access     ATA      CT240BX500SSD1   056  PQ: 0 ANSI: 5
+<5>sd 0:0:0:0: Attached scsi generic sg0 type 0
+<5>sd 0:0:0:0: [sda] 468862128 512-byte logical blocks: (240 GB/224 GiB)
+<5>sd 0:0:0:0: [sda] Write Protect is off
+<7>sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+<5>sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+<6>sd 0:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+<5>sd 0:0:0:0: [sda] Attached SCSI disk
+<6>Waiting for root device PARTUUID=a1221105-02...
+<6>usb 1-1.3: new low-speed USB device number 3 using fsl-ehci
+<6>input: Logitech USB Keyboard as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/0003:046D:C31D.0001/input/input0
+<6>hid-generic 0003:046D:C31D.0001: input: USB HID v1.10 Keyboard [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input0
+<6>input: Logitech USB Keyboard Consumer Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input1
+<6>input: Logitech USB Keyboard System Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input2
+<6>hid-generic 0003:046D:C31D.0002: input: USB HID v1.10 Device [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input1
+<6>usb 1-1.4: new high-speed USB device number 4 using fsl-ehci
+<6>usb-storage 1-1.4:1.0: USB Mass Storage device detected
+<6>scsi host2: usb-storage 1-1.4:1.0
+<5>scsi 2:0:0:0: Direct-Access     SanDisk  Cruzer Glide     1.00 PQ: 0 ANSI: 6
+<5>sd 2:0:0:0: Attached scsi generic sg1 type 0
+<5>sd 2:0:0:0: [sdb] 30031872 512-byte logical blocks: (15.4 GB/14.3 GiB)
+<5>sd 2:0:0:0: [sdb] Write Protect is off
+<7>sd 2:0:0:0: [sdb] Mode Sense: 43 00 00 00
+<5>sd 2:0:0:0: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+<6> sdb: sdb1 sdb2
+<5>sd 2:0:0:0: [sdb] Attached SCSI removable disk
+<6>EXT4-fs (sdb2): mounted filesystem a1221105-0000-4000-8000-000000000002 r/w with ordered data mode. Quota mode: disabled.
+<6>VFS: Mounted root (ext4 filesystem) on device 8:18.
+<6>devtmpfs: mounted
+<6>Freeing unused kernel image (initmem) memory: 4032K
+<6>Run /init as init process
+<7>  with arguments:
+<7>    /init
+<7>  with environment:
+<7>    HOME=/
+<7>    TERM=linux
+<6>fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Link is Up - 1Gbps/Full - flow control off
+<5>random: crng init done
+TABOR_QEMU_INIT_OK: restored SPE libc C ABI checks
+ABI_TEST float32 PASS
+ABI_TEST float64 PASS
+ABI_TEST varargs PASS
+ABI_TEST formatting PASS
+FENV_DETAIL up=0x1.0000000000001p+0 down=0x1p+0 saved_round=0
+ABI_TEST fenv PASS
+ABI_TEST setjmp PASS
+ABI_TEST signal PASS
+ABI_TEST pthread_tls PASS
+ABI_TEST ucontext PASS
+ABI_SMOKE_DONE failures=0

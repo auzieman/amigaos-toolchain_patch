@@ -1789,3 +1789,7 @@ Original-image/vendor review found our kernel matches fsl,tabor but shipped DTB 
 ## Corrected physical kernel staged — 2026-11-05
 
 Fresh Linux 6.12.113-1 board rebuild passed with the exact configuration from the actually shipped tabor-live-001. Machine identity matches unchanged vendor DTB. Corrected uImage installed on exact SanDisk, remount/readback verified; root, DTB and boot script preserved. Stick safely powered off; physical retry remains open in issue #26. See [build and write receipts](builds/tabor-match-rebuild-20261105/README.md).
+
+## Real A1222 boot and SSH confirmed — 2026-11-05
+
+Corrected kernel boots USB ext4; key SSH at 192.168.1.249 works. Both e500v2 CPUs visible; ~3.35GiB under intentional mem=3500M. All nine ABI CLI checks pass, including fenv. HDMI failure is now traced to missing polaris11_sdma.bin during early AMDGPU initialization. No full ABI/8GiB/GL acceptance. See [physical evidence](builds/a1222-first-ssh-20261105/README.md). Preserve working boot/root; next fix firmware completeness and early availability.
