@@ -1801,3 +1801,7 @@ Native root contains polaris11_sdma.bin; built-in AMDGPU asks before ext4 mounts
 ## Display/admin USB update ready — 2026-11-05
 
 Exact SanDisk updated with early firmware, root key-only SSH and read-only QEMU inventory. Kernel/DTB preserved. QEMU root/tabor SSH tests passed; both USB partitions remount/readback verified and powered off. Physical Radeon retry pending. See [evidence](builds/display-admin-usb-20261105/README.md).
+
+## Native SMU graphics failure isolated — 2026-11-05
+
+Root key SSH works. Live log/reprobe reaches VRAM/GART and firmware discovery, then SMU startup fails (-22); HDMI still stale. Private live-DTB/PCI inventory retrieved by SFTP, no ROM reads/flash. Audit SMU upload endianness and PCI windows before choosing a patch. See [evidence](builds/native-gpu-smu-20261105/README.md).
