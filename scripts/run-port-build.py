@@ -23,6 +23,9 @@ plan = json.loads(a.plan.read_text())
 registry = json.loads((a.project / plan['registry']).read_text())['packages']
 scope = json.loads((a.project / 'profiles/port-build-scope.json').read_text())
 profile = json.loads((a.project / 'profiles/images/debian-package-builder.json').read_text())
+for name, settings in profile.get('package_inputs', {}).items():
+    if settings.get('binary_nmu'):
+        assert registry.get(name, {}).get('binary_nmu') == settings['binary_nmu'], 'Unreconciled binary revision request in image profile versus standard registry: ' + name
 defaults = json.loads((a.project / plan['defaults']).read_text())
 
 def sha(path):

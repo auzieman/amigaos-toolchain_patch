@@ -17,6 +17,7 @@ def render():
   if r.get('status')=='sbuild-running':running.append((p,r))
   elif r.get('status') in ['failed','debian-packages-built-not-target-installed']:completed.append((p,r))
  passed=[(p,r) for p,r in completed if r.get('payload_inspection_sha256')]
+ normal_passes={r.get('package') for p,r in passed if not r.get('bootstrap') and not r.get('required_full_rebuild')}
  tick=time.strftime('%H:%M:%S')
  pulse='|/-\\'[int(time.monotonic()/4)%4]
  activity=list(root.parent.glob('*.log'))+[p.parent/'sbuild.log' for p,r in running]
@@ -29,8 +30,9 @@ def render():
   lines.extend(r.get('package',p.parent.name)+' — PASS ('+str(len(r.get('packages',{})))+' .debs)' for p,r in passed)
   fallout=load(root.parent/'fallout.json')
   blocked={x.get('package') for x in fallout if x.get('package')} if isinstance(fallout,list) else set()
+  blocked-=normal_passes
   lines.extend(['',str(len(blocked))+(' deferred entries recorded SO FAR (round still running).' if load(root).get('status')=='running' else ' sources deferred; dependency/bootstrap/foundation work remains.'),', '.join(sorted(blocked))[:450]])
-  failures=[r for p,r in completed if r.get('status')=='failed']
+  failures=[r for p,r in completed if r.get('status')=='failed' and r.get('package') not in normal_passes]
   lines.extend(r.get('package','?')+' — FAILED: '+r.get('error','see retained log')[:120] for r in failures[:4])
   if completed:
    if load(root).get('status')=='running' and activity:

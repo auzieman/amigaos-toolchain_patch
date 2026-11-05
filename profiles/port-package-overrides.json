@@ -110,7 +110,8 @@
     },
     "python3-defaults": {
       "build_profiles": "cross,nocheck",
-      "purpose": "Preserve normal Debian helper dependencies: actual nodoc build still calls rst2man. Native documentation tools remain native."
+      "purpose": "Preserve normal outputs; execute documentation generators on the native build host through explicit Debian :native build dependencies.",
+      "spec": "profiles/sbuild/python3-defaults.json"
     },
     "libcap2": {
       "binary_nmu": 3,
@@ -119,6 +120,66 @@
     "cdebconf": {
       "build_profiles": "cross,nocheck,pkg.cdebconf.nogtk",
       "purpose": "Existing Debian profile supplies client/text frontend packages needed by base-passwd; GTK installer frontend is not selected for this workstation."
+    },
+    "xft": {
+      "binary_nmu": 4,
+      "binary_nmu_reason": "Actual BLT apt coinstallation report requires native libxft2 2.3.6-1+b4 and SPE same-version Multi-Arch:same library; explicit frozen binary rebuild."
+    },
+    "libcap-ng": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "acl": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "zlib": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libpciaccess": {
+      "binary_nmu": 3,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxkbfile": {
+      "binary_nmu": 4,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libfontenc": {
+      "binary_nmu": 2,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxext": {
+      "binary_nmu": 3,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxfixes": {
+      "binary_nmu": 4,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxdamage": {
+      "binary_nmu": 2,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxinerama": {
+      "binary_nmu": 4,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxrandr": {
+      "binary_nmu": 3,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libxss": {
+      "binary_nmu": 3,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "libmd": {
+      "binary_nmu": 1,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "gpm": {
+      "binary_nmu": 2,
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
     }
   }
 }
