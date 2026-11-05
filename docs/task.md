@@ -1766,3 +1766,10 @@ PCI and reached expected missing-initrd message; stopped afterward, no OS boot
 or installation. Waiting for matching Pegasos ISO/prepared Kickstart; Linux/SPE
 images untouched. Launcher/source scripts and exact receipts retained in
 amigaos-pegasos2-20261105 evidence. This validates the side loader setup only.
+
+2026-11-05 media follow-through: uploaded A1222 ISO/Enhancer listings do not
+provide Pegasos alternate boot files. Found Hyperion's official digital Pegasos
+ISO and registered-user update sources; opened product page in existing Opera
+session per user preference. No purchase/account access/download of commercial
+ISO. Prefer existing registration/media access where applicable; do not assume
+cross-edition entitlement. Guest remains prepared, awaiting matched boot files.

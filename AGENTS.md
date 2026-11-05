@@ -89,3 +89,7 @@ missing package metadata at their source; do not compensate by layering more
 consumer environment overrides, guessed dependency rules or fabricated state.
 Any build-order or binary-rebuild request must remain explicit and traceable
 to Debian metadata and actual bootstrap/coinstallation evidence.
+
+Desktop browser preference (user,2026-11-05): use Opera for browser views and
+links, reusing its existing session. Avoid launching Chrome. This preference
+does not authorize changing system defaults or closing the user's browsers.

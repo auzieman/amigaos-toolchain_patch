@@ -57,3 +57,21 @@ BBoot release:
 https://codeberg.org/qmiga/bboot/releases/tag/v0.8
 QEMU boards:
 https://qemu-project.gitlab.io/qemu/system/ppc/amigang.html
+
+2026-11-05 online media lookup: read-only listings of the uploaded A1222 ISO
+and Enhancer archive found no Pegasos/Peg2 alternate kernel or SM502 driver.
+Hyperion offers an official Pegasos II Final Edition ISO digital download:
+https://www.hyperion-entertainment.com/index.php/where-to-buy/direct-downloads/321-amigaos-41-final-edition-for-pegasos
+Their announcement lists digital purchase with a registration serial:
+https://www.hyperion-entertainment.com/index.php/news/36-amigaos-4x/322-amigaos-41-final-edition-for-pegasos-2-is-now-available-digitally
+Update3 announcement lists updated Pegasos II and other platform kernels and
+registered-user downloads:
+https://www.hyperion-entertainment.com/index.php/news/36-amigaos-4x/325-update-3-for-amigaos-41-final-edition-available
+The BBoot recipe specifically documents the Update2 kernel preparation path;
+Update3 suitability is not assumed without inspecting its actual payload.
+No account accessed, serial registered, purchase made or commercial ISO
+downloaded. Official product page was dispatched to the existing Opera session,
+as requested; launcher reported Opening in existing browser session. No Chrome
+launch or browser-default change. Existing registration access should be checked
+before obtaining another copy; do not infer an entitlement to a different
+platform edition merely from A1222 ownership.
