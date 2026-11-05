@@ -52,3 +52,28 @@ outputs and addressing outstanding pre-existing core binary revisions with
 max4 dependency-ready 4-CPU/6GiB jobs. It adds no new target architecture and
 does not overlap package workers. Debian dose/apt/sbuild retain dependency,
 installation, profile and maintainer-script semantics.
+
+
+Follow-up qualification: round018 has accepted six sources /13 inspected
+binaries: Xft, Xext, Xss, Xpm, Xaw and libdaemon. This is not a desktop or
+10–20 completed-source claim. Review of all three actual source failures found:
+
+* Python Docutils is Architecture:all, Multi-Arch:foreign. Adding :native was
+  incorrect: installed Dpkg::Deps::KnownFacts explicitly rejects that
+  combination. Restore its unqualified dependency in control and template;
+  keep native qualifiers for Sphinx/html2text. The real archive metadata and
+  standard dpkg evaluator reproduce rejected-before/accepted-after semantics.
+* BLT's Debian gcc-15.patch unconditionally changed ANYARGS to C23 unnamed
+  variadics. Retain the Debian patch, but guard that syntax for C++/C23.
+  Actual pinned GCC8 rejects the old declaration and accepts the corrected one.
+  This is a source/compiler-version compatibility issue, not missing SPE code.
+* libxxf86vm's malloc(0) configure test needs the already measured Xorg cache
+  answer; include it in the existing reviewed consumer set. No new ABI guess.
+
+Both corrected source packages apply/repack successfully on R730 with original
+Debian versions preserved (followup-source-003-*). Full source build acceptance
+remains pending. Active018 was not interrupted. Waiting-only019 was cancelled
+before any builds, original receipt retained, and replaced by020 after018 with
+these corrections plus all previous reviewed core binary rebuilds. No worker
+overlap, no baseline change. Full-archive sbuild staging is currently visible
+setup overhead; copying archive files is not counted as compilation progress.

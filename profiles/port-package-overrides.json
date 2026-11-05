@@ -180,6 +180,10 @@
     "gpm": {
       "binary_nmu": 2,
       "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+    },
+    "blt": {
+      "spec": "profiles/sbuild/blt.json",
+      "purpose": "Guard Debian C23-only variadic syntax for the pinned GCC8 compiler; retain GCC15 support"
     }
   }
 }

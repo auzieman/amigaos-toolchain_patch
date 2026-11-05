@@ -1,0 +1,16 @@
+Retain C23 support without requiring C23 from older C compilers.
+
+Debian's gcc-15 patch made unnamed variadic prototypes unconditional.
+Use them only in C++ or C23; preserve traditional C declarations otherwise.
+
+--- a/generic/bltInt.h
++++ b/generic/bltInt.h
+@@ -121,7 +121,7 @@
+ #define EXPORT
+ 
+ #undef VARARGS
+-#if 1
++#if defined(__cplusplus) || (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202311L)
+ #define ANYARGS (...)
+ #define VARARGS(first)  (first, ...)
+ #define VARARGS2(first, second)  (first, second, ...)

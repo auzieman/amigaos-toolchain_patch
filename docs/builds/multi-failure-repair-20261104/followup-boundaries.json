@@ -1,0 +1,19 @@
+{
+  "before": {
+    "exit": 1,
+    "stderr": "<stdin>:3:18: error: ISO C requires a named argument before '...'\n<stdin>:16:23: note: in expansion of macro 'ANYARGS'\n"
+  },
+  "after": {
+    "exit": 0,
+    "stderr": ""
+  },
+  "docutils": {
+    "real_archive_metadata": "Package: python3-docutils\nVersion: 0.21.2+dfsg-2\nArchitecture: all\nMulti-Arch: foreign\n",
+    "dpkg_evaluation": "python3-docutils 1\npython3-docutils:native 0\n",
+    "fixture_note": "KnownFacts models actual archive architecture/Multi-Arch fields; does not change any installed state"
+  },
+  "configure_cache": {
+    "scope": "libxxf86vm added to existing measured malloc(0) cache consumers; no new guessed result",
+    "cache_sha256": "60eaa7081ef4b4de5e8795cada9625caa17a9905a6e3caa3a5f64a57488ca124"
+  }
+}

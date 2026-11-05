@@ -1,0 +1,95 @@
+{
+  "status": "debian-source-prepared-not-built",
+  "spec_sha256": "73bef6aa05301acb20c32d99d240258e01b9bc026d980b9e07ac939b33248d5e",
+  "recipe_sha256": "6cfeb1c6cedbc0a5332f58cc758231e263ecc243fc3c76da4f469715b71ac5f5",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck",
+  "bootstrap": false,
+  "required_full_rebuild": false,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "blt_2.5.3+dfsg-8.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/blt/blt_2.5.3+dfsg-8.dsc",
+      "size": 1997,
+      "sha256": "321ebb2e8fb73635d2db13534ea66deced2bee232c0ff345801bdc0b9bbbe02c"
+    },
+    {
+      "filename": "blt_2.5.3+dfsg.orig.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/blt/blt_2.5.3+dfsg.orig.tar.xz",
+      "size": 1562552,
+      "sha256": "61af35c35eb7ecc4cdd3dd63e89d398bbf479153534725537c49e0185dc9803c"
+    },
+    {
+      "filename": "blt_2.5.3+dfsg-8.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/b/blt/blt_2.5.3+dfsg-8.debian.tar.xz",
+      "size": 58668,
+      "sha256": "b6e5c27596b335e745bea599c6e2c28ec7a7094a88859ca6bc602fb89160cae9"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "tabor-spe-toolchain_8.5.0+tabor6_amd64.deb",
+      "sha256": "42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "6024666a269ad4b982c1c120eb8527f4f4623063eee26fbe4ec7536b4b438a1d"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/followup-source-003-blt/sources/blt_2.5.3+dfsg-8.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/followup-source-003-blt/sources/quilt-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/followup-source-003-blt/sources/quilt-source",
+      "apply",
+      "--check",
+      "/tmp/tabor-followup-qualification-003/patches/blt/0001-guard-c23-variadic-prototypes.patch"
+    ],
+    [
+      "quilt",
+      "push"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/followup-source-003-blt/sources/quilt-source"
+    ]
+  ],
+  "package": "blt",
+  "source_version": "2.5.3+dfsg-8",
+  "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "native_root_sha256": "54d0df59623706360925f2b7a81952dac5824bdbe424ba3654cb0f1ee1acb9f0",
+  "patched_source": {
+    "dsc": "sources/patched-output/blt_2.5.3+dfsg-8.dsc",
+    "sha256": "6db608c21b7b2a502de77db5867ab7dcaed560cc9a7d680d03696e65b9e1dfba",
+    "version": "2.5.3+dfsg-8",
+    "quilt_series": {
+      "path": "patches/blt/series.json",
+      "sha256": "d55392a3674711fddc178f746f485ef0f326abd746ce8f4adc69f5f2e19f9e25"
+    },
+    "patches": [
+      {
+        "path": "patches/blt/0001-guard-c23-variadic-prototypes.patch",
+        "sha256": "5732eb5a87b5c73b1a0817eaf6901360f24e6bbb44ab619f3a77b25200e508e6"
+      }
+    ],
+    "preserve_debian_version": true
+  },
+  "prepared_source": {
+    "path": "sources/patched-output/blt_2.5.3+dfsg-8.dsc",
+    "sha256": "6db608c21b7b2a502de77db5867ab7dcaed560cc9a7d680d03696e65b9e1dfba"
+  }
+}
