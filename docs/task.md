@@ -1793,3 +1793,7 @@ Fresh Linux 6.12.113-1 board rebuild passed with the exact configuration from th
 ## Real A1222 boot and SSH confirmed — 2026-11-05
 
 Corrected kernel boots USB ext4; key SSH at 192.168.1.249 works. Both e500v2 CPUs visible; ~3.35GiB under intentional mem=3500M. All nine ABI CLI checks pass, including fenv. HDMI failure is now traced to missing polaris11_sdma.bin during early AMDGPU initialization. No full ABI/8GiB/GL acceptance. See [physical evidence](builds/a1222-first-ssh-20261105/README.md). Preserve working boot/root; next fix firmware completeness and early availability.
+
+## Early Radeon firmware correction prepared — 2026-11-05
+
+Native root contains polaris11_sdma.bin; built-in AMDGPU asks before ext4 mounts. Built pinned 1.49MiB firmware-only early archive, no init/OS root, and adapted temporary boot script. QEMU disk-root + SSH/PTY/fractal passed; physical GPU test pending. USB remains on running A1222 and has not been updated. ROM interfaces inspected read-only by metadata; no ROM dumps/flash performed. See [evidence](builds/early-polaris-firmware-20261105/README.md).

@@ -1,0 +1,39 @@
+{
+  "status": "passed",
+  "physical_boot": false,
+  "full_spe_abi_validated": false,
+  "native_ssh_version": "OpenSSH_10.6p1, OpenSSL 3.5.9 29 Sep 2026",
+  "identity": {
+    "returncode": 0,
+    "stdout_sha256": "eeb84e56ca81e01c4ea7c0348f40fa80e2c3bc7335420034f51381f9598f17ef",
+    "stderr_sha256": "511861ba65288231c813515bdf8ff0ff96144534f9c16d6fe188651deee61ad7"
+  },
+  "pty": {
+    "returncode": 0,
+    "stdout_sha256": "29e8cd4f43dd67e612670dac28516af71c71394ac2f320aa64c94d49f51bc761",
+    "stderr_sha256": "00eebb0300b558db0adf043aa8fce39909608ba8382e9741b086f0a11456f480"
+  },
+  "fractal": {
+    "returncode": 0,
+    "stdout_sha256": "3e15aad94c84db0edcada1e5839d0c0ca236e2bca48d3a559220e4e91546e992",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "fractal_pixel_equality": true,
+  "abi": {
+    "returncode": 1,
+    "stdout_sha256": "685e9bd8c1fa8b8052469a2dbbd2f2e4d8839c52c85908757ffc7f1415361d33",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "abi_check_status": {
+    "float32": "PASS",
+    "float64": "PASS",
+    "varargs": "PASS",
+    "formatting": "PASS",
+    "fenv": "FAIL",
+    "setjmp": "PASS",
+    "signal": "PASS",
+    "pthread_tls": "PASS",
+    "ucontext": "PASS"
+  },
+  "basic_c_checks_all_passed": false
+}

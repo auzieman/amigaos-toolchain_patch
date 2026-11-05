@@ -9,6 +9,7 @@ root_input.add_argument('--initramfs',type=Path)
 root_input.add_argument('--disk',type=Path)
 p.add_argument('--root-partuuid',default='a1221105-02')
 p.add_argument('--memory-mib',type=int,default=1024)
+p.add_argument('--early-firmware',type=Path,help='Firmware-only initramfs alongside --disk')
 p.add_argument('--port',type=int,default=22122)
 p.add_argument('--timeout',type=int,default=300)
 a=p.parse_args();assert 1024<a.port<65536 and 30<=a.timeout<=600
@@ -28,7 +29,9 @@ if a.disk:
  command+=['-drive',f'file={a.disk},format=raw,if=none,id=rootdisk,snapshot=on',
   '-device','virtio-blk-pci,drive=rootdisk','-append',
   f'console=ttyS0,115200 root=PARTUUID={a.root_partuuid} rootfstype=ext4 rootwait rw init=/init mem=3500M loglevel=8 panic=-1']
+ if a.early_firmware:command+=['-initrd',str(a.early_firmware)]
 else:
+ assert not a.early_firmware, '--early-firmware requires --disk'
  command+=['-initrd',str(a.initramfs),'-append','console=ttyS0,115200 rdinit=/init panic=-1']
 r={'status':'started','command':command,'kernel_sha256':sha(a.kernel),
  'qemu_sha256':sha(binary),
@@ -36,6 +39,7 @@ r={'status':'started','command':command,'kernel_sha256':sha(a.kernel),
  'physical_boot':False,'full_spe_abi_validated':False,'host_listener':'loopback only'}
 serial=a.output/'serial.log'
 r.update({'disk_sha256':sha(a.disk),'disk_snapshot':True} if a.disk else {'initramfs_sha256':sha(a.initramfs)})
+if a.early_firmware:r['early_firmware_sha256']=sha(a.early_firmware)
 try:
  with serial.open('wb',buffering=0) as log:
   proc=subprocess.Popen(command,stdin=subprocess.PIPE,stdout=log,stderr=subprocess.STDOUT)
