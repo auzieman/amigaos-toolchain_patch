@@ -1797,3 +1797,7 @@ Corrected kernel boots USB ext4; key SSH at 192.168.1.249 works. Both e500v2 CPU
 ## Early Radeon firmware correction prepared — 2026-11-05
 
 Native root contains polaris11_sdma.bin; built-in AMDGPU asks before ext4 mounts. Built pinned 1.49MiB firmware-only early archive, no init/OS root, and adapted temporary boot script. QEMU disk-root + SSH/PTY/fractal passed; physical GPU test pending. USB remains on running A1222 and has not been updated. ROM interfaces inspected read-only by metadata; no ROM dumps/flash performed. See [evidence](builds/early-polaris-firmware-20261105/README.md).
+
+## Display/admin USB update ready — 2026-11-05
+
+Exact SanDisk updated with early firmware, root key-only SSH and read-only QEMU inventory. Kernel/DTB preserved. QEMU root/tabor SSH tests passed; both USB partitions remount/readback verified and powered off. Physical Radeon retry pending. See [evidence](builds/display-admin-usb-20261105/README.md).

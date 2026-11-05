@@ -69,6 +69,8 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     for name in ['boot-results', 'rescue-results', 'board-config', 'output']:
         p.add_argument('--'+name, type=Path, required=True)
+    p.add_argument('--operator-root-ssh', action='store_true',
+                   help='Provision key-only root administration in this lab rescue root')
     a = p.parse_args()
     assert os.geteuid() == 0, 'Preserving target ownership requires root'
     boot = json.loads((a.boot_results/'receipt.json').read_text())
@@ -83,6 +85,15 @@ def main():
     root = a.output/'root'
     root.mkdir()
     extract_newc((a.rescue_results/'shell.cpio').read_bytes(), root)
+    if a.operator_root_ssh:
+        import sys
+        subprocess.run([sys.executable,str(Path(__file__).with_name('configure-rescue-admin.py')),
+                        '--root',str(root),'--receipt',str(a.output/'admin-config.json')],check=True)
+        inventory=Path(__file__).resolve().parent.parent/'boot/a1222-qemu-inventory.sh'
+        target=root/'usr/sbin/a1222-qemu-inventory'
+        target.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(inventory,target)
+        os.chown(target,0,0);target.chmod(0o755)
     assert (root/'init').is_file() and (root/'usr/sbin/sshd').is_file()
     # Keep the image's provisioned account and public key, never add client keys.
     assert not list(root.rglob('ssh_host_*')), 'Unexpected pre-generated host key'
