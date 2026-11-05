@@ -1234,3 +1234,10 @@ Platform-matched AmigaOne/Pegasos media is the next prerequisite. No old-GCC
 batch restart or new AmigaOS install. See amigaos-side-guest-20261105 evidence.
 
 2026-11-05 correction to side-guest scope: our existing ppce500/e500v2/SPE Linux harness is a valid custom-emulation starting point; no stock A1222 name does not prove impossibility or require other media as the only path. Actual bounded R730 direct-entry probe of the unmodified uploaded AmigaOS A1222 kernel loaded at NIP0x010000d4 and reached NIP0x700 after2s, no serial/Workbench. Private kernel kept outside Git, no disk/network, QEMU stopped. Next isolate AmigaBoot/Kickstart handoff and P1022 MMIO requirements before emulator changes. Evidence e500-entry-receipt.json in amigaos-side-guest-20261105.
+
+2026-11-05 separate OS4 control guest: prepared R730 Pegasos II/7457,512MiB,
+8GiB sparse disk, SM501, reserved loopback VNC5912. Actual BBoot0.8/VOF probe
+configured PCI devices and stopped at expected missing initrd. No OS install
+or running guest claimed. Matching Pegasos media/Kickstart remain needed;
+existing e500/SPE work unchanged. Scripts, artifact hashes and exact serial
+receipt in docs/builds/amigaos-pegasos2-20261105/.

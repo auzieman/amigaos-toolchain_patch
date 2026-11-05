@@ -1,0 +1,26 @@
+{
+  "machine": "pegasos2",
+  "cpu": "7457",
+  "memory_mib": 512,
+  "disk_bytes": 8589934592,
+  "disk_format": "raw",
+  "vnc_port": 5912,
+  "graphics": [
+    "-vga",
+    "none",
+    "-device",
+    "sm501"
+  ],
+  "bboot": {
+    "version": "0.8",
+    "url": "https://codeberg.org/qmiga/bboot/releases/download/v0.8/bboot-0.8.tar.xz",
+    "sha256": "bded2475a84ca9575bf5fb21069b480a3ffe4e0731d5b4acb850e102cd911e5d",
+    "binary_sha256": "4bfeb4f9380b14b3cbc5d3318a124db1fd24e8ca27a48d416517a364c8a2c95c",
+    "license": "GPL version2 COPYING included; retain upstream notices"
+  },
+  "scope": "Separate AmigaOS application/SDK guest; not A1222 board or Linux SPE validation",
+  "references": [
+    "https://zero.eik.bme.hu/~balaton/qemu/amiga/aos_bboot.html",
+    "https://qemu-project.gitlab.io/qemu/system/ppc/amigang.html"
+  ]
+}

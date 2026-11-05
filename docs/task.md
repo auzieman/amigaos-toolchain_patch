@@ -1757,3 +1757,12 @@ SDK. Preserve failure; do not restart old-GCC batch or weaken RO. Evidence:
 docs/builds/amigaos-side-guest-20261105/.
 
 2026-11-05 correction to side-guest scope: our existing ppce500/e500v2/SPE Linux harness is a valid custom-emulation starting point; no stock A1222 name does not prove impossibility or require other media as the only path. Actual bounded R730 direct-entry probe of the unmodified uploaded AmigaOS A1222 kernel loaded at NIP0x010000d4 and reached NIP0x700 after2s, no serial/Workbench. Private kernel kept outside Git, no disk/network, QEMU stopped. Next isolate AmigaBoot/Kickstart handoff and P1022 MMIO requirements before emulator changes. Evidence e500-entry-receipt.json in amigaos-side-guest-20261105.
+
+2026-11-05 second guest authorized/prepared: independent Pegasos II/7457
+AmigaOS side VM on R730 with8GiB sparse raw disk,512MiB RAM, SM501, loopback
+VNC5912 for future run, no guest networking. BBoot0.8 author release hash-pinned,
+source/license inspected. Actual bounded VOF/BBoot probe enumerated/configured
+PCI and reached expected missing-initrd message; stopped afterward, no OS boot
+or installation. Waiting for matching Pegasos ISO/prepared Kickstart; Linux/SPE
+images untouched. Launcher/source scripts and exact receipts retained in
+amigaos-pegasos2-20261105 evidence. This validates the side loader setup only.

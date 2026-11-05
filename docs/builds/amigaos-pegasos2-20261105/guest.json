@@ -1,0 +1,64 @@
+{
+  "status": "prepared-awaiting-matching-media",
+  "profile": {
+    "machine": "pegasos2",
+    "cpu": "7457",
+    "memory_mib": 512,
+    "disk_bytes": 8589934592,
+    "disk_format": "raw",
+    "vnc_port": 5912,
+    "graphics": [
+      "-vga",
+      "none",
+      "-device",
+      "sm501"
+    ],
+    "bboot": {
+      "version": "0.8",
+      "url": "https://codeberg.org/qmiga/bboot/releases/download/v0.8/bboot-0.8.tar.xz",
+      "sha256": "bded2475a84ca9575bf5fb21069b480a3ffe4e0731d5b4acb850e102cd911e5d",
+      "binary_sha256": "4bfeb4f9380b14b3cbc5d3318a124db1fd24e8ca27a48d416517a364c8a2c95c",
+      "license": "GPL version2 COPYING included; retain upstream notices"
+    },
+    "scope": "Separate AmigaOS application/SDK guest; not A1222 board or Linux SPE validation",
+    "references": [
+      "https://zero.eik.bme.hu/~balaton/qemu/amiga/aos_bboot.html",
+      "https://qemu-project.gitlab.io/qemu/system/ppc/amigang.html"
+    ]
+  },
+  "bboot_archive_sha256": "bded2475a84ca9575bf5fb21069b480a3ffe4e0731d5b4acb850e102cd911e5d",
+  "bboot_binary": "/home/owner/amigaos-pegasos2-20261105-001/loader/bboot-0.8/bboot",
+  "bboot_binary_sha256": "4bfeb4f9380b14b3cbc5d3318a124db1fd24e8ca27a48d416517a364c8a2c95c",
+  "download_verification": "HTTPS author versioned release URL and observed content hash; no detached signature independently verified",
+  "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "disk_info": {
+    "children": [
+      {
+        "name": "file",
+        "info": {
+          "children": [],
+          "virtual-size": 8589934592,
+          "filename": "/home/owner/amigaos-pegasos2-20261105-001/disk.raw",
+          "format": "file",
+          "actual-size": 4096,
+          "format-specific": {
+            "type": "file",
+            "data": {}
+          },
+          "dirty-flag": false
+        }
+      }
+    ],
+    "virtual-size": 8589934592,
+    "filename": "/home/owner/amigaos-pegasos2-20261105-001/disk.raw",
+    "format": "raw",
+    "actual-size": 4096,
+    "dirty-flag": false
+  },
+  "os_boot_verified": false,
+  "missing": [
+    "Pegasos II AmigaOS install ISO",
+    "Prepared updated Pegasos II Kickstart.zip with emulated graphics driver"
+  ],
+  "a1222_guest_changed": false
+}
