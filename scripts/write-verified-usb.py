@@ -45,7 +45,17 @@ try:
   r['readback_sha256']=h.hexdigest();assert h.hexdigest()==a.image_sha256,'USB readback mismatch'
   r['status']='written-and-full-image-readback-verified'
  finally:os.close(fd)
- subprocess.run(['blockdev','--rereadpt',str(a.device)],check=True)
+ # Desktop udev probes can briefly hold a freshly changed partition open.
+ # Retry only the table refresh; never repeat a successful media write.
+ for attempt in range(3):
+  refresh=subprocess.run(['blockdev','--rereadpt',str(a.device)],capture_output=True,text=True)
+  if refresh.returncode==0:
+   r['partition_table_refreshed']=True
+   break
+  if attempt<2:time.sleep(1)
+ else:
+  r['partition_table_refreshed']=False
+  raise RuntimeError('Image readback passed, but partition refresh failed: '+refresh.stderr.strip())
 except Exception as e:
  r['error']=str(e)
  if r['status']=='started':r['status']='failed'

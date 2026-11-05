@@ -37,3 +37,5 @@ unprivileged probe could not create an output under root-owned /work; the
 corrected probe writes under /home/owner without changing shared permissions.
 QEMU runs as owner and uses snapshot writes, loopback SSH forwarding only.
 Physical write/boot acceptance must be recorded separately.
+
+USB update: exact SanDisk serial 03001919041721081205 written and all 2GiB read back with matching SHA256. Initial kernel partition refresh returned busy; a subsequent refresh passed. Both filesystems were then mounted read-only (ext4 with noload), boot hashes and root/sshd/key ownership checked, unmounted and device powered off. Original error receipt is retained alongside postwrite proof. Writer now bounds refresh retries without repeating the write. Physical A1222 retry remains outstanding.
