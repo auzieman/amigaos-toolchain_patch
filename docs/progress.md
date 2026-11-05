@@ -1222,3 +1222,13 @@ Existing desktop 4 viewer now refreshes a server-clock heartbeat every four seco
 2026-11-04 desktop follow-through:018 completed7 accepted sources/15 inspected debs.020 now runs the broad reviewed core/desktop scope with max4 constrained R730 sbuild jobs. Kerberos reached a genuine Autoconf cross-runtime gate. Debian dpkg-cross already documents its constructor/destructor cache answer; static and dynamic target probes using hash-verified pinned glibc/GCC8 pass under e500v2 QEMU. Added target-restricted standard Debian rules cache input; source repack002 passes after correcting source-lock pointer rejected in001. No general stock PowerPC site import, target execution during builds, or new desktop/hardware acceptance. Evidence docs/builds/krb5-cross-configure-20261104/.
 
 2026-11-04 workflow correction: user expects maintained Debian PowerPC build mechanics and a broad workstation archive. Current plan110 sources. Qualified shared real installed SDK root004 with a true read-only compiler mount (dpkg -V clean, EROFS write rejection, SPE assembly emission), plus standard sbuild extra-repository transport for730 verified artifacts (offline namespace apt/hash check). Two integrity/reuse regressions pass. Active020 unchanged; waiting021 replaced by022 after020 with full scope and all previous fixes. Full integration acceptance pending. Compiler baseline audit explicitly confirms GCC8.5/tabor6 remains, not Trixie GCC14.2.0-19; no modern SPE compiler completion claimed. Evidence shared-sdk-repository-20261104 and docs/sdk-baseline-audit-20261104.md.
+
+2026-11-05 reconnect and side-guest review: R730 up, transient build services
+inactive.020 completed13 sources/47 inspected debs;022 produced no new accepted
+packages, with actual libatomic-dev unpack attempts under the RO SDK explaining
+its install failures. Mainline GCC14 SPE restoration remains the user's main
+baseline requirement, not completed by prior GCC8/tabor6 SDK repairs. Private
+AmigaOS preflight found only A1222 ISO/Enhancer; read-only Kicklayout checks and
+prior identical-media QEMU11 test do not support a Workbench/install claim.
+Platform-matched AmigaOne/Pegasos media is the next prerequisite. No old-GCC
+batch restart or new AmigaOS install. See amigaos-side-guest-20261105 evidence.

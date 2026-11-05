@@ -1737,3 +1737,21 @@ GIR and runtime gates remain open. Evidence: exact-file-cdn-20261104.
 2026-11-04 desktop follow-through:018 completed7 accepted sources/15 inspected debs.020 now runs the broad reviewed core/desktop scope with max4 constrained R730 sbuild jobs. Kerberos reached a genuine Autoconf cross-runtime gate. Debian dpkg-cross already documents its constructor/destructor cache answer; static and dynamic target probes using hash-verified pinned glibc/GCC8 pass under e500v2 QEMU. Added target-restricted standard Debian rules cache input; source repack002 passes after correcting source-lock pointer rejected in001. No general stock PowerPC site import, target execution during builds, or new desktop/hardware acceptance. Evidence docs/builds/krb5-cross-configure-20261104/.
 
 2026-11-04 workflow correction: user expects maintained Debian PowerPC build mechanics and a broad workstation archive. Current plan110 sources. Qualified shared real installed SDK root004 with a true read-only compiler mount (dpkg -V clean, EROFS write rejection, SPE assembly emission), plus standard sbuild extra-repository transport for730 verified artifacts (offline namespace apt/hash check). Two integrity/reuse regressions pass. Active020 unchanged; waiting021 replaced by022 after020 with full scope and all previous fixes. Full integration acceptance pending. Compiler baseline audit explicitly confirms GCC8.5/tabor6 remains, not Trixie GCC14.2.0-19; no modern SPE compiler completion claimed. Evidence shared-sdk-repository-20261104 and docs/sdk-baseline-audit-20261104.md.
+
+2026-11-05 user clarified that our own workstation target must bring the SPE
+compiler forward to the selected Trixie GCC14.2.0-19 baseline, beyond Steven's
+separate SDK ask. Treat GCC8/tabor6 as historical bootstrap/reference only;
+retain the frozen accepted artifacts while qualifying a separate GCC14 SPE
+candidate. No GCC14 SPE restoration or acceptance is complete. Do not mistake
+existing gcc-14 native/ordinary-PowerPC binaries for a working SPE backend.
+
+2026-11-05 separate AmigaOS guest preflight: R730 reachable after reboot,
+transient pipelines inactive. Uploaded ISO is A1222-specific, as both actual
+Kicklayouts confirm; QEMU10.0.13 machine list has no A1222 board. Existing11.1.3
+probe with identical media also did not verify OS boot. Enhancer listing did
+not supply alternate A1/Pegasos kernel. Await platform-matched media for a valid
+boot/install trial rather than repeat the known incompatible setup. No fresh
+OS boot or installation claimed. Main020 recovered13 accepted sources/47debs;
+022 had no new outputs because libatomic-dev attempts to write into shared RO
+SDK. Preserve failure; do not restart old-GCC batch or weaken RO. Evidence:
+docs/builds/amigaos-side-guest-20261105/.
