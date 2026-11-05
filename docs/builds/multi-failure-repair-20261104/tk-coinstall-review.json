@@ -1,0 +1,27 @@
+{
+  "audit": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-desktop-services-dependencies-2",
+  "native_helper": "tk8.6 (actual BLT apt dependency chain)",
+  "mismatches": [
+    {
+      "package": "libxss1",
+      "native_version": "1:1.2.3-1+b3",
+      "native_source": "libxss (1:1.2.3-1)",
+      "spe_version": "1:1.2.3-1",
+      "spe_source": "libxss"
+    },
+    {
+      "package": "libxext6",
+      "native_version": "2:1.3.4-1+b3",
+      "native_source": "libxext (2:1.3.4-1)",
+      "spe_version": "2:1.3.4-1",
+      "spe_source": "libxext"
+    },
+    {
+      "package": "libxft2",
+      "native_version": "2.3.6-1+b4",
+      "native_source": "xft (2.3.6-1)",
+      "spe_version": "2.3.6-1",
+      "spe_source": "xft"
+    }
+  ]
+}

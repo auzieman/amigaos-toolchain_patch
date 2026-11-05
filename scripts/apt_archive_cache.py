@@ -60,3 +60,13 @@ def retain(cache_base, worker):
         added = exchange(cache_base / 'pool', [Path(worker)])
     return {'path': str(worker), 'promoted_archives': added,
             'retained_archives': len(list(Path(worker).glob('*.deb')))}
+
+
+def refresh(cache_base, worker):
+    """Expose newly hash-verified downloads to an existing failed-build cache."""
+    cache_base, worker = Path(cache_base), Path(worker)
+    assert worker.parent == cache_base / 'workers' and worker.is_dir()
+    with (cache_base / 'exchange.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX)
+        exchange(cache_base / 'pool', [worker])
+        return exchange(worker, [cache_base / 'pool'])

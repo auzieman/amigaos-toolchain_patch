@@ -74,7 +74,8 @@ try:
     assert reviewed['package']==name
     for key in ['source_lock','source_cache','source_patch','quilt_patch_series']:
      if key in reviewed:spec[key]=reviewed[key]
-   # Use the solver's actual installation set, not an invented name heuristic.
+   # dose establishes installability; apt owns its own dependency choices.
+   # Expose the complete verified SPE archive, including alternative closures.
    solution=next(x for x in report['report'] if x['package']==name)
    spec['build_profiles']=solution.get('build_profiles','nocheck' if indep else 'cross,nocheck')
    spec['bootstrap']='stage1' in spec['build_profiles'].split(',')
@@ -84,14 +85,14 @@ try:
    assert sha(audit/'build-pool-artifacts.json')==pr['pool_artifacts_sha256']
    artifacts=json.loads((audit/'build-pool-artifacts.json').read_text());files={}
    for artifact in artifacts:
-    key=(artifact['package'],artifact['version'],artifact['architecture'])
-    if key in needed:
-     files.setdefault(artifact['receipt'],[]).append(artifact)
+    files.setdefault(artifact['receipt'],[]).append(artifact)
    selected=[]
    for entry in pool:
     choices=files.get(entry['receipt'],[])
     if choices:selected.append({**entry,'packages':sorted({x['package'] for x in choices}),'files':[x['file'] for x in choices]})
    spec['extra_receipts']=selected
+   if plan.get('prefetch_frozen_native_archives'):
+    spec['native_archive_recovery']={'audit':str(audit.relative_to(a.base)),'receipt_sha256':sha(audit/'receipt.json')}
    if indep:
     spec.update(indep_only=True,host_architecture='amd64',native_toolchain_inputs=[])
    if name in plan.get('patch_series',{}):spec['quilt_patch_series']=plan['patch_series'][name]

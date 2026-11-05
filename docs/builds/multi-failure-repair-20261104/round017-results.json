@@ -1,0 +1,102 @@
+{
+  "round": "017",
+  "passes": [
+    {
+      "source": "libverto",
+      "debs": 4,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libverto/receipt.json",
+      "receipt_sha256": "9bf955c33dd07653e35c737f515c516bb89b8185ac2186a21e6e8f4e57c4ad66",
+      "payload_inspection_sha256": "28dc9ec3277f023de4e40f08ee87bc02239531d54abecbd39d41ae9396d01f26"
+    },
+    {
+      "source": "systemd",
+      "debs": 27,
+      "bootstrap": true,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-systemd/receipt.json",
+      "receipt_sha256": "79f162c65a602dcb36a5e8b6d24a59786d35221c1e03c5bd853ecb5f895e12c8",
+      "payload_inspection_sha256": "520c74ede52e904d4aebc34c569dbb6a563ec3903e46c02a68825a7873ac0e4e"
+    },
+    {
+      "source": "libcap2",
+      "debs": 7,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-binary-rebuilds-libcap2/receipt.json",
+      "receipt_sha256": "ab4028b485823fbaa7167d000289ae3bd74aae2bd732b8138fef50b787007c48",
+      "payload_inspection_sha256": "43ff538948e9c8e63ad3629e45107f3842ab8002932430eb5408e333465b3b19"
+    },
+    {
+      "source": "xft",
+      "debs": 2,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-xft/receipt.json",
+      "receipt_sha256": "d3ead1bb19ad20ee6a43faf9da039578f0f58aeb56ff91efebb7e85c99bdee78",
+      "payload_inspection_sha256": "24df254639e0f992b7a6e5cc2f5c96b2f4304dfb0a4b565805e92805482723d6"
+    },
+    {
+      "source": "libev",
+      "debs": 2,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libev/receipt.json",
+      "receipt_sha256": "26797c2b160235e2ac9fe871a82902bb2c8610c6fb88ec06caa3de17e294ba9b",
+      "payload_inspection_sha256": "aee68b721686f56614eb84508dc1e1d4926330db92eb84527827ba03034a3669"
+    },
+    {
+      "source": "libdrm",
+      "debs": 7,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libdrm/receipt.json",
+      "receipt_sha256": "96106f84367581cd9f04a49089d134eef91794863e1e1b590ad40e4e035c08da",
+      "payload_inspection_sha256": "56c44d96dd3970c1a8706820c3331859d864b476b5683d2314482f9507ebd463"
+    },
+    {
+      "source": "coreutils",
+      "debs": 2,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-desktop-services-coreutils/receipt.json",
+      "receipt_sha256": "93a5700dc93460a055d5b81a5c52842e009ad503901faa675fa213efd882f569",
+      "payload_inspection_sha256": "b97313c7c07011ee58b00560bf39317a6734c99d4dc5760e6abdef3702f3ae8b"
+    },
+    {
+      "source": "libxmu",
+      "debs": 4,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libxmu/receipt.json",
+      "receipt_sha256": "1cf96917db4233c135850909db46debf65c5c46c15fdf21dfdc705bd75dbcfe6",
+      "payload_inspection_sha256": "81d88c31ee21e7f09cca29d8c5b8630e4391fda4bd0adbe4dade08ddd0b4e622"
+    },
+    {
+      "source": "base-passwd",
+      "debs": 1,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-desktop-services-base-passwd/receipt.json",
+      "receipt_sha256": "069a94b1bbaf127aba2505887ddc2ea278398146b886a86733871ca9108163b3",
+      "payload_inspection_sha256": "933bd15aeee9879f975ce8dca30873385463bfe5b08b7b7366037ae78b196277"
+    },
+    {
+      "source": "tk8.6",
+      "debs": 3,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-desktop-services-tk8.6/receipt.json",
+      "receipt_sha256": "767907c6a2a8974de1bbc0aa54bbc8602a106f73bf6b144037485948a04dfac9",
+      "payload_inspection_sha256": "fe983ee8dcdddcd1051e6289cad047b73a01b5ee4477e3f4f8a91e6835437bac"
+    },
+    {
+      "source": "lmdb",
+      "debs": 4,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-lmdb/receipt.json",
+      "receipt_sha256": "ab16134de16d5be985ec4660eb9f1f30b0c6b0d18ff4e22fe8d1626fa92e3e2e",
+      "payload_inspection_sha256": "1ec3ba80ebc2fe628cba35cd0fb33c31850a60ba6045e7ced3359248830012b3"
+    },
+    {
+      "source": "cdebconf",
+      "debs": 3,
+      "bootstrap": false,
+      "receipt": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-desktop-services-cdebconf/receipt.json",
+      "receipt_sha256": "fd25f48f7096ed152cb91778410edcd39a3d08578f0b4addbf1205a4b9fd6282",
+      "payload_inspection_sha256": "2fa83af86bb3ec17389867888f4b4f5f8a6d1e7de8a74d49b72a9cb30928c367"
+    }
+  ],
+  "raw_fallout_receipt_sha256": "f1abed6e16273ca5d0a5ebb407b68f5fb1160c585797dab297728f399b835406"
+}

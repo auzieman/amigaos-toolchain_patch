@@ -37,11 +37,11 @@ class NativeCacheTests(unittest.TestCase):
             'native_packages_sha256': sha(self.audit / 'NativePackages'),
         }))
 
-    def execute(self, download):
+    def execute(self, download, version='1'):
         output = self.base / 'output'
         args = [str(SCRIPT), '--audit', str(self.audit), '--lock', str(self.lock),
                 '--cache', str(self.cache), '--output', str(output),
-                '--exact-file-cdn', 'fixture=1']
+                '--exact-file-cdn', 'fixture='+version]
         with patch.object(sys, 'argv', args), patch('subprocess.run', side_effect=download) as calls:
             runpy.run_path(str(SCRIPT), run_name='__main__')
         return json.loads((output / 'receipt.json').read_text()), calls
@@ -74,6 +74,20 @@ class NativeCacheTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.execute(download)
         self.assertFalse((self.cache / self.filename).exists())
+
+    def test_epoch_cache_alias_reuses_pool_filename_without_network(self):
+        package_index=self.audit/'NativePackages'
+        package_index.write_text(package_index.read_text().replace('Version: 1\n','Version: 1:1\n'))
+        proof=self.audit/'receipt.json'
+        record=json.loads(proof.read_text());record['native_packages_sha256']=sha(package_index)
+        proof.write_text(json.dumps(record))
+        original=self.cache/self.filename;original.write_bytes(self.payload)
+        receipt,calls=self.execute(lambda *a,**k:self.fail('Network contacted'),version='1:1')
+        canonical=self.cache/'fixture_1%3a1_amd64.deb'
+        calls.assert_not_called()
+        self.assertEqual(canonical.read_bytes(),self.payload)
+        self.assertEqual(canonical.stat().st_ino,original.stat().st_ino)
+        self.assertEqual(receipt['items'][0]['filename'],canonical.name)
 
 if __name__ == '__main__':
     unittest.main()

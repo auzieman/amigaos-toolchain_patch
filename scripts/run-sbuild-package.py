@@ -6,7 +6,8 @@ installed-state rewriting or manual target package installation is performed.
 """
 import argparse,hashlib,json,os,pwd,re,shutil,subprocess
 from pathlib import Path
-from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache, mapped_root_ids
+from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache, refresh as refresh_apt_cache, mapped_root_ids
+from native_archive_recovery import requests_for_failure
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--base',type=Path,required=True)
@@ -195,6 +196,27 @@ try:
  if list(extras.glob('*.deb')):cmd[-1:-1]=['--extra-package='+str(extras)]
  r['status']='sbuild-running';save()
  result=run(cmd,'sbuild',os.environ.copy())
+ if result and spec.get('native_archive_recovery'):
+  recovery=spec['native_archive_recovery'];audit=a.base/recovery['audit']
+  proof=audit/'receipt.json';assert sha(proof)==recovery['receipt_sha256']
+  audit_record=json.loads(proof.read_text())
+  assert audit_record['base_lock_sha256']==sha(a.project/spec['base_lock'])
+  assert sha(audit/'NativePackages')==audit_record['native_packages_sha256']
+  requests=requests_for_failure(a.output/'sbuild.log',audit/'NativePackages',base_lock['repositories'])
+  if requests:
+   cache_output=a.output/'native-acquisition-recovery'
+   code=run(['python3',a.project/'scripts/cache-frozen-native-archives.py','--audit',audit,
+    '--lock',a.project/spec['base_lock'],'--cache',cache_base/'pool','--output',cache_output,
+    '--exact-file-cdn',*requests],'native-cache-recovery')
+   assert code==0, 'Frozen native cache recovery integrity/provenance failure'
+   recovered=json.loads((cache_output/'receipt.json').read_text())
+   r['native_archive_recovery']={'requests':requests,'receipt_sha256':sha(cache_output/'receipt.json'),'status':recovered['status'],'retry_limit':1}
+   if any(item['status'] in ['reused','cached-verified'] for item in recovered['items']):
+    r['initial_sbuild_exit']=result
+    (a.output/'sbuild.log').rename(a.output/'sbuild-initial.log')
+    r['native_archive_recovery']['worker_cache_added']=refresh_apt_cache(cache_base,archive_cache)
+    save()
+    result=run(cmd,'sbuild',os.environ.copy())
  r['sbuild_exit']=result
  if result:raise RuntimeError('sbuild failed; retained standard dependency/build log')
  packages={f.name:{'sha256':sha(f),'bytes':f.stat().st_size} for f in a.output.glob('*.deb')}

@@ -30,7 +30,15 @@ try:
     assert key not in entries or entries[key]['SHA256']==x['SHA256'];entries[key]=x
  assert set(entries)==wanted,'Exact request missing from frozen native index'
  for key,x in entries.items():
-  dest=a.cache/Path(x['Filename']).name;expected=x['SHA256'];item={'package':key[0],'version':key[1],'sha256':expected,'filename':dest.name}
+  # Pool URIs omit epochs, but apt's archive cache includes an encoded epoch.
+  # Preserve/reuse existing pool-name files through a verified hardlink.
+  apt_name=key[0]+'_'+key[1].replace(':','%3a')+'_'+x['Architecture']+'.deb'
+  dest=a.cache/apt_name;legacy=a.cache/Path(x['Filename']).name;expected=x['SHA256']
+  if not dest.exists() and legacy.exists():
+   assert sha(legacy)==expected
+   try:os.link(legacy,dest)
+   except FileExistsError:assert sha(dest)==expected
+  item={'package':key[0],'version':key[1],'sha256':expected,'filename':dest.name,'pool_filename':legacy.name}
   if dest.exists():assert sha(dest)==expected;item['status']='reused'
   else:
    repo='debian-security' if x['Filename'].startswith('pool/updates/') else 'debian'

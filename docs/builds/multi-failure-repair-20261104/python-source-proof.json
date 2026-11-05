@@ -1,0 +1,77 @@
+{
+  "status": "debian-source-prepared-not-built",
+  "spec_sha256": "b0a4bc2604f0b4ae7d8109e5a5306f7f7c5299cd7bd91dc97ff33e3ff659a159",
+  "recipe_sha256": "6cfeb1c6cedbc0a5332f58cc758231e263ecc243fc3c76da4f469715b71ac5f5",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck",
+  "bootstrap": false,
+  "required_full_rebuild": false,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "python3-defaults_3.13.5-1.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python3-defaults/python3-defaults_3.13.5-1.dsc",
+      "size": 2346,
+      "sha256": "206e2f527ca126e46f007b3dd668ae9d35a03c7653bee137a03161df33063d2c"
+    },
+    {
+      "filename": "python3-defaults_3.13.5-1.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/p/python3-defaults/python3-defaults_3.13.5-1.tar.gz",
+      "size": 146839,
+      "sha256": "6260f7e3b3df0c5fc60a95b26bd2da5993c6f8fcd901bab74c1c43df45d361dd"
+    }
+  ],
+  "extra_package_inputs": [],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/python-defaults-native-tools-source-002/sources/python3-defaults_3.13.5-1.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/python-defaults-native-tools-source-002/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/python-defaults-native-tools-source-002/sources/patched-source",
+      "apply",
+      "--check",
+      "/tmp/tabor-qualified-project/patches/python3-defaults/0001-native-documentation-generators.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/python-defaults-native-tools-source-002/sources/patched-source",
+      "apply",
+      "/tmp/tabor-qualified-project/patches/python3-defaults/0001-native-documentation-generators.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/python-defaults-native-tools-source-002/sources/patched-source"
+    ]
+  ],
+  "package": "python3-defaults",
+  "source_version": "3.13.5-1",
+  "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "native_root_sha256": "54d0df59623706360925f2b7a81952dac5824bdbe424ba3654cb0f1ee1acb9f0",
+  "upstream_debian_source_version": "3.13.5-1",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/python3-defaults_3.13.5-1.dsc",
+    "sha256": "27f808cc6d183896972f716ca2c3fd1780aedc52365c0b2374966cf9fed62cd1",
+    "patch_sha256": "5b7116f040180dd35367fe42eca97d544e4fab20ed4c13b47b53c461fb3abc86",
+    "version": "3.13.5-1",
+    "preserve_debian_version": true
+  },
+  "prepared_source": {
+    "path": "sources/debian-patched-output/python3-defaults_3.13.5-1.dsc",
+    "sha256": "27f808cc6d183896972f716ca2c3fd1780aedc52365c0b2374966cf9fed62cd1"
+  }
+}
