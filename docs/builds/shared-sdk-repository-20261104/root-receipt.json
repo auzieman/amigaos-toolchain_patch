@@ -1,0 +1,25 @@
+{
+  "status": "native-buildd-root-created",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "parent_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
+  "sha256": "120779edb1ef4a9ca0a5e2ff0d780f9395b06e973e89da826fcf69f6df2fbb68",
+  "recipe_sha256": "43989d6ed1fca947aef9ad80949cb5913ec5ccaf930b054b39f16b20cf941fa5",
+  "target_execution": false,
+  "staged_root": "/srv/data1/tabor-sbuild-roots/shared-sdk-buildd-004",
+  "sdk_installed_by": "normal apt/dpkg in network-disabled sbuild namespace",
+  "shared_sdk": {
+    "path": "/srv/data1/tabor-shared-sdk/42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb/usr/lib/tabor-spe-toolchain",
+    "mountpoint": "/usr/lib/tabor-spe-toolchain",
+    "mount_options": "ro,relatime",
+    "package_sha256": "42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb",
+    "sdk_receipt_sha256": "6024666a269ad4b982c1c120eb8527f4f4623063eee26fbe4ec7536b4b438a1d",
+    "version": "8.5.0+tabor6",
+    "manifest_sha256": "3a54e14bd758526360e7c5a21cf05755ddf3a8a1ef503638c5a91c5886c0ce01",
+    "manifest": "work/shared-sdk-buildd-004/sdk-files.json"
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/shared-sdk-buildd-004",
+    "promoted_archives": 0,
+    "retained_archives": 1360
+  }
+}

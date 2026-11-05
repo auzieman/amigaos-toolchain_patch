@@ -8,6 +8,8 @@ import argparse,hashlib,json,os,pwd,re,shutil,subprocess
 from pathlib import Path
 from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache, refresh as refresh_apt_cache, mapped_root_ids
 from native_archive_recovery import requests_for_failure
+from sbuild_local_repository import prepare as prepare_local_repository
+from shared_sdk_mount import ensure_read_only as ensure_read_only_sdk
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--base',type=Path,required=True)
@@ -69,14 +71,19 @@ try:
    found.add(package)
    r['extra_package_inputs'].append({'file':name,'sha256':entry['sha256'],'receipt_sha256':sha(receipt)})
   assert set(item['packages'])==found, 'Requested packages absent from the pinned receipt'
+ selected_root_receipt=a.base/spec['native_root_receipt']
+ assert sha(selected_root_receipt)==spec['native_root_receipt_sha256']
+ shared_sdk=json.loads(selected_root_receipt.read_text()).get('shared_sdk')
  for item in spec.get('native_toolchain_inputs',[]):
   receipt=a.base/item['receipt'];assert sha(receipt)==item['receipt_sha256']
   record=json.loads(receipt.read_text());assert record['status']=='native-toolchain-package-built-not-installed'
   src=receipt.parent/item['file'];assert sha(src)==record['package_sha256']
   assert subprocess.check_output(['dpkg-deb','-f',str(src),'Package'],text=True).strip()=='tabor-spe-toolchain'
   assert subprocess.check_output(['dpkg-deb','-f',str(src),'Architecture'],text=True).strip()=='amd64'
-  shutil.copyfile(src,extras/src.name)
-  r['extra_package_inputs'].append({'file':src.name,'sha256':sha(src),'role':'native SPE cross compiler','receipt_sha256':sha(receipt)})
+  if shared_sdk:
+   assert sha(src)==shared_sdk['package_sha256'] and sha(receipt)==shared_sdk['sdk_receipt_sha256']
+  else:shutil.copyfile(src,extras/src.name)
+  r['extra_package_inputs'].append({'file':src.name,'sha256':sha(src),'role':'shared read-only installed compiler' if shared_sdk else 'native SPE cross compiler','receipt_sha256':sha(receipt)})
  root_receipt=a.base/spec['native_root_receipt'];assert sha(root_receipt)==spec['native_root_receipt_sha256']
  root_record=json.loads(root_receipt.read_text());assert root_record['status']=='native-buildd-root-created'
  assert root_record.get('base_lock_sha256')==sha(a.project/spec['base_lock']), 'Root must match the frozen base lock'
@@ -146,6 +153,10 @@ try:
  cache_uid,cache_gid=mapped_root_ids('owner')
  archive_cache=prepare_apt_cache(cache_base,a.output.name,root_receipt.parent/'root/var/cache/apt/archives',cache_uid,cache_gid)
  r['apt_archive_cache']={'path':str(archive_cache),'seeded_archives':len(list(archive_cache.glob('*.deb')))}
+ local_repository=None
+ if list(extras.glob('*.deb')):
+  local_repository, repository_record=prepare_local_repository(extras,a.base.parent.parent/'tabor-sbuild-repositories')
+  r['local_repository']={'path':str(local_repository),**repository_record};save()
  config=a.output/'sbuild.conf'
  # Large dependency templates must unpack on server storage, not /tmp tmpfs:
  # tmpfs pages count against the package job's memory limit before compilation.
@@ -165,6 +176,20 @@ try:
   f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")
  with config.open('a') as f:
   f.write("$apt_keep_downloaded_packages = 1;\n$clean_apt_cache = 0;\n$unshare_bind_mounts = [ { directory => '"+str(archive_cache)+"', mountpoint => '/var/cache/apt/archives' } ];\n1;\n")
+ if shared_sdk:
+  sdk_path=Path(shared_sdk['path'])
+  assert sdk_path.resolve().is_relative_to((a.base.parent.parent/'tabor-shared-sdk').resolve())
+  assert shared_sdk['mountpoint']=='/usr/lib/tabor-spe-toolchain'
+  assert sha(a.base/shared_sdk['manifest'])==shared_sdk['manifest_sha256']
+  ensure_read_only_sdk(sdk_path,json.loads((a.base/shared_sdk['manifest']).read_text()))
+  mount_options=subprocess.check_output(['findmnt','--noheadings','--output','VFS-OPTIONS','--target',sdk_path],text=True).strip().split(',')
+  assert 'ro' in mount_options, 'Shared compiler must be a read-only mount before a build starts'
+  r['shared_sdk']=shared_sdk;save()
+  with config.open('a') as f:
+   f.write("push @{$unshare_bind_mounts}, { directory => '"+str(sdk_path)+"', mountpoint => '/usr/lib/tabor-spe-toolchain' };\n1;\n")
+ if local_repository:
+  with config.open('a') as f:
+   f.write("push @{$unshare_bind_mounts}, { directory => '"+str(local_repository)+"', mountpoint => '/srv/tabor-extra-packages' };\n1;\n")
  if spec.get('configure_cache'):
   cache_spec=spec['configure_cache'];cache_path=a.project/cache_spec['path']
   assert sha(cache_path)==cache_spec['sha256']
@@ -193,7 +218,7 @@ try:
  cmd[-1:-1]=["--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries"]
  if spec.get('indep_only'):cmd[-1:-1]=['--arch-all','--no-arch-any']
  else:cmd[-1:-1]=['--no-arch-all']
- if list(extras.glob('*.deb')):cmd[-1:-1]=['--extra-package='+str(extras)]
+ if local_repository:cmd[-1:-1]=['--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./']
  r['status']='sbuild-running';save()
  result=run(cmd,'sbuild',os.environ.copy())
  if result and spec.get('native_archive_recovery'):

@@ -1,0 +1,11 @@
+{
+  "status": "offline-sbuild-namespace-apt-repository-qualified",
+  "artifact_count": 730,
+  "repository": "/srv/data1/tabor-sbuild-repositories/9a35744fe0fef7b0ef0fd1e54d064ff4b61abcb38e13fc0cafdde75bfb7d0f9f",
+  "repository_identity": "9a35744fe0fef7b0ef0fd1e54d064ff4b61abcb38e13fc0cafdde75bfb7d0f9f",
+  "downloaded_file": "libxkbfile-dev_1%3a1.1.0-1_powerpcspe.deb",
+  "downloaded_sha256": "9684b2e78b43f6ea8f7d1b6e5cb615e27e2ce3a3a162c840ff13dcc2d1511b99",
+  "qualification": "same sbuild UID maps, pivotroot, bind and --nonet; apt local index+target download passed; mapped root cannot write repository",
+  "test_note": "Initial post-check compared apt epoch filename to pool filename; corrected comparison verifies the target package content hash against the repository manifest. Namespace apt itself passed on first execution.",
+  "full_sbuild_build": "pending"
+}

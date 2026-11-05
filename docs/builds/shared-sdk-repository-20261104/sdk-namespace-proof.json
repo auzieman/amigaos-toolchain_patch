@@ -1,0 +1,27 @@
+{
+  "status": "shared-read-only-sdk-namespace-qualified",
+  "root_receipt_sha256": "b35d6d2f0d5d3c8aecd661dd442c91ee0a417261c327a504cc176f0d117e1dbb",
+  "command": [
+    "runuser",
+    "-u",
+    "owner",
+    "--",
+    "/usr/libexec/sbuild-usernsexec",
+    "--pivotroot",
+    "--nonet",
+    "u:0:100000:65536",
+    "g:0:100000:65536",
+    "/srv/data1/tabor-sbuild-roots/shared-sdk-namespace-proof-001",
+    "root",
+    "/",
+    "/srv/data1/tabor-shared-sdk/42f86da8b53ba87957330d78c197bc838caf1b66cf8d012b8291bf32f28268eb/usr/lib/tabor-spe-toolchain",
+    "/usr/lib/tabor-spe-toolchain",
+    "--",
+    "sh",
+    "-ec",
+    "test \"$(dpkg-query -W -f='${Status} ${Version}' tabor-spe-toolchain)\" = 'install ok installed 8.5.0+tabor6'\ntest -z \"$(dpkg -V tabor-spe-toolchain)\"\nif touch /usr/lib/tabor-spe-toolchain/shared-write-test 2>/tmp/write-error; then exit 1; fi\ngrep 'Read-only file system' /tmp/write-error\nprintf '%s\n' '#include <stddef.h>' 'float spe_add(float a,float b) { return a+b; }' > /tmp/probe.c\npowerpc-linux-gnuspe-gcc -mcpu=8540 -mabi=spe -mspe -mfloat-gprs=double -S /tmp/probe.c -o /tmp/probe.s\ngrep 'efsadd' /tmp/probe.s\ndpkg --audit\n"
+  ],
+  "exit": 0,
+  "evidence": "touch: cannot touch '/usr/lib/tabor-spe-toolchain/shared-write-test': Read-only file system\n\tefsadd 9,10,9\n",
+  "scope": "actual sbuild UID maps and bind backend; real dpkg installed state/file verification, read-only filesystem rejection, target SPE assembly; no target execution; full sbuild package pending"
+}
