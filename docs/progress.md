@@ -1232,3 +1232,5 @@ AmigaOS preflight found only A1222 ISO/Enhancer; read-only Kicklayout checks and
 prior identical-media QEMU11 test do not support a Workbench/install claim.
 Platform-matched AmigaOne/Pegasos media is the next prerequisite. No old-GCC
 batch restart or new AmigaOS install. See amigaos-side-guest-20261105 evidence.
+
+2026-11-05 correction to side-guest scope: our existing ppce500/e500v2/SPE Linux harness is a valid custom-emulation starting point; no stock A1222 name does not prove impossibility or require other media as the only path. Actual bounded R730 direct-entry probe of the unmodified uploaded AmigaOS A1222 kernel loaded at NIP0x010000d4 and reached NIP0x700 after2s, no serial/Workbench. Private kernel kept outside Git, no disk/network, QEMU stopped. Next isolate AmigaBoot/Kickstart handoff and P1022 MMIO requirements before emulator changes. Evidence e500-entry-receipt.json in amigaos-side-guest-20261105.
