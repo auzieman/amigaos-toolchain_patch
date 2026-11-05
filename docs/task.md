@@ -1785,3 +1785,7 @@ Built FAT/ext4 disk-root rescue image with mem=3500M and a temporary U-Boot scri
 ## Tabor physical boot machine-match defect — 2026-11-05
 
 Original-image/vendor review found our kernel matches fsl,tabor but shipped DTB uses varisys,TABOR. Exact source and Linux machine-selection loop verified. Added ordered correction and packaging identity guard; original pair rejected, corrected source passes. No corrected binary/hardware acceptance yet. See [audit](builds/tabor-machine-audit-20261105/README.md).
+
+## Corrected physical kernel staged — 2026-11-05
+
+Fresh Linux 6.12.113-1 board rebuild passed with the exact configuration from the actually shipped tabor-live-001. Machine identity matches unchanged vendor DTB. Corrected uImage installed on exact SanDisk, remount/readback verified; root, DTB and boot script preserved. Stick safely powered off; physical retry remains open in issue #26. See [build and write receipts](builds/tabor-match-rebuild-20261105/README.md).

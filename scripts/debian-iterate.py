@@ -19,6 +19,8 @@ def main():
  p.add_argument('--image-id',required=True)
  p.add_argument('--jobs',type=int,default=2)
  p.add_argument('--kernel-profile',choices=['tabor','qemu-smoke','qemu-live','tabor-live'],default='tabor')
+ p.add_argument('--kernel-config',type=Path,
+                help='Reuse an exact retained kernel configuration; refuse olddefconfig drift')
  a=p.parse_args();project=a.project.resolve();cache=a.cache.resolve();work=a.work.resolve()
  if not re.search(r'(?:^|@)sha256:[0-9a-f]{64}$',a.image_id):p.error('image digest required')
  if not 1<=a.jobs<=32:p.error('invalid job count')
@@ -70,13 +72,17 @@ def main():
     run(['dpkg-query','-W']);run(['powerpc-linux-gnu-gcc','--version']);run(['powerpc-linux-gnu-ld','--version'])
     if a.component=='linux':
      make=['make','-C',str(source),'O='+str(output),'ARCH=powerpc','CROSS_COMPILE=powerpc-linux-gnu-']
-     if a.kernel_profile in ['qemu-smoke','qemu-live']:
+     if a.kernel_config:
+      shutil.copyfile(a.kernel_config,output/'.config')
+      receipt['retained_config_sha256']=sha(a.kernel_config)
+     elif a.kernel_profile in ['qemu-smoke','qemu-live']:
       seed=project/'profiles/qemu'/('e500v2-live.config' if a.kernel_profile=='qemu-live' else 'e500v2-smoke.config')
       receipt['config_seed_sha256']=sha(seed)
       run(make+['KCONFIG_ALLCONFIG='+str(seed),'allnoconfig'])
      else:run(make+['mpc85xx_smp_defconfig'])
-     run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--enable','DEBUG_INFO_NONE','--disable','DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
-     if a.kernel_profile=='tabor-live':
+     if not a.kernel_config:
+      run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--enable','DEBUG_INFO_NONE','--disable','DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
+     if a.kernel_profile=='tabor-live' and not a.kernel_config:
       fragment=project/'profiles/images/tabor-live-kernel.config'
       receipt['live_fragment_sha256']=sha(fragment)
       for line in fragment.read_text().splitlines():
@@ -86,13 +92,15 @@ def main():
        run([str(source/'scripts/config'),'--file',str(output/'.config'),
             '--enable' if match.group(2)=='y' else '--disable',match.group(1)])
      run(make+['olddefconfig'])
+     if a.kernel_config and sha(output/'.config')!=receipt['retained_config_sha256']:
+      raise ValueError('Retained kernel configuration changed; review before building')
      config=(output/'.config').read_text().splitlines()
      for key in ['CONFIG_PPC=y','CONFIG_BOOKE=y','CONFIG_SPE=y','CONFIG_TABOR=y','CONFIG_DEBUG_INFO_NONE=y']:
       if key not in config:raise ValueError('Required configuration missing: '+key)
      if a.kernel_profile in ['qemu-smoke','qemu-live']:
       for key in ['CONFIG_PPC_QEMU_E500=y','CONFIG_SMP=y','CONFIG_BLK_DEV_INITRD=y','CONFIG_BINFMT_ELF=y','CONFIG_SERIAL_8250_CONSOLE=y']:
        if key not in config:raise ValueError('Required QEMU configuration missing: '+key)
-     if a.kernel_profile in ['tabor-live','qemu-live']:
+     if a.kernel_profile in ['tabor-live','qemu-live'] and not a.kernel_config:
       required=['CONFIG_FUTEX=y','CONFIG_COMPAT_32BIT_TIME=y','CONFIG_MULTIUSER=y','CONFIG_UNIX98_PTYS=y','CONFIG_SECCOMP=y','CONFIG_SECCOMP_FILTER=y','CONFIG_BINFMT_SCRIPT=y','CONFIG_INET=y','CONFIG_TMPFS=y','CONFIG_EXT4_FS=y','CONFIG_CGROUPS=y','CONFIG_MEMCG=y','CONFIG_CGROUP_PIDS=y','CONFIG_FHANDLE=y','CONFIG_NAMESPACES=y','CONFIG_TMPFS_POSIX_ACL=y','CONFIG_EXT4_FS_POSIX_ACL=y']
       if a.kernel_profile=='qemu-live':
        required+=['CONFIG_BLK_DEV=y','CONFIG_VIRTIO_BLK=y','CONFIG_HIGHMEM=y','CONFIG_SYSVIPC=y','CONFIG_INOTIFY_USER=y','CONFIG_NET_CORE=y','CONFIG_VIRTIO_NET=y','CONFIG_VIRTIO_PCI_LEGACY=y','CONFIG_HW_RANDOM_VIRTIO=y']

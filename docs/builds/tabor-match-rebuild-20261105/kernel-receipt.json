@@ -1,0 +1,100 @@
+{
+  "component": "linux",
+  "version": "6.12.113-1",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "status": "compiled",
+  "mode": "build",
+  "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "series_sha256": "d158e1738f4db287ad67ce79c92e1fcf146654090ec0ce5e19375e3c9badefc7",
+  "patches": {
+    "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4",
+    "0002-powerpc-tabor-match-vendor-compatible.patch": "8302d1b1f5f2380ed8541acf632a99b7cdb978d3a30446f6170b02122f4d1175"
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/cache/linux_6.12.113-1.dsc",
+      "/work/tabor-match-20261105-002/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/project/patches/linux/0002-powerpc-tabor-match-vendor-compatible.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/project/patches/linux/0002-powerpc-tabor-match-vendor-compatible.patch"
+    ],
+    [
+      "dpkg-query",
+      "-W"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "--version"
+    ],
+    [
+      "powerpc-linux-gnu-ld",
+      "--version"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/tabor-match-20261105-002/source",
+      "O=/work/tabor-match-20261105-002/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "olddefconfig"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/tabor-match-20261105-002/source",
+      "O=/work/tabor-match-20261105-002/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "-j4",
+      "arch/powerpc/platforms/85xx/tabor.o",
+      "fsl/tabor-a1222.dtb"
+    ],
+    [
+      "make",
+      "-C",
+      "/work/tabor-match-20261105-002/source",
+      "O=/work/tabor-match-20261105-002/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "-j4",
+      "vmlinux",
+      "modules",
+      "dtbs"
+    ]
+  ],
+  "kernel_profile": "tabor-live",
+  "boot_tested": false,
+  "spe_userspace_validated": false,
+  "retained_config_sha256": "4be2739e4620d8ae44b1b9d8788aee81495b23a352bdba135913a0fab6aaa498",
+  "config_sha256": "4be2739e4620d8ae44b1b9d8788aee81495b23a352bdba135913a0fab6aaa498",
+  "artifacts": {
+    "vmlinux": "abcbd321c48ce7f465487637fb6638100756e96a4ec9b74f5d3c7e47c894601a",
+    "System.map": "d911c9101acc182e398a8cb372b66444b835923bbbe2ed8b1fd84f4ad35683ca",
+    ".config": "4be2739e4620d8ae44b1b9d8788aee81495b23a352bdba135913a0fab6aaa498",
+    "arch/powerpc/boot/dts/fsl/tabor-a1222.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+  },
+  "cache_reverified": true
+}
