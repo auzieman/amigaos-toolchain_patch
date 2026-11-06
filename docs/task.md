@@ -1805,3 +1805,21 @@ Exact SanDisk updated with early firmware, root key-only SSH and read-only QEMU 
 ## Native SMU graphics failure isolated — 2026-11-05
 
 Root key SSH works. Live log/reprobe reaches VRAM/GART and firmware discovery, then SMU startup fails (-22); HDMI still stale. Private live-DTB/PCI inventory retrieved by SFTP, no ROM reads/flash. Audit SMU upload endianness and PCI windows before choosing a patch. See [evidence](builds/native-gpu-smu-20261105/README.md).
+
+## Live display power/handoff probe — 2026-11-05
+
+Read-only native probe: Radeon D0/runtime-active, driver unbound after failure; no registered framebuffer. DT stdout points to onboard DIU with no bound driver; initial board patch lacks DIU hooks. No reset/register writes. See [probe](builds/native-gpu-smu-20261105/live-power-handoff.md). SMU root cause remains unconfirmed.
+
+## Modular graphics kernel candidate — 2026-11-05
+
+User requests flexibility for alternative cards. Added separate tabor-modular profile and module-valued fragment support. R730 fresh candidate003 launched with 4CPU/6GiB, cached source, both board patches and distinct release suffix. Compile/modules/deployment validation pending; USB unchanged. See docs/kernel-build.md.
+
+2026-11-05 status check: modular candidate003 completed successfully (container exit0, receipt status compiled). vmlinux/modules/DTBs built. Packaging, module installation/dependency metadata and physical GPU validation remain pending. No USB deployment performed.
+
+2026-11-05: Modular kernel compiled; matching modules/static module tools and separate boot payload installed on live SanDisk over SSH/SFTP. Transfer/readback and machine identity checks passed; old kernel and boot-known-good.scr retained. Reboot sent, physical new-kernel acceptance pending. See builds/modular-usb-update-20261105/.
+
+2026-11-05 physical modular acceptance:6.12.113-tabor-modular boots USB, SSH works, all9 ABI checks pass. Corrected static module-loader defaults /lib/modules/modules.dep; dependency resolution and insertion work, but AMDGPU device probe still fails-22, no framebuffer. See modular-usb-update-20261105 evidence.
+
+2026-11-05: Audited SMU7 raw firmware words -> CGS -> WREG32/writel; native u32 upload differs by host endian. Isolated LE-decode candidate prepared (not default series), numerical stream equivalence checked, fresh constrained exact-config R730 build started. Physical fix remains unproven. See builds/smu7-endian-candidate-20261105/.
+
+2026-11-05: SMU7 endian candidate compiled, exact .config/Module.symvers match. One controlled physical module test with continuous kmsg: insertion succeeds but SMU startup still fails and device probe-22, no framebuffer. SSH healthy; installed module tree unchanged. Negative warm-state test, no cold-cycle result or fix claimed. Evidence: builds/smu7-endian-candidate-20261105/.

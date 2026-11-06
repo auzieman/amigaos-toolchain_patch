@@ -18,7 +18,7 @@ def main():
  p.add_argument('--mode',choices=['prepare','configure','build'],default='prepare')
  p.add_argument('--image-id',required=True)
  p.add_argument('--jobs',type=int,default=2)
- p.add_argument('--kernel-profile',choices=['tabor','qemu-smoke','qemu-live','tabor-live'],default='tabor')
+ p.add_argument('--kernel-profile',choices=['tabor','qemu-smoke','qemu-live','tabor-live','tabor-modular'],default='tabor')
  p.add_argument('--kernel-config',type=Path,
                 help='Reuse an exact retained kernel configuration; refuse olddefconfig drift')
  a=p.parse_args();project=a.project.resolve();cache=a.cache.resolve();work=a.work.resolve()
@@ -82,15 +82,17 @@ def main():
      else:run(make+['mpc85xx_smp_defconfig'])
      if not a.kernel_config:
       run([str(source/'scripts/config'),'--file',str(output/'.config'),'--enable','TABOR','--enable','SPE','--enable','DEVTMPFS','--enable','DEVTMPFS_MOUNT','--enable','DEBUG_INFO_NONE','--disable','DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT','--disable','DEBUG_INFO','--disable','DEBUG_INFO_BTF'])
-     if a.kernel_profile=='tabor-live' and not a.kernel_config:
-      fragment=project/'profiles/images/tabor-live-kernel.config'
+     if a.kernel_profile in ['tabor-live','tabor-modular'] and not a.kernel_config:
+      fragment=project/'profiles/images'/('tabor-modular-kernel.config' if a.kernel_profile=='tabor-modular' else 'tabor-live-kernel.config')
       receipt['live_fragment_sha256']=sha(fragment)
       for line in fragment.read_text().splitlines():
        if not line or line.startswith('#'):continue
-       match=re.fullmatch(r'CONFIG_([A-Z0-9_]+)=([yn])',line)
+       if line.startswith('CONFIG_LOCALVERSION='):
+        run([str(source/'scripts/config'),'--file',str(output/'.config'),'--set-str','LOCALVERSION',line.split('=',1)[1].strip(chr(34))]);continue
+       match=re.fullmatch(r'CONFIG_([A-Z0-9_]+)=([ymn])',line)
        if not match:raise ValueError('Unsupported live fragment setting: '+line)
        run([str(source/'scripts/config'),'--file',str(output/'.config'),
-            '--enable' if match.group(2)=='y' else '--disable',match.group(1)])
+            {'y':'--enable','m':'--module','n':'--disable'}[match.group(2)],match.group(1)])
      run(make+['olddefconfig'])
      if a.kernel_config and sha(output/'.config')!=receipt['retained_config_sha256']:
       raise ValueError('Retained kernel configuration changed; review before building')
@@ -100,17 +102,20 @@ def main():
      if a.kernel_profile in ['qemu-smoke','qemu-live']:
       for key in ['CONFIG_PPC_QEMU_E500=y','CONFIG_SMP=y','CONFIG_BLK_DEV_INITRD=y','CONFIG_BINFMT_ELF=y','CONFIG_SERIAL_8250_CONSOLE=y']:
        if key not in config:raise ValueError('Required QEMU configuration missing: '+key)
-     if a.kernel_profile in ['tabor-live','qemu-live'] and not a.kernel_config:
+     if a.kernel_profile in ['tabor-live','tabor-modular','qemu-live'] and not a.kernel_config:
       required=['CONFIG_FUTEX=y','CONFIG_COMPAT_32BIT_TIME=y','CONFIG_MULTIUSER=y','CONFIG_UNIX98_PTYS=y','CONFIG_SECCOMP=y','CONFIG_SECCOMP_FILTER=y','CONFIG_BINFMT_SCRIPT=y','CONFIG_INET=y','CONFIG_TMPFS=y','CONFIG_EXT4_FS=y','CONFIG_CGROUPS=y','CONFIG_MEMCG=y','CONFIG_CGROUP_PIDS=y','CONFIG_FHANDLE=y','CONFIG_NAMESPACES=y','CONFIG_TMPFS_POSIX_ACL=y','CONFIG_EXT4_FS_POSIX_ACL=y']
       if a.kernel_profile=='qemu-live':
        required+=['CONFIG_BLK_DEV=y','CONFIG_VIRTIO_BLK=y','CONFIG_HIGHMEM=y','CONFIG_SYSVIPC=y','CONFIG_INOTIFY_USER=y','CONFIG_NET_CORE=y','CONFIG_VIRTIO_NET=y','CONFIG_VIRTIO_PCI_LEGACY=y','CONFIG_HW_RANDOM_VIRTIO=y']
-      if a.kernel_profile=='tabor-live':
-       required+=['CONFIG_SMP=y','CONFIG_MMU=y','CONFIG_HIGHMEM=y','CONFIG_PHYS_64BIT=y','CONFIG_PTE_64BIT=y','CONFIG_SYSVIPC=y','CONFIG_INOTIFY_USER=y','CONFIG_DRM=y','CONFIG_DRM_AMDGPU=y','CONFIG_USB_HID=y','CONFIG_USB_STORAGE=y','CONFIG_VT_CONSOLE=y','CONFIG_FRAMEBUFFER_CONSOLE=y']
+      if a.kernel_profile in ['tabor-live','tabor-modular']:
+       required+=['CONFIG_SMP=y','CONFIG_MMU=y','CONFIG_HIGHMEM=y','CONFIG_PHYS_64BIT=y','CONFIG_PTE_64BIT=y','CONFIG_SYSVIPC=y','CONFIG_INOTIFY_USER=y','CONFIG_DRM=y' if a.kernel_profile=='tabor-live' else 'CONFIG_DRM=m','CONFIG_DRM_AMDGPU=y' if a.kernel_profile=='tabor-live' else 'CONFIG_DRM_AMDGPU=m','CONFIG_USB_HID=y','CONFIG_USB_STORAGE=y','CONFIG_VT_CONSOLE=y','CONFIG_FRAMEBUFFER_CONSOLE=y']
       for key in required:
        if key not in config:raise ValueError('Required live configuration missing: '+key)
-     if a.kernel_profile in ['tabor-live','qemu-live']:
+     if a.kernel_profile in ['tabor-live','tabor-modular','qemu-live']:
       nr=next((int(x.split('=')[1]) for x in config if x.startswith('CONFIG_NR_CPUS=')),0)
       if nr<2:raise ValueError('Live image must support at least two CPU cores')
+     if a.kernel_profile=='tabor-modular':
+      for key in ['CONFIG_MODULES=y','CONFIG_DRM_RADEON=m','CONFIG_LOCALVERSION="-tabor-modular"']:
+       if key not in config:raise ValueError('Required modular configuration missing: '+key)
      receipt['config_sha256']=sha(output/'.config');receipt['status']='configured'
      if a.mode=='build':
       # Catch board/DTS defects before spending time on the whole kernel.

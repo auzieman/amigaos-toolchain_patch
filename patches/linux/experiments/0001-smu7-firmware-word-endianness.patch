@@ -1,0 +1,37 @@
+Subject: [EXPERIMENT] drm/amd/pm: decode SMU7 firmware words before MMIO
+
+Local candidate for Linux6.12.113-1; not upstream or hardware accepted.
+The CGS firmware pointer references raw payload bytes. Native u32 loads followed
+by writel differ between little- and big-endian hosts. Explicit LE decoding
+preserves the little-endian host register values on big-endian PowerPC.
+This does not validate other SMU tables, DMA descriptors or PCI windows.
+
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -451,7 +451,7 @@
+ 	return hwmgr->smumgr_funcs->start_smu(hwmgr);
+ }
+ 
+-static int smu7_upload_smc_firmware_data(struct pp_hwmgr *hwmgr, uint32_t length, uint32_t *src, uint32_t limit)
++static int smu7_upload_smc_firmware_data(struct pp_hwmgr *hwmgr, uint32_t length, const __le32 *src, uint32_t limit)
+ {
+ 	uint32_t byte_count = length;
+ 
+@@ -461,7 +461,7 @@
+ 	PHM_WRITE_FIELD(hwmgr->device, SMC_IND_ACCESS_CNTL, AUTO_INCREMENT_IND_11, 1);
+ 
+ 	for (; byte_count >= 4; byte_count -= 4)
+-		cgs_write_register(hwmgr->device, mmSMC_IND_DATA_11, *src++);
++		cgs_write_register(hwmgr->device, mmSMC_IND_DATA_11, le32_to_cpu(*src++));
+ 
+ 	PHM_WRITE_FIELD(hwmgr->device, SMC_IND_ACCESS_CNTL, AUTO_INCREMENT_IND_11, 0);
+ 
+@@ -487,7 +487,7 @@
+ 
+ 	hwmgr->is_kicker = info.is_kicker;
+ 	hwmgr->smu_version = info.version;
+-	result = smu7_upload_smc_firmware_data(hwmgr, info.image_size, (uint32_t *)info.kptr, SMU7_SMC_SIZE);
++	result = smu7_upload_smc_firmware_data(hwmgr, info.image_size, (const __le32 *)info.kptr, SMU7_SMC_SIZE);
+ 
+ 	return result;
+ }
