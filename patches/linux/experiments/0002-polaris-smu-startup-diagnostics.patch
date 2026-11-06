@@ -1,0 +1,103 @@
+Subject: [EXPERIMENT] drm/amd/pm: trace Polaris SMU startup and firmware lookup
+
+Local diagnostic against Linux6.12.113-1; no hardware acceptance.
+Report firmware selection and existing register state without changing reset
+sequencing or suppressing failures. Propagate failed CGS firmware lookup.
+No firmware payload dumps, raw PCI writes or alternative clock settings.
+
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
+@@ -414,6 +414,7 @@
+ 				return -EINVAL;
+ 			}
+ 
++			dev_info(adev->dev, "SMU_DIAG firmware=%s\n", fw_name);
+ 			err = amdgpu_ucode_request(adev, &adev->pm.fw, "%s", fw_name);
+ 			if (err) {
+ 				DRM_ERROR("Failed to load firmware \"%s\"", fw_name);
+@@ -443,6 +444,10 @@
+ 		info->image_size = ucode_size;
+ 		info->ucode_start_address = ucode_start_address;
+ 		info->kptr = (void *)src;
++		dev_info(adev->dev, "SMU_DIAG version=%08x bytes=%u offset=%u start=%08x\n",
++			 info->version, info->image_size,
++			 le32_to_cpu(hdr->header.ucode_array_offset_bytes),
++			 info->ucode_start_address);
+ 	}
+ 	return 0;
+ }
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -479,11 +479,20 @@
+ 	struct cgs_firmware_info info = {0};
+ 
+ 	if (smu_data->security_hard_key == 1)
+-		cgs_get_firmware_info(hwmgr->device,
++		result = cgs_get_firmware_info(hwmgr->device,
+ 			smu7_convert_fw_type_to_cgs(UCODE_ID_SMU), &info);
+ 	else
+-		cgs_get_firmware_info(hwmgr->device,
++		result = cgs_get_firmware_info(hwmgr->device,
+ 			smu7_convert_fw_type_to_cgs(UCODE_ID_SMU_SK), &info);
++
++	if (result) {
++		pr_err("SMU_DIAG firmware lookup failed: %d\n", result);
++		return result;
++	}
++	pr_info("SMU_DIAG upload security=%u version=%08x bytes=%u first_native=%08x first_le=%08x\n",
++		smu_data->security_hard_key, info.version, info.image_size,
++		info.image_size >= 4 ? *(const u32 *)info.kptr : 0,
++		info.image_size >= 4 ? le32_to_cpu(*(const __le32 *)info.kptr) : 0);
+ 
+ 	hwmgr->is_kicker = info.is_kicker;
+ 	hwmgr->smu_version = info.version;
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
+@@ -197,6 +197,17 @@
+ 	return 0;
+ }
+ 
++static void polaris10_smu_trace(struct pp_hwmgr *hwmgr, const char *stage)
++{
++	pr_info("SMU_DIAG %s pc=%08x status=%08x events=%08x flags=%08x resp=%08x\n",
++		stage,
++		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMC_PC_C),
++		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMU_STATUS),
++		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixRCU_UC_EVENTS),
++		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixFIRMWARE_FLAGS),
++		cgs_read_register(hwmgr->device, mmSMC_RESP_0));
++}
++
+ static int polaris10_start_smu_in_protection_mode(struct pp_hwmgr *hwmgr)
+ {
+ 	int result = 0;
+@@ -226,13 +237,18 @@
+ 	PHM_WAIT_VFPF_INDIRECT_FIELD(hwmgr, SMC_IND, RCU_UC_EVENTS, INTERRUPTS_ENABLED, 1);
+ 
+ 
++	polaris10_smu_trace(hwmgr, "after-interrupt-wait");
++
+ 	/* Call Test SMU message with 0x20000 offset to trigger SMU start */
+ 	smu7_send_msg_to_smc_offset(hwmgr);
++	polaris10_smu_trace(hwmgr, "after-test-message");
+ 
+ 	/* Wait done bit to be set */
+ 	/* Check pass/failed indicator */
+ 
+ 	PHM_WAIT_VFPF_INDIRECT_FIELD_UNEQUAL(hwmgr, SMC_IND, SMU_STATUS, SMU_DONE, 0);
++
++	polaris10_smu_trace(hwmgr, "after-done-wait");
+ 
+ 	if (1 != PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC,
+ 						SMU_STATUS, SMU_PASS))
+@@ -298,6 +314,10 @@
+ 	if (!smu7_is_smc_ram_running(hwmgr) && hwmgr->not_vf) {
+ 		smu_data->protected_mode = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_MODE));
+ 		smu_data->smu7_data.security_hard_key = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_SEL));
++
++		pr_info("SMU_DIAG protected=%u security=%u\n",
++			smu_data->protected_mode, smu_data->smu7_data.security_hard_key);
++		polaris10_smu_trace(hwmgr, "before-start");
+ 
+ 		/* Check if SMU is running in protected mode */
+ 		if (smu_data->protected_mode == 0)
