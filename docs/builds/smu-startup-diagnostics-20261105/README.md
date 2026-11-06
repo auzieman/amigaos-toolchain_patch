@@ -29,3 +29,24 @@ Compilation and physical diagnostic results pending. Installed USB unchanged.
 Attempt001 configured successfully but output-copy staging failed on an existing Kbuild source symlink, before compilation. Attempt002 preserves the freshly configured source link and copies the remaining reference outputs into its separate tree. No reference or installed USB files changed.
 
 Attempt002 then failed before source compilation because relative M= selected an external-module layout without its Makefile in the output tree. Attempt003 uses the normal in-tree amdgpu.ko target and is compiling driver sources. Hardware selection review:1002:67ff/revisionff matches ASICID_IS_P21, so the hard-key SMU branch should select polaris11_k_smc.bin; the soft-key branch selects polaris11_smc_sk.bin. Runtime logs must confirm the branch. Both files are already verified in the complete package audit.
+
+Attempt003 compiled the diagnostic source but single-module modpost lacked DRM/TTM exports and stopped with unresolved symbols. Preserve that log; do not disable validation. Follow-up container tabor-smu-diagnostics-modules-004 runs normal make modules against the same disposable candidate source/output, logging modules-complete.log. Recipe corrected to use the complete modules target. The original physical reference remains untouched.
+
+## Completed diagnostic trial
+
+Normal make modules completed successfully. .config and Module.symvers compare
+identical to physical reference; candidate07166b2a01509a863991b0172e5130e51643929b3ad6ef7cc1db83ee4ec942ae.
+One controlled load, installed original file preserved. Firmware selected
+polaris11_k_smc.bin,version0x1800,size129972,offset256,start0x20000;
+protected=1,security=1. Sampled PC0x88 before start,0x271c after IRQ wait,
+then0x88 after test command; response and SMU status remain0. Events0x000f0084
+has interrupts-enabled bit set. File lookup succeeds; handshake still fails,
+no binding/framebuffer, SSH healthy. Do not equate low sampled PCs with proof
+firmware never executed transiently. Full hardware log retained.
+
+Combined diagnostics+LE candidate smu-diag-le-20261105-001 also compiled in a
+separate source/output tree, using canonical container mounts to preserve
+reference paths and artifacts. Candidate module hash
+d93b819572c3fd7a5c2ffb2c03891effb7c05247f6060ac66a939593b62ba581.
+Not deployed/tested yet; warm-state earlier LE result remains negative and no
+cold-power-cycle comparison has occurred.

@@ -7,7 +7,7 @@ with (p/'patches/linux/series').open('a') as f:f.write('0003-smu-diagnostics-exp
 subprocess.run(['python3',str(p/'scripts/debian-iterate.py'),'--project',str(p),'--cache',str(b/'tabor-source-cache'),'--work',str(w),'--component','linux','--mode','configure','--kernel-profile','tabor-modular','--kernel-config',str(reference/'.config'),'--jobs','4','--image-id',image],check=True)
 # Copy accepted build outputs to a disposable candidate; never mutate reference.
 shutil.copytree(reference,w/'output',symlinks=True,dirs_exist_ok=True,ignore=lambda directory,names: {"source"} if pathlib.Path(directory)==reference else set())
-make=['make','-C',str(w/'source'),'O='+str(w/'output'),'ARCH=powerpc','CROSS_COMPILE=powerpc-linux-gnu-','-j4','drivers/gpu/drm/amd/amdgpu/amdgpu.ko']
+make=['make','-C',str(w/'source'),'O='+str(w/'output'),'ARCH=powerpc','CROSS_COMPILE=powerpc-linux-gnu-','-j4','modules']
 r={'status':'started','reference':'tabor-modular-20261105-003','target':'amdgpu.ko','image_id':image,'command':make,'hardware_tested':False}
 try:
  with (w/'module-build.log').open('w') as log:subprocess.run(make,stdout=log,stderr=subprocess.STDOUT,check=True)
@@ -15,5 +15,7 @@ try:
  assert (w/'output/.config').read_bytes()==(reference/'.config').read_bytes()
  assert (w/'output/Module.symvers').read_bytes()==(reference/'Module.symvers').read_bytes()
  r['reference_config_and_symbols_match']=True
+except Exception as exc:
+ r.update(status='failed',error=str(exc));raise
 finally:(w/'module-receipt.json').write_text(json.dumps(r,indent=2)+'\n')
 print(json.dumps(r))

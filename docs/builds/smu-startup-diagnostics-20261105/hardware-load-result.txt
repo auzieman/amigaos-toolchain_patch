@@ -1,0 +1,17 @@
+TEST_RC=0
+amdgpu 5136384 0 - Live 0xf1a17000
+amdxcp 12288 1 amdgpu, Live 0xf13ef000
+drm_exec 12288 1 amdgpu, Live 0xf13e4000
+gpu_sched 45056 1 amdgpu, Live 0xf1330000
+drm_buddy 12288 1 amdgpu, Live 0xf1391000
+drm_suballoc_helper 12288 1 amdgpu, Live 0xf1386000
+drm_ttm_helper 16384 1 amdgpu, Live 0xf1150000
+ttm 73728 2 amdgpu,drm_ttm_helper, Live 0xf1337000
+drm_display_helper 163840 1 amdgpu, Live 0xf1399000
+drm_kms_helper 192512 3 amdgpu,drm_ttm_helper,drm_display_helper, Live 0xf135b000
+drm 565248 10 amdgpu,amdxcp,drm_exec,gpu_sched,drm_buddy,drm_suballoc_helper,drm_ttm_helper,ttm,drm_display_helper,drm_kms_helper, Live 0xf10dd000
+drm_panel_orientation_quirks 12288 1 drm, Live 0xf10d5000
+backlight 20480 3 amdgpu,drm_display_helper,drm, Live 0xf1011000
+ls: /sys/bus/pci/devices/0001:01:00.0/driver: No such file or directory
+6.12.113-tabor-modular
+3967.10 7791.43

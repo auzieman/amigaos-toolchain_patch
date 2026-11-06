@@ -1,0 +1,32 @@
+{
+  "device": "/dev/sda",
+  "read_only": true,
+  "rdb_block_bytes": 512,
+  "bytes_read": 68608,
+  "partitions": [
+    {
+      "name": "AMDH0",
+      "start_bytes": 1056768,
+      "size_bytes": 80775217152,
+      "dos_type_hex": "0x4e474601",
+      "header_magic_hex": "4e474601982e5c8f416d696761205061",
+      "filesystem_block_bytes": 512
+    },
+    {
+      "name": "AMDH1",
+      "start_bytes": 80776273920,
+      "size_bytes": 80550813696,
+      "dos_type_hex": "0x4e474601",
+      "header_magic_hex": "4e474601173095ca416d696761205061",
+      "filesystem_block_bytes": 512
+    },
+    {
+      "name": "AMDH2",
+      "start_bytes": 161327087616,
+      "size_bytes": 78730321920,
+      "dos_type_hex": "0x4e474601",
+      "header_magic_hex": "4e4746011431a3cc416d696761205061",
+      "filesystem_block_bytes": 512
+    }
+  ]
+}
