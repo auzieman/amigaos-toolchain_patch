@@ -1,0 +1,105 @@
+{
+  "status": "required-capabilities-not-a-tested-image",
+  "architecture": "powerpcspe",
+  "sdk_candidate": "profiles/trixie-spe-sdk-candidate.json",
+  "goal": "Local login console, software-rendered X11/E shell, then accelerated Radeon desktop",
+  "boot_policy": {
+    "loader": "existing U-Boot /boot.scr and validated load addresses",
+    "preserve_ssh_recovery": true,
+    "preserve_versioned_kernel_rollback": true,
+    "no_assumed_x86_vesa_handoff": true
+  },
+  "kernel_required": [
+    "VT",
+    "VT_CONSOLE",
+    "TTY",
+    "FRAMEBUFFER_CONSOLE",
+    "DRM_FBDEV_EMULATION",
+    "USB_HID",
+    "HID_GENERIC",
+    "INPUT_EVDEV"
+  ],
+  "board_display_driver": "DRM_AMDGPU plus all selected Polaris11 firmware and matching module dependencies",
+  "conditional_fallbacks": [
+    {
+      "path": "firmware framebuffer -> simpledrm -> fbcon",
+      "requires": [
+        "real firmware/bootloader-initialized scanout",
+        "verified framebuffer address/size/stride/format and device-tree handoff"
+      ],
+      "kernel_capability": "DRM_SIMPLEDRM",
+      "acceptance": "readable local console; no invented framebuffer properties"
+    },
+    {
+      "path": "working Radeon KMS -> unaccelerated Xorg modesetting",
+      "requires": [
+        "successful hardware modeset and DRM device",
+        "working dumb-buffer mapping and target byte order"
+      ],
+      "acceptance": "xterm repaints correctly without glamor or GPU render acceleration"
+    },
+    {
+      "path": "working framebuffer -> Xorg fbdev",
+      "requires": [
+        "real working /dev/fb0",
+        "target-built xserver-xorg-video-fbdev package"
+      ],
+      "acceptance": "readable X terminal with correct pixels/stride and repaint"
+    }
+  ],
+  "software_desktop": {
+    "session": "X11 Enlightenment using qualified CPU/software rendering",
+    "gl_fallback": "Mesa softpipe if built and verified for SPE; do not assume LLVM JIT support",
+    "record_actual_renderer": true,
+    "do_not_treat_as_hardware_acceleration": true
+  },
+  "safe_mode_candidates": [
+    "640x480@60",
+    "800x600@60",
+    "1024x768@60"
+  ],
+  "mode_policy": "Use only verified connector/monitor-supported modes; resolution selection does not initialize an otherwise unbound GPU",
+  "package_seeds": [
+    "systemd-sysv",
+    "udev",
+    "kmod",
+    "initramfs-tools",
+    "openssh-server",
+    "dbus",
+    "dbus-user-session",
+    "libpam-systemd",
+    "xserver-xorg-core",
+    "xserver-xorg-video-amdgpu",
+    "xserver-xorg-video-fbdev",
+    "xserver-xorg-input-libinput",
+    "xinit",
+    "xterm",
+    "fonts-dejavu-core",
+    "enlightenment",
+    "terminology",
+    "mesa-utils",
+    "firmware-amd-graphics"
+  ],
+  "dependency_policy": "Candidate seeds only; qualified frozen Debian metadata, apt/sbuild and target source rebuilds determine actual closure. No foreign-ABI binaries or fake installed state.",
+  "acceptance_order": [
+    "dual-core boot and userspace ABI qualified independently",
+    "SSH recovery survives boot",
+    "readable local getty/login terminal",
+    "Xorg terminal paints, moves and refreshes without corruption",
+    "E software session remains usable with repaint and input",
+    "Mesa renderer identity and GL tests recorded",
+    "physical Radeon acceleration and compositing validated separately"
+  ],
+  "unsupported_assumptions": [
+    "VESA/VGA option ROMs are automatically callable from PowerPC",
+    "nomodeset creates a framebuffer",
+    "software GL initializes GPU scanout",
+    "QEMU Xvfb success proves a physical console"
+  ],
+  "current_gates": [
+    "modern GCC14 SPE foundation not accepted",
+    "full package-managed Trixie root not accepted",
+    "new7.3 QEMU two-CPU startup unresolved",
+    "physical Radeon scanout not accepted"
+  ]
+}
