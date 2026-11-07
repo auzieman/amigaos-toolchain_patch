@@ -48,3 +48,23 @@ Next bounded action: use these complete source contexts to trace the first
 unobserved post-resource operation and compare ring versus IB/SDMA/fence
 publication. Derfs' reportedly working patches remain to receive and compare.
 No physical test or GPU fix was claimed during intake.
+
+## Correction: existing IB and SDMA endian controls
+
+Follow-up source walk found explicit __BIG_ENDIAN packet controls `(2 << 0)`
+in both GFX8 graphics and compute IB emitters, in both our patched source and
+AMD development. SDMA3 also enables RB_SWAP_ENABLE,
+RPTR_WRITEBACK_SWAP_ENABLE and IB_SWAP_ENABLE on BE builds. Exact emitter
+bodies and SDMA contexts are retained in existing-be-controls.json.
+
+Consequently, native IB words do not establish missing serialization: the
+consumer's swap controls are part of the intended contract. The earlier IB
+producer lead was incomplete without these consumers. Do not add software IB
+conversion while leaving hardware swapping enabled. Our software ring helper
+changes outer ring words, not the IB payload; its interaction with the IB packet
+controls requires separate validation. Existing measured ring swap failure does
+not establish that the distinct IB or SDMA swap controls fail as well.
+
+Current code contains PPC/BE support. Investigate a broken platform/ASIC
+assumption or our patch interaction; do not describe the whole driver as missing
+PowerPC encoding. No physical retry or new driver patch in this review.
