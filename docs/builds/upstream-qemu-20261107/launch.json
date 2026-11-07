@@ -1,0 +1,27 @@
+{
+  "container": "a6020673438e559b9d3ad57343fd087d1412d8be23a61c39d83019002bc57815",
+  "command": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-upstream-qemu-001",
+    "--cpus=4",
+    "--memory=6g",
+    "--network=none",
+    "--entrypoint",
+    "/bin/sh",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/amdgpu-upstream-clean-20261107-003/source:/work/source:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/upstream-qemu-20261107-001/output:/work/output",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/upstream-qemu-20261107-001:/results",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "-c",
+    "set -eu; cd /work/source; scripts/config --file /work/output/.config --set-str LOCALVERSION -tabor-upstream-qemu-001 --enable PPC_QEMU_E500 --enable SERIAL_OF_PLATFORM --enable VIRTIO_MENU --enable VIRTIO_PCI --enable VIRTIO_BLK --enable VIRTIO_NET --enable HW_RANDOM_VIRTIO; make O=/work/output ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- olddefconfig > /results/configure.log 2>&1; grep -q \"^CONFIG_PPC_QEMU_E500=y$\" /work/output/.config; grep -q \"^CONFIG_SERIAL_OF_PLATFORM=y$\" /work/output/.config; grep -q \"^CONFIG_VIRTIO_MENU=y$\" /work/output/.config; grep -q \"^CONFIG_VIRTIO_PCI=y$\" /work/output/.config; grep -q \"^CONFIG_VIRTIO_BLK=y$\" /work/output/.config; grep -q \"^CONFIG_VIRTIO_NET=y$\" /work/output/.config; grep -q \"^CONFIG_HW_RANDOM_VIRTIO=y$\" /work/output/.config; make O=/work/output ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- -j4 vmlinux > /results/build.log 2>&1"
+  ],
+  "source_unchanged": true,
+  "reference_output_preserved": true,
+  "kernel_config_variant": "QEMU ppce500, no experimental GPU patches"
+}

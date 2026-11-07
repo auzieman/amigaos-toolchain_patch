@@ -1,0 +1,68 @@
+random: crng init done
+Memory CAM mapping: 16/16/16/16/64/64/64/256/256 Mb, residual: 256Mb
+Activating Kernel Userspace Access Protection
+Activating Kernel Userspace Execution Prevention
+Linux version 7.3.0-rc6-tabor-upstream-qemu-001 (root@a6020673438e) (powerpc-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0, GNU ld (GNU Binutils for Debian) 2.44) #2 SMP PREEMPT Sat Nov  7 16:03:04 UTC 2026
+OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+Hardware name: QEMU ppce500 e500v2 0x80210022 QEMU e500
+printk: legacy bootconsole [udbg0] enabled
+CPU maps initialized for 1 thread per core
+-----------------------------------------------------
+phys_mem_size     = 0x40000000
+dcache_bsize      = 0x20
+icache_bsize      = 0x20
+cpu_features      = 0x0000000010010108
+  possible        = 0x0000000010010108
+  always          = 0x0000000010010108
+cpu_user_features = 0x84e08000 0x08000000
+mmu_features      = 0x00020210
+  possible        = 0x00000000000a0610
+  always          = 0x0000000000000010
+-----------------------------------------------------
+qemu_e500_setup_arch()
+barrier-nospec: using isync; sync as speculation barrier
+MMU: Allocated 1088 bytes of context maps for 255 contexts
+Zone ranges:
+  Normal   [mem 0x0000000000000000-0x000000002fffffff]
+  HighMem  [mem 0x0000000030000000-0x000000003fffffff]
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x0000000000000000-0x000000003fffffff]
+Initmem setup node 0 [mem 0x0000000000000000-0x000000003fffffff]
+percpu: Embedded 17 pages/cpu s39180 r8192 d22260 u69632
+Kernel command line: console=ttyS0,115200 root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init panic=-1
+printk: log buffer data + meta data: 16384 + 51200 = 67584 bytes
+Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+Built 1 zonelists, mobility grouping on.  Total pages: 262144
+mem auto-init: stack:all(zero), heap alloc:off, heap free:off
+SLUB: HWalign=32, Order=0-3, MinObjects=0, CPUs=2, Nodes=1
+rcu: Hierarchical RCU implementation.
+rcu: 	RCU event tracing is enabled.
+rcu: 	RCU restricting CPUs from NR_CPUS=24 to nr_cpu_ids=2.
+	Trampoline variant of Tasks RCU enabled.
+	Tracing variant of Tasks RCU enabled.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=2
+RCU Tasks: Setting shift to 1 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=2.
+NR_IRQS: 512, nr_irqs: 512, preallocated irqs: 16
+mpic: Setting up MPIC " OpenPIC  " version 1.2 at fe0040000, max 2 CPUs
+mpic: ISU size: 256, shift: 8, mask: ff
+mpic: Initializing for 256 sources
+rcu: srcu_init: Setting srcu_struct sizes based on contention.
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0x5c4093a7d1, max_idle_ns: 440795210635 ns
+clocksource: timebase mult[2800000] shift[24] registered
+Console: colour dummy device 80x25
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+VFS: Finished mounting rootfs on nullfs
+mpic: requesting IPIs...
+e500 family performance monitor hardware support registered
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+smp: Bringing up secondary CPUs ...
+Activating Kernel Userspace Access Protection
+qemu-system-ppc: terminating on signal 15 from pid 83110 (/usr/bin/python3)

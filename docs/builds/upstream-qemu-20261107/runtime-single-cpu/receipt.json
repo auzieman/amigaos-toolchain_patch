@@ -1,0 +1,105 @@
+{
+  "status": "incomplete-or-runtime-failure",
+  "command": [
+    "/usr/bin/qemu-system-ppc",
+    "-M",
+    "ppce500",
+    "-cpu",
+    "e500v2",
+    "-accel",
+    "tcg",
+    "-smp",
+    "1",
+    "-m",
+    "1024M",
+    "-display",
+    "none",
+    "-serial",
+    "stdio",
+    "-monitor",
+    "none",
+    "-nic",
+    "none",
+    "-no-reboot",
+    "-kernel",
+    "/srv/data1/tabor-build/linux-live-001/work/upstream-qemu-20261107-001/output/vmlinux",
+    "-drive",
+    "file=/srv/data1/tabor-build/linux-live-001/work/layered-rescue-20261105-001/a1222-layered-rescue.img,format=raw,if=none,id=rootdisk,snapshot=on",
+    "-device",
+    "virtio-blk-pci,drive=rootdisk",
+    "-append",
+    "console=ttyS0,115200 root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init panic=-1"
+  ],
+  "kernel_sha256": "8964453e1e2021d465fc76a3f681bf61791766bb2cb1ae3a3a6edb4848fc9e3e",
+  "disk_sha256_before": "417d4fd0f557b058f45240831b13ed968eaedd41b64078b7d8699527db2801bf",
+  "qemu_sha256": "9cd29d318fcbf8353a63cee085f3574aeded1cb3f498ce543c0a991482cb932f",
+  "qemu_version": "QEMU emulator version 10.0.13 (Debian 1:10.0.13+ds-0+deb13u1)",
+  "physical_boot": false,
+  "radeon_validated": false,
+  "full_trixie_root_validated": false,
+  "modern_spe_compiler_validated": false,
+  "disk_snapshot": true,
+  "network": "disabled",
+  "commands_sent": true,
+  "shell_ready": true,
+  "runtime_done": true,
+  "panic_seen": false,
+  "abi_checks": {
+    "float32": "PASS",
+    "float64": "PASS",
+    "varargs": "PASS",
+    "formatting": "PASS",
+    "fenv": "FAIL",
+    "setjmp": "PASS",
+    "signal": "PASS",
+    "pthread_tls": "PASS",
+    "ucontext": "PASS"
+  },
+  "abi_all_passed": false,
+  "abi_exit": "1",
+  "fractal_trials": [
+    {
+      "mode": "SOFT",
+      "trial": 1,
+      "us": 314614,
+      "checksum": 2882920052
+    },
+    {
+      "mode": "SPE",
+      "trial": 1,
+      "us": 75398,
+      "checksum": 2882920052
+    },
+    {
+      "mode": "SPE",
+      "trial": 2,
+      "us": 75691,
+      "checksum": 2882920052
+    },
+    {
+      "mode": "SOFT",
+      "trial": 2,
+      "us": 313265,
+      "checksum": 2882920052
+    },
+    {
+      "mode": "SOFT",
+      "trial": 3,
+      "us": 323298,
+      "checksum": 2882920052
+    },
+    {
+      "mode": "SPE",
+      "trial": 3,
+      "us": 67282,
+      "checksum": 2882920052
+    }
+  ],
+  "fractal_equal": true,
+  "release_reported": true,
+  "machine_reported_ppc": true,
+  "kernel_boot_passed": true,
+  "disk_sha256_after": "417d4fd0f557b058f45240831b13ed968eaedd41b64078b7d8699527db2801bf",
+  "disk_unchanged": true,
+  "serial_sha256": "74e8e76bb0bf1193410a98577ef7d95ecd5ea331fd5460c085a7ee6408a1f8d2"
+}
