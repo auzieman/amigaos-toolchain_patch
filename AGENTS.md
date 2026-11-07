@@ -93,3 +93,7 @@ to Debian metadata and actual bootstrap/coinstallation evidence.
 Desktop browser preference (user,2026-11-05): use Opera for browser views and
 links, reusing its existing session. Avoid launching Chrome. This preference
 does not authorize changing system defaults or closing the user's browsers.
+
+AMDGPU source/debugging workflow: use `.agents/skills/tabor-amdgpu-investigate`
+for GPU initialization/render defects and `.agents/prompts/amdgpu-investigate.md`
+for continuation. Keep physical tests distinct from generic kernel build work.
