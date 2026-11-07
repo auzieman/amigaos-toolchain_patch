@@ -28,7 +28,7 @@ SPE hook. It must not be worked around by inventing hook documentation.
 Fresh-source reconstruction002 passed (container exit0): imported backend files,
 regenerated CPU option table, target configuration and Debian-patched Makefile
 match the diagnostic source tree byte for byte. See `reconstruction-002.log`.
-The pass005 log is a running snapshot, not its final result.
+Pass005 completed with exit2; the retained log is its final result.
 
 ## Diagnostic progression
 
@@ -45,8 +45,8 @@ The pass005 log is a running snapshot, not its final result.
   Qualify SFDF and IBM128 mode references using modern rs6000 as the reference.
 - Pass005 reaches actual compiler C++ translation units. Current observed
   blockers: `decl_replaceable_p` now requires semantic-interposition policy;
-  `choose_hard_reg_mode` now takes an ABI pointer instead of a boolean. Keep-going
-  is still collecting independent diagnostics; this is not a successful compiler.
+  `choose_hard_reg_mode` now takes an ABI pointer instead of a boolean. The completed keep-going pass also exposes obsolete option `Report` properties
+  and additional backend interfaces; this is not a successful compiler.
 
 The diagnostic launch scripts are historical receipts with R730-specific paths,
 not the portable build interface. Runs use the pinned native Trixie tools image,
