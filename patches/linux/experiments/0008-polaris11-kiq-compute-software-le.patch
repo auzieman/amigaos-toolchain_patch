@@ -1,0 +1,83 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -754,7 +754,9 @@
+ {
+ #ifdef __BIG_ENDIAN
+ 	return ring->adev->asic_type == CHIP_POLARIS11 &&
+-	       ring->funcs->type == AMDGPU_RING_TYPE_GFX;
++	       (ring->funcs->type == AMDGPU_RING_TYPE_GFX ||
++		ring->funcs->type == AMDGPU_RING_TYPE_KIQ ||
++		ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE);
+ #else
+ 	return false;
+ #endif
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4501,7 +4501,10 @@
+ 	tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, RPTR_BLOCK_SIZE,
+ 			(order_base_2(AMDGPU_GPU_PAGE_SIZE / 4) - 1));
+ #ifdef __BIG_ENDIAN
+-	tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, ENDIAN_SWAP, 1);
++	if (amdgpu_ring_uses_sw_le(ring))
++		tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, ENDIAN_SWAP, 0);
++	else
++		tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, ENDIAN_SWAP, 1);
+ #endif
+ 	tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, UNORD_DISPATCH, 0);
+ 	tmp = REG_SET_FIELD(tmp, CP_HQD_PQ_CONTROL, ROQ_PQ_IB_FLIP, 0);
+@@ -4625,6 +4628,19 @@
+ 		WREG32(mqd_reg, mqd_data[mqd_reg - mmCP_MQD_BASE_ADDR]);
+ 
+ 	return 0;
++}
++
++/* Serialize after native CPU initialization/commit and native backup creation. */
++static void gfx_v8_0_mqd_to_gpu(struct amdgpu_ring *ring)
++{
++	u32 *words = ring->mqd_ptr;
++	unsigned int i;
++
++	if (!amdgpu_ring_uses_sw_le(ring))
++		return;
++	BUILD_BUG_ON(sizeof(struct vi_mqd_allocation) % sizeof(u32));
++	for (i = 0; i < sizeof(struct vi_mqd_allocation) / sizeof(u32); i++)
++		words[i] = (__force u32)cpu_to_le32(words[i]);
+ }
+ 
+ static int gfx_v8_0_kiq_init_queue(struct amdgpu_ring *ring)
+@@ -4664,6 +4680,7 @@
+ 			memcpy(adev->gfx.kiq[0].mqd_backup, mqd, sizeof(struct vi_mqd_allocation));
+ 	}
+ 
++	gfx_v8_0_mqd_to_gpu(ring);
+ 	return 0;
+ }
+ 
+@@ -4694,6 +4711,7 @@
+ 		atomic64_set((atomic64_t *)ring->wptr_cpu_addr, 0);
+ 		amdgpu_ring_clear_ring(ring);
+ 	}
++	gfx_v8_0_mqd_to_gpu(ring);
+ 	return 0;
+ }
+ 
+@@ -6279,7 +6297,9 @@
+ 
+ static u64 gfx_v8_0_ring_get_wptr_compute(struct amdgpu_ring *ring)
+ {
+-	return *ring->wptr_cpu_addr;
++	return amdgpu_ring_uses_sw_le(ring) ?
++		le32_to_cpu((__force __le32)*ring->wptr_cpu_addr) :
++		*ring->wptr_cpu_addr;
+ }
+ 
+ static void gfx_v8_0_ring_set_wptr_compute(struct amdgpu_ring *ring)
+@@ -6287,7 +6307,7 @@
+ 	struct amdgpu_device *adev = ring->adev;
+ 
+ 	/* XXX check if swapping is necessary on BE */
+-	*ring->wptr_cpu_addr = lower_32_bits(ring->wptr);
++	*ring->wptr_cpu_addr = amdgpu_ring_encode_dw(ring, lower_32_bits(ring->wptr));
+ 	WDOORBELL32(ring->doorbell_index, lower_32_bits(ring->wptr));
+ }
+ 

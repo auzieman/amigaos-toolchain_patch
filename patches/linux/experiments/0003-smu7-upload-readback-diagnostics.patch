@@ -1,0 +1,45 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -454,6 +454,7 @@
+ static int smu7_upload_smc_firmware_data(struct pp_hwmgr *hwmgr, uint32_t length, const __le32 *src, uint32_t limit)
+ {
+ 	uint32_t byte_count = length;
++	const __le32 *verify_src = src;
+ 
+ 	PP_ASSERT_WITH_CODE((limit >= byte_count), "SMC address is beyond the SMC RAM area.", return -EINVAL);
+ 
+@@ -464,6 +465,34 @@
+ 		cgs_write_register(hwmgr->device, mmSMC_IND_DATA_11, le32_to_cpu(*src++));
+ 
+ 	PHM_WRITE_FIELD(hwmgr->device, SMC_IND_ACCESS_CNTL, AUTO_INCREMENT_IND_11, 0);
++
++	/* Diagnostic only: compare register words before reset is released.
++	 * Do not use copy_bytes_from_smc: that helper converts BE table data.
++	 */
++	{
++		uint32_t saved_index = cgs_read_register(hwmgr->device, mmSMC_IND_INDEX_11);
++		uint32_t saved_access = cgs_read_register(hwmgr->device, mmSMC_IND_ACCESS_CNTL);
++		uint32_t off, actual, expected, mismatches = 0;
++		uint32_t first_off = 0, first_actual = 0, first_expected = 0;
++
++		for (off = 0; off + 4 <= length; off += 4) {
++			cgs_write_register(hwmgr->device, mmSMC_IND_INDEX_11, 0x20000 + off);
++			actual = cgs_read_register(hwmgr->device, mmSMC_IND_DATA_11);
++			expected = le32_to_cpu(verify_src[off / 4]);
++			if (actual != expected) {
++				if (!mismatches) {
++					first_off = off;
++					first_actual = actual;
++					first_expected = expected;
++				}
++				mismatches++;
++			}
++		}
++		cgs_write_register(hwmgr->device, mmSMC_IND_INDEX_11, saved_index);
++		cgs_write_register(hwmgr->device, mmSMC_IND_ACCESS_CNTL, saved_access);
++		pr_info("SMU_READBACK words=%u mismatches=%u first_offset=%08x expected=%08x actual=%08x\n",
++			length / 4, mismatches, first_off, first_expected, first_actual);
++	}
+ 
+ 	PP_ASSERT_WITH_CODE((0 == byte_count), "SMC size must be divisible by 4.", return -EINVAL);
+ 

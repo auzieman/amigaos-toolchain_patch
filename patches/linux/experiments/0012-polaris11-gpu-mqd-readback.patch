@@ -1,0 +1,113 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4354,6 +4354,100 @@
+ 	WREG32(mmRLC_CP_SCHEDULERS, tmp);
+ }
+ 
++/* COPY_DATA layout: AMD PAL gfx6 si_ci_vi_merged_pm4defs.h,
++ * commit2de164b431f8a27652e63513ae73338dc512e5bf. Diagnostic only.
++ */
++static int gfx_v8_0_probe_mqd_word(struct amdgpu_ring *ring, u32 wb,
++				 u32 source, u64 address, u32 expected,
++				 const char *label, u32 offset)
++{
++	struct amdgpu_device *adev = ring->adev;
++	u64 dst = adev->wb.gpu_addr + wb * 4;
++	u32 value = 0xcafedead;
++	unsigned int i;
++	int r;
++
++	adev->wb.wb[wb] = (__force u32)cpu_to_le32(value);
++	mb();
++	r = amdgpu_ring_alloc(ring, 6);
++	if (r)
++		return r;
++	amdgpu_ring_write(ring, PACKET3(PACKET3_COPY_DATA, 4));
++	amdgpu_ring_write(ring, source | (5 << 8) | (1 << 20));
++	amdgpu_ring_write(ring, lower_32_bits(address));
++	amdgpu_ring_write(ring, upper_32_bits(address));
++	amdgpu_ring_write(ring, lower_32_bits(dst));
++	amdgpu_ring_write(ring, upper_32_bits(dst));
++	amdgpu_ring_commit(ring);
++	for (i = 0; i < adev->usec_timeout; i++) {
++		value = le32_to_cpu((__force __le32)adev->wb.wb[wb]);
++		if (value != 0xcafedead)
++			break;
++		udelay(1);
++	}
++	dev_info(adev->dev,
++		 "MQD_READ label=%s offset=%u source=%u addr=%016llx expected=%08x actual=%08x wb_bytes=%4ph\n",
++		 label, offset, source, (unsigned long long)address,
++		 expected, value, (const void *)&adev->wb.wb[wb]);
++	return value == expected ? 0 : -EIO;
++}
++
++static int gfx_v8_0_probe_mqd_memory(struct amdgpu_device *adev)
++{
++	struct amdgpu_ring *kiq = &adev->gfx.kiq[0].ring;
++	const unsigned int offsets[] = {
++		offsetof(struct vi_mqd, header),
++		offsetof(struct vi_mqd, cp_mqd_base_addr_lo),
++		offsetof(struct vi_mqd, cp_mqd_base_addr_hi),
++		offsetof(struct vi_mqd, cp_mqd_control),
++		offsetof(struct vi_mqd, cp_hqd_pq_base_lo),
++		offsetof(struct vi_mqd, cp_hqd_pq_base_hi),
++		offsetof(struct vi_mqd, cp_hqd_pq_control),
++		offsetof(struct vi_mqd, cp_hqd_pq_rptr_report_addr_lo),
++		offsetof(struct vi_mqd, cp_hqd_pq_rptr_report_addr_hi),
++		offsetof(struct vi_mqd, cp_hqd_eop_base_addr_lo),
++		offsetof(struct vi_mqd, cp_hqd_eop_base_addr_hi),
++	};
++	u32 wb;
++	int r, which;
++	unsigned int i;
++
++	r = amdgpu_device_wb_get(adev, &wb);
++	if (r)
++		return r;
++	dev_info(adev->dev, "MQD_READ begin GPU-memory contract check\n");
++	/* Calibrate GPU->CPU writeback before interpreting a descriptor read. */
++	r = gfx_v8_0_probe_mqd_word(kiq, wb, 5, 0x1234abcd,
++				   0x1234abcd, "immediate", 0);
++	if (r)
++		goto done;
++	if (!adev->gfx.num_compute_rings) {
++		r = -EINVAL;
++		goto done;
++	}
++	for (which = 0; which < 2; which++) {
++		struct amdgpu_ring *target = which ? &adev->gfx.compute_ring[0] : kiq;
++		const u32 *native = which ? adev->gfx.mec.mqd_backup[0] :
++			adev->gfx.kiq[0].mqd_backup;
++
++		if (!native) {
++			r = -EINVAL;
++			goto done;
++		}
++		for (i = 0; i < ARRAY_SIZE(offsets); i++) {
++			r = gfx_v8_0_probe_mqd_word(kiq, wb, 1,
++				target->mqd_gpu_addr + offsets[i],
++				native[offsets[i] / sizeof(u32)], target->name, offsets[i]);
++			if (r)
++				goto done;
++		}
++	}
++ done:
++	dev_info(adev->dev, "MQD_READ contract result=%d\n", r);
++	amdgpu_device_wb_free(adev, wb);
++	return r;
++}
++
+ static int gfx_v8_0_kiq_kcq_enable(struct amdgpu_device *adev)
+ {
+ 	struct amdgpu_ring *kiq_ring = &adev->gfx.kiq[0].ring;
+@@ -4364,6 +4458,9 @@
+ 		dev_info(adev->dev, "KIQ_GATE testing control ring before queue mapping\n");
+ 		r = amdgpu_ring_test_helper(kiq_ring);
+ 		dev_info(adev->dev, "KIQ_GATE control ring result=%d\n", r);
++		if (r)
++			return r;
++		r = gfx_v8_0_probe_mqd_memory(adev);
+ 		if (r)
+ 			return r;
+ 	}

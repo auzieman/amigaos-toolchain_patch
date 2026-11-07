@@ -1,0 +1,46 @@
+{
+  "candidate": "/root/polaris-next/amdgpu-mqd-vram.ko",
+  "sha256": "49e956e9a0655da97ea2db7458c572a8626b4c89fd6180fcf22572a33cd86b99",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 0
+    },
+    {
+      "stage": "04-hold-pci",
+      "returncode": 0
+    },
+    {
+      "stage": "05-load-dependencies",
+      "returncode": 0
+    },
+    {
+      "stage": "06-remove-unbound-original",
+      "returncode": 0
+    },
+    {
+      "stage": "07-insert-held-candidate",
+      "returncode": 0
+    },
+    {
+      "stage": "08-release-override",
+      "returncode": 0
+    },
+    {
+      "stage": "09-bind",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "error": "09-bind failed; see captured output",
+  "candidate_insert_completed": true
+}

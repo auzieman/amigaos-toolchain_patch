@@ -1,0 +1,65 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -320,6 +320,52 @@
+ 		entry->flags = 0;
+ 
+ 	return 0;
++}
++
++/* Firmware-visible layout is little-endian, independent of host TOC layout. */
++struct smu7_toc_wire_entry {
++	__le16 id;
++	__le16 version;
++	__le32 image_addr_high;
++	__le32 image_addr_low;
++	__le32 meta_data_addr_high;
++	__le32 meta_data_addr_low;
++	__le32 data_size_byte;
++	__le16 flags;
++	__le16 num_register_entries;
++};
++
++struct smu7_toc_wire {
++	__le32 structure_version;
++	__le32 num_entries;
++	struct smu7_toc_wire_entry entry[SMU_MAX_ENTRIES];
++};
++
++static void smu7_copy_toc_to_smc(void __iomem *destination,
++			      const struct SMU_DRAMData_TOC *toc)
++{
++	struct smu7_toc_wire wire = {0};
++	unsigned int i;
++
++	BUILD_BUG_ON(sizeof(struct smu7_toc_wire_entry) != 28);
++	BUILD_BUG_ON(sizeof(wire) != sizeof(*toc));
++	wire.structure_version = cpu_to_le32(toc->structure_version);
++	wire.num_entries = cpu_to_le32(toc->num_entries);
++	for (i = 0; i < SMU_MAX_ENTRIES; i++) {
++		const struct SMU_Entry *src = &toc->entry[i];
++		struct smu7_toc_wire_entry *dst = &wire.entry[i];
++
++		dst->id = cpu_to_le16(src->id);
++		dst->version = cpu_to_le16(src->version);
++		dst->image_addr_high = cpu_to_le32(src->image_addr_high);
++		dst->image_addr_low = cpu_to_le32(src->image_addr_low);
++		dst->meta_data_addr_high = cpu_to_le32(src->meta_data_addr_high);
++		dst->meta_data_addr_low = cpu_to_le32(src->meta_data_addr_low);
++		dst->data_size_byte = cpu_to_le32(src->data_size_byte);
++		dst->flags = cpu_to_le16(src->flags);
++		dst->num_register_entries = cpu_to_le16(src->num_register_entries);
++	}
++	memcpy_toio(destination, &wire, sizeof(wire));
+ }
+ 
+ int smu7_request_smu_load_fw(struct pp_hwmgr *hwmgr)
+@@ -408,8 +454,7 @@
+ 				UCODE_ID_MEC_STORAGE, &toc->entry[toc->num_entries++]),
+ 				"Failed to Get Firmware Entry.", r = -EINVAL; goto failed);
+ 	}
+-	memcpy_toio(smu_data->header_buffer.kaddr, smu_data->toc,
+-		    sizeof(struct SMU_DRAMData_TOC));
++	smu7_copy_toc_to_smc(smu_data->header_buffer.kaddr, smu_data->toc);
+ 	smum_send_msg_to_smc_with_parameter(hwmgr,
+ 			PPSMC_MSG_DRV_DRAM_ADDR_HI,
+ 			upper_32_bits(smu_data->header_buffer.mc_addr),

@@ -137,3 +137,17 @@ mmdebstrap buildd root and Debian sbuild/unshare with apt resolution, accumulati
 artifacts rather than permanent root mutations. See debian-workflow-audit-20261102.md.
 The first versioned universal UAPI source/profile build is in progress; a clean
 SPE libxdmcp cross-build proof follows. No new desktop/boot acceptance yet.
+
+## Hardware checkpoint — 2026-11-07
+
+A1222 boots the modular6.12.113 diagnostic USB kernel with networking/key-based
+SSH; selected SPE/ABI probes have passed in separately retained earlier runs.
+Polaris BE experimental path now passes graphics/control scratch tests, GPU
+writeback/readback samples, resource assignment and stage-checked mapping of all
+8compute queues. Later initialization still hangs with PCIe errors. No accepted
+physical framebuffer/Mesa/E desktop yet. Start with
+[latest hardware run](builds/gfx-map-stage-20261107/README.md).
+
+The toolchain repository remains authoritative for SDK/compiler/runtime/board/
+driver development. Tabor Linux Forge consumes a versioned kernel-build snapshot
+with provenance, not an independently maintained SDK or driver fork.

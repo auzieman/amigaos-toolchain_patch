@@ -1,0 +1,125 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h
+@@ -378,17 +378,25 @@
+ bool amdgpu_ring_soft_recovery(struct amdgpu_ring *ring, unsigned int vmid,
+ 			       struct dma_fence *fence);
+ 
++/* Targeted Polaris11 BE experiment: command-ring memory is GPU little-endian. */
++bool amdgpu_ring_uses_sw_le(struct amdgpu_ring *ring);
++
++static inline u32 amdgpu_ring_encode_dw(struct amdgpu_ring *ring, u32 value)
++{
++	return amdgpu_ring_uses_sw_le(ring) ? (__force u32)cpu_to_le32(value) : value;
++}
++
+ static inline void amdgpu_ring_set_preempt_cond_exec(struct amdgpu_ring *ring,
+ 							bool cond_exec)
+ {
+-	*ring->cond_exe_cpu_addr = cond_exec;
++	*ring->cond_exe_cpu_addr = amdgpu_ring_encode_dw(ring, cond_exec);
+ }
+ 
+ static inline void amdgpu_ring_clear_ring(struct amdgpu_ring *ring)
+ {
+ 	int i = 0;
+ 	while (i <= ring->buf_mask)
+-		ring->ring[i++] = ring->funcs->nop;
++		ring->ring[i++] = amdgpu_ring_encode_dw(ring, ring->funcs->nop);
+ 
+ }
+ 
+@@ -396,7 +404,7 @@
+ {
+ 	if (ring->count_dw <= 0)
+ 		DRM_ERROR("amdgpu: writing more dwords to the ring than expected!\n");
+-	ring->ring[ring->wptr++ & ring->buf_mask] = v;
++	ring->ring[ring->wptr++ & ring->buf_mask] = amdgpu_ring_encode_dw(ring, v);
+ 	ring->wptr &= ring->ptr_mask;
+ 	ring->count_dw--;
+ }
+@@ -406,6 +414,15 @@
+ {
+ 	unsigned occupied, chunk1, chunk2;
+ 	void *dst;
++
++	if (amdgpu_ring_uses_sw_le(ring)) {
++		const u32 *words = src;
++		int i;
++
++		for (i = 0; i < count_dw; i++)
++			amdgpu_ring_write(ring, words[i]);
++		return;
++	}
+ 
+ 	if (unlikely(ring->count_dw < count_dw))
+ 		DRM_ERROR("amdgpu: writing more dwords to the ring than expected!\n");
+@@ -459,7 +476,8 @@
+ 	WARN_ON(offset > ring->buf_mask);
+ 	WARN_ON(ring->ring[offset] != 0);
+ 
+-	ring->ring[offset] = amdgpu_ring_get_dw_distance(ring, offset, ring->wptr - 1);
++	ring->ring[offset] = amdgpu_ring_encode_dw(ring,
++		amdgpu_ring_get_dw_distance(ring, offset, ring->wptr - 1));
+ }
+ 
+ #define amdgpu_mes_ctx_get_offs_gpu_addr(ring, offset)			\
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -748,3 +748,14 @@
+ 
+ 	return true;
+ }
++
++/* Keep other ASIC and ring families on their existing hardware contracts. */
++bool amdgpu_ring_uses_sw_le(struct amdgpu_ring *ring)
++{
++#ifdef __BIG_ENDIAN
++	return ring->adev->asic_type == CHIP_POLARIS11 &&
++	       ring->funcs->type == AMDGPU_RING_TYPE_GFX;
++#else
++	return false;
++#endif
++}
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4285,7 +4285,8 @@
+ 	tmp = REG_SET_FIELD(tmp, CP_RB0_CNTL, MTYPE, 3);
+ 	tmp = REG_SET_FIELD(tmp, CP_RB0_CNTL, MIN_IB_AVAILSZ, 1);
+ #ifdef __BIG_ENDIAN
+-	tmp = REG_SET_FIELD(tmp, CP_RB0_CNTL, BUF_SWAP, 1);
++	if (!amdgpu_ring_uses_sw_le(ring))
++		tmp = REG_SET_FIELD(tmp, CP_RB0_CNTL, BUF_SWAP, 1);
+ #endif
+ 	WREG32(mmCP_RB0_CNTL, tmp);
+ 	dev_info(adev->dev, "GFX_SWAP phase=1 expected=%08x actual=%08x\n", tmp, RREG32(mmCP_RB0_CNTL));
+@@ -6052,7 +6053,9 @@
+ 
+ static u64 gfx_v8_0_ring_get_rptr(struct amdgpu_ring *ring)
+ {
+-	return *ring->rptr_cpu_addr;
++	return amdgpu_ring_uses_sw_le(ring) ?
++		le32_to_cpu((__force __le32)*ring->rptr_cpu_addr) :
++		*ring->rptr_cpu_addr;
+ }
+ 
+ static u64 gfx_v8_0_ring_get_wptr_gfx(struct amdgpu_ring *ring)
+@@ -6061,7 +6064,9 @@
+ 
+ 	if (ring->use_doorbell)
+ 		/* XXX check if swapping is necessary on BE */
+-		return *ring->wptr_cpu_addr;
++		return amdgpu_ring_uses_sw_le(ring) ?
++			le32_to_cpu((__force __le32)*ring->wptr_cpu_addr) :
++			*ring->wptr_cpu_addr;
+ 	else
+ 		return RREG32(mmCP_RB0_WPTR);
+ }
+@@ -6072,7 +6077,7 @@
+ 
+ 	if (ring->use_doorbell) {
+ 		/* XXX check if swapping is necessary on BE */
+-		*ring->wptr_cpu_addr = lower_32_bits(ring->wptr);
++		*ring->wptr_cpu_addr = amdgpu_ring_encode_dw(ring, lower_32_bits(ring->wptr));
+ 		WDOORBELL32(ring->doorbell_index, lower_32_bits(ring->wptr));
+ 	} else {
+ 		WREG32(mmCP_RB0_WPTR, lower_32_bits(ring->wptr));

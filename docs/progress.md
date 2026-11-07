@@ -1283,3 +1283,45 @@ Root key SSH works. Live log/reprobe reaches VRAM/GART and firmware discovery, t
 2026-11-05: Source-level SMU startup audit identifies ignored firmware lookup and handshake results; no proven root cause. Isolated logging/error-propagation candidate builds targeted AMDGPU on R730 with original upload behavior and exact physical modular config. Logs selected firmware and PC/status/response stages; no reset changes. See builds/smu-startup-diagnostics-20261105/.
 
 2026-11-05: Diagnostic module physical test confirms polaris11_k_smc.bin version0x1800 loads successfully; protected/security mode1, SMU response/status0 around startup, low sampled PC. Still no framebuffer, SSH healthy. Combined LE+logging build prepared but untested. Read-only OS4 disk header probe finds three NGF1 volumes; no compatible mount/read driver established, no disk writes. Uploaded Enhancer RadeonRX documentation supplies PCI/revision/DPM leads, not installed-version proof. See smu-startup-diagnostics-20261105 and aos-readonly-intake-20261105 evidence.
+
+2026-11-06: Completed bounded source walk and full selected-firmware word model on R730. Confirmed baseline native-load divergence and complete modeled equivalence with explicit LE decode; prior physical failure remains. Reviewed existing PPC barriers and indirect locking; identified discarded handshake results. Evidence in builds/smu-source-walk-20261106/. No boot changes or additional build started.
+
+2026-11-06: Physical upload-readback trial completed, not a display fix. All32493 comparisons differ, firstaaaa5555 versus35771e80; protected SRAM visibility/index state now needs qualification. Build/config/Module.symvers passed; SSH healthy, installed module tree unchanged. Evidence: builds/smu-readback-20261106/.
+
+2026-11-06: Exact Radeon runs on ASUS x86 with matching firmware. Captured running SMC/debugfs and no-loss register trace. Rebind skips firmware upload; must measure first cold Linux bind before comparing bootstrap paths. Alternate held-driver boot prepared, normal default preserved. See x86-radeon-hardware-20261106.
+
+2026-11-06: Held-driver x86 boot verifies full protected SMU startup, not just reuse. Real upload matches LE model completely; measured mailbox sequence succeeds. This narrows PPC comparison to initial readiness and delivery/handshake, without claiming hardware readback or root cause. Framebuffer/SSH healthy.
+
+2026-11-06 physical milestone: after fresh power-on, corrected LE firmware upload and SMU protected startup succeed on A1222, with complete x86-equivalent upload and matching~53ms handshake. Remaining failure is secondary GPU firmware loading/TOC stage. Graphics still unavailable; no universal-fix claim.
+
+2026-11-06: Shared SMU7 transfer-table encoder candidate built, x86/BE byte-equivalence passed. Warm hardware state remains wedged after prior load failure; clean candidate boot pending, no display acceptance.
+
+2026-11-06 physical TOC milestone: fresh candidate passes SMU startup and reaches graphics ring test beyond former firmware-load timeout. Ring completion-110 and PCIe error require next review; graphics output not yet accepted.
+
+2026-11-06: Producer-boundary snapshot reveals requested ring byte-swap versus sampled effective setting mismatch, plus native pointer-shadow encoding. Focus shifted to coherent ring producer/consumer contract; blanket conversion not applied.
+
+2026-11-06 immediate swap proof: fresh diagnostic build/config/symbol checks pass. Physical CP_RB0_CNTL swap bit17 reads0 immediately after all3 writes requesting1; pointer-enable bit31 reads correctly. NativeBE packets plus inactive swap strongly identify GFX8 encoding boundary; gfx test still-110/no display. Latest pinned upstream and100 path commit subjects retain native/swap contract, no applicable fix found in bounded review. See builds/gfx-swap-readback-20261106/.
+
+2026-11-06 targeted Polaris11 SW-LE graphics-ring candidate compiled/config/symbol checks pass. Actual GFX scratch self-test now passes; next KIQ ring times out with nativeBE packet bytes. No display; failed-init cleanup warns, SSH remains healthy. Writer wrap/NOP/patch tests match native x86 and emulated BE PPC. Extending coherent ring/MQD boundary to KIQ/compute in fresh candidate; see builds/gfx-software-le-20261106/.
+
+2026-11-06 KIQ/compute+MQD LE candidate builds/config/symbols pass, but warm hardware unload/load command timed out and SSH became unresponsive; stage unknown, no acceptance. Candidate/hash/attempt retained in builds/gfx-queues-le-20261106/. Fresh physical power-cycle required before first-load validation; disk module and boot defaults unchanged.
+
+2026-11-06 SanDisk laptop check: no read errors, FAT/boot.scr intact; ext4 journal recovered after metadata/log backup, final read-only checks clean. VLC fatload command lacked usb. Verified queue candidate and first-load-only capture script staged; USB unmounted, boot defaults unchanged. See builds/sandisk-recovery-20261106/.
+
+2026-11-06 fresh boot first-load candidate attempt: initial SSH/uptime34s/no modules confirmed, then test timed out60s; SSH/ICMP lost, user reports green screen. No successful GPU acceptance or phase evidence. Added explicit launcher stage output; next test requires off-board kmsg and another cold boot. See builds/gfx-queues-le-20261106/.
+
+2026-11-06 off-board capture: SSH log moved off USB at runtime, root verified read-only. Dependencies and held candidate insertion pass; explicit bind locks board. Saved kernel stream shows SMU success, CP start, then PCIe00800000/23 storm; earlier mapped-memset alignment warning retained. No GPU acceptance. Adding pre-map KIQ self-test to isolate command/descriptor boundary; see builds/polaris-offboard-20261106/.
+
+2026-11-06 KIQ gate physical pass: pre-map control self-test returns0; hang after compute mapping submission, PCIe storm saved off-board. Native CPU MQD staging/IO-safe VRAM publication candidate in progress; exact wire-helper x86/PPC tests pass. No display acceptance. See builds/gfx-kiq-gate-20261106/ and gfx-mqd-host-20261106/.
+
+2026-11-06 native MQD staging candidate002 compiled; config/symbol parity pass; SHA f6475b61ef7affae8fff7cbd008ef2a70090f96327f3c7a0cd8d2d9adb5e2e49. IO-safe VRAM clear/publish, heap-native construction and KIQ error propagation; ready locally for cold test, no new hardware acceptance.
+
+2026-11-06 MQD staging002 physical test removes mapped memset warning; KIQ still passes, compute mapping still hangs. Logs expose compute descriptors in GTT vs KIQ in VRAM. Single-placement BE Polaris11 VRAM candidate building; no display acceptance. See builds/gfx-mqd-host-20261106/ and gfx-mqd-vram-20261106/.
+
+2026-11-06 VRAM placement physical negative: all compute descriptors confirmedVRAM, same post-map PCIe hang. Do not accept placement as fix. GPU COPY_DATA calibration+MQD readback diagnostic building on staging002 without placement override; AMD PAL packet source pinned. See builds/gfx-mqd-vram-20261106/ and gfx-mqd-read-20261106/.
+
+2026-11-06 historical comparison confirms older Radeon Evergreen hardware-swap path;2018 Polaris BE report explicitly passes ring test with software LE and finds hardware swap ineffective. Clarified history doc. GPU MQD readback candidate compiled/config/symbol checks pass, SHAed5b746997cdaab551ac75d8cfc323391708ea9305a386f8e0d4ebe9bce57169; physical pending.
+
+2026-11-07 lab resumed: A1222 modular kernel/no modules, R730 healthy. Off-board006 GPU calibration and22/22MQD sampled words pass; remaining hang after combined resource/map submission. IH and CSB helpers already correct. Stage-gated normal KIQ tests between resource assignment/individual mapping building; no new conversion guessed. See builds/gfx-map-stage-20261107/.
+
+2026-11-07 staged hardware run: GPU samples, SET_RESOURCES, all8MAP_QUEUES/control checks pass; later init hangs. This narrows previous mapping-failure wording. Toolchain remains authoritative; preparing public forge kernel-build snapshot on wip/polaris-be with source/patch/config/module hashes and explicit acceptance limits.

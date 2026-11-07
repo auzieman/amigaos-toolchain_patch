@@ -1,0 +1,134 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -1353,7 +1353,13 @@
+ 			return r;
+ 		}
+ 
+-		memset(hpd, 0, mec_hpd_size);
++#ifdef __BIG_ENDIAN
++		if (adev->asic_type == CHIP_POLARIS11 &&
++		    adev->gfx.mec.hpd_eop_obj->tbo.resource->mem_type == TTM_PL_VRAM)
++			memset_io((void __iomem *)hpd, 0, mec_hpd_size);
++		else
++#endif
++			memset(hpd, 0, mec_hpd_size);
+ 
+ 		amdgpu_bo_kunmap(adev->gfx.mec.hpd_eop_obj);
+ 		amdgpu_bo_unreserve(adev->gfx.mec.hpd_eop_obj);
+@@ -4640,23 +4646,45 @@
+ 	return 0;
+ }
+ 
+-/* Serialize after native CPU initialization/commit and native backup creation. */
+-static void gfx_v8_0_mqd_to_gpu(struct amdgpu_ring *ring)
+-{
+-	u32 *words = ring->mqd_ptr;
++/* Native CPU descriptor/backup; one publication to GPU little-endian memory. */
++static void gfx_v8_0_publish_mqd(struct amdgpu_ring *ring,
++			       const struct vi_mqd_allocation *host, void *gpu)
++{
++	const u32 *words = (const u32 *)host;
+ 	unsigned int i;
+-
+-	if (!amdgpu_ring_uses_sw_le(ring))
+-		return;
+-	BUILD_BUG_ON(sizeof(struct vi_mqd_allocation) % sizeof(u32));
+-	for (i = 0; i < sizeof(struct vi_mqd_allocation) / sizeof(u32); i++)
+-		words[i] = (__force u32)cpu_to_le32(words[i]);
++	bool vram = ring->mqd_obj->tbo.resource->mem_type == TTM_PL_VRAM;
++
++	BUILD_BUG_ON(sizeof(*host) % sizeof(u32));
++	for (i = 0; i < sizeof(*host) / sizeof(u32); i++) {
++		if (vram)
++			writel(words[i], (void __iomem *)gpu + i * sizeof(u32));
++		else
++			((u32 *)gpu)[i] = (__force u32)cpu_to_le32(words[i]);
++	}
++	/* Order descriptor publication before the MAP_QUEUES doorbell. */
++	mb();
++	dev_info(ring->adev->dev,
++		 "MQD_PUBLISH name=%s gpu=%016llx vram=%u header=%08x pq=%08x base=%08x:%08x\n",
++		 ring->name, (unsigned long long)ring->mqd_gpu_addr, vram,
++		 host->mqd.header, host->mqd.cp_hqd_pq_control,
++		 host->mqd.cp_hqd_pq_base_hi, host->mqd.cp_hqd_pq_base_lo);
+ }
+ 
+ static int gfx_v8_0_kiq_init_queue(struct amdgpu_ring *ring)
+ {
+ 	struct amdgpu_device *adev = ring->adev;
+-	struct vi_mqd *mqd = ring->mqd_ptr;
++	struct vi_mqd_allocation *native_mqd = NULL;
++	void *gpu_mqd = ring->mqd_ptr;
++	bool software_le = amdgpu_ring_uses_sw_le(ring);
++	struct vi_mqd *mqd;
++
++	if (software_le) {
++		native_mqd = kzalloc(sizeof(*native_mqd), GFP_KERNEL);
++		if (!native_mqd)
++			return -ENOMEM;
++		ring->mqd_ptr = native_mqd;
++	}
++	mqd = ring->mqd_ptr;
+ 
+ 	gfx_v8_0_kiq_setting(ring);
+ 
+@@ -4690,15 +4718,30 @@
+ 			memcpy(adev->gfx.kiq[0].mqd_backup, mqd, sizeof(struct vi_mqd_allocation));
+ 	}
+ 
+-	gfx_v8_0_mqd_to_gpu(ring);
++	if (software_le) {
++		gfx_v8_0_publish_mqd(ring, native_mqd, gpu_mqd);
++		ring->mqd_ptr = gpu_mqd;
++		kfree(native_mqd);
++	}
+ 	return 0;
+ }
+ 
+ static int gfx_v8_0_kcq_init_queue(struct amdgpu_ring *ring)
+ {
+ 	struct amdgpu_device *adev = ring->adev;
+-	struct vi_mqd *mqd = ring->mqd_ptr;
++	struct vi_mqd_allocation *native_mqd = NULL;
++	void *gpu_mqd = ring->mqd_ptr;
++	bool software_le = amdgpu_ring_uses_sw_le(ring);
++	struct vi_mqd *mqd;
+ 	int mqd_idx = ring - &adev->gfx.compute_ring[0];
++
++	if (software_le) {
++		native_mqd = kzalloc(sizeof(*native_mqd), GFP_KERNEL);
++		if (!native_mqd)
++			return -ENOMEM;
++		ring->mqd_ptr = native_mqd;
++	}
++	mqd = ring->mqd_ptr;
+ 
+ 	if (!amdgpu_in_reset(adev) && !adev->in_suspend) {
+ 		memset((void *)mqd, 0, sizeof(struct vi_mqd_allocation));
+@@ -4721,7 +4764,11 @@
+ 		atomic64_set((atomic64_t *)ring->wptr_cpu_addr, 0);
+ 		amdgpu_ring_clear_ring(ring);
+ 	}
+-	gfx_v8_0_mqd_to_gpu(ring);
++	if (software_le) {
++		gfx_v8_0_publish_mqd(ring, native_mqd, gpu_mqd);
++		ring->mqd_ptr = gpu_mqd;
++		kfree(native_mqd);
++	}
+ 	return 0;
+ }
+ 
+@@ -4752,11 +4799,11 @@
+ 		return r;
+ 	}
+ 
+-	gfx_v8_0_kiq_init_queue(ring);
++	r = gfx_v8_0_kiq_init_queue(ring);
+ 	amdgpu_bo_kunmap(ring->mqd_obj);
+ 	ring->mqd_ptr = NULL;
+ 	amdgpu_bo_unreserve(ring->mqd_obj);
+-	return 0;
++	return r;
+ }
+ 
+ static int gfx_v8_0_kcq_resume(struct amdgpu_device *adev)

@@ -1,0 +1,74 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4453,6 +4453,7 @@
+ 	struct amdgpu_ring *kiq_ring = &adev->gfx.kiq[0].ring;
+ 	uint64_t queue_mask = 0;
+ 	int r, i;
++	bool staged = amdgpu_ring_uses_sw_le(kiq_ring);
+ 
+ 	if (amdgpu_ring_uses_sw_le(kiq_ring)) {
+ 		dev_info(adev->dev, "KIQ_GATE testing control ring before queue mapping\n");
+@@ -4480,7 +4481,7 @@
+ 		queue_mask |= (1ull << i);
+ 	}
+ 
+-	r = amdgpu_ring_alloc(kiq_ring, (8 * adev->gfx.num_compute_rings) + 8);
++	r = amdgpu_ring_alloc(kiq_ring, staged ? 8 : (8 * adev->gfx.num_compute_rings) + 8);
+ 	if (r) {
+ 		DRM_ERROR("Failed to lock KIQ (%d).\n", r);
+ 		return r;
+@@ -4494,10 +4495,29 @@
+ 	amdgpu_ring_write(kiq_ring, 0);	/* gws mask hi */
+ 	amdgpu_ring_write(kiq_ring, 0);	/* oac mask */
+ 	amdgpu_ring_write(kiq_ring, 0);	/* gds heap base:0, gds heap size:0 */
++	if (staged) {
++		dev_info(adev->dev, "MAP_GATE resources mask=%016llx queues=%u\n",
++			 (unsigned long long)queue_mask, adev->gfx.num_compute_rings);
++		amdgpu_ring_commit(kiq_ring);
++		r = amdgpu_ring_test_helper(kiq_ring);
++		dev_info(adev->dev, "MAP_GATE resources result=%d\n", r);
++		if (r)
++			return r;
++	}
+ 	for (i = 0; i < adev->gfx.num_compute_rings; i++) {
+ 		struct amdgpu_ring *ring = &adev->gfx.compute_ring[i];
+ 		uint64_t mqd_addr = amdgpu_bo_gpu_offset(ring->mqd_obj);
+ 		uint64_t wptr_addr = ring->wptr_gpu_addr;
++
++		if (staged) {
++			r = amdgpu_ring_alloc(kiq_ring, 7);
++			if (r)
++				return r;
++			dev_info(adev->dev,
++				 "MAP_GATE queue=%u me=%u pipe=%u slot=%u doorbell=%u mqd=%016llx wptr=%016llx\n",
++				 i, ring->me, ring->pipe, ring->queue, ring->doorbell_index,
++				 (unsigned long long)mqd_addr, (unsigned long long)wptr_addr);
++		}
+ 
+ 		/* map queues */
+ 		amdgpu_ring_write(kiq_ring, PACKET3(PACKET3_MAP_QUEUES, 5));
+@@ -4513,11 +4533,19 @@
+ 		amdgpu_ring_write(kiq_ring, upper_32_bits(mqd_addr));
+ 		amdgpu_ring_write(kiq_ring, lower_32_bits(wptr_addr));
+ 		amdgpu_ring_write(kiq_ring, upper_32_bits(wptr_addr));
+-	}
+-
+-	dev_info(adev->dev, "KIQ_GATE submitting compute queue mapping\n");
+-	amdgpu_ring_commit(kiq_ring);
+-	dev_info(adev->dev, "KIQ_GATE compute mapping submitted\n");
++		if (staged) {
++			amdgpu_ring_commit(kiq_ring);
++			r = amdgpu_ring_test_helper(kiq_ring);
++			dev_info(adev->dev, "MAP_GATE queue=%u result=%d\n", i, r);
++			if (r)
++				return r;
++		}
++	}
++
++	if (!staged)
++		amdgpu_ring_commit(kiq_ring);
++	else
++		dev_info(adev->dev, "MAP_GATE all queue submissions completed\n");
+ 
+ 	return 0;
+ }

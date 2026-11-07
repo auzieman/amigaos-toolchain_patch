@@ -1,0 +1,1147 @@
+4,2642,8198920459,-;Tainted: [W]=WARN
+4,2643,8198922125,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2644,8198926831,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,2645,8198930585,-;REGS: c7257a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2646,8198937903,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,2647,8198942810,c;\x0aGPR00: f1ab1aa8 c7257b30 c4ecddc0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96678 c4381bf8 00000000 00001905 c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d0 c68dfdd8 
+4,2648,8198971312,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2649,8198978016,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,2650,8198985926,-;Call Trace:
+4,2651,8198987071,-;[c7257b30] [c68cba80] 0xc68cba80 (unreliable)
+4,2652,8198991183,-;[c7257b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,2653,8198999698,-;[c7257b80] [f1dfe750] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,2654,8199007669,-;[c7257bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2655,8199015660,-;[c7257bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2656,8199023302,-;[c7257c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2657,8199027764,-;[c7257c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2658,8199031879,-;[c7257c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2659,8199036774,-;[c7257c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2660,8199041494,-;[c7257cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2661,8199045866,-;[c7257cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2662,8199050238,-;[c7257d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2663,8199054611,-;[c7257d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2664,8199058985,-;[c7257d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2665,8199063362,-;[c7257dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2666,8199067656,-;[c7257df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2667,8199072466,-;[c7257e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2668,8199077015,-;[c7257ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2669,8199081911,-;[c7257f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2670,8199086200,-;--- interrupt: c00 at 0x1008af18
+4,2671,8199089175,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2672,8199092929,-;REGS: c7257f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2673,8199100246,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2674,8199105417,c;\x0aGPR00: 00000161 bfe17ac0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f2f4641 00000002 00000000 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfe17de0 00000002 00000003 bfe18eed 101114a0 00000054 00000000 
+4,2675,8199133915,-;NIP [1008af18] 0x1008af18
+4,2676,8199136280,-;LR [1000467c] 0x1000467c
+4,2677,8199138557,-;--- interrupt: c00
+4,2678,8199140312,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,2679,8199153784,-;---[ end trace 0000000000000000 ]---
+4,2680,8199157527,-;------------[ cut here ]------------
+4,2681,8199160883,-;WARNING: CPU: 0 PID: 288 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2682,8199172549,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2683,8199190541,-;CPU: 0 UID: 0 PID: 288 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2684,8199198650,-;Tainted: [W]=WARN
+4,2685,8199200316,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2686,8199205023,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,2687,8199208776,-;REGS: c7257a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2688,8199216094,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,2689,8199221001,c;\x0aGPR00: f1ab1aa8 c7257b30 c4ecddc0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96678 c4381bf8 00000000 00001905 c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d4 c68e0000 
+4,2690,8199249501,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2691,8199256207,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,2692,8199264109,-;Call Trace:
+4,2693,8199265253,-;[c7257b30] [c68cba80] 0xc68cba80 (unreliable)
+4,2694,8199269366,-;[c7257b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,2695,8199277881,-;[c7257b80] [f1dfe750] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,2696,8199285862,-;[c7257bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2697,8199293855,-;[c7257bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2698,8199301498,-;[c7257c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2699,8199305960,-;[c7257c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2700,8199310076,-;[c7257c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2701,8199314970,-;[c7257c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2702,8199319690,-;[c7257cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2703,8199324062,-;[c7257cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2704,8199328434,-;[c7257d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2705,8199332806,-;[c7257d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2706,8199337181,-;[c7257d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2707,8199341557,-;[c7257dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2708,8199345851,-;[c7257df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2709,8199350661,-;[c7257e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2710,8199355208,-;[c7257ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2711,8199360105,-;[c7257f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2712,8199364395,-;--- interrupt: c00 at 0x1008af18
+4,2713,8199367369,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2714,8199371123,-;REGS: c7257f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2715,8199378441,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2716,8199383612,c;\x0aGPR00: 00000161 bfe17ac0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f2f4641 00000002 00000000 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfe17de0 00000002 00000003 bfe18eed 101114a0 00000054 00000000 
+4,2717,8199412110,-;NIP [1008af18] 0x1008af18
+4,2718,8199414474,-;LR [1000467c] 0x1000467c
+4,2719,8199416751,-;--- interrupt: c00
+4,2720,8199418506,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,2721,8199431978,-;---[ end trace 0000000000000000 ]---
+4,2722,8199435707,-;------------[ cut here ]------------
+4,2723,8199439063,-;WARNING: CPU: 0 PID: 288 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2724,8199450735,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2725,8199468726,-;CPU: 0 UID: 0 PID: 288 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2726,8199476834,-;Tainted: [W]=WARN
+4,2727,8199478500,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2728,8199483206,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,2729,8199486960,-;REGS: c7257a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2730,8199494277,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,2731,8199499184,c;\x0aGPR00: f1ab1aa8 c7257b30 c4ecddc0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96678 c4381bf8 00000000 00001905 c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d8 c68e0228 
+4,2732,8199527683,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2733,8199534387,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,2734,8199542302,-;Call Trace:
+4,2735,8199543447,-;[c7257b30] [c68cba80] 0xc68cba80 (unreliable)
+4,2736,8199547560,-;[c7257b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,2737,8199556075,-;[c7257b80] [f1dfe750] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,2738,8199564046,-;[c7257bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2739,8199572037,-;[c7257bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2740,8199579679,-;[c7257c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2741,8199584141,-;[c7257c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2742,8199588257,-;[c7257c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2743,8199593150,-;[c7257c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2744,8199597870,-;[c7257cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2745,8199602242,-;[c7257cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2746,8199606615,-;[c7257d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2747,8199610988,-;[c7257d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2748,8199615363,-;[c7257d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2749,8199619738,-;[c7257dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2750,8199624033,-;[c7257df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2751,8199628843,-;[c7257e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2752,8199633391,-;[c7257ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2753,8199638288,-;[c7257f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2754,8199642575,-;--- interrupt: c00 at 0x1008af18
+4,2755,8199645550,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2756,8199649304,-;REGS: c7257f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2757,8199656622,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2758,8199661794,c;\x0aGPR00: 00000161 bfe17ac0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f2f4641 00000002 00000000 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfe17de0 00000002 00000003 bfe18eed 101114a0 00000054 00000000 
+4,2759,8199690292,-;NIP [1008af18] 0x1008af18
+4,2760,8199692656,-;LR [1000467c] 0x1000467c
+4,2761,8199694932,-;--- interrupt: c00
+4,2762,8199696687,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,2763,8199710159,-;---[ end trace 0000000000000000 ]---
+4,2764,8199714829,-;------------[ cut here ]------------
+4,2765,8199718179,-;WARNING: CPU: 0 PID: 288 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2766,8199729852,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2767,8199747841,-;CPU: 0 UID: 0 PID: 288 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2768,8199755949,-;Tainted: [W]=WARN
+4,2769,8199757615,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2770,8199762321,-;NIP:  f1b9b238 LR: f1b64dec CTR: f1b64dcc
+4,2771,8199766075,-;REGS: c7257a60 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2772,8199773393,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,2773,8199778300,c;\x0aGPR00: f1dfe97c c7257b50 c4ecddc0 c68c0000 c68c0808 00000000 00000000 00000007 \x0aGPR08: f1b648f0 c45bbd38 00000000 00001905 c000cd68 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 00000000 f1f2c474 00000001 c68d0000 c68f0000 c68f26f2 c68c0000 
+4,2774,8199806800,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2775,8199813502,-;LR [f1b64dec] gmc_v8_0_hw_fini+0x20/0xc0 [amdgpu]
+4,2776,8199820297,-;Call Trace:
+4,2777,8199821441,-;[c7257b50] [28008242] 0x28008242 (unreliable)
+4,2778,8199825554,-;[c7257b60] [c4229000] 0xc4229000
+4,2779,8199828533,-;[c7257b80] [f1dfe97c] amdgpu_device_fini_hw+0x2e4/0x3d4 [amdgpu]
+4,2780,8199836591,-;[c7257bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2781,8199844581,-;[c7257bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2782,8199852224,-;[c7257c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2783,8199856687,-;[c7257c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2784,8199860802,-;[c7257c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2785,8199865697,-;[c7257c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2786,8199870416,-;[c7257cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2787,8199874789,-;[c7257cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2788,8199879161,-;[c7257d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2789,8199883534,-;[c7257d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2790,8199887908,-;[c7257d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2791,8199892283,-;[c7257dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2792,8199896578,-;[c7257df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2793,8199901387,-;[c7257e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2794,8199905935,-;[c7257ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2795,8199910831,-;[c7257f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2796,8199915121,-;--- interrupt: c00 at 0x1008af18
+4,2797,8199918095,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2798,8199921849,-;REGS: c7257f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2799,8199929167,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2800,8199934337,c;\x0aGPR00: 00000161 bfe17ac0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f2f4641 00000002 00000000 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfe17de0 00000002 00000003 bfe18eed 101114a0 00000054 00000000 
+4,2801,8199962836,-;NIP [1008af18] 0x1008af18
+4,2802,8199965200,-;LR [1000467c] 0x1000467c
+4,2803,8199967478,-;--- interrupt: c00
+4,2804,8199969232,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,2805,8199982703,-;---[ end trace 0000000000000000 ]---
+3,2806,8199986220,-;PCIe error(s) detected
+3,2807,8199988349,-;PCIe ERR_DR register: 0x00100000
+3,2808,8199991323,-;PCIe ERR_CAP_STAT register: 0x00000005
+3,2809,8199994812,-;PCIe ERR_CAP_R0 register: 0x10000020
+3,2810,8199998129,-;PCIe ERR_CAP_R1 register: 0xff200001
+3,2811,8200001447,-;PCIe ERR_CAP_R2 register: 0xff000000
+3,2812,8200004763,-;PCIe ERR_CAP_R3 register: 0x00c06100
+3,2813,8200008661,-;amdgpu 0001:01:00.0: probe with driver amdgpu failed with error -110
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2814,8200016468,-;[drm] amdgpu: ttm finalized
+4,2815,8200019314,-;------------[ cut here ]------------
+4,2816,8200022646,-;WARNING: CPU: 1 PID: 288 at drivers/gpu/drm/amd/amdgpu/amdgpu_i2c.c:223 amdgpu_i2c_destroy+0x50/0x58 [amdgpu]
+4,2817,8200034600,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2818,8200052580,-;CPU: 1 UID: 0 PID: 288 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2819,8200060684,-;Tainted: [W]=WARN
+4,2820,8200062348,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2821,8200067052,-;NIP:  f1abec34 LR: f1abecbc CTR: c07ed2c4
+4,2822,8200070805,-;REGS: c7257a00 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2823,8200078119,-;MSR:  00029000 <CE,EE,ME>  CR: 48000248  XER: 20000000
+4,2824,8200083020,c;\x0aGPR00: f1abecbc c7257af0 c4ecddc0 c69af000 00000000 00000000 c7257a7c 008b0201 \x0aGPR08: c68c0000 00000001 0d000000 00000897 c07ed2c4 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c248f4ac c248f734 c248f334 \x0aGPR24: 00000000 101114a0 c4229230 c68d0000 c68f0000 00000000 c68c03c8 c69af000 
+4,2825,8200111500,-;NIP [f1abec34] amdgpu_i2c_destroy+0x50/0x58 [amdgpu]
+4,2826,8200118488,-;LR [f1abecbc] amdgpu_i2c_fini+0x34/0x5c [amdgpu]
+4,2827,8200125121,-;Call Trace:
+4,2828,8200126264,-;[c7257af0] [c68cb8d8] 0xc68cb8d8 (unreliable)
+4,2829,8200130372,-;[c7257b10] [f1abecbc] amdgpu_i2c_fini+0x34/0x5c [amdgpu]
+4,2830,8200137703,-;[c7257b30] [f1a98a28] amdgpu_device_fini_sw+0x254/0x3e8 [amdgpu]
+4,2831,8200145723,-;[c7257b70] [f1aa1bf4] amdgpu_driver_release_kms+0x1c/0x3c [amdgpu]
+4,2832,8200153919,-;[c7257b90] [f10f1394] drm_dev_put.part.0+0x60/0x8c [drm]
+4,2833,8200159582,-;[c7257bb0] [c07d3f40] release_nodes+0x6c/0xfc
+4,2834,8200163706,-;[c7257be0] [c07d5ab0] devres_release_all+0x9c/0x110
+4,2835,8200168337,-;[c7257c20] [c07cd5cc] device_unbind_cleanup+0x18/0x78
+4,2836,8200173143,-;[c7257c40] [c07ce070] really_probe+0x23c/0x32c
+4,2837,8200177340,-;[c7257c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2838,8200182230,-;[c7257c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2839,8200186947,-;[c7257cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2840,8200191316,-;[c7257cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2841,8200195686,-;[c7257d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2842,8200200056,-;[c7257d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2843,8200204426,-;[c7257d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2844,8200208799,-;[c7257dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2845,8200213090,-;[c7257df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2846,8200217896,-;[c7257e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2847,8200222442,-;[c7257ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2848,8200227336,-;[c7257f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2849,8200231623,-;--- interrupt: c00 at 0x1008af18
+4,2850,8200234595,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2851,8200238346,-;REGS: c7257f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2852,8200245661,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2853,8200250827,c;\x0aGPR00: 00000161 bfe17ac0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f2f4641 00000002 00000000 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfe17de0 00000002 00000003 bfe18eed 101114a0 00000054 00000000 
+4,2854,8200279307,-;NIP [1008af18] 0x1008af18
+4,2855,8200281670,-;LR [1000467c] 0x1000467c
+4,2856,8200283945,-;--- interrupt: c00
+4,2857,8200285698,-;Code: 40820030 7fe3fb78 4834bb95 7fe3fb78 80010024 83e1001c 38210020 7c0803a6 4834bdcc 83e1001c 38210020 4e800020 <0fe00000> 4bffffd0 3d20f1e3 9421ffe0 
+4,2858,8200299160,-;---[ end trace 0000000000000000 ]---
+6,2859,8911068298,-;[drm] initializing kernel modesetting (POLARIS11 0x1002:0x67FF 0x1002:0x0B04 0xFF).
+6,2860,8911075892,-;[drm] register mmio base: 0x50200000
+6,2861,8911079232,-;[drm] register mmio size: 262144
+6,2862,8911082701,-;[drm] add ip block number 0 <vi_common>
+6,2863,8911086387,-;[drm] add ip block number 1 <gmc_v8_0>
+6,2864,8911089948,-;[drm] add ip block number 2 <tonga_ih>
+6,2865,8911093516,-;[drm] add ip block number 3 <gfx_v8_0>
+6,2866,8911097083,-;[drm] add ip block number 4 <sdma_v3_0>
+6,2867,8911100720,-;[drm] add ip block number 5 <powerplay>
+6,2868,8911104362,-;[drm] add ip block number 6 <dce_v11_0>
+6,2869,8911107997,-;[drm] add ip block number 7 <uvd_v6_0>
+6,2870,8911111501,-;[drm] add ip block number 8 <vce_v3_0>
+6,2871,8911460554,-;amdgpu 0001:01:00.0: amdgpu: Fetched VBIOS from ROM BAR
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2872,8911465615,-;amdgpu: ATOM BIOS: 
+6,2873,8911467938,-;[drm] UVD is enabled in VM mode
+6,2874,8911470854,-;[drm] UVD ENC is enabled in VM mode
+6,2875,8911474155,-;[drm] VCE enabled in VM mode
+6,2876,8911476839,-;amdgpu 0001:01:00.0: amdgpu: Trusted Memory Zone (TMZ) feature not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2877,8911483707,-;amdgpu 0001:01:00.0: amdgpu: PCIE atomic ops is not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2878,8911489276,-;amdgpu 0001:01:00.0: amdgpu: PCI CONFIG reset
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2879,8911493558,-;[drm] GPU posting now...
+6,2880,8911602190,-;[drm] vm size is 64 GB, 2 levels, block size is 10-bit, fragment size is 9-bit
+6,2881,8911609541,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2882,8911616630,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,2883,8911623676,-;[drm:amdgpu_device_resize_fb_bar [amdgpu]] *ERROR* Problem resizing BAR0 (-22).
+6,2884,8911626017,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2885,8911640094,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2886,8911647078,-;amdgpu 0001:01:00.0: amdgpu: VRAM: 4096M 0x000000F400000000 - 0x000000F4FFFFFFFF (4096M used)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2887,8911655425,-;amdgpu 0001:01:00.0: amdgpu: GART: 256M 0x000000FF00000000 - 0x000000FF0FFFFFFF
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2888,8911662579,-;[drm] Detected VRAM RAM=4096M, BAR=256M
+6,2889,8911666235,-;[drm] RAM width 128bits GDDR5
+6,2890,8911669410,-;[drm] amdgpu: 4096M of VRAM memory ready
+6,2891,8911673173,-;[drm] amdgpu: 1711M of GTT memory ready.
+6,2892,8911677048,-;[drm] GART: num cpu pages 65536, num gpu pages 65536
+6,2893,8911685813,-;[drm] PCIE GART of 256M enabled (table at 0x000000F400000000).
+6,2894,8911694573,-;[drm] Chained IB support enabled!
+6,2895,8911703967,-;amdgpu: hwmgr_sw_init smu backed is polaris10_smu
+6,2896,8911708811,-;[drm] AMDGPU Display Connectors
+6,2897,8911711804,-;[drm] Connector 0:
+6,2898,8911713580,-;[drm]   DP-1
+6,2899,8911714812,-;[drm]   HPD5
+6,2900,8911716100,-;[drm]   DDC: 0x4868 0x4868 0x4869 0x4869 0x486a 0x486a 0x486b 0x486b
+6,2901,8911722257,-;[drm]   Encoders:
+6,2902,8911724010,-;[drm]     DFP1: INTERNAL_UNIPHY1
+6,2903,8911727003,-;[drm] Connector 1:
+6,2904,8911728817,-;[drm]   HDMI-A-1
+6,2905,8911730416,-;[drm]   HPD3
+6,2906,8911731696,-;[drm]   DDC: 0x4874 0x4874 0x4875 0x4875 0x4876 0x4876 0x4877 0x4877
+6,2907,8911737853,-;[drm]   Encoders:
+6,2908,8911739532,-;[drm]     DFP2: INTERNAL_UNIPHY1
+6,2909,8911742552,-;[drm] Connector 2:
+6,2910,8911744361,-;[drm]   DVI-D-1
+6,2911,8911745867,-;[drm]   HPD4
+6,2912,8911747097,-;[drm]   DDC: 0x4878 0x4878 0x4879 0x4879 0x487a 0x487a 0x487b 0x487b
+6,2913,8911753248,-;[drm]   Encoders:
+6,2914,8911754931,-;[drm]     DFP3: INTERNAL_UNIPHY
+6,2915,8911760543,-;[drm] Found UVD firmware Version: 1.130 Family ID: 16
+6,2916,8911784156,-;[drm] Found VCE firmware Version: 53.26 Binary ID: 3
+6,2917,8911799075,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=1 expected=0043880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2918,8911806215,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=2 expected=8043880a actual=8041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2919,8911814346,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=3 expected=0043880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2920,8911821580,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=started actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2921,8912031486,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER gpu=000000ff00609000 start=1024 wptr=1280 doorbell=1 index=32 scratch=cafedead
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2922,8912042228,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER cntl=0041880a rptr=00000088 wptr=00000500 cp_stat=94008200 grbm=a0003028
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2923,8912052410,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER wb_rptr_native=00000000 wb_rptr_le=00000000 wb_wptr_native=00000500 wb_wptr_le=00050000
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2924,8912063886,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER word0 native=c0017900 bytes=c0 01 79 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2925,8912071197,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER word1 native=00000040 bytes=00 00 00 40
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2926,8912078509,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER word2 native=deadbeef bytes=de ad be ef
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2927,8912085850,-;amdgpu 0001:01:00.0: amdgpu: GFX_PRODUCER gart_start=000000ff00000000 page=1545 pte_lo=d7666077 pte_hi=00000000
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,2928,8912095785,-;amdgpu 0001:01:00.0: [drm:amdgpu_ring_test_helper [amdgpu]] *ERROR* ring gfx test failed (-110)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,2929,8912106687,-;[drm:amdgpu_device_init [amdgpu]] *ERROR* hw_init of IP block <gfx_v8_0> failed -110
+3,2930,8912116640,-;amdgpu 0001:01:00.0: amdgpu: amdgpu_device_ip_init failed
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,2931,8912121860,-;amdgpu 0001:01:00.0: amdgpu: Fatal error during GPU init
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,2932,8912127002,-;amdgpu 0001:01:00.0: amdgpu: amdgpu: finishing device.
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+4,2933,8912132498,-;------------[ cut here ]------------
+4,2934,8912135845,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2935,8912147515,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2936,8912165515,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2937,8912173624,-;Tainted: [W]=WARN
+4,2938,8912175289,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2939,8912179995,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,2940,8912183749,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2941,8912191066,-;MSR:  00029000 <CE,EE,ME>  CR: 28008244  XER: 20000000
+4,2942,8912195973,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000000 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c40 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb894 c68d0c38 
+4,2943,8912224475,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2944,8912231182,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,2945,8912239085,-;Call Trace:
+4,2946,8912240229,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,2947,8912244342,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,2948,8912252860,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,2949,8912260836,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2950,8912268831,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2951,8912276476,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2952,8912280939,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2953,8912285054,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2954,8912289948,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2955,8912294669,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2956,8912299041,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2957,8912303412,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,2958,8912307784,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,2959,8912312157,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,2960,8912316533,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,2961,8912320828,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,2962,8912325636,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,2963,8912330183,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,2964,8912335079,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,2965,8912339367,-;--- interrupt: c00 at 0x1008af18
+4,2966,8912342340,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,2967,8912346094,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,2968,8912353410,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,2969,8912358580,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,2970,8912387080,-;NIP [1008af18] 0x1008af18
+4,2971,8912389444,-;LR [1000467c] 0x1000467c
+4,2972,8912391721,-;--- interrupt: c00
+4,2973,8912393475,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,2974,8912406948,-;---[ end trace 0000000000000000 ]---
+4,2975,8912410661,-;------------[ cut here ]------------
+4,2976,8912414017,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2977,8912425687,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,2978,8912443680,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,2979,8912451788,-;Tainted: [W]=WARN
+4,2980,8912453453,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,2981,8912458160,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,2982,8912461913,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,2983,8912469230,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,2984,8912474138,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb898 c68d1090 
+4,2985,8912502639,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,2986,8912509348,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,2987,8912517276,-;Call Trace:
+4,2988,8912518420,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,2989,8912522533,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,2990,8912531053,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,2991,8912539029,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,2992,8912547023,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,2993,8912554668,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,2994,8912559131,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,2995,8912563248,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,2996,8912568142,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,2997,8912572862,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,2998,8912577234,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,2999,8912581605,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3000,8912585978,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3001,8912590352,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3002,8912594727,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3003,8912599021,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3004,8912603830,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3005,8912608378,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3006,8912613276,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3007,8912617567,-;--- interrupt: c00 at 0x1008af18
+4,3008,8912620541,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3009,8912624295,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3010,8912631612,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3011,8912636783,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3012,8912665282,-;NIP [1008af18] 0x1008af18
+4,3013,8912667647,-;LR [1000467c] 0x1000467c
+4,3014,8912669923,-;--- interrupt: c00
+4,3015,8912671678,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3016,8912685150,-;---[ end trace 0000000000000000 ]---
+4,3017,8912688876,-;------------[ cut here ]------------
+4,3018,8912692233,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3019,8912703904,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3020,8912721895,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3021,8912730004,-;Tainted: [W]=WARN
+4,3022,8912731670,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3023,8912736376,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3024,8912740130,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3025,8912747447,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3026,8912752355,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb89c c68d12b8 
+4,3027,8912780855,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3028,8912787562,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3029,8912795465,-;Call Trace:
+4,3030,8912796609,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3031,8912800722,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3032,8912809242,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3033,8912817218,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3034,8912825213,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3035,8912832860,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3036,8912837322,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3037,8912841437,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3038,8912846331,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3039,8912851051,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3040,8912855424,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3041,8912859796,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3042,8912864168,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3043,8912868542,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3044,8912872916,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3045,8912877211,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3046,8912882019,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3047,8912886567,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3048,8912891464,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3049,8912895754,-;--- interrupt: c00 at 0x1008af18
+4,3050,8912898727,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3051,8912902481,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3052,8912909800,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3053,8912914970,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3054,8912943469,-;NIP [1008af18] 0x1008af18
+4,3055,8912945833,-;LR [1000467c] 0x1000467c
+4,3056,8912948110,-;--- interrupt: c00
+4,3057,8912949865,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3058,8912963337,-;---[ end trace 0000000000000000 ]---
+4,3059,8912967072,-;------------[ cut here ]------------
+4,3060,8912970428,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3061,8912982288,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3062,8913000279,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3063,8913008387,-;Tainted: [W]=WARN
+4,3064,8913010052,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3065,8913014759,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3066,8913018513,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3067,8913025831,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3068,8913030739,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8a0 c68d14e0 
+4,3069,8913059240,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3070,8913065976,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3071,8913073906,-;Call Trace:
+4,3072,8913075050,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3073,8913079163,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3074,8913087709,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3075,8913095712,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3076,8913103736,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3077,8913111409,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3078,8913115872,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3079,8913119988,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3080,8913124882,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3081,8913129602,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3082,8913133975,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3083,8913138348,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3084,8913142719,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3085,8913147093,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3086,8913151469,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3087,8913155763,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3088,8913160573,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3089,8913165121,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3090,8913170019,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3091,8913174309,-;--- interrupt: c00 at 0x1008af18
+4,3092,8913177283,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3093,8913181037,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3094,8913188355,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3095,8913193525,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3096,8913222026,-;NIP [1008af18] 0x1008af18
+4,3097,8913224391,-;LR [1000467c] 0x1000467c
+4,3098,8913226668,-;--- interrupt: c00
+4,3099,8913228423,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3100,8913241896,-;---[ end trace 0000000000000000 ]---
+4,3101,8913245652,-;------------[ cut here ]------------
+4,3102,8913249011,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3103,8913260705,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3104,8913278699,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3105,8913286808,-;Tainted: [W]=WARN
+4,3106,8913288473,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3107,8913293179,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3108,8913296933,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3109,8913304251,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3110,8913309158,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8a4 c68d1708 
+4,3111,8913337661,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3112,8913344397,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3113,8913352328,-;Call Trace:
+4,3114,8913353472,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3115,8913357585,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3116,8913366131,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3117,8913374132,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3118,8913382156,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3119,8913389832,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3120,8913394294,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3121,8913398411,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3122,8913403305,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3123,8913408026,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3124,8913412398,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3125,8913416771,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3126,8913421144,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3127,8913425518,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3128,8913429894,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3129,8913434188,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3130,8913438997,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3131,8913443546,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3132,8913448442,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3133,8913452731,-;--- interrupt: c00 at 0x1008af18
+4,3134,8913455706,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3135,8913459460,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3136,8913466778,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3137,8913471948,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3138,8913500450,-;NIP [1008af18] 0x1008af18
+4,3139,8913502814,-;LR [1000467c] 0x1000467c
+4,3140,8913505092,-;--- interrupt: c00
+4,3141,8913506846,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3142,8913520318,-;---[ end trace 0000000000000000 ]---
+4,3143,8913524070,-;------------[ cut here ]------------
+4,3144,8913527427,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3145,8913539137,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3146,8913557128,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3147,8913565236,-;Tainted: [W]=WARN
+4,3148,8913566902,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3149,8913571607,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3150,8913575361,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3151,8913582678,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3152,8913587585,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8a8 c68d1930 
+4,3153,8913616084,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3154,8913622812,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3155,8913630734,-;Call Trace:
+4,3156,8913631878,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3157,8913635990,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3158,8913644530,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3159,8913652523,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3160,8913660538,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3161,8913668203,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3162,8913672665,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3163,8913676780,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3164,8913681674,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3165,8913686395,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3166,8913690768,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3167,8913695139,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3168,8913699512,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3169,8913703886,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3170,8913708262,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3171,8913712556,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3172,8913717366,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3173,8913721913,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3174,8913726810,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3175,8913731100,-;--- interrupt: c00 at 0x1008af18
+4,3176,8913734073,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3177,8913737828,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3178,8913745144,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3179,8913750314,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3180,8913778813,-;NIP [1008af18] 0x1008af18
+4,3181,8913781178,-;LR [1000467c] 0x1000467c
+4,3182,8913783454,-;--- interrupt: c00
+4,3183,8913785208,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3184,8913798680,-;---[ end trace 0000000000000000 ]---
+4,3185,8913802418,-;------------[ cut here ]------------
+4,3186,8913805774,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3187,8913817461,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3188,8913835452,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3189,8913843560,-;Tainted: [W]=WARN
+4,3190,8913845225,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3191,8913849932,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3192,8913853685,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3193,8913861003,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3194,8913865909,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8ac c68d1b58 
+4,3195,8913894409,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3196,8913901117,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3197,8913909024,-;Call Trace:
+4,3198,8913910169,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3199,8913914281,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3200,8913922801,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3201,8913930774,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3202,8913938768,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3203,8913946415,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3204,8913950877,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3205,8913954993,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3206,8913959887,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3207,8913964607,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3208,8913968979,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3209,8913973352,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3210,8913977724,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3211,8913982097,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3212,8913986472,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3213,8913990766,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3214,8913995577,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3215,8914000125,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3216,8914005021,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3217,8914009311,-;--- interrupt: c00 at 0x1008af18
+4,3218,8914012286,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3219,8914016040,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3220,8914023358,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3221,8914028528,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3222,8914057026,-;NIP [1008af18] 0x1008af18
+4,3223,8914059390,-;LR [1000467c] 0x1000467c
+4,3224,8914061667,-;--- interrupt: c00
+4,3225,8914063420,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3226,8914076893,-;---[ end trace 0000000000000000 ]---
+4,3227,8914080620,-;------------[ cut here ]------------
+4,3228,8914083977,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3229,8914095648,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3230,8914113639,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3231,8914121747,-;Tainted: [W]=WARN
+4,3232,8914123413,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3233,8914128119,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3234,8914131874,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3235,8914139191,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3236,8914144098,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8b0 c68d1d80 
+4,3237,8914172598,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3238,8914179306,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3239,8914187212,-;Call Trace:
+4,3240,8914188357,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3241,8914192469,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3242,8914200991,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3243,8914208965,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3244,8914216962,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3245,8914224609,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3246,8914229071,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3247,8914233187,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3248,8914238081,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3249,8914242801,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3250,8914247173,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3251,8914251546,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3252,8914255919,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3253,8914260293,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3254,8914264669,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3255,8914268963,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3256,8914273772,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3257,8914278320,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3258,8914283217,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3259,8914287506,-;--- interrupt: c00 at 0x1008af18
+4,3260,8914290481,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3261,8914294235,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3262,8914301552,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3263,8914306722,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3264,8914335220,-;NIP [1008af18] 0x1008af18
+4,3265,8914337584,-;LR [1000467c] 0x1000467c
+4,3266,8914339861,-;--- interrupt: c00
+4,3267,8914341614,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3268,8914355087,-;---[ end trace 0000000000000000 ]---
+4,3269,8914358851,-;------------[ cut here ]------------
+4,3270,8914362207,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3271,8914373877,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3272,8914391866,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3273,8914399974,-;Tainted: [W]=WARN
+4,3274,8914401641,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3275,8914406347,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3276,8914410100,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3277,8914417417,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3278,8914422323,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68d9a94 00000002 00029000 00029000 \x0aGPR08: f1bc7c30 c6f04c48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68d9a94 c68c0008 00000000 c68cba80 c68cb8b4 c68d1fa8 
+4,3279,8914450822,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3280,8914457530,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3281,8914465435,-;Call Trace:
+4,3282,8914466579,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3283,8914470693,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3284,8914479213,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3285,8914487189,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3286,8914495185,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3287,8914502832,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3288,8914507294,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3289,8914511410,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3290,8914516304,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3291,8914521025,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3292,8914525398,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3293,8914529770,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3294,8914534143,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3295,8914538516,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3296,8914542891,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3297,8914547187,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3298,8914551997,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3299,8914556544,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3300,8914561441,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3301,8914565730,-;--- interrupt: c00 at 0x1008af18
+4,3302,8914568705,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3303,8914572458,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3304,8914579776,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3305,8914584947,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3306,8914613445,-;NIP [1008af18] 0x1008af18
+4,3307,8914615810,-;LR [1000467c] 0x1000467c
+4,3308,8914618088,-;--- interrupt: c00
+4,3309,8914619843,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3310,8914633315,-;---[ end trace 0000000000000000 ]---
+4,3311,8914637044,-;------------[ cut here ]------------
+4,3312,8914640401,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3313,8914652071,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3314,8914670063,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3315,8914678171,-;Tainted: [W]=WARN
+4,3316,8914679836,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3317,8914684542,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3318,8914688297,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3319,8914695614,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3320,8914700521,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68decd8 00000000 00029000 00029000 \x0aGPR08: f1c4f1ac c6f04840 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68decd8 c68c0008 00000000 c68cba80 c68cb8bc c68da4e8 
+4,3321,8914729023,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3322,8914735731,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3323,8914743638,-;Call Trace:
+4,3324,8914744782,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3325,8914748895,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3326,8914757414,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3327,8914765390,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3328,8914773386,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3329,8914781032,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3330,8914785494,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3331,8914789610,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3332,8914794504,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3333,8914799224,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3334,8914803597,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3335,8914807969,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3336,8914812341,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3337,8914816714,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3338,8914821089,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3339,8914825384,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3340,8914830193,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3341,8914834741,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3342,8914839637,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3343,8914843927,-;--- interrupt: c00 at 0x1008af18
+4,3344,8914846900,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3345,8914850655,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3346,8914857972,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3347,8914863143,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3348,8914891641,-;NIP [1008af18] 0x1008af18
+4,3349,8914894006,-;LR [1000467c] 0x1000467c
+4,3350,8914896283,-;--- interrupt: c00
+4,3351,8914898037,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3352,8914911510,-;---[ end trace 0000000000000000 ]---
+4,3353,8914915225,-;------------[ cut here ]------------
+4,3354,8914918580,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3355,8914930254,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3356,8914948248,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3357,8914956356,-;Tainted: [W]=WARN
+4,3358,8914958023,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3359,8914962728,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3360,8914966482,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3361,8914973800,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3362,8914978707,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68decd8 00000001 00029000 00029000 \x0aGPR08: f1c4f1ac c6f04844 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68decd8 c68c0008 00000000 c68cba80 c68cb8c0 c68da968 
+4,3363,8915007207,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3364,8915013919,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3365,8915021828,-;Call Trace:
+4,3366,8915022973,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3367,8915027086,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3368,8915035606,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3369,8915043583,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3370,8915051579,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3371,8915059226,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3372,8915063689,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3373,8915067804,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3374,8915072698,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3375,8915077419,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3376,8915081793,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3377,8915086166,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3378,8915090539,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3379,8915094914,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3380,8915099290,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3381,8915103584,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3382,8915108394,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3383,8915112942,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3384,8915117839,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3385,8915122128,-;--- interrupt: c00 at 0x1008af18
+4,3386,8915125102,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3387,8915128856,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3388,8915136174,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3389,8915141345,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3390,8915169844,-;NIP [1008af18] 0x1008af18
+4,3391,8915172209,-;LR [1000467c] 0x1000467c
+4,3392,8915174486,-;--- interrupt: c00
+4,3393,8915176241,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3394,8915189713,-;---[ end trace 0000000000000000 ]---
+4,3395,8915193437,-;------------[ cut here ]------------
+4,3396,8915196794,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3397,8915208461,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3398,8915226454,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3399,8915234562,-;Tainted: [W]=WARN
+4,3400,8915236228,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3401,8915240934,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3402,8915244687,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3403,8915252005,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3404,8915256911,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68df400 00000000 00029000 00029000 \x0aGPR08: f1c87fac c49bfb00 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68df400 c68c0008 00000000 c68cba80 c68cb8c4 c68ded88 
+4,3405,8915285412,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3406,8915292122,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3407,8915300026,-;Call Trace:
+4,3408,8915301170,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3409,8915305284,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3410,8915313811,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3411,8915321786,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3412,8915329794,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3413,8915337441,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3414,8915341904,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3415,8915346021,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3416,8915350914,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3417,8915355634,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3418,8915360007,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3419,8915364380,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3420,8915368752,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3421,8915373127,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3422,8915377503,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3423,8915381797,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3424,8915386606,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3425,8915391154,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3426,8915396052,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3427,8915400342,-;--- interrupt: c00 at 0x1008af18
+4,3428,8915403316,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3429,8915407070,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3430,8915414387,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3431,8915419557,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3432,8915448055,-;NIP [1008af18] 0x1008af18
+4,3433,8915450419,-;LR [1000467c] 0x1000467c
+4,3434,8915452696,-;--- interrupt: c00
+4,3435,8915454450,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3436,8915467920,-;---[ end trace 0000000000000000 ]---
+4,3437,8915471663,-;------------[ cut here ]------------
+4,3438,8915475019,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3439,8915486693,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3440,8915504683,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3441,8915512791,-;Tainted: [W]=WARN
+4,3442,8915514457,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3443,8915519163,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3444,8915522917,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3445,8915530234,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3446,8915535142,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68df400 00000000 00029000 00029000 \x0aGPR08: f1c87fac c49bfb00 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68df400 c68c0008 00000000 c68cba80 c68cb8c8 c68defb0 
+4,3447,8915563643,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3448,8915570352,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3449,8915578270,-;Call Trace:
+4,3450,8915579414,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3451,8915583527,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3452,8915592048,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3453,8915600022,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3454,8915608019,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3455,8915615665,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3456,8915620127,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3457,8915624243,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3458,8915629137,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3459,8915633857,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3460,8915638230,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3461,8915642602,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3462,8915646974,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3463,8915651348,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3464,8915655724,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3465,8915660018,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3466,8915664828,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3467,8915669376,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3468,8915674273,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3469,8915678564,-;--- interrupt: c00 at 0x1008af18
+4,3470,8915681538,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3471,8915685292,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3472,8915692610,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3473,8915697781,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3474,8915726279,-;NIP [1008af18] 0x1008af18
+4,3475,8915728644,-;LR [1000467c] 0x1000467c
+4,3476,8915730921,-;--- interrupt: c00
+4,3477,8915732676,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3478,8915746147,-;---[ end trace 0000000000000000 ]---
+4,3479,8915749880,-;------------[ cut here ]------------
+4,3480,8915753236,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3481,8915764910,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3482,8915782901,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3483,8915791010,-;Tainted: [W]=WARN
+4,3484,8915792676,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3485,8915797381,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3486,8915801136,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3487,8915808453,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3488,8915813360,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68df400 00000000 00029000 00029000 \x0aGPR08: f1c87fac c49bfb00 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68df400 c68c0008 00000000 c68cba80 c68cb8cc c68df1d8 
+4,3489,8915841860,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3490,8915848568,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3491,8915856475,-;Call Trace:
+4,3492,8915857619,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3493,8915861732,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3494,8915870252,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3495,8915878250,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3496,8915886245,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3497,8915893892,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3498,8915898354,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3499,8915902470,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3500,8915907364,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3501,8915912083,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3502,8915916456,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3503,8915920828,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3504,8915925200,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3505,8915929574,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3506,8915933949,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3507,8915938244,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3508,8915943053,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3509,8915947602,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3510,8915952499,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3511,8915956789,-;--- interrupt: c00 at 0x1008af18
+4,3512,8915959764,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3513,8915963518,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3514,8915970835,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3515,8915976006,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3516,8916004504,-;NIP [1008af18] 0x1008af18
+4,3517,8916006870,-;LR [1000467c] 0x1000467c
+4,3518,8916009148,-;--- interrupt: c00
+4,3519,8916010902,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3520,8916024373,-;---[ end trace 0000000000000000 ]---
+4,3521,8916028120,-;------------[ cut here ]------------
+4,3522,8916031476,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3523,8916043167,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3524,8916061158,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3525,8916069269,-;Tainted: [W]=WARN
+4,3526,8916070936,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3527,8916075642,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3528,8916079395,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3529,8916086713,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3530,8916091620,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96710 c4381d48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d0 c68dfdd8 
+4,3531,8916120121,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3532,8916126830,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3533,8916134737,-;Call Trace:
+4,3534,8916135881,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3535,8916139994,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3536,8916148514,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3537,8916156489,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3538,8916164486,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3539,8916172132,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3540,8916176594,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3541,8916180711,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3542,8916185605,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3543,8916190325,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3544,8916194697,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3545,8916199070,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3546,8916203444,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3547,8916207818,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3548,8916212193,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3549,8916216487,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3550,8916221296,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3551,8916225844,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3552,8916230740,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3553,8916235030,-;--- interrupt: c00 at 0x1008af18
+4,3554,8916238004,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3555,8916241758,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3556,8916249076,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3557,8916254246,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3558,8916282745,-;NIP [1008af18] 0x1008af18
+4,3559,8916285109,-;LR [1000467c] 0x1000467c
+4,3560,8916287387,-;--- interrupt: c00
+4,3561,8916289141,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3562,8916302613,-;---[ end trace 0000000000000000 ]---
+4,3563,8916306341,-;------------[ cut here ]------------
+4,3564,8916309696,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3565,8916321369,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3566,8916339361,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3567,8916347469,-;Tainted: [W]=WARN
+4,3568,8916349134,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3569,8916353840,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3570,8916357594,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3571,8916364911,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3572,8916369818,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96710 c4381d48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d4 c68e0000 
+4,3573,8916398318,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3574,8916405028,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3575,8916412933,-;Call Trace:
+4,3576,8916414077,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3577,8916418189,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3578,8916426709,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3579,8916434694,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3580,8916442690,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3581,8916450337,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3582,8916454800,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3583,8916458915,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3584,8916463809,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3585,8916468529,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3586,8916472902,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3587,8916477273,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3588,8916481646,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3589,8916486021,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3590,8916490397,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3591,8916494692,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3592,8916499501,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3593,8916504048,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3594,8916508944,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3595,8916513235,-;--- interrupt: c00 at 0x1008af18
+4,3596,8916516209,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3597,8916519963,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3598,8916527281,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3599,8916532452,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3600,8916560951,-;NIP [1008af18] 0x1008af18
+4,3601,8916563317,-;LR [1000467c] 0x1000467c
+4,3602,8916565593,-;--- interrupt: c00
+4,3603,8916567348,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3604,8916580819,-;---[ end trace 0000000000000000 ]---
+4,3605,8916584544,-;------------[ cut here ]------------
+4,3606,8916587900,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3607,8916599572,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3608,8916617562,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3609,8916625671,-;Tainted: [W]=WARN
+4,3610,8916627336,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3611,8916632043,-;NIP:  f1b9b238 LR: f1ab1ae4 CTR: c00f889c
+4,3612,8916635797,-;REGS: c66b5a40 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3613,8916643114,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3614,8916648020,c;\x0aGPR00: f1ab1aa8 c66b5b30 c4ecc1a0 c68c0000 c68e0450 00000000 00029000 00029000 \x0aGPR08: f1c96710 c4381d48 00000000 0000199b c00f889c 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 c68c0000 c68e0450 c68c0008 00000000 c68cba80 c68cb8d8 c68e0228 
+4,3615,8916676521,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3616,8916683230,-;LR [f1ab1ae4] amdgpu_fence_driver_hw_fini+0x118/0x160 [amdgpu]
+4,3617,8916691136,-;Call Trace:
+4,3618,8916692280,-;[c66b5b30] [c68cba80] 0xc68cba80 (unreliable)
+4,3619,8916696393,-;[c66b5b40] [f1ab1aa8] amdgpu_fence_driver_hw_fini+0xdc/0x160 [amdgpu]
+4,3620,8916704914,-;[c66b5b80] [f1dfe7e8] amdgpu_device_fini_hw+0xb8/0x3d4 [amdgpu]
+4,3621,8916712891,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3622,8916720887,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3623,8916728535,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3624,8916732998,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3625,8916737114,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3626,8916742007,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3627,8916746728,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3628,8916751102,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3629,8916755474,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3630,8916759847,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3631,8916764221,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3632,8916768597,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3633,8916772892,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3634,8916777702,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3635,8916782250,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3636,8916787146,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3637,8916791437,-;--- interrupt: c00 at 0x1008af18
+4,3638,8916794411,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3639,8916798165,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3640,8916805483,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3641,8916810654,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3642,8916839152,-;NIP [1008af18] 0x1008af18
+4,3643,8916841516,-;LR [1000467c] 0x1000467c
+4,3644,8916843793,-;--- interrupt: c00
+4,3645,8916845547,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3646,8916859018,-;---[ end trace 0000000000000000 ]---
+4,3647,8916863708,-;------------[ cut here ]------------
+4,3648,8916867058,-;WARNING: CPU: 0 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_irq.c:629 amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3649,8916878729,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3650,8916896720,-;CPU: 0 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3651,8916904829,-;Tainted: [W]=WARN
+4,3652,8916906493,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3653,8916911200,-;NIP:  f1b9b238 LR: f1b64dec CTR: f1b64dcc
+4,3654,8916914954,-;REGS: c66b5a60 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3655,8916922271,-;MSR:  00029000 <CE,EE,ME>  CR: 28008242  XER: 20000000
+4,3656,8916927178,c;\x0aGPR00: f1dfea14 c66b5b50 c4ecc1a0 c68c0000 c68c0808 00000000 00000000 00000007 \x0aGPR08: f1b648f0 c45bbb70 00000000 0000199b c000cd68 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c68c0000 c68c0008 c4229080 \x0aGPR24: f1e30000 00000000 f1f2c474 00000001 c68d0000 c68f0000 c68f26f2 c68c0000 
+4,3657,8916955677,-;NIP [f1b9b238] amdgpu_irq_put+0x88/0xa4 [amdgpu]
+4,3658,8916962385,-;LR [f1b64dec] gmc_v8_0_hw_fini+0x20/0xc0 [amdgpu]
+4,3659,8916969185,-;Call Trace:
+4,3660,8916970330,-;[c66b5b50] [28008242] 0x28008242 (unreliable)
+4,3661,8916974442,-;[c66b5b60] [c4229000] 0xc4229000
+4,3662,8916977420,-;[c66b5b80] [f1dfea14] amdgpu_device_fini_hw+0x2e4/0x3d4 [amdgpu]
+4,3663,8916985484,-;[c66b5bb0] [f1a9f6d4] amdgpu_driver_load_kms+0x8c/0x90 [amdgpu]
+4,3664,8916993484,-;[c66b5bd0] [f1a93e1c] amdgpu_pci_probe+0x1cc/0x644 [amdgpu]
+4,3665,8917001134,-;[c66b5c10] [c072ebf8] pci_device_probe+0xb8/0x184
+4,3666,8917005596,-;[c66b5c40] [c07cdf08] really_probe+0xd4/0x32c
+4,3667,8917009713,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3668,8917014606,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3669,8917019327,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3670,8917023700,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3671,8917028072,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3672,8917032444,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3673,8917036818,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3674,8917041193,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3675,8917045488,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3676,8917050297,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3677,8917054845,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3678,8917059742,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3679,8917064031,-;--- interrupt: c00 at 0x1008af18
+4,3680,8917067005,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3681,8917070759,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3682,8917078076,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3683,8917083246,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3684,8917111744,-;NIP [1008af18] 0x1008af18
+4,3685,8917114109,-;LR [1000467c] 0x1000467c
+4,3686,8917116386,-;--- interrupt: c00
+4,3687,8917118141,-;Code: 314affff 7d40492d 40a2fff4 7c0004ac 2c0a0000 39200000 41820010 7d234b78 38210010 4e800020 38210010 4bfffc88 <0fe00000> 3920ffea 4bffffe4 3920ffea 
+4,3688,8917131612,-;---[ end trace 0000000000000000 ]---
+3,3689,8917135688,-;amdgpu 0001:01:00.0: probe with driver amdgpu failed with error -110
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,3690,8917143276,-;[drm] amdgpu: ttm finalized
+4,3691,8917146233,-;------------[ cut here ]------------
+4,3692,8917149579,-;WARNING: CPU: 1 PID: 342 at drivers/gpu/drm/amd/amdgpu/amdgpu_i2c.c:223 amdgpu_i2c_destroy+0x50/0x58 [amdgpu]
+4,3693,8917161524,-;Modules linked in: amdgpu(+) amdxcp drm_exec gpu_sched drm_buddy drm_suballoc_helper drm_ttm_helper ttm drm_display_helper drm_kms_helper drm drm_panel_orientation_quirks backlight [last unloaded: amdgpu]
+4,3694,8917179504,-;CPU: 1 UID: 0 PID: 342 Comm: insmod Tainted: G        W          6.12.113-tabor-modular #1 
+4,3695,8917187609,-;Tainted: [W]=WARN
+4,3696,8917189273,-;Hardware name: varisys,TABOR e500v2 0x80211151 Tabor
+4,3697,8917193977,-;NIP:  f1abec34 LR: f1abecbc CTR: c07ed2c4
+4,3698,8917197729,-;REGS: c66b5a00 TRAP: 0700   Tainted: G        W           (6.12.113-tabor-modular)
+4,3699,8917205043,-;MSR:  00029000 <CE,EE,ME>  CR: 48000248  XER: 20000000
+4,3700,8917209945,c;\x0aGPR00: f1abecbc c66b5af0 c4ecc1a0 c69ac000 00000000 00000000 c66b5a7c 00560201 \x0aGPR08: c68c0000 00000001 0d000000 00000a14 c07ed2c4 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 c248f568 c248f734 c248f334 \x0aGPR24: 00000000 101114a0 c4229230 c68d0000 c68f0000 00000000 c68c03c8 c69ac000 
+4,3701,8917238422,-;NIP [f1abec34] amdgpu_i2c_destroy+0x50/0x58 [amdgpu]
+4,3702,8917245405,-;LR [f1abecbc] amdgpu_i2c_fini+0x34/0x5c [amdgpu]
+4,3703,8917252033,-;Call Trace:
+4,3704,8917253176,-;[c66b5af0] [c68cb8d8] 0xc68cb8d8 (unreliable)
+4,3705,8917257286,-;[c66b5b10] [f1abecbc] amdgpu_i2c_fini+0x34/0x5c [amdgpu]
+4,3706,8917264615,-;[c66b5b30] [f1a98a28] amdgpu_device_fini_sw+0x254/0x3e8 [amdgpu]
+4,3707,8917272633,-;[c66b5b70] [f1aa1bf4] amdgpu_driver_release_kms+0x1c/0x3c [amdgpu]
+4,3708,8917280824,-;[c66b5b90] [f10f1394] drm_dev_put.part.0+0x60/0x8c [drm]
+4,3709,8917286486,-;[c66b5bb0] [c07d3f40] release_nodes+0x6c/0xfc
+4,3710,8917290608,-;[c66b5be0] [c07d5ab0] devres_release_all+0x9c/0x110
+4,3711,8917295239,-;[c66b5c20] [c07cd5cc] device_unbind_cleanup+0x18/0x78
+4,3712,8917300044,-;[c66b5c40] [c07ce070] really_probe+0x23c/0x32c
+4,3713,8917304239,-;[c66b5c60] [c07ce1fc] __driver_probe_device+0x9c/0x230
+4,3714,8917309131,-;[c66b5c80] [c07ce4d4] driver_probe_device+0x44/0x13c
+4,3715,8917313848,-;[c66b5cb0] [c07ce7f0] __driver_attach+0xb4/0x1e4
+4,3716,8917318217,-;[c66b5cd0] [c07cb2c0] bus_for_each_dev+0x94/0xf8
+4,3717,8917322588,-;[c66b5d00] [c07ccd44] bus_add_driver+0x184/0x25c
+4,3718,8917326957,-;[c66b5d30] [c07cf9c8] driver_register+0x8c/0x164
+4,3719,8917331326,-;[c66b5d50] [c0004d14] do_one_initcall+0x74/0x228
+4,3720,8917335698,-;[c66b5dd0] [c01164c4] do_init_module+0x60/0x27c
+4,3721,8917339990,-;[c66b5df0] [c0118960] init_module_from_file+0x98/0xe4
+4,3722,8917344795,-;[c66b5e70] [c0118d80] sys_finit_module+0x250/0x3b4
+4,3723,8917349340,-;[c66b5ee0] [c00126d0] system_call_exception+0xac/0x17c
+4,3724,8917354234,-;[c66b5f00] [c00170e8] ret_from_syscall+0x0/0x28
+4,3725,8917358521,-;--- interrupt: c00 at 0x1008af18
+4,3726,8917361493,-;NIP:  1008af18 LR: 1000467c CTR: 100616b4
+4,3727,8917365246,-;REGS: c66b5f10 TRAP: 0c00   Tainted: G        W           (6.12.113-tabor-modular)
+4,3728,8917372561,-;MSR:  0002d000 <CE,EE,PR,ME>  CR: 20000428  XER: 00000000
+4,3729,8917377726,c;\x0aGPR00: 00000161 bfc9b9b0 1014c520 00000003 101114a0 00000000 feff0000 6f005553 \x0aGPR08: 00000004 00000000 2f46415c 00000003 00000003 10148fa8 c0005158 00000000 \x0aGPR16: 00000000 00000000 00000000 00000000 08000000 100000f4 101410f0 10001308 \x0aGPR24: 00000001 bfc9bcd0 00000002 00000003 bfc9bee8 101114a0 00000054 00000000 
+4,3730,8917406201,-;NIP [1008af18] 0x1008af18
+4,3731,8917408563,-;LR [1000467c] 0x1000467c
+4,3732,8917410838,-;--- interrupt: c00
+4,3733,8917412590,-;Code: 40820030 7fe3fb78 4834bc2d 7fe3fb78 80010024 83e1001c 38210020 7c0803a6 4834be64 83e1001c 38210020 4e800020 <0fe00000> 4bffffd0 3d20f1e3 9421ffe0 
+4,3734,8917426051,-;---[ end trace 0000000000000000 ]---

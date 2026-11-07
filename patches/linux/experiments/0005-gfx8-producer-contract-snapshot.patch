@@ -1,0 +1,60 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -839,6 +839,7 @@
+ {
+ 	struct amdgpu_device *adev = ring->adev;
+ 	uint32_t tmp = 0;
++	u64 producer_start;
+ 	unsigned i;
+ 	int r;
+ 
+@@ -847,6 +848,7 @@
+ 	if (r)
+ 		return r;
+ 
++	producer_start = ring->wptr;
+ 	amdgpu_ring_write(ring, PACKET3(PACKET3_SET_UCONFIG_REG, 1));
+ 	amdgpu_ring_write(ring, mmSCRATCH_REG0 - PACKET3_SET_UCONFIG_REG_START);
+ 	amdgpu_ring_write(ring, 0xDEADBEEF);
+@@ -859,8 +861,40 @@
+ 		udelay(1);
+ 	}
+ 
+-	if (i >= adev->usec_timeout)
++	if (i >= adev->usec_timeout) {
++		unsigned int j;
++
++		dev_info(adev->dev, "GFX_PRODUCER gpu=%016llx start=%llu wptr=%llu doorbell=%u index=%u scratch=%08x\n",
++			(unsigned long long)ring->gpu_addr,
++			(unsigned long long)producer_start,
++			(unsigned long long)ring->wptr,
++			ring->use_doorbell, ring->doorbell_index, tmp);
++		dev_info(adev->dev, "GFX_PRODUCER cntl=%08x rptr=%08x wptr=%08x cp_stat=%08x grbm=%08x\n",
++			RREG32(mmCP_RB0_CNTL), RREG32(mmCP_RB0_RPTR),
++			RREG32(mmCP_RB0_WPTR), RREG32(mmCP_STAT),
++			RREG32(mmGRBM_STATUS));
++		dev_info(adev->dev, "GFX_PRODUCER wb_rptr_native=%08x wb_rptr_le=%08x wb_wptr_native=%08x wb_wptr_le=%08x\n",
++			*ring->rptr_cpu_addr,
++			le32_to_cpu((__force __le32)*ring->rptr_cpu_addr),
++			*ring->wptr_cpu_addr,
++			le32_to_cpu((__force __le32)*ring->wptr_cpu_addr));
++		for (j = 0; j < 3; j++) {
++			u32 *word = &ring->ring[(producer_start + j) & ring->buf_mask];
++
++			dev_info(adev->dev, "GFX_PRODUCER word%u native=%08x bytes=%4ph\n",
++				j, *word, word);
++		}
++		if (adev->gart.ptr && ring->gpu_addr >= adev->gmc.gart_start &&
++		    ring->gpu_addr <= adev->gmc.gart_end) {
++			u64 page = (ring->gpu_addr - adev->gmc.gart_start) >> 12;
++			void __iomem *pte = (void __iomem *)adev->gart.ptr + page * 8;
++
++			dev_info(adev->dev, "GFX_PRODUCER gart_start=%016llx page=%llu pte_lo=%08x pte_hi=%08x\n",
++				(unsigned long long)adev->gmc.gart_start,
++				(unsigned long long)page, readl(pte), readl(pte + 4));
++		}
+ 		r = -ETIMEDOUT;
++	}
+ 
+ 	return r;
+ }

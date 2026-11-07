@@ -1,0 +1,17 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
+@@ -389,6 +389,14 @@
+ 	struct amdgpu_kiq *kiq = &adev->gfx.kiq[xcc_id];
+ 	struct amdgpu_ring *ring = &kiq->ring;
+ 	u32 domain = AMDGPU_GEM_DOMAIN_GTT;
++
++#ifdef __BIG_ENDIAN
++	/* A1222/Polaris11 experiment: isolate MQD fetch from system-memory GART. */
++	if (adev->asic_type == CHIP_POLARIS11) {
++		domain = AMDGPU_GEM_DOMAIN_VRAM;
++		dev_info(adev->dev, "MQD_PLACEMENT Polaris11 BE compute descriptors in VRAM\n");
++	}
++#endif
+ 
+ #if !defined(CONFIG_ARM) && !defined(CONFIG_ARM64)
+ 	/* Only enable on gfx10 and 11 for now to avoid changing behavior on older chips */

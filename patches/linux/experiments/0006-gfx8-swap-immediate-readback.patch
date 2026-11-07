@@ -1,0 +1,30 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4288,9 +4288,11 @@
+ 	tmp = REG_SET_FIELD(tmp, CP_RB0_CNTL, BUF_SWAP, 1);
+ #endif
+ 	WREG32(mmCP_RB0_CNTL, tmp);
++	dev_info(adev->dev, "GFX_SWAP phase=1 expected=%08x actual=%08x\n", tmp, RREG32(mmCP_RB0_CNTL));
+ 
+ 	/* Initialize the ring buffer's read and write pointers */
+ 	WREG32(mmCP_RB0_CNTL, tmp | CP_RB0_CNTL__RB_RPTR_WR_ENA_MASK);
++	dev_info(adev->dev, "GFX_SWAP phase=2 expected=%08x actual=%08x\n", tmp | CP_RB0_CNTL__RB_RPTR_WR_ENA_MASK, RREG32(mmCP_RB0_CNTL));
+ 	ring->wptr = 0;
+ 	WREG32(mmCP_RB0_WPTR, lower_32_bits(ring->wptr));
+ 
+@@ -4304,6 +4306,7 @@
+ 	WREG32(mmCP_RB_WPTR_POLL_ADDR_HI, upper_32_bits(wptr_gpu_addr));
+ 	mdelay(1);
+ 	WREG32(mmCP_RB0_CNTL, tmp);
++	dev_info(adev->dev, "GFX_SWAP phase=3 expected=%08x actual=%08x\n", tmp, RREG32(mmCP_RB0_CNTL));
+ 
+ 	rb_addr = ring->gpu_addr >> 8;
+ 	WREG32(mmCP_RB0_BASE, rb_addr);
+@@ -4313,6 +4316,7 @@
+ 	/* start the ring */
+ 	amdgpu_ring_clear_ring(ring);
+ 	gfx_v8_0_cp_gfx_start(adev);
++	dev_info(adev->dev, "GFX_SWAP phase=started actual=%08x\n", RREG32(mmCP_RB0_CNTL));
+ 
+ 	return 0;
+ }

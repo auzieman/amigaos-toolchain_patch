@@ -1,0 +1,46 @@
+{
+  "candidate": "/root/polaris-next/amdgpu-map-stage.ko",
+  "sha256": "4f80e4c7b132f581618973ff1a4910c4c7e10e5fd0d8cdf3428ee2e27e8ff528",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 0
+    },
+    {
+      "stage": "04-hold-pci",
+      "returncode": 0
+    },
+    {
+      "stage": "05-load-dependencies",
+      "returncode": 0
+    },
+    {
+      "stage": "06-remove-unbound-original",
+      "returncode": 0
+    },
+    {
+      "stage": "07-insert-held-candidate",
+      "returncode": 0
+    },
+    {
+      "stage": "08-release-override",
+      "returncode": 0
+    },
+    {
+      "stage": "09-bind",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "error": "09-bind failed; see captured output",
+  "candidate_insert_completed": true
+}

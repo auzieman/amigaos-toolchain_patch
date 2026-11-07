@@ -1,0 +1,26 @@
+{
+  "container": "d473e11c11f3638f33ddfca2c16d358e90040a257a2388ed7d42bbc1c6c02512",
+  "command": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-gfx-queues-le-build-001",
+    "--cpus=4",
+    "--memory=6g",
+    "--network=none",
+    "--entrypoint",
+    "/bin/sh",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001:/base",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gfx-queues-le-20261106-001/source:/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gfx-queues-le-20261106-001/output:/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "-c",
+    "make -C /base/work/tabor-smu-diagnostics-20261105-003/source O=/base/work/tabor-smu-diagnostics-20261105-003/output ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- -j4 modules > /base/work/gfx-queues-le-20261106-001/modules.log 2>&1"
+  ],
+  "reference_outputs_preserved": true,
+  "status": "launched"
+}

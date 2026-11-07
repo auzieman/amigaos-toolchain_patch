@@ -1,0 +1,502 @@
+[
+  {
+    "sha": "0a64c644a3e499438502731ca20a1e63e675dd95",
+    "date": "2026-09-10T16:08:46Z",
+    "subject": "drm/amdgpu/gfx8: fix register_list_format leak in gfx_v8_0_init_microcode"
+  },
+  {
+    "sha": "5d6ed6b6a00b1f058780780fc8a840d141a5f323",
+    "date": "2026-09-02T19:24:09Z",
+    "subject": "drm/amdgpu: Rework VMID reservation logic"
+  },
+  {
+    "sha": "770e3dd8e2b058896b0880174d37b3b58a06b0bc",
+    "date": "2026-09-02T18:54:40Z",
+    "subject": "drm/amdgpu: switch all IPs to using job for IBs"
+  },
+  {
+    "sha": "6aae7bab029cdccae9a7157facfe36bfc35fc940",
+    "date": "2026-09-02T18:54:01Z",
+    "subject": "drm/amdgpu/gfx8: only apply compute quantums to KCQs"
+  },
+  {
+    "sha": "ecaca20be81ce2e0e6f882f8fe058aa25727cb5f",
+    "date": "2026-08-25T22:25:28Z",
+    "subject": "drm/amdgpu: Remove is_idle (trivial cases)"
+  },
+  {
+    "sha": "51035c4eb236eecfbab8f1cc239c8d61ae10337b",
+    "date": "2026-07-28T23:17:32Z",
+    "subject": "drm/amdgpu/gfx8: drop all BUG()s"
+  },
+  {
+    "sha": "fbf41e05119f43e9d69307272ced4ed3b82ad371",
+    "date": "2026-07-08T18:20:30Z",
+    "subject": "drm/amdgpu: move struct amdgpu_wb and helpers into separate files"
+  },
+  {
+    "sha": "3ad38c26019b80ee44727dd167328152ba668f6f",
+    "date": "2026-07-01T15:14:32Z",
+    "subject": "drm/amdgpu/gfx8: Enable IP block soft reset as a GPU recovery method"
+  },
+  {
+    "sha": "459813d418e05ed9848502486e8cb1119a93bfca",
+    "date": "2026-07-01T15:14:29Z",
+    "subject": "drm/amdgpu/gfx8: Fixup IP block soft reset"
+  },
+  {
+    "sha": "01f4b82944a05ac6e4c72a071e5f2a56676349af",
+    "date": "2026-07-01T15:14:26Z",
+    "subject": "drm/amdgpu/gfx8: Adjust EDC GPR workaround"
+  },
+  {
+    "sha": "6e54e467973eb4a541a1ffe5c81ed54b9b59eda5",
+    "date": "2026-07-01T15:14:23Z",
+    "subject": "drm/amdgpu/gfx8: Support COND_EXEC on compute rings"
+  },
+  {
+    "sha": "1a92c648fb11684c01d7a2800fe42ae3f5062037",
+    "date": "2026-07-01T15:14:18Z",
+    "subject": "drm/amdgpu/gfx8: Return error when testing all rings"
+  },
+  {
+    "sha": "a25d644890c17115482d1d16ad0675fe0f14554e",
+    "date": "2026-07-01T15:14:14Z",
+    "subject": "drm/amdgpu/gfx8: Stop CP and RLC during reset"
+  },
+  {
+    "sha": "b7500532e12b32d9ac54a4faacebb12baca091a4",
+    "date": "2026-07-01T15:14:03Z",
+    "subject": "drm/amdgpu: Delete pre/post_soft_reset() from amd_ip_funcs"
+  },
+  {
+    "sha": "4d7c25208ca612b754f3bf39e9f16e725b828891",
+    "date": "2026-07-01T15:11:55Z",
+    "subject": "drm/amdgpu/gfx8: drop unecessary BUG_ON()"
+  },
+  {
+    "sha": "947e46eb2fb9f66da0d659c7e4f28fc18e05ada2",
+    "date": "2026-07-01T15:11:52Z",
+    "subject": "drm/amdgpu: Delete check_soft_reset() from amd_ip_funcs"
+  },
+  {
+    "sha": "91cf34bc5a55da859a0458cd8949af2d8fc167c1",
+    "date": "2026-04-21T20:51:36Z",
+    "subject": "drm/amdgpu/gfx8: align mqd settings with KFD"
+  },
+  {
+    "sha": "e291729873095262697758c389c8d7affa81bdcc",
+    "date": "2026-01-05T21:59:55Z",
+    "subject": "drm/amd: Convert DRM_*() to drm_*()"
+  },
+  {
+    "sha": "5fd4fef3f8e6b5be4e1df49f32efc8b200ed07d5",
+    "date": "2026-01-05T21:59:55Z",
+    "subject": "drm/amd: Drop amdgpu prefix from message prints"
+  },
+  {
+    "sha": "9edf6c09c5134f47e52268e6812ff64b416ca56e",
+    "date": "2026-01-05T21:59:54Z",
+    "subject": "drm/amd: Pass `adev` to amdgpu_gfx_parse_disable_cu()"
+  },
+  {
+    "sha": "f9f3240018e8f5b68bb791102d4736b5883d8aab",
+    "date": "2025-12-10T22:38:21Z",
+    "subject": "drm/amdgpu: fix mes packet params issue when flush hdp."
+  },
+  {
+    "sha": "0bebe9b9fcb485c12d447b9352a53e761caded9d",
+    "date": "2025-12-08T18:56:30Z",
+    "subject": "drm/amdkfd: refactor rlc/gfx spm"
+  },
+  {
+    "sha": "1972763505d728c604b537180727ec8132e619df",
+    "date": "2025-11-04T16:33:53Z",
+    "subject": "drm/amdgpu: set default gfx reset masks for gfx6-8"
+  },
+  {
+    "sha": "e71ca1efd306dd671bd5752ff1c0c5de9b2bd03f",
+    "date": "2025-10-20T22:25:36Z",
+    "subject": "drm/amdgpu: Add kiq hdp flush callbacks"
+  },
+  {
+    "sha": "d8586afe38984f9eb98d6753c9b1134295d55ceb",
+    "date": "2025-09-15T20:51:04Z",
+    "subject": "drm/amdgpu: Remove volatile from CSB functions"
+  },
+  {
+    "sha": "2becafc319db3d96205320f31cc0de4ee5a93747",
+    "date": "2025-07-16T20:17:28Z",
+    "subject": "drm/amdgpu/gfx8: reset compute ring wptr on the GPU on resume"
+  },
+  {
+    "sha": "fda02c911ac61b3e338ccf4bb0aabd3cd1b084ac",
+    "date": "2025-06-18T16:19:18Z",
+    "subject": "drm/amdgpu/gfx8: drop reset_kgq"
+  },
+  {
+    "sha": "b990cb52340aedc2071fcf79e331a5b4bb7514ea",
+    "date": "2025-04-30T22:04:45Z",
+    "subject": "drm/amdgpu/gfx: Use CSB helpers in gfx_v8_0_get_csb_buffer"
+  },
+  {
+    "sha": "c8b8d7a4f1c5cdfbd61d75302fb3e3cdefb1a7ab",
+    "date": "2025-04-07T19:18:34Z",
+    "subject": "drm/amdgpu/gfx8: fix CSIB handling"
+  },
+  {
+    "sha": "1f86f4125e167aeb343a5b8136996c0569009c6a",
+    "date": "2025-03-26T21:45:42Z",
+    "subject": "drm/amdgpu: stop unmapping MQD for kernel queues v3"
+  },
+  {
+    "sha": "7dc340540363a008cee1e160e8f2a4f034f196d4",
+    "date": "2025-02-25T16:43:58Z",
+    "subject": "drm/amdgpu: update the handle ptr in is_idle"
+  },
+  {
+    "sha": "3521276ad14fe47ce1c4382749f3c95762629375",
+    "date": "2025-02-19T20:19:05Z",
+    "subject": "drm/amdgpu: update the handle ptr in get_clockgating_state"
+  },
+  {
+    "sha": "2b11179e1878fafcc5c63de726d1b6b8b281e8e9",
+    "date": "2025-01-06T19:44:29Z",
+    "subject": "drm/amdgpu: reduce RLC safe mode request for gfx clock gating"
+  },
+  {
+    "sha": "0014952b1754b0dba3ea87d2d3b9784fdcec9f95",
+    "date": "2024-12-18T17:17:32Z",
+    "subject": "drm/amdgpu: drop the amdgpu_device argument from amdgpu_ib_free"
+  },
+  {
+    "sha": "ea5d49349894a7a74ce8dba242e3a487d24b6c0e",
+    "date": "2024-12-10T15:26:51Z",
+    "subject": "drm/amd: Add the capability to mark certain firmware as \"required\""
+  },
+  {
+    "sha": "f2ba8c3d510695c68ede786b3a37a9aa170ddfae",
+    "date": "2024-12-10T15:26:47Z",
+    "subject": "drm/amdgpu: pass ip_block in set_clockgating_state"
+  },
+  {
+    "sha": "80d80511241cd3f532704dc4abbb604425552396",
+    "date": "2024-12-10T15:26:47Z",
+    "subject": "drm/amdgpu: pass ip_block in set_powergating_state"
+  },
+  {
+    "sha": "ff69bba05f085cd6d4277c27ac7600160167b384",
+    "date": "2024-12-10T15:26:47Z",
+    "subject": "drm/amd/pm: add inst to dpm_set_powergating_by_smu"
+  },
+  {
+    "sha": "66f4f7d5aa316f88b0fcb5c2e2b80014da28f640",
+    "date": "2024-12-10T15:26:45Z",
+    "subject": "drm/amdgpu: reduce the mmio writes in kiq setting"
+  },
+  {
+    "sha": "fa31798582882740f2b13d19e1bd43b4ef918e2f",
+    "date": "2024-11-08T16:10:00Z",
+    "subject": "drm/amdgpu: Fix map/unmap queue logic"
+  },
+  {
+    "sha": "0016e870542dc0a529e5ed97b628b6b727531e9b",
+    "date": "2024-10-22T21:50:39Z",
+    "subject": "drm/amdgpu: Clean the functions pointer set as NULL"
+  },
+  {
+    "sha": "16445e408c784affe038cb1a0193f491151ba7f2",
+    "date": "2024-10-08T13:43:48Z",
+    "subject": "drm/amdgpu: fix typos"
+  },
+  {
+    "sha": "692d2cd180e04805ea46e2721e24504d8d9ee28a",
+    "date": "2024-10-07T18:03:25Z",
+    "subject": "drm/amdgpu: update the handle ptr in hw_fini"
+  },
+  {
+    "sha": "58608034ed5090b7a4b7f1c040a67a53fe1dbbc6",
+    "date": "2024-10-07T18:03:25Z",
+    "subject": "drm/amdgpu: update the handle ptr in hw_init"
+  },
+  {
+    "sha": "7feb4f3ad8befa0850a576adaa32d57962bf82e5",
+    "date": "2024-10-07T18:02:50Z",
+    "subject": "drm/amdgpu: update the handle ptr in resume"
+  },
+  {
+    "sha": "982d7f9bfe4a50334543ef97808615693d7ac29e",
+    "date": "2024-10-07T18:02:45Z",
+    "subject": "drm/amdgpu: update the handle ptr in suspend"
+  },
+  {
+    "sha": "82ae6619a450a53dd606d29df72f75d22d5d195a",
+    "date": "2024-10-07T18:02:36Z",
+    "subject": "drm/amdgpu: update the handle ptr in wait_for_idle"
+  },
+  {
+    "sha": "e15ec812b52951e9816ae2d47361fe6b82a8ba3b",
+    "date": "2024-10-01T21:45:51Z",
+    "subject": "drm/amdgpu: update the handle ptr in post_soft_reset"
+  },
+  {
+    "sha": "0ef2a1e7aff53967958c2b87eecfac61cd9ed213",
+    "date": "2024-10-01T21:45:44Z",
+    "subject": "drm/amdgpu: update the handle ptr in soft_reset"
+  },
+  {
+    "sha": "9d5ee7ce88acc7f9d5843ba7916d4b421af5c921",
+    "date": "2024-10-01T21:44:41Z",
+    "subject": "drm/amdgpu: update the handle ptr in pre_soft_reset"
+  },
+  {
+    "sha": "6a9456e0e3270438b2aab5e6ef8433aa25c8f974",
+    "date": "2024-10-01T21:43:45Z",
+    "subject": "drm/amdgpu: update the handle ptr in check_soft_reset"
+  },
+  {
+    "sha": "36aa9ab9c0c4a41fe334ab39951773f21709f89d",
+    "date": "2024-10-01T21:40:43Z",
+    "subject": "drm/amdgpu: update the handle ptr in sw_fini"
+  },
+  {
+    "sha": "d5347e8d2711bb01c79698408ec189a7b7cfe45e",
+    "date": "2024-10-01T21:40:37Z",
+    "subject": "drm/amdgpu: update the handle ptr in sw_init"
+  },
+  {
+    "sha": "3138ab2c5b32ec3c8e18db3cbbdd4ecdc8e41f65",
+    "date": "2024-10-01T21:40:31Z",
+    "subject": "drm/amdgpu: update the handle ptr in late_init"
+  },
+  {
+    "sha": "146b085eadd2ce405e67492a80d6e767748d5642",
+    "date": "2024-10-01T21:40:22Z",
+    "subject": "drm/amdgpu: update the handle ptr in early_init"
+  },
+  {
+    "sha": "4af8071b654dbd9b8bd003ab8e49eb16b4cb9fcd",
+    "date": "2024-08-16T18:24:09Z",
+    "subject": "drm/amdgpu/gfx8: add ring reset callback for gfx"
+  },
+  {
+    "sha": "7e60ecc2b70adb41b92752cbcd749040e00b57b8",
+    "date": "2024-07-23T21:42:08Z",
+    "subject": "drm/amdgpu/gfx8: enable wave kill for compute queues"
+  },
+  {
+    "sha": "3a3be8bb97e14339af7a11b3ee822e268960ead6",
+    "date": "2024-06-14T20:18:27Z",
+    "subject": "drm/amdgpu: refine gfx8 firmware loading"
+  },
+  {
+    "sha": "40356542c36160bddee9fdf25b9248e0c9e6503b",
+    "date": "2024-04-26T21:22:39Z",
+    "subject": "drm/amdgpu: add protype for print ip state"
+  },
+  {
+    "sha": "e21d253bd74bd422347d202ea2205cdc7623eed2",
+    "date": "2024-04-26T21:22:39Z",
+    "subject": "drm/amdgpu: add prototype for ip dump"
+  },
+  {
+    "sha": "c68cbbfd54c68485ac67b5a04c06feacdce15fec",
+    "date": "2024-03-04T20:59:08Z",
+    "subject": "drm/amdgpu: cleanup conditional execution"
+  },
+  {
+    "sha": "4acd31e6c2b97ce3f8a9a65df85f72d81aedf0e8",
+    "date": "2024-02-22T15:17:45Z",
+    "subject": "drm/amdgpu: Drop redundant parameter in amdgpu_gfx_kiq_init_ring"
+  },
+  {
+    "sha": "b5387349cadd989f53b3e7b61981859a2c7cc2e6",
+    "date": "2024-01-18T20:45:58Z",
+    "subject": "drm/amd/amdgpu: Update RLC_SPM_MC_CNT by ring wreg in guest"
+  },
+  {
+    "sha": "88f4b10a793262c4d6cf2566b1d210ec76f87867",
+    "date": "2023-11-29T21:49:00Z",
+    "subject": "drm/amdgpu: fix memory overflow in the IB test"
+  },
+  {
+    "sha": "97e3c6a853f2af9145daf0c6ca25bcdf55c759d4",
+    "date": "2023-09-11T22:16:31Z",
+    "subject": "drm/amdgpu: Store CU info from all XCCs for GFX v9.4.3"
+  },
+  {
+    "sha": "c6a64ad9b7f7182b5e2439a740574300b2e61951",
+    "date": "2023-06-09T16:32:21Z",
+    "subject": "drm/amdgpu: Initialize xcc mask"
+  },
+  {
+    "sha": "232f2431899cbe6c00c1350e35cfba91ea0c1c0b",
+    "date": "2023-06-09T14:57:11Z",
+    "subject": "drm/amdgpu/gfx: set sched.ready status after ring/IB test in gfx"
+  },
+  {
+    "sha": "553f973a0d7bbe95ea5da46979d926a9c0ada109",
+    "date": "2023-06-09T13:48:22Z",
+    "subject": "drm/amd/amdgpu: Update debugfs for XCC support (v3)"
+  },
+  {
+    "sha": "42cdf6f687daa1a1992db400e8311e1e49c787fb",
+    "date": "2023-06-09T13:28:58Z",
+    "subject": "drm/amdgpu/gfx8: always restore kcq MQDs"
+  },
+  {
+    "sha": "609d830048fb00d4fdea59fc9d17a8d63fbddb4a",
+    "date": "2023-06-09T13:20:26Z",
+    "subject": "drm:amd:amdgpu: Fix missing bo unlock in failure path"
+  },
+  {
+    "sha": "86b20703e4c5a3c39891def0a68e7438aeca9db9",
+    "date": "2023-04-18T20:28:55Z",
+    "subject": "drm/amdgpu: add xcc index argument to rlc safe_mode func (v4)"
+  },
+  {
+    "sha": "d51ac6d0a23caf1005cb640f8533161c5d2dd0c0",
+    "date": "2023-04-18T20:28:55Z",
+    "subject": "drm/amdgpu: add xcc index argument to select_sh_se function v2"
+  },
+  {
+    "sha": "def799c6596d078112095c24c25e162cb5102d90",
+    "date": "2023-04-18T20:28:55Z",
+    "subject": "drm/amdgpu: add multi-xcc support to amdgpu_gfx interfaces (v4)"
+  },
+  {
+    "sha": "be697aa3a78ef83a6b8d49e1f0671a002e502cd0",
+    "date": "2023-04-18T20:28:54Z",
+    "subject": "drm/amdgpu: move queue_bitmap to an independent structure (v3)"
+  },
+  {
+    "sha": "277bd3371f11400d5b02df54f057569be4b10cea",
+    "date": "2023-04-18T20:28:54Z",
+    "subject": "drm/amdgpu: convert gfx.kiq to array type (v3)"
+  },
+  {
+    "sha": "19d88e1df06c9c27b4a2ec59b36865892c624ef7",
+    "date": "2023-01-17T20:01:09Z",
+    "subject": "drm/amdgpu: Add a missing tab"
+  },
+  {
+    "sha": "0aaafb7359d25a5c9038bda4ea3a759839f8b2bb",
+    "date": "2023-01-10T19:32:57Z",
+    "subject": "drm/amd: Use `amdgpu_ucode_*` helpers for GFX8"
+  },
+  {
+    "sha": "58ab2c08d708ca8309768545b75741636c53a336",
+    "date": "2023-01-03T21:49:54Z",
+    "subject": "drm/amdgpu: use VRAM|GTT for a bunch of kernel allocations"
+  },
+  {
+    "sha": "ec4927d463cbf385be212af1ade9f5a6f1474d4f",
+    "date": "2022-11-04T20:05:53Z",
+    "subject": "drm/amdgpu: fix for suspend/resume sequence under sriov"
+  },
+  {
+    "sha": "ab5a7fb6d2296b9486d17d1e24f4bde90822e644",
+    "date": "2022-05-26T18:56:33Z",
+    "subject": "drm/amdgpu/gfx: fix typos in comments"
+  },
+  {
+    "sha": "842035543c0bfa35b1471e74094a107673815b01",
+    "date": "2022-05-26T18:56:31Z",
+    "subject": "drm/amdgpu: Set CP_HQD_PQ_CONTROL.RPTR_BLOCK_SIZE correctly"
+  },
+  {
+    "sha": "d54762cc3e6abb08f5ae31e3fa6a249768c07617",
+    "date": "2022-05-06T20:57:21Z",
+    "subject": "drm/amdgpu: nuke dynamic gfx scratch reg allocation"
+  },
+  {
+    "sha": "3748424ba9f1241a532c57372806ecfdda894449",
+    "date": "2022-05-04T14:03:27Z",
+    "subject": "drm/amdgpu: use ring structure to access rptr/wptr v2"
+  },
+  {
+    "sha": "6f90a49bc0c9a2d8590dea3323c9b0c61ee78add",
+    "date": "2022-04-11T17:50:35Z",
+    "subject": "drm/amdgpu: Fix incorrect enum type"
+  },
+  {
+    "sha": "25faeddcf3c3f31f9f43de5c55f7cbdd13d3ebc7",
+    "date": "2022-04-08T21:24:24Z",
+    "subject": "drm/amdgpu: expand cg_flags from u32 to u64"
+  },
+  {
+    "sha": "e6ef9b396b6354b33373c62f0f47edf8702f12e5",
+    "date": "2021-11-05T18:12:29Z",
+    "subject": "drm/amdgpu: correctly toggle gfx on/off around RLC_SPM_* register access"
+  },
+  {
+    "sha": "685967b3c138f3d8a797ac82b39005891de0fb92",
+    "date": "2021-08-06T01:17:59Z",
+    "subject": "drm/amdgpu: Put MODE register in wave debug info"
+  },
+  {
+    "sha": "c107171b8d3241d872807c04917e7e8fb70e8b71",
+    "date": "2021-04-09T20:44:56Z",
+    "subject": "drm/amdgpu: add the sched_score to amdgpu_ring_init"
+  },
+  {
+    "sha": "8b75c9b45b1ac43d0e21513678fa32417db86d81",
+    "date": "2021-03-24T03:28:08Z",
+    "subject": "drm/amdgpu: Replace in_task() in gfx_v8_0_parse_sq_irq()"
+  },
+  {
+    "sha": "f8bf64501873ab750166200a698f3b0cc6983a65",
+    "date": "2021-02-09T20:29:08Z",
+    "subject": "drm/amdgpu: enable wave limit on non high prio cs pipes"
+  },
+  {
+    "sha": "0a52a6cacca6030374fca7087e8556b382cca0e3",
+    "date": "2021-02-09T20:27:04Z",
+    "subject": "drm/amdgpu: add wave limit functionality for gfx8,9"
+  },
+  {
+    "sha": "8c0225d79273968a65e73a4204fba023ae02714d",
+    "date": "2021-02-09T20:26:56Z",
+    "subject": "drm/amdgpu: enable only one high prio compute queue"
+  },
+  {
+    "sha": "68fce5f07c304b34531dd9d7e13f6d174922e4c4",
+    "date": "2020-12-09T04:05:40Z",
+    "subject": "drm/amdgpu: use AMDGPU_NUM_VMID when possible"
+  },
+  {
+    "sha": "c5ce5115fd2a4effe1a581f618a1410c811bcdd0",
+    "date": "2020-12-01T21:04:42Z",
+    "subject": "drm/amd/amdgpu/gfx_v8_0: Functions must follow directly after their headers"
+  },
+  {
+    "sha": "3f66bf401e9fde1c35bb8b02dd7975659c40411d",
+    "date": "2020-11-13T05:13:59Z",
+    "subject": "drm/amdgpu: fix compute queue priority if num_kcq is less than 4"
+  },
+  {
+    "sha": "99dac206b0e0c6215272d31f758e6aa9bc3dd3d8",
+    "date": "2020-11-02T20:34:22Z",
+    "subject": "drm/amdgpu/gfx: improve code indentation and alignment"
+  },
+  {
+    "sha": "92995254afae9016e1d4d27ad9d1efcb2784cd29",
+    "date": "2020-10-27T15:57:55Z",
+    "subject": "drm/amdgpu: correct CG_ACLK_CNTL setting"
+  },
+  {
+    "sha": "a3bab3258568fa3157b0d657328ea3c6a2d924d7",
+    "date": "2020-10-16T19:11:17Z",
+    "subject": "drm/amdgpu: move amdgpu_num_kcq handling to a helper"
+  },
+  {
+    "sha": "0c8d22fcae2f9590a07b000e1724f665820b77f7",
+    "date": "2020-09-08T06:40:13Z",
+    "subject": "Merge tag 'amd-drm-next-5.10-2020-09-03' of git://people.freedesktop.org/~agd5f/linux into drm-next"
+  },
+  {
+    "sha": "53b3f8f40e6cff36ae12b11e6d6b308af3c7e53f",
+    "date": "2020-08-24T16:22:56Z",
+    "subject": "drm/amdgpu: refine codes to avoid reentering GPU recovery"
+  }
+]

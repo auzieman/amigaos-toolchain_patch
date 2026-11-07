@@ -1,0 +1,966 @@
+6,69,12,-;clocksource: timebase mult[14008316] shift[24] registered
+7,70,29,-;clockevent: decrementer mult[ccc78ea] shift[32] cpu[0]
+6,71,219,-;Console: colour dummy device 80x25
+6,72,244,-;printk: legacy console [tty0] enabled
+6,73,727,-;pid_max: default: 32768 minimum: 301
+6,74,947,-;Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,75,1012,-;Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,76,2146,-;mpic: requesting IPIs...
+6,77,5025,-;e500 family performance monitor hardware support registered
+6,78,5399,-;rcu: Hierarchical SRCU implementation.
+6,79,5446,-;rcu: \x09Max phase no-delay instances is 1000.
+6,80,6079,-;Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+6,81,6800,-;smp: Bringing up secondary CPUs ...
+6,82,8191,-;Activating Kernel Userspace Access Protection
+6,83,8587,-;smp: Brought up 1 node, 2 CPUs
+6,84,8831,-;Memory: 3496976K/3571712K available (13972K kernel code, 1148K rwdata, 18796K rodata, 3448K init, 273K bss, 71616K reserved, 0K cma-reserved, 2785272K highmem)
+6,85,9792,-;devtmpfs: initialized
+6,86,12279,-;futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,87,12977,-;Machine: varisys,TABOR
+6,88,13019,-;SoC family: QorIQ
+6,89,13030,-;SoC ID: svr:0x80e60011, Revision: 1.1
+6,90,13778,-;NET: Registered PF_NETLINK/PF_ROUTE protocol family
+6,91,14399,-;audit: initializing netlink subsys (disabled)
+5,92,14871,-;audit: type=2000 audit(0.012:1): state=initialized audit_enabled=0 res=1
+6,93,24254,-;Found FSL PCI host bridge at 0x0000000fffe0a000. Firmware bus number: 0->1
+6,94,24356,-;PCI host bridge /pcie@fffe0a000 (primary) ranges:
+6,95,24402,-; MEM 0x0000000c40000000..0x0000000c5fffffff -> 0x00000000e0000000 
+6,96,24431,-;  IO 0x0000000fffc20000..0x0000000fffc2ffff -> 0x0000000000000000
+6,97,24489,-;/pcie@fffe0a000: PCICSRBAR @ 0xdff00000
+6,98,24522,-;setup_pci_atmu: end of DRAM da000000
+6,99,24540,-;/pcie@fffe0a000: Setting PCI inbound window greater than memory size
+6,100,26951,-;PCI: Probing PCI hardware
+6,101,27162,-;fsl-pci fffe0a000.pcie: PCI host bridge to bus 0001:00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0a000.pcie
+6,102,27207,-;pci_bus 0001:00: root bus resource [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,103,27234,-;pci_bus 0001:00: root bus resource [mem 0xc40000000-0xc5fffffff] (bus address [0xe0000000-0xffffffff])
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,104,27260,-;pci_bus 0001:00: root bus resource [bus 00-ff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,105,27281,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to ff
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,106,27373,-;pci 0001:00:00.0: [1957:0111] type 01 class 0x060400 PCIe Root Port
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,107,27415,-;pci 0001:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,108,27446,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,109,27469,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc502fffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,110,27551,-;pci 0001:00:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,111,27575,-;pci 0001:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,112,28633,-;pci 0001:01:00.0: [1002:67ff] type 00 class 0x030000 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,113,28708,-;pci 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,114,28747,-;pci 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,115,28776,-;pci 0001:01:00.0: BAR 4 [io  0x1000-0x10ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,116,28803,-;pci 0001:01:00.0: BAR 5 [mem 0xc50200000-0xc5023ffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,117,28831,-;pci 0001:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,118,28862,-;pci 0001:01:00.0: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,119,29032,-;pci 0001:01:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,120,29054,-;pci 0001:01:00.0: PME# supported from D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,121,29106,-;pci 0001:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0001:00:00.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,122,29416,-;pci 0001:01:00.1: [1002:aae0] type 00 class 0x040300 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,123,29487,-;pci 0001:01:00.1: BAR 0 [mem 0xc50240000-0xc50243fff 64bit]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,124,29558,-;pci 0001:01:00.1: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,125,29678,-;pci 0001:01:00.1: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,126,29916,-;pci 0001:00:00.0: PCI bridge to [bus 01-ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,127,29980,-;pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,128,30011,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+4,129,30558,-;PCI: Cannot allocate resource region 0 of device 0001:00:00.0, will remap
+7,130,30618,-;PCI 0001:00 Cannot reserve Legacy IO [io  0x0000-0x0fff]
+6,131,30666,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: can't assign; no space
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,132,30695,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: failed to assign
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,133,30723,-;pci 0001:01:00.0: ROM [mem 0xc50260000-0xc5027ffff pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,134,30750,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,135,30771,-;pci 0001:00:00.0:   bridge window [io  0x0000-0xffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,136,30794,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,137,30819,-;pci_bus 0001:00: Some PCI device resources are unassigned, try booting with pci=realloc
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,138,30840,-;pci_bus 0001:00: resource 4 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,139,30859,-;pci_bus 0001:00: resource 5 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,140,30878,-;pci_bus 0001:01: resource 0 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,141,30896,-;pci_bus 0001:01: resource 1 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+7,142,31089,-;Setting up Freescale MSI support
+6,143,34736,-;HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+6,144,34782,-;HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+6,145,34800,-;HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+6,146,34813,-;HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+6,147,34828,-;HugeTLB: registered 64.0 MiB page size, pre-allocated 0 pages
+6,148,34842,-;HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+6,149,34858,-;HugeTLB: registered 256 MiB page size, pre-allocated 0 pages
+6,150,34871,-;HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+6,151,34885,-;HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+6,152,34898,-;HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+6,153,36990,-;Freescale Elo series DMA driver
+6,154,37276,-;fsl-elo-dma fffe0c300.dma: #2 (fsl,eloplus-dma-channel), irq 78
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,155,37457,-;fsl-elo-dma fffe0c300.dma: #3 (fsl,eloplus-dma-channel), irq 79
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,156,38042,-;fsl-elo-dma fffe21300.dma: #0 (fsl,eloplus-dma-channel), irq 20
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,157,38231,-;fsl-elo-dma fffe21300.dma: #1 (fsl,eloplus-dma-channel), irq 21
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,158,38426,-;fsl-elo-dma fffe21300.dma: #2 (fsl,eloplus-dma-channel), irq 22
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,159,38606,-;fsl-elo-dma fffe21300.dma: #3 (fsl,eloplus-dma-channel), irq 23
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+5,160,39677,-;SCSI subsystem initialized
+7,161,40089,-;libata version 3.00 loaded.
+6,162,40434,-;usbcore: registered new interface driver usbfs
+6,163,40536,-;usbcore: registered new interface driver hub
+6,164,40613,-;usbcore: registered new device driver usb
+6,165,40739,-;pps_core: LinuxPPS API ver. 1 registered
+6,166,40769,-;pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+6,167,40807,-;PTP clock support registered
+6,168,40884,-;EDAC MC: Ver: 3.0.0
+6,169,44828,-;Advanced Linux Sound Architecture Driver Initialized.
+6,170,45865,-;pci 0001:01:00.0: vgaarb: setting as boot VGA device
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,171,45915,-;pci 0001:01:00.0: vgaarb: bridge control possible
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,172,45930,-;pci 0001:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,173,45949,-;vgaarb: loaded
+6,174,46672,-;clocksource: Switched to clocksource timebase
+6,175,66132,-;NET: Registered PF_INET protocol family
+6,176,66452,-;IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+6,177,68013,-;tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+6,178,68081,-;Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+6,179,68111,-;TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+6,180,68190,-;TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+6,181,68570,-;TCP: Hash tables configured (established 8192 bind 8192)
+6,182,68736,-;UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,183,68813,-;UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,184,69062,-;NET: Registered PF_UNIX/PF_LOCAL protocol family
+6,185,70179,-;RPC: Registered named UNIX socket transport module.
+6,186,70227,-;RPC: Registered udp transport module.
+6,187,70238,-;RPC: Registered tcp transport module.
+6,188,70250,-;RPC: Registered tcp-with-tls transport module.
+6,189,70262,-;RPC: Registered tcp NFSv4.1 backchannel transport module.
+6,190,70413,-;pci 0001:01:00.1: D0 power state depends on 0001:01:00.0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,191,70468,-;PCI: CLS 32 bytes, default 32
+6,192,72777,-;workingset: timestamp_bits=14 max_order=20 bucket_order=6
+6,193,72992,-;Trying to unpack rootfs image as initramfs...
+5,194,73967,-;NFS: Registering the id_resolver key type
+5,195,74081,-;Key type id_resolver registered
+5,196,74110,-;Key type id_legacy registered
+6,197,74353,-;jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+6,198,210734,-;bounce: pool size: 64 pages
+6,199,210818,-;io scheduler mq-deadline registered
+6,200,210845,-;io scheduler kyber registered
+6,201,210898,-;io scheduler bfq registered
+6,202,232318,-;pcieport 0001:00:00.0: enabling device (0106 -> 0107)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,203,232533,-;pcieport 0001:00:00.0: PME: Signaling with IRQ 16
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,204,233394,-;Serial: 8250/16550 driver, 6 ports, IRQ sharing enabled
+6,205,244523,-;printk: legacy console [ttyS0] disabled
+6,206,245076,-;serial8250.0: ttyS0 at MMIO 0xfffe04500 (irq = 42, base_baud = 24997500) is a 16550A
+6,207,245168,-;printk: legacy console [ttyS0] enabled
+6,208,284025,-;Freeing initrd memory: 1528K
+6,209,327257,-;serial8250.0: ttyS1 at MMIO 0xfffe04600 (irq = 42, base_baud = 24997500) is a 16550A
+6,210,1242929,-;ePAPR hypervisor byte channel driver
+6,211,1259971,-;brd: module loaded
+6,212,1269290,-;loop: module loaded
+6,213,1295686,-;st: Version 20160209, fixed bufsize 32768, s/g segs 256
+6,214,1301123,-;fsl-sata fffe18000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe18000.sata
+6,215,1307806,-;scsi host0: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host0
+6,216,1310018,-;ata1: SATA max UDMA/133 irq 74 lpm-pol 0
+6,217,1313968,-;fsl-sata fffe19000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe19000.sata
+6,218,1320621,-;scsi host1: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host1
+6,219,1322923,-;ata2: SATA max UDMA/133 irq 41 lpm-pol 0
+6,220,1328950,-;fsl_espi fffe07000.spi: irq = 59
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe07000.spi
+6,221,1339613,-;fsl-gianfar soc@fffe00000:ethernet@b0000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,222,1357275,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: mac: 80:34:28:6f:89:5c
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,223,1363542,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,224,1370022,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,225,1376858,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,226,1383705,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,227,1390543,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,228,1398106,-;fsl-gianfar soc@fffe00000:ethernet@b1000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,229,1415761,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: mac: d8:47:8f:bb:42:57
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,230,1422028,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,231,1428511,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,232,1435354,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,233,1442191,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,234,1449025,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,235,1455987,-;ucc_geth_driver: QE UCC Gigabit Ethernet Controller
+6,236,1460809,-;e1000: Intel(R) PRO/1000 Network Driver
+6,237,1464444,-;e1000: Copyright (c) 1999-2006 Intel Corporation.
+6,238,1469005,-;e1000e: Intel(R) PRO/1000 Network Driver
+6,239,1472718,-;e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+6,240,1477476,-;igb: Intel(R) Gigabit Ethernet Network Driver
+6,241,1481630,-;igb: Copyright (c) 2007-2014 Intel Corporation.
+6,242,1487466,-;fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,243,1493254,-;fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,244,1499394,-;fsl-ehci fsl-ehci.0: irq 28, io mem 0xfffe22000
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,245,1514707,-;fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,246,1520216,-;hub 1-0:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,247,1522858,-;hub 1-0:1.0: 1 port detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,248,1526222,-;usbcore: registered new interface driver usb-storage
+6,249,1531403,-;i2c_dev: i2c /dev entries driver
+6,250,1534773,-;mpc-i2c fffe03000.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03000.i2c
+6,251,1539201,-;mpc-i2c fffe03100.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03100.i2c
+6,252,1545767,-;rtc-ds1307 1-006f: registered as rtc0
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,253,1550121,-;rtc-ds1307 1-006f: setting system clock to 2026-11-07T02:00:29 UTC (1794016829)
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,254,1558130,-;Freescale(R) MPC85xx EDAC driver, (C) 2006 Montavista Software
+6,255,1564540,-;EDAC PCI0: Giving out device to module MPC85xx_edac controller mpc85xx_pci_err: DEV mpc85xx-pci-edac.0.auto (INTERRUPT)
+6,256,1575242,-;MPC85xx_edac acquired irq 16 for PCI Err
+6,257,1578976,-;MPC85xx_edac PCI err registered
+6,258,1582196,-;sdhci: Secure Digital Host Controller Interface driver
+6,259,1587156,-;sdhci: Copyright(c) Pierre Ossman
+6,260,1590230,-;sdhci-pltfm: SDHCI platform and OF driver helper
+6,261,1595432,-;mmc0 bounce up to 128 segments into one, max segment size 65536 bytes
+6,262,1595970,-;usbcore: registered new interface driver usbhid
+6,263,1606049,-;usbhid: USB HID core driver
+6,264,1608628,-;Freescale hypervisor management driver
+6,265,1612161,-;fsl-hv: no hypervisor found
+4,266,1616428,-;fsl-ssi-dai fffe15000.ssi: No cache defaults, reading back from HW
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe15000.ssi
+6,267,1623937,-;ipip: IPv4 and MPLS over IPv4 tunneling driver
+6,268,1626688,-;mmc0: SDHCI controller on fffe2e000.sdhc [fffe2e000.sdhc] using DMA
+6,269,1628693,-;Initializing XFRM netlink socket
+6,270,1637496,-;NET: Registered PF_INET6 protocol family
+6,271,1643419,-;Segment Routing with IPv6
+6,272,1645886,-;In-situ OAM (IOAM) with IPv6
+6,273,1648649,-;sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+6,274,1653921,-;NET: Registered PF_PACKET protocol family
+6,275,1657772,-;NET: Registered PF_KEY protocol family
+5,276,1661398,-;Key type dns_resolver registered
+6,277,1680183,-;ALSA device list:
+6,278,1681926,-;  No soundcards found.
+6,279,1763249,-;mmc0: new high speed SDHC card at address b36b
+6,280,1768410,-;mmcblk0: mmc0:b36b CBADS 3.73 GiB
+6,281,1770720,-;usb 1-1: new high-speed USB device number 2 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1
+6,282,1777133,-; mmcblk0: p1
+6,283,1826706,-;ata1: Signature Update detected @ 508 msecs
+4,284,1830756,-;ata2: No Device OR PHYRDY change,Hstatus = 0xa0000000
+6,285,1835652,-;ata2: SATA link down (SStatus 0 SControl 300)
+6,286,1920001,-;hub 1-1:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,287,1922752,-;hub 1-1:1.0: 4 ports detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,288,1986717,-;ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+4,289,1992723,-;ata1.00: Model 'CT240BX500SSD1', rev 'M6CR056', applying quirks: nolpm
+4,290,1999078,-;ata1.00: LPM support broken, forcing max_power
+6,291,2003327,-;ata1.00: ATA-10: CT240BX500SSD1, M6CR056, max UDMA/133
+6,292,2008265,-;ata1.00: 468862128 sectors, multi 1: LBA48 NCQ (depth 16/32)
+4,293,2013718,-;ata1.00: ATA Identify Device Log not supported
+4,294,2020132,-;ata1.00: LPM support broken, forcing max_power
+6,295,2024419,-;ata1.00: configured for UDMA/133
+5,296,2028047,-;scsi 0:0:0:0: Direct-Access     ATA      CT240BX500SSD1   056  PQ: 0 ANSI: 5
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,297,2037918,-;sd 0:0:0:0: Attached scsi generic sg0 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,298,2038017,-;sd 0:0:0:0: [sda] 468862128 512-byte logical blocks: (240 GB/224 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,299,2048476,-;sd 0:0:0:0: [sda] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+7,300,2052063,-;sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,301,2056091,-;sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,302,2064323,-;sd 0:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,303,2087404,-;sd 0:0:0:0: [sda] Attached SCSI disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,304,2091094,-;Waiting for root device PARTUUID=a1221105-02...
+6,305,2206738,-;usb 1-1.3: new low-speed USB device number 3 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.3
+6,306,2340634,-;input: Logitech USB Keyboard as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/0003:046D:C31D.0001/input/input0
+6,307,2407094,-;hid-generic 0003:046D:C31D.0001: input: USB HID v1.10 Keyboard [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input0
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0001
+6,308,2427097,-;input: Logitech USB Keyboard Consumer Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input1
+6,309,2495140,-;input: Logitech USB Keyboard System Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input2
+6,310,2509739,-;hid-generic 0003:046D:C31D.0002: input: USB HID v1.10 Device [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input1
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0002
+6,311,3238704,-;usb 1-1.4: new high-speed USB device number 4 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4
+6,312,3356665,-;usb-storage 1-1.4:1.0: USB Mass Storage device detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4:1.0
+6,313,3362743,-;scsi host2: usb-storage 1-1.4:1.0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host2
+5,314,4388696,-;scsi 2:0:0:0: Direct-Access     SanDisk  Cruzer Glide     1.00 PQ: 0 ANSI: 6
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,315,4396520,-;sd 2:0:0:0: Attached scsi generic sg1 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,316,4406577,-;sd 2:0:0:0: [sdb] 30031872 512-byte logical blocks: (15.4 GB/14.3 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,317,4414555,-;sd 2:0:0:0: [sdb] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+7,318,4418178,-;sd 2:0:0:0: [sdb] Mode Sense: 43 00 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,319,4422843,-;sd 2:0:0:0: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,320,4452981,-; sdb: sdb1 sdb2
+5,321,4455287,-;sd 2:0:0:0: [sdb] Attached SCSI removable disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,322,4579984,-;EXT4-fs (sdb2): mounted filesystem a1221105-0000-4000-8000-000000000002 r/w with ordered data mode. Quota mode: disabled.
+6,323,4590895,-;VFS: Mounted root (ext4 filesystem) on device 8:18.
+6,324,4596841,-;devtmpfs: mounted
+6,325,4602893,-;Freeing unused kernel image (initmem) memory: 3448K
+6,326,4607628,-;Run /init as init process
+7,327,4610004,-;  with arguments:
+7,328,4611696,-;    /init
+7,329,4612676,-;  with environment:
+7,330,4614512,-;    HOME=/
+7,331,4615603,-;    TERM=linux
+6,332,22979852,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Link is Up - 1Gbps/Full - flow control off
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+5,333,24434695,-;random: crng init done
+6,334,152851606,-;EXT4-fs (sdb2): re-mounted a1221105-0000-4000-8000-000000000002 ro.
+14,335,154169406,-;TABOR_CAPTURE_READY
+6,336,154558747,-;EXT4-fs (sdb2): re-mounted a1221105-0000-4000-8000-000000000002.
+6,337,158304825,-;[drm] initializing kernel modesetting (POLARIS11 0x1002:0x67FF 0x1002:0x0B04 0xFF).
+6,338,158312466,-;[drm] register mmio base: 0x50200000
+6,339,158315919,-;[drm] register mmio size: 262144
+6,340,158319370,-;[drm] add ip block number 0 <vi_common>
+6,341,158323073,-;[drm] add ip block number 1 <gmc_v8_0>
+6,342,158326587,-;[drm] add ip block number 2 <tonga_ih>
+6,343,158330137,-;[drm] add ip block number 3 <gfx_v8_0>
+6,344,158333675,-;[drm] add ip block number 4 <sdma_v3_0>
+6,345,158337306,-;[drm] add ip block number 5 <powerplay>
+6,346,158340929,-;[drm] add ip block number 6 <dce_v11_0>
+6,347,158344580,-;[drm] add ip block number 7 <uvd_v6_0>
+6,348,158348139,-;[drm] add ip block number 8 <vce_v3_0>
+6,349,158697334,-;amdgpu 0001:01:00.0: amdgpu: Fetched VBIOS from ROM BAR
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,350,158702412,-;amdgpu: ATOM BIOS: 
+6,351,158713427,-;[drm] UVD is enabled in VM mode
+6,352,158716404,-;[drm] UVD ENC is enabled in VM mode
+6,353,158719698,-;[drm] VCE enabled in VM mode
+6,354,158722344,-;amdgpu 0001:01:00.0: amdgpu: Trusted Memory Zone (TMZ) feature not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,355,158729219,-;amdgpu 0001:01:00.0: amdgpu: PCIE atomic ops is not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,356,158737741,-;[drm] vm size is 64 GB, 2 levels, block size is 10-bit, fragment size is 9-bit
+6,357,158747186,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,358,158754260,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,359,158761313,-;[drm:amdgpu_device_resize_fb_bar [amdgpu]] *ERROR* Problem resizing BAR0 (-22).
+6,360,158763542,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,361,158777630,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,362,158784627,-;amdgpu 0001:01:00.0: amdgpu: VRAM: 4096M 0x000000F400000000 - 0x000000F4FFFFFFFF (4096M used)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,363,158792979,-;amdgpu 0001:01:00.0: amdgpu: GART: 256M 0x000000FF00000000 - 0x000000FF0FFFFFFF
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,364,158800110,-;[drm] Detected VRAM RAM=4096M, BAR=256M
+6,365,158803747,-;[drm] RAM width 128bits GDDR5
+6,366,158807226,-;[drm] amdgpu: 4096M of VRAM memory ready
+6,367,158810994,-;[drm] amdgpu: 1711M of GTT memory ready.
+6,368,158814903,-;[drm] GART: num cpu pages 65536, num gpu pages 65536
+6,369,158823653,-;[drm] PCIE GART of 256M enabled (table at 0x000000F400300000).
+6,370,158840039,-;[drm] Chained IB support enabled!
+6,371,158872654,-;amdgpu: hwmgr_sw_init smu backed is polaris10_smu
+6,372,158877502,-;[drm] AMDGPU Display Connectors
+6,373,158880493,-;[drm] Connector 0:
+6,374,158882268,-;[drm]   DP-1
+6,375,158883551,-;[drm]   HPD5
+6,376,158884802,-;[drm]   DDC: 0x4868 0x4868 0x4869 0x4869 0x486a 0x486a 0x486b 0x486b
+6,377,158890963,-;[drm]   Encoders:
+6,378,158892646,-;[drm]     DFP1: INTERNAL_UNIPHY1
+6,379,158895669,-;[drm] Connector 1:
+6,380,158897443,-;[drm]   HDMI-A-1
+6,381,158899072,-;[drm]   HPD3
+6,382,158900321,-;[drm]   DDC: 0x4874 0x4874 0x4875 0x4875 0x4876 0x4876 0x4877 0x4877
+6,383,158906484,-;[drm]   Encoders:
+6,384,158908193,-;[drm]     DFP2: INTERNAL_UNIPHY1
+6,385,158911224,-;[drm] Connector 2:
+6,386,158912998,-;[drm]   DVI-D-1
+6,387,158914489,-;[drm]   HPD4
+6,388,158915767,-;[drm]   DDC: 0x4878 0x4878 0x4879 0x4879 0x487a 0x487a 0x487b 0x487b
+6,389,158921923,-;[drm]   Encoders:
+6,390,158923669,-;[drm]     DFP3: INTERNAL_UNIPHY
+6,391,158942066,-;[drm] Found UVD firmware Version: 1.130 Family ID: 16
+6,392,158972246,-;[drm] Found VCE firmware Version: 53.26 Binary ID: 3
+6,393,158981680,-;amdgpu: SMU_DIAG protected=1 security=1
+6,394,158985364,-;amdgpu: SMU_DIAG before-start pc=00002994 status=00000000 events=000f0084 flags=710b12fa resp=00000001
+6,395,158994509,-;amdgpu 0001:01:00.0: amdgpu: SMU_DIAG firmware=amdgpu/polaris11_k_smc.bin
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,396,159007359,-;amdgpu 0001:01:00.0: amdgpu: SMU_DIAG version=00001800 bytes=129972 offset=256 start=00020000
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,397,159015741,-;amdgpu: SMU_DIAG upload security=1 version=00001800 bytes=129972 first_native=801e7735 first_le=35771e80
+6,398,159027265,-;amdgpu: SMU_DIAG after-interrupt-wait pc=00002788 status=00000000 events=000f0084 flags=00000000 resp=00000001
+6,399,159090256,-;amdgpu: SMU_DIAG after-test-message pc=00002ac8 status=00000003 events=000f0084 flags=00000000 resp=00000001
+6,400,159099906,-;amdgpu: SMU_DIAG after-done-wait pc=00002994 status=00000003 events=000f0084 flags=00000000 resp=00000001
+6,401,159114833,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=kiq_0.2.1.0 gpu=000000f400382000 vram=1 header=c0310800 pq=c0318911 base=00000000:ff0061c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,402,159126971,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=1 expected=0041880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,403,159134115,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=2 expected=8041880a actual=8041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,404,159142220,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=3 expected=0041880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,405,159149507,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=started actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,406,159155700,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.0 gpu=000000ff0071c000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060b0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,407,159167768,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.1 gpu=000000ff0071d000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060d0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,408,159179814,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.2 gpu=000000ff0071e000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060f0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,409,159191898,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.3 gpu=000000ff0071f000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006110
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,410,159203963,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.4 gpu=000000ff00720000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006130
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,411,159215999,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.5 gpu=000000ff00721000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006150
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,412,159228064,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.6 gpu=000000ff00722000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006170
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,413,159240106,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.7 gpu=000000ff00723000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006190
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,414,159252154,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE testing control ring before queue mapping
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,415,159259374,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE control ring result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,416,159264774,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ begin GPU-memory contract check
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,417,159271104,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=immediate offset=0 source=5 addr=000000001234abcd expected=1234abcd actual=1234abcd wb_bytes=cd ab 34 12
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,418,159284281,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=0 source=1 addr=000000f400382000 expected=c0310800 actual=c0310800 wb_bytes=00 08 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,419,159297619,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=512 source=1 addr=000000f400382200 expected=00382000 actual=00382000 wb_bytes=00 20 38 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,420,159311135,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=516 source=1 addr=000000f400382204 expected=000000f4 actual=000000f4 wb_bytes=f4 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,421,159324646,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=648 source=1 addr=000000f400382288 expected=18000100 actual=18000100 wb_bytes=00 01 00 18
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,422,159338152,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=544 source=1 addr=000000f400382220 expected=ff0061c0 actual=ff0061c0 wb_bytes=c0 61 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,423,159351656,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=548 source=1 addr=000000f400382224 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,424,159365192,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=580 source=1 addr=000000f400382244 expected=c0318911 actual=c0318911 wb_bytes=11 89 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,425,159378740,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=556 source=1 addr=000000f40038222c expected=004015a0 actual=004015a0 wb_bytes=a0 15 40 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,426,159392252,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=560 source=1 addr=000000f400382230 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,427,159405760,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=660 source=1 addr=000000f400382294 expected=ff0061b0 actual=ff0061b0 wb_bytes=b0 61 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,428,159419261,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=664 source=1 addr=000000f400382298 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,429,159432770,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=0 source=1 addr=000000ff0071c000 expected=c0310800 actual=c0310800 wb_bytes=00 08 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,430,159446038,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=512 source=1 addr=000000ff0071c200 expected=0071c000 actual=0071c000 wb_bytes=00 c0 71 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,431,159459465,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=516 source=1 addr=000000ff0071c204 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,432,159472897,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=648 source=1 addr=000000ff0071c288 expected=18000100 actual=18000100 wb_bytes=00 01 00 18
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,433,159486323,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=544 source=1 addr=000000ff0071c220 expected=ff0060b0 actual=ff0060b0 wb_bytes=b0 60 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,434,159499754,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=548 source=1 addr=000000ff0071c224 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,435,159513179,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=580 source=1 addr=000000ff0071c244 expected=c031890a actual=c031890a wb_bytes=0a 89 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,436,159526603,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=556 source=1 addr=000000ff0071c22c expected=004010a0 actual=004010a0 wb_bytes=a0 10 40 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,437,159540029,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=560 source=1 addr=000000ff0071c230 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,438,159553456,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=660 source=1 addr=000000ff0071c294 expected=f4003880 actual=f4003880 wb_bytes=80 38 00 f4
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,439,159566881,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=664 source=1 addr=000000ff0071c298 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,440,159580293,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ contract result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,441,159585366,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE submitting compute queue mapping
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,442,159591710,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE compute mapping submitted
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+4,443,159644738,-;Disabling lock debugging due to kernel taint
+3,444,159644774,-;PCIe error(s) detected
+3,445,159650900,-;PCIe ERR_DR register: 0x00800000
+3,446,159653873,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,447,159657362,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,448,159660677,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,449,159663992,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,450,159667307,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,451,159711604,-;PCIe error(s) detected
+3,452,159713725,-;PCIe ERR_DR register: 0x00800000
+3,453,159716698,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,454,159720188,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,455,159723503,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,456,159726818,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,457,159730133,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,458,159772887,-;PCIe error(s) detected
+3,459,159775009,-;PCIe ERR_DR register: 0x00800000
+3,460,159777981,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,461,159781470,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,462,159784785,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,463,159788100,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,464,159791414,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,465,159834169,-;PCIe error(s) detected
+3,466,159836290,-;PCIe ERR_DR register: 0x00800000
+3,467,159839263,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,468,159842753,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,469,159846068,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,470,159849382,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,471,159852698,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,472,159895451,-;PCIe error(s) detected
+3,473,159897572,-;PCIe ERR_DR register: 0x00800000
+3,474,159900545,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,475,159904035,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,476,159907350,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,477,159910664,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,478,159913980,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,479,159917385,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,480,159967875,-;PCIe error(s) detected
+3,481,159969989,-;PCIe ERR_DR register: 0x00800000
+3,482,159972960,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,483,159976449,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,484,159979763,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,485,159983076,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,486,159986390,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,487,160029157,-;PCIe error(s) detected
+3,488,160031277,-;PCIe ERR_DR register: 0x00800000
+3,489,160034250,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,490,160037740,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,491,160041054,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,492,160044369,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,493,160047684,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,494,160090440,-;PCIe error(s) detected
+3,495,160092561,-;PCIe ERR_DR register: 0x00800000
+3,496,160095534,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,497,160099023,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,498,160102337,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,499,160105652,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,500,160108966,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,501,160151723,-;PCIe error(s) detected
+3,502,160153845,-;PCIe ERR_DR register: 0x00800000
+3,503,160156817,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,504,160160306,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,505,160163621,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,506,160166936,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,507,160170250,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,508,160213005,-;PCIe error(s) detected
+3,509,160215126,-;PCIe ERR_DR register: 0x00800000
+3,510,160218098,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,511,160221588,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,512,160224904,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,513,160228220,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,514,160231537,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,515,160234950,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,516,160285429,-;PCIe error(s) detected
+3,517,160287546,-;PCIe ERR_DR register: 0x00800000
+3,518,160290518,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,519,160294008,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,520,160297323,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,521,160300638,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,522,160303953,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,523,160346712,-;PCIe error(s) detected
+3,524,160348833,-;PCIe ERR_DR register: 0x00800000
+3,525,160351807,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,526,160355297,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,527,160358613,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,528,160361929,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,529,160365244,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,530,160407995,-;PCIe error(s) detected
+3,531,160410117,-;PCIe ERR_DR register: 0x00800000
+3,532,160413091,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,533,160416583,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,534,160419898,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,535,160423213,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,536,160426528,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,537,160469276,-;PCIe error(s) detected
+3,538,160471399,-;PCIe ERR_DR register: 0x00800000
+3,539,160474372,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,540,160477862,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,541,160481178,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,542,160484493,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,543,160487808,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,544,160491221,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,545,160541700,-;PCIe error(s) detected
+3,546,160543815,-;PCIe ERR_DR register: 0x00800000
+3,547,160546787,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,548,160550276,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,549,160553592,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,550,160556908,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,551,160560223,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,552,160602983,-;PCIe error(s) detected
+3,553,160605104,-;PCIe ERR_DR register: 0x00800000
+3,554,160608079,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,555,160611569,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,556,160614884,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,557,160618199,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,558,160621514,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,559,160664266,-;PCIe error(s) detected
+3,560,160666389,-;PCIe ERR_DR register: 0x00800000
+3,561,160669362,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,562,160672852,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,563,160676167,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,564,160679483,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,565,160682797,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,566,160725548,-;PCIe error(s) detected
+3,567,160727669,-;PCIe ERR_DR register: 0x00800000
+3,568,160730644,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,569,160734135,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,570,160737450,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,571,160740766,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,572,160744081,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,573,160747494,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,574,160797971,-;PCIe error(s) detected
+3,575,160800088,-;PCIe ERR_DR register: 0x00800000
+3,576,160803060,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,577,160806551,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,578,160809866,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,579,160813181,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,580,160816496,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,581,160859255,-;PCIe error(s) detected
+3,582,160861378,-;PCIe ERR_DR register: 0x00800000
+3,583,160864351,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,584,160867842,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,585,160871157,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,586,160874472,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,587,160877788,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,588,160920537,-;PCIe error(s) detected
+3,589,160922660,-;PCIe ERR_DR register: 0x00800000
+3,590,160925637,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,591,160929127,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,592,160932442,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,593,160935758,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,594,160939073,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,595,160981819,-;PCIe error(s) detected
+3,596,160983942,-;PCIe ERR_DR register: 0x00800000
+3,597,160986916,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,598,160990406,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,599,160993723,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,600,160997038,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,601,161000353,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,602,161003768,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,603,161054243,-;PCIe error(s) detected
+3,604,161056358,-;PCIe ERR_DR register: 0x00800000
+3,605,161059330,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,606,161062821,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,607,161066137,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,608,161069453,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,609,161072767,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,610,161115526,-;PCIe error(s) detected
+3,611,161117648,-;PCIe ERR_DR register: 0x00800000
+3,612,161120622,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,613,161124112,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,614,161127429,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,615,161130745,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,616,161134060,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,617,161176808,-;PCIe error(s) detected
+3,618,161178931,-;PCIe ERR_DR register: 0x00800000
+3,619,161181905,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,620,161185395,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,621,161188710,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,622,161192026,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,623,161195341,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,624,161238091,-;PCIe error(s) detected
+3,625,161240213,-;PCIe ERR_DR register: 0x00800000
+3,626,161243187,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,627,161246677,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,628,161249994,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,629,161253309,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,630,161256624,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,631,161299372,-;PCIe error(s) detected
+3,632,161301495,-;PCIe ERR_DR register: 0x00800000
+3,633,161304468,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,634,161307960,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,635,161311276,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,636,161314590,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,637,161317906,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,638,161321316,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,639,161371796,-;PCIe error(s) detected
+3,640,161373913,-;PCIe ERR_DR register: 0x00800000
+3,641,161376885,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,642,161380376,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,643,161383692,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,644,161387007,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,645,161390321,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,646,161433078,-;PCIe error(s) detected
+3,647,161435200,-;PCIe ERR_DR register: 0x00800000
+3,648,161438173,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,649,161441664,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,650,161444980,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,651,161448296,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,652,161451612,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,653,161494362,-;PCIe error(s) detected
+3,654,161496484,-;PCIe ERR_DR register: 0x00800000
+3,655,161499457,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,656,161502947,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,657,161506263,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,658,161509578,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,659,161512894,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,660,161555644,-;PCIe error(s) detected
+3,661,161557766,-;PCIe ERR_DR register: 0x00800000
+3,662,161560741,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,663,161564232,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,664,161567548,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,665,161570863,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,666,161574178,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,667,161616926,-;PCIe error(s) detected
+3,668,161619049,-;PCIe ERR_DR register: 0x00800000
+3,669,161622022,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,670,161625512,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,671,161628828,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,672,161632143,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,673,161635459,-;PCIe ERR_CAP_R3 register: 0x00000000
+6,674,161638875,-;amdgpu 0001:01:00.0: amdgpu: \x0alast message was failed ret is 65535
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,675,161689350,-;PCIe error(s) detected
+3,676,161691467,-;PCIe ERR_DR register: 0x00800000
+3,677,161694439,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,678,161697929,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,679,161701245,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,680,161704560,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,681,161707875,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,682,161750634,-;PCIe error(s) detected
+3,683,161752756,-;PCIe ERR_DR register: 0x00800000
+3,684,161755730,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,685,161759221,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,686,161762536,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,687,161765851,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,688,161769167,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,689,161811916,-;PCIe error(s) detected
+3,690,161814038,-;PCIe ERR_DR register: 0x00800000
+3,691,161817011,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,692,161820501,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,693,161823817,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,694,161827133,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,695,161830448,-;PCIe ERR_CAP_R3 register: 0x00000000
+3,696,161873198,-;PCIe error(s) detected
+3,697,161875321,-;PCIe ERR_DR register: 0x00800000
+3,698,161878294,-;PCIe ERR_CAP_STAT register: 0x00000023
+3,699,161881785,-;PCIe ERR_CAP_R0 register: 0x00000000
+3,700,161885100,-;PCIe ERR_CAP_R1 register: 0x00000000
+3,701,161888415,-;PCIe ERR_CAP_R2 register: 0x00000000
+3,702,161891731,-;PCIe ERR_CAP_R3 register: 0x00000000

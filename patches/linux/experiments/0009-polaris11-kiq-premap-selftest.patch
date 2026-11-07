@@ -1,0 +1,27 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -4354,6 +4354,14 @@
+ 	uint64_t queue_mask = 0;
+ 	int r, i;
+ 
++	if (amdgpu_ring_uses_sw_le(kiq_ring)) {
++		dev_info(adev->dev, "KIQ_GATE testing control ring before queue mapping\n");
++		r = amdgpu_ring_test_helper(kiq_ring);
++		dev_info(adev->dev, "KIQ_GATE control ring result=%d\n", r);
++		if (r)
++			return r;
++	}
++
+ 	for (i = 0; i < AMDGPU_MAX_COMPUTE_QUEUES; ++i) {
+ 		if (!test_bit(i, adev->gfx.mec_bitmap[0].queue_bitmap))
+ 			continue;
+@@ -4404,7 +4412,9 @@
+ 		amdgpu_ring_write(kiq_ring, upper_32_bits(wptr_addr));
+ 	}
+ 
++	dev_info(adev->dev, "KIQ_GATE submitting compute queue mapping\n");
+ 	amdgpu_ring_commit(kiq_ring);
++	dev_info(adev->dev, "KIQ_GATE compute mapping submitted\n");
+ 
+ 	return 0;
+ }

@@ -1,0 +1,146 @@
+{
+  "component": "linux",
+  "version": "6.12.113-1",
+  "image_id": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "status": "configured",
+  "mode": "configure",
+  "lock_sha256": "5306c9cdbc27ba73f024a60ed28c3f34e57f9a2ad94ad01b7234f371fbe181d9",
+  "series_sha256": "0d75283ce3e34b57427cb9d2502895de538b9323f22ced77f128b9dafdf1ffca",
+  "patches": {
+    "0001-powerpc-tabor-initial-machine-dts.patch": "f661ea76c3ca42ceb1ec1c8f069185e456a5ad4c45807410fac0a773e9d45dd4",
+    "0002-powerpc-tabor-match-vendor-compatible.patch": "8302d1b1f5f2380ed8541acf632a99b7cdb978d3a30446f6170b02122f4d1175",
+    "0003-smu-diagnostics-experiment.patch": "40342c31b3c61ed26088333a5762d17bf9087312377306b53b684cbeae0a3cf3",
+    "0004-smu7-endian-experiment.patch": "556f046ee30cf48278f031d8bd43053fa432d3093c258ad25e0f2fc9e7c60620",
+    "0005-smu-toc-experiment.patch": "a2fe1755a955e17db2e4846189ec89231e9fdb9032b11c11181398a72c4b60cd",
+    "0006-gfx-producer-experiment.patch": "9f7a4549e1fd644ec9299de3276ca3967df1d066b9a6ae1ce67b8e9ef2b680d0",
+    "0007-gfx-swap-readback-experiment.patch": "22903c3c82198046b257de1ef7b2747c5f22edee3b947b6512f3b72aa0024718",
+    "0008-gfx-software-le-experiment.patch": "84b02a5b6d1a62a14ed0a3ec6b638925f68c13d617902b3a35b0b2a080299104"
+  },
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/base/tabor-source-cache/linux_6.12.113-1.dsc",
+      "/base/work/gfx-software-le-20261106-001/source"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0001-powerpc-tabor-initial-machine-dts.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0002-powerpc-tabor-match-vendor-compatible.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0002-powerpc-tabor-match-vendor-compatible.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0003-smu-diagnostics-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0003-smu-diagnostics-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0004-smu7-endian-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0004-smu7-endian-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0005-smu-toc-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0005-smu-toc-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0006-gfx-producer-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0006-gfx-producer-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0007-gfx-swap-readback-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0007-gfx-swap-readback-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "--check",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0008-gfx-software-le-experiment.patch"
+    ],
+    [
+      "git",
+      "apply",
+      "/base/gfx-software-le-20261106-001-project/patches/linux/0008-gfx-software-le-experiment.patch"
+    ],
+    [
+      "dpkg-query",
+      "-W"
+    ],
+    [
+      "powerpc-linux-gnu-gcc",
+      "--version"
+    ],
+    [
+      "powerpc-linux-gnu-ld",
+      "--version"
+    ],
+    [
+      "make",
+      "-C",
+      "/base/work/gfx-software-le-20261106-001/source",
+      "O=/base/work/gfx-software-le-20261106-001/output",
+      "ARCH=powerpc",
+      "CROSS_COMPILE=powerpc-linux-gnu-",
+      "olddefconfig"
+    ]
+  ],
+  "kernel_profile": "tabor-modular",
+  "boot_tested": false,
+  "spe_userspace_validated": false,
+  "retained_config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec",
+  "config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec",
+  "artifacts": {
+    ".config": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec"
+  },
+  "cache_reverified": true
+}
