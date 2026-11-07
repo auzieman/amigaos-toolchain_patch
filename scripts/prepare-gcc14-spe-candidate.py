@@ -22,6 +22,20 @@ def main():
     parser.add_argument("--gcc14", type=Path, required=True)
     args = parser.parse_args()
     patches = Path(__file__).resolve().parents[1] / "patches/gcc/gcc14-spe-candidate"
+    pin = json.loads((patches / "manifest.json").read_text())
+    series = [line for line in (patches / "series").read_text().splitlines()
+              if line and not line.startswith("#")]
+    if series != [item["file"] for item in pin["patches"]]:
+        raise SystemExit("Candidate series differs from reviewed patch manifest")
+    for item in pin["patches"]:
+        if digest((patches / item["file"]).read_bytes()) != item["sha256"]:
+            raise SystemExit(f"Patch hash mismatch: {item['file']}")
+    for filename, field in (("imports.json", "import_manifest_sha256"),
+                            ("debian-gcc-gfdl-build.diff", "debian_dfsg_patch_sha256")):
+        if digest((patches / filename).read_bytes()) != pin[field]:
+            raise SystemExit(f"Candidate input hash mismatch: {filename}")
+    if (args.gcc14 / "gcc/BASE-VER").read_text().strip() != "14.2.0":
+        raise SystemExit("Requires the reviewed GCC14.2.0 source baseline")
     manifest = json.loads((patches / "imports.json").read_text())
     files = manifest["files"]
     renames = {Path(f["source"]).name: Path(f["destination"]).name
@@ -45,10 +59,9 @@ def main():
         destination.parent.mkdir(parents=True, exist_ok=True)
         destination.write_bytes(data)
         shutil.copymode(source, destination)
-    for name in (patches / "series").read_text().splitlines():
-        if name and not name.startswith("#"):
-            subprocess.run(["patch", "--batch", "--forward", "--no-backup-if-mismatch", "-p1"],
-                           cwd=args.gcc14, input=(patches / name).read_bytes(), check=True)
+    for name in series:
+        subprocess.run(["patch", "--batch", "--forward", "--no-backup-if-mismatch", "-p1"],
+                       cwd=args.gcc14, input=(patches / name).read_bytes(), check=True)
     # Debian's DFSG tarball deliberately omits the GFDL manual. Use its
     # existing build adaptation, rather than inventing target hook docs.
     subprocess.run(["patch", "--batch", "--forward", "--no-backup-if-mismatch", "-p2"],

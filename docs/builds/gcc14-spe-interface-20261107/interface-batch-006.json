@@ -1,0 +1,83 @@
+{
+  "patches": [
+    {
+      "patch": "0006-retain-options-without-report-metadata.patch",
+      "reason": "GCC8 options.texi defines Report as fverbose-asm state reporting. GCC14 toplev uses gen_command_line_string; functional target option definitions remain intact.",
+      "sha256": "10b651c296cd032e45a99513f7e99257303694177f01751e62ead1fc7ff347eb",
+      "files": [
+        {
+          "file": "gcc/config/powerpcspe/aix64.opt",
+          "before": "b7c8206289884211c2beff1e5a0b0d49adf326a95d8cfc1cffc842040aa1e1ef",
+          "after": "39fe63f9668961b18ef40fe95ec399c649e6659cbbf1b0728aae8d44275cbecf"
+        },
+        {
+          "file": "gcc/config/powerpcspe/linux64.opt",
+          "before": "2ea951896e0bb3c6dbd863f6128d4d6d7e6d96f1fcca84ff820fc258122a4e1c",
+          "after": "8097998f3f5a85e5974fc197a07d2cc1a02e6cf1046ea52cf516a4436294b008"
+        },
+        {
+          "file": "gcc/config/powerpcspe/sysv4.opt",
+          "before": "7fdb61502bf14e7f46f00393dcf7c59dcd789de11d05ad2a3710eed69359d69f",
+          "after": "98117a775e7b70e306467abee3dd811d5cbcfa8b52e922b0e47c70896bd07c5a"
+        },
+        {
+          "file": "gcc/config/powerpcspe/powerpcspe.opt",
+          "before": "b57c30ae5247e153d3bdd6442ec3eebb3eb8353f60c4dc1bf8859aa37cd2cb39",
+          "after": "df761d05d2bc48215627394368df94f398d3aa2c21b952825b59b4be6443b5d8"
+        }
+      ]
+    },
+    {
+      "patch": "0007-modern-symbol-register-and-cpp-interfaces.patch",
+      "reason": "Use current rs6000 interposition policy, ABI pointer contract, retained CALL_REALLY_USED_REGISTERS and cpp_macro_p; do not change SPE high-register call mask.",
+      "sha256": "c01eab0963cc3e8dc0603126bc19315765195d96d39e5fafd5deceaa7e43ba11",
+      "files": [
+        {
+          "file": "gcc/config/powerpcspe/predicates.md",
+          "before": "05032b2ad04fa542af1e3696be2a486fa9d9e9a99c3ae80012f96d3caf315cb4",
+          "after": "6d87ecaaf804d64f63b4bd377040c8561f15314aa543fb6c1bea35d7b95ca890"
+        },
+        {
+          "file": "gcc/config/powerpcspe/powerpcspe.h",
+          "before": "521da2e8528c252e95f176a1c0df51c701d6ac4534657484d3e4d4aa4f996a50",
+          "after": "1c14c08a3d9b7c0e19558f625c6e0a788b94624e8bb6fc74bd9224241c8972fb"
+        },
+        {
+          "file": "gcc/config/powerpcspe/powerpcspe-c.cc",
+          "before": "6f20c4efa2537bcc04389842d2f08f5a2643775934110747b993996eddb1a088",
+          "after": "2fbd60c2471042b4602d27580751aaa24d7da2366af60ec7edc0035904789586"
+        }
+      ]
+    },
+    {
+      "patch": "0008-preserve-tuning-defaults-through-modern-options.patch",
+      "reason": "Migrate eight legacy tuning defaults to existing GCC14 option-table and SET_OPTION_IF_UNSET interfaces. Remove unavailable headers, preserving default values and explicit user overrides.",
+      "sha256": "15765bc4c6b601a5309fec8ffdd746b0db22ba11fd8419ca9ab8c62f638adff1",
+      "files": [
+        {
+          "file": "gcc/common/config/powerpcspe/powerpcspe-common.cc",
+          "before": "a32fade13d111e8865e3e87f35b6e7cd1947dca538821fc90a9a9a60c23f4148",
+          "after": "2a0109e3809bcd12012db046d853c381fdbbadc40d035270ffdff6c7f190d52d"
+        },
+        {
+          "file": "gcc/config/powerpcspe/powerpcspe.cc",
+          "before": "ed579ac6a34faaf8a06be3008fd1d5a1a4fa2fdddb2500f80e4b056bebb83ca6",
+          "after": "fab49b78e2e139dc52e308a1b84169266de4551360a2468040553cbf74add0fb"
+        }
+      ]
+    },
+    {
+      "patch": "0009-match-modern-vector-expand-contract.patch",
+      "reason": "Current GCC14 rs6000 uses gcc_unreachable for vcond/vcondu failed expansion: these standard named patterns cannot FAIL. Retain existing feature conditions; no vector ISA is newly enabled. Generic vector runtime coverage remains pending.",
+      "sha256": "48425d9e1f1dc6ec1c9a9dd5766f5f92cdf6bc836d993ef48e60f0492a145255",
+      "files": [
+        {
+          "file": "gcc/config/powerpcspe/vector.md",
+          "before": "5e7823837231ca1835e491b348a23b20277fbc0914d998f7659e91730a19f13a",
+          "after": "af48291bf40fc2f7dd91452a24bc37f17696effa9cd10cd1412000b751e0807d"
+        }
+      ]
+    }
+  ],
+  "option_audit_count": 94
+}

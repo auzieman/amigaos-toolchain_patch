@@ -1,0 +1,105 @@
+{
+  "status": "experimental-C-bootstrap-built-selected-tests-pass",
+  "target": "powerpc-linux-gnuspe",
+  "source_profile": "profiles/trixie-spe-sdk-candidate.json",
+  "gcc14_debian_source": {
+    "version": "14.2.0-19",
+    "dsc": "gcc-14_14.2.0-19.dsc",
+    "files": [
+      {
+        "filename": "gcc-14_14.2.0-19.dsc",
+        "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0-19.dsc",
+        "size": 47347,
+        "sha256": "7db1e202cce66617e9134a662c877a3a773de5b612fd52179815877e0ecfb847"
+      },
+      {
+        "filename": "gcc-14_14.2.0.orig.tar.gz",
+        "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0.orig.tar.gz",
+        "size": 94299633,
+        "sha256": "e162a5ef3f0077ecae598c6556908d2ab80841532df3398072a96a6df6e6aa29"
+      },
+      {
+        "filename": "gcc-14_14.2.0-19.debian.tar.xz",
+        "url": "https://snapshot.debian.org/archive/debian-security/20261102T220000Z/pool/updates/main/g/gcc-14/gcc-14_14.2.0-19.debian.tar.xz",
+        "size": 2577016,
+        "sha256": "31cbab4bafa48aa1c540497bd8098cbcf98e673778f927651ed944709f687781"
+      }
+    ]
+  },
+  "legacy_reference": "GNU GCC8.5.0, imports.json per-file hashes",
+  "patches": [
+    {
+      "file": "0001-register-linux-powerpcspe.patch",
+      "sha256": "301d14ab0e194a9c524720ce50a9f99bcc8bd76db1801af4797d087458cb5d6a"
+    },
+    {
+      "file": "0002-option-url-metadata.patch",
+      "sha256": "4c53d2069bfbb83aca8a67ef386f02d0be946bf4e91ed9273bb74db5dfe2b609"
+    },
+    {
+      "file": "0003-modern-debug-interface.patch",
+      "sha256": "563d3e45e21ab68426241757c6ce486d4893826189b7159b00cac3d981ad224e"
+    },
+    {
+      "file": "0004-remove-obsolete-extern-c-switch.patch",
+      "sha256": "3b78975fac3031a61feac58c2a4a6752d8433a0006eb08f79385bdfed4cff895"
+    },
+    {
+      "file": "0005-qualify-machine-mode-iterators.patch",
+      "sha256": "fd700d67f2b98ed81c90df4d1666f6f9ef139f1f4353f9077ade26b6182483b6"
+    },
+    {
+      "file": "0006-retain-options-without-report-metadata.patch",
+      "sha256": "5b53531517437b2a5e75f27813d841d0d6da06e25805226712dc409da8edcad5"
+    },
+    {
+      "file": "0007-modern-symbol-register-and-cpp-interfaces.patch",
+      "sha256": "0513b3cfebc6283f21589761ee02964d4c376a2a3cac70e55e91051bde86faaf"
+    },
+    {
+      "file": "0008-preserve-tuning-defaults-through-modern-options.patch",
+      "sha256": "d450de344aeea25518397d3a31819611897f5116b05b0f3d67fd00c69d98a638"
+    },
+    {
+      "file": "0009-match-modern-vector-expand-contract.patch",
+      "sha256": "71956312c53f46b057344d3a3c030a511e578762183cf02c8dad8f21e6632b9a"
+    },
+    {
+      "file": "0010-preserve-conditional-spe-register-usage.patch",
+      "sha256": "0e6c43241232f7dc02b4c6d12ff3db63919f3504f0d2e31348799a0e905bbd9a"
+    },
+    {
+      "file": "0011-modern-option-state-and-rtl-interfaces.patch",
+      "sha256": "856684b833bc070d7551341fdd22263d223a0cfe6b5214a8dd892bf79b84384c"
+    },
+    {
+      "file": "0012-modern-alignment-records.patch",
+      "sha256": "5547d9b4d8fdb877eb8ed341afe7f4910f0b6fd33910bf8249387766496904e5"
+    },
+    {
+      "file": "0013-adapt-spe-argument-hooks.patch",
+      "sha256": "9344d3d5e1ba0736b08911f1b9cad551f69f2045c1e0549370f3e699eb1e8f01"
+    },
+    {
+      "file": "0014-complete-modern-hook-signatures.patch",
+      "sha256": "eff5d559d881c7a1f7b222d2d4fc5f8b7c16e62f395c61554e92edd8da713527"
+    },
+    {
+      "file": "0015-preserve-vector-costs-in-modern-analysis-interface.patch",
+      "sha256": "83d2f665877cc3f6072a1ec3a466bf2dbad33bd49af81bdb9a7a12b55e146fee"
+    },
+    {
+      "file": "0016-bind-vector-costs-to-current-analysis.patch",
+      "sha256": "b9b18df60b51fe7051d7af7d8e86d335f200823630dc9879d711e090e068a7db"
+    }
+  ],
+  "debian_dfsg_patch_sha256": "a6499d66629da1bb5d82b6b3667c47d08dac9a47e7635a354f822d1410035737",
+  "import_manifest_sha256": "e6161dbf16432bb076053029902e40857737fe94e1b1c0e5eb3fd3f845ebcf4b",
+  "accepted_sdk_replaced": false,
+  "limits": [
+    "C-only headerless bootstrap",
+    "libgcc/libc/C++ and full ABI tests not completed",
+    "generic PowerPC regressions pending",
+    "no GPU acceptance or boot image promotion"
+  ]
+}

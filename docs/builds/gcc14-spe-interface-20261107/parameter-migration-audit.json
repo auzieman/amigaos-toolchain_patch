@@ -1,0 +1,43 @@
+{
+  "common": {
+    "max_grow_copy_bb_insns": 16,
+    "mechanism": "OPT_LEVELS_ALL option-table entry, matching modern rs6000"
+  },
+  "override_defaults": [
+    {
+      "parameter": "simultaneous_prefetches",
+      "default_expression": "rs6000_cost->simultaneous_prefetches",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "l1_cache_size",
+      "default_expression": "rs6000_cost->l1_cache_size",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "l1_cache_line_size",
+      "default_expression": "rs6000_cost->cache_line_size",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "l2_cache_size",
+      "default_expression": "rs6000_cost->l2_cache_size",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "max_peeled_insns",
+      "default_expression": "400",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "max_completely_peeled_insns",
+      "default_expression": "400",
+      "preserve_user_override": true
+    },
+    {
+      "parameter": "sched_pressure_algorithm",
+      "default_expression": "SCHED_PRESSURE_MODEL",
+      "preserve_user_override": true
+    }
+  ]
+}

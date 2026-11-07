@@ -1,0 +1,677 @@
+{
+  "options": [
+    {
+      "file": "gcc/config/powerpcspe/aix64.opt",
+      "option": "maix64",
+      "properties_before": "Target Report RejectNegative Negative(maix32) Mask(64BIT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Negative(maix32) Mask(64BIT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/aix64.opt",
+      "option": "maix32",
+      "properties_before": "Target Report RejectNegative Negative(maix64) InverseMask(64BIT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Negative(maix64) InverseMask(64BIT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/aix64.opt",
+      "option": "mpe",
+      "properties_before": "Target Report RejectNegative Var(internal_nothing_1) Save",
+      "properties_after": "Target RejectNegative Var(internal_nothing_1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/linux64.opt",
+      "option": "mprofile-kernel",
+      "properties_before": "Target Report Var(profile_kernel) Save",
+      "properties_after": "Target Var(profile_kernel) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mbit-align",
+      "properties_before": "Target Undocumented Report Var(TARGET_NO_BITFIELD_TYPE) Save",
+      "properties_after": "Target Undocumented Var(TARGET_NO_BITFIELD_TYPE) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mstrict-align",
+      "properties_before": "Target Report Mask(STRICT_ALIGN) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(STRICT_ALIGN) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mrelocatable",
+      "properties_before": "Target Report Mask(RELOCATABLE) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(RELOCATABLE) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mlittle-endian",
+      "properties_before": "Target Report RejectNegative Mask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Mask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mlittle",
+      "properties_before": "Target Report RejectNegative Mask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Mask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mbig-endian",
+      "properties_before": "Target Report RejectNegative InverseMask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative InverseMask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mbig",
+      "properties_before": "Target Report RejectNegative InverseMask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative InverseMask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "meabi",
+      "properties_before": "Target Report Mask(EABI) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(EABI) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mbit-word",
+      "properties_before": "Target Report Var(TARGET_NO_BITFIELD_WORD) Save",
+      "properties_after": "Target Var(TARGET_NO_BITFIELD_WORD) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "m64",
+      "properties_before": "Target Report RejectNegative Negative(m32) Mask(64BIT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Negative(m32) Mask(64BIT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "m32",
+      "properties_before": "Target Report RejectNegative Negative(m64) InverseMask(64BIT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Negative(m64) InverseMask(64BIT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "msecure-plt",
+      "properties_before": "Target Report RejectNegative Var(secure_plt, 1) Save",
+      "properties_after": "Target RejectNegative Var(secure_plt, 1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mbss-plt",
+      "properties_before": "Target Report RejectNegative Var(secure_plt, 0) Save",
+      "properties_after": "Target RejectNegative Var(secure_plt, 0) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "option": "mgnu-attribute",
+      "properties_before": "Target Report Var(rs6000_gnu_attr) Init(1) Save",
+      "properties_after": "Target Var(rs6000_gnu_attr) Init(1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpowerpc64",
+      "properties_before": "Target Undocumented Report Mask(POWERPC64) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(POWERPC64) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpowerpc-gpopt",
+      "properties_before": "Target Undocumented Report Mask(PPC_GPOPT) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(PPC_GPOPT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpowerpc-gfxopt",
+      "properties_before": "Target Undocumented Report Mask(PPC_GFXOPT) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(PPC_GFXOPT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mmfcrf",
+      "properties_before": "Target Report Mask(MFCRF) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(MFCRF) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpopcntb",
+      "properties_before": "Target Report Mask(POPCNTB) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(POPCNTB) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfprnd",
+      "properties_before": "Target Undocumented Report Mask(FPRND) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(FPRND) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mcmpb",
+      "properties_before": "Target Undocumented Report Mask(CMPB) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(CMPB) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mmfpgpr",
+      "properties_before": "Target Undocumented Report Mask(MFPGPR) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(MFPGPR) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "maltivec",
+      "properties_before": "Target Undocumented Report Mask(ALTIVEC) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(ALTIVEC) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "maltivec=le",
+      "properties_before": "Target Undocumented Report RejectNegative Var(rs6000_altivec_element_order, 1) Save",
+      "properties_after": "Target Undocumented RejectNegative Var(rs6000_altivec_element_order, 1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "maltivec=be",
+      "properties_before": "Target Undocumented Report RejectNegative Var(rs6000_altivec_element_order, 2)",
+      "properties_after": "Target Undocumented RejectNegative Var(rs6000_altivec_element_order, 2)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mhard-dfp",
+      "properties_before": "Target Undocumented Report Mask(DFP) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(DFP) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mmulhw",
+      "properties_before": "Target Undocumented Report Mask(MULHW) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(MULHW) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mdlmzb",
+      "properties_before": "Target Undocumented Report Mask(DLMZB) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(DLMZB) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mmultiple",
+      "properties_before": "Target Report Mask(MULTIPLE) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(MULTIPLE) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mstring",
+      "properties_before": "Target Undocumented Report Mask(STRING) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(STRING) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msoft-float",
+      "properties_before": "Target Report RejectNegative Mask(SOFT_FLOAT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Mask(SOFT_FLOAT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mhard-float",
+      "properties_before": "Target Report RejectNegative InverseMask(SOFT_FLOAT, HARD_FLOAT) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative InverseMask(SOFT_FLOAT, HARD_FLOAT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpopcntd",
+      "properties_before": "Target Undocumented Report Mask(POPCNTD) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(POPCNTD) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfriz",
+      "properties_before": "Target Undocumented Report Var(TARGET_FRIZ) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_FRIZ) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx",
+      "properties_before": "Target Undocumented Report Mask(VSX) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(VSX) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx-scalar-float",
+      "properties_before": "Target Undocumented Report Var(TARGET_VSX_SCALAR_FLOAT) Init(1)",
+      "properties_after": "Target Undocumented Var(TARGET_VSX_SCALAR_FLOAT) Init(1)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx-scalar-double",
+      "properties_before": "Target Undocumented Report Var(TARGET_VSX_SCALAR_DOUBLE) Init(1)",
+      "properties_after": "Target Undocumented Var(TARGET_VSX_SCALAR_DOUBLE) Init(1)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx-scalar-memory",
+      "properties_before": "Target Undocumented Report Alias(mupper-regs-df)",
+      "properties_after": "Target Undocumented Alias(mupper-regs-df)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx-align-128",
+      "properties_before": "Target Undocumented Report Var(TARGET_VSX_ALIGN_128) Save",
+      "properties_after": "Target Undocumented Var(TARGET_VSX_ALIGN_128) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mefficient-unaligned-vsx",
+      "properties_before": "Target Undocumented Report Mask(EFFICIENT_UNALIGNED_VSX) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(EFFICIENT_UNALIGNED_VSX) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msched-groups",
+      "properties_before": "Target Undocumented Report Var(TARGET_SCHED_GROUPS) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_SCHED_GROUPS) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "malways-hint",
+      "properties_before": "Target Undocumented Report Var(TARGET_ALWAYS_HINT) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_ALWAYS_HINT) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "malign-branch-targets",
+      "properties_before": "Target Undocumented Report Var(TARGET_ALIGN_BRANCH_TARGETS) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_ALIGN_BRANCH_TARGETS) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvectorize-builtins",
+      "properties_before": "Target Undocumented Report Var(TARGET_VECTORIZE_BUILTINS) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_VECTORIZE_BUILTINS) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mno-update",
+      "properties_before": "Target Report RejectNegative Mask(NO_UPDATE) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative Mask(NO_UPDATE) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mupdate",
+      "properties_before": "Target Report RejectNegative InverseMask(NO_UPDATE, UPDATE) Var(rs6000_isa_flags)",
+      "properties_after": "Target RejectNegative InverseMask(NO_UPDATE, UPDATE) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msingle-pic-base",
+      "properties_before": "Target Report Var(TARGET_SINGLE_PIC_BASE) Init(0)",
+      "properties_after": "Target Var(TARGET_SINGLE_PIC_BASE) Init(0)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mavoid-indexed-addresses",
+      "properties_before": "Target Report Var(TARGET_AVOID_XFORM) Init(-1) Save",
+      "properties_after": "Target Var(TARGET_AVOID_XFORM) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mtls-markers",
+      "properties_before": "Target Report Var(tls_markers) Init(1) Save",
+      "properties_after": "Target Var(tls_markers) Init(1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msched-prolog",
+      "properties_before": "Target Report Var(TARGET_SCHED_PROLOG) Save",
+      "properties_after": "Target Var(TARGET_SCHED_PROLOG) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "maix-struct-return",
+      "properties_before": "Target Report RejectNegative Var(aix_struct_return) Save",
+      "properties_after": "Target RejectNegative Var(aix_struct_return) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msvr4-struct-return",
+      "properties_before": "Target Report RejectNegative Var(aix_struct_return,0) Save",
+      "properties_after": "Target RejectNegative Var(aix_struct_return,0) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mxl-compat",
+      "properties_before": "Target Report Var(TARGET_XL_COMPAT) Save",
+      "properties_after": "Target Var(TARGET_XL_COMPAT) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mrecip",
+      "properties_before": "Target Report",
+      "properties_after": "Target ",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mrecip=",
+      "properties_before": "Target Report RejectNegative Joined Var(rs6000_recip_name)",
+      "properties_after": "Target RejectNegative Joined Var(rs6000_recip_name)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mrecip-precision",
+      "properties_before": "Target Report Mask(RECIP_PRECISION) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(RECIP_PRECISION) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mno-fp-in-toc",
+      "properties_before": "Target Report RejectNegative Var(TARGET_NO_FP_IN_TOC) Save",
+      "properties_after": "Target RejectNegative Var(TARGET_NO_FP_IN_TOC) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfp-in-toc",
+      "properties_before": "Target Report RejectNegative Var(TARGET_NO_FP_IN_TOC,0) Save",
+      "properties_after": "Target RejectNegative Var(TARGET_NO_FP_IN_TOC,0) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mminimal-toc",
+      "properties_before": "Target Report Mask(MINIMAL_TOC) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(MINIMAL_TOC) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfull-toc",
+      "properties_before": "Target Report",
+      "properties_after": "Target ",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvrsave",
+      "properties_before": "Target Undocumented Report Var(TARGET_ALTIVEC_VRSAVE) Save",
+      "properties_after": "Target Undocumented Var(TARGET_ALTIVEC_VRSAVE) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mblock-move-inline-limit=",
+      "properties_before": "Target Report Var(rs6000_block_move_inline_limit) Init(0) RejectNegative Joined UInteger Save",
+      "properties_after": "Target Var(rs6000_block_move_inline_limit) Init(0) RejectNegative Joined UInteger Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mblock-compare-inline-limit=",
+      "properties_before": "Target Report Var(rs6000_block_compare_inline_limit) Init(5) RejectNegative Joined UInteger Save",
+      "properties_after": "Target Var(rs6000_block_compare_inline_limit) Init(5) RejectNegative Joined UInteger Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mstring-compare-inline-limit=",
+      "properties_before": "Target Report Var(rs6000_string_compare_inline_limit) Init(8) RejectNegative Joined UInteger Save",
+      "properties_after": "Target Var(rs6000_string_compare_inline_limit) Init(8) RejectNegative Joined UInteger Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "misel",
+      "properties_before": "Target Report Mask(ISEL) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(ISEL) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mlongcall",
+      "properties_before": "Target Report Var(rs6000_default_long_calls) Save",
+      "properties_after": "Target Var(rs6000_default_long_calls) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mgen-cell-microcode",
+      "properties_before": "Target Undocumented Report Var(rs6000_gen_cell_microcode) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(rs6000_gen_cell_microcode) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mlra",
+      "properties_before": "Target Report Mask(LRA) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(LRA) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpointers-to-nested-functions",
+      "properties_before": "Target Report Var(TARGET_POINTERS_TO_NESTED_FUNCTIONS) Init(1) Save",
+      "properties_after": "Target Var(TARGET_POINTERS_TO_NESTED_FUNCTIONS) Init(1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "msave-toc-indirect",
+      "properties_before": "Target Report Mask(SAVE_TOC_INDIRECT) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(SAVE_TOC_INDIRECT) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower8-fusion",
+      "properties_before": "Target Undocumented Report Mask(P8_FUSION) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(P8_FUSION) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower8-vector",
+      "properties_before": "Target Undocumented Report Mask(P8_VECTOR) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(P8_VECTOR) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mcrypto",
+      "properties_before": "Target Undocumented Report Mask(CRYPTO) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(CRYPTO) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mdirect-move",
+      "properties_before": "Target Undocumented Report Mask(DIRECT_MOVE) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(DIRECT_MOVE) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mhtm",
+      "properties_before": "Target Undocumented Report Mask(HTM) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(HTM) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mquad-memory",
+      "properties_before": "Target Undocumented Report Mask(QUAD_MEMORY) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(QUAD_MEMORY) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mquad-memory-atomic",
+      "properties_before": "Target Undocumented Report Mask(QUAD_MEMORY_ATOMIC) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(QUAD_MEMORY_ATOMIC) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mcompat-align-parm",
+      "properties_before": "Target Report Var(rs6000_compat_align_parm) Init(0) Save",
+      "properties_after": "Target Var(rs6000_compat_align_parm) Init(0) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mupper-regs-df",
+      "properties_before": "Target Undocumented Report Mask(UPPER_REGS_DF) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(UPPER_REGS_DF) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mupper-regs-sf",
+      "properties_before": "Target Undocumented Report Mask(UPPER_REGS_SF) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(UPPER_REGS_SF) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mupper-regs",
+      "properties_before": "Target Undocumented Report Var(TARGET_UPPER_REGS) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_UPPER_REGS) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mupper-regs-di",
+      "properties_before": "Target Undocumented Report Mask(UPPER_REGS_DI) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(UPPER_REGS_DI) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower9-fusion",
+      "properties_before": "Target Undocumented Report Mask(P9_FUSION) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(P9_FUSION) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower9-misc",
+      "properties_before": "Target Undocumented Report Mask(P9_MISC) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(P9_MISC) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower9-vector",
+      "properties_before": "Target Undocumented Report Mask(P9_VECTOR) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(P9_VECTOR) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mpower9-dform",
+      "properties_before": "Target Undocumented Report Var(TARGET_P9_DFORM_BOTH) Init(-1) Save",
+      "properties_after": "Target Undocumented Var(TARGET_P9_DFORM_BOTH) Init(-1) Save",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mmodulo",
+      "properties_before": "Target Undocumented Report Mask(MODULO) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(MODULO) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfloat128",
+      "properties_before": "Target Report Mask(FLOAT128_KEYWORD) Var(rs6000_isa_flags)",
+      "properties_after": "Target Mask(FLOAT128_KEYWORD) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mfloat128-hardware",
+      "properties_before": "Target Undocumented Report Mask(FLOAT128_HW) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(FLOAT128_HW) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "option": "mvsx-small-integer",
+      "properties_before": "Target Undocumented Report Mask(VSX_SMALL_INTEGER) Var(rs6000_isa_flags)",
+      "properties_after": "Target Undocumented Mask(VSX_SMALL_INTEGER) Var(rs6000_isa_flags)",
+      "decision": "retain option and all functional properties; remove retired verbose-assembly reporting metadata only"
+    }
+  ],
+  "count": 94,
+  "evidence": [
+    "legacy/gcc/doc/options.texi:419",
+    "legacy/gcc/toplev.c:837",
+    "modern/gcc/opt-functions.awk:182",
+    "modern/gcc/toplev.cc:741"
+  ],
+  "critical_retained": [
+    "mspe",
+    "mfloat-gprs=",
+    "mabi=",
+    "mbig-endian",
+    "mhard-float"
+  ],
+  "runtime_validation": "pending working compiler; -Q --help=target, verbose assembly, positive/negative target options and emitted instructions required"
+}

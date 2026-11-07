@@ -1,0 +1,24 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-gcc14-spe-reconstruct-017",
+    "--cpus=1",
+    "--memory=2g",
+    "--network=none",
+    "--entrypoint",
+    "/bin/sh",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001:/work",
+    "-v",
+    "/home/owner/gcc14-spe-recipe-017:/recipe:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-foundation-20261107-001/debian-source:/inputs:ro",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "-c",
+    "set -eu; mkdir /work/reconstructed-017; tar -xf /inputs/gcc-14.2.0-dfsg.tar.xz -C /work/reconstructed-017 --strip-components=1; python3 /recipe/scripts/prepare-gcc14-spe-candidate.py --gcc8 /work/legacy --gcc14 /work/reconstructed-017 > /work/reconstruction-017.log 2>&1; diff -qr /work/modern/gcc/config/powerpcspe /work/reconstructed-017/gcc/config/powerpcspe >> /work/reconstruction-017.log; diff -qr /work/modern/gcc/common/config/powerpcspe /work/reconstructed-017/gcc/common/config/powerpcspe >> /work/reconstruction-017.log; cmp /work/modern/gcc/config.gcc /work/reconstructed-017/gcc/config.gcc; cmp /work/modern/gcc/Makefile.in /work/reconstructed-017/gcc/Makefile.in; echo RECONSTRUCTION_PASS >> /work/reconstruction-017.log"
+  ],
+  "purpose": "apply serialized candidate patches to a fresh pinned source tree and compare compiled source"
+}

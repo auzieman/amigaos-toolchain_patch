@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "checked_report_records": 94,
+  "files": [
+    {
+      "file": "gcc/config/powerpcspe/xilinx.opt",
+      "records": 2,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe-tables.opt",
+      "records": 58,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/476.opt",
+      "records": 1,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/aix64.opt",
+      "records": 10,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/linux64.opt",
+      "records": 6,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "records": 35,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/darwin.opt",
+      "records": 6,
+      "unchanged_except_report": true
+    },
+    {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "records": 174,
+      "unchanged_except_report": true
+    }
+  ],
+  "critical_option_records": {
+    "mlittle-endian": {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "properties": [
+        "Target RejectNegative Mask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+        "Produce little endian code."
+      ]
+    },
+    "mbig-endian": {
+      "file": "gcc/config/powerpcspe/sysv4.opt",
+      "properties": [
+        "Target RejectNegative InverseMask(LITTLE_ENDIAN) Var(rs6000_isa_flags)",
+        "Produce big endian code."
+      ]
+    },
+    "msoft-float": {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "properties": [
+        "Target RejectNegative Mask(SOFT_FLOAT) Var(rs6000_isa_flags)",
+        "Do not use hardware floating point."
+      ]
+    },
+    "mhard-float": {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "properties": [
+        "Target RejectNegative InverseMask(SOFT_FLOAT, HARD_FLOAT) Var(rs6000_isa_flags)",
+        "Use hardware floating point."
+      ]
+    },
+    "mspe": {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "properties": [
+        "Target Var(rs6000_spe) Save",
+        "Generate SPE SIMD instructions on E500."
+      ]
+    },
+    "mabi=spe": {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "properties": [
+        "Target RejectNegative Var(rs6000_spe_abi) Save",
+        "Use the SPE ABI extensions."
+      ]
+    },
+    "mfloat-gprs=": {
+      "file": "gcc/config/powerpcspe/powerpcspe.opt",
+      "properties": [
+        "Target RejectNegative Joined Enum(rs6000_float_gprs) Var(rs6000_float_gprs) Save",
+        "-mfloat-gprs=\tSelect GPR floating point method."
+      ]
+    }
+  },
+  "spe_call_really_used_register_table": "byte-identical",
+  "limits": "Source preservation only; no target compile/runtime acceptance"
+}

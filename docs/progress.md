@@ -1347,3 +1347,20 @@ Root key SSH works. Live log/reprobe reaches VRAM/GART and firmware discovery, t
 ## 2026-11-07 — GCC14 SPE backend restoration starts
 
 Imported147 hash-checked GCC8.5 SPE backend files into disposable GCC14.2.0 sources on R730. Candidate target selection, GCC14 option metadata, removed debug interfaces and machine-mode iterator syntax are recorded as ordered source patches. Used Debian’s existing DFSG documentation build patch. Pass005 now reaches compiler translation units; modern backend API adaptations remain. Accepted SDK and active USB kernel unchanged. See [checkpoint](builds/gcc14-spe-port-20261107/README.md).
+
+## 2026-11-07 — GCC14 SPE C bootstrap and native selected tests pass
+
+Completed coherent candidate backend/API migration on the pinned GCC14.2.0 DFSG
+source:16 ordered patches,94 option-record preservation checks, eight tuning
+defaults carried through modern option state, modern ABI/asm/attribute/alignment
+interfaces, and per-analysis vector costing. Actual `-O3` testing found and fixed
+a stale vector-analysis context; the optimized loop emits SPE evfsadd and runs.
+Full `all-gcc` stage010 exits0; serialized source replay matches compiled source.
+20 automated compiler checks pass. The final freestanding C probe passes in
+QEMU/e500v2 and on the A1222 under6.12.113 with exit0 and taint0. An initial
+hardware exit-status failure was our incomplete syscall clobber list, corrected
+against glibc2.41 and retained in evidence. No libgcc/libc was linked.
+
+See [evidence](builds/gcc14-spe-interface-20261107/README.md). Accepted SDK/base
+lock/USB remain unchanged. libgcc, glibc/fenv/context/TLS/atomics, long double,
+C++ unwinding and cross-version/general PowerPC regression gates remain open.

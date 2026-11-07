@@ -1,0 +1,56 @@
+--- a/gcc/config/powerpcspe/vector.md
++++ b/gcc/config/powerpcspe/vector.md
+@@ -396,7 +396,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vcond<mode><mode>"
+@@ -414,7 +414,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vcondv4sfv4si"
+@@ -433,7 +433,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vcondv4siv4sf"
+@@ -452,7 +452,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vcondu<mode><mode>"
+@@ -470,7 +470,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vconduv4sfv4si"
+@@ -489,7 +489,7 @@
+ 				    operands[3], operands[4], operands[5]))
+     DONE;
+   else
+-    FAIL;
++    gcc_unreachable ();
+ }")
+ 
+ (define_expand "vector_eq<mode>"

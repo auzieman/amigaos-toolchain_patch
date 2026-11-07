@@ -1,0 +1,30 @@
+during GIMPLE pass: vect
+/output/probe-002/vector-loop.c: In function 'add':
+/output/probe-002/vector-loop.c:1:6: internal compiler error: Segmentation fault
+    1 | void add(float *a, const float *b, const float *c, unsigned n)
+      |      ^~~
+0xc4181f crash_signal
+	/work/modern/gcc/toplev.cc:319
+0xff0f71 if_nonpoly<int, bool, poly_int_traits<int>::is_poly>::type maybe_ne<1u, unsigned long, int>(poly_int<1u, unsigned long> const&, int const&)
+	/work/modern/gcc/poly-int.h:1222
+0xf8ea73 rs6000_finish_cost
+	/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6130
+0xff07bd rs6000_spe_vector_costs::finish_cost(vector_costs const*)
+	/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6174
+0xeb263a vect_compute_single_scalar_iteration_cost
+	/work/modern/gcc/tree-vect-loop.cc:1723
+0xeb263a vect_analyze_loop_2
+	/work/modern/gcc/tree-vect-loop.cc:2851
+0xeb4cb5 vect_analyze_loop_1
+	/work/modern/gcc/tree-vect-loop.cc:3482
+0xeb54ca vect_analyze_loop(loop*, vec_info_shared*)
+	/work/modern/gcc/tree-vect-loop.cc:3640
+0xef4eaa try_vectorize_loop_1
+	/work/modern/gcc/tree-vectorizer.cc:1066
+0xef4eaa try_vectorize_loop
+	/work/modern/gcc/tree-vectorizer.cc:1182
+0xef5664 execute
+	/work/modern/gcc/tree-vectorizer.cc:1298
+Please submit a full bug report, with preprocessed source (by using -freport-bug).
+Please include the complete backtrace with any bug report.
+See <https://gcc.gnu.org/bugs/> for instructions.

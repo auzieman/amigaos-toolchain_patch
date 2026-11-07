@@ -1,0 +1,74 @@
+--- a/gcc/config/powerpcspe/predicates.md
++++ b/gcc/config/powerpcspe/predicates.md
+@@ -1127,7 +1127,9 @@
+        (match_test "(DEFAULT_ABI != ABI_AIX || SYMBOL_REF_FUNCTION_P (op))
+ 		    && (SYMBOL_REF_LOCAL_P (op)
+ 			|| (op == XEXP (DECL_RTL (current_function_decl), 0)
+-			    && !decl_replaceable_p (current_function_decl)))
++			    && !decl_replaceable_p (current_function_decl,
++                                                opt_for_fn (current_function_decl,
++                                                            flag_semantic_interposition))))
+ 		    && !((DEFAULT_ABI == ABI_AIX
+ 			  || DEFAULT_ABI == ABI_ELFv2)
+ 			 && (SYMBOL_REF_EXTERNAL_P (op)
+--- a/gcc/config/powerpcspe/powerpcspe.h
++++ b/gcc/config/powerpcspe/powerpcspe.h
+@@ -1086,21 +1086,6 @@
+    and the register where structure-value addresses are passed.
+    Aside from that, you can include as many other registers as you like.  */
+ 
+-#define CALL_USED_REGISTERS  \
+-  {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, FIXED_R13, 0, 0, \
+-   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
+-   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, \
+-   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
+-   1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1,	   \
+-   /* AltiVec registers.  */			   \
+-   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
+-   0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, \
+-   1, 1						   \
+-   , 1, 1, 1, 1, 1, 1,				   \
+-   /* SPE High registers.  */			   \
+-   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, \
+-   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1  \
+-}
+ 
+ /* Like `CALL_USED_REGISTERS' except this macro doesn't require that
+    the entire set of `FIXED_REGISTERS' be included.
+@@ -1273,7 +1258,7 @@
+    ? DFmode								\
+    : !TARGET_E500_DOUBLE && (MODE) == TDmode && FP_REGNO_P (REGNO)	\
+    ? DImode								\
+-   : choose_hard_reg_mode ((REGNO), (NREGS), false))
++   : choose_hard_reg_mode ((REGNO), (NREGS), NULL))
+ 
+ #define VSX_VECTOR_MODE(MODE)		\
+ 	 ((MODE) == V4SFmode		\
+--- a/gcc/config/powerpcspe/powerpcspe-c.cc
++++ b/gcc/config/powerpcspe/powerpcspe-c.cc
+@@ -220,21 +220,21 @@
+       else if (ident && (ident != C_CPP_HASHNODE (__vector_keyword)))
+ 	{
+ 	  enum rid rid_code = (enum rid)(ident->rid_code);
+-	  enum node_type itype = ident->type;
++	  bool is_macro = cpp_macro_p (ident);
+ 	  /* If there is a function-like macro, check if it is going to be
+ 	     invoked with or without arguments.  Without following ( treat
+ 	     it like non-macro, otherwise the following cpp_get_token eats
+ 	     what should be preserved.  */
+-	  if (itype == NT_MACRO && cpp_fun_like_macro_p (ident))
++	  if (is_macro && cpp_fun_like_macro_p (ident))
+ 	    {
+ 	      int idx2 = idx;
+ 	      do
+ 		tok = cpp_peek_token (pfile, idx2++);
+ 	      while (tok->type == CPP_PADDING);
+ 	      if (tok->type != CPP_OPEN_PAREN)
+-		itype = NT_VOID;
++		is_macro = false;
+ 	    }
+-	  if (itype == NT_MACRO)
++	  if (is_macro)
+ 	    {
+ 	      do
+ 		(void) cpp_get_token (pfile);

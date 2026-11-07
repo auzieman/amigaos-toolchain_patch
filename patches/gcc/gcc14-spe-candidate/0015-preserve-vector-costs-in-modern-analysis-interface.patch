@@ -1,0 +1,150 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -1710,14 +1710,8 @@
+ #undef TARGET_VECTORIZE_PREFERRED_SIMD_MODE
+ #define TARGET_VECTORIZE_PREFERRED_SIMD_MODE \
+   rs6000_preferred_simd_mode
+-#undef TARGET_VECTORIZE_INIT_COST
+-#define TARGET_VECTORIZE_INIT_COST rs6000_init_cost
+-#undef TARGET_VECTORIZE_ADD_STMT_COST
+-#define TARGET_VECTORIZE_ADD_STMT_COST rs6000_add_stmt_cost
+-#undef TARGET_VECTORIZE_FINISH_COST
+-#define TARGET_VECTORIZE_FINISH_COST rs6000_finish_cost
+-#undef TARGET_VECTORIZE_DESTROY_COST_DATA
+-#define TARGET_VECTORIZE_DESTROY_COST_DATA rs6000_destroy_cost_data
++#undef TARGET_VECTORIZE_CREATE_COSTS
++#define TARGET_VECTORIZE_CREATE_COSTS rs6000_spe_create_costs
+ 
+ #undef TARGET_INIT_BUILTINS
+ #define TARGET_INIT_BUILTINS rs6000_init_builtins
+@@ -6005,6 +5999,8 @@
+ typedef struct _rs6000_cost_data
+ {
+   struct loop *loop_info;
++  vec_info *vinfo;
++  bool nonmem;
+   unsigned cost[3];
+ } rs6000_cost_data;
+ 
+@@ -6034,10 +6030,10 @@
+       for (gsi = gsi_start_bb (bb); !gsi_end_p (gsi); gsi_next (&gsi))
+ 	{
+ 	  gimple *stmt = gsi_stmt (gsi);
+-	  stmt_vec_info stmt_info = vinfo_for_stmt (stmt);
+-
+-	  if (!STMT_VINFO_RELEVANT_P (stmt_info)
+-	      && !STMT_VINFO_IN_PATTERN_P (stmt_info))
++	  stmt_vec_info stmt_info = data->vinfo->lookup_stmt (stmt);
++
++	  if (!stmt_info || (!STMT_VINFO_RELEVANT_P (stmt_info)
++                            && !STMT_VINFO_IN_PATTERN_P (stmt_info)))
+ 	    not_vec_cost++;
+ 	}
+     }
+@@ -6061,7 +6057,7 @@
+ 
+ /* For each vectorized loop, this var holds TRUE iff a non-memory vector
+    instruction is needed by the vectorization.  */
+-static bool rs6000_vect_nonmem;
++
+ 
+ static void *
+ rs6000_init_cost (struct loop *loop_info)
+@@ -6071,7 +6067,8 @@
+   data->cost[vect_prologue] = 0;
+   data->cost[vect_body]     = 0;
+   data->cost[vect_epilogue] = 0;
+-  rs6000_vect_nonmem = false;
++  data->nonmem = false;
++  data->vinfo = NULL;
+   return data;
+ }
+ 
+@@ -6080,20 +6077,19 @@
+ static unsigned
+ rs6000_add_stmt_cost (void *data, int count, enum vect_cost_for_stmt kind,
+ 		      struct _stmt_vec_info *stmt_info, int misalign,
+-		      enum vect_cost_model_location where)
++		      enum vect_cost_model_location where, tree vectype)
+ {
+   rs6000_cost_data *cost_data = (rs6000_cost_data*) data;
+   unsigned retval = 0;
+ 
+   if (flag_vect_cost_model)
+     {
+-      tree vectype = stmt_info ? stmt_vectype (stmt_info) : NULL_TREE;
+       int stmt_cost = rs6000_builtin_vectorization_cost (kind, vectype,
+ 							 misalign);
+       /* Statements in an inner loop relative to the loop being
+ 	 vectorized are weighted more heavily.  The value here is
+ 	 arbitrary and could potentially be improved with analysis.  */
+-      if (where == vect_body && stmt_info && stmt_in_inner_loop_p (stmt_info))
++      if (where == vect_body && stmt_info && stmt_in_inner_loop_p (cost_data->vinfo, stmt_info))
+ 	count *= 50;  /* FIXME.  */
+ 
+       retval = (unsigned) (count * stmt_cost);
+@@ -6106,7 +6102,7 @@
+ 	   || kind == vec_promote_demote || kind == vec_construct
+ 	   || kind == scalar_to_vec)
+ 	  || (where == vect_body && kind == vector_stmt))
+-	rs6000_vect_nonmem = true;
++	cost_data->nonmem = true;
+     }
+ 
+   return retval;
+@@ -6130,8 +6126,8 @@
+   if (cost_data->loop_info)
+     {
+       loop_vec_info vec_info = loop_vec_info_for_loop (cost_data->loop_info);
+-      if (!rs6000_vect_nonmem
+-	  && LOOP_VINFO_VECT_FACTOR (vec_info) == 2
++      if (!cost_data->nonmem
++	  && known_eq (LOOP_VINFO_VECT_FACTOR (vec_info), 2)
+ 	  && LOOP_REQUIRES_VERSIONING (vec_info))
+ 	cost_data->cost[vect_body] += 10000;
+     }
+@@ -6148,6 +6144,44 @@
+ {
+   free (data);
+ }
++
++
++/* Bridge the legacy SPE target costs to GCC14's per-analysis interface. */
++class rs6000_spe_vector_costs : public vector_costs
++{
++public:
++  rs6000_spe_vector_costs (vec_info *vinfo, bool scalar)
++    : vector_costs (vinfo, scalar)
++  {
++    loop_vec_info loop_vinfo = dyn_cast<loop_vec_info> (vinfo);
++    m_data = (rs6000_cost_data *) rs6000_init_cost
++      (loop_vinfo ? LOOP_VINFO_LOOP (loop_vinfo) : NULL);
++    m_data->vinfo = vinfo;
++  }
++  ~rs6000_spe_vector_costs () override { rs6000_destroy_cost_data (m_data); }
++  unsigned int add_stmt_cost (int count, vect_cost_for_stmt kind,
++                              stmt_vec_info stmt, slp_tree,
++                              tree vectype, int misalign,
++                              vect_cost_model_location where) override
++  {
++    unsigned int cost = rs6000_add_stmt_cost
++      (m_data, count, kind, stmt, misalign, where, vectype);
++    m_costs[where] = m_data->cost[where];
++    return cost;
++  }
++  void finish_cost (const vector_costs *scalar_costs) override
++  {
++    rs6000_finish_cost (m_data, &m_costs[vect_prologue],
++                        &m_costs[vect_body], &m_costs[vect_epilogue]);
++    vector_costs::finish_cost (scalar_costs);
++  }
++private:
++  rs6000_cost_data *m_data;
++};
++
++static vector_costs *
++rs6000_spe_create_costs (vec_info *vinfo, bool scalar)
++{ return new rs6000_spe_vector_costs (vinfo, scalar); }
+ 
+ /* Handler for the Mathematical Acceleration Subsystem (mass) interface to a
+    library with vectorized intrinsics.  */

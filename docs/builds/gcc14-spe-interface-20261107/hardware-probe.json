@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "kernel_and_taint_before": [
+    "6.12.113-tabor-modular",
+    "0"
+  ],
+  "taint_after": "0",
+  "binary_sha256": "c8235f8856fa3086fc0aabe351a790be638b5c35fdc0d8f85424877269d1e13e",
+  "binary_bytes": 2628,
+  "target_path": "/tmp/gcc14-spe-c8235f8856fa3086",
+  "exit_code": 0,
+  "stdout": "GCC14_SPE_FREESTANDING_PASS single double varargs preserved optimized-loop\n",
+  "stderr": "",
+  "scope": "Actual A1222 selected freestanding C plus optimized array loop; no libc/libgcc/C++ acceptance",
+  "test_correction": "Complete Linux PPC SC clobbers, as specified by glibc2.41 sysdep.h; earlier bad exit status retained as failed evidence"
+}

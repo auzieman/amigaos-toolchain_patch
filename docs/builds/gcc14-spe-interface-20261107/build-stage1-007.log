@@ -1,0 +1,759 @@
+LC_ALL=C ; export LC_ALL ; \
+gawk -f /work/modern/gcc/opt-gather.awk /work/modern/gcc/ada/gcc-interface/lang.opt /work/modern/gcc/d/lang.opt /work/modern/gcc/fortran/lang.opt /work/modern/gcc/go/lang.opt /work/modern/gcc/lto/lang.opt /work/modern/gcc/m2/lang.opt /work/modern/gcc/rust/lang.opt /work/modern/gcc/c-family/c.opt /work/modern/gcc/common.opt /work/modern/gcc/params.opt /work/modern/gcc/analyzer/analyzer.opt /work/modern/gcc/config/g.opt /work/modern/gcc/config/fused-madd.opt /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt /work/modern/gcc/config/powerpcspe/powerpcspe.opt /work/modern/gcc/config/gnu-user.opt /work/modern/gcc/config/linux.opt /work/modern/gcc/config/powerpcspe/sysv4.opt  /work/modern/gcc/ada/gcc-interface/lang.opt.urls  /work/modern/gcc/d/lang.opt.urls  /work/modern/gcc/fortran/lang.opt.urls  /work/modern/gcc/go/lang.opt.urls  /work/modern/gcc/lto/lang.opt.urls  /work/modern/gcc/m2/lang.opt.urls  /work/modern/gcc/rust/lang.opt.urls  /work/modern/gcc/c-family/c.opt.urls  /work/modern/gcc/common.opt.urls  /work/modern/gcc/params.opt.urls  /work/modern/gcc/analyzer/analyzer.opt.urls  /work/modern/gcc/config/g.opt.urls  /work/modern/gcc/config/fused-madd.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe.opt.urls  /work/modern/gcc/config/gnu-user.opt.urls  /work/modern/gcc/config/linux.opt.urls  /work/modern/gcc/config/powerpcspe/sysv4.opt.urls > tmp-optionlist
+make: *** No rule to make target 'insn-emit.o'.
+/bin/bash /work/modern/gcc/../move-if-change tmp-optionlist optionlist
+echo timestamp > s-options
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/opth-gen.awk \
+       < optionlist > tmp-options.h
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/optc-gen.awk \
+       -v header_name="config.h system.h coretypes.h options.h tm.h" < optionlist > options.cc
+/bin/bash /work/modern/gcc/../move-if-change tmp-options.h options.h
+echo timestamp > s-options-h
+build/gengtype  \
+                    -S /work/modern/gcc -I gtyp-input.list -w tmp-gtype.state
+/bin/bash /work/modern/gcc/../move-if-change tmp-gtype.state gtype.state
+build/gengtype  \
+                    -r gtype.state
+echo timestamp > s-gtype
+g++ -c   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencondmd.o build/gencondmd.cc
+g++   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc   -o build/gencondmd \
+    build/gencondmd.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/gencondmd > tmp-cond.md
+/bin/bash /work/modern/gcc/../move-if-change tmp-cond.md insn-conditions.md
+echo timestamp > s-condmd
+g++  -fno-PIE -c   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -fno-PIE -I. -I. -I/work/modern/gcc -I/work/modern/gcc/. -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include -I/work/modern/gcc/../libcody  -I/work/modern/gcc/../libdecnumber -I/work/modern/gcc/../libdecnumber/dpd -I../libdecnumber -I/work/modern/gcc/../libbacktrace   -o powerpcspe.o -MT powerpcspe.o -MMD -MP -MF ./.deps/powerpcspe.TPo /work/modern/gcc/config/powerpcspe/powerpcspe.cc
+g++  -fno-PIE -c  -DIN_GCC_FRONTEND -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -fno-PIE -I. -I. -I/work/modern/gcc -I/work/modern/gcc/. -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include -I/work/modern/gcc/../libcody  -I/work/modern/gcc/../libdecnumber -I/work/modern/gcc/../libdecnumber/dpd -I../libdecnumber -I/work/modern/gcc/../libbacktrace   -o powerpcspe-c.o -MT powerpcspe-c.o -MMD -MP -MF ./.deps/powerpcspe-c.TPo /work/modern/gcc/config/powerpcspe/powerpcspe-c.cc
+make: 'powerpcspe-common.o' is up to date.
+g++  -fno-PIE -c   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -fno-PIE -I. -I. -I/work/modern/gcc -I/work/modern/gcc/. -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include -I/work/modern/gcc/../libcody  -I/work/modern/gcc/../libdecnumber -I/work/modern/gcc/../libdecnumber/dpd -I../libdecnumber -I/work/modern/gcc/../libbacktrace   -o insn-preds.o -MT insn-preds.o -MMD -MP -MF ./.deps/insn-preds.TPo insn-preds.cc
+g++  -fno-PIE -c   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -fno-PIE -I. -I. -I/work/modern/gcc -I/work/modern/gcc/. -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include -I/work/modern/gcc/../libcody  -I/work/modern/gcc/../libdecnumber -I/work/modern/gcc/../libdecnumber/dpd -I../libdecnumber -I/work/modern/gcc/../libbacktrace   -o insn-output.o -MT insn-output.o -MMD -MP -MF ./.deps/insn-output.TPo insn-output.cc
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc: In function 'void rs6000_pragma_longcall(cpp_reader*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:26: warning: unquoted preprocessing directive '#pragma' in format [-Wformat-diag]
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:65:5: note: in expansion of macro 'SYNTAX_ERROR'
+   65 |     SYNTAX_ERROR ("missing open paren");
+      |     ^~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:46: note: format string is defined here
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                                              ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:26: warning: unquoted preprocessing directive '#pragma' in format [-Wformat-diag]
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:67:5: note: in expansion of macro 'SYNTAX_ERROR'
+   67 |     SYNTAX_ERROR ("missing number");
+      |     ^~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:46: note: format string is defined here
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                                              ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:26: warning: unquoted preprocessing directive '#pragma' in format [-Wformat-diag]
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:69:5: note: in expansion of macro 'SYNTAX_ERROR'
+   69 |     SYNTAX_ERROR ("missing close paren");
+      |     ^~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:46: note: format string is defined here
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                                              ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:26: warning: unquoted preprocessing directive '#pragma' in format [-Wformat-diag]
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:72:5: note: in expansion of macro 'SYNTAX_ERROR'
+   72 |     SYNTAX_ERROR ("number must be 0 or 1");
+      |     ^~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:52:46: note: format string is defined here
+   52 |   warning (OPT_Wpragmas, "ignoring malformed #pragma longcall");        \
+      |                                              ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:75:44: warning: unquoted preprocessing directive '#pragma' in format [-Wformat-diag]
+   75 |     warning (OPT_Wpragmas, "junk at end of #pragma longcall");
+      |                                            ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc: In function 'tree_node* altivec_resolve_overloaded_builtin(location_t, tree, void*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5661:15: warning: unquoted identifier or keyword 'vec_lvsl' in format [-Wformat-diag]
+ 5661 |              "vec_lvsl is deprecated for little endian; use "
+      |               ^~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5665:15: warning: unquoted identifier or keyword 'vec_lvsr' in format [-Wformat-diag]
+ 5665 |              "vec_lvsr is deprecated for little endian; use "
+      |               ^~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5675:19: warning: unquoted identifier or keyword 'vec_mul' in format [-Wformat-diag]
+ 5675 |           error ("vec_mul only accepts 2 arguments");
+      |                   ^~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5726:19: warning: unquoted identifier or keyword 'vec_cmpne' in format [-Wformat-diag]
+ 5726 |           error ("vec_cmpne only accepts 2 arguments");
+      |                   ^~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5796:19: warning: unquoted identifier or keyword 'vec_adde' in format [-Wformat-diag]
+ 5796 |           error ("vec_adde only accepts 3 arguments");
+      |                   ^~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:5860:19: warning: unquoted identifier or keyword 'vec_addec' in format [-Wformat-diag]
+ 5860 |           error ("vec_addec only accepts 3 arguments");
+      |                   ^~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:6024:19: warning: unquoted identifier or keyword 'vec_extract' in format [-Wformat-diag]
+ 6024 |           error ("vec_extract only accepts 2 arguments");
+      |                   ^~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:6194:19: warning: unquoted identifier or keyword 'vec_insert' in format [-Wformat-diag]
+ 6194 |           error ("vec_insert only accepts 3 arguments");
+      |                   ^~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:6468:34: warning: misspelled term 'arg' in format; use 'argument' instead [-Wformat-diag]
+ 6468 |             warning (0, "passing arg %d of %qE discards qualifiers from "
+      |                                  ^~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:6515:21: warning: unquoted name of built-in function '__builtin_cmpb' in format [-Wformat-diag]
+ 6515 |             error ("__builtin_cmpb only accepts 2 arguments");
+      |                     ^~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe-c.cc:6573:17: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+ 6573 |         error ("Builtin function %s not supported in this compiler configuration",
+      |                 ^~~~~~~~~~~~~~~~
+g++  -fno-PIE -c   -g     -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -fno-PIE -I. -I. -I/work/modern/gcc -I/work/modern/gcc/. -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include -I/work/modern/gcc/../libcody  -I/work/modern/gcc/../libdecnumber -I/work/modern/gcc/../libdecnumber/dpd -I../libdecnumber -I/work/modern/gcc/../libbacktrace   -o options.o -MT options.o -MMD -MP -MF ./.deps/options.TPo options.cc
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_init_hard_regno_mode_ok(bool)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3831:21: warning: unquoted option name '-mrecip' in format [-Wformat-diag]
+ 3831 |         warning (0, "-mrecip requires -ffinite-math or -ffast-math");
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3831:21: warning: unquoted option name '-ffinite-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3831:21: warning: unquoted option name '-ffast-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3833:21: warning: unquoted option name '-mrecip' in format [-Wformat-diag]
+ 3833 |         warning (0, "-mrecip requires -fno-trapping-math or -ffast-math");
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3833:21: warning: unquoted option name '-fno-trapping-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3833:21: warning: unquoted option name '-ffast-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3835:21: warning: unquoted option name '-mrecip' in format [-Wformat-diag]
+ 3835 |         warning (0, "-mrecip requires -freciprocal-math or -ffast-math");
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3835:21: warning: unquoted option name '-freciprocal-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:3835:21: warning: unquoted option name '-ffast-math' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'bool rs6000_option_override_internal(bool)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4119:17: warning: unquoted option name '-malign-power' in format [-Wformat-diag]
+ 4119 |     warning (0, "-malign-power is not supported for 64-bit Darwin;"
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4120 |              " it is incompatible with the installed C and C++ libraries");
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4388:25: warning: unquoted option name '-mmultiple' in format [-Wformat-diag]
+ 4388 |             warning (0, "-mmultiple is not supported on little endian systems");
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4395:25: warning: unquoted option name '-mstring' in format [-Wformat-diag]
+ 4395 |             warning (0, "-mstring is not supported on little endian systems");
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:65:
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4413:22: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+ 4413 |       warning (0, N_("-maltivec=le not allowed for big-endian targets"));
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4491:24: warning: unquoted option name '-mpower9-minmax' in format [-Wformat-diag]
+ 4491 |                 error ("-mpower9-minmax incompatible with explicitly disabled options");
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4494:20: warning: unquoted option name '-mcpu' in format [-Wformat-diag]
+ 4494 |             error ("Power9 target option is incompatible with -mcpu=<xxx> for "
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4495 |                    "<xxx> less than power9");
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4494:20: warning: unquoted sequence of 2 consecutive punctuation characters '=<' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4502:16: warning: unquoted option name '-mpower9-minmax' in format [-Wformat-diag]
+ 4502 |         error ("-mpower9-minmax incompatible with explicitly disabled options");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4526:16: warning: unquoted option name '-mcrypto' in format [-Wformat-diag]
+ 4526 |         error ("-mcrypto requires -maltivec");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4526:16: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4533:16: warning: unquoted option name '-mdirect-move' in format [-Wformat-diag]
+ 4533 |         error ("-mdirect-move requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4533:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4540:16: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+ 4540 |         error ("-mpower8-vector requires -maltivec");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4540:16: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4548:16: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+ 4548 |         error ("-mpower8-vector requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4548:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4567:16: warning: unquoted option name '-mvsx-timode' in format [-Wformat-diag]
+ 4567 |         error ("-mvsx-timode requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4567:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4574:16: warning: unquoted option name '-mhard-dfp' in format [-Wformat-diag]
+ 4574 |         error ("-mhard-dfp requires -mhard-float");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4574:16: warning: unquoted option name '-mhard-float' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4627:16: warning: unquoted option name '-mupper-regs-df' in format [-Wformat-diag]
+ 4627 |         error ("-mupper-regs-df requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4627:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4634:16: warning: unquoted option name '-mupper-regs-di' in format [-Wformat-diag]
+ 4634 |         error ("-mupper-regs-di requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4634:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4641:16: warning: unquoted option name '-mupper-regs-sf' in format [-Wformat-diag]
+ 4641 |         error ("-mupper-regs-sf requires -mpower8-vector");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4641:16: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4650:24: warning: unquoted option name '-mquad-memory' in format [-Wformat-diag]
+ 4650 |         warning (0, N_("-mquad-memory requires 64-bit mode"));
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4653:24: warning: unquoted option name '-mquad-memory-atomic' in format [-Wformat-diag]
+ 4653 |         warning (0, N_("-mquad-memory-atomic requires 64-bit mode"));
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4665:24: warning: unquoted option name '-mquad-memory' in format [-Wformat-diag]
+ 4665 |         warning (0, N_("-mquad-memory is not available in little endian mode"));
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4690:20: warning: unquoted option name '-mpower8-fusion-sign' in format [-Wformat-diag]
+ 4690 |             error ("-mpower8-fusion-sign requires -mpower8-fusion");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4690:20: warning: unquoted option name '-mpower8-fusion' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4693:20: warning: unquoted option name '-mtoc-fusion' in format [-Wformat-diag]
+ 4693 |             error ("-mtoc-fusion requires -mpower8-fusion");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4693:20: warning: unquoted option name '-mpower8-fusion' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4710:18: warning: unquoted option name '-mpower9-fusion' in format [-Wformat-diag]
+ 4710 |           error ("-mpower9-fusion requires -mpower8-fusion");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4710:18: warning: unquoted option name '-mpower8-fusion' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4737:24: warning: unquoted option name '-mtoc-fusion' in format [-Wformat-diag]
+ 4737 |         warning (0, N_("-mtoc-fusion requires 64-bit"));
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4744:24: warning: unquoted option name '-mtoc-fusion' in format [-Wformat-diag]
+ 4744 |         warning (0, N_("-mtoc-fusion requires medium/large code model"));
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/intl.h:57:20: note: in definition of macro 'N_'
+   57 | # define N_(msgid) msgid
+      |                    ^~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4763:16: warning: unquoted option name '-mpower9-vector' in format [-Wformat-diag]
+ 4763 |         error ("-mpower9-vector requires -mpower8-vector");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4763:16: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4808:16: warning: unquoted option name '-mpower9-dform' in format [-Wformat-diag]
+ 4808 |         error ("-mpower9-dform requires -mpower9-vector");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4808:16: warning: unquoted option name '-mpower9-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4837:16: warning: unquoted option name '-mpower9-dform' in format [-Wformat-diag]
+ 4837 |         error ("-mpower9-dform, -mpower9-dform-vector, -mpower9-dform-scalar"
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4838 |                " require -mdirect-move");
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4837:16: warning: unquoted option name '-mpower9-dform-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4837:16: warning: unquoted option name '-mpower9-dform-scalar' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4837:16: warning: unquoted option name '-mdirect-move' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4860:16: warning: unquoted option name '-mpower9-dform' in format [-Wformat-diag]
+ 4860 |         error ("-mpower9-dform requires -mupper-regs-df");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4860:16: warning: unquoted option name '-mupper-regs-df' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4867:16: warning: unquoted option name '-mpower9-dform' in format [-Wformat-diag]
+ 4867 |         error ("-mpower9-dform requires -mupper-regs-sf");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4867:16: warning: unquoted option name '-mupper-regs-sf' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4887:25: warning: unquoted option name '-mvsx-timode' in format [-Wformat-diag]
+ 4887 |             warning (0, "-mvsx-timode might need -mlra");
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4887:25: warning: unquoted option name '-mlra' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4912:16: warning: unquoted option name '-mallow-movmisalign' in format [-Wformat-diag]
+ 4912 |         error ("-mallow-movmisalign requires -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4912:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4927:20: warning: unquoted option name '-mefficient-unaligned-vsx' in format [-Wformat-diag]
+ 4927 |             error ("-mefficient-unaligned-vsx requires -mvsx");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4927:20: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4935:20: warning: unquoted option name '-mefficient-unaligned-vsx' in format [-Wformat-diag]
+ 4935 |             error ("-mefficient-unaligned-vsx requires -mallow-movmisalign");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4935:20: warning: unquoted option name '-mallow-movmisalign' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4949:16: warning: unquoted option name '-mvsx-small-integer' in format [-Wformat-diag]
+ 4949 |         error ("-mvsx-small-integer requires -mpower8-vector, "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 4950 |                "-mupper-regs-di, and -mdirect-move");
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4949:16: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4949:16: warning: unquoted option name '-mupper-regs-di' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4949:16: warning: unquoted option name '-mdirect-move' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4961:16: warning: unquoted type name 'long double' in format [-Wformat-diag]
+ 4961 |         error ("target attribute or pragma changes long double size");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4987:20: warning: unquoted option name '-mfloat128' in format [-Wformat-diag]
+ 4987 |             error ("-mfloat128 requires VSX support");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:4997:20: warning: unquoted option name '-mfloat128-type' in format [-Wformat-diag]
+ 4997 |             error ("-mfloat128-type requires VSX support");
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5013:22: warning: unquoted option name '-mfloat128' in format [-Wformat-diag]
+ 5013 |               error ("-mfloat128 requires -mfloat128-type");
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5013:22: warning: unquoted option name '-mfloat128-type' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5026:22: warning: unquoted option name '-mfloat128-hardware' in format [-Wformat-diag]
+ 5026 |               error ("-mfloat128-hardware requires -mfloat128-type");
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5026:22: warning: unquoted option name '-mfloat128-type' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5049:16: warning: unquoted option name '-mfloat128-hardware' in format [-Wformat-diag]
+ 5049 |         error ("-mfloat128-hardware requires full ISA 3.0 support");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5057:16: warning: unquoted option name '-mfloat128-hardware' in format [-Wformat-diag]
+ 5057 |         error ("-mfloat128-hardware requires -m64");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5057:16: warning: unquoted option name '-m64' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5121:22: warning: unquoted option name '-mveclibabi' in format [-Wformat-diag]
+ 5121 |               error ("unknown vectorization library ABI type (%s) for "
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5122 |                      "-mveclibabi= switch", rs6000_veclibabi_name);
+      |                      ~~~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/backend.h:28,
+                 from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:26:
+/work/modern/gcc/config/powerpcspe/sysv4.h:107:14: warning: unquoted option name '-mcall-' in format [-Wformat-diag]
+  107 |       error ("bad value for -mcall-%s", rs6000_abi_name);               \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:123:16: warning: unquoted option name '-msdata' in format [-Wformat-diag]
+  123 |         error ("bad value for -msdata=%s", rs6000_sdata_name);          \
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:140:14: warning: unquoted option name '-mrelocatable' in format [-Wformat-diag]
+  140 |       error ("-mrelocatable and -msdata=%s are incompatible",           \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:140:14: warning: unquoted option name '-msdata' in format [-Wformat-diag]
+  140 |       error ("-mrelocatable and -msdata=%s are incompatible",           \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:149:14: warning: unquoted option name '-f' in format [-Wformat-diag]
+  149 |       error ("-f%s and -msdata=%s are incompatible",                    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:149:14: warning: unquoted option name '-msdata' in format [-Wformat-diag]
+  149 |       error ("-f%s and -msdata=%s are incompatible",                    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:158:14: warning: unquoted option name '-msdata' in format [-Wformat-diag]
+  158 |       error ("-msdata=%s and -mcall-%s are incompatible",               \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:158:14: warning: unquoted option name '-mcall-' in format [-Wformat-diag]
+  158 |       error ("-msdata=%s and -mcall-%s are incompatible",               \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:167:14: warning: unquoted option name '-mrelocatable' in format [-Wformat-diag]
+  167 |       error ("-mrelocatable and -mno-minimal-toc are incompatible");    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:167:14: warning: unquoted option name '-mno-minimal-toc' in format [-Wformat-diag]
+  167 |       error ("-mrelocatable and -mno-minimal-toc are incompatible");    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:173:14: warning: unquoted option name '-mrelocatable' in format [-Wformat-diag]
+  173 |       error ("-mrelocatable and -mcall-%s are incompatible",            \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:173:14: warning: unquoted option name '-mcall-' in format [-Wformat-diag]
+  173 |       error ("-mrelocatable and -mcall-%s are incompatible",            \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:180:14: warning: unquoted option name '-fPIC' in format [-Wformat-diag]
+  180 |       error ("-fPIC and -mcall-%s are incompatible",                    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:180:14: warning: unquoted option name '-mcall-' in format [-Wformat-diag]
+  180 |       error ("-fPIC and -mcall-%s are incompatible",                    \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:186:14: warning: unquoted option name '-msecure-plt' in format [-Wformat-diag]
+  186 |       error ("-msecure-plt not supported by your assembler");           \
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5189:3: note: in expansion of macro 'SUBTARGET_OVERRIDE_OPTIONS'
+ 5189 |   SUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:214:12: warning: unquoted option name '-m' in format [-Wformat-diag]
+  214 |     error ("-m%s not supported in this configuration",                  \
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5192:3: note: in expansion of macro 'SUBSUBTARGET_OVERRIDE_OPTIONS'
+ 5192 |   SUBSUBTARGET_OVERRIDE_OPTIONS;
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5236:16: warning: misspelled term 'floating point' in format; use 'floating-point' instead [-Wformat-diag]
+ 5236 |         error ("target attribute or pragma changes single precision floating "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5237 |                "point");
+      |                ~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5239:16: warning: misspelled term 'floating point' in format; use 'floating-point' instead [-Wformat-diag]
+ 5239 |         error ("target attribute or pragma changes double precision floating "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5240 |                "point");
+      |                ~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5341:16: warning: unquoted option name '-mstack-protector-guard-offset' in format [-Wformat-diag]
+ 5341 |         error ("%qs is not a valid number "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5342 |                "in -mstack-protector-guard-offset=", str);
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5341:16: warning: spurious trailing punctuation sequence '=' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5346:16: warning: unquoted option name '-mstack-protector-guard-offset' in format [-Wformat-diag]
+ 5346 |         error ("%qs is not a valid offset "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5347 |                "in -mstack-protector-guard-offset=", str);
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5346:16: warning: spurious trailing punctuation sequence '=' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5358:16: warning: unquoted option name '-mstack-protector-guard-reg' in format [-Wformat-diag]
+ 5358 |         error ("%qs is not a valid base register "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 5359 |                "in -mstack-protector-guard-reg=", str);
+      |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5358:16: warning: spurious trailing punctuation sequence '=' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5366:12: warning: unquoted option name '-mstack-protector-guard' in format [-Wformat-diag]
+ 5366 |     error ("-mstack-protector-guard=tls needs a valid base register");
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:5651:26: warning: unquoted option name '-mrecip' in format [-Wformat-diag]
+ 5651 |                   error ("unknown option for -mrecip=%s", q);
+      |                          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_density_test(rs6000_cost_data*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6034:37: error: 'vinfo_for_stmt' was not declared in this scope; did you mean 'gsi_for_stmt'?
+ 6034 |           stmt_vec_info stmt_info = vinfo_for_stmt (stmt);
+      |                                     ^~~~~~~~~~~~~~
+      |                                     gsi_for_stmt
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'unsigned int rs6000_add_stmt_cost(void*, int, vect_cost_for_stmt, _stmt_vec_info*, int, vect_cost_model_location)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6093:68: error: cannot convert '_stmt_vec_info*' to 'vec_info*'
+ 6093 |       if (where == vect_body && stmt_info && stmt_in_inner_loop_p (stmt_info))
+      |                                                                    ^~~~~~~~~
+      |                                                                    |
+      |                                                                    _stmt_vec_info*
+In file included from /work/modern/gcc/optabs-query.h:24,
+                 from /work/modern/gcc/optabs.h:23,
+                 from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:38:
+/work/modern/gcc/target.h:170:35: note:   initializing argument 1 of 'bool stmt_in_inner_loop_p(vec_info*, _stmt_vec_info*)'
+  170 | extern bool stmt_in_inner_loop_p (class vec_info *, class _stmt_vec_info *);
+      |                                   ^~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void init_cumulative_args(CUMULATIVE_ARGS*, tree, rtx, int, int, int, tree, machine_mode)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:11972:14: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+11972 |       error ("cannot return value in vector register because"
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+11973 |              " altivec instructions are disabled, use -maltivec"
+      |              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+11974 |              " to enable them");
+      |              ~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'bool rs6000_must_pass_in_stack(machine_mode, const_tree)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:12017:60: error: invalid conversion from 'const_tree' {aka 'const tree_node*'} to 'tree' {aka 'tree_node*'} [-fpermissive]
+12017 |     return must_pass_in_stack_var_size (function_arg_info (type, mode, true));
+      |                                                            ^~~~
+      |                                                            |
+      |                                                            const_tree {aka const tree_node*}
+In file included from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:50:
+/work/modern/gcc/calls.h:54:27: note:   initializing argument 1 of 'function_arg_info::function_arg_info(tree, machine_mode, bool)'
+   54 |   function_arg_info (tree type, machine_mode mode, bool named)
+      |                      ~~~~~^~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:12019:67: error: invalid conversion from 'const_tree' {aka 'const tree_node*'} to 'tree' {aka 'tree_node*'} [-fpermissive]
+12019 |     return must_pass_in_stack_var_size_or_pad (function_arg_info (type, mode, true));
+      |                                                                   ^~~~
+      |                                                                   |
+      |                                                                   const_tree {aka const tree_node*}
+/work/modern/gcc/calls.h:54:27: note:   initializing argument 1 of 'function_arg_info::function_arg_info(tree, machine_mode, bool)'
+   54 |   function_arg_info (tree type, machine_mode mode, bool named)
+      |                      ~~~~~^~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_function_arg_advance_1(CUMULATIVE_ARGS*, machine_mode, const_tree, bool, int)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:12435:20: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+12435 |             error ("cannot pass argument in vector register because"
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+12436 |                    " altivec instructions are disabled, use -maltivec"
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+12437 |                    " to enable them");
+      |                    ~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* rs6000_function_arg(cumulative_args_t, machine_mode, const_tree, bool)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:13286:27: warning: unquoted keyword 'float' in format [-Wformat-diag]
+13286 |                           "the ABI of passing homogeneous float aggregates"
+      |                           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+13287 |                           " has changed in GCC 5");
+      |                           ~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:28:
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'bool rs6000_parm_needs_stack(cumulative_args_t, tree)':
+/work/modern/gcc/tree.h:2256:4: error: could not convert '((((int)((tree_code)type->tree_node::base.tree_base::code)) == ((int)VECTOR_TYPE)) ? vector_type_mode(((const_tree)type)) : ((machine_mode)type->tree_node::type_common.tree_type_common::mode))' from 'machine_mode' to 'function_arg_info'
+ 2255 |   (VECTOR_TYPE_P (TYPE_CHECK (NODE)) \
+      |   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ 2256 |    ? vector_type_mode (NODE) : (NODE)->type_common.mode)
+      |    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |    |
+      |    machine_mode
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:13502:26: note: in expansion of macro 'TYPE_MODE'
+13502 |                          TYPE_MODE (type), type, true))
+      |                          ^~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void def_builtin(const char*, tree, rs6000_builtins)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:14256:18: warning: misspelled term 'builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+14256 |                  "internal error: builtin function %s already processed", name);
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* altivec_expand_predicate_builtin(insn_code, tree, rtx)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:14980:14: warning: unquoted name of built-in function '__builtin_altivec_predicate' in format [-Wformat-diag]
+14980 |       error ("argument 1 of __builtin_altivec_predicate must be a constant");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:15037:14: warning: unquoted name of built-in function '__builtin_altivec_predicate' in format [-Wformat-diag]
+15037 |       error ("argument 1 of __builtin_altivec_predicate is out of range");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* rs6000_expand_ternop_builtin(insn_code, tree, rtx)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:15938:18: warning: unquoted sequence of 2 consecutive punctuation characters '..' in format [-Wformat-diag]
+15938 |           error ("argument 3 must be in the range 0..15");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'int get_element_number(tree, tree)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16194:14: warning: unquoted sequence of 2 consecutive punctuation characters '..' in format [-Wformat-diag]
+16194 |       error ("selector must be an integer constant in the range 0..%wi", max);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* altivec_expand_builtin(tree, rtx, bool*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16506:18: warning: unquoted identifier or keyword 'vec_vextract4b' in format [-Wformat-diag]
+16506 |           error ("second argument to vec_vextract4b must be 0..12");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16506:18: warning: unquoted sequence of 2 consecutive punctuation characters '..' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16523:18: warning: unquoted identifier or keyword 'vec_vinsert4b' in format [-Wformat-diag]
+16523 |           error ("third argument to vec_vinsert4b must be 0..12");
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16523:18: warning: unquoted sequence of 2 consecutive punctuation characters '..' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* paired_expand_predicate_builtin(insn_code, tree, rtx)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16898:14: warning: unquoted name of built-in function '__builtin_paired_predicate' in format [-Wformat-diag]
+16898 |       error ("argument 1 of __builtin_paired_predicate must be a constant");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16945:14: warning: unquoted name of built-in function '__builtin_paired_predicate' in format [-Wformat-diag]
+16945 |       error ("argument 1 of __builtin_paired_predicate is out of range");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'rtx_def* spe_expand_predicate_builtin(insn_code, tree, rtx)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:16970:14: warning: unquoted name of built-in function '__builtin_spe_predicate' in format [-Wformat-diag]
+16970 |       error ("argument 1 of __builtin_spe_predicate must be a constant");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17042:14: warning: unquoted name of built-in function '__builtin_spe_predicate' in format [-Wformat-diag]
+17042 |       error ("argument 1 of __builtin_spe_predicate is out of range");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_invalid_builtin(rs6000_builtins)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17124:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17124 |     error ("Builtin function %s is only valid for the cell processor", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17126:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17126 |     error ("Builtin function %s requires the -mvsx option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17126:12: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17128:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17128 |     error ("Builtin function %s requires the -mhtm option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17128:12: warning: unquoted option name '-mhtm' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17130:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17130 |     error ("Builtin function %s requires the -maltivec option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17130:12: warning: unquoted option name '-maltivec' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17132:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17132 |     error ("Builtin function %s requires the -mpaired option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17132:12: warning: unquoted option name '-mpaired' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17134:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17134 |     error ("Builtin function %s requires the -mspe option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17134:12: warning: unquoted option name '-mspe' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17137:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17137 |     error ("Builtin function %s requires the -mhard-dfp and"
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+17138 |            " -mpower8-vector options", name);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17137:12: warning: unquoted option name '-mhard-dfp' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17137:12: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17140:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17140 |     error ("Builtin function %s requires the -mhard-dfp option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17140:12: warning: unquoted option name '-mhard-dfp' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17142:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17142 |     error ("Builtin function %s requires the -mpower8-vector option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17142:12: warning: unquoted option name '-mpower8-vector' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17145:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17145 |     error ("Builtin function %s requires the -mcpu=power9 and"
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+17146 |            " -m64 options", name);
+      |            ~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17145:12: warning: unquoted option name '-mcpu' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17145:12: warning: unquoted option name '-m64' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17148:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17148 |     error ("Builtin function %s requires the -mcpu=power9 option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17148:12: warning: unquoted option name '-mcpu' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17151:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17151 |     error ("Builtin function %s requires the -mcpu=power9 and"
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+17152 |            " -m64 options", name);
+      |            ~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17151:12: warning: unquoted option name '-mcpu' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17151:12: warning: unquoted option name '-m64' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17154:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17154 |     error ("Builtin function %s requires the -mcpu=power9 option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17154:12: warning: unquoted option name '-mcpu' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17157:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17157 |     error ("Builtin function %s requires the -mhard-float and"
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+17158 |            " -mlong-double-128 options", name);
+      |            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17157:12: warning: unquoted option name '-mhard-float' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17157:12: warning: unquoted option name '-mlong-double-128' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17160:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17160 |     error ("Builtin function %s requires the -mhard-float option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17160:12: warning: unquoted option name '-mhard-float' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17162:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17162 |     error ("Builtin function %s requires the -mfloat128 option", name);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17162:12: warning: unquoted option name '-mfloat128' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:17164:12: warning: misspelled term 'Builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+17164 |     error ("Builtin function %s is not supported with the current options",
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'tree_node* builtin_function_type(machine_mode, machine_mode, machine_mode, machine_mode, rs6000_builtins, const char*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:19157:18: warning: misspelled term 'builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+19157 |                  "internal error: builtin function %s had an unexpected "
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+19158 |                  "return type %s", name, GET_MODE_NAME (h.mode[0]));
+      |                  ~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:19174:22: warning: misspelled term 'builtin function' in format; use 'built-in function' instead [-Wformat-diag]
+19174 |                      "internal error: builtin function %s, argument %d "
+      |                      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+19175 |                      "had unexpected argument type %s", name, i,
+      |                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_expand_split_stack_prologue()':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:32232:14: warning: unquoted option name '-fsplit-stack' in format [-Wformat-diag]
+32232 |       error ("-fsplit-stack uses register r29");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:32240:14: warning: unquoted option name '-fsplit-stack' in format [-Wformat-diag]
+32240 |       sorry ("Stack frame larger than 2G is not supported for -fsplit-stack");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_trampoline_init(rtx, tree, rtx)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:35530:18: warning: unquoted option name '-mno-pointers-to-nested-functions' in format [-Wformat-diag]
+35530 |           error ("You cannot take the address of a nested function if you use "
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+35531 |                  "the -mno-pointers-to-nested-functions option.");
+      |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'tree_node* rs6000_handle_altivec_attribute(tree_node**, tree, tree, int, bool*)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:35618:12: warning: misspelled term 'floating point' in format; use 'floating-point' instead [-Wformat-diag]
+35618 |     error ("use of decimal floating point types in AltiVec types is invalid");
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:35624:20: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+35624 |             error ("use of %<long%> in AltiVec types is invalid for "
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+35625 |                    "64-bit code without -mvsx");
+      |                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:35632:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+35632 |         error ("use of %<long long%> in AltiVec types is invalid without "
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+35633 |                "-mvsx");
+      |                ~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:35635:16: warning: unquoted option name '-mvsx' in format [-Wformat-diag]
+35635 |         error ("use of %<double%> in AltiVec types is invalid without -mvsx");
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'void rs6000_final_prescan_insn(rtx_insn*, rtx_def**, int)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39400:21: warning: unquoted whitespace character '\x09' in format [-Wformat-diag]
+39400 |                     "emitting microcode insn %s\t[%s] #%d",
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39404:21: warning: unquoted whitespace character '\x09' in format [-Wformat-diag]
+39404 |                     "emitting conditional microcode insn %s\t[%s] #%d",
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'bool rs6000_inner_target_options(tree, bool)':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39712:24: warning: quoted '%s' directive in format [-Wformat-diag]
+39712 |                 error ("invalid cpu \"%s\" for %s\"%s\"%s", cpu_opt, eprefix,
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39712:24: note: if using '%qs' is not feasible, use '"%-s"' instead
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39712:24: warning: quoted '%s' directive in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39712:24: note: if using '%qs' is not feasible, use '"%-s"' instead
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39715:24: warning: quoted '%s' directive in format [-Wformat-diag]
+39715 |                 error ("%s\"%s\"%s is not allowed", eprefix, q, esuffix);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39715:24: note: if using '%qs' is not feasible, use '"%-s"' instead
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39717:24: warning: quoted '%s' directive in format [-Wformat-diag]
+39717 |                 error ("%s\"%s\"%s is invalid", eprefix, q, esuffix);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:39717:24: note: if using '%qs' is not feasible, use '"%-s"' instead
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: In function 'long int rs6000_disable_incompatible_switches()':
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:40234:28: warning: unquoted option name '-mno-' in format [-Wformat-diag]
+40234 |                     error ("-mno-%s turns off -m%s",
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:40234:28: warning: unquoted option name '-m' in format [-Wformat-diag]
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:40251:14: warning: unquoted option name '-mno-power9-vector' in format [-Wformat-diag]
+40251 |       error ("-mno-power9-vector turns off -mpower9-dform");
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:40251:14: warning: unquoted option name '-mpower9-dform' in format [-Wformat-diag]
+In file included from /work/modern/gcc/target-def.h:135,
+                 from /work/modern/gcc/config/powerpcspe/powerpcspe.cc:84:
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc: At global scope:
+./target-hooks-def.h:2606:3: error: invalid conversion from 'bool (*)(machine_mode, rtx, bool)' {aka 'bool (*)(machine_mode, rtx_def*, bool)'} to 'bool (*)(machine_mode, rtx, bool, code_helper)' {aka 'bool (*)(machine_mode, rtx_def*, bool, code_helper)'} [-fpermissive]
+ 2606 |   }
+      |   ^
+      |   |
+      |   bool (*)(machine_mode, rtx, bool) {aka bool (*)(machine_mode, rtx_def*, bool)}
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:43790:29: note: in expansion of macro 'TARGET_INITIALIZER'
+43790 | struct gcc_target targetm = TARGET_INITIALIZER;
+      |                             ^~~~~~~~~~~~~~~~~~
+./target-hooks-def.h:2606:3: error: invalid conversion from 'rtx_insn* (*)(vec<rtx_def*>&, vec<rtx_def*>&, vec<const char*>&, vec<rtx_def*>&, HARD_REG_SET&)' to 'rtx_insn* (*)(vec<rtx_def*>&, vec<rtx_def*>&, vec<machine_mode>&, vec<const char*>&, vec<rtx_def*>&, vec<rtx_def*>&, HARD_REG_SET&, location_t)' {aka 'rtx_insn* (*)(vec<rtx_def*>&, vec<rtx_def*>&, vec<machine_mode>&, vec<const char*>&, vec<rtx_def*>&, vec<rtx_def*>&, HARD_REG_SET&, unsigned int)'} [-fpermissive]
+ 2606 |   }
+      |   ^
+      |   |
+      |   rtx_insn* (*)(vec<rtx_def*>&, vec<rtx_def*>&, vec<const char*>&, vec<rtx_def*>&, HARD_REG_SET&)
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:43790:29: note: in expansion of macro 'TARGET_INITIALIZER'
+43790 | struct gcc_target targetm = TARGET_INITIALIZER;
+      |                             ^~~~~~~~~~~~~~~~~~
+./target-hooks-def.h:2606:3: error: invalid conversion from 'bool (*)(unsigned int, machine_mode)' to 'bool (*)(unsigned int, unsigned int, machine_mode)' [-fpermissive]
+ 2606 |   }
+      |   ^
+      |   |
+      |   bool (*)(unsigned int, machine_mode)
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:43790:29: note: in expansion of macro 'TARGET_INITIALIZER'
+43790 | struct gcc_target targetm = TARGET_INITIALIZER;
+      |                             ^~~~~~~~~~~~~~~~~~
+./target-hooks-def.h:2606:3: error: invalid conversion from 'void (*)(cl_target_option*, gcc_options*)' to 'void (*)(cl_target_option*, gcc_options*, gcc_options*)' [-fpermissive]
+ 2606 |   }
+      |   ^
+      |   |
+      |   void (*)(cl_target_option*, gcc_options*)
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:43790:29: note: in expansion of macro 'TARGET_INITIALIZER'
+43790 | struct gcc_target targetm = TARGET_INITIALIZER;
+      |                             ^~~~~~~~~~~~~~~~~~
+./target-hooks-def.h:2606:3: error: invalid conversion from 'void (*)(gcc_options*, cl_target_option*)' to 'void (*)(gcc_options*, gcc_options*, cl_target_option*)' [-fpermissive]
+ 2606 |   }
+      |   ^
+      |   |
+      |   void (*)(gcc_options*, cl_target_option*)
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:43790:29: note: in expansion of macro 'TARGET_INITIALIZER'
+43790 | struct gcc_target targetm = TARGET_INITIALIZER;
+      |                             ^~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6144:1: warning: 'void rs6000_destroy_cost_data(void*)' defined but not used [-Wunused-function]
+ 6144 | rs6000_destroy_cost_data (void *data)
+      | ^~~~~~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6115:1: warning: 'void rs6000_finish_cost(void*, unsigned int*, unsigned int*, unsigned int*)' defined but not used [-Wunused-function]
+ 6115 | rs6000_finish_cost (void *data, unsigned *prologue_cost,
+      | ^~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6078:1: warning: 'unsigned int rs6000_add_stmt_cost(void*, int, vect_cost_for_stmt, _stmt_vec_info*, int, vect_cost_model_location)' defined but not used [-Wunused-function]
+ 6078 | rs6000_add_stmt_cost (void *data, int count, enum vect_cost_for_stmt kind,
+      | ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/powerpcspe.cc:6064:1: warning: 'void* rs6000_init_cost(loop*)' defined but not used [-Wunused-function]
+ 6064 | rs6000_init_cost (struct loop *loop_info)
+      | ^~~~~~~~~~~~~~~~
+make: *** [Makefile:2541: powerpcspe.o] Error 1

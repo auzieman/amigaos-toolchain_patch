@@ -1,3 +1,20 @@
+## Current checkpoint — 2026-11-07, GCC14 SPE C bootstrap
+
+User requested coherent compiler/SDK fixes and an audit of obsolete options.
+The16-patch GCC14.2.0 candidate builds its C-only headerless compiler. Source
+replay passes, all94 Report-marked option definitions retain their functional
+properties, eight tuning defaults are migrated, and actual target option/override
+checks pass. Retired vector-cost callbacks are adapted to GCC14, including a
+real optimized-loop regression correction. The final selected freestanding C
+probe passes under QEMU/e500v2 and native A1222 SSH execution with exit0/taint0.
+
+See [full evidence and limits](builds/gcc14-spe-interface-20261107/README.md).
+This does not complete libgcc/libc/C++ or full ABI support and does not replace
+the accepted SDK. Next bounded action: bootstrap/qualify libgcc with this compiler,
+then patched glibc2.41 and C++ runtimes, retaining normal Debian package semantics.
+The original firmware/kernel and existing userspace stay intact. Historical
+intake and earlier stages below remain review history, not current status.
+
 # Active task — private Tabor SPE toolchain intake
 
 User confirmed the restoration objective: derive missing SPE/e500v2 support

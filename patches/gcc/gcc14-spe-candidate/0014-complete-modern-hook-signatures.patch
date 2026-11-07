@@ -1,0 +1,85 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -2239,7 +2239,8 @@
+ /* Implement TARGET_HARD_REGNO_CALL_PART_CLOBBERED.  */
+ 
+ static bool
+-rs6000_hard_regno_call_part_clobbered (unsigned int regno, machine_mode mode)
++rs6000_hard_regno_call_part_clobbered (unsigned int, unsigned int regno,
++                                    machine_mode mode)
+ {
+   if (TARGET_32BIT
+       && TARGET_POWERPC64
+@@ -4008,8 +4009,10 @@
+ 
+ static rtx_insn *
+ rs6000_md_asm_adjust (vec<rtx> &/*outputs*/, vec<rtx> &/*inputs*/,
+-		      vec<const char *> &/*constraints*/,
+-		      vec<rtx> &clobbers, HARD_REG_SET &clobbered_regs)
++                      vec<machine_mode> &/*input_modes*/,
++                      vec<const char *> &/*constraints*/,
++                      vec<rtx> &/*uses*/, vec<rtx> &clobbers,
++                      HARD_REG_SET &clobbered_regs, location_t /*loc*/)
+ {
+   clobbers.safe_push (gen_rtx_REG (SImode, CA_REGNO));
+   SET_HARD_REG_BIT (clobbered_regs, CA_REGNO);
+@@ -10240,7 +10243,8 @@
+    because adjacent memory cells are accessed by adding word-sized offsets
+    during assembly output.  */
+ static bool
+-rs6000_legitimate_address_p (machine_mode mode, rtx x, bool reg_ok_strict)
++rs6000_legitimate_address_p (machine_mode mode, rtx x, bool reg_ok_strict,
++                            code_helper = ERROR_MARK)
+ {
+   bool reg_offset_p = reg_offset_addressing_ok_p (mode);
+   bool quad_offset_p = mode_supports_vsx_dform_quad (mode);
+@@ -12014,9 +12018,9 @@
+ rs6000_must_pass_in_stack (machine_mode mode, const_tree type)
+ {
+   if (DEFAULT_ABI == ABI_AIX || DEFAULT_ABI == ABI_ELFv2 || TARGET_64BIT)
+-    return must_pass_in_stack_var_size (function_arg_info (type, mode, true));
++    return must_pass_in_stack_var_size (function_arg_info (const_cast<tree> (type), mode, true));
+   else
+-    return must_pass_in_stack_var_size_or_pad (function_arg_info (type, mode, true));
++    return must_pass_in_stack_var_size_or_pad (function_arg_info (const_cast<tree> (type), mode, true));
+ }
+ 
+ static inline bool
+@@ -13499,7 +13503,7 @@
+ 
+   /* See if this arg was passed by invisible reference.  */
+   if (pass_by_reference (get_cumulative_args (args_so_far),
+-			 TYPE_MODE (type), type, true))
++                         function_arg_info (type, true)))
+     type = build_pointer_type (type);
+ 
+   /* Find mode as it is passed by the ABI.  */
+@@ -13761,7 +13765,7 @@
+       first_reg_offset = next_cum.words;
+       save_area = crtl->args.internal_arg_pointer;
+ 
+-      if (targetm.calls.must_pass_in_stack (function_arg_info (type, mode, true)))
++      if (targetm.calls.must_pass_in_stack (function_arg_info (const_cast<tree> (type), mode, true)))
+ 	first_reg_offset += rs6000_arg_size (TYPE_MODE (type), type);
+     }
+ 
+@@ -40051,7 +40055,8 @@
+ 
+ static void
+ rs6000_function_specific_save (struct cl_target_option *ptr,
+-			       struct gcc_options *opts)
++                               struct gcc_options *opts,
++                               struct gcc_options */*opts_set*/)
+ {
+   ptr->x_rs6000_isa_flags = opts->x_rs6000_isa_flags;
+   ptr->x_rs6000_isa_flags_explicit = opts->x_rs6000_isa_flags_explicit;
+@@ -40061,7 +40066,8 @@
+ 
+ static void
+ rs6000_function_specific_restore (struct gcc_options *opts,
+-				  struct cl_target_option *ptr)
++                                  struct gcc_options */*opts_set*/,
++                                  struct cl_target_option *ptr)
+ 				  
+ {
+   opts->x_rs6000_isa_flags = ptr->x_rs6000_isa_flags;

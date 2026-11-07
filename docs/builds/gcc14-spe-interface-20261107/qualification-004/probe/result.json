@@ -1,0 +1,354 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "check": "version",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-dumpfullversion"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "target",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-dumpmachine"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "target-tuple",
+      "passed": true
+    },
+    {
+      "check": "assembly",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-S",
+        "/recipe/bench/gcc14-spe-freestanding.c",
+        "-o",
+        "/output/probe/probe.s"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "object",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-c",
+        "/recipe/bench/gcc14-spe-freestanding.c",
+        "-o",
+        "/output/probe/probe.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "vector-loop",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-O3",
+        "-fopt-info-vec-all=/output/probe/vector-info.txt",
+        "-S",
+        "/recipe/bench/gcc14-spe-vector.c",
+        "-o",
+        "/output/probe/vector-loop.s"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "vector-object",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-O3",
+        "-c",
+        "/recipe/bench/gcc14-spe-vector.c",
+        "-o",
+        "/output/probe/vector-loop.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "vector-alias-regression",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-O3",
+        "-S",
+        "/output/probe/vector-alias-regression.c",
+        "-o",
+        "/output/probe/vector-alias-regression.s"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "link",
+      "command": [
+        "powerpc-linux-gnu-ld",
+        "-static",
+        "-e",
+        "_start",
+        "--build-id=none",
+        "-o",
+        "/output/probe/probe",
+        "/output/probe/probe.o",
+        "/output/probe/vector-loop.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "elf-header",
+      "command": [
+        "powerpc-linux-gnu-readelf",
+        "-h",
+        "/output/probe/probe"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "disassembly",
+      "command": [
+        "powerpc-linux-gnu-objdump",
+        "-d",
+        "/output/probe/probe"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "BE-PPC32-ELF",
+      "passed": true
+    },
+    {
+      "check": "ordinary-C-emits-SPE-adds",
+      "passed": true
+    },
+    {
+      "check": "target-options",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-Q",
+        "--help=target",
+        "-c",
+        "-x",
+        "c",
+        "/dev/null",
+        "-o",
+        "/output/probe/empty.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "macros",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-dM",
+        "-E",
+        "-x",
+        "c",
+        "/dev/null"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "SPE-data-model",
+      "passed": true
+    },
+    {
+      "check": "default-params",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-Q",
+        "--help=params",
+        "-c",
+        "-x",
+        "c",
+        "/dev/null",
+        "-o",
+        "/output/probe/params.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "override-params",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "--param=max-grow-copy-bb-insns=31",
+        "-Q",
+        "--help=params",
+        "-c",
+        "-x",
+        "c",
+        "/dev/null",
+        "-o",
+        "/output/probe/params-override.o"
+      ],
+      "exit_code": 0,
+      "passed": true
+    },
+    {
+      "check": "legacy-tuning-default-and-user-override",
+      "default": 16,
+      "override": 31,
+      "passed": true
+    },
+    {
+      "check": "reject-invalid-float-gprs",
+      "command": [
+        "/work/build-stage1/gcc/xgcc",
+        "-B/work/build-stage1/gcc/",
+        "-mcpu=8548",
+        "-mabi=spe",
+        "-mspe",
+        "-mfloat-gprs=double",
+        "-mhard-float",
+        "-mlong-double-128",
+        "-ffreestanding",
+        "-fno-builtin",
+        "-fno-stack-protector",
+        "-fno-pie",
+        "-fno-asynchronous-unwind-tables",
+        "-O2",
+        "-mfloat-gprs=invalid-mode",
+        "-S",
+        "/recipe/bench/gcc14-spe-freestanding.c",
+        "-o",
+        "/output/probe/invalid.s"
+      ],
+      "exit_code": 1,
+      "passed": true
+    }
+  ],
+  "source_sha256": "d64a1c992ea5f1d4c104ac8be27c42dcc658cf372092968138d76280ad18ad29",
+  "vector_source_sha256": "b518092bbd8b16d6a753a4a745b063a320c317231fbe05493688686dd2bf3c4e",
+  "compiler_sha256": "7612d1268dc5d21ca4e731dd8bb8d91170533951eadb8a1259c9a1301f72ea36",
+  "limits": "Selected freestanding C only; full runtimes, fenv, signals, TLS, C++ and system validation remain separate"
+}

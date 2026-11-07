@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "kernel_and_taint_before": [
+    "6.12.113-tabor-modular",
+    "0"
+  ],
+  "taint_after": "0",
+  "binary_sha256": "e34d439d2fe9d78ee9aceefff61ef53395ea2ee8cc3c08f69f8c600b5f40e3bb",
+  "binary_bytes": 2620,
+  "target_path": "/tmp/gcc14-spe-e34d439d2fe9d78e",
+  "exit_code": 227,
+  "stdout": "GCC14_SPE_FREESTANDING_PASS single double varargs preserved optimized-loop\n",
+  "stderr": "",
+  "scope": "Actual A1222 selected freestanding C probe; no libc/libgcc/C++ acceptance"
+}

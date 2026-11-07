@@ -53,5 +53,16 @@
   ],
   "active_base_lock_changed": false,
   "workstation_rebuild_started": false,
-  "graphical_shell_profile": "profiles/images/a1222-graphical-shell.json"
+  "graphical_shell_profile": "profiles/images/a1222-graphical-shell.json",
+  "compiler_bootstrap": {
+    "status": "C-only-headerless-built-selected-tests-pass",
+    "patch_manifest": "patches/gcc/gcc14-spe-candidate/manifest.json",
+    "evidence": "docs/builds/gcc14-spe-interface-20261107/README.md",
+    "patch_count": 16,
+    "option_records_preserved": 94,
+    "automatic_checks_passed": 20,
+    "qemu_selected_runtime": "passed",
+    "a1222_selected_runtime": "passed",
+    "full_runtime_abi_accepted": false
+  }
 }

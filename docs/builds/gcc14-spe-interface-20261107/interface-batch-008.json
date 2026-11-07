@@ -1,0 +1,15 @@
+{
+  "patches": [
+    {
+      "patch": "0014-complete-modern-hook-signatures.patch",
+      "reason": "Match current rs6000 asm, ABI clobber and option hook signatures without dropping asm operands or explicit ISA flags. Retain SPE argument algorithms through modern argument records.",
+      "sha256": "657b6d53a621a574363554c873632bfc076300e1411823c7950a0febe865bb4d"
+    },
+    {
+      "patch": "0015-preserve-vector-costs-in-modern-analysis-interface.patch",
+      "reason": "Replace retired init/add/finish/destroy hook macros with GCC14 create_costs and a per-analysis adapter. Preserve density/copy penalties and inner-loop weighting; use explicit vector type for SLP and isolate nonmem state between analyses.",
+      "sha256": "3a13c55e61b6031d1602682fadca1075045fe7e8bc9769a22780486c2700b5f1"
+    }
+  ],
+  "limits": "All ABI, vector costs and emitted-code behavior still need acceptance tests"
+}

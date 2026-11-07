@@ -1,11 +1,15 @@
-Current GCC14 source work: [backend restoration checkpoint](builds/gcc14-spe-port-20261107/README.md). Compiler bootstrap has reached C++ translation units but is not yet successful.
+Current work (2026-11-07): [GCC14 SPE compiler and option cleanup](builds/gcc14-spe-interface-20261107/README.md).
+The C-only headerless GCC14.2.0 bootstrap now builds. All94 legacy option records
+are preserved apart from retired Report metadata; selected C arithmetic,
+varargs, call-preservation and optimized-loop checks pass in QEMU and on the
+physical A1222. All16 candidate patches replay to the compiled source.
 
-Current work (2026-11-07): fresh Trixie SPE userspace foundation. Read
-[the GCC14 qualification](builds/gcc14-spe-foundation-20261107/README.md) and
-`profiles/trixie-spe-sdk-candidate.json` before restarting any package queue.
-GCC14 SPE backend/libgcc restoration is not complete. The clean7.3 kernel builds
-but QEMU dual-core startup stalls; its hardware bundle is staged inactive and
-the existing USB boot script/kernel remain active. Do not conflate these gates.
+This is not an accepted replacement SDK: libgcc, patched glibc2.41, C++ and full
+ABI/runtime qualification remain. Start from `profiles/trixie-spe-sdk-candidate.json`,
+not the old package retry queue. The accepted GCC8 SDK and base lock remain
+active. The clean7.3 kernel's separate QEMU SMP issue remains unresolved; its
+USB bundle is staged inactive and the existing boot script/kernel remain active.
+
 
 # Review starting point
 

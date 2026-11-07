@@ -1,0 +1,20 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -6125,7 +6125,7 @@
+      profitability highly unlikely and potentially quite harmful.  */
+   if (cost_data->loop_info)
+     {
+-      loop_vec_info vec_info = loop_vec_info_for_loop (cost_data->loop_info);
++      loop_vec_info vec_info = as_a<loop_vec_info> (cost_data->vinfo);
+       if (!cost_data->nonmem
+ 	  && known_eq (LOOP_VINFO_VECT_FACTOR (vec_info), 2)
+ 	  && LOOP_REQUIRES_VERSIONING (vec_info))
+@@ -6155,7 +6155,7 @@
+   {
+     loop_vec_info loop_vinfo = dyn_cast<loop_vec_info> (vinfo);
+     m_data = (rs6000_cost_data *) rs6000_init_cost
+-      (loop_vinfo ? LOOP_VINFO_LOOP (loop_vinfo) : NULL);
++      (loop_vinfo && !scalar ? LOOP_VINFO_LOOP (loop_vinfo) : NULL);
+     m_data->vinfo = vinfo;
+   }
+   ~rs6000_spe_vector_costs () override { rs6000_destroy_cost_data (m_data); }

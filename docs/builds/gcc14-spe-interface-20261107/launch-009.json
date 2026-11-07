@@ -1,0 +1,39 @@
+{
+  "command": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-gcc14-spe-stage1-009",
+    "--cpus=4",
+    "--memory=6g",
+    "--network=none",
+    "--entrypoint",
+    "/bin/sh",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001:/work",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "-c",
+    "cd /work/build-stage1/gcc && make -k -j4 powerpcspe.o powerpcspe-c.o powerpcspe-common.o insn-preds.o insn-output.o options.o insn-emit-1.o insn-emit-10.o insn-emit-2.o insn-emit-3.o insn-emit-4.o insn-emit-5.o insn-emit-6.o insn-emit-7.o insn-emit-8.o insn-emit-9.o > /work/build-stage1-009-objects.log 2>&1 && cd /work/build-stage1 && make -k -j4 all-gcc > /work/build-stage1-009.log 2>&1"
+  ],
+  "object_targets": [
+    "powerpcspe.o",
+    "powerpcspe-c.o",
+    "powerpcspe-common.o",
+    "insn-preds.o",
+    "insn-output.o",
+    "options.o",
+    "insn-emit-1.o",
+    "insn-emit-10.o",
+    "insn-emit-2.o",
+    "insn-emit-3.o",
+    "insn-emit-4.o",
+    "insn-emit-5.o",
+    "insn-emit-6.o",
+    "insn-emit-7.o",
+    "insn-emit-8.o",
+    "insn-emit-9.o"
+  ],
+  "previous008_status": "C++ backend source compilation passed; make failed for obsolete unsplit insn-emit.o target name",
+  "qualification": "bootstrap compiler only; emitted code and runtime remain separate gates"
+}

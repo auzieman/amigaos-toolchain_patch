@@ -1,0 +1,25 @@
+{
+  "patches": [
+    {
+      "patch": "0010-preserve-conditional-spe-register-usage.patch",
+      "reason": "Migrate conditional call-clobber updates to GCC14 call_used_regs, preserve SPEFSCR/r14 and FPR exclusions; minimal TOC reserves but does not falsely clobber its register.",
+      "sha256": "5c27adf2d500343704ec4f467fc2bde451211cea1fcc2469abe5ce73715bb9b3"
+    },
+    {
+      "patch": "0011-modern-option-state-and-rtl-interfaces.patch",
+      "reason": "Preserve explicit-option state during target/optimization save/restore, correct include ordering, scoped attributes, current RTL comparisons and same-mode permutation support; reject unsupported cross-mode permutations.",
+      "sha256": "83f877a994609976eca7adc3bfd86ca712020ca534398e3ecf30692902a8e496"
+    },
+    {
+      "patch": "0012-modern-alignment-records.patch",
+      "reason": "Use modern alignment flag/string records, respect explicit disable/overrides and remove retired max-skip hook rather than manufacturing obsolete scalar globals.",
+      "sha256": "e388cbc8572d4574e0e44335bf88e275589b54eb6076486b0eaf10afe2afd693"
+    },
+    {
+      "patch": "0013-adapt-spe-argument-hooks.patch",
+      "reason": "Expose modern function_arg_info hooks while retaining existing SPE placement, partial-register, pass-by-reference and varargs algorithms for independent ABI validation.",
+      "sha256": "fa4e70a4300f7c03093d8e15ff07a86443dd3064e39dbae6ba0cc8ac038c5c35"
+    }
+  ],
+  "note": "Compiler API adaptation is not runtime acceptance; retired vector cost hooks remain under active migration"
+}

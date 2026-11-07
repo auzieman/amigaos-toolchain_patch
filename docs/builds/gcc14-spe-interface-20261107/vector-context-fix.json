@@ -1,0 +1,6 @@
+{
+  "failure": "GCC14 scalar iteration costing called legacy finish hook with a loop aux pointer that was not the current vec_info; optimized loop ICE",
+  "correction": "Keep the explicit per-analysis vec_info pointer; omit vector-only loop penalties during scalar costing",
+  "patch_sha256": "b9b18df60b51fe7051d7af7d8e86d335f200823630dc9879d711e090e068a7db",
+  "test": "ordinary C float array loop at -O3; do not disable vectorization"
+}
