@@ -111,3 +111,5 @@ used 1 CPU/1GiB and source replay 1 CPU/2GiB. No SDK installation or consumer
 package rebuild was started. Next: qualify bootstrap libgcc with this compiler,
 then the patched glibc2.41/C++ runtime and the full ABI suite before publishing
 an SDK or restarting normal Debian workstation package builds.
+
+Remaining runtime/SDK gates are tracked in [private issue27](https://github.com/auzieman/amigaos-toolchain_patch/issues/27); it remains open.

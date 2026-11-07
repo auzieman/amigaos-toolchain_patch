@@ -1364,3 +1364,6 @@ against glibc2.41 and retained in evidence. No libgcc/libc was linked.
 See [evidence](builds/gcc14-spe-interface-20261107/README.md). Accepted SDK/base
 lock/USB remain unchanged. libgcc, glibc/fenv/context/TLS/atomics, long double,
 C++ unwinding and cross-version/general PowerPC regression gates remain open.
+
+Compiler checkpoint committed as `2047b47`; remaining runtime promotion gates
+are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/issues/27), kept open.
