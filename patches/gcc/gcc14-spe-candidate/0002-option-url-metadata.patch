@@ -1,0 +1,319 @@
+--- /dev/null
++++ b/gcc/config/powerpcspe/xilinx.opt.urls
+@@ -0,0 +1,2 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/powerpcspe-tables.opt.urls
+@@ -0,0 +1,2 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/476.opt.urls
+@@ -0,0 +1,2 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/aix64.opt.urls
+@@ -0,0 +1,11 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
++maix64
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-maix64)
++
++maix32
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-maix32)
++
++mpe
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpe)
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/linux64.opt.urls
+@@ -0,0 +1,2 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/sysv4.opt.urls
+@@ -0,0 +1,77 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
++msdata=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msdata-2)
++
++mbit-align
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mbit-align)
++
++mstrict-align
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mstrict-align-5)
++
++mrelocatable
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mrelocatable)
++
++mrelocatable-lib
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mrelocatable-lib)
++
++mlittle-endian
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mlittle-endian-11)
++
++mlittle
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mlittle)
++
++mbig-endian
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mbig-endian-11)
++
++mbig
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mbig)
++
++mno-toc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mno-toc)
++
++mtoc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mtoc)
++
++mprototype
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mprototype)
++
++meabi
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-meabi)
++
++mregnames
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mregnames)
++
++msdata
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msdata-2)
++
++msim
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msim-7)
++
++mads
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mads)
++
++myellowknife
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-myellowknife)
++
++mmvme
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mmvme)
++
++memb
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-memb)
++
++m64
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-m64-1)
++
++m32
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-m32)
++
++msecure-plt
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msecure-plt)
++
++mbss-plt
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mbss-plt)
++
++mgnu-attribute
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mgnu-attribute)
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/darwin.opt.urls
+@@ -0,0 +1,14 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
++ffix-and-continue
++UrlSuffix(gcc/Darwin-Options.html#index-ffix-and-continue)
++
++findirect-data
++UrlSuffix(gcc/Darwin-Options.html#index-findirect-data)
++
++m64
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-m64-1)
++
++m32
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-m32)
++
+--- /dev/null
++++ b/gcc/config/powerpcspe/powerpcspe.opt.urls
+@@ -0,0 +1,185 @@
++; GCC14 option URL metadata: shared documented options only; no invented SPE documentation links.
++
++mpowerpc64
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpowerpc64)
++
++mpowerpc-gpopt
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpowerpc-gpopt)
++
++mpowerpc-gfxopt
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpowerpc-gfxopt)
++
++mmfcrf
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mmfcrf)
++
++mpopcntb
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpopcntb)
++
++mfprnd
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mfprnd)
++
++mcmpb
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mcmpb)
++
++maltivec
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-maltivec)
++
++mhard-dfp
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mhard-dfp)
++
++mmulhw
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mmulhw)
++
++mdlmzb
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mdlmzb)
++
++mmultiple
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mmultiple)
++
++msoft-float
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msoft-float-11)
++
++mhard-float
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mhard-float-6)
++
++mpopcntd
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpopcntd)
++
++mfriz
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mfriz)
++
++mveclibabi=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mveclibabi)
++
++mvsx
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mvsx)
++
++mno-update
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mno-update)
++
++mupdate
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mupdate)
++
++msingle-pic-base
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msingle-pic-base-1)
++
++mavoid-indexed-addresses
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mavoid-indexed-addresses)
++
++maix-struct-return
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-maix-struct-return)
++
++msvr4-struct-return
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msvr4-struct-return)
++
++mxl-compat
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mxl-compat)
++
++mrecip
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mrecip-1)
++
++mrecip=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mrecip-1)
++
++mrecip-precision
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mrecip-precision)
++
++mno-fp-in-toc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mno-fp-in-toc)
++
++mno-sum-in-toc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mno-sum-in-toc)
++
++mminimal-toc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mminimal-toc)
++
++mfull-toc
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mfull-toc)
++
++mvrsave
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mvrsave)
++
++mblock-move-inline-limit=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mblock-move-inline-limit)
++
++mblock-compare-inline-limit=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mblock-compare-inline-limit)
++
++mstring-compare-inline-limit=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mstring-compare-inline-limit)
++
++misel
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-misel)
++
++mabi=elfv1
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mabi_003delfv1)
++
++mabi=elfv2
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mabi_003delfv2)
++
++mabi=ieeelongdouble
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mabi_003dieeelongdouble)
++
++mabi=ibmlongdouble
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mabi_003dibmlongdouble)
++
++mcpu=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mcpu-10)
++
++mtune=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mtune-13)
++
++mtraceback=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mtraceback)
++
++mlongcall
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mlongcall)
++
++msched-costly-dep=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msched-costly-dep)
++
++minsert-sched-nops=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-minsert-sched-nops)
++
++mprioritize-restricted-insns=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mprioritize-restricted-insns)
++
++mpointers-to-nested-functions
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpointers-to-nested-functions)
++
++msave-toc-indirect
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-msave-toc-indirect)
++
++mpower8-fusion
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mpower8-fusion)
++
++mcrypto
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mcrypto)
++
++mhtm
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mhtm)
++
++mquad-memory
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mquad-memory)
++
++mquad-memory-atomic
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mquad-memory-atomic)
++
++mcompat-align-parm
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mcompat-align-parm)
++
++mfloat128
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mfloat128)
++
++mfloat128-hardware
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mfloat128-hardware)
++
++mstack-protector-guard=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mstack-protector-guard-3)
++
++mstack-protector-guard-reg=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mstack-protector-guard-reg-2)
++
++mstack-protector-guard-offset=
++UrlSuffix(gcc/RS_002f6000-and-PowerPC-Options.html#index-mstack-protector-guard-offset-3)
++

@@ -26,3 +26,6 @@ docs/builds/**/kmsg.stderr -whitespace
 docs/builds/**/config-migration.diff -whitespace
 docs/builds/**/compiler.txt -whitespace
 docs/builds/**/serial.log -whitespace
+
+docs/builds/gcc14-spe-port-20261107/*.log -whitespace
+patches/gcc/gcc14-spe-candidate/debian-gcc-gfdl-build.diff -whitespace

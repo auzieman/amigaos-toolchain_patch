@@ -1,0 +1,44 @@
+--- a/gcc/config/powerpcspe/powerpcspe.md
++++ b/gcc/config/powerpcspe/powerpcspe.md
+@@ -5026,7 +5026,7 @@
+ 	     (match_operand:SFDF2 4 "zero_fp_constant" "F"))
+ 	 (match_operand:SFDF 2 "gpc_reg_operand" "<SFDF:rreg2>")
+ 	 (match_operand:SFDF 3 "gpc_reg_operand" "<SFDF:rreg2>")))]
+-  "TARGET_<MODE>_FPR && TARGET_PPC_GFXOPT"
++  "TARGET_<SFDF:MODE>_FPR && TARGET_PPC_GFXOPT"
+   "fsel %0,%1,%2,%3"
+   [(set_attr "type" "fp")])
+ 
+@@ -12120,7 +12120,7 @@
+   [(set_attr "type" "fpcompare")
+    (set_attr "length" "12")])
+ 
+-(define_insn_and_split "*cmp<mode>_internal2"
++(define_insn_and_split "*cmp<IBM128:mode>_internal2"
+   [(set (match_operand:CCFP 0 "cc_reg_operand" "=y")
+ 	(compare:CCFP (match_operand:IBM128 1 "gpc_reg_operand" "d")
+ 		      (match_operand:IBM128 2 "gpc_reg_operand" "d")))
+@@ -12133,7 +12133,7 @@
+     (clobber (match_scratch:DF 9 "=d"))
+     (clobber (match_scratch:DF 10 "=d"))
+     (clobber (match_scratch:GPR 11 "=b"))]
+-  "TARGET_XL_COMPAT && FLOAT128_IBM_P (<MODE>mode)
++  "TARGET_XL_COMPAT && FLOAT128_IBM_P (<IBM128:MODE>mode)
+    && TARGET_HARD_FLOAT && TARGET_FPRS && TARGET_DOUBLE_FLOAT && TARGET_LONG_DOUBLE_128"
+   "#"
+   "&& reload_completed"
+@@ -12157,10 +12157,10 @@
+   const int lo_word = LONG_DOUBLE_LARGE_FIRST ? GET_MODE_SIZE (DFmode) : 0;
+   const int hi_word = LONG_DOUBLE_LARGE_FIRST ? 0 : GET_MODE_SIZE (DFmode);
+ 
+-  operands[5] = simplify_gen_subreg (DFmode, operands[1], <MODE>mode, hi_word);
+-  operands[6] = simplify_gen_subreg (DFmode, operands[1], <MODE>mode, lo_word);
+-  operands[7] = simplify_gen_subreg (DFmode, operands[2], <MODE>mode, hi_word);
+-  operands[8] = simplify_gen_subreg (DFmode, operands[2], <MODE>mode, lo_word);
++  operands[5] = simplify_gen_subreg (DFmode, operands[1], <IBM128:MODE>mode, hi_word);
++  operands[6] = simplify_gen_subreg (DFmode, operands[1], <IBM128:MODE>mode, lo_word);
++  operands[7] = simplify_gen_subreg (DFmode, operands[2], <IBM128:MODE>mode, hi_word);
++  operands[8] = simplify_gen_subreg (DFmode, operands[2], <IBM128:MODE>mode, lo_word);
+   operands[12] = gen_label_rtx ();
+   operands[13] = gen_label_rtx ();
+   real_inf (&rv);

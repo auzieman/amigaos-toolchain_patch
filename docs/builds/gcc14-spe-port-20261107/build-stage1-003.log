@@ -1,0 +1,1013 @@
+make[1]: Entering directory '/work/build-stage1/libiberty'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+make[1]: Entering directory '/work/build-stage1/libbacktrace'
+make  all-am
+make[2]: Entering directory '/work/build-stage1/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/libiberty/testsuite'
+make[1]: Entering directory '/work/build-stage1/zlib'
+true "AR_FLAGS=rc" "CC_FOR_BUILD=gcc" "CFLAGS=-g -O2  " "CXXFLAGS=-g -O2  " "CFLAGS_FOR_BUILD=-g -O2" "CFLAGS_FOR_TARGET=-g -O2" "INSTALL=/usr/bin/install -c" "INSTALL_DATA=/usr/bin/install -c -m 644" "INSTALL_PROGRAM=/usr/bin/install -c" "INSTALL_SCRIPT=/usr/bin/install -c" "LDFLAGS=-static-libstdc++ -static-libgcc " "LIBCFLAGS=-g -O2  " "LIBCFLAGS_FOR_TARGET=-g -O2" "MAKE=make" "MAKEINFO=makeinfo --split-size=5000000 " "PICFLAG=" "PICFLAG_FOR_TARGET=" "SHELL=/bin/bash" "EXPECT=expect" "RUNTEST=runtest" "RUNTESTFLAGS=" "exec_prefix=/opt/tabor-sdk-candidate" "infodir=/opt/tabor-sdk-candidate/share/info" "libdir=/opt/tabor-sdk-candidate/lib" "prefix=/opt/tabor-sdk-candidate" "tooldir=/opt/tabor-sdk-candidate/powerpc-linux-gnuspe" "AR=ar --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "AS=as" "CC=gcc" "CXX=g++" "LD=ld" "LIBCFLAGS=-g -O2  " "NM=nm" "PICFLAG=" "RANLIB=ranlib --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "DESTDIR=" DO=all multi-do # make
+make[2]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[1]: Leaving directory '/work/build-stage1/zlib'
+make[1]: Leaving directory '/work/build-stage1/libiberty'
+make[2]: Entering directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+true  DO=all multi-do # make
+make[2]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Entering directory '/work/build-stage1/libdecnumber'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libdecnumber'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make[1]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/libcody'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libcody'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make  all-am
+make[2]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[2]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+make[1]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/fixincludes'
+make[1]: Entering directory '/work/build-stage1/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[1]: Leaving directory '/work/build-stage1/libcpp'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/fixincludes'
+make[1]: Entering directory '/work/build-stage1/gcc'
+running CONFIG_SHELL=/bin/bash /bin/bash /work/modern/gcc/configure --srcdir=/work/modern/gcc --cache-file=./config.cache --prefix=/opt/tabor-sdk-candidate --disable-bootstrap --disable-multilib --disable-nls --without-headers --disable-shared --disable-threads --disable-libsanitizer --disable-libquadmath --disable-libgomp --disable-libatomic --enable-checking=release --with-cpu=8548 --with-long-double-128 --enable-e500-double --with-as=/usr/bin/powerpc-linux-gnu-as --with-ld=/usr/bin/powerpc-linux-gnu-ld --enable-languages=c,lto --program-transform-name=s&^&powerpc-linux-gnuspe-& --disable-option-checking --build=x86_64-pc-linux-gnu --host=x86_64-pc-linux-gnu --target=powerpc-linux-gnuspe build_alias=x86_64-pc-linux-gnu host_alias=x86_64-pc-linux-gnu target_alias=powerpc-linux-gnuspe CC=gcc CFLAGS=-g -O2   LDFLAGS=-static-libstdc++ -static-libgcc  CXX=g++ CXXFLAGS=-g -O2   GMPLIBS=-lmpc -lmpfr -lgmp GMPINC= ISLLIBS= ISLINC= --no-create --no-recursion
+configure: loading cache ./config.cache
+checking build system type... (cached) x86_64-pc-linux-gnu
+checking host system type... (cached) x86_64-pc-linux-gnu
+checking target system type... (cached) powerpc-unknown-linux-gnuspe
+checking LIBRARY_PATH variable... ok
+checking GCC_EXEC_PREFIX variable... ok
+checking whether to place generated files in the source directory... no
+checking whether a default linker was specified... yes (/usr/bin/powerpc-linux-gnu-ld - GNU ld)
+checking whether a default dsymutil was specified... no
+checking whether a default assembler was specified... yes (/usr/bin/powerpc-linux-gnu-as - GNU as)
+checking for x86_64-pc-linux-gnu-gcc... (cached) gcc
+checking whether the C compiler works... yes
+checking for C compiler default output file name... a.out
+checking for suffix of executables... 
+checking whether we are cross compiling... no
+checking for suffix of object files... (cached) o
+checking whether we are using the GNU C compiler... (cached) yes
+checking whether gcc accepts -g... (cached) yes
+checking for gcc option to accept ISO C89... (cached) none needed
+checking whether we are using the GNU C++ compiler... (cached) yes
+checking whether g++ accepts -g... (cached) yes
+checking for x86_64-pc-linux-gnu-gnatbind... no
+checking for x86_64-pc-linux-gnu-gnatmake... no
+checking whether compiler driver understands Ada and is recent enough... (cached) no
+checking for x86_64-pc-linux-gnu-gdc... (cached) no
+checking whether the D compiler works... (cached) no
+checking how to run the C++ preprocessor... (cached) g++ -E
+checking for grep that handles long lines and -e... (cached) /usr/bin/grep
+checking for egrep... (cached) /usr/bin/grep -E
+checking for ANSI C header files... (cached) yes
+checking for sys/types.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for string.h... (cached) yes
+checking for memory.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for inttypes.h... (cached) yes
+checking for stdint.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for minix/config.h... (cached) no
+checking whether it is safe to define __EXTENSIONS__... (cached) yes
+checking how to run the C preprocessor... (cached) gcc -E
+checking for inline... (cached) inline
+checking for special C compiler options needed for large files... (cached) no
+checking for _FILE_OFFSET_BITS value needed for large files... (cached) no
+checking size of ino_t... (cached) 8
+checking size of dev_t... (cached) 8
+checking size of void *... (cached) 8
+checking size of short... (cached) 2
+checking size of int... (cached) 4
+checking size of long... (cached) 8
+checking for long long... (cached) yes
+checking size of long long... (cached) 8
+checking for int8_t... (cached) yes
+checking for int16_t... (cached) yes
+checking for int32_t... (cached) yes
+checking for int64_t... (cached) yes
+checking for unsigned long long int... (cached) yes
+checking for long long int... (cached) yes
+checking for intmax_t... (cached) yes
+checking for intptr_t... (cached) yes
+checking for uint8_t... (cached) yes
+checking for uint16_t... (cached) yes
+checking for uint32_t... (cached) yes
+checking for uint64_t... (cached) yes
+checking for uintmax_t... (cached) yes
+checking for uintptr_t... (cached) yes
+checking for int64_t underlying type... (cached) long
+checking for std::swap in <utility>... (cached) yes
+checking whether g++ is affected by placement new aliasing bug... no
+checking whether g++ supports -W... (cached) yes
+checking whether g++ supports -Wall... (cached) yes
+checking whether g++ supports -Wnarrowing... (cached) yes
+checking whether g++ supports -Wwrite-strings... (cached) yes
+checking whether g++ supports -Wcast-qual... (cached) yes
+checking whether gcc supports -Wstrict-prototypes... (cached) yes
+checking whether gcc supports -Wmissing-prototypes... (cached) yes
+checking whether g++ supports -Wmissing-format-attribute... (cached) yes
+checking whether g++ supports -Wconditionally-supported... (cached) yes
+checking whether g++ supports -Woverloaded-virtual... (cached) yes
+checking whether gcc supports -Wold-style-definition... (cached) yes
+checking whether gcc supports -Wc++-compat... (cached) yes
+checking whether g++ supports -pedantic -Wlong-long -Wvariadic-macros -Woverlength-strings... (cached) yes
+checking whether gcc supports -fno-exceptions... (cached) yes
+checking whether gcc supports -fno-rtti... (cached) yes
+checking whether gcc supports -fasynchronous-unwind-tables... (cached) yes
+checking for valgrind/memcheck.h... (cached) no
+checking for multiarch configuration... no, disabled auto check (cross build configured without --with-sysroot)
+configure: WARNING: fixed-point is not supported for this target, ignored
+checking whether make sets $(MAKE)... (cached) yes
+checking for gawk... (cached) gawk
+checking whether ln -s works... (cached) yes
+checking whether ln works... (cached) yes
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so
+checking for a BSD compatible install... /usr/bin/install -c
+checking for cmp's capabilities... (cached) gnucompare
+checking for mktemp... (cached) yes
+checking for makeinfo... (cached) makeinfo
+checking for modern makeinfo... (cached) yes
+checking for CONTENTS_OUTPUT_LOCATION support in makeinfo... (cached) yes
+checking for recent Pod::Man... yes
+checking for flex... (cached) flex
+checking for bison... (cached) bison
+checking for python3... (cached) python3
+checking for modern python3... (cached) yes
+checking for nm... (cached) nm
+checking for ar... (cached) ar --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so
+checking for sphinx-build... (cached) texinfo
+checking for ANSI C header files... (cached) yes
+checking whether time.h and sys/time.h may both be included... (cached) yes
+checking whether string.h and strings.h may both be included... (cached) yes
+checking for sys/wait.h that is POSIX.1 compatible... (cached) yes
+checking whether termios.h defines TIOCGWINSZ... (cached) no
+checking whether sys/ioctl.h defines TIOCGWINSZ... (cached) yes
+checking for limits.h... (cached) yes
+checking for stddef.h... (cached) yes
+checking for string.h... (cached) yes
+checking for strings.h... (cached) yes
+checking for stdlib.h... (cached) yes
+checking for time.h... (cached) yes
+checking for iconv.h... (cached) yes
+checking for fcntl.h... (cached) yes
+checking for ftw.h... (cached) yes
+checking for unistd.h... (cached) yes
+checking for sys/auxv.h... (cached) yes
+checking for sys/file.h... (cached) yes
+checking for sys/time.h... (cached) yes
+checking for sys/mman.h... (cached) yes
+checking for sys/resource.h... (cached) yes
+checking for sys/param.h... (cached) yes
+checking for sys/times.h... (cached) yes
+checking for sys/stat.h... (cached) yes
+checking for sys/locking.h... (cached) no
+checking for direct.h... (cached) no
+checking for malloc.h... (cached) yes
+checking for langinfo.h... (cached) yes
+checking for ldfcn.h... (cached) no
+checking for locale.h... (cached) yes
+checking for wchar.h... (cached) yes
+checking for thread.h... (cached) no
+checking for pthread.h... (cached) yes
+checking for CHAR_BIT... (cached) yes
+checking whether byte ordering is bigendian... (cached) no
+checking how to run the C++ preprocessor... g++ -E
+checking for unordered_map... (cached) yes
+checking for tr1/unordered_map... (cached) yes
+checking for ext/hash_map... (cached) yes
+checking dependency style of g++... (cached) gcc3
+checking for collect2 libraries... (cached) none required
+checking for library containing exc_resume... (cached) no
+checking for library containing kstat_open... (cached) no
+checking for library containing gethostbyname... (cached) none required
+checking for library containing socket... (cached) none required
+checking for library containing ldexp... (cached) none required
+checking for library containing dlopen... (cached) none required
+checking for inttypes.h... (cached) yes
+checking for library containing ZSTD_compress... (cached) -lzstd
+checking for zstd.h... (cached) yes
+checking for times... (cached) yes
+checking for clock... (cached) yes
+checking for kill... (cached) yes
+checking for getrlimit... (cached) yes
+checking for setrlimit... (cached) yes
+checking for atoq... (cached) no
+checking for popen... (cached) yes
+checking for sysconf... (cached) yes
+checking for strsignal... (cached) yes
+checking for getrusage... (cached) yes
+checking for nl_langinfo... (cached) yes
+checking for gettimeofday... (cached) yes
+checking for mbstowcs... (cached) yes
+checking for wcswidth... (cached) yes
+checking for mmap... (cached) yes
+checking for posix_fallocate... (cached) yes
+checking for setlocale... (cached) yes
+checking for clearerr_unlocked... (cached) yes
+checking for feof_unlocked... (cached) yes
+checking for ferror_unlocked... (cached) yes
+checking for fflush_unlocked... (cached) yes
+checking for fgetc_unlocked... (cached) yes
+checking for fgets_unlocked... (cached) yes
+checking for fileno_unlocked... (cached) yes
+checking for fprintf_unlocked... (cached) no
+checking for fputc_unlocked... (cached) yes
+checking for fputs_unlocked... (cached) yes
+checking for fread_unlocked... (cached) yes
+checking for fwrite_unlocked... (cached) yes
+checking for getchar_unlocked... (cached) yes
+checking for getc_unlocked... (cached) yes
+checking for putchar_unlocked... (cached) yes
+checking for putc_unlocked... (cached) yes
+checking for madvise... (cached) yes
+checking for mallinfo... (cached) yes
+checking for mallinfo2... (cached) yes
+checking for fstatat... (cached) yes
+checking for getauxval... (cached) yes
+checking whether mbstowcs works... (cached) yes
+checking for ssize_t... (cached) yes
+checking for caddr_t... (cached) yes
+checking for sighander_t... (cached) no
+checking for sys/mman.h... (cached) yes
+checking for mmap... (cached) yes
+checking whether read-only mmap of a plain file works... (cached) yes
+checking whether mmap from /dev/zero works... (cached) yes
+checking for MAP_ANON(YMOUS)... (cached) yes
+checking whether mmap with MAP_ANON(YMOUS) works... (cached) yes
+checking for pid_t... (cached) yes
+checking for vfork.h... (cached) no
+checking for fork... (cached) yes
+checking for vfork... (cached) yes
+checking for working fork... (cached) yes
+checking for working vfork... (cached) yes
+checking for ld used by GCC... (cached) ld
+checking if the linker (ld) is GNU ld... (cached) yes
+checking for shared library run path origin... (cached) done
+checking for iconv... (cached) yes
+checking for working iconv... (cached) yes
+checking whether iconv is compatible with its POSIX signature... (cached) yes
+checking for LC_MESSAGES... (cached) yes
+checking for nl_langinfo and CODESET... (cached) yes
+checking whether basename is declared... (cached) yes
+checking whether strstr is declared... (cached) yes
+checking whether getenv is declared... (cached) yes
+checking whether atol is declared... (cached) yes
+checking whether atoll is declared... (cached) yes
+checking whether asprintf is declared... (cached) yes
+checking whether sbrk is declared... (cached) yes
+checking whether abort is declared... (cached) yes
+checking whether atof is declared... (cached) yes
+checking whether getcwd is declared... (cached) yes
+checking whether getwd is declared... (cached) yes
+checking whether madvise is declared... (cached) yes
+checking whether stpcpy is declared... (cached) yes
+checking whether strnlen is declared... (cached) yes
+checking whether strsignal is declared... (cached) yes
+checking whether strverscmp is declared... (cached) yes
+checking whether strtol is declared... (cached) yes
+checking whether strtoul is declared... (cached) yes
+checking whether strtoll is declared... (cached) yes
+checking whether strtoull is declared... (cached) yes
+checking whether setenv is declared... (cached) yes
+checking whether unsetenv is declared... (cached) yes
+checking whether errno is declared... (cached) yes
+checking whether snprintf is declared... (cached) yes
+checking whether vsnprintf is declared... (cached) yes
+checking whether vasprintf is declared... (cached) yes
+checking whether malloc is declared... (cached) yes
+checking whether realloc is declared... (cached) yes
+checking whether calloc is declared... (cached) yes
+checking whether free is declared... (cached) yes
+checking whether getopt is declared... (cached) yes
+checking whether clock is declared... (cached) yes
+checking whether getpagesize is declared... (cached) yes
+checking whether ffs is declared... (cached) yes
+checking whether clearerr_unlocked is declared... (cached) yes
+checking whether feof_unlocked is declared... (cached) yes
+checking whether ferror_unlocked is declared... (cached) yes
+checking whether fflush_unlocked is declared... (cached) yes
+checking whether fgetc_unlocked is declared... (cached) yes
+checking whether fgets_unlocked is declared... (cached) yes
+checking whether fileno_unlocked is declared... (cached) yes
+checking whether fprintf_unlocked is declared... (cached) no
+checking whether fputc_unlocked is declared... (cached) yes
+checking whether fputs_unlocked is declared... (cached) yes
+checking whether fread_unlocked is declared... (cached) yes
+checking whether fwrite_unlocked is declared... (cached) yes
+checking whether getchar_unlocked is declared... (cached) yes
+checking whether getc_unlocked is declared... (cached) yes
+checking whether putchar_unlocked is declared... (cached) yes
+checking whether putc_unlocked is declared... (cached) yes
+checking whether getrlimit is declared... (cached) yes
+checking whether setrlimit is declared... (cached) yes
+checking whether getrusage is declared... (cached) yes
+checking whether mallinfo is declared... (cached) yes
+checking whether mallinfo2 is declared... (cached) yes
+checking whether ldgetname is declared... (cached) no
+checking whether times is declared... (cached) yes
+checking whether sigaltstack is declared... (cached) yes
+checking for struct tms... (cached) yes
+checking for clock_t... (cached) yes
+checking for F_SETLKW... (cached) yes
+checking for O_CLOEXEC... (cached) yes
+checking for fcntl.h... (cached) yes
+checking whether O_NONBLOCK is declared... (cached) yes
+checking for AF_UNIX... (cached) yes
+checking for AF_INET6... (cached) yes
+checking for _LK_LOCK... (cached) no
+checking if mkdir takes one argument... (cached) no
+Using `/work/modern/gcc/config/powerpcspe/powerpcspe.cc' for machine-specific logic.
+Using `/work/modern/gcc/config/powerpcspe/powerpcspe.md' as machine description file.
+Using the following target machine macro files:
+	/work/modern/gcc/config/vxworks-dummy.h
+	/work/modern/gcc/config/powerpcspe/powerpcspe.h
+	/work/modern/gcc/config/elfos.h
+	/work/modern/gcc/config/gnu-user.h
+	/work/modern/gcc/config/freebsd-spec.h
+	/work/modern/gcc/config/powerpcspe/sysv4.h
+	/work/modern/gcc/config/powerpcspe/linux.h
+	/work/modern/gcc/config/glibc-stdint.h
+	/work/modern/gcc/config/powerpcspe/linuxspe.h
+	/work/modern/gcc/config/powerpcspe/e500.h
+	/work/modern/gcc/config/powerpcspe/option-defaults.h
+	/work/modern/gcc/config/initfini-array.h
+Using host-linux.o for host machine hooks.
+checking for a BSD-compatible install... /usr/bin/install -c
+checking whether NLS is requested... no
+checking for msgfmt... (cached) /usr/bin/msgfmt
+checking for gmsgfmt... (cached) /usr/bin/msgfmt
+checking for xgettext... (cached) /usr/bin/xgettext
+checking for msgmerge... (cached) /usr/bin/msgmerge
+checking for CFPreferencesCopyAppValue... (cached) no
+checking for CFLocaleCopyPreferredLanguages... (cached) no
+checking whether to use NLS... no
+checking whether NLS is requested... no
+checking how to print strings... printf
+checking for a sed that does not truncate output... (cached) /usr/bin/sed
+checking for fgrep... (cached) /usr/bin/grep -F
+checking for ld used by gcc... (cached) ld
+checking if the linker (ld) is GNU ld... (cached) yes
+checking for BSD- or MS-compatible name lister (nm)... (cached) /usr/bin/nm -B
+checking the name lister (/usr/bin/nm -B) interface... (cached) BSD nm
+checking whether ln -s works... yes
+checking the maximum length of command line arguments... (cached) 1572864
+checking whether the shell understands some XSI constructs... yes
+checking whether the shell understands "+="... yes
+checking for ld option to reload object files... (cached) -r
+checking for x86_64-pc-linux-gnu-objdump... (cached) objdump
+checking how to recognize dependent libraries... (cached) pass_all
+checking for x86_64-pc-linux-gnu-ar... (cached) ar --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so
+checking for x86_64-pc-linux-gnu-strip... strip
+checking for x86_64-pc-linux-gnu-ranlib... (cached) ranlib --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so
+checking command to parse /usr/bin/nm -B output from gcc object... (cached) ok
+checking for dlfcn.h... (cached) yes
+checking for objdir... (cached) .libs
+checking if gcc supports -fno-rtti -fno-exceptions... (cached) no
+checking for gcc option to produce PIC... -fPIC -DPIC
+checking if gcc PIC flag -fPIC -DPIC works... (cached) yes
+checking if gcc static flag -static works... (cached) yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking if gcc supports -c -o file.o... (cached) yes
+checking whether the gcc linker (ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether stripping libraries is possible... yes
+checking if libtool supports shared libraries... yes
+checking whether to build shared libraries... no
+checking whether to build static libraries... yes
+checking how to run the C++ preprocessor... g++ -E
+checking for ld used by g++... (cached) ld -m elf_x86_64
+checking if the linker (ld -m elf_x86_64) is GNU ld... (cached) yes
+checking whether the g++ linker (ld -m elf_x86_64) supports shared libraries... yes
+checking for g++ option to produce PIC... -fPIC -DPIC
+checking if g++ PIC flag -fPIC -DPIC works... (cached) yes
+checking if g++ static flag -static works... (cached) yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking if g++ supports -c -o file.o... (cached) yes
+checking whether the g++ linker (ld -m elf_x86_64) supports shared libraries... yes
+checking dynamic linker characteristics... (cached) GNU/Linux ld.so
+checking how to hardcode library paths into programs... immediate
+checking whether we are using gold... no
+checking whether we are using mold... no
+checking gold linker with split stack support as non default... 
+checking what linker to use... /usr/bin/powerpc-linux-gnu-ld
+checking what nm to use... 
+checking what objdump to use... not found
+checking what readelf to use... not found
+checking what otool to use... not found
+checking assembler flags... (cached)  
+checking assembler for .balign and .p2align... (cached) yes
+checking assembler for .p2align with maximum skip... (cached) yes
+checking assembler for .literal16... (cached) no
+checking assembler for working .subsection -1... (cached) no
+checking assembler for .weak... (cached) yes
+checking assembler for .weakref... (cached) yes
+checking assembler for .nsubspa comdat... (cached) no
+checking assembler for .hidden... (cached) yes
+checking linker for .hidden support... (cached) yes
+checking linker read-only and read-write section mixing... unknown
+checking for .preinit_array/.init_array/.fini_array support... (cached) yes
+checking assembler for .sleb128 and .uleb128... (cached) no
+checking assembler for cfi directives... (cached) yes
+checking assembler for cfi personality directive... (cached) yes
+checking assembler for cfi sections directive... (cached) yes
+checking assembler for eh_frame optimization... (cached) buggy
+checking assembler for section exclude flag... (cached) yes
+checking assembler for section 'R' flag... (cached) yes
+checking assembler for section 'o' flag... (cached) yes
+checking assembler for section merging support... (cached) yes
+checking assembler for COMDAT group support (GNU as)... (cached) yes
+checking assembler for line table is_stmt support... (cached) yes
+checking assembler for line table discriminator support... (cached) yes
+checking assembler for thread-local storage support... (cached) yes
+checking linker -Bstatic/-Bdynamic option... yes
+checking linker --version-script option... yes
+checking linker soname option... yes
+checking linker --demangle support... yes
+checking linker plugin support... 2
+checking assembler for mfcr field support... (cached) yes
+checking assembler for htm support on Power10... (cached) yes
+checking assembler for rel16 relocs... (cached) yes
+checking assembler for vector-scalar support... (cached) yes
+checking assembler for .gnu_attribute support... (cached) yes
+checking assembler for prologue entry point marker support... (cached) yes
+checking assembler for plt sequence marker support... (cached) yes
+checking assembler for compressed debug sections... (cached) 2
+checking assembler for .lcomm with alignment... (cached) yes
+checking for target glibc version... 0.0
+checking assembler for gnu_unique_object... (cached) yes
+checking assembler for tolerance to line number 0... (cached) yes
+checking support for thin archives... yes
+checking linker PT_GNU_EH_FRAME support... yes
+checking linker CIEv3 in .eh_frame support... yes
+checking linker position independent executable support... yes
+checking linker PIE support with copy reloc... no
+checking linker EH-compatible garbage collection of sections... no
+checking linker EH garbage collection of sections bug... no
+checking linker for compressed debug sections... 2
+checking linker --as-needed support... (cached) yes
+checking linker mapfile support for clearing hardware capabilities... no
+checking linker .gnu.attributes long double support... (cached) yes
+checking linker --build-id support... (cached) yes
+checking linker *_sol2 emulation support... (cached) no
+checking linker --sysroot support... (cached) yes
+checking __stack_chk_fail in target C library... (cached) no
+checking sys/sdt.h in the target C library... (cached) no
+checking dl_iterate_phdr in target C library... unknown
+checking whether to enable maintainer-specific portions of Makefiles... no
+checking whether to avoid linking multiple front-ends at once... no
+checking whether to serialize linking of multiple front-ends... no
+Links are now set up to build a cross-compiler
+ from x86_64-pc-linux-gnu to powerpc-unknown-linux-gnuspe.
+checking for exported symbols... yes
+checking for -rdynamic... yes
+checking for library containing dlopen... (cached) none required
+checking for -fPIC -shared... yes
+gcc_driver_version: 14.2.0
+checking for -fno-PIE option... (cached) yes
+checking for -no-pie option... (cached) yes
+checking for CET support... yes
+checking linker -z bndplt option... no
+checking linker --push-state/--pop-state options... yes
+checking linker -z now option... yes
+checking linker -z relro option... yes
+yes
+configure: updating cache ./config.cache
+configure: creating ./config.status
+LANGUAGES="c lto" \
+CONFIG_HEADERS= \
+CONFIG_SHELL="/bin/bash" \
+CONFIG_FILES=Makefile /bin/bash config.status
+config.status: creating Makefile
+config.status: executing depdir commands
+config.status: executing gccdepdir commands
+config.status: executing default-1 commands
+config.status: executing default commands
+CONFIG_HEADERS=auto-host.h:config.in \
+CONFIG_FILES= \
+LANGUAGES="c lto" /bin/bash config.status
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh config.h
+TARGET_CPU_DEFAULT="\"8548\"" \
+HEADERS="options.h insn-constants.h config/vxworks-dummy.h config/powerpcspe/powerpcspe.h config/elfos.h config/gnu-user.h config/freebsd-spec.h config/powerpcspe/sysv4.h config/powerpcspe/linux.h config/glibc-stdint.h config/powerpcspe/linuxspe.h config/powerpcspe/e500.h config/powerpcspe/option-defaults.h config/initfini-array.h defaults.h" DEFINES="LIBC_GLIBC=1 LIBC_UCLIBC=2 LIBC_BIONIC=3 LIBC_MUSL=4 DEFAULT_LIBC=LIBC_GLIBC ANDROID_DEFAULT=0 HEAP_TRAMPOLINES_INIT=0" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm.h
+TARGET_CPU_DEFAULT="" \
+HEADERS="config/powerpcspe/powerpcspe-protos.h config/linux-protos.h tm-preds.h" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm_p.h
+config.h is unchanged
+tm_p.h is unchanged
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh bconfig.h
+bconfig.h is unchanged
+LC_ALL=C ; export LC_ALL ; \
+gawk -f /work/modern/gcc/opt-gather.awk /work/modern/gcc/ada/gcc-interface/lang.opt /work/modern/gcc/d/lang.opt /work/modern/gcc/fortran/lang.opt /work/modern/gcc/go/lang.opt /work/modern/gcc/lto/lang.opt /work/modern/gcc/m2/lang.opt /work/modern/gcc/rust/lang.opt /work/modern/gcc/c-family/c.opt /work/modern/gcc/common.opt /work/modern/gcc/params.opt /work/modern/gcc/analyzer/analyzer.opt /work/modern/gcc/config/g.opt /work/modern/gcc/config/fused-madd.opt /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt /work/modern/gcc/config/powerpcspe/powerpcspe.opt /work/modern/gcc/config/gnu-user.opt /work/modern/gcc/config/linux.opt /work/modern/gcc/config/powerpcspe/sysv4.opt  /work/modern/gcc/ada/gcc-interface/lang.opt.urls  /work/modern/gcc/d/lang.opt.urls  /work/modern/gcc/fortran/lang.opt.urls  /work/modern/gcc/go/lang.opt.urls  /work/modern/gcc/lto/lang.opt.urls  /work/modern/gcc/m2/lang.opt.urls  /work/modern/gcc/rust/lang.opt.urls  /work/modern/gcc/c-family/c.opt.urls  /work/modern/gcc/common.opt.urls  /work/modern/gcc/params.opt.urls  /work/modern/gcc/analyzer/analyzer.opt.urls  /work/modern/gcc/config/g.opt.urls  /work/modern/gcc/config/fused-madd.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe.opt.urls  /work/modern/gcc/config/gnu-user.opt.urls  /work/modern/gcc/config/linux.opt.urls  /work/modern/gcc/config/powerpcspe/sysv4.opt.urls > tmp-optionlist
+config.status: creating auto-host.h
+config.status: auto-host.h is unchanged
+config.status: executing depdir commands
+config.status: executing gccdepdir commands
+config.status: executing default-1 commands
+config.status: executing default commands
+/bin/bash /work/modern/gcc/../move-if-change tmp-gi.list gtyp-input.list
+rm -f tmp-all-tree.def
+echo '#include "tree.def"' > tmp-all-tree.def
+TARGET_CPU_DEFAULT="" \
+HEADERS="" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm_d.h
+echo timestamp > s-gtyp-input
+echo 'END_OF_BASE_TREE_CODES' >> tmp-all-tree.def
+tm_d.h is unchanged
+echo '#include "c-family/c-common.def"' >> tmp-all-tree.def
+if test no = yes \
+   || test -n ""; then \
+  /bin/bash /work/modern/gcc/genmultilib \
+    "msoft-float" \
+    "nof" \
+    " msoft-float=mcpu?e300c2  msoft-float=mcpu?401  msoft-float=mcpu?403  msoft-float=mcpu?405  msoft-float=mcpu?440  msoft-float=mcpu?464  msoft-float=mcpu?476  msoft-float=mcpu?ec603e  msoft-float=mcpu?801  msoft-float=mcpu?821  msoft-float=mcpu?823  msoft-float=mcpu?860" \
+    "" \
+    "fPIC mstrict-align" \
+    "" \
+    "" \
+    "" \
+    "powerpc-linux-gnuspe" \
+    "" \
+    "no" \
+    > tmp-mlib.h; \
+else \
+  /bin/bash /work/modern/gcc/genmultilib '' '' '' '' '' '' '' '' \
+    "powerpc-linux-gnuspe" '' no \
+    > tmp-mlib.h; \
+fi
+ltf="/work/modern/gcc/ada/gcc-interface/ada-tree.def /work/modern/gcc/c/c-tree.def /work/modern/gcc/cp/cp-tree.def /work/modern/gcc/d/d-tree.def /work/modern/gcc/m2/m2-tree.def /work/modern/gcc/objc/objc-tree.def"; for f in $ltf; do \
+  echo "#include \"$f\""; \
+done | sed 's|/work/modern/gcc/||' >> tmp-all-tree.def
+lsf="/work/modern/gcc/lto/lang-specs.h"; for f in $lsf; do \
+    echo "#include \"$f\""; \
+done | sed 's|/work/modern/gcc/||' > tmp-specs.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-all-tree.def all-tree.def
+/bin/bash /work/modern/gcc/../move-if-change tmp-specs.h specs.h
+echo timestamp > s-alltree
+echo timestamp > s-specs
+TARGET_CPU_DEFAULT="" \
+HEADERS="" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm_rust.h
+tm_rust.h is unchanged
+/bin/bash /work/modern/gcc/../move-if-change tmp-mlib.h multilib.h
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="USED_FOR_TARGET " \
+/bin/bash /work/modern/gcc/mkconfig.sh tconfig.h
+echo timestamp > s-mlib
+tconfig.h is unchanged
+cat /work/modern/gcc/doc/tm.texi.in > tmp-tm.texi
+echo timestamp > s-tm-texi
+if [ xinfo = xinfo ]; then \
+	makeinfo --split-size=5000000 --no-split -I . -I /work/modern/gcc/doc \
+		-I /work/modern/gcc/doc/include -o doc/gccint.info /work/modern/gcc/doc/gccint.texi; \
+fi
+gccint.texi: warning: document without nodes
+/bin/bash /work/modern/gcc/../move-if-change tmp-optionlist optionlist
+echo timestamp > s-options
+build/gengtype  \
+                    -S /work/modern/gcc -I gtyp-input.list -w tmp-gtype.state
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencheck.o /work/modern/gcc/gencheck.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/gencheck.cc:23:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/gencheck.cc:21:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/gencheck.o] Error 1
+/bin/bash /work/modern/gcc/../move-if-change tmp-gtype.state gtype.state
+build/gengtype  \
+                    -r gtype.state
+echo timestamp > s-gtype
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genopinit.o /work/modern/gcc/genopinit.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencfn-macros.o /work/modern/gcc/gencfn-macros.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattrtab.o /work/modern/gcc/genattrtab.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genautomata.o /work/modern/gcc/genautomata.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genopinit.cc:24:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genopinit.cc:22:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genattrtab.cc:108:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genattrtab.cc:106:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genautomata.cc:110:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genautomata.cc:108:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genopinit.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genemit.o /work/modern/gcc/genemit.cc
+make[1]: *** [Makefile:2971: build/genattrtab.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genextract.o /work/modern/gcc/genextract.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genemit.cc:24:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genemit.cc:22:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genoutput.o /work/modern/gcc/genoutput.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genextract.cc:24:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genextract.cc:22:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genoutput.cc:89:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genoutput.cc:87:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genemit.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genpeep.o /work/modern/gcc/genpeep.cc
+make[1]: *** [Makefile:2971: build/genextract.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genrecog.o /work/modern/gcc/genrecog.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genpeep.cc:24:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genpeep.cc:22:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genrecog.cc:111:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genrecog.cc:109:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genautomata.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genpreds.o /work/modern/gcc/genpreds.cc
+make[1]: *** [Makefile:2971: build/genoutput.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/rtl.o /work/modern/gcc/rtl.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genpreds.cc:26:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genpreds.cc:24:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/rtl.cc:30:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/rtl.cc:28:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genpeep.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/read-rtl.o /work/modern/gcc/read-rtl.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/read-rtl.cc:33:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/read-rtl.cc:31:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/rtl.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/ggc-none.o /work/modern/gcc/ggc-none.cc
+make[1]: *** [Makefile:2971: build/genpreds.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/vec.o /work/modern/gcc/vec.cc
+make[1]: *** [Makefile:2971: build/genrecog.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gensupport.o /work/modern/gcc/gensupport.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/gensupport.cc:25:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/gensupport.cc:23:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/read-rtl.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/print-rtl.o /work/modern/gcc/print-rtl.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/hash-table.o /work/modern/gcc/hash-table.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/print-rtl.cc:30:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/print-rtl.cc:28:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/print-rtl.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genflags.o /work/modern/gcc/genflags.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genconditions.o /work/modern/gcc/genconditions.cc
+make[1]: *** [Makefile:2971: build/gensupport.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattr.o /work/modern/gcc/genattr.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genflags.cc:26:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genflags.cc:24:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genconditions.cc:31:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genconditions.cc:29:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genattr.cc:25:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genattr.cc:23:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattr-common.o /work/modern/gcc/genattr-common.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genattr-common.cc:26:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genattr-common.cc:24:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genattr.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencodes.o /work/modern/gcc/gencodes.cc
+make[1]: *** [Makefile:2971: build/genconditions.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genconfig.o /work/modern/gcc/genconfig.cc
+make[1]: *** [Makefile:2971: build/genflags.o] Error 1
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gentarget-def.o /work/modern/gcc/gentarget-def.cc
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/gencodes.cc:26:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/gencodes.cc:24:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+make[1]: *** [Makefile:2971: build/genattr-common.o] Error 1
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gencfn-macros \
+    build/gencfn-macros.o build/errors.o build/hash-table.o build/vec.o build/ggc-none.o build/sort.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/genconfig.cc:25:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/genconfig.cc:23:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+In file included from ./tm.h:33,
+                 from /work/modern/gcc/gentarget-def.cc:23:
+/work/modern/gcc/config/powerpcspe/sysv4.h:27:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   27 | #undef  NO_IMPLICIT_EXTERN_C
+      |         ^
+In file included from /work/modern/gcc/gentarget-def.cc:21:
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+/work/modern/gcc/config/powerpcspe/sysv4.h:28:9: error: attempt to use poisoned "NO_IMPLICIT_EXTERN_C"
+   28 | #define NO_IMPLICIT_EXTERN_C
+      |         ^
+/work/modern/gcc/system.h:1094:19: note: poisoned here
+ 1094 |         SDB_DEBUG NO_IMPLICIT_EXTERN_C NOTICE_UPDATE_CC                    \
+      |                   ^~~~~~~~~~~~~~~~~~~~
+build/gencfn-macros -c \
+  > tmp-case-cfn-macros.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-case-cfn-macros.h \
+  case-cfn-macros.h
+echo timestamp > s-case-cfn-macros
+build/gencfn-macros -o \
+  > tmp-cfn-operators.pd
+/bin/bash /work/modern/gcc/../move-if-change tmp-cfn-operators.pd \
+  cfn-operators.pd
+echo timestamp > s-cfn-operators
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genmatch.o /work/modern/gcc/genmatch.cc
+make[1]: *** [Makefile:2971: build/gencodes.o] Error 1
+make[1]: *** [Makefile:2971: build/genconfig.o] Error 1
+make[1]: *** [Makefile:2971: build/gentarget-def.o] Error 1
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genmatch \
+    build/genmatch.o ../build-x86_64-pc-linux-gnu/libcpp/libcpp.a build/errors.o build/vec.o build/hash-table.o build/sort.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/genmatch --gimple \
+    --header=tmp-gimple-match-auto.h --include=gimple-match-auto.h \
+    /work/modern/gcc/match.pd  tmp-gimple-match-1.cc  tmp-gimple-match-2.cc  tmp-gimple-match-3.cc  tmp-gimple-match-4.cc  tmp-gimple-match-5.cc  tmp-gimple-match-6.cc  tmp-gimple-match-7.cc  tmp-gimple-match-8.cc  tmp-gimple-match-9.cc  tmp-gimple-match-10.cc
+build/genmatch --generic \
+    --header=tmp-generic-match-auto.h --include=generic-match-auto.h \
+    /work/modern/gcc/match.pd  tmp-generic-match-1.cc  tmp-generic-match-2.cc  tmp-generic-match-3.cc  tmp-generic-match-4.cc  tmp-generic-match-5.cc  tmp-generic-match-6.cc  tmp-generic-match-7.cc  tmp-generic-match-8.cc  tmp-generic-match-9.cc  tmp-generic-match-10.cc
+GENERIC decision tree has 5516 leafs, maximum depth 18 and a total number of 24229 nodes
+GIMPLE decision tree has 7036 leafs, maximum depth 28 and a total number of 30715 nodes
+removed 3981 duplicate tails
+removed 5292 duplicate tails
+/bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-1.cc generic-match-1.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-2.cc generic-match-2.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-3.cc generic-match-3.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-4.cc generic-match-4.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-5.cc generic-match-5.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-6.cc generic-match-6.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-7.cc generic-match-7.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-8.cc generic-match-8.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-9.cc generic-match-9.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-10.cc generic-match-10.cc;
+/bin/bash /work/modern/gcc/../move-if-change tmp-generic-match-auto.h \
+					generic-match-auto.h
+echo timestamp > s-generic-match
+/bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-1.cc gimple-match-1.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-2.cc gimple-match-2.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-3.cc gimple-match-3.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-4.cc gimple-match-4.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-5.cc gimple-match-5.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-6.cc gimple-match-6.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-7.cc gimple-match-7.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-8.cc gimple-match-8.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-9.cc gimple-match-9.cc;  /bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-10.cc gimple-match-10.cc;
+/bin/bash /work/modern/gcc/../move-if-change tmp-gimple-match-auto.h \
+					gimple-match-auto.h
+echo timestamp > s-gimple-match
+make[1]: Target 'all' not remade because of errors.
+make[1]: Leaving directory '/work/build-stage1/gcc'
+make: *** [Makefile:4675: all-gcc] Error 2

@@ -1,0 +1,243 @@
+make[1]: Entering directory '/work/build-stage1/libiberty'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+make[1]: Entering directory '/work/build-stage1/libbacktrace'
+make  all-am
+make[1]: Entering directory '/work/build-stage1/zlib'
+true "AR_FLAGS=rc" "CC_FOR_BUILD=gcc" "CFLAGS=-g -O2  " "CXXFLAGS=-g -O2  " "CFLAGS_FOR_BUILD=-g -O2" "CFLAGS_FOR_TARGET=-g -O2" "INSTALL=/usr/bin/install -c" "INSTALL_DATA=/usr/bin/install -c -m 644" "INSTALL_PROGRAM=/usr/bin/install -c" "INSTALL_SCRIPT=/usr/bin/install -c" "LDFLAGS=-static-libstdc++ -static-libgcc " "LIBCFLAGS=-g -O2  " "LIBCFLAGS_FOR_TARGET=-g -O2" "MAKE=make" "MAKEINFO=makeinfo --split-size=5000000 " "PICFLAG=" "PICFLAG_FOR_TARGET=" "SHELL=/bin/bash" "EXPECT=expect" "RUNTEST=runtest" "RUNTESTFLAGS=" "exec_prefix=/opt/tabor-sdk-candidate" "infodir=/opt/tabor-sdk-candidate/share/info" "libdir=/opt/tabor-sdk-candidate/lib" "prefix=/opt/tabor-sdk-candidate" "tooldir=/opt/tabor-sdk-candidate/powerpc-linux-gnuspe" "AR=ar --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "AS=as" "CC=gcc" "CXX=g++" "LD=ld" "LIBCFLAGS=-g -O2  " "NM=nm" "PICFLAG=" "RANLIB=ranlib --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "DESTDIR=" DO=all multi-do # make
+make[2]: Entering directory '/work/build-stage1/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/libiberty/testsuite'
+make[1]: Leaving directory '/work/build-stage1/zlib'
+make[2]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[2]: Entering directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/libiberty'
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+true  DO=all multi-do # make
+make[2]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Entering directory '/work/build-stage1/libdecnumber'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libdecnumber'
+make[1]: Entering directory '/work/build-stage1/libcody'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libcody'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make[1]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make  all-am
+make[2]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[2]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+make[1]: Entering directory '/work/build-stage1/fixincludes'
+make[1]: Leaving directory '/work/build-stage1/libcpp'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/fixincludes'
+make[1]: Entering directory '/work/build-stage1/gcc'
+build/gengtype  \
+                    -S /work/modern/gcc -I gtyp-input.list -w tmp-gtype.state
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencheck.o /work/modern/gcc/gencheck.cc
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gencheck \
+    build/gencheck.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/gencheck > tmp-check.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-check.h tree-check.h
+echo timestamp > s-check
+/bin/bash /work/modern/gcc/../move-if-change tmp-gtype.state gtype.state
+build/gengtype  \
+                    -r gtype.state
+echo timestamp > s-gtype
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genopinit.o /work/modern/gcc/genopinit.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattrtab.o /work/modern/gcc/genattrtab.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genautomata.o /work/modern/gcc/genautomata.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genemit.o /work/modern/gcc/genemit.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genextract.o /work/modern/gcc/genextract.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genoutput.o /work/modern/gcc/genoutput.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genpeep.o /work/modern/gcc/genpeep.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genrecog.o /work/modern/gcc/genrecog.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genpreds.o /work/modern/gcc/genpreds.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/rtl.o /work/modern/gcc/rtl.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/read-rtl.o /work/modern/gcc/read-rtl.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gensupport.o /work/modern/gcc/gensupport.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/print-rtl.o /work/modern/gcc/print-rtl.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genflags.o /work/modern/gcc/genflags.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genconditions.o /work/modern/gcc/genconditions.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattr.o /work/modern/gcc/genattr.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genattr-common.o /work/modern/gcc/genattr-common.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gencodes.o /work/modern/gcc/gencodes.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genconfig.o /work/modern/gcc/genconfig.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gentarget-def.o /work/modern/gcc/gentarget-def.cc
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genopinit \
+    build/genopinit.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genattrtab \
+    build/genattrtab.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genautomata \
+    build/genautomata.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a -lm
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genemit \
+    build/genemit.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genextract \
+    build/genextract.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genoutput \
+    build/genoutput.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genpeep \
+    build/genpeep.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genrecog \
+    build/genrecog.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o build/inchash.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genpreds \
+    build/genpreds.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genflags \
+    build/genflags.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genconditions \
+    build/genconditions.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/genpreds -c /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md > tmp-constrs.h
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'SF' (via 'SFDF:MODE') or 'DF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'DF' (via 'SFDF:MODE') or 'SF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+make[1]: *** [Makefile:2717: s-constrs-h] Error 1
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genattr \
+    build/genattr.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genattr-common \
+    build/genattr-common.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gencodes \
+    build/gencodes.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genconfig \
+    build/genconfig.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/genpreds /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md > tmp-preds.cc
+build/genpreds -h /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md > tmp-preds.h
+build/genconditions /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md > tmp-condmd.cc
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'SF' (via 'SFDF:MODE') or 'DF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'DF' (via 'SFDF:MODE') or 'SF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'SF' (via 'SFDF:MODE') or 'DF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'DF' (via 'SFDF:MODE') or 'SF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'SF' (via 'SFDF:MODE') or 'DF' (via 'SFDF2:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:5019:3: ambiguous attribute 'MODE'; could be 'DF' (via 'SFDF:MODE') or 'SF' (via 'SFDF2:MODE')
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gentarget-def \
+    build/gentarget-def.o build/rtl.o build/read-rtl.o build/ggc-none.o build/vec.o build/min-insn-modes.o build/gensupport.o build/print-rtl.o build/hash-table.o build/sort.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'if' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'IF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'si' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'SI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12089:24: ambiguous attribute 'mode'; could be 'tf' (via 'IBM128:mode') or 'di' (via 'GPR:mode')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12102:3: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+/work/modern/gcc/config/powerpcspe/powerpcspe.md:12121:1: ambiguous attribute 'MODE'; could be 'TF' (via 'IBM128:MODE') or 'DI' (via 'GPR:MODE')
+make[1]: *** [Makefile:2707: s-preds] Error 1
+make[1]: *** [Makefile:2712: s-preds-h] Error 1
+make[1]: *** [Makefile:2651: s-conditions] Error 1
+make[1]: Target 'all' not remade because of errors.
+make[1]: Leaving directory '/work/build-stage1/gcc'
+make: *** [Makefile:4675: all-gcc] Error 2

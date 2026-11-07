@@ -1,3 +1,5 @@
+Current GCC14 source work: [backend restoration checkpoint](builds/gcc14-spe-port-20261107/README.md). Compiler bootstrap has reached C++ translation units but is not yet successful.
+
 Current work (2026-11-07): fresh Trixie SPE userspace foundation. Read
 [the GCC14 qualification](builds/gcc14-spe-foundation-20261107/README.md) and
 `profiles/trixie-spe-sdk-candidate.json` before restarting any package queue.

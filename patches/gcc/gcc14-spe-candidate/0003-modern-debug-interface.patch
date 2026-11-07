@@ -1,0 +1,22 @@
+--- a/gcc/config.gcc
++++ b/gcc/config.gcc
+@@ -3053,7 +3053,7 @@
+ 	tmake_file="${tmake_file} rs6000/t-fprules rs6000/t-rtems rs6000/t-ppccomm"
+ 	;;
+ powerpc*-*-linux*spe*)
+-	tm_file="${tm_file} dbxelf.h elfos.h gnu-user.h freebsd-spec.h powerpcspe/sysv4.h"
++	tm_file="${tm_file} elfos.h gnu-user.h freebsd-spec.h powerpcspe/sysv4.h"
+ 	extra_options="${extra_options} powerpcspe/sysv4.opt"
+ 	tmake_file="${tmake_file} powerpcspe/t-fprules powerpcspe/t-ppccomm"
+ 	extra_objs="$extra_objs powerpcspe-linux.o"
+--- a/gcc/config/powerpcspe/powerpcspe.h
++++ b/gcc/config/powerpcspe/powerpcspe.h
+@@ -1046,7 +1046,7 @@
+   ((r) >= 1200 ? ((r) - 1200 + (DWARF_FRAME_REGISTERS - 32)) : (r))
+ 
+ /* Use standard DWARF numbering for DWARF debugging information.  */
+-#define DBX_REGISTER_NUMBER(REGNO) rs6000_dbx_register_number ((REGNO), 0)
++#define DEBUGGER_REGNO(REGNO) rs6000_dbx_register_number ((REGNO), 0)
+ 
+ /* Use gcc hard register numbering for eh_frame.  */
+ #define DWARF_FRAME_REGNUM(REGNO) (REGNO)

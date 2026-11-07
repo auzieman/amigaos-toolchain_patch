@@ -1,0 +1,888 @@
+{
+  "reference": "GNU GCC8.5.0; official archive pin in profiles/toolchain-bootstrap.json",
+  "transform": "Rename backend C++ implementation .c suffixes and their filename references to .cc for GCC14 build rules; preserve other bytes/notices",
+  "files": [
+    {
+      "source": "gcc/config/powerpcspe/e500mc64.md",
+      "destination": "gcc/config/powerpcspe/e500mc64.md",
+      "source_sha256": "71575fcc73d15ce74fc826f6fbb56f25bfc7f180df775f8f5c35cf97820efbb5",
+      "output_sha256": "71575fcc73d15ce74fc826f6fbb56f25bfc7f180df775f8f5c35cf97820efbb5"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-netbsd",
+      "destination": "gcc/config/powerpcspe/t-netbsd",
+      "source_sha256": "d70f5031ea76947d9bf3d009e6307dd2d38d1466b06f6b64d5ccef91e2edd8a3",
+      "output_sha256": "d70f5031ea76947d9bf3d009e6307dd2d38d1466b06f6b64d5ccef91e2edd8a3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power5.md",
+      "destination": "gcc/config/powerpcspe/power5.md",
+      "source_sha256": "ba123f8614e4ff555f6bcb4309ca0beae6551310de60f1bc6f2e478d4d81b27d",
+      "output_sha256": "ba123f8614e4ff555f6bcb4309ca0beae6551310de60f1bc6f2e478d4d81b27d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/freebsd.h",
+      "destination": "gcc/config/powerpcspe/freebsd.h",
+      "source_sha256": "6f8382ba6d9abdbb0a97abdfb9eddcbd1c22b4bd28ea1db9259fb1155a955ecf",
+      "output_sha256": "6f8382ba6d9abdbb0a97abdfb9eddcbd1c22b4bd28ea1db9259fb1155a955ecf"
+    },
+    {
+      "source": "gcc/config/powerpcspe/eabispe.h",
+      "destination": "gcc/config/powerpcspe/eabispe.h",
+      "source_sha256": "9add5498ea8fea3e459747bef08e8f48e09524d61daa5babf09d9b748494e00e",
+      "output_sha256": "9add5498ea8fea3e459747bef08e8f48e09524d61daa5babf09d9b748494e00e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/htm.md",
+      "destination": "gcc/config/powerpcspe/htm.md",
+      "source_sha256": "6223c0eb89a82ac848f60989f8d3a05dada40b0b11dff226a2d70bb475aca6ff",
+      "output_sha256": "6223c0eb89a82ac848f60989f8d3a05dada40b0b11dff226a2d70bb475aca6ff"
+    },
+    {
+      "source": "gcc/config/powerpcspe/xilinx.h",
+      "destination": "gcc/config/powerpcspe/xilinx.h",
+      "source_sha256": "63ec72550fee5e1ef25975d97c399028bb22cf7b538aba9473c4166874a64a3b",
+      "output_sha256": "63ec72550fee5e1ef25975d97c399028bb22cf7b538aba9473c4166874a64a3b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/603.md",
+      "destination": "gcc/config/powerpcspe/603.md",
+      "source_sha256": "80db270ceb72b7486a7bebf972bf3950151534f760e98e72ccd886b2f66f210b",
+      "output_sha256": "80db270ceb72b7486a7bebf972bf3950151534f760e98e72ccd886b2f66f210b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/xilinx.opt",
+      "destination": "gcc/config/powerpcspe/xilinx.opt",
+      "source_sha256": "dd77882198fac76073f6968d3156eaab824e2fc6ed440e19ddeb497fa691dba7",
+      "output_sha256": "dd77882198fac76073f6968d3156eaab824e2fc6ed440e19ddeb497fa691dba7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-linux64",
+      "destination": "gcc/config/powerpcspe/t-linux64",
+      "source_sha256": "17823aa54703b00499c724dfd7c4ebe18b6312669ce6fc1289692a3121483458",
+      "output_sha256": "0eafcca3bba2f9cbd9bc1d8dab20098879af2e6113b67894c410f5506cbcef54"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe.md",
+      "destination": "gcc/config/powerpcspe/powerpcspe.md",
+      "source_sha256": "be77e6f3377e56e3e87271bf025fb74f8cbf94bee0b60b3f5e234db8f4ba60ca",
+      "output_sha256": "be77e6f3377e56e3e87271bf025fb74f8cbf94bee0b60b3f5e234db8f4ba60ca"
+    },
+    {
+      "source": "gcc/config/powerpcspe/secureplt.h",
+      "destination": "gcc/config/powerpcspe/secureplt.h",
+      "source_sha256": "48e4678fe77a166aa974f8d04bcdac210bb6494dd236afa0aaecfa40dccdad62",
+      "output_sha256": "48e4678fe77a166aa974f8d04bcdac210bb6494dd236afa0aaecfa40dccdad62"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x-linux-relax",
+      "destination": "gcc/config/powerpcspe/x-linux-relax",
+      "source_sha256": "7c3c912c2ff2f76082dbbd6ddae5fac5b68d228fbb4ce18d1d61268e72481c6b",
+      "output_sha256": "7c3c912c2ff2f76082dbbd6ddae5fac5b68d228fbb4ce18d1d61268e72481c6b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/paired.h",
+      "destination": "gcc/config/powerpcspe/paired.h",
+      "source_sha256": "b6fc196163c6ab6ffe901e287e05e8334421d80c8bf4b8171b2d07cd8323d491",
+      "output_sha256": "b6fc196163c6ab6ffe901e287e05e8334421d80c8bf4b8171b2d07cd8323d491"
+    },
+    {
+      "source": "gcc/config/powerpcspe/cell.md",
+      "destination": "gcc/config/powerpcspe/cell.md",
+      "source_sha256": "6f2899194187421399a15260fd41f6f677de701df9c33bc4cc7aec969dd6cc23",
+      "output_sha256": "6f2899194187421399a15260fd41f6f677de701df9c33bc4cc7aec969dd6cc23"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix-stdint.h",
+      "destination": "gcc/config/powerpcspe/aix-stdint.h",
+      "source_sha256": "45371b7ccc2989cadbf7cbd097baafe94ca951fb259c99bcbe07f921b13bcf8e",
+      "output_sha256": "45371b7ccc2989cadbf7cbd097baafe94ca951fb259c99bcbe07f921b13bcf8e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/sysv4le.h",
+      "destination": "gcc/config/powerpcspe/sysv4le.h",
+      "source_sha256": "a825fb71e8b415ac0a85357abca1f5e85ec80ecff5e00e820b33add12f72fdb7",
+      "output_sha256": "a825fb71e8b415ac0a85357abca1f5e85ec80ecff5e00e820b33add12f72fdb7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power7.md",
+      "destination": "gcc/config/powerpcspe/power7.md",
+      "source_sha256": "d5fea77c6d313da0fcd670ca902909ed0beb3a583ee35768023ace9a308dce24",
+      "output_sha256": "d5fea77c6d313da0fcd670ca902909ed0beb3a583ee35768023ace9a308dce24"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-tables.opt",
+      "destination": "gcc/config/powerpcspe/powerpcspe-tables.opt",
+      "source_sha256": "d17a67d21a25d1dde90329e78d548c7f1a1508e06c7dc9e6dd44a882d449f0d7",
+      "output_sha256": "d17a67d21a25d1dde90329e78d548c7f1a1508e06c7dc9e6dd44a882d449f0d7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vxworks.h",
+      "destination": "gcc/config/powerpcspe/vxworks.h",
+      "source_sha256": "81a6bf771645852873a465ae5cb948a7cfb6ff862c6d51b50eb6a64d1e8ead2f",
+      "output_sha256": "81a6bf771645852873a465ae5cb948a7cfb6ff862c6d51b50eb6a64d1e8ead2f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/476.opt",
+      "destination": "gcc/config/powerpcspe/476.opt",
+      "source_sha256": "2c4b2677266b2d2373f5f0cb9f99f42f86364121f7b167d1384ec0f322d974a0",
+      "output_sha256": "2c4b2677266b2d2373f5f0cb9f99f42f86364121f7b167d1384ec0f322d974a0"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix61.h",
+      "destination": "gcc/config/powerpcspe/aix61.h",
+      "source_sha256": "539b779e6f877c90a6f7354decbc8c646a8c046c6c65ba496111e443e7731486",
+      "output_sha256": "539b779e6f877c90a6f7354decbc8c646a8c046c6c65ba496111e443e7731486"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix51.h",
+      "destination": "gcc/config/powerpcspe/aix51.h",
+      "source_sha256": "54a9149decfca782c43057ef53f1c3c5f7495856abaee02d1931a70fa90ee904",
+      "output_sha256": "54a9149decfca782c43057ef53f1c3c5f7495856abaee02d1931a70fa90ee904"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vector.md",
+      "destination": "gcc/config/powerpcspe/vector.md",
+      "source_sha256": "5e7823837231ca1835e491b348a23b20277fbc0914d998f7659e91730a19f13a",
+      "output_sha256": "5e7823837231ca1835e491b348a23b20277fbc0914d998f7659e91730a19f13a"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-vxworksae",
+      "destination": "gcc/config/powerpcspe/t-vxworksae",
+      "source_sha256": "e7462d9cbf422d94297f92bd6340eb8c00523dc86cb72b0e3156b3df0aa3ca76",
+      "output_sha256": "e7462d9cbf422d94297f92bd6340eb8c00523dc86cb72b0e3156b3df0aa3ca76"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-modes.def",
+      "destination": "gcc/config/powerpcspe/powerpcspe-modes.def",
+      "source_sha256": "f068ec74d215d792a6328387d7ddf27cac991d4d11939bc2646a6cb455919d23",
+      "output_sha256": "f068ec74d215d792a6328387d7ddf27cac991d4d11939bc2646a6cb455919d23"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-aix52",
+      "destination": "gcc/config/powerpcspe/t-aix52",
+      "source_sha256": "5d0c2c74c93fc5ebb6fa80081af3378064eb2bfeedf4cffd06ac869a0cf6e868",
+      "output_sha256": "5d0c2c74c93fc5ebb6fa80081af3378064eb2bfeedf4cffd06ac869a0cf6e868"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-xilinx",
+      "destination": "gcc/config/powerpcspe/t-xilinx",
+      "source_sha256": "4345ec5ce6a4e0270fea94de1d58a11a2bb2f082708a5ce92110886ef79218f2",
+      "output_sha256": "4345ec5ce6a4e0270fea94de1d58a11a2bb2f082708a5ce92110886ef79218f2"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-darwin8",
+      "destination": "gcc/config/powerpcspe/t-darwin8",
+      "source_sha256": "b725395f25a636a83024b51bcb5266e6cb9536dd856d5e4855a63d47fa6c61dd",
+      "output_sha256": "b725395f25a636a83024b51bcb5266e6cb9536dd856d5e4855a63d47fa6c61dd"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-linux",
+      "destination": "gcc/config/powerpcspe/t-linux",
+      "source_sha256": "61eff757b5d95c97ac78a4de8fca3ae3044c1619216475d2b878d04c11facd94",
+      "output_sha256": "e6fa8bf51ec229d65d582fa9e27babb3f01f11cff5ba7c105326fbf7a58f28c9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vxworksmils.h",
+      "destination": "gcc/config/powerpcspe/vxworksmils.h",
+      "source_sha256": "71c4728a3735c514b60932b0d3d0d1fee1ef7533e21231679fb8347828b17fed",
+      "output_sha256": "71c4728a3735c514b60932b0d3d0d1fee1ef7533e21231679fb8347828b17fed"
+    },
+    {
+      "source": "gcc/config/powerpcspe/bmi2intrin.h",
+      "destination": "gcc/config/powerpcspe/bmi2intrin.h",
+      "source_sha256": "6de1ab67df47a2e831a6c9285b147b6f68cc542711850e737f5de10feffec6d5",
+      "output_sha256": "6de1ab67df47a2e831a6c9285b147b6f68cc542711850e737f5de10feffec6d5"
+    },
+    {
+      "source": "gcc/config/powerpcspe/mpc.md",
+      "destination": "gcc/config/powerpcspe/mpc.md",
+      "source_sha256": "8f646bc03e9ce01fd9a45d2bfe0fb45a19c1bd89e72bc73c6f54e1c7bdff08e3",
+      "output_sha256": "8f646bc03e9ce01fd9a45d2bfe0fb45a19c1bd89e72bc73c6f54e1c7bdff08e3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/xfpu.h",
+      "destination": "gcc/config/powerpcspe/xfpu.h",
+      "source_sha256": "e32b830509cb810ae28f5ce6cffabb547fa6f83f0ff657bfa879ae87065f53fd",
+      "output_sha256": "e32b830509cb810ae28f5ce6cffabb547fa6f83f0ff657bfa879ae87065f53fd"
+    },
+    {
+      "source": "gcc/config/powerpcspe/40x.md",
+      "destination": "gcc/config/powerpcspe/40x.md",
+      "source_sha256": "8ed190fc29abe5a9480b215866ace261002e79678f754ba527ed0ad17a3e652c",
+      "output_sha256": "8ed190fc29abe5a9480b215866ace261002e79678f754ba527ed0ad17a3e652c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix64.opt",
+      "destination": "gcc/config/powerpcspe/aix64.opt",
+      "source_sha256": "b7c8206289884211c2beff1e5a0b0d49adf326a95d8cfc1cffc842040aa1e1ef",
+      "output_sha256": "b7c8206289884211c2beff1e5a0b0d49adf326a95d8cfc1cffc842040aa1e1ef"
+    },
+    {
+      "source": "gcc/config/powerpcspe/si2vmx.h",
+      "destination": "gcc/config/powerpcspe/si2vmx.h",
+      "source_sha256": "e3d45ef3869d213366de69d88108291e24594689f3cf1651c9ab02840c7f767d",
+      "output_sha256": "e3d45ef3869d213366de69d88108291e24594689f3cf1651c9ab02840c7f767d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/eabialtivec.h",
+      "destination": "gcc/config/powerpcspe/eabialtivec.h",
+      "source_sha256": "72c8eb26095f9999dc5924aa92c1c89978b792e69c7b6283b5fb18e714c1c084",
+      "output_sha256": "72c8eb26095f9999dc5924aa92c1c89978b792e69c7b6283b5fb18e714c1c084"
+    },
+    {
+      "source": "gcc/config/powerpcspe/linux64.opt",
+      "destination": "gcc/config/powerpcspe/linux64.opt",
+      "source_sha256": "2ea951896e0bb3c6dbd863f6128d4d6d7e6d96f1fcca84ff820fc258122a4e1c",
+      "output_sha256": "2ea951896e0bb3c6dbd863f6128d4d6d7e6d96f1fcca84ff820fc258122a4e1c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/default64.h",
+      "destination": "gcc/config/powerpcspe/default64.h",
+      "source_sha256": "4a660662c78e87e6a1a931b26bc28530644388e616b5733b9f0bfa30696bcd7d",
+      "output_sha256": "4a660662c78e87e6a1a931b26bc28530644388e616b5733b9f0bfa30696bcd7d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power8.md",
+      "destination": "gcc/config/powerpcspe/power8.md",
+      "source_sha256": "1cbc1c46bf50250c24170ec61c9e4ef888db58ba73a3ec050a76c25939fc95d1",
+      "output_sha256": "1cbc1c46bf50250c24170ec61c9e4ef888db58ba73a3ec050a76c25939fc95d1"
+    },
+    {
+      "source": "gcc/config/powerpcspe/spu2vmx.h",
+      "destination": "gcc/config/powerpcspe/spu2vmx.h",
+      "source_sha256": "c574e2a6eedeb19bb1eed55a320ca2edca9bb3e079fa4a1581769659529d0d3f",
+      "output_sha256": "c574e2a6eedeb19bb1eed55a320ca2edca9bb3e079fa4a1581769659529d0d3f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/htmintrin.h",
+      "destination": "gcc/config/powerpcspe/htmintrin.h",
+      "source_sha256": "76a645ae183382b17bf6ae5333cdec1bec24251cd926a237bf4ffdb04fc87f5b",
+      "output_sha256": "76a645ae183382b17bf6ae5333cdec1bec24251cd926a237bf4ffdb04fc87f5b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/linux.h",
+      "destination": "gcc/config/powerpcspe/linux.h",
+      "source_sha256": "b909126aad2a107327ca964877fab0c656c9b55d28e417ba90b20eb5250e5451",
+      "output_sha256": "b909126aad2a107327ca964877fab0c656c9b55d28e417ba90b20eb5250e5451"
+    },
+    {
+      "source": "gcc/config/powerpcspe/linux64.h",
+      "destination": "gcc/config/powerpcspe/linux64.h",
+      "source_sha256": "97954915e937e94c9bbe3da11340e293a3fb3d69680f12008b99e0aa46db2741",
+      "output_sha256": "97954915e937e94c9bbe3da11340e293a3fb3d69680f12008b99e0aa46db2741"
+    },
+    {
+      "source": "gcc/config/powerpcspe/dfp.md",
+      "destination": "gcc/config/powerpcspe/dfp.md",
+      "source_sha256": "6242fd637c3d089cc40de99c34c8c0e4c6b8d3555dae10d0ca12d465a9a61d70",
+      "output_sha256": "6242fd637c3d089cc40de99c34c8c0e4c6b8d3555dae10d0ca12d465a9a61d70"
+    },
+    {
+      "source": "gcc/config/powerpcspe/750cl.h",
+      "destination": "gcc/config/powerpcspe/750cl.h",
+      "source_sha256": "e73866d84b068e2155edf2e180148359ac16ea2dba1c347625cb2c63bb46c9f8",
+      "output_sha256": "e73866d84b068e2155edf2e180148359ac16ea2dba1c347625cb2c63bb46c9f8"
+    },
+    {
+      "source": "gcc/config/powerpcspe/sysv4.opt",
+      "destination": "gcc/config/powerpcspe/sysv4.opt",
+      "source_sha256": "7fdb61502bf14e7f46f00393dcf7c59dcd789de11d05ad2a3710eed69359d69f",
+      "output_sha256": "7fdb61502bf14e7f46f00393dcf7c59dcd789de11d05ad2a3710eed69359d69f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/7xx.md",
+      "destination": "gcc/config/powerpcspe/7xx.md",
+      "source_sha256": "33e30cf533c3bdc3b8460393c781fd99987d1f0a9870b8c1e89c0501800b51e3",
+      "output_sha256": "33e30cf533c3bdc3b8460393c781fd99987d1f0a9870b8c1e89c0501800b51e3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin.h",
+      "destination": "gcc/config/powerpcspe/darwin.h",
+      "source_sha256": "d038ea66c776ca09167a748a48f1e54493fb9adebf16da9e20b67742e7e2211d",
+      "output_sha256": "d038ea66c776ca09167a748a48f1e54493fb9adebf16da9e20b67742e7e2211d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/singlefp.h",
+      "destination": "gcc/config/powerpcspe/singlefp.h",
+      "source_sha256": "300a6743cbbce9a52a4b35d1c08b243f40bdc9dc7e6ee25c2681e8f2d8c4094a",
+      "output_sha256": "300a6743cbbce9a52a4b35d1c08b243f40bdc9dc7e6ee25c2681e8f2d8c4094a"
+    },
+    {
+      "source": "gcc/config/powerpcspe/xfpu.md",
+      "destination": "gcc/config/powerpcspe/xfpu.md",
+      "source_sha256": "9a192fcc7e26ac98d4d054c464874dea1d18540f674cf6785d4128266ba31ed7",
+      "output_sha256": "9a192fcc7e26ac98d4d054c464874dea1d18540f674cf6785d4128266ba31ed7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/e500.h",
+      "destination": "gcc/config/powerpcspe/e500.h",
+      "source_sha256": "478afd290ee99ed83ef573c5f3acac570ff28985f22188f349a63be07075af7f",
+      "output_sha256": "478afd290ee99ed83ef573c5f3acac570ff28985f22188f349a63be07075af7f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-ppcos",
+      "destination": "gcc/config/powerpcspe/t-ppcos",
+      "source_sha256": "6e46626134d9dbe08a8a6327f22d66f68c5aa4660fd363e44b7d4115238471a0",
+      "output_sha256": "6e46626134d9dbe08a8a6327f22d66f68c5aa4660fd363e44b7d4115238471a0"
+    },
+    {
+      "source": "gcc/config/powerpcspe/spe.md",
+      "destination": "gcc/config/powerpcspe/spe.md",
+      "source_sha256": "d953d0d38abb0224623d951a0260eb4307c6f6aa24bd90a7f6a3affa4ecb4c70",
+      "output_sha256": "d953d0d38abb0224623d951a0260eb4307c6f6aa24bd90a7f6a3affa4ecb4c70"
+    },
+    {
+      "source": "gcc/config/powerpcspe/milli.exp",
+      "destination": "gcc/config/powerpcspe/milli.exp",
+      "source_sha256": "43da7a5c13520bb130b66b65bda9dde9898d9ffd838256ad4b2e5c08d2acfcfe",
+      "output_sha256": "43da7a5c13520bb130b66b65bda9dde9898d9ffd838256ad4b2e5c08d2acfcfe"
+    },
+    {
+      "source": "gcc/config/powerpcspe/rtems.h",
+      "destination": "gcc/config/powerpcspe/rtems.h",
+      "source_sha256": "11b0801bf2162c0dfc541d4d2541ae452feb1aa902d1942f0c1a877ee5eefa2f",
+      "output_sha256": "11b0801bf2162c0dfc541d4d2541ae452feb1aa902d1942f0c1a877ee5eefa2f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin7.h",
+      "destination": "gcc/config/powerpcspe/darwin7.h",
+      "source_sha256": "c52fe0537cf4c2d39f134a0d50be41bf3738d9a8c0278ff98d8833658f1e2081",
+      "output_sha256": "c52fe0537cf4c2d39f134a0d50be41bf3738d9a8c0278ff98d8833658f1e2081"
+    },
+    {
+      "source": "gcc/config/powerpcspe/netbsd.h",
+      "destination": "gcc/config/powerpcspe/netbsd.h",
+      "source_sha256": "1e89f8617da01405b9c18a5f93d6384d3548778f22c15885a5c09403d6122d4c",
+      "output_sha256": "1e89f8617da01405b9c18a5f93d6384d3548778f22c15885a5c09403d6122d4c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix53.h",
+      "destination": "gcc/config/powerpcspe/aix53.h",
+      "source_sha256": "684cd15ee81f2cc4ce233b9caa4fd3981c2e20b6bebe3f256b15716789ec3105",
+      "output_sha256": "684cd15ee81f2cc4ce233b9caa4fd3981c2e20b6bebe3f256b15716789ec3105"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-powerpcspe",
+      "destination": "gcc/config/powerpcspe/t-powerpcspe",
+      "source_sha256": "e1861ba66dcc0e6dcf0e8b5c64a4d90442ed33032fb7713fc903b9e5c48a3373",
+      "output_sha256": "5075da7beec667a7aef0e0c99b02b25d1415290838e7696c948ab2aee53a29f3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin.opt",
+      "destination": "gcc/config/powerpcspe/darwin.opt",
+      "source_sha256": "3e290128f8083b6da2bc9462163c534c94c14a8dd70443cd038c3291bc12dc7c",
+      "output_sha256": "3e290128f8083b6da2bc9462163c534c94c14a8dd70443cd038c3291bc12dc7c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-builtin.def",
+      "destination": "gcc/config/powerpcspe/powerpcspe-builtin.def",
+      "source_sha256": "ca3faac523b682261bab79c635f8ef846f162f805208daaec4eb45d22aee805e",
+      "output_sha256": "ca3faac523b682261bab79c635f8ef846f162f805208daaec4eb45d22aee805e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/htmxlintrin.h",
+      "destination": "gcc/config/powerpcspe/htmxlintrin.h",
+      "source_sha256": "e797085ed148cc14f2e147935f61240de7c1426e735b12cf5866e13b3475fec6",
+      "output_sha256": "e797085ed148cc14f2e147935f61240de7c1426e735b12cf5866e13b3475fec6"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-freebsd64",
+      "destination": "gcc/config/powerpcspe/t-freebsd64",
+      "source_sha256": "a768ba053271ed0f84fdb04f748ece8001ed7322df1a43eb078fb4050b8d8bfb",
+      "output_sha256": "a768ba053271ed0f84fdb04f748ece8001ed7322df1a43eb078fb4050b8d8bfb"
+    },
+    {
+      "source": "gcc/config/powerpcspe/bmiintrin.h",
+      "destination": "gcc/config/powerpcspe/bmiintrin.h",
+      "source_sha256": "17ddd84bd112b6d4cb27b35ee0f748017a40a0a489eead062f76a4e924f347f0",
+      "output_sha256": "17ddd84bd112b6d4cb27b35ee0f748017a40a0a489eead062f76a4e924f347f0"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-ppcendian",
+      "destination": "gcc/config/powerpcspe/t-ppcendian",
+      "source_sha256": "5ee20d130386b4d8cd27cc0e5b8541bc3387c8d212e9e9f06e9f841e30c13e88",
+      "output_sha256": "5ee20d130386b4d8cd27cc0e5b8541bc3387c8d212e9e9f06e9f841e30c13e88"
+    },
+    {
+      "source": "gcc/config/powerpcspe/predicates.md",
+      "destination": "gcc/config/powerpcspe/predicates.md",
+      "source_sha256": "05032b2ad04fa542af1e3696be2a486fa9d9e9a99c3ae80012f96d3caf315cb4",
+      "output_sha256": "05032b2ad04fa542af1e3696be2a486fa9d9e9a99c3ae80012f96d3caf315cb4"
+    },
+    {
+      "source": "gcc/config/powerpcspe/linuxspe.h",
+      "destination": "gcc/config/powerpcspe/linuxspe.h",
+      "source_sha256": "7bb5a49a80156d349bf010eec5e31cf9a4bf62ac5fff374af4733f5c2bb52ee9",
+      "output_sha256": "7bb5a49a80156d349bf010eec5e31cf9a4bf62ac5fff374af4733f5c2bb52ee9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/440.md",
+      "destination": "gcc/config/powerpcspe/440.md",
+      "source_sha256": "f4972567aba2d6c8e92181948460c62b5c69908ee5780bb495d3b795f5394540",
+      "output_sha256": "f4972567aba2d6c8e92181948460c62b5c69908ee5780bb495d3b795f5394540"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-darwin64",
+      "destination": "gcc/config/powerpcspe/t-darwin64",
+      "source_sha256": "c3a45ef06f2f1b34283b6663bd6058d8719799a3c8e9a564d6d1d3af597ddb1e",
+      "output_sha256": "c3a45ef06f2f1b34283b6663bd6058d8719799a3c8e9a564d6d1d3af597ddb1e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/titan.md",
+      "destination": "gcc/config/powerpcspe/titan.md",
+      "source_sha256": "8dc1ce2d0a98cbc40d7dbc8312fbff1003253fecbcb7de8b188f0593fb54362c",
+      "output_sha256": "8dc1ce2d0a98cbc40d7dbc8312fbff1003253fecbcb7de8b188f0593fb54362c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power4.md",
+      "destination": "gcc/config/powerpcspe/power4.md",
+      "source_sha256": "6473b50377c6e24231ff7019497a02bad1a8d05f1ab186b5770ac0960052361e",
+      "output_sha256": "6473b50377c6e24231ff7019497a02bad1a8d05f1ab186b5770ac0960052361e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-vxworksmils",
+      "destination": "gcc/config/powerpcspe/t-vxworksmils",
+      "source_sha256": "3f1a3e4beed46e02d98a5950da410ec16d86264eb6cd0141397044fc75aab5dd",
+      "output_sha256": "3f1a3e4beed46e02d98a5950da410ec16d86264eb6cd0141397044fc75aab5dd"
+    },
+    {
+      "source": "gcc/config/powerpcspe/e300c2c3.md",
+      "destination": "gcc/config/powerpcspe/e300c2c3.md",
+      "source_sha256": "5da2d5191a566e9ddc80e8ca1a36e845a5b33421bc745e70f15b9fd475122310",
+      "output_sha256": "5da2d5191a566e9ddc80e8ca1a36e845a5b33421bc745e70f15b9fd475122310"
+    },
+    {
+      "source": "gcc/config/powerpcspe/genopt.sh",
+      "destination": "gcc/config/powerpcspe/genopt.sh",
+      "source_sha256": "eb412365aa28a2a85904cb852c2452c81bfd20e294f0a5ee8d556824b896e053",
+      "output_sha256": "eb412365aa28a2a85904cb852c2452c81bfd20e294f0a5ee8d556824b896e053"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-linux64le",
+      "destination": "gcc/config/powerpcspe/t-linux64le",
+      "source_sha256": "cae889584f31b308c709319fedc77898ebf283d106ad707dd4b339ed6d6f61dc",
+      "output_sha256": "cae889584f31b308c709319fedc77898ebf283d106ad707dd4b339ed6d6f61dc"
+    },
+    {
+      "source": "gcc/config/powerpcspe/e500mc.md",
+      "destination": "gcc/config/powerpcspe/e500mc.md",
+      "source_sha256": "1db2dfc14c1c848166f7683b23a643bcddba0a9e98b6044de197e35684699a72",
+      "output_sha256": "1db2dfc14c1c848166f7683b23a643bcddba0a9e98b6044de197e35684699a72"
+    },
+    {
+      "source": "gcc/config/powerpcspe/7450.md",
+      "destination": "gcc/config/powerpcspe/7450.md",
+      "source_sha256": "02659956ed8a47df28510dd722f05a40c056b18184b827393b18fcd3121f07b8",
+      "output_sha256": "02659956ed8a47df28510dd722f05a40c056b18184b827393b18fcd3121f07b8"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-linux.c",
+      "destination": "gcc/config/powerpcspe/powerpcspe-linux.cc",
+      "source_sha256": "c3cdd125e1b0b4eb667c0f7dde5ad4a367217de122a721a87de5f7093705a2f0",
+      "output_sha256": "c3cdd125e1b0b4eb667c0f7dde5ad4a367217de122a721a87de5f7093705a2f0"
+    },
+    {
+      "source": "gcc/config/powerpcspe/e5500.md",
+      "destination": "gcc/config/powerpcspe/e5500.md",
+      "source_sha256": "61c2fd0b3ba6d6b1a4fc038c415bd7cd7c50fed8650561b3cbc78a1c1bc7a130",
+      "output_sha256": "61c2fd0b3ba6d6b1a4fc038c415bd7cd7c50fed8650561b3cbc78a1c1bc7a130"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-linux64bele",
+      "destination": "gcc/config/powerpcspe/t-linux64bele",
+      "source_sha256": "4a6d12b48e1b4a120b8228a758b6cc93ccc812ccd6b23ee28d321aa64ccf1b66",
+      "output_sha256": "4a6d12b48e1b4a120b8228a758b6cc93ccc812ccd6b23ee28d321aa64ccf1b66"
+    },
+    {
+      "source": "gcc/config/powerpcspe/a2.md",
+      "destination": "gcc/config/powerpcspe/a2.md",
+      "source_sha256": "9812443bfe27854fba08a33e62e5b54c5fbb0f1279d654581f888da3148a67e8",
+      "output_sha256": "9812443bfe27854fba08a33e62e5b54c5fbb0f1279d654581f888da3148a67e8"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix52.h",
+      "destination": "gcc/config/powerpcspe/aix52.h",
+      "source_sha256": "018e98426d63254c30f712a2d2d274c675331cef00a277962e65f053464e39ed",
+      "output_sha256": "018e98426d63254c30f712a2d2d274c675331cef00a277962e65f053464e39ed"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin64.h",
+      "destination": "gcc/config/powerpcspe/darwin64.h",
+      "source_sha256": "ac356300500975cdf6ad4b0036f3cf3472db6d52f3cf500ac8afb3181cdcfbad",
+      "output_sha256": "ac356300500975cdf6ad4b0036f3cf3472db6d52f3cf500ac8afb3181cdcfbad"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin8.h",
+      "destination": "gcc/config/powerpcspe/darwin8.h",
+      "source_sha256": "9f4ecd3f6a2443c63c4940c0e031947892d4959bedb69b50e26bb15ddfd4cba2",
+      "output_sha256": "9f4ecd3f6a2443c63c4940c0e031947892d4959bedb69b50e26bb15ddfd4cba2"
+    },
+    {
+      "source": "gcc/config/powerpcspe/6xx.md",
+      "destination": "gcc/config/powerpcspe/6xx.md",
+      "source_sha256": "eb6f7dfc075126fa1ec60803f9033b92ca5ccb98ea0704c0af7f1817d3e3511e",
+      "output_sha256": "eb6f7dfc075126fa1ec60803f9033b92ca5ccb98ea0704c0af7f1817d3e3511e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/altivec.h",
+      "destination": "gcc/config/powerpcspe/altivec.h",
+      "source_sha256": "8f7038725af98f19e157ca32a25d49f48cd4be8c1ca33838a4597110c3fb3511",
+      "output_sha256": "8f7038725af98f19e157ca32a25d49f48cd4be8c1ca33838a4597110c3fb3511"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe.h",
+      "destination": "gcc/config/powerpcspe/powerpcspe.h",
+      "source_sha256": "c61dc459ca21b64b499cd7fbb350c1914b935ba8673074949191bda952427148",
+      "output_sha256": "28085ea0bdf6612ea7e834a92f29d0636a50ce0b9dc2078554282e79b4e09db5"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x-powerpcspe",
+      "destination": "gcc/config/powerpcspe/x-powerpcspe",
+      "source_sha256": "bb75eab09aa93b548015a33db10a26a90db485c475f1b3291a2306a96803dec9",
+      "output_sha256": "cf8ae902214bdd2a69ede775fde1499d7ebf74d05a864c21e12abc883c16b6df"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power6.md",
+      "destination": "gcc/config/powerpcspe/power6.md",
+      "source_sha256": "2a5d1ee3aabaae50b18515bec7d5a1dddb112055c557915bf070fff8c38a5926",
+      "output_sha256": "2a5d1ee3aabaae50b18515bec7d5a1dddb112055c557915bf070fff8c38a5926"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix71.h",
+      "destination": "gcc/config/powerpcspe/aix71.h",
+      "source_sha256": "cf2df846cbf40685d9b5a3df5fa0f166d199b442e4bc07cd6c1daf8f12e74cec",
+      "output_sha256": "cf2df846cbf40685d9b5a3df5fa0f166d199b442e4bc07cd6c1daf8f12e74cec"
+    },
+    {
+      "source": "gcc/config/powerpcspe/power9.md",
+      "destination": "gcc/config/powerpcspe/power9.md",
+      "source_sha256": "b93e31c73899babb2314aa3c5ae06e79728429daa6547d26ba5d1fc13b014ec5",
+      "output_sha256": "b93e31c73899babb2314aa3c5ae06e79728429daa6547d26ba5d1fc13b014ec5"
+    },
+    {
+      "source": "gcc/config/powerpcspe/linuxaltivec.h",
+      "destination": "gcc/config/powerpcspe/linuxaltivec.h",
+      "source_sha256": "390349c23ef001acda87aa6416fd798a109dbe5dabff0551b1e7df3a6757ec05",
+      "output_sha256": "390349c23ef001acda87aa6416fd798a109dbe5dabff0551b1e7df3a6757ec05"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vec_types.h",
+      "destination": "gcc/config/powerpcspe/vec_types.h",
+      "source_sha256": "31dba8cd0b415fd193d77d9299106ae7066f900803c97e45266207a7cd8b00cd",
+      "output_sha256": "31dba8cd0b415fd193d77d9299106ae7066f900803c97e45266207a7cd8b00cd"
+    },
+    {
+      "source": "gcc/config/powerpcspe/xcoff.h",
+      "destination": "gcc/config/powerpcspe/xcoff.h",
+      "source_sha256": "49d26b4bd5523f36d8f738e079adedf1c84a8f56b02ba56081f4344d7de03023",
+      "output_sha256": "49d26b4bd5523f36d8f738e079adedf1c84a8f56b02ba56081f4344d7de03023"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe.c",
+      "destination": "gcc/config/powerpcspe/powerpcspe.cc",
+      "source_sha256": "db2c6b4dcc16cf92df7a5d245864020f451d6056dce4b16cf228f2f4c816ec31",
+      "output_sha256": "ed579ac6a34faaf8a06be3008fd1d5a1a4fa2fdddb2500f80e4b056bebb83ca6"
+    },
+    {
+      "source": "gcc/config/powerpcspe/601.md",
+      "destination": "gcc/config/powerpcspe/601.md",
+      "source_sha256": "0c5ff24c30e60544304550895c9c3b97efd2b6682e839062f4bcc29645485778",
+      "output_sha256": "0c5ff24c30e60544304550895c9c3b97efd2b6682e839062f4bcc29645485778"
+    },
+    {
+      "source": "gcc/config/powerpcspe/eabi.h",
+      "destination": "gcc/config/powerpcspe/eabi.h",
+      "source_sha256": "22d09fe2816a575b7d063c5534133eda8979996dde5ecf8c2742a6b6309d6bd9",
+      "output_sha256": "22d09fe2816a575b7d063c5534133eda8979996dde5ecf8c2742a6b6309d6bd9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-protos.h",
+      "destination": "gcc/config/powerpcspe/powerpcspe-protos.h",
+      "source_sha256": "1fa64e2d8b54a37467f74ba072781bd69525f00745f0a5bb2e552c7834841c9e",
+      "output_sha256": "1fa64e2d8b54a37467f74ba072781bd69525f00745f0a5bb2e552c7834841c9e"
+    },
+    {
+      "source": "gcc/config/powerpcspe/8540.md",
+      "destination": "gcc/config/powerpcspe/8540.md",
+      "source_sha256": "725dd86272a970930626469f8d03e13aa966df5f5f09c5ec77e8189bb2a8d4ad",
+      "output_sha256": "725dd86272a970930626469f8d03e13aa966df5f5f09c5ec77e8189bb2a8d4ad"
+    },
+    {
+      "source": "gcc/config/powerpcspe/ppc-auxv.h",
+      "destination": "gcc/config/powerpcspe/ppc-auxv.h",
+      "source_sha256": "0973665fc952444b321bc7ec950a77f08bda162346f3f8b28a5108c2126a2e32",
+      "output_sha256": "0973665fc952444b321bc7ec950a77f08bda162346f3f8b28a5108c2126a2e32"
+    },
+    {
+      "source": "gcc/config/powerpcspe/crypto.md",
+      "destination": "gcc/config/powerpcspe/crypto.md",
+      "source_sha256": "267d2c2b8dffddc80a0109d0afba595a83f11b82b4b09c53192332b7d0f85fd6",
+      "output_sha256": "267d2c2b8dffddc80a0109d0afba595a83f11b82b4b09c53192332b7d0f85fd6"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-opts.h",
+      "destination": "gcc/config/powerpcspe/powerpcspe-opts.h",
+      "source_sha256": "cafca231c63bdc7f860c1d19b5d98bd72c8188c87ecffa6551398476ecbbd7b4",
+      "output_sha256": "cafca231c63bdc7f860c1d19b5d98bd72c8188c87ecffa6551398476ecbbd7b4"
+    },
+    {
+      "source": "gcc/config/powerpcspe/476.md",
+      "destination": "gcc/config/powerpcspe/476.md",
+      "source_sha256": "9ad1798096f82aec3be596c7b37b8ed0c8cc5511eb532d5d8393eb98c9403390",
+      "output_sha256": "9ad1798096f82aec3be596c7b37b8ed0c8cc5511eb532d5d8393eb98c9403390"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x-darwin",
+      "destination": "gcc/config/powerpcspe/x-darwin",
+      "source_sha256": "e734253f3b3317f3960c64263d64ee59d216b8001f01a737a49a450d43db1c71",
+      "output_sha256": "6f24b7c5f5c40876a81a392c188fea4ec791a23fded9aa3fea909b268fb9bf01"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-lynx",
+      "destination": "gcc/config/powerpcspe/t-lynx",
+      "source_sha256": "332fa54e12cc1be3e2b9608e2e37c79bac7cb446b5666bb506595b24922f13c1",
+      "output_sha256": "332fa54e12cc1be3e2b9608e2e37c79bac7cb446b5666bb506595b24922f13c1"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix43.h",
+      "destination": "gcc/config/powerpcspe/aix43.h",
+      "source_sha256": "548267c8af8a297c50c8e74639f98f004e6289c9f3a1a628fa238a1cbe8562c8",
+      "output_sha256": "548267c8af8a297c50c8e74639f98f004e6289c9f3a1a628fa238a1cbe8562c8"
+    },
+    {
+      "source": "gcc/config/powerpcspe/host-darwin.c",
+      "destination": "gcc/config/powerpcspe/host-darwin.cc",
+      "source_sha256": "96bed553a8a356a58dcc797e84c87adf67dd2c10826ce50729da44b82e9f5b4c",
+      "output_sha256": "96bed553a8a356a58dcc797e84c87adf67dd2c10826ce50729da44b82e9f5b4c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vxworksae.h",
+      "destination": "gcc/config/powerpcspe/vxworksae.h",
+      "source_sha256": "c4f3b279e21c0be66f64eff08bb9221bdce000dc74c88015b248d03cd6a9add0",
+      "output_sha256": "c4f3b279e21c0be66f64eff08bb9221bdce000dc74c88015b248d03cd6a9add0"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x-darwin64",
+      "destination": "gcc/config/powerpcspe/x-darwin64",
+      "source_sha256": "e7d05929723992e70f5b22128cd0a9c0f50b0be962c969550884378f08f44582",
+      "output_sha256": "400ddc5ad6d417dc917fb679684a4f314507e61aa384b9f946e69fbdaee4ce07"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-fprules",
+      "destination": "gcc/config/powerpcspe/t-fprules",
+      "source_sha256": "5e0c75eb374da9ec68722eb25a3a14cbf8bdf02d082640d1b8d8d744a9be94fb",
+      "output_sha256": "5e0c75eb374da9ec68722eb25a3a14cbf8bdf02d082640d1b8d8d744a9be94fb"
+    },
+    {
+      "source": "gcc/config/powerpcspe/476.h",
+      "destination": "gcc/config/powerpcspe/476.h",
+      "source_sha256": "160b64a7efc5671aff5029df6fb46c865738ca57679e573aa74161f09d6fc92b",
+      "output_sha256": "160b64a7efc5671aff5029df6fb46c865738ca57679e573aa74161f09d6fc92b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-spe",
+      "destination": "gcc/config/powerpcspe/t-spe",
+      "source_sha256": "e28d8634218a92f6f2b583f63cdecd7fe87e5bb95aa98cd4d7c90e72bc117b2d",
+      "output_sha256": "e28d8634218a92f6f2b583f63cdecd7fe87e5bb95aa98cd4d7c90e72bc117b2d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/host-ppc64-darwin.c",
+      "destination": "gcc/config/powerpcspe/host-ppc64-darwin.cc",
+      "source_sha256": "b637053939af77ba5a3e08c1ae6a6a3733916cb81b751de9bc782ebc6e7ce728",
+      "output_sha256": "b637053939af77ba5a3e08c1ae6a6a3733916cb81b751de9bc782ebc6e7ce728"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-aix43",
+      "destination": "gcc/config/powerpcspe/t-aix43",
+      "source_sha256": "550688e72fe046a2c53da3c3578dbf5f4613647429ef9abf44cac5d9be1c537f",
+      "output_sha256": "550688e72fe046a2c53da3c3578dbf5f4613647429ef9abf44cac5d9be1c537f"
+    },
+    {
+      "source": "gcc/config/powerpcspe/driver-powerpcspe.c",
+      "destination": "gcc/config/powerpcspe/driver-powerpcspe.cc",
+      "source_sha256": "2e2c1d9af088162cd727f19f5f79d824e6c5feb41bf7c50123dd09c52866cb9b",
+      "output_sha256": "2e2c1d9af088162cd727f19f5f79d824e6c5feb41bf7c50123dd09c52866cb9b"
+    },
+    {
+      "source": "gcc/config/powerpcspe/spe.h",
+      "destination": "gcc/config/powerpcspe/spe.h",
+      "source_sha256": "71b1eb450646c188b08b628fad50964ef31a1a9a9e8b6f36c08cfc468add22a7",
+      "output_sha256": "71b1eb450646c188b08b628fad50964ef31a1a9a9e8b6f36c08cfc468add22a7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/constraints.md",
+      "destination": "gcc/config/powerpcspe/constraints.md",
+      "source_sha256": "a998fd077ad55fde3c3e25e3bc5e0fbd3e3d28a7a025966c912473cd721a0dc5",
+      "output_sha256": "a998fd077ad55fde3c3e25e3bc5e0fbd3e3d28a7a025966c912473cd721a0dc5"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe.opt",
+      "destination": "gcc/config/powerpcspe/powerpcspe.opt",
+      "source_sha256": "b57c30ae5247e153d3bdd6442ec3eebb3eb8353f60c4dc1bf8859aa37cd2cb39",
+      "output_sha256": "b57c30ae5247e153d3bdd6442ec3eebb3eb8353f60c4dc1bf8859aa37cd2cb39"
+    },
+    {
+      "source": "gcc/config/powerpcspe/vsx.md",
+      "destination": "gcc/config/powerpcspe/vsx.md",
+      "source_sha256": "755824e6a95720a1af4d3dea582a7bf8f640c96dc551a30cb461d2c5c75a2062",
+      "output_sha256": "755824e6a95720a1af4d3dea582a7bf8f640c96dc551a30cb461d2c5c75a2062"
+    },
+    {
+      "source": "gcc/config/powerpcspe/biarch64.h",
+      "destination": "gcc/config/powerpcspe/biarch64.h",
+      "source_sha256": "92ad63d0819604553643769121ade3079dd0235e35a1b8342b864dbe0ecf9f58",
+      "output_sha256": "92ad63d0819604553643769121ade3079dd0235e35a1b8342b864dbe0ecf9f58"
+    },
+    {
+      "source": "gcc/config/powerpcspe/ppu_intrinsics.h",
+      "destination": "gcc/config/powerpcspe/ppu_intrinsics.h",
+      "source_sha256": "b7325c726703625dc55c7535c11711eb9654296031650af012841224a0bfa554",
+      "output_sha256": "b7325c726703625dc55c7535c11711eb9654296031650af012841224a0bfa554"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-rtems",
+      "destination": "gcc/config/powerpcspe/t-rtems",
+      "source_sha256": "c17aa09d1903e8d2b38f98e87809605a342f36f0a638ed9b2ece83a29d0825f4",
+      "output_sha256": "c17aa09d1903e8d2b38f98e87809605a342f36f0a638ed9b2ece83a29d0825f4"
+    },
+    {
+      "source": "gcc/config/powerpcspe/rs64.md",
+      "destination": "gcc/config/powerpcspe/rs64.md",
+      "source_sha256": "98417372fc624de684ded041f88c9077faa19201fd819b6325f76b505aea0f30",
+      "output_sha256": "98417372fc624de684ded041f88c9077faa19201fd819b6325f76b505aea0f30"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-ppcgas",
+      "destination": "gcc/config/powerpcspe/t-ppcgas",
+      "source_sha256": "97d3d7ebfe5a2802101f30321c539be0e1c507f30ef9a235224021b4a84554c3",
+      "output_sha256": "97d3d7ebfe5a2802101f30321c539be0e1c507f30ef9a235224021b4a84554c3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/altivec.md",
+      "destination": "gcc/config/powerpcspe/altivec.md",
+      "source_sha256": "4704be7eaa6d798ab6b20f8288e22f8f5db105a1489a86f349646aaf2e6ccfe6",
+      "output_sha256": "4704be7eaa6d798ab6b20f8288e22f8f5db105a1489a86f349646aaf2e6ccfe6"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-ppccomm",
+      "destination": "gcc/config/powerpcspe/t-ppccomm",
+      "source_sha256": "8ff7ef0a9ddb58df51c514826376c8dbd444de2e67fb00dab98290514e8d9fdf",
+      "output_sha256": "8ff7ef0a9ddb58df51c514826376c8dbd444de2e67fb00dab98290514e8d9fdf"
+    },
+    {
+      "source": "gcc/config/powerpcspe/option-defaults.h",
+      "destination": "gcc/config/powerpcspe/option-defaults.h",
+      "source_sha256": "4db99697fb8ad9f1ea6b7a56c47250f9cc935f4535dde070d541d82d3d85b5bd",
+      "output_sha256": "4db99697fb8ad9f1ea6b7a56c47250f9cc935f4535dde070d541d82d3d85b5bd"
+    },
+    {
+      "source": "gcc/config/powerpcspe/darwin.md",
+      "destination": "gcc/config/powerpcspe/darwin.md",
+      "source_sha256": "6d5463aa9a1e1a5159168622f634039f5436723fae29e18553fe5e20613a1ca7",
+      "output_sha256": "6d5463aa9a1e1a5159168622f634039f5436723fae29e18553fe5e20613a1ca7"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-c.c",
+      "destination": "gcc/config/powerpcspe/powerpcspe-c.cc",
+      "source_sha256": "6f20c4efa2537bcc04389842d2f08f5a2643775934110747b993996eddb1a088",
+      "output_sha256": "6f20c4efa2537bcc04389842d2f08f5a2643775934110747b993996eddb1a088"
+    },
+    {
+      "source": "gcc/config/powerpcspe/lynx.h",
+      "destination": "gcc/config/powerpcspe/lynx.h",
+      "source_sha256": "2e57966d8371b20f50acbe8ddd5ecb60a3917efa28ff5d5faa927cd29a249299",
+      "output_sha256": "2e57966d8371b20f50acbe8ddd5ecb60a3917efa28ff5d5faa927cd29a249299"
+    },
+    {
+      "source": "gcc/config/powerpcspe/sync.md",
+      "destination": "gcc/config/powerpcspe/sync.md",
+      "source_sha256": "1c9f82645253bc3b55e41279dabb95862a9e305e669fa3c69afed0019078d1b6",
+      "output_sha256": "1c9f82645253bc3b55e41279dabb95862a9e305e669fa3c69afed0019078d1b6"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-cpus.def",
+      "destination": "gcc/config/powerpcspe/powerpcspe-cpus.def",
+      "source_sha256": "07edf53599bcc0b3047553595d8f96ec3ef40bfbbd408bb6d8d8f07347fc74f9",
+      "output_sha256": "07edf53599bcc0b3047553595d8f96ec3ef40bfbbd408bb6d8d8f07347fc74f9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x86intrin.h",
+      "destination": "gcc/config/powerpcspe/x86intrin.h",
+      "source_sha256": "1fdab7624790f77bef9c6897b0ff67d1cfd4cbcfdb126dd82dd50461fb01e36c",
+      "output_sha256": "1fdab7624790f77bef9c6897b0ff67d1cfd4cbcfdb126dd82dd50461fb01e36c"
+    },
+    {
+      "source": "gcc/config/powerpcspe/paired.md",
+      "destination": "gcc/config/powerpcspe/paired.md",
+      "source_sha256": "fb177960669168c1fe1b990d211ad0345630da3ef9bf7d6c243a6e1cfb13e8e8",
+      "output_sha256": "fb177960669168c1fe1b990d211ad0345630da3ef9bf7d6c243a6e1cfb13e8e8"
+    },
+    {
+      "source": "gcc/config/powerpcspe/powerpcspe-passes.def",
+      "destination": "gcc/config/powerpcspe/powerpcspe-passes.def",
+      "source_sha256": "b5416a2b5d54897657153eb9cd735e6fc742eb2c21e855a42100c543db5eaa20",
+      "output_sha256": "b5416a2b5d54897657153eb9cd735e6fc742eb2c21e855a42100c543db5eaa20"
+    },
+    {
+      "source": "gcc/config/powerpcspe/x-aix",
+      "destination": "gcc/config/powerpcspe/x-aix",
+      "source_sha256": "bbe4a018e979f15e481fd3c6fcc18914ef66f55915269e3990d3a7d50d0f6af9",
+      "output_sha256": "bbe4a018e979f15e481fd3c6fcc18914ef66f55915269e3990d3a7d50d0f6af9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/e6500.md",
+      "destination": "gcc/config/powerpcspe/e6500.md",
+      "source_sha256": "5b14cef61dd3bbfa0832600ebc1aa7ec883f4c1542b1df482c9803678dd9cc27",
+      "output_sha256": "5b14cef61dd3bbfa0832600ebc1aa7ec883f4c1542b1df482c9803678dd9cc27"
+    },
+    {
+      "source": "gcc/config/powerpcspe/freebsd64.h",
+      "destination": "gcc/config/powerpcspe/freebsd64.h",
+      "source_sha256": "679c88cde6dbc50c60ab449ae521fe4ef4a4580aad3f8c38629b72797af711b2",
+      "output_sha256": "679c88cde6dbc50c60ab449ae521fe4ef4a4580aad3f8c38629b72797af711b2"
+    },
+    {
+      "source": "gcc/config/powerpcspe/sysv4.h",
+      "destination": "gcc/config/powerpcspe/sysv4.h",
+      "source_sha256": "ac44520567f18254d4519db7e7c630bc5883912890cf9bdc0d59b8df9061c70d",
+      "output_sha256": "ac44520567f18254d4519db7e7c630bc5883912890cf9bdc0d59b8df9061c70d"
+    },
+    {
+      "source": "gcc/config/powerpcspe/eabisim.h",
+      "destination": "gcc/config/powerpcspe/eabisim.h",
+      "source_sha256": "81448985ac66bdbc887973c6b405ea9001d851c1ba74cf9ccaf8948e96477aac",
+      "output_sha256": "81448985ac66bdbc887973c6b405ea9001d851c1ba74cf9ccaf8948e96477aac"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-vxworks",
+      "destination": "gcc/config/powerpcspe/t-vxworks",
+      "source_sha256": "79b2feb4f15c280d3f55d2bcfafc7b694a8aaa847d2b68a729d34df95f7d2bb3",
+      "output_sha256": "79b2feb4f15c280d3f55d2bcfafc7b694a8aaa847d2b68a729d34df95f7d2bb3"
+    },
+    {
+      "source": "gcc/config/powerpcspe/ppc-asm.h",
+      "destination": "gcc/config/powerpcspe/ppc-asm.h",
+      "source_sha256": "b382dfd660e45c533aab05ddd106dc34c4cb324e38bac7bff86f9b074bfcd6a9",
+      "output_sha256": "b382dfd660e45c533aab05ddd106dc34c4cb324e38bac7bff86f9b074bfcd6a9"
+    },
+    {
+      "source": "gcc/config/powerpcspe/t-linux64lebe",
+      "destination": "gcc/config/powerpcspe/t-linux64lebe",
+      "source_sha256": "9f41a6dc03faa90d94c7705b510da9301450f0f9b9cde855f75315bf611e3112",
+      "output_sha256": "9f41a6dc03faa90d94c7705b510da9301450f0f9b9cde855f75315bf611e3112"
+    },
+    {
+      "source": "gcc/config/powerpcspe/aix.h",
+      "destination": "gcc/config/powerpcspe/aix.h",
+      "source_sha256": "61906022148dbe60813d4a89c4a38a7e9eadaeb9638737c814a1b6620f42c9ce",
+      "output_sha256": "61906022148dbe60813d4a89c4a38a7e9eadaeb9638737c814a1b6620f42c9ce"
+    },
+    {
+      "source": "gcc/common/config/powerpcspe/powerpcspe-common.c",
+      "destination": "gcc/common/config/powerpcspe/powerpcspe-common.cc",
+      "source_sha256": "a32fade13d111e8865e3e87f35b6e7cd1947dca538821fc90a9a9a60c23f4148",
+      "output_sha256": "a32fade13d111e8865e3e87f35b6e7cd1947dca538821fc90a9a9a60c23f4148"
+    }
+  ]
+}

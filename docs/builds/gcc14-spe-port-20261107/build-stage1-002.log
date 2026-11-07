@@ -1,0 +1,311 @@
+make[1]: Entering directory '/work/build-stage1/libiberty'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+make[1]: Entering directory '/work/build-stage1/libbacktrace'
+make  all-am
+make[2]: Entering directory '/work/build-stage1/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/libiberty/testsuite'
+make[2]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[2]: Nothing to be done for 'all'.
+make[2]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty/testsuite'
+make[1]: Leaving directory '/work/build-stage1/libiberty'
+make[1]: Entering directory '/work/build-stage1/zlib'
+true "AR_FLAGS=rc" "CC_FOR_BUILD=gcc" "CFLAGS=-g -O2  " "CXXFLAGS=-g -O2  " "CFLAGS_FOR_BUILD=-g -O2" "CFLAGS_FOR_TARGET=-g -O2" "INSTALL=/usr/bin/install -c" "INSTALL_DATA=/usr/bin/install -c -m 644" "INSTALL_PROGRAM=/usr/bin/install -c" "INSTALL_SCRIPT=/usr/bin/install -c" "LDFLAGS=-static-libstdc++ -static-libgcc " "LIBCFLAGS=-g -O2  " "LIBCFLAGS_FOR_TARGET=-g -O2" "MAKE=make" "MAKEINFO=makeinfo --split-size=5000000 " "PICFLAG=" "PICFLAG_FOR_TARGET=" "SHELL=/bin/bash" "EXPECT=expect" "RUNTEST=runtest" "RUNTESTFLAGS=" "exec_prefix=/opt/tabor-sdk-candidate" "infodir=/opt/tabor-sdk-candidate/share/info" "libdir=/opt/tabor-sdk-candidate/lib" "prefix=/opt/tabor-sdk-candidate" "tooldir=/opt/tabor-sdk-candidate/powerpc-linux-gnuspe" "AR=ar --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "AS=as" "CC=gcc" "CXX=g++" "LD=ld" "LIBCFLAGS=-g -O2  " "NM=nm" "PICFLAG=" "RANLIB=ranlib --plugin /usr/libexec/gcc/x86_64-linux-gnu/14/liblto_plugin.so" "DESTDIR=" DO=all multi-do # make
+make[2]: Entering directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libiberty'
+make[1]: Leaving directory '/work/build-stage1/zlib'
+true  DO=all multi-do # make
+make[2]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Leaving directory '/work/build-stage1/libbacktrace'
+make[1]: Entering directory '/work/build-stage1/libdecnumber'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libdecnumber'
+make[1]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/libcody'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/libcody'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/fixincludes'
+make  all-am
+make[2]: Entering directory '/work/build-stage1/lto-plugin'
+make[1]: Entering directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[2]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Leaving directory '/work/build-stage1/lto-plugin'
+make[1]: Leaving directory '/work/build-stage1/build-x86_64-pc-linux-gnu/libcpp'
+make[1]: Entering directory '/work/build-stage1/libcpp'
+test -f config.h || (rm -f stamp-h1 && make stamp-h1)
+make[1]: Leaving directory '/work/build-stage1/libcpp'
+make[1]: Entering directory '/work/build-stage1/fixincludes'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/work/build-stage1/fixincludes'
+make[1]: Entering directory '/work/build-stage1/gcc'
+LC_ALL=C ; export LC_ALL ; \
+gawk -f /work/modern/gcc/opt-gather.awk /work/modern/gcc/ada/gcc-interface/lang.opt /work/modern/gcc/d/lang.opt /work/modern/gcc/fortran/lang.opt /work/modern/gcc/go/lang.opt /work/modern/gcc/lto/lang.opt /work/modern/gcc/m2/lang.opt /work/modern/gcc/rust/lang.opt /work/modern/gcc/c-family/c.opt /work/modern/gcc/common.opt /work/modern/gcc/params.opt /work/modern/gcc/analyzer/analyzer.opt /work/modern/gcc/config/g.opt /work/modern/gcc/config/fused-madd.opt /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt /work/modern/gcc/config/powerpcspe/powerpcspe.opt /work/modern/gcc/config/gnu-user.opt /work/modern/gcc/config/linux.opt /work/modern/gcc/config/powerpcspe/sysv4.opt  /work/modern/gcc/ada/gcc-interface/lang.opt.urls  /work/modern/gcc/d/lang.opt.urls  /work/modern/gcc/fortran/lang.opt.urls  /work/modern/gcc/go/lang.opt.urls  /work/modern/gcc/lto/lang.opt.urls  /work/modern/gcc/m2/lang.opt.urls  /work/modern/gcc/rust/lang.opt.urls  /work/modern/gcc/c-family/c.opt.urls  /work/modern/gcc/common.opt.urls  /work/modern/gcc/params.opt.urls  /work/modern/gcc/analyzer/analyzer.opt.urls  /work/modern/gcc/config/g.opt.urls  /work/modern/gcc/config/fused-madd.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe-tables.opt.urls  /work/modern/gcc/config/powerpcspe/powerpcspe.opt.urls  /work/modern/gcc/config/gnu-user.opt.urls  /work/modern/gcc/config/linux.opt.urls  /work/modern/gcc/config/powerpcspe/sysv4.opt.urls > tmp-optionlist
+make[1]: *** No rule to make target '/work/modern/gcc/config/dbxelf.h', needed by 's-gtype'.
+/bin/bash /work/modern/gcc/../move-if-change tmp-gi.list gtyp-input.list
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gengenrtl.o /work/modern/gcc/gengenrtl.cc
+echo "#define BUILDING_GCC_MAJOR `echo 14.2.0 | sed -e 's/^\([0-9]*\).*$/\1/'`" > bversion.h
+echo timestamp > s-gtyp-input
+echo "#define BUILDING_GCC_MINOR `echo 14.2.0 | sed -e 's/^[0-9]*\.\([0-9]*\).*$/\1/'`" >> bversion.h
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/sort.o /work/modern/gcc/sort.cc
+echo "#define BUILDING_GCC_PATCHLEVEL `echo 14.2.0 | sed -e 's/^[0-9]*\.[0-9]*\.\([0-9]*\)$/\1/'`" >> bversion.h
+echo "#define BUILDING_GCC_VERSION (BUILDING_GCC_MAJOR * 1000 + BUILDING_GCC_MINOR)" >> bversion.h
+echo timestamp > s-bversion
+rm -f tmp-all-tree.def
+echo '#include "tree.def"' > tmp-all-tree.def
+echo 'END_OF_BASE_TREE_CODES' >> tmp-all-tree.def
+echo '#include "c-family/c-common.def"' >> tmp-all-tree.def
+ltf="/work/modern/gcc/ada/gcc-interface/ada-tree.def /work/modern/gcc/c/c-tree.def /work/modern/gcc/cp/cp-tree.def /work/modern/gcc/d/d-tree.def /work/modern/gcc/m2/m2-tree.def /work/modern/gcc/objc/objc-tree.def"; for f in $ltf; do \
+  echo "#include \"$f\""; \
+done | sed 's|/work/modern/gcc/||' >> tmp-all-tree.def
+/bin/bash /work/modern/gcc/../move-if-change tmp-all-tree.def all-tree.def
+echo timestamp > s-alltree
+TARGET_CPU_DEFAULT="" \
+HEADERS="" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm_d.h
+if test no = yes \
+   || test -n ""; then \
+  /bin/bash /work/modern/gcc/genmultilib \
+    "msoft-float" \
+    "nof" \
+    " msoft-float=mcpu?e300c2  msoft-float=mcpu?401  msoft-float=mcpu?403  msoft-float=mcpu?405  msoft-float=mcpu?440  msoft-float=mcpu?464  msoft-float=mcpu?476  msoft-float=mcpu?ec603e  msoft-float=mcpu?801  msoft-float=mcpu?821  msoft-float=mcpu?823  msoft-float=mcpu?860" \
+    "" \
+    "fPIC mstrict-align" \
+    "" \
+    "" \
+    "" \
+    "powerpc-linux-gnuspe" \
+    "" \
+    "no" \
+    > tmp-mlib.h; \
+else \
+  /bin/bash /work/modern/gcc/genmultilib '' '' '' '' '' '' '' '' \
+    "powerpc-linux-gnuspe" '' no \
+    > tmp-mlib.h; \
+fi
+/bin/bash /work/modern/gcc/../move-if-change tmp-mlib.h multilib.h
+echo timestamp > s-mlib
+lsf="/work/modern/gcc/lto/lang-specs.h"; for f in $lsf; do \
+    echo "#include \"$f\""; \
+done | sed 's|/work/modern/gcc/||' > tmp-specs.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-specs.h specs.h
+echo timestamp > s-specs
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genhooks.o /work/modern/gcc/genhooks.cc
+gawk -f /work/modern/gcc/gen-pass-instances.awk \
+  /work/modern/gcc/passes.def /work/modern/gcc/config/powerpcspe/powerpcspe-passes.def > pass-instances.def
+TARGET_CPU_DEFAULT="" \
+HEADERS="" DEFINES="" \
+/bin/bash /work/modern/gcc/mkconfig.sh tm_rust.h
+rm -f tmp-omp-device-properties.h; \
+for kind in kind arch isa; do \
+  echo 'const char omp_offload_device_'${kind}'[] = ' \
+    >> tmp-omp-device-properties.h; \
+  for prop in none ; do \
+    [ "$prop" = "none" ] && continue; \
+    tgt=`echo "$prop" | sed 's/=.*$//'`; \
+    props=`echo "$prop" | sed 's/.*=//'`; \
+    echo "\"$tgt\\0\"" >> tmp-omp-device-properties.h; \
+    sed -n 's/^'${kind}': //p' ${props} \
+      | sed 's/[[:blank:]]/ /g;s/  */ /g;s/^ //;s/ $//;s/ /\\0/g;s/^/"/;s/$/\\0\\0"/' \
+      >> tmp-omp-device-properties.h; \
+  done; \
+  echo '"";' >> tmp-omp-device-properties.h; \
+done; \
+/bin/bash /work/modern/gcc/../move-if-change tmp-omp-device-properties.h \
+  omp-device-properties.h
+echo timestamp > s-omp-device-properties-h
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genchecksum.o /work/modern/gcc/genchecksum.cc
+echo "g++ -no-pie   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H -no-pie -static-libstdc++ -static-libgcc " > checksum-options.tmp \
+&& /work/modern/gcc/../move-if-change checksum-options.tmp checksum-options
+cp /work/modern/gcc/gcc-ar.cc gcc-nm.cc
+cp /work/modern/gcc/gcc-ar.cc gcc-ranlib.cc
+TARGET_CPU_DEFAULT="" \
+HEADERS="auto-host.h ansidecl.h" DEFINES="USED_FOR_TARGET " \
+/bin/bash /work/modern/gcc/mkconfig.sh tconfig.h
+(echo "@set version-GCC 14.2.0"; \
+ if [ "" = "experimental" ]; \
+ then echo "@set DEVELOPMENT"; \
+ else echo "@clear DEVELOPMENT"; \
+ fi) > gcc-vers.texiT
+echo @set srcdir `echo /work/modern/gcc | sed -e 's|\\([@{}]\\)|@\\1|g'` >> gcc-vers.texiT
+echo timestamp > lto-dump.pod
+perl /work/modern/gcc/../contrib/texi2pod.pl -DBUGURL="@uref{https://gcc.gnu.org/bugs/}" /work/modern/gcc/doc/lto-dump.texi > lto-dump.pod
+if [ -n "(GCC) " ]; then \
+  echo "@set VERSION_PACKAGE (GCC) " >> gcc-vers.texiT; \
+fi
+echo "@set BUGURL @uref{https://gcc.gnu.org/bugs/}" >> gcc-vers.texiT; \
+mv -f gcc-vers.texiT gcc-vers.texi
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genmodes.o /work/modern/gcc/genmodes.cc
+No filename or title
+make[1]: [Makefile:3707: lto-dump.pod] Error 255 (ignored)
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/errors.o /work/modern/gcc/errors.cc
+g++ -c  -DBASEVER="\"14.2.0\"" -DDATESTAMP="\"\"" -DREVISION="\"\"" -DDEVPHASE="\"\"" -DPKGVERSION="\"(GCC) \"" -DBUGURL="\"<https://gcc.gnu.org/bugs/>\"" -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genversion.o /work/modern/gcc/genversion.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings  -Wno-error -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gengtype-lex.o /work/modern/gcc/gengtype-lex.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gengtype-parse.o /work/modern/gcc/gengtype-parse.cc
+/d/gcc-14.2.0/gcc-14.2.0/gcc/gengtype-lex.l: In function 'int yylex(const char**)':
+gengtype-lex.cc:356:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+/d/gcc-14.2.0/gcc-14.2.0/gcc/gengtype-lex.l:119:1: note: in expansion of macro 'YY_DO_BEFORE_ACTION'
+/d/gcc-14.2.0/gcc-14.2.0/gcc/gengtype-lex.l:114:1: note: here
+gengtype-lex.cc:356:15: warning: this statement may fall through [-Wimplicit-fallthrough=]
+/d/gcc-14.2.0/gcc-14.2.0/gcc/gengtype-lex.l:139:1: note: in expansion of macro 'YY_DO_BEFORE_ACTION'
+/d/gcc-14.2.0/gcc-14.2.0/gcc/gengtype-lex.l:135:1: note: here
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gengenrtl \
+    build/gengenrtl.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genhooks \
+    build/genhooks.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/genhooks "Rust Target Hook" \
+				     > tmp-rust-target-hooks-def.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-rust-target-hooks-def.h \
+				     rust/rust-target-hooks-def.h
+echo timestamp > s-rust-target-hooks-def-h
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genchecksum \
+    build/genchecksum.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+if [ xinfo = xinfo ]; then \
+	makeinfo --split-size=5000000 --no-split -I . -I /work/modern/gcc/doc \
+		-I /work/modern/gcc/doc/include -o doc/cpp.info /work/modern/gcc/doc/cpp.texi; \
+fi
+if [ xinfo = xinfo ]; then \
+	makeinfo --split-size=5000000 --no-split -I . -I /work/modern/gcc/doc \
+		-I /work/modern/gcc/doc/include -o doc/gcc.info /work/modern/gcc/doc/gcc.texi; \
+fi
+build/genhooks -d \
+		/work/modern/gcc/doc/tm.texi.in > tmp-tm.texi
+genhooks: No place specified to document hook TARGET_ASM_OPEN_PAREN
+
+make[1]: *** [Makefile:2793: s-tm-texi] Error 1
+if [ xinfo = xinfo ]; then \
+	makeinfo --split-size=5000000 --no-split -I /work/modern/gcc/doc \
+		-I /work/modern/gcc/doc/include -o doc/gccinstall.info /work/modern/gcc/doc/install.texi; \
+fi
+cpp.texi: warning: document without nodes
+if [ xinfo = xinfo ]; then \
+	makeinfo --split-size=5000000 --no-split -I . -I /work/modern/gcc/doc \
+		-I /work/modern/gcc/doc/include -o doc/cppinternals.info /work/modern/gcc/doc/cppinternals.texi; \
+fi
+echo timestamp > gcc.pod
+perl /work/modern/gcc/../contrib/texi2pod.pl /work/modern/gcc/doc/invoke.texi > gcc.pod
+No filename or title
+make[1]: [Makefile:3717: gcc.pod] Error 255 (ignored)
+echo timestamp > doc/lto-dump.1
+(pod2man --center="GNU" --release="gcc-14.2.0" --date=2024-08-01 --section=1 lto-dump.pod > doc/lto-dump.1.T$$ && \
+	mv -f doc/lto-dump.1.T$$ doc/lto-dump.1) || \
+	(rm -f doc/lto-dump.1.T$$ && exit 1)
+install.texi: warning: document without nodes
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genmodes \
+    build/genmodes.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+pod2man: unable to format lto-dump.pod
+make[1]: [Makefile:3695: doc/lto-dump.1] Error 1 (ignored)
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  \
+	build/genversion.o -o build/genversion
+build/gengenrtl > tmp-genrtl.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-genrtl.h genrtl.h
+echo timestamp > s-genrtl-h
+cppinternals.texi: warning: document without nodes
+build/genmodes -m > tmp-min-modes.cc
+build/genhooks "Target Hook" \
+				     > tmp-target-hooks-def.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-min-modes.cc min-insn-modes.cc
+/bin/bash /work/modern/gcc/../move-if-change tmp-target-hooks-def.h \
+				     target-hooks-def.h
+echo timestamp > s-modes-m
+build/genhooks "Common Target Hook" \
+				     > tmp-common-target-hooks-def.h
+build/genhooks "C Target Hook" \
+				     > tmp-c-target-hooks-def.h
+echo timestamp > s-target-hooks-def-h
+/bin/bash /work/modern/gcc/../move-if-change tmp-common-target-hooks-def.h \
+				     common/common-target-hooks-def.h
+build/genhooks "D Target Hook" \
+				     > tmp-d-target-hooks-def.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-c-target-hooks-def.h \
+				     c-family/c-target-hooks-def.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-d-target-hooks-def.h \
+				     d/d-target-hooks-def.h
+echo timestamp > s-common-target-hooks-def-h
+echo timestamp > s-c-target-hooks-def-h
+build/genmodes > tmp-modes.cc
+echo timestamp > s-d-target-hooks-def-h
+/bin/bash /work/modern/gcc/../move-if-change tmp-modes.cc insn-modes.cc
+echo timestamp > doc/gcc.1
+build/genmodes -h > tmp-modes.h
+(pod2man --center="GNU" --release="gcc-14.2.0" --date=2024-08-01 --section=1 gcc.pod > doc/gcc.1.T$$ && \
+	mv -f doc/gcc.1.T$$ doc/gcc.1) || \
+	(rm -f doc/gcc.1.T$$ && exit 1)
+echo timestamp > s-modes
+/bin/bash /work/modern/gcc/../move-if-change tmp-modes.h insn-modes.h
+build/genmodes -i > tmp-modes-inline.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-modes-inline.h \
+  insn-modes-inline.h
+echo timestamp > s-modes-h
+build/genversion > tmp-version.h
+echo timestamp > s-modes-inline-h
+/bin/bash /work/modern/gcc/../move-if-change tmp-version.h version.h
+echo timestamp > s-version
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genmddeps.o /work/modern/gcc/genmddeps.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/read-md.o /work/modern/gcc/read-md.cc
+pod2man: unable to format gcc.pod
+make[1]: [Makefile:3695: doc/gcc.1] Error 1 (ignored)
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gengtype.o /work/modern/gcc/gengtype.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/gengtype-state.o /work/modern/gcc/gengtype-state.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genconstants.o /work/modern/gcc/genconstants.cc
+/bin/bash /work/modern/gcc/../move-if-change tmp-optionlist optionlist
+echo timestamp > s-options
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/min-insn-modes.o min-insn-modes.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/inchash.o /work/modern/gcc/inchash.cc
+g++ -c   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -I. -Ibuild -I/work/modern/gcc -I/work/modern/gcc/build -I/work/modern/gcc/../include  -I/work/modern/gcc/../libcpp/include  \
+	-o build/genenums.o /work/modern/gcc/genenums.cc
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genmddeps \
+    build/genmddeps.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genconstants \
+    build/genconstants.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/optc-save-gen.awk \
+       -v header_name="config.h system.h coretypes.h tm.h" < optionlist > options-save.cc
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/options-urls-cc-gen.awk \
+       -v header_name="config.h system.h coretypes.h tm.h" < optionlist > options-urls.cc
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/optc-gen.awk \
+       -v header_name="config.h system.h coretypes.h options.h tm.h" < optionlist > options.cc
+build/genmddeps /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md > tmp-mddeps
+/bin/bash /work/modern/gcc/../move-if-change tmp-mddeps mddeps.mk
+echo timestamp > s-mddeps
+gawk -f /work/modern/gcc/opt-functions.awk -f /work/modern/gcc/opt-read.awk \
+       -f /work/modern/gcc/opth-gen.awk \
+       < optionlist > tmp-options.h
+build/genconstants /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md \
+   > tmp-constants.h
+/bin/bash /work/modern/gcc/../move-if-change tmp-constants.h insn-constants.h
+echo timestamp > s-constants
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/genenums \
+    build/genenums.o build/read-md.o build/errors.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+build/genenums /work/modern/gcc/common.md /work/modern/gcc/config/powerpcspe/powerpcspe.md \
+   > tmp-enums.cc
+/bin/bash /work/modern/gcc/../move-if-change tmp-enums.cc insn-enums.cc
+echo timestamp > s-enums
+/bin/bash /work/modern/gcc/../move-if-change tmp-options.h options.h
+echo timestamp > s-options-h
+g++   -g -O2   -DIN_GCC -DCROSS_DIRECTORY_STRUCTURE   -fno-exceptions -fno-rtti -fasynchronous-unwind-tables -W -Wall -Wno-narrowing -Wwrite-strings -Wcast-qual -Wmissing-format-attribute -Wconditionally-supported -Woverloaded-virtual -pedantic -Wno-long-long -Wno-variadic-macros -Wno-overlength-strings   -DHAVE_CONFIG_H  -DGENERATOR_FILE -static-libstdc++ -static-libgcc  -o build/gengtype \
+    build/gengtype.o build/errors.o build/gengtype-lex.o build/gengtype-parse.o build/gengtype-state.o ../build-x86_64-pc-linux-gnu/libiberty/libiberty.a
+make[1]: Target 'all' not remade because of errors.
+rm gcc.pod lto-dump.pod
+make[1]: Leaving directory '/work/build-stage1/gcc'
+make: *** [Makefile:4675: all-gcc] Error 2
