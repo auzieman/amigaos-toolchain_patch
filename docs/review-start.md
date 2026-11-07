@@ -1,3 +1,10 @@
+Current work (2026-11-07): fresh Trixie SPE userspace foundation. Read
+[the GCC14 qualification](builds/gcc14-spe-foundation-20261107/README.md) and
+`profiles/trixie-spe-sdk-candidate.json` before restarting any package queue.
+GCC14 SPE backend/libgcc restoration is not complete. The clean7.3 kernel builds
+but QEMU dual-core startup stalls; its hardware bundle is staged inactive and
+the existing USB boot script/kernel remain active. Do not conflate these gates.
+
 # Review starting point
 
 Current package workflow: [Debian port skill](../.agents/skills/tabor-debian-port/SKILL.md)

@@ -1,0 +1,56 @@
+{
+  "status": "candidate-foundation-not-accepted",
+  "scope": "Fresh Trixie powerpcspe userspace rebuild; modern compiler qualification first",
+  "target": "powerpc-linux-gnuspe",
+  "debian_architecture": "powerpcspe",
+  "abi": {
+    "bits": 32,
+    "endian": "big",
+    "cpu_family": "e500v2",
+    "float": "SPE GPR double",
+    "long_double_bits": 128
+  },
+  "gcc_source": {
+    "component": "gcc-14",
+    "version": "14.2.0-19",
+    "lock": "profiles/port-dependency-sources.lock.json"
+  },
+  "glibc_source": {
+    "version": "2.41-12+deb13u4",
+    "lock": "profiles/trixie-spe-base.lock.json"
+  },
+  "legacy_reference": "profiles/toolchain-bootstrap.json",
+  "patch_roots": [
+    "patches/gcc",
+    "patches/binutils",
+    "patches/glibc"
+  ],
+  "stage_order": [
+    "Restore and qualify GCC14 SPE code generation and calling conventions",
+    "Bootstrap compatible libgcc and patched glibc using standard Debian bootstrap mechanisms",
+    "Finish GCC C/C++ runtimes against the new libc",
+    "Run C and C++ ABI/runtime regressions under a qualified e500v2 kernel/QEMU",
+    "Build genuine Debian foundation packages and qualify clean sbuild roots",
+    "Rebuild selected workstation dependency closure through sbuild/apt",
+    "Assemble and test normally installed Trixie root"
+  ],
+  "acceptance": [
+    "SPE single/double instruction emission and BE object ABI",
+    "float/double/varargs/formatting",
+    "fenv rounding and exceptions",
+    "setjmp/signal/ucontext preservation",
+    "pthread/TLS and atomics",
+    "C++ long double and unwinding",
+    "generic PowerPC regressions",
+    "installed package dependency and maintainer-script integrity"
+  ],
+  "constraints": [
+    "No generic PowerPC hard-float or silent soft-float replacement",
+    "No broad old-GCC package retry labeled modern rebuild",
+    "Keep accepted SDK and caches intact; publish qualified SDK read-only",
+    "No experimental7.3 SMP dependency for compiler acceptance; retain a known-working runtime control",
+    "Do not activate the staged USB kernel while its selected boot gate is unresolved"
+  ],
+  "active_base_lock_changed": false,
+  "workstation_rebuild_started": false
+}
