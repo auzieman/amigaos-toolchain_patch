@@ -28,3 +28,31 @@ Next: verify new release/CPU count/network/root and SSH; hold AMDGPU until an
 off-board log capture is ready and USB root can be protected read-only. One
 bounded first bind; no repeated unload/reload after a failed initialization.
 Kernel boot, local console, DRM scanout and GPU acceleration remain separate gates.
+
+## First physical attempt and single-core follow-up
+
+The VLC snapshot shows successful legacy checksums, decompression, ramdisk
+relocation to2fe01000 and DTB relocation to03ffa600, ending at Loading Device
+Tree ... OK. The usual SSH address never returned. This does not establish
+that AMDGPU executed or identify the precise early startup failure. Existing
+QEMU secondary-CPU failure motivates a maxcpus=1 single-variable experiment.
+
+With SanDisk back on laptop, verified serial03001919041721081205, boot files
+and old-kernel rollback hash. Root inspected read-only with noload; no repair
+or root writes. Kernel config has GIANFAR built-in. Created separate scripts
+using R730 mkimage, checked header/data CRCs and SHA256, installed only new
+boot-singlecore.{cmd,scr} and boot-rollback.{cmd,scr}, synced/read back, and
+unmounted both partitions. The original boot.scr hash is unchanged. Scripts
+and artifact hashes are adjacent; no environment is saved.
+
+At U-Boot prompt, single-core test:
+
+```
+usb reset
+fatload usb 0:1 0x09000000 /boot-singlecore.scr
+source 0x09000000
+```
+
+For the verified old6.12 kernel instead, use boot-rollback.scr in the fatload
+line. Single-core test is not yet run. Existing saved Linux entry still invokes
+the unchanged normal script; it does not select the single-core variant.
