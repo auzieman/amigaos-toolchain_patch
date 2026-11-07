@@ -1,0 +1,47 @@
+{
+  "candidate": "/root/polaris-next/amdgpu-mqd-host-002.ko",
+  "sha256": "f6475b61ef7affae8fff7cbd008ef2a70090f96327f3c7a0cd8d2d9adb5e2e49",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 0
+    },
+    {
+      "stage": "04-hold-pci",
+      "returncode": 0
+    },
+    {
+      "stage": "05-load-dependencies",
+      "returncode": 0
+    },
+    {
+      "stage": "06-remove-unbound-original",
+      "returncode": 0
+    },
+    {
+      "stage": "07-insert-held-candidate",
+      "returncode": 0
+    },
+    {
+      "stage": "08-release-override",
+      "returncode": 0
+    },
+    {
+      "stage": "09-bind",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "num_kcq": 0,
+  "error": "09-bind failed; see captured output",
+  "candidate_insert_completed": true
+}

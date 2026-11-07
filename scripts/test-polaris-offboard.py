@@ -8,10 +8,11 @@ p.add_argument('--output',type=Path,required=True)
 p.add_argument('--host',default='192.168.1.249');p.add_argument('--jump',default='root@192.168.1.15')
 p.add_argument('--candidate',default='/root/polaris-next/amdgpu-candidate.ko')
 p.add_argument('--sha256',default='403837663941f14ed2b2daf83847786074f3290f01e106f86a86855f2a504732')
+p.add_argument('--num-kcq',type=int,choices=range(0,9),help='optional upstream kernel compute queue count; requires a compatible candidate')
 a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
 opts=['-F','/dev/null','-J',a.jump,'-i',a.key,'-o','IdentitiesOnly=yes','-o','BatchMode=yes','-o','ConnectTimeout=6','-o','ServerAliveInterval=2','-o','ServerAliveCountMax=2','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+a.known_hosts]
 base=['ssh',*opts,'root@'+a.host];pci='/sys/bus/pci/devices/0001:01:00.0'
-receipt={'candidate':a.candidate,'sha256':a.sha256,'stages':[],'status':'started','boot_defaults_changed':False}
+receipt={'candidate':a.candidate,'sha256':a.sha256,'stages':[],'status':'started','boot_defaults_changed':False,'num_kcq':a.num_kcq}
 logger=None;held=False;candidate_loaded=False
 
 def stop(proc):
@@ -51,7 +52,7 @@ try:
   run('04-hold-pci',"printf '%s\\n' tabor-held > "+pci+'/driver_override');held=True
   run('05-load-dependencies','modprobe amdgpu',30)
   run('06-remove-unbound-original','test ! -e '+pci+'/driver && rmmod amdgpu')
-  run('07-insert-held-candidate','insmod '+shlex.quote(a.candidate),30);candidate_loaded=True
+  run('07-insert-held-candidate','insmod '+shlex.quote(a.candidate)+(' num_kcq='+str(a.num_kcq) if a.num_kcq is not None else ''),30);candidate_loaded=True
   run('08-release-override',"printf '\\n' > "+pci+'/driver_override');held=False
   run('09-bind',"printf '%s\\n' 0001:01:00.0 > /sys/bus/pci/drivers/amdgpu/bind",40)
   run('10-device-state','cat /proc/fb; ls -l '+pci+'/driver; cat /proc/uptime; cat /proc/modules')
