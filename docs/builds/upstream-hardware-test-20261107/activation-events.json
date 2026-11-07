@@ -1,0 +1,590 @@
+[
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_ce.bin",
+    "exit": 0,
+    "stdout": "d1664bd98b69bf21c2fb4e6654860e6648d2a202eeb2175e718982ffb7be1dc5  /lib/firmware/amdgpu/polaris11_ce.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_ce_2.bin",
+    "exit": 0,
+    "stdout": "790ca90f5afa001a858909619a222442bfaec1a1f63c47396d21e0097609e24a  /lib/firmware/amdgpu/polaris11_ce_2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_k2_smc.bin",
+    "exit": 0,
+    "stdout": "83dd69a87fdbba335b266d9970cb51c837f89fce33d24b493a8d4db5909d923a  /lib/firmware/amdgpu/polaris11_k2_smc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_k_mc.bin",
+    "exit": 0,
+    "stdout": "64a2749ae228a5cd2084a877615519a0d18811068f803411545dd9774549b7cf  /lib/firmware/amdgpu/polaris11_k_mc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_k_smc.bin",
+    "exit": 0,
+    "stdout": "0224af84c74efe8a437ccac8c45f534bca8127ff532cef711ce7157c2ac9bd52  /lib/firmware/amdgpu/polaris11_k_smc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_mc.bin",
+    "exit": 0,
+    "stdout": "b75c34f2b5866128e007c81d4b077f07f21c724cebe8f19b6db5526a02435b6c  /lib/firmware/amdgpu/polaris11_mc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_me.bin",
+    "exit": 0,
+    "stdout": "784ecf696e9a59b0baec4f010631c32f6bb0971a7965705660ca9244e728992b  /lib/firmware/amdgpu/polaris11_me.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_me_2.bin",
+    "exit": 0,
+    "stdout": "75dbf9d8d38955de4589e6a2fa20ae22815ebbaa7cd4686ea756b5b519db39c4  /lib/firmware/amdgpu/polaris11_me_2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_mec.bin",
+    "exit": 0,
+    "stdout": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333  /lib/firmware/amdgpu/polaris11_mec.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_mec2.bin",
+    "exit": 0,
+    "stdout": "7ad4a0b49e07f1ac9acf1a468385b6fb40f3cf078d048339ff42fbe896306333  /lib/firmware/amdgpu/polaris11_mec2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_mec2_2.bin",
+    "exit": 0,
+    "stdout": "672b3cc2c5cc12d771b73a031a72641072706c23138a3182964e19ab6546a059  /lib/firmware/amdgpu/polaris11_mec2_2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_mec_2.bin",
+    "exit": 0,
+    "stdout": "47a976f67dcfb01287e0e8cc1ae252a1e89c1c816e26a4f5f0c8b48b5cbea754  /lib/firmware/amdgpu/polaris11_mec_2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_pfp.bin",
+    "exit": 0,
+    "stdout": "ad2ca7d837f09f94491056af88e2d03de55d773a0f86fac238ebb9e13a0a88f8  /lib/firmware/amdgpu/polaris11_pfp.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_pfp_2.bin",
+    "exit": 0,
+    "stdout": "22bf71e495e2b7d1c05956f59070151b27ac638dcfa6c35d7e71d9d0183cd08b  /lib/firmware/amdgpu/polaris11_pfp_2.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_rlc.bin",
+    "exit": 0,
+    "stdout": "29fa9e98117f3ade4471987af3398c9d106df04605f8287f045e0950fe6a1fa1  /lib/firmware/amdgpu/polaris11_rlc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_sdma.bin",
+    "exit": 0,
+    "stdout": "e27b3ec976f87e32883b9190e653b20d27f9e77da8dd2d77eeb10c35ee9f1e61  /lib/firmware/amdgpu/polaris11_sdma.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_sdma1.bin",
+    "exit": 0,
+    "stdout": "23dd73eb1316d40a681841b4d3d116c5cae6d8317cebe8f5e1f9e5dec6de5c87  /lib/firmware/amdgpu/polaris11_sdma1.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_smc.bin",
+    "exit": 0,
+    "stdout": "20142b588ada975151efb15e8f3efde254f6e7a453204d99659c314e43954aca  /lib/firmware/amdgpu/polaris11_smc.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_smc_sk.bin",
+    "exit": 0,
+    "stdout": "efa5e768ad6c7e2f754e6bb6b73248d7bd8e7306798eb9054b0f3f7a14223616  /lib/firmware/amdgpu/polaris11_smc_sk.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_uvd.bin",
+    "exit": 0,
+    "stdout": "e05664b587a1585d98db3097cf4a55119ee4af2da68e65d3d43b3f57065a95fb  /lib/firmware/amdgpu/polaris11_uvd.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /lib/firmware/amdgpu/polaris11_vce.bin",
+    "exit": 0,
+    "stdout": "3a6bffa5f94054b3593bbe1ad1ba07bde62fa3c4f0734c8cb9f39d901331b810  /lib/firmware/amdgpu/polaris11_vce.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "cat /sys/bus/usb/devices/1-1.4/serial",
+    "exit": 0,
+    "stdout": "03001919041721081205\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/update.tar",
+    "exit": 0,
+    "stdout": "ac86b14f4579f56ab8f6c89ec612e19e37126151d79a6996f9e0e1adc582795b  /root/upstream-clean-20261107-001/update.tar\n",
+    "stderr": ""
+  },
+  {
+    "command": "mkdir /root/upstream-clean-20261107-001/extracted; /sbin/busybox-modules tar -xf /root/upstream-clean-20261107-001/update.tar -C /root/upstream-clean-20261107-001/extracted",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/fat/boot/uImage-modular",
+    "exit": 0,
+    "stdout": "7377e17e308cbe6902aed0747cf8cb3870c8672d1d45e27e7cf7856b9a1b0270  /root/upstream-clean-20261107-001/extracted/fat/boot/uImage-modular\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/fat/boot/tabor.dtb",
+    "exit": 0,
+    "stdout": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d  /root/upstream-clean-20261107-001/extracted/fat/boot/tabor.dtb\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.alias.bin",
+    "exit": 0,
+    "stdout": "0f088e04b252073a7f970719d0642121228b06036bf8b3c4a0637654cc83264e  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.alias.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.order",
+    "exit": 0,
+    "stdout": "d12dbcf76845bba67946685c554a41c7f9899b9b44460120c31cbb3451f0edef  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.order\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.symbols.bin",
+    "exit": 0,
+    "stdout": "09eee9c97dd72c754b57b0b6ba2856d35251c0f3d4eef054e23faa3573436206  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.symbols.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.softdep",
+    "exit": 0,
+    "stdout": "ac2de753255c506934be29e69261f1485f51ee9cf9c2bf467bcc0c4cf95f8713  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.softdep\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.alias",
+    "exit": 0,
+    "stdout": "bf21f3433b6cb4a70a5f64baf1c067e455e61bfecd5c8560beb4c7f3cacddec4  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.alias\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.dep",
+    "exit": 0,
+    "stdout": "e74064cd4e58615dd69b63113024dd37b3205fc732f2b0f7f8009afe6b974761  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.dep\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin",
+    "exit": 0,
+    "stdout": "1fb418f4f8375968aee94d84f3f4e03fb149e60440e69a32ff461469608b2b86  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.weakdep",
+    "exit": 0,
+    "stdout": "a1fffe1059d8150b5d402b3f284f507025a8d4b5881810cb17b3fda8b8ab9304  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.weakdep\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.symbols",
+    "exit": 0,
+    "stdout": "51dc84b1b9d87fa01361e4b21422715835d82000e0dc6493cf1b1632d1b5a883  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.symbols\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.dep.bin",
+    "exit": 0,
+    "stdout": "775c826ff167ab885bc3b90b2fd196cd5084baacbc1b2a58709130bee6ba7a1d  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.dep.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.devname",
+    "exit": 0,
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.devname\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.alias.bin",
+    "exit": 0,
+    "stdout": "6eaf4e6f657bd69cece9bd13a9099f7beab132f2d76eb1fb39d284900ad8bc6c  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.alias.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.bin",
+    "exit": 0,
+    "stdout": "1324d62e32d588260e54b8798cc76c23634780dd2561d67f4646c0c9ceb5e92e  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.bin\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.modinfo",
+    "exit": 0,
+    "stdout": "be3517d3a1e1ebc6fabd3a7b2f80a0a93fbe876464c83b39924f66530b9db255  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/modules.builtin.modinfo\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/binfmt_misc.ko",
+    "exit": 0,
+    "stdout": "c31e9ee6eebecc26076bd1d390cd49a4cbad9f09b70e389faab58b462270cbde  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/binfmt_misc.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/crypto/md5.ko",
+    "exit": 0,
+    "stdout": "b910e62e586b645dcbe50322aefabfa23d7fc3f87e23ee7100b9ee8ab52c7895  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/crypto/md5.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/lib/crypto/libmd5.ko",
+    "exit": 0,
+    "stdout": "657616e2f507466baa783a3761826a5a2494d81282142be14aa305e11b5a267e  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/lib/crypto/libmd5.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/hid/hid-chicony.ko",
+    "exit": 0,
+    "stdout": "81b8b141012dcddd08db7e9aba3294e51e043bb082b26bd0be432961ababe977  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/hid/hid-chicony.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/hid/hid-samsung.ko",
+    "exit": 0,
+    "stdout": "699de82e0f322e1b271b25c92cb018159d849f2c166d2d8d50b3176d29fa4ec7  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/hid/hid-samsung.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel_backlight_quirks.ko",
+    "exit": 0,
+    "stdout": "932ffc68bfb956aeaa2dba14352d596e710de17410127dfe3f2d97cb7d65590c  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel_backlight_quirks.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm.ko",
+    "exit": 0,
+    "stdout": "da63e40fb4b89a7fe74d113bb04a3fc2bee8897f801e162c289412881ce554d9  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_buddy.ko",
+    "exit": 0,
+    "stdout": "89524b02c5c420140bcb48193579430886de9d184918a810f177790b78c912b8  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_buddy.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_kms_helper.ko",
+    "exit": 0,
+    "stdout": "c403cd935764ad810cc45434c1f2fb77c690a6fe9a86bc8995a9dbf439b287e4  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_kms_helper.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_suballoc_helper.ko",
+    "exit": 0,
+    "stdout": "c60f4678b2559235897c80393c97077b20f50bbb77554c738ce9cccc48834e8c  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_suballoc_helper.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_exec.ko",
+    "exit": 0,
+    "stdout": "f82e5a8c31104d99948a0625dcaf6002d7cc450192bae16d53cc48668eac8978  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_exec.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_ttm_helper.ko",
+    "exit": 0,
+    "stdout": "504590107e43035d0b7062e5cc78d92c8ab7070d368b043d0f63f34cb6cf0a37  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_ttm_helper.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel_orientation_quirks.ko",
+    "exit": 0,
+    "stdout": "6bbf49e184c868fbd1b9ae065d088c5bd3992573c036c974e2ee054d48ffd02e  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel_orientation_quirks.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel.ko",
+    "exit": 0,
+    "stdout": "0cef8f42de22edd6760b2118535a32e6e10a7205bb3528adb403747c85de9c4b  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/drm_panel.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko",
+    "exit": 0,
+    "stdout": "bfaf9f54f149345ff740979cf35012c1589f65d2ca7082fe734c521446a980b8  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/clients/drm_client_lib.ko",
+    "exit": 0,
+    "stdout": "775110a05c580f5a39b02cbe756f7aa1e7525f37c3bb056bfcb108813f441ba4  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/clients/drm_client_lib.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/radeon/radeon.ko",
+    "exit": 0,
+    "stdout": "3fb0f38bf7c9e8f2426cfc501717023ed9f55d5431aa7b0f67b98079f8e25f71  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/radeon/radeon.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/display/drm_display_helper.ko",
+    "exit": 0,
+    "stdout": "d8c41ee0db71432270fb72956f8814967439080ca16b6e3e26e1dfc32e1ffa40  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/display/drm_display_helper.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/ttm/ttm.ko",
+    "exit": 0,
+    "stdout": "f620ebcdebe75860e52332d85fb36de5ae5be06025bafea408a158d036e80810  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/ttm/ttm.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko",
+    "exit": 0,
+    "stdout": "e89b284e60b547380613747e9ec58cdc2fc46ff3da52b75978f873bd08a4e177  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko",
+    "exit": 0,
+    "stdout": "fcf0ec16a6768525b751e5f1a8aec828cec00cd8855199d82964c42503ad284a  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/video/backlight/backlight.ko",
+    "exit": 0,
+    "stdout": "82f784c5df0bdf31ce45d02429cf44d5905c0add724bfc4d35d510e8b9811fd0  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/video/backlight/backlight.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/i2c/busses/i2c-cpm.ko",
+    "exit": 0,
+    "stdout": "2a1673f60bc176dad39755129b9beda4b3b232807e775c55d7a6432d5745ecb8  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/i2c/busses/i2c-cpm.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/tty/serial/ucc_uart.ko",
+    "exit": 0,
+    "stdout": "f6bda33acfb2a4ba18987a14a8b70437582b62ca018a7a17532e2e1e638b5a7f  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/drivers/tty/serial/ucc_uart.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/ufs/ufs.ko",
+    "exit": 0,
+    "stdout": "4e9f4a2fc4e0bd3256cc574fa5d3df2bf31b6001b30bd8fe36edf2954178f157  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/ufs/ufs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/isofs/isofs.ko",
+    "exit": 0,
+    "stdout": "c95a28235894be486de08cc5a93d89b48410bac1a207f2929923ed650e3ae0c8  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/isofs/isofs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/affs/affs.ko",
+    "exit": 0,
+    "stdout": "09e41fd4f22d81bbd488de7390c878515b7ea7fab856eed9de44375f145462b9  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/affs/affs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/fat/msdos.ko",
+    "exit": 0,
+    "stdout": "0a679123fec72094d8da8dd2ce63fd6bf47d2cac0983714328b8975d1b6dd3a0  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/fat/msdos.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/udf/udf.ko",
+    "exit": 0,
+    "stdout": "f0cd4151fad6f36e945ff0813533ca8595ce977ebe129fcab997b4c1d6e20a34  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/udf/udf.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/befs/befs.ko",
+    "exit": 0,
+    "stdout": "879e98ee25d465c6541146f1529bec324eac681ab4509989dc126eb9692cf3fc  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/befs/befs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/bfs/bfs.ko",
+    "exit": 0,
+    "stdout": "87dce3da60ae01bc16d6e914266d3bb75b409119d5dd8fa791b00d34ec271dfd  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/bfs/bfs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hpfs/hpfs.ko",
+    "exit": 0,
+    "stdout": "f71127bc60e1229eb4eab26dd3432831a1ad2d4bb684a002cd1728f0bf1ce010  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hpfs/hpfs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/nls/nls_utf8.ko",
+    "exit": 0,
+    "stdout": "9297cb6d4f25ce5b56f52653a982569617a78d30f9298bb4a24bc530a2dccdc1  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/nls/nls_utf8.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hfs/hfs.ko",
+    "exit": 0,
+    "stdout": "da63a1b6ed4ecc27ee089a05a5118e443b0dc3167feb4d3c4df6cbfcb18d12ff  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hfs/hfs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/ntfs3/ntfs3.ko",
+    "exit": 0,
+    "stdout": "259584538441c3c539322961304a1b58854754a143cd9151e6a56872f9ce6ca4  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/ntfs3/ntfs3.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/qnx4/qnx4.ko",
+    "exit": 0,
+    "stdout": "70fb8ad6bcbc09508ce13d2ab243067261f09d9b6edfb68ff8896a0b0cfd3c2f  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/qnx4/qnx4.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/adfs/adfs.ko",
+    "exit": 0,
+    "stdout": "11b70e5bff68ec93225b341f58b7abff21a941fb1258fb83043aae46bd6ae502  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/adfs/adfs.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hfsplus/hfsplus.ko",
+    "exit": 0,
+    "stdout": "11ccb831185d798e05635673a6dcc9e1380f9c17d4a1d3550ef48d462e5a5845  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/fs/hfsplus/hfsplus.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/ipv6/ip6_udp_tunnel.ko",
+    "exit": 0,
+    "stdout": "7f17fbb1b7b7c19ac4f2095bc913112df171fff6ca01b55021023767833fa741  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/ipv6/ip6_udp_tunnel.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/sctp/sctp.ko",
+    "exit": 0,
+    "stdout": "cd29ba8af9e9df057cf8f75dcc7c3079ccc4d8da2d901a3c7948799349f3178d  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/sctp/sctp.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/sctp/sctp_diag.ko",
+    "exit": 0,
+    "stdout": "ef93a01c1039b85f95451f2bd634d85300c2e3e5a17f7186cc76249e06c00f38  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/sctp/sctp_diag.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/ipv4/udp_tunnel.ko",
+    "exit": 0,
+    "stdout": "d0bb8b4f5fd76ac0771157753dfdfcbc0e1f6afa936e8555e4b4b42090939446  /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001/kernel/net/ipv4/udp_tunnel.ko\n",
+    "stderr": ""
+  },
+  {
+    "command": "test ! -e /lib/modules/7.3.0-rc6-tabor-upstream-001 && cp -a /root/upstream-clean-20261107-001/extracted/root/lib/modules/7.3.0-rc6-tabor-upstream-001 /lib/modules/",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "mkdir /mnt/upstream-boot-test; mount -t vfat -o rw,nosuid,nodev,noexec /dev/sdb1 /mnt/upstream-boot-test",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot.scr",
+    "exit": 0,
+    "stdout": "e5905665216e170cb4c6af4954f8ebee35810dc3427606bac9d485703f6d184d  /mnt/upstream-boot-test/boot.scr\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uImage-modular",
+    "exit": 0,
+    "stdout": "6c289f999b9cc707d519489d417d00d68a3e722c81c0abad1a05685271ac12c9  /mnt/upstream-boot-test/boot/uImage-modular\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/tabor.dtb",
+    "exit": 0,
+    "stdout": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d  /mnt/upstream-boot-test/boot/tabor.dtb\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uRamdisk-fw",
+    "exit": 0,
+    "stdout": "239e7aa7140b5e5474259fd2e12c7396243067acc5385a43cd37e0d219236745  /mnt/upstream-boot-test/boot/uRamdisk-fw\n",
+    "stderr": ""
+  },
+  {
+    "command": "mkdir /root/upstream-clean-20261107-001/rollback; cp /mnt/upstream-boot-test/boot/uImage-modular /mnt/upstream-boot-test/boot/tabor.dtb /mnt/upstream-boot-test/boot.scr /root/upstream-clean-20261107-001/rollback/; cp /mnt/upstream-boot-test/boot/uImage-modular /mnt/upstream-boot-test/boot/uImage-modular.rollback-6.12; cp /root/upstream-clean-20261107-001/extracted/fat/boot/uImage-modular /mnt/upstream-boot-test/boot/uImage-modular.next; sync",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "cp: can't stat '/mnt/upstream-boot-test/boot/tabor.dtb': Value too large for defined data type\n"
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uImage-modular.rollback-6.12",
+    "exit": 0,
+    "stdout": "6c289f999b9cc707d519489d417d00d68a3e722c81c0abad1a05685271ac12c9  /mnt/upstream-boot-test/boot/uImage-modular.rollback-6.12\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /root/upstream-clean-20261107-001/rollback/uImage-modular",
+    "exit": 0,
+    "stdout": "6c289f999b9cc707d519489d417d00d68a3e722c81c0abad1a05685271ac12c9  /root/upstream-clean-20261107-001/rollback/uImage-modular\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uImage-modular.next",
+    "exit": 0,
+    "stdout": "7377e17e308cbe6902aed0747cf8cb3870c8672d1d45e27e7cf7856b9a1b0270  /mnt/upstream-boot-test/boot/uImage-modular.next\n",
+    "stderr": ""
+  },
+  {
+    "command": "mv /mnt/upstream-boot-test/boot/uImage-modular.next /mnt/upstream-boot-test/boot/uImage-modular; sync",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot.scr",
+    "exit": 0,
+    "stdout": "e5905665216e170cb4c6af4954f8ebee35810dc3427606bac9d485703f6d184d  /mnt/upstream-boot-test/boot.scr\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uImage-modular",
+    "exit": 0,
+    "stdout": "7377e17e308cbe6902aed0747cf8cb3870c8672d1d45e27e7cf7856b9a1b0270  /mnt/upstream-boot-test/boot/uImage-modular\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/tabor.dtb",
+    "exit": 0,
+    "stdout": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d  /mnt/upstream-boot-test/boot/tabor.dtb\n",
+    "stderr": ""
+  },
+  {
+    "command": "/sbin/busybox-modules sha256sum /mnt/upstream-boot-test/boot/uRamdisk-fw",
+    "exit": 0,
+    "stdout": "239e7aa7140b5e5474259fd2e12c7396243067acc5385a43cd37e0d219236745  /mnt/upstream-boot-test/boot/uRamdisk-fw\n",
+    "stderr": ""
+  },
+  {
+    "command": "umount /mnt/upstream-boot-test",
+    "exit": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

@@ -1,3 +1,13 @@
+## Clean upstream hardware test prepared — 2026-11-07
+
+Corrected GCC14 libgcc/glibc rebuilds finished exit0. New clean upstream7.3
+kernel and matching modules are activated on the verified SanDisk with two
+verified old-kernel rollback copies. Existing /boot.scr, DTB and early firmware
+are unchanged. FAT is unmounted; A1222 remains on the old running kernel until
+the next physical reboot. See builds/upstream-hardware-test-20261107/README.md.
+Next gate: saved Linux boot entry, SSH/new release/SMP verification, then a
+logged first AMDGPU bind. QEMU two-core startup remains a disclosed limitation.
+
 ## Native GCC14/glibc milestone — 2026-11-07
 
 The original SPE C ABI probe, compiled with GCC14 plus candidate patch17,
