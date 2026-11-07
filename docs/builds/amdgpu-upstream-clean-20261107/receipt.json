@@ -1,0 +1,53 @@
+{
+  "source_url": "https://gitlab.freedesktop.org/drm/amdgpu/kernel.git",
+  "source_commit": "5349075eac146ae0511d8929fc24451e4d9a4b7e",
+  "branch_at_intake": "drm-amdgpu-next",
+  "status": "compiled",
+  "experimental_gpu_patches": [],
+  "board_patches": [
+    {
+      "file": "0001-powerpc-tabor-initial-machine-dts.patch",
+      "sha256": "c9f69647bada1f63b371a861c61f2e5c6d08b106dd481575de1c1a381611eb38"
+    },
+    {
+      "file": "0002-powerpc-tabor-match-vendor-compatible.patch",
+      "sha256": "8302d1b1f5f2380ed8541acf632a99b7cdb978d3a30446f6170b02122f4d1175"
+    }
+  ],
+  "hardware_tested": false,
+  "input_config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec",
+  "container": "dffbde36893078cb32115d5fa0974143a33c83592e6033d0b64a28629d73c1db",
+  "image": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "changed_tracked_paths": [
+    "arch/powerpc/boot/dts/fsl/Makefile",
+    "arch/powerpc/platforms/85xx/Kconfig",
+    "arch/powerpc/platforms/85xx/Makefile"
+  ],
+  "exitcode": 0,
+  "completed_utc": "2026-11-07T15:39:56.611220+00:00",
+  "gpu_source_diff_clean": true,
+  "artifacts": {
+    "output/.config": {
+      "sha256": "c926ef3f0f90f2c2a9cf99e896510395fc13a33d1c82e49728cf1a0f5f9498cb",
+      "size": 132334
+    },
+    "output/vmlinux": {
+      "sha256": "204a6201c873893502d507fe5da21a8be51dd9858c33f68d4481c5126fbfc9d3",
+      "size": 43882528
+    },
+    "output/Module.symvers": {
+      "sha256": "6322c073ea6ee1ad77cdac4f011fa2aafcce39a48b9e97adc8dd6b8e48c41516",
+      "size": 698944
+    },
+    "output/drivers/gpu/drm/amd/amdgpu/amdgpu.ko": {
+      "sha256": "fcf0ec16a6768525b751e5f1a8aec828cec00cd8855199d82964c42503ad284a",
+      "size": 6577940
+    },
+    "output/arch/powerpc/boot/dts/fsl/tabor-a1222.dtb": {
+      "sha256": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d",
+      "size": 11599
+    }
+  },
+  "compiler": "powerpc-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0",
+  "kernel_release": "7.3.0-rc6-tabor-upstream-001"
+}
