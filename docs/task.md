@@ -1,3 +1,14 @@
+## Errand breakpoint —6.12 driver review,2026-11-07
+
+See builds/gfx-postmap-review-20261107/README.md. Fresh source comparison found
+upstream scratch posted-write ordering and compute-test error-propagation fixes;
+0014 backports them,0015 adds precise ring/IP/GUI-idle initialization markers.
+No hardware load/reset or boot/USB change. Isolated R730 build container
+`tabor-gfx-postmap-review-002` may finish and exit while user is away; it cannot
+deploy or launch hardware tests. First invocation had a relative M= build-path
+error, corrected to in-tree amdgpu.ko target. Inspect build-002.json/log before
+continuing. No claimed GPU fix or console/acceleration acceptance.
+
 ## Clean upstream hardware test prepared — 2026-11-07
 
 Corrected GCC14 libgcc/glibc rebuilds finished exit0. New clean upstream7.3

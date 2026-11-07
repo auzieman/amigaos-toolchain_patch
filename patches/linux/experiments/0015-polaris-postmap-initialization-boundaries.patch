@@ -1,0 +1,46 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -645,7 +645,13 @@
+ 	struct amdgpu_device *adev = ring->adev;
+ 	int r;
+ 
++	if (adev->asic_type == CHIP_POLARIS11)
++		dev_info(adev->dev, "INIT_TRACE ring=%s type=%u enter\n",
++			 ring->name, ring->funcs->type);
+ 	r = amdgpu_ring_test_ring(ring);
++	if (adev->asic_type == CHIP_POLARIS11)
++		dev_info(adev->dev, "INIT_TRACE ring=%s result=%d\n",
++			 ring->name, r);
+ 	if (r)
+ 		DRM_DEV_ERROR(adev->dev, "ring %s test failed (%d)\n",
+ 			      ring->name, r);
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+@@ -2790,7 +2790,13 @@
+ 			continue;
+ 		if (adev->ip_blocks[i].status.hw)
+ 			continue;
++		if (adev->asic_type == CHIP_POLARIS11)
++			dev_info(adev->dev, "INIT_TRACE hw_init=%s enter\n",
++				 adev->ip_blocks[i].version->funcs->name);
+ 		r = adev->ip_blocks[i].version->funcs->hw_init(adev);
++		if (adev->asic_type == CHIP_POLARIS11)
++			dev_info(adev->dev, "INIT_TRACE hw_init=%s result=%d\n",
++				 adev->ip_blocks[i].version->funcs->name, r);
+ 		if (r) {
+ 			DRM_ERROR("hw_init of IP block <%s> failed %d\n",
+ 				  adev->ip_blocks[i].version->funcs->name, r);
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -5016,7 +5016,11 @@
+ 	if (r)
+ 		return r;
+ 
++	if (adev->asic_type == CHIP_POLARIS11)
++		dev_info(adev->dev, "INIT_TRACE gfx8_gui_idle enable\n");
+ 	gfx_v8_0_enable_gui_idle_interrupt(adev, true);
++	if (adev->asic_type == CHIP_POLARIS11)
++		dev_info(adev->dev, "INIT_TRACE gfx8_gui_idle enabled\n");
+ 
+ 	return 0;
+ }

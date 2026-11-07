@@ -1,0 +1,13 @@
+{
+  "parent": "gfx-map-stage-20261107-001",
+  "source_inputs": {
+    "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c": "b2f730fdefd8bbbb5fa50b8a6232fe78b422ee39d9319c069f8867f3e0191a6b",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c": "9cf3fa29ad3748dc28b038c39ec3ea2455426e8dedc64d57d2967ea09708842f",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c": "7bd728d01f2e7160a009a8e7e02075da21644e1c89b44057243a56d2f7f0f568"
+  },
+  "patches": {
+    "0015-polaris-postmap-initialization-boundaries.patch": "3bfbb27de74dd63fd46ff7dcb33517c91bbe1c3ab9260cd2e4a5dcaa7596f098",
+    "0014-gfx8-upstream-ring-test-corrections.patch": "0efbe4546360b2f9044b7dbdf9584595ab68cdd55291be97fb2802ad2c366de5"
+  },
+  "hardware_tested": false
+}
