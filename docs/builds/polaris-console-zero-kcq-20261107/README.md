@@ -24,3 +24,5 @@ as the sole proven cause. Next source instrumentation should distinguish the
 post-resource GFX/KIQ tests and subsequent init stages; incoming contributor
 patches remain pending actual delivery and review. No further hardware retry
 was attempted in this turn.
+
+User observed a green screen during this zero-compute-queue trial; no readable console was reported.
