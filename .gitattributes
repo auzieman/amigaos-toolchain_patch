@@ -21,3 +21,7 @@ docs/builds/**/09-bind.txt -whitespace
 docs/builds/**/hardware-load-result.txt -whitespace
 *.patch -whitespace
 docs/builds/**/kmsg.stderr -whitespace
+
+# Preserve generated config diffs and raw compiler evidence.
+docs/builds/**/config-migration.diff -whitespace
+docs/builds/**/compiler.txt -whitespace
