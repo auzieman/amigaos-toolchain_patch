@@ -1,3 +1,22 @@
+## Native GCC14/glibc milestone — 2026-11-07
+
+The original SPE C ABI probe, compiled with GCC14 plus candidate patch17,
+passes all9 top-level checks on the physical A1222, including varargs and
+floating-point rounding, exit0 and kernel taint0. Fresh GCC14-built glibc2.41
+loader/libc/libm were copied to a private /tmp directory and invoked explicitly;
+no system libraries, kernel, USB boot files or accepted SDK were replaced.
+Exact uploaded SHA256 and output: builds/gcc14-runtime-20261107/hardware-runtime-001.json.
+QEMU user-mode still fails rounding with the same candidate executable/libraries;
+do not weaken native libc semantics to accommodate that emulator result.
+
+Patch17 restricts SPE subreg conversions to register operands, avoiding a
+miscompiled spilled double-return conversion. Original ABI test passes varargs
+at O0/O2 in QEMU. This checkpoint used libraries built before patch17: a fresh
+bounded regression/libgcc/glibc rebuild is now launched on the R730 as
+`tabor-gcc14-runtime-rebuild-002`. Full C++/unwinding/long-double and broader
+cross-version/generic PPC regression acceptance, Debian packages and image
+assembly remain open. Native Trixie workstation remains the end goal.
+
 # Engineering progress
 
 This log records evidence rather than treating a successful source import as a

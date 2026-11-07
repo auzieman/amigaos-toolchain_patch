@@ -1,0 +1,28 @@
+{
+  "scope": "private hardware dynamic loader test; no system installation",
+  "files": {
+    "ld.so.1": {
+      "source": "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/glibc-gcc14-001/elf/ld.so",
+      "sha256": "fec1aa76a952ab299846baec77015f441d771add6304f64dfef85b95fb82e0fc",
+      "bytes": 223628
+    },
+    "libc.so.6": {
+      "source": "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/glibc-gcc14-001/libc.so.6",
+      "sha256": "b54a25e85d647ec6d1b9607c70def33b715533f609abd2e74d0d2e88b6292d25",
+      "bytes": 2350756
+    },
+    "libm.so.6": {
+      "source": "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/glibc-gcc14-001/math/libm.so.6",
+      "sha256": "83b4f98270377df0d185d4c31f0ec7489ab2619b0833b3b0a51407d168203d5e",
+      "bytes": 1399932
+    },
+    "spe-abi": {
+      "source": "/srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/runtime-probe-001/spe-abi-frob-test",
+      "sha256": "b90315143aed878158a11294d6b7fa3ed541a40792bb15440fe6e0a1ff33ab8a",
+      "bytes": 69836
+    }
+  },
+  "stdout": "TABOR_QEMU_INIT_OK: restored SPE libc C ABI checks\nABI_TEST float32 PASS\nABI_TEST float64 PASS\nABI_TEST varargs PASS\nABI_TEST formatting PASS\nFENV_CHECK mode PASS\nFENV_CHECK float_round PASS\nFENV_CHECK double_round PASS\nFENV_CHECK restore PASS\nFENV_CHECK exceptions PASS\nFENV_REGISTER up=0000003e down=0020203f get_up=2 get_down=3\nFENV_DETAIL up=0x1.0000000000001p+0 down=0x1p+0 saved_round=0 float_up=0x1.000002p+0 float_down=0x1p+0\nABI_TEST fenv PASS\nABI_TEST setjmp PASS\nABI_TEST signal PASS\nABI_TEST pthread_tls PASS\nABI_TEST ucontext PASS\nABI_SMOKE_DONE failures=0\nHARDWARE_EXIT=0\n0\n",
+  "stderr": "",
+  "ssh_exit": 0
+}

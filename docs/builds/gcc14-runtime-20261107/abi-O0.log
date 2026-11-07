@@ -1,0 +1,22 @@
+31dc605aa0661c90e9d1f2cab63e89fbc2413f90579d1edd4ebdf846a8b9e06f  /srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/runtime-probe-001/spe-abi-O0
+b54a25e85d647ec6d1b9607c70def33b715533f609abd2e74d0d2e88b6292d25  /srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/glibc-gcc14-001/libc.so.6
+fec1aa76a952ab299846baec77015f441d771add6304f64dfef85b95fb82e0fc  /srv/data1/tabor-build/linux-live-001/work/gcc14-spe-port-20261107-001/glibc-gcc14-001/elf/ld.so
+TABOR_QEMU_INIT_OK: restored SPE libc C ABI checks
+ABI_TEST float32 PASS
+ABI_TEST float64 PASS
+ABI_TEST varargs FAIL
+ABI_TEST formatting PASS
+FENV_CHECK mode PASS
+FENV_CHECK float_round FAIL
+FENV_CHECK double_round FAIL
+FENV_CHECK restore PASS
+FENV_CHECK exceptions PASS
+FENV_REGISTER up=00000002 down=00000003 get_up=2 get_down=3
+FENV_DETAIL up=0x1p+0 down=0x1p+0 saved_round=0 float_up=0x1p+0 float_down=0x1p+0
+ABI_TEST fenv FAIL
+ABI_TEST setjmp PASS
+ABI_TEST signal PASS
+ABI_TEST pthread_tls PASS
+ABI_TEST ucontext PASS
+ABI_SMOKE_DONE failures=2
+QEMU_EXIT=1

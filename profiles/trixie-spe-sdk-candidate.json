@@ -58,11 +58,17 @@
     "status": "C-only-headerless-built-selected-tests-pass",
     "patch_manifest": "patches/gcc/gcc14-spe-candidate/manifest.json",
     "evidence": "docs/builds/gcc14-spe-interface-20261107/README.md",
-    "patch_count": 16,
+    "patch_count": 17,
     "option_records_preserved": 94,
     "automatic_checks_passed": 20,
     "qemu_selected_runtime": "passed",
     "a1222_selected_runtime": "passed",
+    "full_runtime_abi_accepted": false
+  },
+  "native_c_runtime_checkpoint": {
+    "status": "selected-nine-tests-pass-hardware",
+    "evidence": "docs/builds/gcc14-runtime-20261107/hardware-runtime-001.json",
+    "libraries_precede_patch17": true,
     "full_runtime_abi_accepted": false
   }
 }

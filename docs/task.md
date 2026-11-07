@@ -1,3 +1,51 @@
+## Native GCC14/glibc milestone — 2026-11-07
+
+The original SPE C ABI probe, compiled with GCC14 plus candidate patch17,
+passes all9 top-level checks on the physical A1222, including varargs and
+floating-point rounding, exit0 and kernel taint0. Fresh GCC14-built glibc2.41
+loader/libc/libm were copied to a private /tmp directory and invoked explicitly;
+no system libraries, kernel, USB boot files or accepted SDK were replaced.
+Exact uploaded SHA256 and output: builds/gcc14-runtime-20261107/hardware-runtime-001.json.
+QEMU user-mode still fails rounding with the same candidate executable/libraries;
+do not weaken native libc semantics to accommodate that emulator result.
+
+Patch17 restricts SPE subreg conversions to register operands, avoiding a
+miscompiled spilled double-return conversion. Original ABI test passes varargs
+at O0/O2 in QEMU. This checkpoint used libraries built before patch17: a fresh
+bounded regression/libgcc/glibc rebuild is now launched on the R730 as
+`tabor-gcc14-runtime-rebuild-002`. Full C++/unwinding/long-double and broader
+cross-version/generic PPC regression acceptance, Debian packages and image
+assembly remain open. Native Trixie workstation remains the end goal.
+
+## Runtime/harness increment — 2026-11-07
+
+The GCC14 C bootstrap now builds static libgcc/libgcov and startup objects
+successfully on the R730 (attempt003 exit0). The initial runtime attempt
+exposed missing SPE-prefixed binutils lookup; passing native PowerPC
+AR_FOR_TARGET/RANLIB_FOR_TARGET/NM_FOR_TARGET explicitly resolves it without
+changing generated target code. No accepted SDK or boot media was changed.
+
+Evidence: `work/gcc14-spe-port-20261107-001/libgcc-bootstrap-00{2,3}.log`
+on the R730; final libgcc.a SHA256:
+`417be053abbf416042db1c7ebc939887bed3d00199e2bb64ffcb0bb5d9597475`.
+Container image remains the pinned GCC14 tools image, network disabled,
+4 CPUs/6GiB. Reproduction from the existing configured build-stage1:
+
+```
+make -j4 AR_FOR_TARGET=/usr/bin/powerpc-linux-gnu-ar \
+  RANLIB_FOR_TARGET=/usr/bin/powerpc-linux-gnu-ranlib \
+  NM_FOR_TARGET=/usr/bin/powerpc-linux-gnu-nm all-target-libgcc
+```
+
+Static library build acceptance is not runtime ABI acceptance. Next: fresh
+patched glibc2.41 with this compiler/runtime, final C/C++ libraries and ABI
+checks, then the package-managed test root. Reproduce the existing harness
+with X/E and a visual GL test, keeping QEMU software rendering and physical
+Radeon acceleration separate. `scripts/visual-gl-smoke.sh` captures installed
+packages, PCI binding, actual GL renderer and a bounded20-second gears window
+inside an existing X session. Shell syntax checked; graphical execution is
+pending. It never loads a GPU module or changes boot/session configuration.
+
 ## Current checkpoint — 2026-11-07, GCC14 SPE C bootstrap
 
 User requested coherent compiler/SDK fixes and an audit of obsolete options.

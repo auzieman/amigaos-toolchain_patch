@@ -1,5 +1,5 @@
 {
-  "status": "experimental-C-bootstrap-built-selected-tests-pass",
+  "status": "experimental-runtime-bootstrap-varargs-corrected-fenv-open",
   "target": "powerpc-linux-gnuspe",
   "source_profile": "profiles/trixie-spe-sdk-candidate.json",
   "gcc14_debian_source": {
@@ -91,6 +91,10 @@
     {
       "file": "0016-bind-vector-costs-to-current-analysis.patch",
       "sha256": "b9b18df60b51fe7051d7af7d8e86d335f200823630dc9879d711e090e068a7db"
+    },
+    {
+      "file": "0017-reload-spe-subreg-conversions-through-registers.patch",
+      "sha256": "ef0291d174a3d79623854f77061ca77a2a4fdd8d34db10a8585898abf20116d1"
     }
   ],
   "debian_dfsg_patch_sha256": "a6499d66629da1bb5d82b6b3667c47d08dac9a47e7635a354f822d1410035737",

@@ -1,0 +1,13 @@
+--- a/gcc/config/powerpcspe/spe.md
++++ b/gcc/config/powerpcspe/spe.md
+@@ -2282,8 +2282,8 @@
+ 
+ ;; FIXME: Add o=r option.
+ (define_insn "*frob_<SPE64:mode>_<DITI:mode>"
+-  [(set (match_operand:SPE64 0 "nonimmediate_operand" "=r,r")
+-        (subreg:SPE64 (match_operand:DITI 1 "input_operand" "r,m") 0))]
++  [(set (match_operand:SPE64 0 "nonimmediate_operand" "=r")
++        (subreg:SPE64 (match_operand:DITI 1 "gpc_reg_operand" "r") 0))]
+   "(TARGET_E500_DOUBLE && <SPE64:MODE>mode == DFmode)
+    || (TARGET_SPE && <SPE64:MODE>mode != DFmode)"
+ {
