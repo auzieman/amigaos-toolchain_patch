@@ -1,0 +1,172 @@
+$ ['make', '-C', '/base/work/tabor-smu-diagnostics-20261105-003/source', 'O=/base/work/tabor-smu-diagnostics-20261105-003/output', 'ARCH=powerpc', 'CROSS_COMPILE=powerpc-linux-gnu-', 'olddefconfig']
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  GEN     Makefile
+#
+# No change to .config
+#
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+$ ['make', '-C', '/base/work/tabor-smu-diagnostics-20261105-003/source', 'O=/base/work/tabor-smu-diagnostics-20261105-003/output', 'ARCH=powerpc', 'CROSS_COMPILE=powerpc-linux-gnu-', '-j4', 'vmlinux', 'modules', 'dtbs']
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  SYNC    include/config/auto.conf
+  GEN     Makefile
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  UPD     include/config/kernel.release
+  UPD     include/generated/utsrelease.h
+  DTC     arch/powerpc/boot/dts/fsl/tabor-a1222.dtb
+  CALL    /base/work/tabor-smu-diagnostics-20261105-003/source/scripts/checksyscalls.sh
+  GEN     usr/initramfs_data.cpio
+  COPY    usr/initramfs_inc_data
+  AS      usr/initramfs_data.o
+  UPD     init/utsversion-tmp.h
+  CC      init/version.o
+  AR      usr/built-in.a
+  CC      kernel/sys.o
+  AR      init/built-in.a
+  CC      kernel/module/main.o
+  CC      drivers/base/firmware_loader/main.o
+  AR      kernel/module/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.o
+  UPD     kernel/config_data
+  GZIP    kernel/config_data.gz
+  CC      kernel/configs.o
+  AR      drivers/base/firmware_loader/built-in.a
+  AR      drivers/base/built-in.a
+  AR      kernel/built-in.a
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.o
+  AR      drivers/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  OBJCOPY modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     .vmlinux.objs
+  MODPOST Module.symvers
+  CC      .vmlinux.export.o
+  CC [M]  .module-common.o
+  LD [M]  fs/fat/msdos.ko
+  LD [M]  fs/nls/nls_utf8.ko
+  LD [M]  fs/binfmt_misc.ko
+  LD [M]  fs/bfs/bfs.ko
+  LD [M]  fs/isofs/isofs.ko
+  LD [M]  fs/hfsplus/hfsplus.ko
+  LD [M]  fs/hfs/hfs.ko
+  LD [M]  fs/freevxfs/freevxfs.ko
+  LD [M]  fs/sysv/sysv.ko
+  LD [M]  fs/hpfs/hpfs.ko
+  LD [M]  fs/ufs/ufs.ko
+  LD [M]  fs/efs/efs.ko
+  LD [M]  fs/affs/affs.ko
+  LD [M]  fs/qnx4/qnx4.ko
+  LD [M]  fs/adfs/adfs.ko
+  LD [M]  fs/udf/udf.ko
+  LD [M]  fs/befs/befs.ko
+  LD [M]  crypto/md5.ko
+  LD [M]  crypto/sha1_generic.ko
+  LD [M]  crypto/pcbc.ko
+  LD [M]  lib/libcrc32c.ko
+  LD [M]  drivers/video/backlight/backlight.ko
+  LD [M]  drivers/tty/serial/ucc_uart.ko
+  LD [M]  drivers/gpu/drm/display/drm_display_helper.ko
+  LD [M]  drivers/gpu/drm/drm.ko
+  LD [M]  drivers/gpu/drm/drm_panel_orientation_quirks.ko
+  CC      init/version-timestamp.o
+  LD [M]  drivers/gpu/drm/drm_exec.ko
+  LD [M]  drivers/gpu/drm/drm_buddy.ko
+  LD [M]  drivers/gpu/drm/drm_suballoc_helper.ko
+  LD [M]  drivers/gpu/drm/drm_ttm_helper.ko
+  LD [M]  drivers/gpu/drm/drm_kms_helper.ko
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  LD [M]  drivers/gpu/drm/scheduler/gpu-sched.ko
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+  LD [M]  drivers/gpu/drm/amd/amdxcp/amdxcp.ko
+  KSYMS   .tmp_vmlinux0.kallsyms.S
+  AS      .tmp_vmlinux0.kallsyms.o
+  LD [M]  drivers/i2c/busses/i2c-cpm.ko
+  LD [M]  drivers/hid/hid-chicony.ko
+  LD [M]  drivers/hid/hid-samsung.ko
+  LD [M]  net/ipv4/udp_tunnel.ko
+  LD [M]  net/ipv6/ip6_udp_tunnel.ko
+  LD [M]  net/sctp/sctp.ko
+  LD [M]  net/sctp/sctp_diag.ko
+  LD      .tmp_vmlinux1
+  NM      .tmp_vmlinux1.syms
+  KSYMS   .tmp_vmlinux1.kallsyms.S
+  AS      .tmp_vmlinux1.kallsyms.o
+  LD      .tmp_vmlinux2
+  NM      .tmp_vmlinux2.syms
+  KSYMS   .tmp_vmlinux2.kallsyms.S
+  AS      .tmp_vmlinux2.kallsyms.o
+  LD      vmlinux
+  NM      System.map
+  SORTTAB vmlinux
+  CHKREL  vmlinux
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+$ ['make', '-C', '/base/work/tabor-smu-diagnostics-20261105-003/source', 'O=/base/work/tabor-smu-diagnostics-20261105-003/output', 'ARCH=powerpc', 'CROSS_COMPILE=powerpc-linux-gnu-', 'INSTALL_MOD_PATH=/candidate/bundle/root', 'modules_install']
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  SYMLINK /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/build
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/modules.order
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/modules.builtin
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/modules.builtin.modinfo
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/fat/msdos.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/nls/nls_utf8.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/binfmt_misc.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/bfs/bfs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/isofs/isofs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/hfsplus/hfsplus.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/hfs/hfs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/freevxfs/freevxfs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/sysv/sysv.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/hpfs/hpfs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/ufs/ufs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/efs/efs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/affs/affs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/qnx4/qnx4.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/adfs/adfs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/udf/udf.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/fs/befs/befs.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/crypto/md5.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/crypto/sha1_generic.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/crypto/pcbc.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/lib/libcrc32c.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/video/backlight/backlight.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/tty/serial/ucc_uart.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/display/drm_display_helper.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_panel_orientation_quirks.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_exec.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_buddy.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_suballoc_helper.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_ttm_helper.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/drm_kms_helper.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/ttm/ttm.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/radeon/radeon.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/i2c/busses/i2c-cpm.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/hid/hid-chicony.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/drivers/hid/hid-samsung.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/net/ipv4/udp_tunnel.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/net/ipv6/ip6_udp_tunnel.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/net/sctp/sctp.ko
+  INSTALL /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001/kernel/net/sctp/sctp_diag.ko
+  DEPMOD  /candidate/bundle/root/lib/modules/6.12.113-tabor-e2e-001
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+$ ['depmod', '-b', '/candidate/bundle/root', '-F', '/candidate/output/System.map', '6.12.113-tabor-e2e-001']
+$ ['powerpc-linux-gnu-objcopy', '-O', 'binary', '/candidate/output/vmlinux', '/candidate/kernel.bin']
+$ ['mkimage', '-A', 'ppc', '-O', 'linux', '-T', 'kernel', '-C', 'gzip', '-a', '0', '-e', '0', '-n', 'A1222 6.12 coherent test', '-d', '/candidate/kernel.gz', '/candidate/bundle/fat/boot/e2e/uImage']
+Image Name:   A1222 6.12 coherent test
+Created:      Thu Jan  1 00:00:00 1970
+Image Type:   PowerPC Linux Kernel Image (gzip compressed)
+Data Size:    9811866 Bytes = 9581.90 KiB = 9.36 MiB
+Load Address: 00000000
+Entry Point:  00000000
+$ ['tar', 'cf', '/candidate/update.tar', '-C', '/candidate/bundle', 'manifest.json', 'fat', 'root']

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Capture fresh-boot Polaris testing off-board; remount root read-only before bind."""
-import argparse, json, os, shlex, signal, subprocess, time
+import argparse, json, os, re, shlex, signal, subprocess, time
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--key',required=True);p.add_argument('--known-hosts',required=True)
@@ -8,11 +8,18 @@ p.add_argument('--output',type=Path,required=True)
 p.add_argument('--host',default='192.168.1.249');p.add_argument('--jump',default='root@192.168.1.15')
 p.add_argument('--candidate',default='/root/polaris-next/amdgpu-candidate.ko')
 p.add_argument('--sha256',default='403837663941f14ed2b2daf83847786074f3290f01e106f86a86855f2a504732')
+p.add_argument('--installed-release', help='Test a complete installed kernel/module set with normal modprobe; no RAM module override')
 p.add_argument('--num-kcq',type=int,choices=range(0,9),help='optional upstream kernel compute queue count; requires a compatible candidate')
-a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False)
+a=p.parse_args()
+release=a.installed_release or '6.12.113-tabor-modular'
+if not re.fullmatch(r'[A-Za-z0-9._+-]+',release):p.error('invalid kernel release')
+if a.installed_release:
+ if a.num_kcq is not None:p.error('installed-set mode preserves installed module options')
+ a.candidate='/lib/modules/'+release+'/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko'
+a.output.mkdir(parents=True,exist_ok=False)
 opts=['-F','/dev/null','-J',a.jump,'-i',a.key,'-o','IdentitiesOnly=yes','-o','BatchMode=yes','-o','ConnectTimeout=6','-o','ServerAliveInterval=2','-o','ServerAliveCountMax=2','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+a.known_hosts]
 base=['ssh',*opts,'root@'+a.host];pci='/sys/bus/pci/devices/0001:01:00.0'
-receipt={'candidate':a.candidate,'sha256':a.sha256,'stages':[],'status':'started','boot_defaults_changed':False,'num_kcq':a.num_kcq}
+receipt={'candidate':a.candidate,'sha256':a.sha256,'stages':[],'status':'started','boot_defaults_changed':False,'num_kcq':a.num_kcq,'installed_release':a.installed_release,'module_loading':'normal-modprobe' if a.installed_release else 'RAM-candidate'}
 logger=None;held=False;candidate_loaded=False
 
 def stop(proc):
@@ -36,7 +43,7 @@ def run(stage,command,timeout=15):
  if item['returncode']:raise RuntimeError(stage+' failed; see captured output')
  return (a.output/(stage+'.txt')).read_text(errors='replace')
 try:
- cmd='test "$(uname -r)" = 6.12.113-tabor-modular && ! grep -q "^amdgpu " /proc/modules && test "$(cat '+pci+'/vendor)" = 0x1002 && test "$(cat '+pci+'/device)" = 0x67ff && uname -r && cat /proc/uptime && /sbin/busybox-modules sha256sum '+shlex.quote(a.candidate)
+ cmd='test "$(uname -r)" = '+shlex.quote(release)+' && ! grep -q "^amdgpu " /proc/modules && test "$(cat '+pci+'/vendor)" = 0x1002 && test "$(cat '+pci+'/device)" = 0x67ff && uname -r && cat /proc/uptime && /sbin/busybox-modules sha256sum '+shlex.quote(a.candidate)
  out=run('01-preflight',cmd);assert out.split()[-2]==a.sha256,'candidate hash mismatch'
  with (a.output/'kmsg.txt').open('wb') as log,(a.output/'kmsg.stderr').open('wb') as err:
   logger=subprocess.Popen([*base,'cat /dev/kmsg'],stdin=subprocess.DEVNULL,stdout=log,stderr=err,start_new_session=True)
@@ -49,12 +56,16 @@ try:
   run('03-root-readonly','sync && mount -o remount,ro / && cat /proc/mounts')
   mounts=(a.output/'03-root-readonly.txt').read_text().splitlines()
   assert any(len(x.split())>3 and x.split()[1]=='/' and 'ro' in x.split()[3].split(',') for x in mounts),'root not verified read-only'
-  run('04-hold-pci',"printf '%s\\n' tabor-held > "+pci+'/driver_override');held=True
-  run('05-load-dependencies','modprobe amdgpu',30)
-  run('06-remove-unbound-original','test ! -e '+pci+'/driver && rmmod amdgpu')
-  run('07-insert-held-candidate','insmod '+shlex.quote(a.candidate)+(' num_kcq='+str(a.num_kcq) if a.num_kcq is not None else ''),30);candidate_loaded=True
-  run('08-release-override',"printf '\\n' > "+pci+'/driver_override');held=False
-  run('09-bind',"printf '%s\\n' 0001:01:00.0 > /sys/bus/pci/drivers/amdgpu/bind",40)
+  if a.installed_release:
+   receipt['installed_driver_load_started']=True
+   run('04-load-installed-driver','modprobe amdgpu',40);candidate_loaded=True
+  else:
+   run('04-hold-pci',"printf '%s\\n' tabor-held > "+pci+'/driver_override');held=True
+   run('05-load-dependencies','modprobe amdgpu',30)
+   run('06-remove-unbound-original','test ! -e '+pci+'/driver && rmmod amdgpu')
+   run('07-insert-held-candidate','insmod '+shlex.quote(a.candidate)+(' num_kcq='+str(a.num_kcq) if a.num_kcq is not None else ''),30);candidate_loaded=True
+   run('08-release-override',"printf '\\n' > "+pci+'/driver_override');held=False
+   run('09-bind',"printf '%s\\n' 0001:01:00.0 > /sys/bus/pci/drivers/amdgpu/bind",40)
   run('10-device-state','cat /proc/fb; ls -l '+pci+'/driver; cat /proc/uptime; cat /proc/modules')
   receipt['status']='test-returned-review-hardware-state'
 except Exception as e:
