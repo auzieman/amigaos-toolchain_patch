@@ -1,0 +1,47 @@
+{
+  "candidate": "/run/tabor-gpu-test/amdgpu.ko",
+  "sha256": "7067488b2b42329c262c8e6d65ae2c63c47c13a9370bfd88a84e302fa19db247",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 0
+    },
+    {
+      "stage": "04-hold-pci",
+      "returncode": 0
+    },
+    {
+      "stage": "05-load-dependencies",
+      "returncode": 0
+    },
+    {
+      "stage": "06-remove-unbound-original",
+      "returncode": 0
+    },
+    {
+      "stage": "07-insert-held-candidate",
+      "returncode": 0
+    },
+    {
+      "stage": "08-release-override",
+      "returncode": 0
+    },
+    {
+      "stage": "09-bind",
+      "status": "timeout"
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "num_kcq": null,
+  "error": "09-bind timed out",
+  "candidate_insert_completed": true
+}

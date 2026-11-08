@@ -96,3 +96,22 @@ missing li0,1. The corrected assembly entry calls main then issues exit; the
 bounded QEMU run exits0. This was a test-launcher defect, not a driver/ABI claim.
 The final prepare.py reproduces the corrected entry. The old test source/log
 remains on the server as negative setup evidence.
+
+
+## Physical test, 2026-11-08: candidate7067488b
+
+One fresh-state bind was captured off-board in hardware-offboard-001. Candidate
+hash verified after RAM staging; SSH logs moved to tmpfs and USB root verified
+read-only before bind. All GFX/KIQ/eight compute and both SDMA scratch results
+again pass. PowerPlay setup reaches smu7_start_dpm; last command entry before the
+first PCIe error is0x14e, PPSMC_MSG_DPM_Enable, confirmed in the pinned smu7_ppsmc.h.
+The first PCIe error follows that command entry by45,333 microseconds. Prior
+observed SMU responses are successful, including deep sleep and DIDT setup.
+Later observed0xffff responses occur after the PCIe error and cannot establish
+an initiating firmware refusal. Bind timed out; no unload/rebind or boot changes.
+No physical display acceptance. Off-board logs survive the failure.
+
+Next source slice: smu7_enable_sclk_mclk_dpm and the serialized DPM tables,
+voltage/clock transition setup, and platform PCIe/DMA assumptions activated by
+DPM_Enable. The trace narrows the transition; it does not prove the command or
+byte order is the root cause. Do not stub the driver or repeat this candidate.
