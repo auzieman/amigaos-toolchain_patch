@@ -1,0 +1,51 @@
+{
+  "trace_sha256": "2bbfff70d4419797e22b0e121d0672f2dd237aa410202687e6c639b16a65a3ac",
+  "register_events": 190962,
+  "captured_transactions": 75,
+  "missing_responses": 0,
+  "captured_sclk_masks": [
+    {
+      "time": 41.271891,
+      "message": 325,
+      "argument": 255,
+      "response": 1
+    },
+    {
+      "time": 41.52999,
+      "message": 325,
+      "argument": 255,
+      "response": 1
+    },
+    {
+      "time": 41.556833,
+      "message": 325,
+      "argument": 255,
+      "response": 1
+    },
+    {
+      "time": 41.557834,
+      "message": 325,
+      "argument": 255,
+      "response": 1
+    },
+    {
+      "time": 41.560834,
+      "message": 325,
+      "argument": 255,
+      "response": 1
+    }
+  ],
+  "sender_replay": "PASS",
+  "replay_x86_equals_ppc": true,
+  "replayed_captured_response_values_only": true,
+  "complete_gpu_preflight": "INCOMPLETE",
+  "missing_coverage": [
+    "raw complete power/clock table snapshots",
+    "ATOM request and response buffers",
+    "encoder command memory and hardware swap effect",
+    "actual DMA/coherency/timing",
+    "trace buffer loss statistics"
+  ],
+  "trace_scope": "Only six selected numeric register offsets; not a full PCIe/buffer trace. Poll counts/timing and raw bus transactions are not replayed.",
+  "hardware_accessed": false
+}

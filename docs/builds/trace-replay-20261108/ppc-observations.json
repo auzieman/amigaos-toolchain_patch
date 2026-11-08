@@ -1,0 +1,19 @@
+{
+  "kernel": "6.12.113-tabor-e2e-003",
+  "module_sha256": "48799ed982a9e52f189d22e8f9d142fcc1db048ecacc35fba6c69eb7a8b42f16",
+  "kmsg_sha256": "f2dc169f3dd7304b35aff58d8c331f01a2e1138c248e847aa14c1f0a8736febf",
+  "sclk_message": "0x145",
+  "observed_argument": "0x80",
+  "first_fault_after_entry_us": 47539,
+  "response_after_pcie_fault": "0xffff",
+  "response_is_valid_firmware_ack": false,
+  "uvd_encoder_ring_tests_passed": 2,
+  "complete_clock_table_captured": false,
+  "comparison_to_x86": {
+    "captured_arguments": [
+      "0xff"
+    ],
+    "request_inputs_identical": false,
+    "meaning": "Different selected-level masks; does not by itself establish encoding or policy defect."
+  }
+}

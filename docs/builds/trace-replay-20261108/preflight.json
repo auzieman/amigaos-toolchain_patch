@@ -1,0 +1,50 @@
+{
+  "status": "BLOCKED",
+  "hardware_accessed": false,
+  "deployment_allowed": false,
+  "resource_bounds": {
+    "cpus": 1,
+    "address_space_gib": 6
+  },
+  "suites": [
+    {
+      "name": "atom-clock",
+      "exit": 0,
+      "elapsed_seconds": 0.87,
+      "status": "PASS"
+    },
+    {
+      "name": "ring-contract",
+      "exit": 0,
+      "elapsed_seconds": 0.32,
+      "status": "PASS"
+    },
+    {
+      "name": "encoder-contract",
+      "exit": 0,
+      "elapsed_seconds": 0.87,
+      "status": "PASS"
+    },
+    {
+      "name": "smu-transport",
+      "exit": 0,
+      "elapsed_seconds": 0.47,
+      "status": "PASS"
+    },
+    {
+      "name": "captured-replay",
+      "exit": 0,
+      "elapsed_seconds": 0.92,
+      "status": "PASS"
+    }
+  ],
+  "missing_coverage": [
+    "raw complete power/clock table snapshots",
+    "ATOM request and response buffers",
+    "encoder command memory and hardware swap effect",
+    "actual DMA/coherency/timing",
+    "trace buffer loss statistics"
+  ],
+  "codec_suites_passed": true,
+  "reason": "Known encoding/replay checks pass, but complete table/ATOM/device-state coverage is not captured."
+}
