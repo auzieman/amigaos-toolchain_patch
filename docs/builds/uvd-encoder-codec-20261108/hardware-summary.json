@@ -1,0 +1,35 @@
+{
+  "kernel": "6.12.113-tabor-e2e-003",
+  "module_sha256": "48799ed982a9e52f189d22e8f9d142fcc1db048ecacc35fba6c69eb7a8b42f16",
+  "uvd_decoder_pass": {
+    "time_us": 58088078,
+    "line": "6,873,58088078,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd result=0"
+  },
+  "uvd_encoder0_pass": {
+    "time_us": 58100190,
+    "line": "6,875,58100190,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 result=0"
+  },
+  "uvd_encoder1_pass": {
+    "time_us": 58113099,
+    "line": "6,877,58113099,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc1 result=0"
+  },
+  "vce_hw_init_pass": {
+    "time_us": 58280754,
+    "line": "6,890,58280754,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=vce_v3_0 result=0"
+  },
+  "sclk_mask_command": {
+    "time_us": 58862792,
+    "line": "6,942,58862792,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter"
+  },
+  "first_pcie_error": {
+    "time_us": 58910331,
+    "line": "3,944,58910331,-;PCIe error(s) detected"
+  },
+  "failed_command": "PPSMC_MSG_SCLKDPM_SetEnabledMask",
+  "parameter": "0x80",
+  "ssh_lost": true,
+  "display_accepted": false,
+  "rebind_attempted": false,
+  "physical_packet_bytes_captured": false,
+  "first_fault_after_command_entry_us": 47539
+}
