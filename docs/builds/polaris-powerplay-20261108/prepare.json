@@ -1,0 +1,19 @@
+{
+  "parent_module_sha256": "080f54935bb910a9bafa021b8e12ac8965aab34344cbb382067c2b18d032eb72",
+  "upstream_snapshot": "5349075eac146ae0511d8929fc24451e4d9a4b7e",
+  "upstream_function_sha256": "8a96fb7a51f859542a4dbbc5a8c31e60ed57ace5d57ab68ea727076f5bfe5765",
+  "call_counts": {
+    "hwmgr_hw_init": 7,
+    "smu7_hwmgr_backend_init": 4,
+    "smu7_setup_asic_task": 6,
+    "smu7_enable_dpm_tasks": 23,
+    "polaris10_init_smc_table": 18,
+    "ATOM command callers": 20
+  },
+  "patches": {
+    "0016-smu7-propagate-command-response.patch": "0295920ab5d534b927be5aac2b5cf6b09dab878a38e5890e486b9173ef7e127e",
+    "0017-polaris-powerplay-call-boundaries.patch": "1a235b7736f92fa3783edf193485b3b8027c38578c0626b59c33d43fde811506"
+  },
+  "extra_mmio_reads": false,
+  "hardware_tested": false
+}

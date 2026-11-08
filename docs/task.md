@@ -1,3 +1,20 @@
+## PowerPlay failure narrowed and candidate built —2026-11-08
+
+The protected physical bind of080f5493 passes GFX/KIQ/all8 compute/SDMA0/SDMA1
+scratch tests and GFX/SDMA hw_init, then loses PCIe responses during PowerPlay
+hw_init. Bind and a later SSH check time out. USB root was verified read-only;
+logs are retained off-board. No retry/reset from the failed state. User was
+asked to power-cycle and boot the normal Linux entry; recovery remains unverified.
+
+Backported the exact newer upstream smu7_send_msg_to_smc response-status helper:
+legacy6.12 falsely returns success for all response errors. Added scoped
+PowerPlay/ATOM/mailbox call markers without extra MMIO reads or endian changes.
+Native and PPC32 BE/QEMU simulated-response regression passes all5 cases, with
+the old helper as a false-success control. Fresh normal Kbuild completes and
+all687 imported CRCs/full vermagic match. New module7067488b is on the R730,
+not deployed or physically tested. See builds/polaris-powerplay-20261108/README.md.
+No GPU/display fix is claimed; the initiating PowerPlay operation remains open.
+
 ## 6.12 GPU review checkpoint —2026-11-08
 
 The next6.12 candidate compiles and passes all687 imported CRC checks against

@@ -1,0 +1,30 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-polaris-powerplay-build-001",
+    "--cpus=4",
+    "--memory=6g",
+    "--network=none",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001,dst=/base,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/polaris-powerplay-20261108-003,dst=/candidate",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/polaris-powerplay-20261108-003/source,dst=/base/work/tabor-smu-diagnostics-20261105-003/source,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/polaris-powerplay-20261108-003/output,dst=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "--mount",
+    "type=bind,src=/home/owner/polaris-powerplay-20261108,dst=/inputs,readonly",
+    "--mount",
+    "type=bind,src=/home/owner/gfx-postmap-review-20261108,dst=/qualification,readonly",
+    "--entrypoint",
+    "python3",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "/inputs/build.py"
+  ],
+  "stdout": "0f8feba70932004af43b93989182ef1a77dc0db4350c69685a3bbb04065bccaf\n",
+  "stderr": ""
+}

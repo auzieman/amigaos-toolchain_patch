@@ -1,0 +1,673 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/inc/pp_debug.h
++++ b/drivers/gpu/drm/amd/pm/powerplay/inc/pp_debug.h
+@@ -34,6 +34,18 @@
+ #include <linux/kernel.h>
+ #include <linux/slab.h>
+ 
++
++/* Diagnostic: preserve the call's value and control flow; no additional MMIO. */
++#define PP_INIT_CALL(hwmgr, call) ({ \
++    int __pp_init_result; \
++    if ((hwmgr)->chip_id == CHIP_POLARIS11) \
++        pr_info("PWR_TRACE %s enter\n", #call); \
++    __pp_init_result = (call); \
++    if ((hwmgr)->chip_id == CHIP_POLARIS11) \
++        pr_info("PWR_TRACE %s result=%d\n", #call, __pp_init_result); \
++    __pp_init_result; \
++})
++
+ #define PP_ASSERT_WITH_CODE(cond, msg, code)	\
+ 	do {					\
+ 		if (!(cond)) {			\
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/hwmgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/hwmgr.c
+@@ -243,14 +243,14 @@
+ 		return 0;
+ 	}
+ 
+-	ret = hwmgr->pptable_func->pptable_init(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, hwmgr->pptable_func->pptable_init(hwmgr));
+ 	if (ret)
+ 		goto err;
+ 
+ 	((struct amdgpu_device *)hwmgr->adev)->pm.no_fan =
+ 				hwmgr->thermal_controller.fanInfo.bNoFan;
+ 
+-	ret = hwmgr->hwmgr_func->backend_init(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, hwmgr->hwmgr_func->backend_init(hwmgr));
+ 	if (ret)
+ 		goto err1;
+  /* make sure dc limits are valid */
+@@ -259,19 +259,19 @@
+ 			hwmgr->dyn_state.max_clock_voltage_on_dc =
+ 					hwmgr->dyn_state.max_clock_voltage_on_ac;
+ 
+-	ret = psm_init_power_state_table(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, psm_init_power_state_table(hwmgr));
+ 	if (ret)
+ 		goto err2;
+ 
+-	ret = phm_setup_asic(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, phm_setup_asic(hwmgr));
+ 	if (ret)
+ 		goto err2;
+ 
+-	ret = phm_enable_dynamic_state_management(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, phm_enable_dynamic_state_management(hwmgr));
+ 	if (ret)
+ 		goto err2;
+-	ret = phm_start_thermal_controller(hwmgr);
+-	ret |= psm_set_performance_states(hwmgr);
++	ret = PP_INIT_CALL(hwmgr, phm_start_thermal_controller(hwmgr));
++	ret |= PP_INIT_CALL(hwmgr, psm_set_performance_states(hwmgr));
+ 	if (ret)
+ 		goto err2;
+ 
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
+@@ -1569,12 +1569,12 @@
+ 	int result = 0;
+ 
+ 	if (smu7_voltage_control(hwmgr)) {
+-		tmp_result = smu7_enable_voltage_control(hwmgr);
++		tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_voltage_control(hwmgr));
+ 		PP_ASSERT_WITH_CODE(tmp_result == 0,
+ 				"Failed to enable voltage control!",
+ 				result = tmp_result);
+ 
+-		tmp_result = smu7_construct_voltage_tables(hwmgr);
++		tmp_result = PP_INIT_CALL(hwmgr, smu7_construct_voltage_tables(hwmgr));
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to construct voltage tables!",
+ 				result = tmp_result);
+@@ -1591,45 +1591,45 @@
+ 		PHM_WRITE_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC,
+ 				GENERAL_PWRMGT, THERMAL_PROTECTION_DIS, 0);
+ 
+-	tmp_result = smu7_program_static_screen_threshold_parameters(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_program_static_screen_threshold_parameters(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to program static screen threshold parameters!",
+ 			result = tmp_result);
+ 
+-	tmp_result = smu7_enable_display_gap(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_display_gap(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable display gap!", result = tmp_result);
+ 
+-	tmp_result = smu7_program_voting_clients(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_program_voting_clients(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to program voting clients!", result = tmp_result);
+ 
+-	tmp_result = smum_process_firmware_header(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smum_process_firmware_header(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to process firmware header!", result = tmp_result);
+ 
+ 	if (hwmgr->chip_id != CHIP_VEGAM) {
+-		tmp_result = smu7_initial_switch_from_arbf0_to_f1(hwmgr);
++		tmp_result = PP_INIT_CALL(hwmgr, smu7_initial_switch_from_arbf0_to_f1(hwmgr));
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to initialize switch from ArbF0 to F1!",
+ 				result = tmp_result);
+ 	}
+ 
+-	result = smu7_setup_default_dpm_tables(hwmgr);
++	result = PP_INIT_CALL(hwmgr, smu7_setup_default_dpm_tables(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to setup default DPM tables!", return result);
+ 
+-	tmp_result = smum_init_smc_table(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smum_init_smc_table(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to initialize SMC table!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_vrhot_gpio_interrupt(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_vrhot_gpio_interrupt(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable VR hot GPIO interrupt!", result = tmp_result);
+ 
+ 	if (hwmgr->chip_id >= CHIP_POLARIS10 &&
+ 	    hwmgr->chip_id <= CHIP_VEGAM) {
+-		tmp_result = smu7_notify_has_display(hwmgr);
++		tmp_result = PP_INIT_CALL(hwmgr, smu7_notify_has_display(hwmgr));
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to enable display setting!", result = tmp_result);
+ 	} else {
+@@ -1638,52 +1638,52 @@
+ 
+ 	if (hwmgr->chip_id >= CHIP_POLARIS10 &&
+ 	    hwmgr->chip_id <= CHIP_VEGAM) {
+-		tmp_result = smu7_populate_edc_leakage_registers(hwmgr);
++		tmp_result = PP_INIT_CALL(hwmgr, smu7_populate_edc_leakage_registers(hwmgr));
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to populate edc leakage registers!", result = tmp_result);
+ 	}
+ 
+-	tmp_result = smu7_enable_sclk_control(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_sclk_control(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable SCLK control!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_smc_voltage_controller(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_smc_voltage_controller(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable voltage control!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_ulv(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_ulv(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable ULV!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_deep_sleep_master_switch(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_deep_sleep_master_switch(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable deep sleep master switch!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_didt_config(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_didt_config(hwmgr));
+ 	PP_ASSERT_WITH_CODE((tmp_result == 0),
+ 			"Failed to enable deep sleep master switch!", result = tmp_result);
+ 
+-	tmp_result = smu7_start_dpm(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_start_dpm(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to start DPM!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_smc_cac(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_smc_cac(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable SMC CAC!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_power_containment(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_power_containment(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable power containment!", result = tmp_result);
+ 
+-	tmp_result = smu7_power_control_set_level(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_power_control_set_level(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to power control set level!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_thermal_auto_throttle(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_thermal_auto_throttle(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable thermal auto throttle!", result = tmp_result);
+ 
+-	tmp_result = smu7_pcie_performance_request(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_pcie_performance_request(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"pcie performance request failed!", result = tmp_result);
+ 
+@@ -3069,7 +3069,7 @@
+ 	/* Get leakage voltage based on leakage ID. */
+ 	if (phm_cap_enabled(hwmgr->platform_descriptor.platformCaps,
+ 			PHM_PlatformCaps_EVV)) {
+-		result = smu7_get_evv_voltages(hwmgr);
++		result = PP_INIT_CALL(hwmgr, smu7_get_evv_voltages(hwmgr));
+ 		if (result) {
+ 			pr_info("Get EVV Voltage Failed.  Abort Driver loading!\n");
+ 			kfree(hwmgr->backend);
+@@ -3080,7 +3080,7 @@
+ 		smu7_get_elb_voltages(hwmgr);
+ 	}
+ 
+-	result = smu7_init_voltage_dependency_on_display_clock_table(hwmgr);
++	result = PP_INIT_CALL(hwmgr, smu7_init_voltage_dependency_on_display_clock_table(hwmgr));
+ 	if (result)
+ 		goto fail;
+ 
+@@ -3093,7 +3093,7 @@
+ 	}
+ 
+ 	/* Initalize Dynamic State Adjustment Rule Settings */
+-	result = phm_initializa_dynamic_state_adjustment_rule_settings(hwmgr);
++	result = PP_INIT_CALL(hwmgr, phm_initializa_dynamic_state_adjustment_rule_settings(hwmgr));
+ 
+ 	if (result)
+ 		goto fail;
+@@ -3118,7 +3118,7 @@
+ 	hwmgr->platform_descriptor.clockStep.memoryClock = 500;
+ 	smu7_thermal_parameter_init(hwmgr);
+ 
+-	result = smu7_update_edc_leakage_table(hwmgr);
++	result = PP_INIT_CALL(hwmgr, smu7_update_edc_leakage_table(hwmgr));
+ 	if (result)
+ 		goto fail;
+ 
+@@ -5016,27 +5016,27 @@
+ 
+ 	smu7_check_mc_firmware(hwmgr);
+ 
+-	tmp_result = smu7_read_clock_registers(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_read_clock_registers(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to read clock registers!", result = tmp_result);
+ 
+-	tmp_result = smu7_get_memory_type(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_get_memory_type(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to get memory type!", result = tmp_result);
+ 
+-	tmp_result = smu7_enable_acpi_power_management(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_enable_acpi_power_management(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to enable ACPI power management!", result = tmp_result);
+ 
+-	tmp_result = smu7_init_power_gate_state(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_init_power_gate_state(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to init power gate state!", result = tmp_result);
+ 
+-	tmp_result = smu7_get_mc_microcode_version(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_get_mc_microcode_version(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to get MC microcode version!", result = tmp_result);
+ 
+-	tmp_result = smu7_init_sclk_threshold(hwmgr);
++	tmp_result = PP_INIT_CALL(hwmgr, smu7_init_sclk_threshold(hwmgr));
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to init sclk threshold!", result = tmp_result);
+ 
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
+@@ -1962,34 +1962,34 @@
+ 		table->SystemFlags |= PPSMC_SYSTEMFLAG_GDDR5;
+ 
+ 	if (hw_data->ulv_supported && table_info->us_ulv_voltage_offset) {
+-		result = polaris10_populate_ulv_state(hwmgr, table);
++		result = PP_INIT_CALL(hwmgr, polaris10_populate_ulv_state(hwmgr, table));
+ 		PP_ASSERT_WITH_CODE(0 == result,
+ 				"Failed to initialize ULV state!", return result);
+ 		cgs_write_ind_register(hwmgr->device, CGS_IND_REG__SMC,
+ 				ixCG_ULV_PARAMETER, SMU7_CGULVPARAMETER_DFLT);
+ 	}
+ 
+-	result = polaris10_populate_smc_link_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_link_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize Link Level!", return result);
+ 
+-	result = polaris10_populate_all_graphic_levels(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_all_graphic_levels(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize Graphics Level!", return result);
+ 
+-	result = polaris10_populate_all_memory_levels(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_all_memory_levels(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize Memory Level!", return result);
+ 
+-	result = polaris10_populate_smc_acpi_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_acpi_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize ACPI Level!", return result);
+ 
+-	result = polaris10_populate_smc_vce_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_vce_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize VCE Level!", return result);
+ 
+-	result = polaris10_populate_smc_samu_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_samu_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize SAMU Level!", return result);
+ 
+@@ -1997,23 +1997,23 @@
+ 	 * (the other states are just copies of the boot state) we only
+ 	 * need to populate the  ARB settings for the initial state.
+ 	 */
+-	result = polaris10_program_memory_timing_parameters(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_program_memory_timing_parameters(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to Write ARB settings for the initial state.", return result);
+ 
+-	result = polaris10_populate_smc_uvd_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_uvd_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize UVD Level!", return result);
+ 
+-	result = polaris10_populate_smc_boot_level(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_boot_level(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize Boot Level!", return result);
+ 
+-	result = polaris10_populate_smc_initailial_state(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_smc_initailial_state(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to initialize Boot State!", return result);
+ 
+-	result = polaris10_populate_bapm_parameters_in_dpm_table(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_bapm_parameters_in_dpm_table(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to populate BAPM Parameters!", return result);
+ 
+@@ -2021,13 +2021,13 @@
+ 
+ 	if (phm_cap_enabled(hwmgr->platform_descriptor.platformCaps,
+ 			PHM_PlatformCaps_ClockStretcher)) {
+-		result = polaris10_populate_clock_stretcher_data_table(hwmgr);
++		result = PP_INIT_CALL(hwmgr, polaris10_populate_clock_stretcher_data_table(hwmgr));
+ 		PP_ASSERT_WITH_CODE(0 == result,
+ 				"Failed to populate Clock Stretcher Data Table!",
+ 				return result);
+ 	}
+ 
+-	result = polaris10_populate_avfs_parameters(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_avfs_parameters(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result, "Failed to populate AVFS Parameters!", return result;);
+ 
+ 	table->CurrSclkPllRange = 0xff;
+@@ -2051,7 +2051,7 @@
+ 	table->PCIeGenInterval = 1;
+ 	table->VRConfig = 0;
+ 
+-	result = polaris10_populate_vr_config(hwmgr, table);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_vr_config(hwmgr, table));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to populate VRConfig setting!", return result);
+ 	hw_data->vr_config = table->VRConfig;
+@@ -2111,7 +2111,7 @@
+ 
+ 	/* Populate BIF_SCLK levels into SMC DPM table */
+ 	for (i = 0; i <= hw_data->dpm_table.pcie_speed_table.count; i++) {
+-		result = atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers);
++		result = PP_INIT_CALL(hwmgr, atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers));
+ 		PP_ASSERT_WITH_CODE((result == 0), "Can not find DFS divide id for Sclk", return result);
+ 
+ 		if (i == 0)
+@@ -2135,16 +2135,16 @@
+ 	CONVERT_FROM_HOST_TO_SMC_US(table->PhaseResponseTime);
+ 
+ 	/* Upload all dpm data to SMC memory.(dpm level, dpm level count etc) */
+-	result = smu7_copy_bytes_to_smc(hwmgr,
++	result = PP_INIT_CALL(hwmgr, smu7_copy_bytes_to_smc(hwmgr,
+ 			smu_data->smu7_data.dpm_table_start +
+ 			offsetof(SMU74_Discrete_DpmTable, SystemFlags),
+ 			(uint8_t *)&(table->SystemFlags),
+ 			sizeof(SMU74_Discrete_DpmTable) - 3 * sizeof(SMU74_PIDController),
+-			SMC_RAM_END);
++			SMC_RAM_END));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to upload dpm data to SMC memory!", return result);
+ 
+-	result = polaris10_populate_pm_fuses(hwmgr);
++	result = PP_INIT_CALL(hwmgr, polaris10_populate_pm_fuses(hwmgr));
+ 	PP_ASSERT_WITH_CODE(0 == result,
+ 			"Failed to  populate PM fuses to SMC memory!", return result);
+ 
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
+@@ -310,9 +310,9 @@
+ 	mpll_parameters.ulClock = cpu_to_le32(clock_value);
+ 	mpll_parameters.ucInputFlag = (uint8_t)((strobe_mode) ? 1 : 0);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryClockParam),
+-		(uint32_t *)&mpll_parameters, sizeof(mpll_parameters));
++		(uint32_t *)&mpll_parameters, sizeof(mpll_parameters)));
+ 
+ 	if (0 == result) {
+ 		mpll_param->mpll_fb_divider.clk_frac =
+@@ -358,9 +358,9 @@
+ 
+ 	mpll_parameters.ulClock.ulClock = cpu_to_le32(clock_value);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ComputeMemoryClockParam),
+-			(uint32_t *)&mpll_parameters, sizeof(mpll_parameters));
++			(uint32_t *)&mpll_parameters, sizeof(mpll_parameters)));
+ 
+ 	if (!result)
+ 		mpll_param->mpll_post_divider =
+@@ -379,9 +379,9 @@
+ 
+ 	mpll_parameters.ulClock.ulClock = cpu_to_le32(clock_value);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ComputeMemoryClockParam),
+-			(uint32_t *)&mpll_parameters, sizeof(mpll_parameters));
++			(uint32_t *)&mpll_parameters, sizeof(mpll_parameters)));
+ 
+ 	/* VEGAM's mpll takes sometime to finish computing */
+ 	udelay(10);
+@@ -409,9 +409,9 @@
+ 
+ 	pll_parameters.ulClock = cpu_to_le32(clock_value);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+-		(uint32_t *)&pll_parameters, sizeof(pll_parameters));
++		(uint32_t *)&pll_parameters, sizeof(pll_parameters)));
+ 
+ 	if (0 == result) {
+ 		dividers->pll_post_divider = pll_parameters.ucPostDiv;
+@@ -433,9 +433,9 @@
+ 	pll_patameters.ulClock.ulClock = cpu_to_le32(clock_value);
+ 	pll_patameters.ulClock.ucPostDiv = COMPUTE_GPUCLK_INPUT_FLAG_SCLK;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+-		(uint32_t *)&pll_patameters, sizeof(pll_patameters));
++		(uint32_t *)&pll_patameters, sizeof(pll_patameters)));
+ 
+ 	if (0 == result) {
+ 		dividers->pll_post_divider =
+@@ -470,9 +470,9 @@
+ 	pll_patameters.ulClock.ulClock = cpu_to_le32(clock_value);
+ 	pll_patameters.ulClock.ucPostDiv = COMPUTE_GPUCLK_INPUT_FLAG_SCLK;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+-		(uint32_t *)&pll_patameters, sizeof(pll_patameters));
++		(uint32_t *)&pll_patameters, sizeof(pll_patameters)));
+ 
+ 	if (0 == result) {
+ 		dividers->usSclk_fcw_frac     = le16_to_cpu(pll_patameters.usSclk_fcw_frac);
+@@ -503,9 +503,9 @@
+ 	pll_patameters.ulClock.ucPostDiv =
+ 		COMPUTE_GPUCLK_INPUT_FLAG_DEFAULT_GPUCLK;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+-		(uint32_t *)&pll_patameters, sizeof(pll_patameters));
++		(uint32_t *)&pll_patameters, sizeof(pll_patameters)));
+ 
+ 	if (0 == result) {
+ 		dividers->pll_post_divider =
+@@ -786,9 +786,9 @@
+ 
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -807,9 +807,9 @@
+ 
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -827,9 +827,9 @@
+ 	sInput_FuseValues.ucBitLength = sCACb_fuse.ucEfuseLength;
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -848,9 +848,9 @@
+ 
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -870,9 +870,9 @@
+ 
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 	if (result)
+ 		return result;
+ 
+@@ -891,9 +891,9 @@
+ 	sInput_FuseValues.ucBitLength = sKv_b_fuse.ucEfuseLength;
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -922,9 +922,9 @@
+ 
+ 	sOutput_FuseValues.sEfuse = sInput_FuseValues;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues));
++			(uint32_t *)&sOutput_FuseValues, sizeof(sOutput_FuseValues)));
+ 
+ 	if (result)
+ 		return result;
+@@ -1147,9 +1147,9 @@
+ 	get_voltage_info_param_space.ulSCLKFreq      =
+ 		cpu_to_le32(sclk);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, GetVoltageInfo),
+-			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space));
++			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)));
+ 
+ 	*voltage = result ? 0 :
+ 			le16_to_cpu(((GET_EVV_VOLTAGE_INFO_OUTPUT_PARAMETER_V1_2 *)
+@@ -1192,9 +1192,9 @@
+ 	get_voltage_info_param_space.ulSCLKFreq =
+ 		cpu_to_le32(hwmgr->dyn_state.vddc_dependency_on_sclk->entries[entry_id].clk);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, GetVoltageInfo),
+-			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space));
++			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)));
+ 
+ 	if (0 != result)
+ 		return result;
+@@ -1372,9 +1372,9 @@
+ 	efuse_param.sEfuse.ucBitLength  = (uint8_t)
+ 			((end_index - start_index) + 1);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ReadEfuseValue),
+-			(uint32_t *)&efuse_param, sizeof(efuse_param));
++			(uint32_t *)&efuse_param, sizeof(efuse_param)));
+ 	*efuse = result ? 0 : le32_to_cpu(efuse_param.ulEfuseValue) & mask;
+ 
+ 	return result;
+@@ -1393,9 +1393,9 @@
+ 		ADJUST_MC_SETTING_PARAM;
+ 	memory_clock_parameters.asDPMMCReg.ucMclkDPMState = level;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings),
+-		(uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters));
++		(uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)));
+ 
+ 	return result;
+ }
+@@ -1412,9 +1412,9 @@
+ 	get_voltage_info_param_space.usVoltageLevel = cpu_to_le16(virtual_voltage_Id);
+ 	get_voltage_info_param_space.ulSCLKFreq = cpu_to_le32(sclk);
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, GetVoltageInfo),
+-			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space));
++			(uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)));
+ 
+ 	*voltage = result ? 0 :
+ 		le32_to_cpu(((GET_EVV_VOLTAGE_INFO_OUTPUT_PARAMETER_V1_3 *)(&get_voltage_info_param_space))->ulVoltageLevel);
+@@ -1541,9 +1541,9 @@
+ 
+ 	voltage_parameters->ucVoltageMode = ATOM_GET_LEAKAGE_ID;
+ 
+-	result = amdgpu_atom_execute_table(adev->mode_info.atom_context,
++	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, SetVoltage),
+-			(uint32_t *)voltage_parameters, sizeof(*voltage_parameters));
++			(uint32_t *)voltage_parameters, sizeof(*voltage_parameters)));
+ 
+ 	*virtual_voltage_id = voltage_parameters->usVoltageLevel;
+ 
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -168,6 +168,9 @@
+ 	struct amdgpu_device *adev = hwmgr->adev;
+ 	int ret;
+ 
++	if (hwmgr->chip_id == CHIP_POLARIS11)
++		dev_info(adev->dev, "PWR_TRACE smu_msg=%#x enter\n", msg);
++
+ 	PHM_WAIT_FIELD_UNEQUAL(hwmgr, SMC_RESP_0, SMC_RESP, 0);
+ 
+ 	cgs_write_register(hwmgr->device, mmSMC_RESP_0, 0);
+@@ -176,6 +179,9 @@
+ 	PHM_WAIT_FIELD_UNEQUAL(hwmgr, SMC_RESP_0, SMC_RESP, 0);
+ 
+ 	ret = PHM_READ_FIELD(hwmgr->device, SMC_RESP_0, SMC_RESP);
++
++	if (hwmgr->chip_id == CHIP_POLARIS11)
++		dev_info(adev->dev, "PWR_TRACE smu_msg=%#x response=%#x\n", msg, ret);
+ 
+ 	switch (ret) {
+ 	case 1:
+@@ -191,6 +197,9 @@
+ 
+ int smu7_send_msg_to_smc_with_parameter(struct pp_hwmgr *hwmgr, uint16_t msg, uint32_t parameter)
+ {
++	if (hwmgr->chip_id == CHIP_POLARIS11)
++		pr_info("PWR_TRACE smu_msg=%#x parameter=%#x\n", msg, parameter);
++
+ 	PHM_WAIT_FIELD_UNEQUAL(hwmgr, SMC_RESP_0, SMC_RESP, 0);
+ 
+ 	cgs_write_register(hwmgr->device, mmSMC_MSG_ARG_0, parameter);

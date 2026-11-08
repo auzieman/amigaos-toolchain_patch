@@ -1,0 +1,8 @@
+{
+  "command": "set -e; /usr/sbin/sshd -t -f /etc/ssh/sshd_config; test \"$(cat /proc/102/comm)\" = sshd; mount -t tmpfs -o size=8m,mode=755 tmpfs /run; mkdir -p /run/tabor-gpu-test; cp /tmp/sshd.log /run/tabor-gpu-test/sshd-previous.log; kill -TERM 102; /usr/sbin/sshd -E /run/tabor-gpu-test/sshd.log -f /etc/ssh/sshd_config; cat /proc/mounts",
+  "returncode": 0,
+  "stdout": "/dev/root / ext4 rw,relatime 0 0\ndevtmpfs /dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0\nproc /proc proc rw,relatime 0 0\nsysfs /sys sysfs rw,relatime 0 0\ndevpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0\ntmpfs /run tmpfs rw,relatime,size=8192k,mode=755 0 0\n",
+  "stderr": "",
+  "boot_files_changed": false,
+  "sshd_config_changed": false
+}

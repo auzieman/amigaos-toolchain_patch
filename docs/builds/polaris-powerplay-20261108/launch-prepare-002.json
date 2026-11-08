@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-polaris-powerplay-prepare-002",
+    "--cpus=4",
+    "--memory=6g",
+    "--network=none",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001,dst=/base,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/polaris-powerplay-20261108-002,dst=/candidate",
+    "--mount",
+    "type=bind,src=/home/owner/polaris-powerplay-20261108,dst=/inputs,readonly",
+    "--entrypoint",
+    "python3",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "/inputs/prepare.py"
+  ],
+  "stdout": "c570a1997823f001b5d4c3eff45a2ab8fb789eed6bf8c9e6e5b1587b32a2a2e5\n",
+  "stderr": ""
+}

@@ -1,5 +1,10 @@
 # Bounded6.12 architecture and build review —2026-11-08
 
+Follow-up physical test: graphics/control/all8 compute and both SDMA scratch
+tests pass, followed by PCIe/SSH loss during PowerPlay initialization. See
+[new source correction and results](../polaris-powerplay-20261108/README.md).
+The inactive/no-load statements below describe the earlier build checkpoint.
+
 Result: candidate module builds under normal Kbuild and passes ELF/vermagic and
 all687 imported-symbol CRC checks against the accepted6.12.113-tabor-modular
 export table. No GPU load, reset, kernel update or boot-file change. Physical

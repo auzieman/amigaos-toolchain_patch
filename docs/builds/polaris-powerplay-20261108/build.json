@@ -1,0 +1,30 @@
+{
+  "status": "compiled-crcs-verified-not-deployed",
+  "hardware_tested": false,
+  "kernel_release": "6.12.113-tabor-modular",
+  "command": [
+    "make",
+    "-C",
+    "/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "O=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "ARCH=powerpc",
+    "CROSS_COMPILE=powerpc-linux-gnu-",
+    "-j4",
+    "modules"
+  ],
+  "exit": 0,
+  "verification": {
+    "elf": "ELF32-BE-PowerPC-REL",
+    "vermagic": "6.12.113-tabor-modular SMP mod_unload modversions relocatable ",
+    "module_sha256": "7067488b2b42329c262c8e6d65ae2c63c47c13a9370bfd88a84e302fa19db247",
+    "export_crcs_checked": true,
+    "hardware_validated": false,
+    "versioned_symbols": 687,
+    "kernel_symvers_sha256": "7ce6a44098e08d521bc33a995774a014609c562587244f95b45cf3546e093593"
+  },
+  "config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec",
+  "patches": {
+    "0016-smu7-propagate-command-response.patch": "0295920ab5d534b927be5aac2b5cf6b09dab878a38e5890e486b9173ef7e127e",
+    "0017-polaris-powerplay-call-boundaries.patch": "1a235b7736f92fa3783edf193485b3b8027c38578c0626b59c33d43fde811506"
+  }
+}

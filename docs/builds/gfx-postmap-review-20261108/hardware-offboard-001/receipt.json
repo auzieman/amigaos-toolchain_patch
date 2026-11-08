@@ -1,0 +1,23 @@
+{
+  "candidate": "/root/gfx-postmap-review-20261108-001/amdgpu.ko",
+  "sha256": "080f54935bb910a9bafa021b8e12ac8965aab34344cbb382067c2b18d032eb72",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "num_kcq": null,
+  "error": "03-root-readonly failed; see captured output",
+  "candidate_insert_completed": false
+}

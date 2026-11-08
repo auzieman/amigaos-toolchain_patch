@@ -1397,3 +1397,5 @@ C++ unwinding and cross-version/general PowerPC regression gates remain open.
 
 Compiler checkpoint committed as `2047b47`; remaining runtime promotion gates
 are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/issues/27), kept open.
+
+2026-11-08 PowerPlay checkpoint: protected6.12 bind passes GFX/KIQ/all8 compute and both SDMA scratch tests, then PCIe/SSH fail after powerplay hw_init entry. No retry; reboot requested. Backported upstream SMU response status correction (legacy helper always succeeded), added scoped lifecycle/ATOM/mailbox markers. Native and PPC32BE/QEMU five-case response checks pass; fresh Kbuild exits0 and all687 imported CRCs/full vermagic match. Candidate7067488b remains on R730, not deployed/physically accepted. Evidence: builds/polaris-powerplay-20261108/.

@@ -1,5 +1,11 @@
-Current work (2026-11-08): [6.12 AMDGPU architecture review and verified candidate](builds/gfx-postmap-review-20261108/README.md).
-The working physical board remains6.12.113-tabor-modular with both CPUs online.
+Current work (2026-11-08): [PowerPlay failure and source correction](builds/polaris-powerplay-20261108/README.md).
+Physical6.12 test passes graphics/control/all8 compute and both SDMA scratch
+tests, then PCIe/SSH fail during PowerPlay initialization. User was asked for
+a power-cycle; recovery is unverified. No GPU retries from the failed state.
+The newer SMU response-error helper is backported; native/PPC-BE response tests
+pass. New module7067488b builds and matches all687 import CRCs/full vermagic;
+it remains on R730, not deployed. This is not physical display acceptance.
+Previous [architecture/build review](builds/gfx-postmap-review-20261108/README.md).
 The newer7.3 kernel failed early boot and is a separate experiment; normal USB
 boot was restored to6.12. Trixie GCC14/glibc2.41 userspace remains the main goal.
 
@@ -9,9 +15,9 @@ full C++/unwind and SDK/package-managed workstation acceptance remain open.
 The accepted GCC8 SDK/base lock has not been promoted implicitly.
 
 Start from the current task/progress checkpoint, not historical running queues.
-GPU candidate has687 import CRCs checked and is staged inactive; no load/reset
-has happened in this pass. Resume only with exact artifact checks and protected
-root/off-board first-bind capture as documented.
+Resume only after fresh boot with exact artifact checks, RAM-backed SSH logging,
+protected root and off-board first-bind capture as documented. Installed default
+module and boot files remain unchanged.
 
 # Review starting point
 

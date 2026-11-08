@@ -1,0 +1,8 @@
+native
+response=0x1 legacy=0 corrected=0 PASS
+response=0xfe legacy=0 corrected=-95 PASS
+response=0 legacy=0 corrected=-5 PASS
+response=0x2 legacy=0 corrected=-5 PASS
+response=0xffff legacy=0 corrected=-6 PASS
+ppc-be
+compiled; execute with R730 qemu-ppc before accepting
