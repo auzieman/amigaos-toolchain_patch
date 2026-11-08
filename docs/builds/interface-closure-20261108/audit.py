@@ -49,7 +49,7 @@ rows=[
  ('DMA addressing','amdgpu/gmc_v8_0.c','dma_set_mask_and_coherent','40bit device DMA mask; Linux mapping and SWIOTLB','OPEN: verify P1022 windows/cache policy with real device addresses'),
  ('publication/cache ordering','amdgpu/amdgpu_ib.c','amdgpu_device_flush_hdp','HDP flush before emission; invalidate before fence; ring commit publishes','OPEN: offline byte equality does not test physical ordering'),
  ('firmware containers and microcode','amdgpu/amdgpu_ucode.c','amdgpu_ucode','LE metadata; raw microcode byte transfer','OPEN: complete firmware-family copy/size/offset walk'),
- ('display scanout pixels','amdgpu/dce_v10_0.c','GRPH_ENDIAN_SWAP','pixel-format-specific hardware swap; separate from packets','OPEN: actual fbcon/KMS scanout and modeset'),
+ ('display scanout pixels','amdgpu/dce_v11_0.c','GRPH_ENDIAN_SWAP','pixel-format-specific hardware swap; separate from packets','OPEN: actual fbcon/KMS scanout and modeset'),
 ]
 ledger=[]
 for name,file,key,contract,status in rows:

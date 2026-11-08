@@ -10,13 +10,13 @@
     {
       "name": "atom-clock",
       "exit": 0,
-      "elapsed_seconds": 0.52,
+      "elapsed_seconds": 0.42,
       "status": "PASS"
     },
     {
       "name": "ring-contract",
       "exit": 0,
-      "elapsed_seconds": 0.31,
+      "elapsed_seconds": 0.27,
       "status": "PASS"
     },
     {
@@ -46,7 +46,7 @@
     {
       "name": "memory-contracts",
       "exit": 0,
-      "elapsed_seconds": 0.32,
+      "elapsed_seconds": 0.27,
       "status": "PASS"
     },
     {
@@ -74,9 +74,21 @@
       "status": "PASS"
     },
     {
-      "name": "console-pixel-path",
+      "name": "selected-console-pixel-path",
       "exit": 0,
       "elapsed_seconds": 0.52,
+      "status": "PASS"
+    },
+    {
+      "name": "display-atom-contracts",
+      "exit": 0,
+      "elapsed_seconds": 0.47,
+      "status": "PASS"
+    },
+    {
+      "name": "selected-modeset-errors",
+      "exit": 0,
+      "elapsed_seconds": 0.62,
       "status": "PASS"
     },
     {
@@ -274,11 +286,10 @@
     },
     {
       "channel": "display scanout pixels",
-      "file": "drivers/gpu/drm/amd/amdgpu/dce_v10_0.c",
-      "line": 1852,
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
       "anchor": "GRPH_ENDIAN_SWAP",
       "contract": "pixel-format-specific hardware swap; separate from packets",
-      "status": "OPEN: actual fbcon/KMS scanout and modeset"
+      "status": "Corrected selection: Polaris11 uses dce_v11_2_ip_block/DCE11 callbacks; see console-selected-path-20261108 for source anchors and tests"
     }
   ],
   "codec_suites_passed": true,

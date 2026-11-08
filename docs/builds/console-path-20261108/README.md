@@ -1,3 +1,10 @@
+# Historical neighboring DCE10 console test
+
+**Correction:** RX560/Polaris11 selects dce_v11_2_ip_block with DCE11 callbacks,
+not DCE10. This result remains a neighboring-generation comparison and is not
+target display qualification. See ../console-selected-path-20261108/ for the
+corrected source selection and tests.
+
 # Verify the basic console path separately from ring tests
 
 Candidate006is configured for legacy DCE10 display (CONFIG_DRM_AMD_DC is off),

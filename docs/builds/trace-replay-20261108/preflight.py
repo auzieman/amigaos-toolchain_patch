@@ -16,7 +16,9 @@ suites=[
  ('uvd-encoder-payload','/home/owner/test-uvd-payloads.py','/srv/data1/tabor-build/source-review/interface-closure-20261108/uvd-payload-receipt.json'),
  ('powerplay-transition','/home/owner/test-powerplay-transition.py','/srv/data1/tabor-build/source-review/powerplay-fail-stop-20261108/receipt.json'),
  ('powerplay-psm','/home/owner/test-powerplay-psm.py','/srv/data1/tabor-build/source-review/powerplay-fail-stop-20261108/psm-receipt.json'),
- ('console-pixel-path','/home/owner/test-console-path.py','/srv/data1/tabor-build/source-review/console-path-20261108/receipt.json'),
+ ('selected-console-pixel-path','/home/owner/test-selected-console-path.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/receipt.json'),
+ ('display-atom-contracts','/home/owner/test-atom-display.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/atom-receipt.json'),
+ ('selected-modeset-errors','/home/owner/test-selected-modeset.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/modeset-receipt.json'),
  ('smu-transport','/home/owner/review-smu-flow.py','/srv/data1/tabor-build/source-review/smu-flow-review-20261108/receipt.json'),
  ('captured-replay','/home/owner/replay-smu-trace.py',str(W/'receipt.json'))]
 report={'status':'BLOCKED','hardware_accessed':False,'deployment_allowed':False,'resource_bounds':{'cpus':1,'address_space_gib':6},'suites':[]}

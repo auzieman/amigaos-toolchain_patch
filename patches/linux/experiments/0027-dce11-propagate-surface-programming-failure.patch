@@ -1,0 +1,21 @@
+--- a/drivers/gpu/drm/amd/amdgpu/dce_v11_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/dce_v11_0.c
+@@ -2702,6 +2702,7 @@
+ 	struct amdgpu_crtc *amdgpu_crtc = to_amdgpu_crtc(crtc);
+ 	struct drm_device *dev = crtc->dev;
+ 	struct amdgpu_device *adev = drm_to_adev(dev);
++	int ret;
+ 
+ 	if (!amdgpu_crtc->adjusted_clock)
+ 		return -EINVAL;
+@@ -2725,7 +2726,9 @@
+ 		amdgpu_atombios_crtc_set_pll(crtc, adjusted_mode);
+ 	}
+ 	amdgpu_atombios_crtc_set_dtd_timing(crtc, adjusted_mode);
+-	dce_v11_0_crtc_do_set_base(crtc, old_fb, x, y, 0);
++	ret = dce_v11_0_crtc_do_set_base(crtc, old_fb, x, y, 0);
++	if (ret)
++		return ret;
+ 	amdgpu_atombios_crtc_overscan_setup(crtc, mode, adjusted_mode);
+ 	amdgpu_atombios_crtc_scaler_setup(crtc);
+ 	dce_v11_0_cursor_reset(crtc);

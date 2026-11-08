@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "actual_functions": 4,
+  "scenarios_per_architecture": 392,
+  "invalid_header_checks_per_architecture": 2,
+  "source_sha256": "db2a0307b15a1d18e218c7c5de8fecd0e9bb4afd872f4ac4355d45abeb980db0",
+  "output_sha256": "60a2ab6ee1af1e9bd0cd49a1afd2fe609eaf8b51b48672e6d8c01bd37453e551",
+  "output_bytes": 8192,
+  "hardware_accessed": false,
+  "limits": [
+    "ATOM endpoint records requests and echoes DCE clock field; no PLL programming performed",
+    "Firmware table revisions exercised synthetically; current raw VBIOS revision not captured",
+    "Only selected buffer fields independently decoded; all emitted request bytes compared",
+    "No EDID/link/scanout acceptance"
+  ]
+}

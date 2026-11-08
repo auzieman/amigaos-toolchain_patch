@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "actual_functions": 2,
+  "scenarios_per_version_architecture": 40,
+  "total_scenarios": 160,
+  "patch_sha256": "87b3ee07b22450e7524f7d5b2820dedd18cd73444fdf4193b66bc91f18c48849",
+  "hardware_accessed": false,
+  "old_control": "Reports mode-set success and updates hw_mode despite reserve/pin/format failure",
+  "fixed": "Propagates surface error and skips downstream setup/state update",
+  "limits": [
+    "PLL and timing callbacks mocked; their own ATOM status handling is a separate open contract",
+    "Not proof of physical connector or display output",
+    "Surface helper may already have partial side effects before later failures"
+  ]
+}
