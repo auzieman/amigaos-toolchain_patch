@@ -1,0 +1,83 @@
+5947cbca3252c443973e8b55f45ed92a4faec2f6d3018418c850191e2173aa58  /srv/data1/tabor-build/linux-live-001/work/gfx-map-stage-20261107-001/source/arch/powerpc/include/asm/io.h
+d50a50d5627c840633cfc626a435d5065480e0849556b13f16f956be26750ae2  /srv/data1/tabor-build/linux-live-001/work/gfx-map-stage-20261107-001/source/arch/powerpc/sysdev/fsl_pci.c
+b2f730fdefd8bbbb5fa50b8a6232fe78b422ee39d9319c069f8867f3e0191a6b  /srv/data1/tabor-build/linux-live-001/work/gfx-map-stage-20261107-001/source/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+#ifdef __BIG_ENDIAN__
+DEF_MMIO_IN_D(in_be16, 16, lhz);
+DEF_MMIO_IN_D(in_be32, 32, lwz);
+DEF_MMIO_IN_X(in_le16, 16, lhbrx);
+DEF_MMIO_IN_X(in_le32, 32, lwbrx);
+
+DEF_MMIO_OUT_D(out_be16, 16, sth);
+DEF_MMIO_OUT_D(out_be32, 32, stw);
+DEF_MMIO_OUT_X(out_le16, 16, sthbrx);
+DEF_MMIO_OUT_X(out_le32, 32, stwbrx);
+#else
+DEF_MMIO_IN_X(in_be16, 16, lhbrx);
+DEF_MMIO_IN_X(in_be32, 32, lwbrx);
+DEF_MMIO_IN_D(in_le16, 16, lhz);
+DEF_MMIO_IN_D(in_le32, 32, lwz);
+
+DEF_MMIO_OUT_X(out_be16, 16, sthbrx);
+DEF_MMIO_OUT_X(out_be32, 32, stwbrx);
+DEF_MMIO_OUT_D(out_le16, 16, sth);
+DEF_MMIO_OUT_D(out_le32, 32, stw);
+			le32_to_cpu(rlc_hdr->reg_restore_list_size);
+	adev->gfx.rlc.reg_list_format_start =
+			le32_to_cpu(rlc_hdr->reg_list_format_start);
+	adev->gfx.rlc.reg_list_format_separate_start =
+			le32_to_cpu(rlc_hdr->reg_list_format_separate_start);
+	adev->gfx.rlc.starting_offsets_start =
+			le32_to_cpu(rlc_hdr->starting_offsets_start);
+	adev->gfx.rlc.reg_list_format_size_bytes =
+			le32_to_cpu(rlc_hdr->reg_list_format_size_bytes);
+	adev->gfx.rlc.reg_list_size_bytes =
+			le32_to_cpu(rlc_hdr->reg_list_size_bytes);
+
+	adev->gfx.rlc.register_list_format =
+			kmalloc(adev->gfx.rlc.reg_list_format_size_bytes +
+					adev->gfx.rlc.reg_list_size_bytes, GFP_KERNEL);
+
+	if (!adev->gfx.rlc.register_list_format) {
+		err = -ENOMEM;
+		goto out;
+	}
+
+	tmp = (unsigned int *)((uintptr_t)rlc_hdr +
+			le32_to_cpu(rlc_hdr->reg_list_format_array_offset_bytes));
+	for (i = 0 ; i < (adev->gfx.rlc.reg_list_format_size_bytes >> 2); i++)
+		adev->gfx.rlc.register_list_format[i] =	le32_to_cpu(tmp[i]);
+
+	adev->gfx.rlc.register_restore = adev->gfx.rlc.register_list_format + i;
+
+	tmp = (unsigned int *)((uintptr_t)rlc_hdr +
+			le32_to_cpu(rlc_hdr->reg_list_array_offset_bytes));
+	for (i = 0 ; i < (adev->gfx.rlc.reg_list_size_bytes >> 2); i++)
+		adev->gfx.rlc.register_restore[i] = le32_to_cpu(tmp[i]);
+
+	if (adev->asic_type >= CHIP_POLARIS10 && adev->asic_type <= CHIP_POLARIS12) {
+0000b3b0 <amdgpu_mm_wdoorbell>:
+    b3b0:	94 21 ff e0 	stwu    r1,-32(r1)
+    b3b4:	7c 08 02 a6 	mflr    r0
+    b3b8:	93 a1 00 14 	stw     r29,20(r1)
+    b3bc:	7c bd 2b 78 	mr      r29,r5
+    b3c0:	93 c1 00 18 	stw     r30,24(r1)
+    b3c4:	7c 7e 1b 78 	mr      r30,r3
+    b3c8:	93 e1 00 1c 	stw     r31,28(r1)
+    b3cc:	7c 9f 23 78 	mr      r31,r4
+    b3d0:	90 01 00 24 	stw     r0,36(r1)
+    b3d4:	48 00 00 01 	bl      b3d4 <amdgpu_mm_wdoorbell+0x24>
+    b3d8:	2c 03 00 00 	cmpwi   r3,0
+    b3dc:	40 82 00 24 	bne     b400 <amdgpu_mm_wdoorbell+0x50>
+    b3e0:	81 3e 05 b8 	lwz     r9,1464(r30)
+    b3e4:	7c 09 f8 40 	cmplw   r9,r31
+    b3e8:	40 81 00 34 	ble     b41c <amdgpu_mm_wdoorbell+0x6c>
+    b3ec:	81 3e 05 c0 	lwz     r9,1472(r30)
+    b3f0:	57 ff 10 3a 	slwi    r31,r31,2
+    b3f4:	7d 29 fa 14 	add     r9,r9,r31
+    b3f8:	7c 00 04 ac 	hwsync
+    b3fc:	7f a0 4d 2c 	stwbrx  r29,0,r9
+    b400:	80 01 00 24 	lwz     r0,36(r1)
+    b404:	83 a1 00 14 	lwz     r29,20(r1)
+    b408:	83 c1 00 18 	lwz     r30,24(r1)
+    b40c:	83 e1 00 1c 	lwz     r31,28(r1)
+    b410:	7c 08 03 a6 	mtlr    r0

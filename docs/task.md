@@ -1,3 +1,14 @@
+## 6.12 GPU review checkpoint —2026-11-08
+
+The next6.12 candidate compiles and passes all687 imported CRC checks against
+the accepted kernel export table, with matching ELF32 BE and full vermagic.
+It includes upstream ring-test ordering/error-propagation fixes and post-map
+boundary markers. NXP's P1022 documentation identifies the captured ERR_DR bit
+as an outbound completion timeout; the initiating GPU failure remains unproven.
+See builds/gfx-postmap-review-20261108/README.md for source exclusions, evidence
+and next controlled test. Candidate is staged inactive; live6.12 remains
+healthy/dual-core with GPU unloaded. No boot/kernel/firmware changes this pass.
+
 ## Errand breakpoint —6.12 driver review,2026-11-07
 
 See builds/gfx-postmap-review-20261107/README.md. Fresh source comparison found

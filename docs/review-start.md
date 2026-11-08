@@ -1,15 +1,17 @@
-Current work (2026-11-07): [GCC14 SPE compiler and option cleanup](builds/gcc14-spe-interface-20261107/README.md).
-The C-only headerless GCC14.2.0 bootstrap now builds. All94 legacy option records
-are preserved apart from retired Report metadata; selected C arithmetic,
-varargs, call-preservation and optimized-loop checks pass in QEMU and on the
-physical A1222. All16 candidate patches replay to the compiled source.
+Current work (2026-11-08): [6.12 AMDGPU architecture review and verified candidate](builds/gfx-postmap-review-20261108/README.md).
+The working physical board remains6.12.113-tabor-modular with both CPUs online.
+The newer7.3 kernel failed early boot and is a separate experiment; normal USB
+boot was restored to6.12. Trixie GCC14/glibc2.41 userspace remains the main goal.
 
-This is not an accepted replacement SDK: libgcc, patched glibc2.41, C++ and full
-ABI/runtime qualification remain. Start from `profiles/trixie-spe-sdk-candidate.json`,
-not the old package retry queue. The accepted GCC8 SDK and base lock remain
-active. The clean7.3 kernel's separate QEMU SMP issue remains unresolved; its
-USB bundle is staged inactive and the existing boot script/kernel remain active.
+GCC14 candidate has17 patches, and all9 selected dynamic C ABI checks passed on
+the actual A1222 (QEMU rounding differs). Corrected libgcc/glibc rebuilds passed;
+full C++/unwind and SDK/package-managed workstation acceptance remain open.
+The accepted GCC8 SDK/base lock has not been promoted implicitly.
 
+Start from the current task/progress checkpoint, not historical running queues.
+GPU candidate has687 import CRCs checked and is staged inactive; no load/reset
+has happened in this pass. Resume only with exact artifact checks and protected
+root/off-board first-bind capture as documented.
 
 # Review starting point
 

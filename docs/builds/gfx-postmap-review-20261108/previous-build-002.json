@@ -1,0 +1,16 @@
+{
+  "status": "failed",
+  "command": [
+    "make",
+    "-C",
+    "/candidate/source",
+    "O=/candidate/output",
+    "ARCH=powerpc",
+    "CROSS_COMPILE=powerpc-linux-gnu-",
+    "-j4",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu.ko"
+  ],
+  "hardware_tested": false,
+  "installed": false,
+  "exit": 2
+}

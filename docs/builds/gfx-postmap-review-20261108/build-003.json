@@ -1,0 +1,36 @@
+{
+  "status": "compiled-and-export-crcs-verified-not-installed",
+  "hardware_tested": false,
+  "installed": false,
+  "build_context": "private copy of complete accepted Kbuild output; fresh re-patched source",
+  "reference_control": {
+    "elf": "ELF32-BE-PowerPC-REL",
+    "vermagic": "6.12.113-tabor-modular SMP mod_unload modversions relocatable ",
+    "module_sha256": "6c51a545081a6bb1b0f55641f1a3f14fbe6e7991362d4b3eb192b05b17c4404e",
+    "export_crcs_checked": true,
+    "hardware_validated": false,
+    "versioned_symbols": 687,
+    "kernel_symvers_sha256": "7ce6a44098e08d521bc33a995774a014609c562587244f95b45cf3546e093593"
+  },
+  "command": [
+    "make",
+    "-C",
+    "/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "O=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "ARCH=powerpc",
+    "CROSS_COMPILE=powerpc-linux-gnu-",
+    "-j4",
+    "modules"
+  ],
+  "exit": 0,
+  "verification": {
+    "elf": "ELF32-BE-PowerPC-REL",
+    "vermagic": "6.12.113-tabor-modular SMP mod_unload modversions relocatable ",
+    "module_sha256": "080f54935bb910a9bafa021b8e12ac8965aab34344cbb382067c2b18d032eb72",
+    "export_crcs_checked": true,
+    "hardware_validated": false,
+    "versioned_symbols": 687,
+    "kernel_symvers_sha256": "7ce6a44098e08d521bc33a995774a014609c562587244f95b45cf3546e093593"
+  },
+  "config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec"
+}

@@ -1,0 +1,11 @@
+{
+  "negative_controls": {
+    "wrong_release": "module vermagic does not match kernel release",
+    "wrong_module_layout_crc": "kernel export CRC mismatch: module_layout"
+  },
+  "source_replay": {
+    "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c": "a9bc6e3380f100e7ddd8d7011229f07e0beb65868297c882165d3544a5d1d098",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c": "670e37b3e1b7418eadaa9cf3bc339723c739a121ae4d8ac8b1d8eab1b03a7865",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c": "7d73d41cda4c3a6766c4e5da03109a63696c7fa562c4519a9fe6f2ca9d98854b"
+  }
+}

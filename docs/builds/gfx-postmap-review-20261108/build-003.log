@@ -1,0 +1,1332 @@
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  SYNC    include/config/auto.conf
+  GEN     Makefile
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /base/work/tabor-smu-diagnostics-20261105-003/source/scripts/checksyscalls.sh
+  CC      init/main.o
+  CC      arch/powerpc/kernel/syscalls.o
+  CC      mm/filemap.o
+  CC      kernel/fork.o
+  CC      arch/powerpc/kernel/irq.o
+  CC      arch/powerpc/kernel/align.o
+  CC      init/do_mounts.o
+  CC      arch/powerpc/kernel/signal_32.o
+  CC      kernel/exec_domain.o
+  CC      kernel/cpu.o
+  CC      init/do_mounts_rd.o
+  CC      mm/oom_kill.o
+  CC      arch/powerpc/kernel/vdso.o
+  CC      init/do_mounts_initrd.o
+  CC      arch/powerpc/kernel/process.o
+  CC      init/initramfs.o
+  CC      arch/powerpc/kernel/systbl.o
+  CC      mm/fadvise.o
+  CC      kernel/exit.o
+  CC      init/version.o
+  CC      arch/powerpc/kernel/signal.o
+  AR      init/built-in.a
+  CC      mm/page-writeback.o
+  CC      fs/open.o
+  CC      arch/powerpc/kernel/time.o
+  CC      kernel/softirq.o
+  CC      arch/powerpc/kernel/traps.o
+  CC      fs/read_write.o
+  CC      mm/readahead.o
+  CC      kernel/resource.o
+  CC      arch/powerpc/kernel/prom_parse.o
+  CC      mm/swap.o
+  CC      arch/powerpc/kernel/ptrace/ptrace.o
+  CC      fs/file_table.o
+  CC      kernel/sysctl.o
+  CC      arch/powerpc/kernel/ptrace/ptrace-adv.o
+  CC      fs/super.o
+  CC      mm/truncate.o
+  AR      arch/powerpc/kernel/ptrace/built-in.a
+  CC      arch/powerpc/kernel/sys_ppc32.o
+  CC      arch/powerpc/kernel/pci_32.o
+  CC      kernel/capability.o
+  CC      mm/vmscan.o
+  CC      fs/stat.o
+  CC      arch/powerpc/kernel/pci-common.o
+  CC      kernel/ptrace.o
+  CC      fs/exec.o
+  CC      kernel/signal.o
+  AR      arch/powerpc/kernel/built-in.a
+  CC      arch/powerpc/mm/fault.o
+  AR      arch/powerpc/mm/built-in.a
+  CC      arch/powerpc/sysdev/fsl_soc.o
+  CC      fs/pipe.o
+  CC      mm/shmem.o
+  CC      kernel/sys.o
+  AR      arch/powerpc/sysdev/built-in.a
+  CC      arch/powerpc/platforms/85xx/mpc85xx_mds.o
+  CC      fs/namei.o
+  CC      arch/powerpc/platforms/85xx/tabor.o
+  CC      kernel/umh.o
+  CC      mm/util.o
+  AR      arch/powerpc/platforms/85xx/built-in.a
+  AR      arch/powerpc/platforms/built-in.a
+  CC      arch/powerpc/perf/callchain.o
+  CC      kernel/workqueue.o
+  CC      arch/powerpc/perf/callchain_32.o
+  CC      mm/percpu.o
+  CC      arch/powerpc/perf/perf_regs.o
+  CC      fs/fcntl.o
+  CC      arch/powerpc/perf/core-fsl-emb.o
+  CC      fs/ioctl.o
+  CC      arch/powerpc/perf/e500-pmu.o
+  CC      arch/powerpc/perf/e6500-pmu.o
+  CC      mm/slab_common.o
+  CC      fs/readdir.o
+  AR      arch/powerpc/perf/built-in.a
+  AR      arch/powerpc/built-in.a
+  CC      ipc/util.o
+  CC      kernel/pid.o
+  CC      fs/select.o
+  CC      ipc/msgutil.o
+  CC      kernel/task_work.o
+  CC      mm/compaction.o
+  CC      ipc/msg.o
+  CC      kernel/extable.o
+  CC      fs/dcache.o
+  CC      ipc/sem.o
+  CC      kernel/params.o
+  CC      kernel/nsproxy.o
+  CC      fs/inode.o
+  CC      ipc/shm.o
+  CC      mm/workingset.o
+  CC      kernel/notifier.o
+  CC      mm/debug.o
+  CC      ipc/syscall.o
+  CC      ipc/mqueue.o
+  CC      mm/gup.o
+  CC      fs/attr.o
+  CC      kernel/cred.o
+  CC      kernel/reboot.o
+  CC      fs/file.o
+  CC      ipc/namespace.o
+  AR      ipc/built-in.a
+  CC      security/keys/gc.o
+  CC      kernel/ksyms_common.o
+  CC      mm/mmap_lock.o
+  CC      security/keys/key.o
+  CC      kernel/groups.o
+  CC      fs/filesystems.o
+  CC      mm/memory.o
+  CC      kernel/sched/core.o
+  CC      security/keys/keyring.o
+  CC      fs/namespace.o
+  CC      security/keys/keyctl.o
+  CC      security/keys/permission.o
+  CC      mm/mincore.o
+  CC      security/keys/process_keys.o
+  CC      fs/xattr.o
+  CC      mm/mlock.o
+  AR      security/keys/built-in.a
+  CC      security/commoncap.o
+  CC      kernel/sched/fair.o
+  CC      fs/libfs.o
+  CC      mm/mmap.o
+  CC      security/min_addr.o
+  CC      security/device_cgroup.o
+  CC      fs/fs-writeback.o
+  AR      security/built-in.a
+  CC      crypto/algapi.o
+  CC      mm/mprotect.o
+  CC      mm/mremap.o
+  CC      crypto/aead.o
+  CC      kernel/sched/build_policy.o
+  CC      mm/msync.o
+  CC      fs/splice.o
+  CC      mm/rmap.o
+  CC      crypto/geniv.o
+  CC      crypto/lskcipher.o
+  CC      fs/sync.o
+  CC      crypto/skcipher.o
+  CC      mm/vmalloc.o
+  CC      fs/utimes.o
+  CC      fs/d_path.o
+  CC      crypto/ahash.o
+  CC      kernel/sched/build_utility.o
+  CC      fs/statfs.o
+  CC      crypto/shash.o
+  CC      fs/nsfs.o
+  CC      mm/process_vm_access.o
+  CC      crypto/akcipher.o
+  CC      mm/madvise.o
+  CC      fs/fs_context.o
+  CC      crypto/sig.o
+  CC      mm/swap_state.o
+  CC      fs/fs_parser.o
+  AR      kernel/sched/built-in.a
+  CC      kernel/locking/mutex.o
+  CC      crypto/kpp.o
+  CC      mm/swapfile.o
+  CC      fs/fsopen.o
+  CC      crypto/acompress.o
+  CC      fs/init.o
+  AR      kernel/locking/built-in.a
+  CC      kernel/power/qos.o
+  CC      crypto/scompress.o
+  CC      fs/kernel_read_file.o
+  CC      kernel/power/main.o
+  CC      fs/remap_range.o
+  CC      crypto/algboss.o
+  CC      mm/migrate.o
+  CC      crypto/authenc.o
+  CC      kernel/power/process.o
+  CC      fs/pidfs.o
+  CC      kernel/power/suspend.o
+  CC      mm/memcontrol.o
+  CC      crypto/authencesn.o
+  CC      fs/buffer.o
+  CC      crypto/rng.o
+  AR      kernel/power/built-in.a
+  CC      kernel/printk/printk.o
+  AR      crypto/built-in.a
+  CC      kernel/rcu/update.o
+  CC      fs/proc_namespace.o
+  CC      fs/notify/dnotify/dnotify.o
+  CC      mm/memfd.o
+  AR      kernel/printk/built-in.a
+  CC      fs/eventpoll.o
+  AR      fs/notify/dnotify/built-in.a
+  CC      fs/notify/inotify/inotify_user.o
+  AR      mm/built-in.a
+  CC      kernel/rcu/tree.o
+  CC      block/bdev.o
+  AR      fs/notify/inotify/built-in.a
+  AR      fs/notify/built-in.a
+  CC      fs/anon_inodes.o
+  CC      fs/signalfd.o
+  CC      fs/timerfd.o
+  CC      block/blk-core.o
+  CC      fs/eventfd.o
+  CC      fs/aio.o
+  CC      fs/locks.o
+  CC      block/blk-ioc.o
+  CC      kernel/dma/mapping.o
+  AR      kernel/rcu/built-in.a
+  CC      kernel/module/main.o
+  CC      block/ioprio.o
+  CC      fs/binfmt_elf.o
+  CC      block/partitions/msdos.o
+  CC      fs/posix_acl.o
+  CC      block/partitions/efi.o
+  CC      kernel/dma/swiotlb.o
+  CC      kernel/module/kmod.o
+  AR      block/partitions/built-in.a
+  CC      block/kyber-iosched.o
+  AR      kernel/dma/built-in.a
+  CC      kernel/kcmp.o
+  CC      kernel/module/version.o
+  CC      fs/coredump.o
+  CC      kernel/freezer.o
+  AR      block/built-in.a
+  AR      kernel/module/built-in.a
+  CC      io_uring/io_uring.o
+  CC      lib/dump_stack.o
+  CC      kernel/time/time.o
+  CC      lib/kobject_uevent.o
+  CC      fs/fhandle.o
+  CC      kernel/time/timer.o
+  CC      fs/iomap/trace.o
+  CC      lib/maple_tree.o
+  AR      fs/iomap/built-in.a
+  CC      fs/proc/task_mmu.o
+  CC      io_uring/notif.o
+  CC      kernel/time/hrtimer.o
+  CC      io_uring/net.o
+  CC      fs/proc/root.o
+  CC      fs/proc/base.o
+  CC      kernel/time/alarmtimer.o
+  CC      io_uring/poll.o
+  CC      lib/vsprintf.o
+  CC      fs/proc/fd.o
+  CC      io_uring/uring_cmd.o
+  CC      kernel/time/posix-timers.o
+  CC      fs/proc/proc_sysctl.o
+  CC      kernel/time/posix-clock.o
+  CC      io_uring/sqpoll.o
+  CC      kernel/time/itimer.o
+  CC      fs/proc/kcore.o
+  CC      io_uring/register.o
+  CC      kernel/time/tick-common.o
+  AR      fs/proc/built-in.a
+  CC      fs/kernfs/mount.o
+  CC      lib/nlattr.o
+  CC      io_uring/truncate.o
+  CC      fs/kernfs/inode.o
+  CC      kernel/time/timer_migration.o
+  CC      io_uring/napi.o
+  CC      lib/dynamic_queue_limits.o
+  CC      fs/kernfs/dir.o
+  AR      io_uring/built-in.a
+  CC      drivers/gpio/gpiolib.o
+  AR      kernel/time/built-in.a
+  CC      kernel/futex/syscalls.o
+  CC      lib/dim/net_dim.o
+  CC      fs/kernfs/file.o
+  AR      kernel/futex/built-in.a
+  CC      kernel/smp.o
+  AR      lib/dim/built-in.a
+  AR      lib/lib.a
+  AR      lib/built-in.a
+  CC      fs/kernfs/symlink.o
+  CC      sound/soc/soc-core.o
+  AR      drivers/gpio/built-in.a
+  CC      kernel/kallsyms.o
+  CC      drivers/pci/proc.o
+  AR      fs/kernfs/built-in.a
+  CC      fs/sysfs/symlink.o
+  CC      drivers/pci/pci-sysfs.o
+  CC      kernel/acct.o
+  CC      fs/sysfs/mount.o
+  CC      drivers/pci/syscall.o
+  CC      kernel/kexec_core.o
+  AR      fs/sysfs/built-in.a
+  CC      fs/ext4/super.o
+  AR      drivers/pci/built-in.a
+  AR      sound/soc/built-in.a
+  CC      kernel/kexec.o
+  AR      sound/built-in.a
+  CC      kernel/cgroup/cgroup.o
+  CC      drivers/tty/sysrq.o
+  CC      kernel/cgroup/rstat.o
+  CC      kernel/cgroup/namespace.o
+  CC      drivers/tty/serial/serial_core.o
+  CC      drivers/char/mem.o
+  CC      drivers/char/random.o
+  CC      kernel/cgroup/cgroup-v1.o
+  AR      drivers/tty/serial/built-in.a
+  AR      drivers/tty/built-in.a
+  AR      drivers/char/built-in.a
+  CC      drivers/base/core.o
+  CC [M]  drivers/gpu/drm/drm_drv.o
+  CC      kernel/cgroup/freezer.o
+  CC      fs/ext4/xattr_security.o
+  CC [M]  drivers/gpu/drm/drm_gem.o
+  AR      fs/ext4/built-in.a
+  CC      kernel/cgroup/cpuset.o
+  CC      fs/ext2/trace.o
+  AR      fs/ext2/built-in.a
+  CC      fs/jbd2/journal.o
+  CC      drivers/base/syscore.o
+  CC [M]  drivers/gpu/drm/drm_trace_points.o
+  CC      drivers/base/property.o
+  AR      kernel/cgroup/built-in.a
+  CC      kernel/user_namespace.o
+  CC [M]  drivers/gpu/drm/ttm/ttm_tt.o
+  LD [M]  drivers/gpu/drm/ttm/ttm.o
+  CC [M]  drivers/gpu/drm/scheduler/sched_main.o
+  AR      fs/jbd2/built-in.a
+  CC      fs/cramfs/inode.o
+  CC      kernel/pid_namespace.o
+  CC      drivers/base/devtmpfs.o
+  AR      fs/cramfs/built-in.a
+  CC      fs/ramfs/inode.o
+  CC      drivers/base/power/qos.o
+  CC      fs/ramfs/file-mmu.o
+  LD [M]  drivers/gpu/drm/scheduler/gpu-sched.o
+  CC      kernel/audit.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_drv.o
+  AR      fs/ramfs/built-in.a
+  CC      fs/hugetlbfs/inode.o
+  CC      drivers/base/power/main.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_device.o
+  AR      fs/hugetlbfs/built-in.a
+  CC      fs/fat/cache.o
+  CC      kernel/auditfilter.o
+  CC      fs/fat/dir.o
+  CC [M]  drivers/gpu/drm/radeon/radeon_trace_points.o
+  CC      drivers/base/power/wakeup.o
+  CC      kernel/auditsc.o
+  LD [M]  drivers/gpu/drm/radeon/radeon.o
+  CC      fs/fat/fatent.o
+  AR      drivers/base/power/built-in.a
+  CC      drivers/base/firmware_loader/main.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_drv.o
+  CC      kernel/audit_watch.o
+  CC      fs/fat/file.o
+  AR      drivers/base/firmware_loader/built-in.a
+  CC      drivers/base/regmap/regmap.o
+  CC      kernel/audit_fsnotify.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_device.o
+  CC      fs/fat/inode.o
+  CC      kernel/hung_task.o
+  CC      fs/fat/misc.o
+  CC      kernel/seccomp.o
+  AR      drivers/base/regmap/built-in.a
+  CC      drivers/base/trace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_doorbell_mgr.o
+  CC      fs/fat/nfs.o
+  AR      drivers/base/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_kms.o
+  CC      fs/fat/namei_vfat.o
+  CC      drivers/block/nbd.o
+  CC      kernel/trace/ring_buffer.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.o
+  CC [M]  fs/fat/namei_msdos.o
+  AR      drivers/block/built-in.a
+  CC      net/devres.o
+  AR      fs/fat/built-in.a
+  LD [M]  fs/fat/msdos.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/atombios_crtc.o
+  CC      fs/nfs/client.o
+  CC      net/socket.o
+  CC      kernel/trace/trace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_connectors.o
+  CC      fs/nfs/dir.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/atom.o
+  CC      net/core/sock.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_fence.o
+  CC      fs/nfs/file.o
+  CC      kernel/trace/trace_output.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ttm.o
+  CC      kernel/trace/trace_stat.o
+  CC      fs/nfs/getroot.o
+  CC      net/core/request_sock.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_object.o
+  CC      kernel/trace/trace_printk.o
+  CC      fs/nfs/inode.o
+  CC      net/core/skbuff.o
+  CC      kernel/trace/pid_list.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_gart.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_encoders.o
+  CC      kernel/trace/trace_sched_switch.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_display.o
+  CC      kernel/trace/trace_nop.o
+  CC      fs/nfs/super.o
+  CC      kernel/trace/blktrace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_i2c.o
+  CC      kernel/trace/trace_events.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_gem.o
+  CC      fs/nfs/io.o
+  CC      net/core/datagram.o
+  CC      fs/nfs/direct.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ring.o
+  CC      net/core/stream.o
+  CC      kernel/trace/trace_export.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_cs.o
+  CC      kernel/trace/trace_event_perf.o
+  CC      net/core/scm.o
+  CC      fs/nfs/pagelist.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_bios.o
+  CC      kernel/trace/trace_events_filter.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_benchmark.o
+  CC      net/core/gen_stats.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/atombios_dp.o
+  CC      kernel/trace/trace_events_trigger.o
+  CC      fs/nfs/read.o
+  CC      net/core/gen_estimator.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_afmt.o
+  CC      kernel/trace/trace_eprobe.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_trace_points.o
+  CC      net/core/net_namespace.o
+  CC      fs/nfs/symlink.o
+  CC      kernel/trace/error_report-traces.o
+  CC      fs/nfs/unlink.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/atombios_encoders.o
+  CC      net/core/secure_seq.o
+  CC      kernel/trace/power-traces.o
+  CC      fs/nfs/write.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_sa.o
+  CC      net/core/flow_dissector.o
+  CC      kernel/trace/rpm-traces.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/atombios_i2c.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_dma_buf.o
+  CC      kernel/trace/trace_dynevent.o
+  CC      fs/nfs/namespace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vm.o
+  CC      net/core/sysctl_net_core.o
+  CC      kernel/trace/trace_probe.o
+  CC      fs/nfs/mount_clnt.o
+  CC      kernel/trace/trace_uprobe.o
+  CC      net/core/dev.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vm_pt.o
+  CC      fs/nfs/nfstrace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vm_tlb_fence.o
+  AR      kernel/trace/built-in.a
+  CC      kernel/bpf/core.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ib.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_pll.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.o
+  CC      fs/nfs/export.o
+  AR      kernel/bpf/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_bo_list.o
+  CC      kernel/events/core.o
+  CC      fs/nfs/sysfs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ctx.o
+  CC      net/core/dev_addr_lists.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_sync.o
+  CC      fs/nfs/fs_context.o
+  CC      net/core/dst.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_gtt_mgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_preempt_mgr.o
+  CC      fs/nfs/nfsroot.o
+  CC      net/core/netevent.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vram_mgr.o
+  CC      fs/nfs/sysctl.o
+  CC      net/core/neighbour.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_virt.o
+  CC      fs/nfs/nfs3super.o
+  CC      kernel/events/ring_buffer.o
+  CC      fs/nfs/nfs3client.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_atomfirmware.o
+  CC      kernel/events/callchain.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vf_error.o
+  CC      fs/nfs/nfs3proc.o
+  CC      kernel/events/uprobes.o
+  CC      net/core/rtnetlink.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_sched.o
+  CC      fs/nfs/nfs3xdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_debugfs.o
+  AR      kernel/events/built-in.a
+  CC      kernel/rseq.o
+  AR      kernel/built-in.a
+  CC      drivers/dma-buf/dma-buf.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ids.o
+  CC      fs/nfs/nfs4proc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_gmc.o
+  CC      drivers/dma-buf/dma-fence.o
+  CC      net/core/utils.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_mmhub.o
+  AR      drivers/dma-buf/built-in.a
+  CC      drivers/scsi/scsi.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_hdp.o
+  CC      net/core/link_watch.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_xgmi.o
+  AR      drivers/scsi/built-in.a
+  CC      drivers/ata/libata-core.o
+  CC      net/core/filter.o
+  CC      fs/nfs/nfs4xdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_csa.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ras.o
+  CC      fs/nfs/nfs4state.o
+  AR      drivers/ata/built-in.a
+  CC      drivers/mtd/mtdsuper.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vm_cpu.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vm_sdma.o
+  CC      fs/nfs/nfs4renewd.o
+  AR      drivers/mtd/built-in.a
+  CC      net/core/sock_diag.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_discovery.o
+  CC      fs/nfs/nfs4super.o
+  CC      net/core/dev_ioctl.o
+  CC      net/core/tso.o
+  CC      fs/nfs/nfs4file.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ras_eeprom.o
+  CC      drivers/spi/spi.o
+  CC      net/core/sock_reuseport.o
+  CC      fs/nfs/delegation.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_nbio.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_umc.o
+  CC      net/core/fib_notifier.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smu_v11_0_i2c.o
+  CC      fs/nfs/nfs4idmap.o
+  CC      net/core/xdp.o
+  AR      drivers/spi/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_fru_eeprom.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_rap.o
+  CC      net/ethernet/eth.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_fw_attestation.o
+  CC      fs/nfs/callback.o
+  CC      net/core/flow_offload.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_securedisplay.o
+  CC      fs/nfs/callback_xdr.o
+  AR      net/ethernet/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_eeprom.o
+  CC      net/sched/sch_generic.o
+  CC      net/core/gro.o
+  CC      fs/nfs/callback_proc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_mca.o
+  CC      fs/nfs/nfs4namespace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_psp_ta.o
+  CC      net/sched/sch_mq.o
+  CC      net/core/netdev-genl.o
+  CC      fs/nfs/nfs4getroot.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_lsdma.o
+  CC      net/sched/sch_frag.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ring_mux.o
+  CC      fs/nfs/nfs4client.o
+  CC      net/core/netdev-genl-gen.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_xcp.o
+  CC      net/core/gso.o
+  AR      net/sched/built-in.a
+  CC      net/netlink/af_netlink.o
+  CC      fs/nfs/nfs4session.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_seq64.o
+  CC      fs/nfs/dns_resolve.o
+  CC      net/core/net-sysfs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_aca.o
+  CC      fs/nfs/nfs4trace.o
+  CC      net/netlink/genetlink.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_dev_coredump.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_fdinfo.o
+  CC      net/core/hotdata.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_pmu.o
+  CC      net/netlink/policy.o
+  CC      fs/nfs/nfs4sysctl.o
+  CC      net/core/netdev_rx_queue.o
+  AR      net/netlink/built-in.a
+  CC      net/ethtool/ioctl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/cik.o
+  AR      fs/nfs/built-in.a
+  CC      net/core/net-procfs.o
+  CC      fs/nfsd/trace.o
+  CC      net/core/fib_rules.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/cik_ih.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/dce_v8_0.o
+  CC      net/ethtool/common.o
+  CC      net/core/net-traces.o
+  CC      net/ethtool/netlink.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v7_0.o
+  CC      net/ethtool/bitset.o
+  CC      fs/nfsd/nfssvc.o
+  CC      net/ethtool/strset.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/cik_sdma.o
+  CC      fs/nfsd/nfsctl.o
+  CC      net/ethtool/linkinfo.o
+  CC      net/core/selftests.o
+  CC      net/ethtool/linkmodes.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/uvd_v4_2.o
+  CC      fs/nfsd/nfsfh.o
+  CC      net/ethtool/rss.o
+  CC      net/core/ptp_classifier.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vce_v2_0.o
+  CC      net/ethtool/linkstate.o
+  CC      fs/nfsd/vfs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/si.o
+  CC      net/core/dst_cache.o
+  CC      net/ethtool/debug.o
+  CC      net/ethtool/wol.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v6_0.o
+  CC      net/core/gro_cells.o
+  CC      fs/nfsd/export.o
+  CC      net/ethtool/features.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v6_0.o
+  CC      net/core/of_net.o
+  CC      fs/nfsd/auth.o
+  CC      net/ethtool/privflags.o
+  AR      net/core/built-in.a
+  CC      net/ethtool/rings.o
+  CC      fs/nfsd/lockd.o
+  CC      net/ipv4/route.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/si_ih.o
+  CC      net/ethtool/channels.o
+  CC      fs/nfsd/nfscache.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/si_dma.o
+  CC      net/ethtool/coalesce.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/dce_v6_0.o
+  CC      fs/nfsd/stats.o
+  CC      net/ethtool/pause.o
+  CC      net/ipv4/inetpeer.o
+  CC      fs/nfsd/filecache.o
+  CC      net/ethtool/eee.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/uvd_v3_1.o
+  CC      net/ethtool/tsinfo.o
+  CC      net/ipv4/protocol.o
+  CC      net/ethtool/cabletest.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vi.o
+  CC      fs/nfsd/nfs3proc.o
+  CC      net/ipv4/ip_input.o
+  CC      net/ethtool/tunnels.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mxgpu_vi.o
+  CC      fs/nfsd/nfs3xdr.o
+  CC      net/ipv4/ip_fragment.o
+  CC      net/ethtool/fec.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v6_1.o
+  CC      fs/nfsd/netlink.o
+  CC      net/ethtool/eeprom.o
+  CC      net/ipv4/ip_forward.o
+  AR      fs/nfsd/built-in.a
+  CC      fs/lockd/clntlock.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/soc15.o
+  CC      net/ethtool/stats.o
+  CC      net/ipv4/ip_options.o
+  CC      fs/lockd/clntproc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/emu_soc.o
+  CC      net/ethtool/phc_vclocks.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mxgpu_ai.o
+  CC      net/ethtool/mm.o
+  CC      net/ipv4/ip_output.o
+  CC      fs/lockd/clntxdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_0.o
+  CC      net/ethtool/module.o
+  CC      fs/lockd/host.o
+  CC      net/ethtool/cmis_fw_update.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vega10_reg_init.o
+  CC      fs/lockd/svc.o
+  CC      net/ipv4/ip_sockglue.o
+  CC      net/ethtool/cmis_cdb.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vega20_reg_init.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_4.o
+  CC      net/ethtool/pse-pd.o
+  CC      fs/lockd/svclock.o
+  CC      net/ethtool/plca.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v2_3.o
+  CC      net/ipv4/inet_hashtables.o
+  CC      fs/lockd/svcshare.o
+  CC      net/ethtool/phy.o
+  CC      fs/lockd/svcproc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nv.o
+  AR      net/ethtool/built-in.a
+  CC      net/xfrm/xfrm_policy.o
+  CC      fs/lockd/svcsubs.o
+  CC      net/ipv4/inet_timewait_sock.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/arct_reg_init.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mxgpu_nv.o
+  CC      fs/lockd/mon.o
+  CC      net/ipv4/inet_connection_sock.o
+  CC      fs/lockd/trace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_2.o
+  CC      fs/lockd/xdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/hdp_v4_0.o
+  CC      net/ipv4/tcp.o
+  CC      net/xfrm/xfrm_state.o
+  CC      fs/lockd/clnt4xdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/hdp_v5_0.o
+  CC      fs/lockd/xdr4.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/aldebaran_reg_init.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/aldebaran.o
+  CC      fs/lockd/svc4proc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/soc21.o
+  AR      fs/lockd/built-in.a
+  CC      net/xfrm/xfrm_input.o
+  CC      fs/ntfs3/super.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/soc24.o
+  CC      net/ipv4/tcp_input.o
+  AR      fs/ntfs3/built-in.a
+  CC      fs/jffs2/fs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sienna_cichlid.o
+  CC      net/xfrm/xfrm_output.o
+  CC      fs/jffs2/super.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smu_v13_0_10.o
+  AR      fs/jffs2/built-in.a
+  CC      fs/ubifs/shrinker.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v4_3.o
+  CC      net/xfrm/xfrm_sysctl.o
+  CC      fs/ubifs/journal.o
+  CC      net/xfrm/xfrm_replay.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/hdp_v6_0.o
+  CC      net/ipv4/tcp_output.o
+  CC      fs/ubifs/file.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_7.o
+  CC      net/xfrm/xfrm_device.o
+  CC      fs/ubifs/dir.o
+  CC      net/xfrm/xfrm_nat_keepalive.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/hdp_v5_2.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/lsdma_v6_0.o
+  CC      fs/ubifs/super.o
+  CC      net/xfrm/xfrm_proc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_9.o
+  CC      net/ipv4/tcp_timer.o
+  CC      net/xfrm/xfrm_algo.o
+  CC      fs/ubifs/sb.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/aqua_vanjaram.o
+  CC      fs/ubifs/io.o
+  CC      net/ipv4/tcp_ipv4.o
+  CC      net/xfrm/xfrm_user.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbio_v7_11.o
+  CC      fs/ubifs/tnc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/lsdma_v7_0.o
+  CC      fs/ubifs/master.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/hdp_v7_0.o
+  CC      net/ipv4/tcp_minisocks.o
+  CC      fs/ubifs/scan.o
+  CC      net/xfrm/xfrm_ipcomp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/nbif_v6_3_1.o
+  CC      fs/ubifs/replay.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/cyan_skillfish_reg_init.o
+  CC      net/ipv4/tcp_cong.o
+  CC      fs/ubifs/log.o
+  AR      net/xfrm/built-in.a
+  CC      net/unix/af_unix.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/df_v1_7.o
+  CC      fs/ubifs/commit.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/df_v3_6.o
+  CC      net/ipv4/tcp_metrics.o
+  CC      fs/ubifs/gc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/df_v4_3.o
+  CC      fs/ubifs/orphan.o
+  CC      net/unix/garbage.o
+  CC      net/ipv4/tcp_fastopen.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/df_v4_6_2.o
+  CC      fs/ubifs/budget.o
+  CC      net/unix/sysctl_net_unix.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/df_v4_15.o
+  CC      fs/ubifs/find.o
+  CC      net/ipv4/tcp_rate.o
+  AR      net/unix/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v7_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v8_0.o
+  CC      fs/ubifs/tnc_commit.o
+  CC      net/ipv4/tcp_recovery.o
+  CC      net/ipv6/af_inet6.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v1_0.o
+  CC      fs/ubifs/compress.o
+  CC      fs/ubifs/lpt.o
+  CC      net/ipv4/tcp_ulp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v1_0.o
+  CC      net/ipv6/anycast.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v9_0.o
+  CC      net/ipv4/tcp_offload.o
+  CC      fs/ubifs/lprops.o
+  CC      net/ipv6/ip6_output.o
+  CC      fs/ubifs/recovery.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v1_1.o
+  CC      net/ipv4/tcp_plb.o
+  CC      fs/ubifs/ioctl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v9_4.o
+  CC      fs/ubifs/lpt_commit.o
+  CC      net/ipv4/datagram.o
+  CC      net/ipv6/ip6_input.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v2_0.o
+  CC      fs/ubifs/tnc_misc.o
+  CC      net/ipv4/raw.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v2_0.o
+  CC      fs/ubifs/debug.o
+  CC      net/ipv6/addrconf.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v10_0.o
+  CC      net/ipv4/udp.o
+  CC      fs/ubifs/misc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v2_1.o
+  CC      fs/ubifs/sysfs.o
+  CC      fs/ubifs/xattr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v2_3.o
+  AR      fs/ubifs/built-in.a
+  CC      fs/debugfs/inode.o
+  CC      net/ipv6/addrlabel.o
+  CC      net/ipv4/udplite.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v1_7.o
+  CC      fs/debugfs/file.o
+  CC      net/ipv6/route.o
+  CC      net/ipv4/udp_offload.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v3_0.o
+  AR      fs/debugfs/built-in.a
+  CC      fs/tracefs/inode.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v3_0.o
+  CC      fs/tracefs/event_inode.o
+  CC      net/ipv4/arp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v3_0_2.o
+  AR      fs/tracefs/built-in.a
+  CC [M]  fs/binfmt_misc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v11_0.o
+  CC      net/ipv6/ip6_fib.o
+  CC [M]  fs/isofs/inode.o
+  CC      net/ipv4/icmp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v3_0_1.o
+  LD [M]  fs/isofs/isofs.o
+  CC [M]  fs/hfsplus/xattr_security.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v3_0_3.o
+  LD [M]  fs/hfsplus/hfsplus.o
+  CC [M]  fs/freevxfs/vxfs_super.o
+  CC      net/ipv4/devinet.o
+  CC      net/ipv6/ipv6_sockglue.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v1_2.o
+  LD [M]  fs/freevxfs/freevxfs.o
+  CC [M]  fs/efs/super.o
+  LD [M]  fs/efs/efs.o
+  CC [M]  fs/qnx4/inode.o
+  CC      net/ipv6/ndisc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v1_8.o
+  CC      net/ipv4/af_inet.o
+  LD [M]  fs/qnx4/qnx4.o
+  CC [M]  fs/udf/super.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v3_3.o
+  LD [M]  fs/udf/udf.o
+  AR      fs/built-in.a
+  CC      drivers/net/dummy.o
+  CC      net/ipv6/udp.o
+  CC      net/ipv4/igmp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v11_5_0.o
+  CC      drivers/net/mii.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mmhub_v4_1_0.o
+  CC      drivers/net/loopback.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfxhub_v12_0.o
+  CC      net/ipv6/udplite.o
+  CC      net/ipv4/fib_frontend.o
+  CC      drivers/net/phy/mdio-boardinfo.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gmc_v12_0.o
+  CC      net/ipv6/raw.o
+  CC      drivers/net/phy/stubs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v6_0.o
+  CC      drivers/net/phy/mdio_devres.o
+  CC      net/ipv4/fib_semantics.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v6_1.o
+  CC      net/ipv6/icmp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v6_7.o
+  CC      drivers/net/phy/phylink.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v8_7.o
+  CC      net/ipv6/mcast.o
+  CC      net/ipv4/fib_trie.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v8_10.o
+  CC      drivers/net/phy/phy.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umc_v12_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_irq.o
+  CC      net/ipv4/fib_notifier.o
+  CC      drivers/net/phy/phy-c45.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_ih.o
+  CC      net/ipv6/reassembly.o
+  CC      net/ipv4/inet_fragment.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/iceland_ih.o
+  CC      net/ipv6/tcp_ipv6.o
+  CC      drivers/net/phy/phy-core.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/tonga_ih.o
+  CC      drivers/net/phy/phy_device.o
+  CC      net/ipv4/ping.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/cz_ih.o
+  CC      net/ipv6/ping.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vega10_ih.o
+  CC      net/ipv4/ip_tunnel_core.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vega20_ih.o
+  CC      drivers/net/phy/linkmode.o
+  CC      net/ipv6/exthdrs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/navi10_ih.o
+  CC      drivers/net/phy/phy_link_topology.o
+  CC      net/ipv4/gre_offload.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/ih_v6_0.o
+  CC      drivers/net/phy/mdio_bus.o
+  CC      net/ipv6/datagram.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/ih_v6_1.o
+  CC      net/ipv4/metrics.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/ih_v7_0.o
+  CC      drivers/net/phy/mdio_device.o
+  CC      net/ipv4/netlink.o
+  CC      net/ipv6/ip6_flowlabel.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_psp.o
+  CC      drivers/net/phy/swphy.o
+  CC      net/ipv4/nexthop.o
+  CC      net/ipv6/inet6_connection_sock.o
+  CC      drivers/net/phy/aquantia/aquantia_main.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v3_1.o
+  CC      drivers/net/phy/aquantia/aquantia_firmware.o
+  CC      net/ipv6/udp_offload.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v10_0.o
+  CC      drivers/net/phy/aquantia/aquantia_leds.o
+  CC      net/ipv4/udp_tunnel_stub.o
+  CC      net/ipv6/seg6.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v11_0.o
+  CC      drivers/net/phy/aquantia/aquantia_hwmon.o
+  CC      net/ipv6/fib6_notifier.o
+  AR      drivers/net/phy/aquantia/built-in.a
+  CC      drivers/net/phy/bcm-phy-lib.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v11_0_8.o
+  CC      net/ipv4/ip_tunnel.o
+  CC      net/ipv6/rpl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v12_0.o
+  CC      net/ipv6/ioam6.o
+  CC      drivers/net/phy/broadcom.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v13_0.o
+  CC      net/ipv4/sysctl_net_ipv4.o
+  CC      net/ipv6/sysctl_net_ipv6.o
+  CC      drivers/net/phy/cicada.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v13_0_4.o
+  CC      net/ipv6/xfrm6_policy.o
+  CC      net/ipv4/proc.o
+  CC      drivers/net/phy/davicom.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/psp_v14_0.o
+  CC      drivers/net/phy/fixed_phy.o
+  CC      net/ipv6/xfrm6_state.o
+  CC      net/ipv4/fib_rules.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/dce_v10_0.o
+  CC      net/ipv6/xfrm6_input.o
+  CC      drivers/net/phy/marvell.o
+  CC      net/ipv4/ipmr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/dce_v11_0.o
+  CC      net/ipv6/xfrm6_output.o
+  CC      drivers/net/phy/teranetics.o
+  CC      drivers/net/phy/vitesse.o
+  CC      net/ipv6/xfrm6_protocol.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vkms.o
+  CC      net/ipv4/ipmr_base.o
+  AR      drivers/net/phy/built-in.a
+  CC      drivers/net/mdio/fwnode_mdio.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.o
+  CC      net/ipv6/proc.o
+  CC      drivers/net/mdio/of_mdio.o
+  CC      net/ipv4/ipip.o
+  CC      net/ipv6/sit.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_rlc.o
+  CC      net/ipv4/ah4.o
+  CC      drivers/net/mdio/mdio-mux.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v8_0.o
+  CC      drivers/net/mdio/mdio-mux-gpio.o
+  CC      net/ipv4/esp4.o
+  CC      net/ipv6/addrconf_core.o
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c: In function ‘gfx_v8_0_ring_test_ring’:
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c:884:37: warning: initialization discards ‘volatile’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  884 |                         u32 *word = &ring->ring[(producer_start + j) & ring->buf_mask];
+      |                                     ^
+  CC      drivers/net/mdio/mdio-mux-mmioreg.o
+  AR      drivers/net/mdio/built-in.a
+  CC      net/ipv6/exthdrs_core.o
+  CC      drivers/net/ethernet/freescale/fs_enet/fs_enet-main.o
+  CC      net/ipv4/ipcomp.o
+  CC      net/ipv6/ip6_checksum.o
+  CC      net/ipv4/xfrm4_tunnel.o
+  CC      drivers/net/ethernet/freescale/fs_enet/mac-scc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v9_0.o
+  CC      drivers/net/ethernet/freescale/fs_enet/mac-fcc.o
+  CC      net/ipv4/tunnel4.o
+  AR      drivers/net/ethernet/freescale/fs_enet/built-in.a
+  CC      drivers/net/ethernet/freescale/fsl_pq_mdio.o
+  CC      net/ipv6/ip6_icmp.o
+  CC      net/ipv6/output_core.o
+  CC      net/ipv4/ipconfig.o
+  CC      drivers/net/ethernet/freescale/xgmac_mdio.o
+  CC      drivers/net/ethernet/freescale/gianfar.o
+  CC      net/ipv4/inet_diag.o
+  CC      net/ipv6/protocol.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v9_4.o
+  CC      net/ipv6/ip6_offload.o
+  CC      drivers/net/ethernet/freescale/gianfar_ethtool.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v9_4_2.o
+  CC      net/ipv6/tcpv6_offload.o
+  CC      net/ipv4/tcp_diag.o
+  CC      drivers/net/ethernet/freescale/ucc_geth.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v9_4_3.o
+  CC      net/ipv6/exthdrs_offload.o
+  CC      net/ipv4/tcp_cubic.o
+  CC      net/ipv6/inet6_hashtables.o
+  CC      drivers/net/ethernet/freescale/ucc_geth_ethtool.o
+  CC      net/ipv4/xfrm4_policy.o
+  AR      drivers/net/ethernet/freescale/built-in.a
+  CC      drivers/net/ethernet/intel/e1000/e1000_main.o
+  CC      net/ipv4/xfrm4_state.o
+  CC      net/ipv6/mcast_snoop.o
+  CC      net/ipv4/xfrm4_input.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v10_0.o
+  CC [M]  net/ipv6/ip6_udp_tunnel.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_hw.o
+  CC      net/ipv4/xfrm4_output.o
+  AR      net/ipv6/built-in.a
+  CC      net/ipv4/xfrm4_protocol.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_ethtool.o
+  CC      drivers/net/ethernet/intel/e1000/e1000_param.o
+  CC [M]  net/ipv4/udp_tunnel_core.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/imu_v11_0.o
+  AR      drivers/net/ethernet/intel/e1000/built-in.a
+  CC      drivers/net/ethernet/intel/e1000e/82571.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v11_0.o
+  CC [M]  net/ipv4/udp_tunnel_nic.o
+  CC      drivers/net/ethernet/intel/e1000e/ich8lan.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v11_0_3.o
+  AR      net/ipv4/built-in.a
+  LD [M]  net/ipv4/udp_tunnel.o
+  CC      net/packet/af_packet.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/imu_v11_0_3.o
+  CC      drivers/net/ethernet/intel/e1000e/80003es2lan.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v12_0.o
+  CC      drivers/net/ethernet/intel/e1000e/mac.o
+  CC      drivers/net/ethernet/intel/e1000e/manage.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/imu_v12_0.o
+  AR      net/packet/built-in.a
+  CC      net/key/af_key.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_sdma.o
+  CC      drivers/net/ethernet/intel/e1000e/nvm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v2_4.o
+  CC      drivers/net/ethernet/intel/e1000e/phy.o
+  CC      net/sunrpc/clnt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v3_0.o
+  AR      net/key/built-in.a
+  CC      drivers/net/ethernet/intel/igb/igb_main.o
+  CC      drivers/net/ethernet/intel/e1000e/param.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v4_0.o
+  CC      drivers/net/ethernet/intel/e1000e/ethtool.o
+  CC      net/sunrpc/xprt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v4_4.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v4_4_2.o
+  CC      drivers/net/ethernet/intel/e1000e/netdev.o
+  CC      net/sunrpc/socklib.o
+  CC      drivers/net/ethernet/intel/igb/igb_ethtool.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v5_0.o
+  CC      net/sunrpc/xprtsock.o
+  CC      drivers/net/ethernet/intel/e1000e/ptp.o
+  CC      drivers/net/ethernet/intel/igb/e1000_82575.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v5_2.o
+  AR      drivers/net/ethernet/intel/e1000e/built-in.a
+  CC      drivers/net/ethernet/intel/igb/e1000_mac.o
+  CC      net/sunrpc/sched.o
+  CC      drivers/net/ethernet/intel/igb/e1000_nvm.o
+  CC      net/sunrpc/auth.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v6_0.o
+  CC      drivers/net/ethernet/intel/igb/e1000_phy.o
+  CC      drivers/net/ethernet/intel/igb/e1000_mbx.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/sdma_v7_0.o
+  CC      net/sunrpc/auth_null.o
+  CC      drivers/net/ethernet/intel/igb/e1000_i210.o
+  CC      drivers/net/ethernet/intel/igb/igb_ptp.o
+  CC      drivers/net/ethernet/intel/igb/igb_hwmon.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_mes.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mes_v11_0.o
+  CC      net/sunrpc/auth_tls.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mes_v12_0.o
+  AR      drivers/net/ethernet/intel/igb/built-in.a
+  AR      drivers/net/ethernet/intel/built-in.a
+  AR      drivers/net/ethernet/built-in.a
+  AR      drivers/net/built-in.a
+  CC      net/sunrpc/auth_unix.o
+  CC      drivers/usb/core/devio.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.o
+  CC      net/sunrpc/svc.o
+  CC      net/sysctl_net.o
+  AR      drivers/usb/core/built-in.a
+  AR      drivers/usb/built-in.a
+  CC      drivers/rtc/interface.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/uvd_v5_0.o
+  CC      drivers/i2c/i2c-core-base.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/uvd_v6_0.o
+  CC      net/sunrpc/svcsock.o
+  AR      drivers/rtc/built-in.a
+  CC      drivers/ptp/ptp_clock.o
+  CC      drivers/i2c/i2c-core-smbus.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/uvd_v7_0.o
+  AR      drivers/ptp/built-in.a
+  LD [M]  drivers/gpu/drm/drm.o
+  CC      drivers/hwmon/hwmon.o
+  CC      net/sunrpc/svcauth.o
+  AR      drivers/i2c/built-in.a
+  CC      drivers/mmc/core/core.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vce.o
+  AR      drivers/hwmon/built-in.a
+  CC      net/sunrpc/svcauth_unix.o
+  CC      net/sunrpc/addr.o
+  AR      drivers/mmc/core/built-in.a
+  AR      drivers/mmc/built-in.a
+  CC      net/sunrpc/rpcb_clnt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vce_v3_0.o
+  CC      net/sunrpc/timer.o
+  CC      net/sunrpc/xdr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vce_v4_0.o
+  CC      net/sunrpc/sunrpc_syms.o
+  CC      net/sunrpc/cache.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vcn.o
+  CC      net/sunrpc/rpc_pipe.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_sw_ring.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v1_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v2_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v2_5.o
+  CC      net/sunrpc/sysfs.o
+  CC      net/sunrpc/svc_xprt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v3_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v4_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v4_0_3.o
+  CC      net/sunrpc/xprtmultipath.o
+  CC      drivers/crypto/caam/error.o
+  CC      net/sunrpc/stats.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v4_0_5.o
+  CC      drivers/crypto/caam/ctrl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vcn_v5_0_0.o
+  CC      net/sunrpc/sysctl.o
+  CC      net/sunrpc/auth_gss/auth_gss.o
+  CC      drivers/crypto/caam/debugfs.o
+  CC      drivers/crypto/talitos.o
+  CC      drivers/crypto/caam/jr.o
+  CC      net/sunrpc/auth_gss/gss_mech_switch.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_jpeg.o
+  CC      drivers/crypto/caam/key_gen.o
+  CC      drivers/crypto/caam/caamalg.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v1_0.o
+  CC      net/sunrpc/auth_gss/svcauth_gss.o
+  CC      drivers/crypto/caam/caamhash.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v2_0.o
+  CC      drivers/crypto/caam/caamrng.o
+  CC      net/sunrpc/auth_gss/gss_rpc_upcall.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v2_5.o
+  CC      net/sunrpc/auth_gss/gss_rpc_xdr.o
+  CC      drivers/crypto/caam/caamprng.o
+  CC      net/sunrpc/auth_gss/trace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v3_0.o
+  CC      net/sunrpc/auth_gss/gss_krb5_mech.o
+  CC      drivers/crypto/caam/caampkc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v4_0.o
+  CC      net/sunrpc/auth_gss/gss_krb5_seal.o
+  CC      net/sunrpc/auth_gss/gss_krb5_unseal.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v4_0_3.o
+  CC      drivers/crypto/caam/pkc_desc.o
+  CC      net/sunrpc/auth_gss/gss_krb5_wrap.o
+  CC      net/sunrpc/auth_gss/gss_krb5_crypto.o
+  CC      drivers/crypto/caam/caamalg_desc.o
+  CC      net/sunrpc/auth_gss/gss_krb5_keys.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v4_0_5.o
+  CC      drivers/ras/ras.o
+  AR      net/sunrpc/auth_gss/built-in.a
+  AR      net/sunrpc/built-in.a
+  CC      net/handshake/alert.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/jpeg_v5_0_0.o
+  CC      drivers/crypto/caam/caamhash_desc.o
+  AR      drivers/ras/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_vpe.o
+  CC      net/handshake/genl.o
+  CC      net/handshake/netlink.o
+  CC      net/handshake/request.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/vpe_v6_1.o
+  AR      drivers/crypto/caam/built-in.a
+  AR      drivers/crypto/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_umsch_mm.o
+  CC      net/handshake/tlshd.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/umsch_mm_v4_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/athub_v1_0.o
+  CC      net/handshake/trace.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/athub_v2_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/athub_v2_1.o
+  CC [M]  net/sctp/sm_statetable.o
+  AR      net/handshake/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/athub_v3_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/athub_v4_1_0.o
+  CC [M]  net/sctp/sm_statefuns.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v9_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v11_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v11_0_6.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v13_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v13_0_3.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v13_0_6.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/smuio_v14_0_2.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_reset.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/mca_v3_0.o
+  CC [M]  net/sctp/sm_sideeffect.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_amdkfd.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/amdgpu_job.o
+  CC [M]  net/sctp/protocol.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/arcturus_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/navi10_ppt.o
+  AR      net/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/sienna_cichlid_ppt.o
+  CC [M]  net/sctp/endpointola.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/vangogh_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/cyan_skillfish_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu11/smu_v11_0.o
+  CC [M]  net/sctp/associola.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu12/renoir_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu12/smu_v12_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/aldebaran_ppt.o
+  CC [M]  net/sctp/transport.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/yellow_carp_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0_0_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0_4_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0_5_ppt.o
+  CC [M]  net/sctp/chunk.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0_7_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu13/smu_v13_0_6_ppt.o
+  CC [M]  net/sctp/sm_make_chunk.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu14/smu_v14_0.o
+  CC [M]  net/sctp/ulpevent.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu14/smu_v14_0_0_ppt.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu14/smu_v14_0_2_ppt.o
+  CC [M]  net/sctp/inqueue.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/amdgpu_smu.o
+  CC [M]  net/sctp/outqueue.o
+  CC [M]  net/sctp/ulpqueue.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/swsmu/smu_cmn.o
+  CC [M]  net/sctp/tsnmap.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/smu8_smumgr.o
+  CC [M]  net/sctp/bind_addr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/tonga_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/fiji_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/polaris10_smumgr.o
+  CC [M]  net/sctp/socket.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/iceland_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/smu7_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/vega10_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/smu10_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/ci_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/vega12_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/vegam_smumgr.o
+  CC [M]  net/sctp/primitive.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/smu9_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/vega20_smumgr.o
+  CC [M]  net/sctp/output.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/hwmgr.o
+  CC [M]  net/sctp/input.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/processpptables.o
+  CC [M]  net/sctp/debug.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/hardwaremanager.o
+  CC [M]  net/sctp/stream.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu8_hwmgr.o
+  CC [M]  net/sctp/auth.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/process_pptables_v1_0.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomfwctrl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_hwmgr.o
+  CC [M]  net/sctp/offload.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_powertune.o
+  CC [M]  net/sctp/stream_sched.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_thermal.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_clockpowergating.o
+  CC [M]  net/sctp/stream_sched_prio.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega10_processpptables.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega10_hwmgr.o
+  CC [M]  net/sctp/stream_sched_rr.o
+  CC [M]  net/sctp/stream_sched_fc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega10_powertune.o
+  CC [M]  net/sctp/stream_interleave.o
+  CC [M]  net/sctp/proc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega10_thermal.o
+  CC [M]  net/sctp/sysctl.o
+  CC [M]  net/sctp/ipv6.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu10_hwmgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/pp_psm.o
+  CC [M]  net/sctp/diag.o
+  LD [M]  net/sctp/sctp.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega12_processpptables.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega12_hwmgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega12_thermal.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu_helper.o
+  LD [M]  net/sctp/sctp_diag.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega20_processpptables.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega20_hwmgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega20_powertune.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega20_thermal.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/common_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega10_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega20_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/vega12_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu9_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/tonga_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/polaris_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/fiji_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ci_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_baco.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/amd_powerplay.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/legacy-dpm/legacy_dpm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/legacy-dpm/kv_dpm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/legacy-dpm/kv_smc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/legacy-dpm/si_dpm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/legacy-dpm/si_smc.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/amdgpu_dpm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/amdgpu_pm.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/amdgpu_dpm_internal.o
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.o
+  AR      drivers/built-in.a
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  OBJCOPY modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     .vmlinux.objs
+  MODPOST Module.symvers
+  LD [M]  fs/fat/msdos.ko
+  LD [M]  fs/binfmt_misc.ko
+  LD [M]  fs/isofs/isofs.ko
+  LD [M]  fs/hfsplus/hfsplus.ko
+  LD [M]  fs/freevxfs/freevxfs.ko
+  LD [M]  fs/efs/efs.ko
+  LD [M]  fs/qnx4/qnx4.ko
+  LD [M]  fs/udf/udf.ko
+  LD [M]  drivers/gpu/drm/drm.ko
+  LD [M]  drivers/gpu/drm/ttm/ttm.ko
+  LD [M]  drivers/gpu/drm/scheduler/gpu-sched.ko
+  LD [M]  drivers/gpu/drm/radeon/radeon.ko
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+  LD [M]  net/ipv4/udp_tunnel.ko
+  LD [M]  net/ipv6/ip6_udp_tunnel.ko
+  LD [M]  net/sctp/sctp.ko
+  LD [M]  net/sctp/sctp_diag.ko
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
