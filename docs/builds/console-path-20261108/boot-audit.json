@@ -1,0 +1,56 @@
+{
+  "usb_written": false,
+  "journal_replay": false,
+  "identity": {
+    "name": "sde",
+    "path": "/dev/sde",
+    "serial": "03001919041721081205",
+    "tran": "usb",
+    "partuuid": null,
+    "mountpoints": [],
+    "children": [
+      {
+        "name": "sde1",
+        "path": "/dev/sde1",
+        "serial": null,
+        "tran": null,
+        "partuuid": "a1221105-01",
+        "mountpoints": []
+      },
+      {
+        "name": "sde2",
+        "path": "/dev/sde2",
+        "serial": null,
+        "tran": null,
+        "partuuid": "a1221105-02",
+        "mountpoints": []
+      }
+    ]
+  },
+  "files": {
+    "init": {
+      "sha256": "f4adcd1fee09de1ba8c96f5bc7dd75f6ee920dcc2455ac7d198826cafa10a761",
+      "bytes": 594932,
+      "text": "ELF"
+    },
+    "FAT/boot.scr": {
+      "sha256": "550078f018abe3a200b9e9c2f240b72f1c448bfbd38b1ba2dbcc18638fd151ee",
+      "text": "'\u0005\u0019V\t\ufffdT\ufffdj\ufffd\ufffd\ufffd\u0000\u0000\u0002\ufffd\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\ufffd0\u0007*\u0005\u0007\u0006\u0000A1222 encoder codec 003\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0002\ufffd\u0000\u0000\u0000\u0000# Matched A1222 kernel/modules test; saved firmware startup command unchanged.\necho Booting 6.12.113-tabor-e2e-001\nif usb reset; then\n if fatload usb 0:1 0x04000000 /boot/e2e-003/uImage; then\n  if iminfo 0x04000000; then\n   if fatload usb 0:1 0x08000000 /boot/e2e-003/tabor.dtb; then\n    setenv bootargs root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1\n    if fatload usb 0:1 0x0a000000 /boot/uRamdisk-fw; then\n     if iminfo 0x0a000000; then\n      bootm 0x04000000 0x0a000000 0x08000000\n     fi\n    fi\n   fi\n  fi\n fi\nfi\necho Rescue boot failed or returned; saved firmware settings unchanged.\n"
+    },
+    "FAT/boot.cmd": {
+      "sha256": "6216d41eb55c38bb5793f375973b77d6dcae359427a05d7f032d8c55507b132d",
+      "text": "# Matched A1222 kernel/modules test; saved firmware startup command unchanged.\necho Booting 6.12.113-tabor-e2e-001\nif usb reset; then\n if fatload usb 0:1 0x04000000 /boot/e2e/uImage; then\n  if iminfo 0x04000000; then\n   if fatload usb 0:1 0x08000000 /boot/e2e/tabor.dtb; then\n    setenv bootargs root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1\n    if fatload usb 0:1 0x0a000000 /boot/uRamdisk-fw; then\n     if iminfo 0x0a000000; then\n      bootm 0x04000000 0x0a000000 0x08000000\n     fi\n    fi\n   fi\n  fi\n fi\nfi\necho Rescue boot failed or returned; saved firmware settings unchanged.\n"
+    }
+  },
+  "symlinks": {},
+  "init_scripts": [],
+  "candidate_console_config": {
+    "CONFIG_VT=y": true,
+    "CONFIG_VT_CONSOLE=y": true,
+    "CONFIG_FRAMEBUFFER_CONSOLE=y": true,
+    "CONFIG_DRM=m": true,
+    "CONFIG_DRM_AMDGPU=m": true,
+    "CONFIG_DRM_FBDEV_EMULATION=y": true,
+    "CONFIG_FONT_8x16=y": true
+  }
+}

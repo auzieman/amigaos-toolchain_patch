@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "actual_functions": 2,
+  "formats": 16,
+  "successful_scenarios_per_architecture": 64,
+  "error_scenarios_per_architecture": 4,
+  "checked_pixels_per_architecture": 3200,
+  "pixel_semantics_match": true,
+  "source_sha256": "f532b4264435548fbc531a90d1885a6a71e33e443a93ad042fe127fe343ca608",
+  "hardware_accessed": false,
+  "limits": [
+    "Linear scanout only; tiling metadata mocked zero",
+    "Register, BO and iosys IO endpoints mocked",
+    "Pixel fetch modeled using selected swap mode; physical effect not observed",
+    "No EDID, connector detection, PLL/link training, timing or fbcon glyph renderer execution"
+  ]
+}
