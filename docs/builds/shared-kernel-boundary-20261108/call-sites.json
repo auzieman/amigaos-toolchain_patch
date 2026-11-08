@@ -1,0 +1,210 @@
+{
+  "amdgpu_atombios_get_clock_dividers": [
+    {
+      "file": "amdgpu/vi.c",
+      "line": 988,
+      "text": "r = amdgpu_atombios_get_clock_dividers(adev,"
+    },
+    {
+      "file": "amdgpu/vi.c",
+      "line": 1074,
+      "text": "r = amdgpu_atombios_get_clock_dividers(adev,"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.h",
+      "line": 154,
+      "text": "int amdgpu_atombios_get_clock_dividers(struct amdgpu_device *adev,"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.h",
+      "line": 202,
+      "text": "int amdgpu_atombios_get_clock_dividers(struct amdgpu_device *adev,"
+    },
+    {
+      "file": "amdgpu/cik.c",
+      "line": 1458,
+      "text": "r = amdgpu_atombios_get_clock_dividers(adev,"
+    },
+    {
+      "file": "amdgpu/cik.c",
+      "line": 1499,
+      "text": "r = amdgpu_atombios_get_clock_dividers(adev,"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 996,
+      "text": "int amdgpu_atombios_get_clock_dividers(struct amdgpu_device *adev,"
+    },
+    {
+      "file": "pm/legacy-dpm/si_dpm.c",
+      "line": 5326,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/si_dpm.c",
+      "line": 7467,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 658,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 918,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 924,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 986,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 1049,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    },
+    {
+      "file": "pm/legacy-dpm/kv_dpm.c",
+      "line": 1108,
+      "text": "ret = amdgpu_atombios_get_clock_dividers(adev, COMPUTE_ENGINE_PLL_PARAM,"
+    }
+  ],
+  "amdgpu_atom_set_clock_word": [
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1061,
+      "text": "amdgpu_atom_set_clock_word(&args.v4, clock, 0);"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1074,
+      "text": "amdgpu_atom_set_clock_word(&args.v6_in.ulClock, clock, clock_type);"
+    },
+    {
+      "file": "amdgpu/atom.h",
+      "line": 35,
+      "text": "static inline void amdgpu_atom_set_clock_word(void *word, uint32_t clock, uint8_t flags)"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 359,
+      "text": "amdgpu_atom_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 380,
+      "text": "amdgpu_atom_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 410,
+      "text": "amdgpu_atom_set_clock_word(&pll_parameters, clock_value, 0);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 433,
+      "text": "amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value,"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 470,
+      "text": "amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value,"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 511,
+      "text": "amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value,"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 1402,
+      "text": "amdgpu_atom_set_clock_word(&memory_clock_parameters.asDPMMCReg.ulClock,"
+    }
+  ],
+  "amdgpu_atom_clock_word_frequency": [
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1069,
+      "text": "dividers->real_clock = amdgpu_atom_clock_word_frequency(&args.v4);"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1085,
+      "text": "dividers->real_clock = amdgpu_atom_clock_word_frequency(&args.v6_out.ulClock);"
+    },
+    {
+      "file": "amdgpu/atom.h",
+      "line": 40,
+      "text": "static inline uint32_t amdgpu_atom_clock_word_frequency(const void *word)"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 395,
+      "text": "amdgpu_atom_clock_word_frequency(&mpll_parameters.ulClock);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 418,
+      "text": "dividers->real_clock = amdgpu_atom_clock_word_frequency(&pll_parameters);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 444,
+      "text": "amdgpu_atom_clock_word_frequency(&pll_patameters.ulClock);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 526,
+      "text": "amdgpu_atom_clock_word_frequency(&pll_patameters.ulClock);"
+    }
+  ],
+  "amdgpu_atom_clock_word_flags": [
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1068,
+      "text": "amdgpu_atom_clock_word_flags(&args.v4);"
+    },
+    {
+      "file": "amdgpu/amdgpu_atombios.c",
+      "line": 1086,
+      "text": "dividers->post_divider = amdgpu_atom_clock_word_flags(&args.v6_out.ulClock);"
+    },
+    {
+      "file": "amdgpu/atom.h",
+      "line": 45,
+      "text": "static inline uint8_t amdgpu_atom_clock_word_flags(const void *word)"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 367,
+      "text": "(uint32_t)amdgpu_atom_clock_word_flags(&mpll_parameters.ulClock);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 396,
+      "text": "mpll_param->ulPostDiv = amdgpu_atom_clock_word_flags(&mpll_parameters.ulClock);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 417,
+      "text": "dividers->pll_post_divider = amdgpu_atom_clock_word_flags(&pll_parameters);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 442,
+      "text": "amdgpu_atom_clock_word_flags(&pll_patameters.ulClock);"
+    },
+    {
+      "file": "pm/powerplay/hwmgr/ppatomctrl.c",
+      "line": 524,
+      "text": "amdgpu_atom_clock_word_flags(&pll_patameters.ulClock);"
+    }
+  ]
+}

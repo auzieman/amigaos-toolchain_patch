@@ -1,0 +1,11 @@
+/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/standalone-codec.c: In function ‘amdgpu_ring_clear_ring’:
+/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/standalone-codec.c:30:18: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+   30 |         while (i <= ring->buf_mask)
+      |                  ^~
+/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/standalone-codec.c: In function ‘amdgpu_ring_write_multiple’:
+/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/standalone-codec.c:63:26: warning: comparison of integer expressions of different signedness: ‘unsigned int’ and ‘int’ [-Wsign-compare]
+   63 |         chunk1 = (chunk1 >= count_dw) ? count_dw : chunk1;
+      |                          ^~
+/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/standalone-codec.c:63:41: warning: operand of ‘?:’ changes signedness from ‘int’ to ‘unsigned int’ due to unsignedness of other operand [-Wsign-compare]
+   63 |         chunk1 = (chunk1 >= count_dw) ? count_dw : chunk1;
+      |                                         ^~~~~~~~

@@ -1,0 +1,26 @@
+{
+  "source": "/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-002/source",
+  "gpu_accessed": false,
+  "module_loaded": false,
+  "mocked": [
+    "MMIO context register",
+    "ring allocation/commit",
+    "device fetch and hardware swap"
+  ],
+  "actual_driver_functions": 8,
+  "cases_per_architecture": 32,
+  "additional_bulk_wrap_condition_checks": true,
+  "source_sha256": "0779c01d340a7abed19e03b9ed4eb984be3b20c4b0a79e1e5daf8943d314968f",
+  "architectures": {
+    "x86": {
+      "status": "PASS",
+      "executable_sha256": "ec7e8df611972de3c459aba9b97aa898289f7d839d1903e69c1e4d03169c55d9"
+    },
+    "ppc": {
+      "status": "PASS",
+      "executable_sha256": "cb94d60053a1f5dbe57a62a2778c02252ec7813ede0b8d422e3717d588a35f44"
+    }
+  },
+  "status": "PASS",
+  "limits": "Simulated consumer validates byte contracts, not actual GPU swap behavior, PCIe, DMA or timing."
+}

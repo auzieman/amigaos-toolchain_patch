@@ -1421,3 +1421,5 @@ are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/iss
 
 
 2026-11-08 complete USB boot VERIFIED: physical6.12.113-tabor-e2e-001 reached SSH, taint0/no AMDGPU, installed modulead5fc87d/all21firmware hashes match. Normal installed modprobe with off-board capture/rootRO reproduces DPM ack1 and PowerPlay/DCE success, then first PCIe fault46172us after UVD ring-test entry. SSH drops; no retry. This is the complete new boot, not a RAM driver split test. Display/UVD remain unaccepted. See builds/e2e-usb-20261108/hardware-summary.json.
+
+2026-11-08 standalone codec gate: eight actual candidate driver functions extracted into freestanding userspace with simulated MMIO/device consumer. 32 policy/wrap cases per x86/PPC architecture plus bulk/conditional checks pass; missing/double conversion detected on BE. Exact PPC binary also passes on physical A1222 CPU without module load or GPU access. Earlier ATOM56-case physical gate remains separate. Full e2e-002 build/43modules/687importCRCs pass, not deployed. No actual GPU swap, DMA or display acceptance. See builds/standalone-gpu-codec-20261108/ and shared-kernel-boundary-20261108/.

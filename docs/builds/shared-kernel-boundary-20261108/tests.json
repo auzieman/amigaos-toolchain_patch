@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "cases_per_architecture": 56,
+  "full_original_function_extracted": true,
+  "original_x86_preserved": true,
+  "original_ppc_mismatch_reproduced": true,
+  "corrected_ppc_matches_x86": true,
+  "response_frequency_and_postdivider_verified": true,
+  "interpreter_error_propagation_verified": true,
+  "hardware_tested": false,
+  "fixture_sha256": {
+    "old": "68856f5086be3de661939614c1bc2ce6fcb2fa992195ef412ca66a863f5d4381",
+    "fixed": "ce8319e0a92ec7d2a8b0c9c59fbc51bc9a8b7e8b4e7e93a2c67ab498c5b2e422"
+  }
+}

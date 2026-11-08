@@ -1,0 +1,19 @@
+{
+  "source": "/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-001/source",
+  "patch_sha256": "a5dbb773c0e2b2e5fd5feee496afb7a07059f6833fab0c9fce9e14697d4990e2",
+  "inputs": {
+    "drivers/gpu/drm/amd/amdgpu/atom.h": "1b1682ac01d0d2a8f16ef66107903d37184c8a284da4f833a249b9cadfa33f77",
+    "drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c": "0261ea2c2a042e54bac2d7a7d8e331a4d3ee5446a4cfa1892e3349f4f4a398bb",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.c": "ae8a41ffd9baafeeedd213b589389eca8be6cf68fe8c33f837b7d5ec63d64113"
+  },
+  "outputs": {
+    "drivers/gpu/drm/amd/amdgpu/atom.h": "674e07c83ea7321f6258754d5eb14554ec780756938edb8b41acb14971fa1f99",
+    "drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c": "8fafb87bfecb736221a402f08b2b795b8adfa21bf831db8f0e7d63702bd672e5",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.c": "647f740c382a88061364543f33e044a30b935b048e5f284758451b49c5a958d1"
+  },
+  "real_object_sha256": "c6aed7ce0c1734e8532faa6d8328a28bdcd77a6bb9565d71ee13372b22a76db7",
+  "compiled_mmio_write_byte_reverse_present": true,
+  "compiled_mmio_read_byte_reverse_present": true,
+  "global_mmio_dma_helpers_changed": false,
+  "hardware_tested": false
+}

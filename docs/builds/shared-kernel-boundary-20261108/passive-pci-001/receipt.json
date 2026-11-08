@@ -1,0 +1,50 @@
+{
+  "test": "standard PCI configuration read-only",
+  "gpu_mmio_accessed": false,
+  "driver_loaded_by_test": false,
+  "configuration_written": false,
+  "clock_fix_exercised": false,
+  "status": "PASS",
+  "vendor": "0x1002",
+  "device": "0x67ff",
+  "identification_and_class_decode_match": true,
+  "bars": [
+    {
+      "bar": 0,
+      "raw_word": "0xe000000c",
+      "type": "memory",
+      "width": 64,
+      "pci_bus_address": "0xe0000000",
+      "kernel_cpu_resource_start": "0xc40000000",
+      "addresses_equal": false
+    },
+    {
+      "bar": 2,
+      "raw_word": "0xf000000c",
+      "type": "memory",
+      "width": 64,
+      "pci_bus_address": "0xf0000000",
+      "kernel_cpu_resource_start": "0xc50000000",
+      "addresses_equal": false
+    },
+    {
+      "bar": 4,
+      "raw_word": "0x1001",
+      "type": "io",
+      "width": 32,
+      "pci_bus_address": "0x1000",
+      "kernel_cpu_resource_start": "0x1000",
+      "addresses_equal": true
+    },
+    {
+      "bar": 5,
+      "raw_word": "0xf0200000",
+      "type": "memory",
+      "width": 32,
+      "pci_bus_address": "0xf0200000",
+      "kernel_cpu_resource_start": "0xc50200000",
+      "addresses_equal": false
+    }
+  ],
+  "ssh_alive_after": true
+}

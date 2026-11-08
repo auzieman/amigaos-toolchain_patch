@@ -1,0 +1,139 @@
+
+/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-001/output/drivers/gpu/drm/amd/amdgpu/amdgpu_device.o:     file format elf32-powerpc
+
+
+Disassembly of section .text:
+
+00001ce4 <amdgpu_device_wreg>:
+    1ce4:	94 21 ff f0 	stwu    r1,-16(r1)
+    1ce8:	3d 23 00 03 	addis   r9,r3,3
+    1cec:	89 29 5d c8 	lbz     r9,24008(r9)
+    1cf0:	2c 09 00 00 	cmpwi   r9,0
+    1cf4:	40 82 00 0c 	bne     1d00 <amdgpu_device_wreg+0x1c>
+    1cf8:	38 21 00 10 	addi    r1,r1,16
+    1cfc:	4b ff f5 b8 	b       12b4 <amdgpu_device_wreg.part.0>
+    1d00:	38 21 00 10 	addi    r1,r1,16
+    1d04:	4e 80 00 20 	blr
+
+Disassembly of section .text.unlikely:
+
+
+/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-001/output/drivers/gpu/drm/amd/amdgpu/amdgpu_device.o:     file format elf32-powerpc
+
+
+Disassembly of section .text:
+
+000012b4 <amdgpu_device_wreg.part.0>:
+    12b4:	94 21 ff e0 	stwu    r1,-32(r1)
+    12b8:	93 a1 00 14 	stw     r29,20(r1)
+    12bc:	7c bd 2b 78 	mr      r29,r5
+    12c0:	93 c1 00 18 	stw     r30,24(r1)
+    12c4:	7c 9e 23 78 	mr      r30,r4
+    12c8:	93 e1 00 1c 	stw     r31,28(r1)
+    12cc:	54 84 10 3a 	slwi    r4,r4,2
+    12d0:	7c 7f 1b 78 	mr      r31,r3
+    12d4:	81 23 05 10 	lwz     r9,1296(r3)
+    12d8:	28 09 00 00 	cmplwi  r9,0
+    12dc:	41 81 00 64 	bgt     1340 <amdgpu_device_wreg.part.0+0x8c>
+    12e0:	2c 09 00 00 	cmpwi   r9,0
+    12e4:	41 82 00 50 	beq     1334 <amdgpu_device_wreg.part.0+0x80>
+    12e8:	7c 08 02 a6 	mflr    r0
+    12ec:	90 01 00 24 	stw     r0,36(r1)
+    12f0:	7f a5 eb 78 	mr      r5,r29
+    12f4:	7f e3 fb 78 	mr      r3,r31
+    12f8:	81 3f 05 44 	lwz     r9,1348(r31)
+    12fc:	7d 29 03 a6 	mtctr   r9
+    1300:	4e 80 04 21 	bctrl
+    1304:	80 01 00 24 	lwz     r0,36(r1)
+    1308:	7c 08 03 a6 	mtlr    r0
+    130c:	3d 20 00 00 	lis     r9,0
+			130e: R_PPC_ADDR16_HA	__tracepoint_amdgpu_device_wreg
+    1310:	39 29 00 00 	addi    r9,r9,0
+			1312: R_PPC_ADDR16_LO	__tracepoint_amdgpu_device_wreg
+    1314:	81 49 00 04 	lwz     r10,4(r9)
+    1318:	2c 0a 00 00 	cmpwi   r10,0
+    131c:	41 81 00 68 	bgt     1384 <amdgpu_device_wreg.part.0+0xd0>
+    1320:	83 a1 00 14 	lwz     r29,20(r1)
+    1324:	83 c1 00 18 	lwz     r30,24(r1)
+    1328:	83 e1 00 1c 	lwz     r31,28(r1)
+    132c:	38 21 00 20 	addi    r1,r1,32
+    1330:	4e 80 00 20 	blr
+    1334:	81 23 05 14 	lwz     r9,1300(r3)
+    1338:	7c 09 20 40 	cmplw   r9,r4
+    133c:	40 a1 ff ac 	ble     12e8 <amdgpu_device_wreg.part.0+0x34>
+    1340:	70 c6 00 02 	andi.   r6,r6,2
+    1344:	40 82 00 1c 	bne     1360 <amdgpu_device_wreg.part.0+0xac>
+    1348:	93 81 00 10 	stw     r28,16(r1)
+    134c:	3f 9f 00 03 	addis   r28,r31,3
+    1350:	81 3c 5a 70 	lwz     r9,23152(r28)
+    1354:	71 29 00 10 	andi.   r9,r9,16
+    1358:	40 82 00 8c 	bne     13e4 <amdgpu_device_wreg.part.0+0x130>
+    135c:	83 81 00 10 	lwz     r28,16(r1)
+    1360:	81 3f 05 18 	lwz     r9,1304(r31)
+    1364:	7d 29 22 14 	add     r9,r9,r4
+    1368:	7c 00 04 ac 	hwsync
+    136c:	7f a0 4d 2c 	stwbrx  r29,0,r9
+    1370:	3d 20 00 00 	lis     r9,0
+			1372: R_PPC_ADDR16_HA	__tracepoint_amdgpu_device_wreg
+    1374:	39 29 00 00 	addi    r9,r9,0
+			1376: R_PPC_ADDR16_LO	__tracepoint_amdgpu_device_wreg
+    1378:	81 49 00 04 	lwz     r10,4(r9)
+    137c:	2c 0a 00 00 	cmpwi   r10,0
+    1380:	40 81 ff a0 	ble     1320 <amdgpu_device_wreg.part.0+0x6c>
+    1384:	81 42 00 04 	lwz     r10,4(r2)
+    1388:	3c e0 00 00 	lis     r7,0
+			138a: R_PPC_ADDR16_HA	__cpu_online_mask
+    138c:	38 e7 00 00 	addi    r7,r7,0
+			138e: R_PPC_ADDR16_LO	__cpu_online_mask
+    1390:	55 46 e8 fa 	rlwinm  r6,r10,29,3,29
+    1394:	55 48 06 fe 	clrlwi  r8,r10,27
+    1398:	7d 47 30 2e 	lwzx    r10,r7,r6
+    139c:	7d 4a 44 30 	srw     r10,r10,r8
+    13a0:	71 4a 00 01 	andi.   r10,r10,1
+    13a4:	41 a2 ff 7c 	beq     1320 <amdgpu_device_wreg.part.0+0x6c>
+    13a8:	81 5f 00 04 	lwz     r10,4(r31)
+    13ac:	a0 8a 00 22 	lhz     r4,34(r10)
+    13b0:	81 29 00 20 	lwz     r9,32(r9)
+    13b4:	2c 09 00 00 	cmpwi   r9,0
+    13b8:	41 82 00 28 	beq     13e0 <amdgpu_device_wreg.part.0+0x12c>
+    13bc:	7c 08 02 a6 	mflr    r0
+    13c0:	90 01 00 24 	stw     r0,36(r1)
+    13c4:	7f a6 eb 78 	mr      r6,r29
+    13c8:	7f c5 f3 78 	mr      r5,r30
+    13cc:	54 84 04 3e 	clrlwi  r4,r4,16
+    13d0:	80 69 00 04 	lwz     r3,4(r9)
+    13d4:	48 00 00 01 	bl      13d4 <amdgpu_device_wreg.part.0+0x120>
+			13d4: R_PPC_REL24	__SCT__tp_func_amdgpu_device_wreg
+    13d8:	80 01 00 24 	lwz     r0,36(r1)
+    13dc:	7c 08 03 a6 	mtlr    r0
+    13e0:	4b ff ff 40 	b       1320 <amdgpu_device_wreg.part.0+0x6c>
+    13e4:	7c 08 02 a6 	mflr    r0
+    13e8:	90 81 00 0c 	stw     r4,12(r1)
+    13ec:	90 01 00 24 	stw     r0,36(r1)
+    13f0:	80 7c 75 fc 	lwz     r3,30204(r28)
+    13f4:	38 63 00 0c 	addi    r3,r3,12
+    13f8:	48 00 00 01 	bl      13f8 <amdgpu_device_wreg.part.0+0x144>
+			13f8: R_PPC_REL24	down_read_trylock
+    13fc:	2c 03 00 00 	cmpwi   r3,0
+    1400:	80 81 00 0c 	lwz     r4,12(r1)
+    1404:	40 82 00 14 	bne     1418 <amdgpu_device_wreg.part.0+0x164>
+    1408:	80 01 00 24 	lwz     r0,36(r1)
+    140c:	83 81 00 10 	lwz     r28,16(r1)
+    1410:	7c 08 03 a6 	mtlr    r0
+    1414:	4b ff ff 4c 	b       1360 <amdgpu_device_wreg.part.0+0xac>
+    1418:	38 c0 00 00 	li      r6,0
+    141c:	7f a5 eb 78 	mr      r5,r29
+    1420:	7f c4 f3 78 	mr      r4,r30
+    1424:	7f e3 fb 78 	mr      r3,r31
+    1428:	48 00 00 01 	bl      1428 <amdgpu_device_wreg.part.0+0x174>
+			1428: R_PPC_REL24	amdgpu_kiq_wreg
+    142c:	80 7c 75 fc 	lwz     r3,30204(r28)
+    1430:	38 63 00 0c 	addi    r3,r3,12
+    1434:	48 00 00 01 	bl      1434 <amdgpu_device_wreg.part.0+0x180>
+			1434: R_PPC_REL24	up_read
+    1438:	80 01 00 24 	lwz     r0,36(r1)
+    143c:	83 81 00 10 	lwz     r28,16(r1)
+    1440:	7c 08 03 a6 	mtlr    r0
+    1444:	4b ff fe c8 	b       130c <amdgpu_device_wreg.part.0+0x58>
+
+Disassembly of section .text.unlikely:
