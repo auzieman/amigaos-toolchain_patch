@@ -10,13 +10,13 @@
     {
       "name": "atom-clock",
       "exit": 0,
-      "elapsed_seconds": 0.47,
+      "elapsed_seconds": 0.87,
       "status": "PASS"
     },
     {
       "name": "ring-contract",
       "exit": 0,
-      "elapsed_seconds": 0.27,
+      "elapsed_seconds": 0.32,
       "status": "PASS"
     },
     {
@@ -28,7 +28,7 @@
     {
       "name": "clock-table-pipeline",
       "exit": 0,
-      "elapsed_seconds": 0.47,
+      "elapsed_seconds": 0.46,
       "status": "PASS"
     },
     {
@@ -41,6 +41,24 @@
       "name": "connected-flow",
       "exit": 0,
       "elapsed_seconds": 1.32,
+      "status": "PASS"
+    },
+    {
+      "name": "memory-contracts",
+      "exit": 0,
+      "elapsed_seconds": 0.32,
+      "status": "PASS"
+    },
+    {
+      "name": "uvd-decoder",
+      "exit": 0,
+      "elapsed_seconds": 0.42,
+      "status": "PASS"
+    },
+    {
+      "name": "uvd-encoder-payload",
+      "exit": 0,
+      "elapsed_seconds": 0.37,
       "status": "PASS"
     },
     {
@@ -61,7 +79,189 @@
     "ATOM request and response buffers",
     "encoder command memory and hardware swap effect",
     "actual DMA/coherency/timing",
-    "trace buffer loss statistics"
+    "trace buffer loss statistics",
+    "Polaris indirect-buffer fetch/payload pairing",
+    "interrupt doorbell shadow consumer contract",
+    "physical page-table/DMA mapping and cache visibility",
+    "framebuffer format, KMS and display scanout"
+  ],
+  "interface_contracts": [
+    {
+      "channel": "MMIO registers",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+      "line": 620,
+      "anchor": "amdgpu_device_rreg",
+      "contract": "Linux readl/writel numeric accessor",
+      "status": "compiled PPC accessor reviewed; actual MMIO remains hardware gate"
+    },
+    {
+      "channel": "indexed SMC registers",
+      "file": "drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c",
+      "line": 166,
+      "anchor": "smu7_send_msg_to_smc",
+      "contract": "native numeric register values",
+      "status": "response and trace replay pass; timing open"
+    },
+    {
+      "channel": "ATOM clock payload",
+      "file": "drivers/gpu/drm/amd/amdgpu/atom.h",
+      "line": 35,
+      "anchor": "amdgpu_atom_set_clock_word",
+      "contract": "LE24+8 wire word",
+      "status": "shared helpers tested"
+    },
+    {
+      "channel": "raw PowerPlay clocks",
+      "file": "drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c",
+      "line": 3719,
+      "anchor": "smu7_get_pp_table_entry_callback_func_v1",
+      "contract": "LE raw clocks -> native once",
+      "status": "0024 connected regression passes; hardware open"
+    },
+    {
+      "channel": "SMU transfer objects",
+      "file": "drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c",
+      "line": 984,
+      "anchor": "polaris10_populate_single_graphic_level",
+      "contract": "native -> packed SMU BE fields",
+      "status": "individual levels tested; full table snapshot open"
+    },
+    {
+      "channel": "SMU SRAM upload",
+      "file": "drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c",
+      "line": 85,
+      "anchor": "smu7_copy_bytes_to_smc",
+      "contract": "bytes packed MSB-first into numeric register",
+      "status": "tail and connected transfer tests pass"
+    },
+    {
+      "channel": "GFX/compute primary rings",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c",
+      "line": 759,
+      "anchor": "amdgpu_ring_uses_sw_le",
+      "contract": "software LE policy; hardware ring swap disabled on target",
+      "status": "scratch tests pass; full workload open"
+    },
+    {
+      "channel": "GFX indirect fetch",
+      "file": "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c",
+      "line": 6340,
+      "anchor": "gfx_v8_0_ring_emit_ib_gfx",
+      "contract": "BE packet fetch mode2 separate from primary ring",
+      "status": "source identified; actual fetch not qualified"
+    },
+    {
+      "channel": "compute indirect fetch",
+      "file": "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c",
+      "line": 6372,
+      "anchor": "gfx_v8_0_ring_emit_ib_compute",
+      "contract": "BE packet fetch mode2 separate from primary ring",
+      "status": "source identified; shader storage and fetch open"
+    },
+    {
+      "channel": "SDMA ring and IB",
+      "file": "drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c",
+      "line": 629,
+      "anchor": "sdma_v3_0_gfx_resume",
+      "contract": "distinct RB_SWAP and IB_SWAP settings",
+      "status": "source identified; ring scratch passed, IB hardware open"
+    },
+    {
+      "channel": "UVD decoder ring and IB",
+      "file": "drivers/gpu/drm/amd/amdgpu/uvd_v6_0.c",
+      "line": 48,
+      "anchor": "uvd_v6_0_start",
+      "contract": "native words plus LMI hardware swap0xa",
+      "status": "decoder ring test passed; IB workload open"
+    },
+    {
+      "channel": "UVD encoder ring",
+      "file": "drivers/gpu/drm/amd/amdgpu/uvd_v6_0.c",
+      "line": 1044,
+      "anchor": "uvd_v6_0_enc_ring_emit_ib",
+      "contract": "software LE primary ring; indirect pointer does not prove payload conversion",
+      "status": "encoder ring test passed; IB contract review required"
+    },
+    {
+      "channel": "UVD encoder native IB producer",
+      "file": "drivers/gpu/drm/amd/amdgpu/uvd_v6_0.c",
+      "line": 199,
+      "anchor": "uvd_v6_0_enc_get_create_msg",
+      "contract": "native buffer stores; must pair with actual encoder fetch contract",
+      "status": "OPEN: no blanket conversion until shared LMI/fetch behavior resolved"
+    },
+    {
+      "channel": "VCE ring and IB",
+      "file": "drivers/gpu/drm/amd/amdgpu/vce_v3_0.c",
+      "line": 64,
+      "anchor": "vce_v3_0",
+      "contract": "LMI swap configuration and job payload contract",
+      "status": "OPEN: not covered by UVD encoder ring result"
+    },
+    {
+      "channel": "fence writeback",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c",
+      "line": 92,
+      "anchor": "amdgpu_fence_read",
+      "contract": "LE memory -> native; CPU writer LE",
+      "status": "new actual read/write regression passes; GPU writeback open"
+    },
+    {
+      "channel": "CPU page-table writer",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_gmc.c",
+      "line": 145,
+      "anchor": "amdgpu_gmc_set_pte_pde",
+      "contract": "native64 -> Linux writeq LE MMIO",
+      "status": "new actual function regression passes with modeled writeq; DMA translation open"
+    },
+    {
+      "channel": "Polaris interrupt vectors",
+      "file": "drivers/gpu/drm/amd/amdgpu/tonga_ih.c",
+      "line": 233,
+      "anchor": "tonga_ih_decode_iv",
+      "contract": "LE dwords -> native fields",
+      "status": "new actual decoder regression passes; IRQ delivery open"
+    },
+    {
+      "channel": "interrupt doorbell shadow",
+      "file": "drivers/gpu/drm/amd/amdgpu/tonga_ih.c",
+      "line": 267,
+      "anchor": "tonga_ih_set_rptr",
+      "contract": "native shadow store has upstream BE TODO",
+      "status": "OPEN: determine shadow consumer and required format before change"
+    },
+    {
+      "channel": "DMA addressing",
+      "file": "drivers/gpu/drm/amd/amdgpu/gmc_v8_0.c",
+      "line": 1120,
+      "anchor": "dma_set_mask_and_coherent",
+      "contract": "40bit device DMA mask; Linux mapping and SWIOTLB",
+      "status": "OPEN: verify P1022 windows/cache policy with real device addresses"
+    },
+    {
+      "channel": "publication/cache ordering",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c",
+      "line": 234,
+      "anchor": "amdgpu_device_flush_hdp",
+      "contract": "HDP flush before emission; invalidate before fence; ring commit publishes",
+      "status": "OPEN: offline byte equality does not test physical ordering"
+    },
+    {
+      "channel": "firmware containers and microcode",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_ucode.c",
+      "line": 29,
+      "anchor": "amdgpu_ucode",
+      "contract": "LE metadata; raw microcode byte transfer",
+      "status": "OPEN: complete firmware-family copy/size/offset walk"
+    },
+    {
+      "channel": "display scanout pixels",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v10_0.c",
+      "line": 1852,
+      "anchor": "GRPH_ENDIAN_SWAP",
+      "contract": "pixel-format-specific hardware swap; separate from packets",
+      "status": "OPEN: actual fbcon/KMS scanout and modeset"
+    }
   ],
   "codec_suites_passed": true,
   "reason": "Known encoding/replay checks pass, but complete table/ATOM/device-state coverage is not captured."

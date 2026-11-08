@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "actual_producer_functions": 2,
+  "scenarios_per_architecture": 768,
+  "successful_payloads_per_architecture": 256,
+  "hardware_accessed": false,
+  "deployment_allowed": false,
+  "source_sha256": "ead7c52d56c8c7564b9ae8a68486b61986448c0c9272c580dc367a67f0582b8c",
+  "native_semantics_match": true,
+  "consumer_hypotheses": {
+    "x86": "LE fetch matches; byte-swapped fetch does not",
+    "PPC_BE": "byte-swapped fetch matches; LE fetch does not"
+  },
+  "hardware_fetch_contract": "UNRESOLVED for encoder IB; ring test does not prove this contract",
+  "limits": [
+    "Job/fence allocation and submission mocked",
+    "Actual encoder firmware fetch and LMI swap routing not observed",
+    "No payload conversion patch inferred from a mocked endpoint"
+  ]
+}

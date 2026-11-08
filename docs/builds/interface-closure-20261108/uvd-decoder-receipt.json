@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "actual_functions": 3,
+  "message_scenarios_per_architecture": 288,
+  "firmware_resume_scenarios_per_architecture": 5,
+  "output_bytes": 1048960,
+  "source_sha256": "cab5d2bf0c114971c82a5db7f7e6439c0c98eba300e9cdf651e783084060839a",
+  "output_sha256": "0d398b0c68dbf48b9fc86553d4ed83c35c79865b5abf80db5cf9152855588363",
+  "hardware_accessed": false,
+  "limitations": [
+    "Allocation, submission, drm_dev_enter and IO copies mocked",
+    "Synthetic valid firmware header and payload; full upstream header validation not exercised",
+    "No hardware VCPU execution, IB decode, fence completion or video playback"
+  ]
+}

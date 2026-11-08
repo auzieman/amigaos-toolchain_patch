@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "actual_functions": [
+    "static void amdgpu_fence_write(",
+    "static u32 amdgpu_fence_read(",
+    "int amdgpu_gmc_set_pte_pde(",
+    "static void tonga_ih_decode_iv("
+  ],
+  "cases_per_architecture": {
+    "fence_memory": 256,
+    "fence_atomic_fallback": 256,
+    "pte_write_with_sentinels": 256,
+    "polaris_interrupt_decode": 256
+  },
+  "hardware_accessed": false,
+  "source_sha256": "5a64261e40eb2ce34cb538f0cb351b96b1d9e64ceb3f81d36b20c24b79ddd8d1",
+  "output_bytes": 47616,
+  "output_sha256": "81461da371d79d08fe513707a05e04ecfe9c495b31b4c464f848657bc6597143",
+  "limitations": [
+    "Linux writeq is modeled using its LE contract, not executed against MMIO",
+    "No DMA, IRQ delivery, cache, PCIe or display execution",
+    "Does not test interrupt doorbell shadow pointer encoding"
+  ]
+}
