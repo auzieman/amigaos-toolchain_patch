@@ -2035,3 +2035,5 @@ User requests flexibility for alternative cards. Added separate tabor-modular pr
 2026-11-08 physical PowerPlay candidate7067488b: protected single bind again passes GFX/compute/SDMA scratch tests; first PCIe error follows SMU DPM_Enable0x14e entry by45,333us inside smu7_start_dpm. Bind timed out; no retry or boot changes. See builds/polaris-powerplay-20261108/hardware-offboard-001/. Next: audit DPM transition/table producer contracts; command causation not proven.
 
 2026-11-08 historical graphics intake: retained A-EON5.4 config enables radeon, disables amdgpu; retained vendor patch changes board/audio only. May2025 firsthand report loses Linux after Polaris replacement. Archive web indexes502; package recovery not yet accepted. See builds/historical-tabor-graphics-20261108/.
+
+2026-11-08 derfsss U-Boot review pinned9bfbc801: VBIOS POST/bridge forwarding and framebuffer bus-to-CPU conversion documented; RX560 graphics testing cited on X5000, A1222 console unverified. PCIE1 outbound windows match our captured Linux boot, so no gross address-map fix found. Six-file intake/hashes in builds/derfsss-uboot-review-20261108/. No firmware/hardware change.
