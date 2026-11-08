@@ -23,3 +23,5 @@ The test assumes LE firmware fetches with no hardware swap; it validates represe
 Full fresh e2e-003 kernel/modules/DTB build is launched on R730, pinned image and parent identities,4CPUs/6GiB, no network. Build status and artifact identities must be checked before deployment. A1222 remains on the prior failed trial; no reboot or deployment performed in this round.
 
 Full e2e-003 build completed successfully:43modules, AMDGPU687versioned imports verified, U-Boot CRC/load checks and bundle hashes pass. Module SHA48799ed982a9e52f189d22e8f9d142fcc1db048ecacc35fba6c69eb7a8b42f16. Not installed or hardware tested; previous A1222 boot files untouched. See build-receipt.json.
+
+2026-11-08 fresh e2e-002 boot reached SSH, taint0/no AMDGPU. Installed complete e2e-003 candidate over SSH after USB serial and old boot hash checks; all staged/installed payloads verified, firmware aliases preserved. /boot.scr now selects /boot/e2e-003; exact e2e-002 selection retained as /boot-e2e002-rollback.scr. FAT synced/unmounted. Running kernel remains e2e-002, no GPU load, no reboot. Candidate physical boot/encoder acceptance pending. See live-deploy.json.
