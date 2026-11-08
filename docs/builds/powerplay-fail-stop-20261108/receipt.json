@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scenarios_per_version_architecture": 372,
+  "total_scenarios": 1488,
+  "actual_functions": 3,
+  "old_control": "Continues after callback failure and discards nested voltage/mask errors",
+  "fixed": "Returns first error and issues no downstream callback or nested mask command",
+  "success_flow_unchanged": true,
+  "patch_sha256": "cd15e56661ff447d0fc6d5b4eee8215419f339b14939cc76fe79939a418eadbd",
+  "hardware_accessed": false,
+  "limitations": [
+    "Callbacks and SMU endpoint fault-injected, no hardware execution",
+    "Cannot cancel a request that already wedges PCIe or CPU",
+    "Failure after freeze may leave DPM frozen; no speculative recovery commands issued",
+    "Root cause of first hardware fault remains unproven"
+  ]
+}

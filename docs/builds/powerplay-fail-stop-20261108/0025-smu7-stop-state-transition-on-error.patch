@@ -1,0 +1,152 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
+@@ -3199,11 +3199,11 @@
+ 	return vddc_dep_on_dispclk->entries[vddc_dep_on_dispclk->count - 1].v;
+ }
+ 
+-static void smu7_apply_minimum_dce_voltage_request(struct pp_hwmgr *hwmgr)
++static int smu7_apply_minimum_dce_voltage_request(struct pp_hwmgr *hwmgr)
+ {
+ 	uint32_t req_vddc = smu7_lookup_vddc_from_dispclk(hwmgr);
+ 
+-	smum_send_msg_to_smc_with_parameter(hwmgr,
++	return smum_send_msg_to_smc_with_parameter(hwmgr,
+ 			PPSMC_MSG_VddC_Request,
+ 			req_vddc * VOLTAGE_SCALE,
+ 			NULL);
+@@ -3212,23 +3212,29 @@
+ static int smu7_upload_dpm_level_enable_mask(struct pp_hwmgr *hwmgr)
+ {
+ 	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
+-
+-	smu7_apply_minimum_dce_voltage_request(hwmgr);
+-
+-	if (!data->sclk_dpm_key_disabled) {
+-		if (data->dpm_level_enable_mask.sclk_dpm_enable_mask)
+-			smum_send_msg_to_smc_with_parameter(hwmgr,
+-					PPSMC_MSG_SCLKDPM_SetEnabledMask,
+-					data->dpm_level_enable_mask.sclk_dpm_enable_mask,
+-					NULL);
+-	}
+-
+-	if (!data->mclk_dpm_key_disabled) {
+-		if (data->dpm_level_enable_mask.mclk_dpm_enable_mask)
+-			smum_send_msg_to_smc_with_parameter(hwmgr,
+-					PPSMC_MSG_MCLKDPM_SetEnabledMask,
+-					data->dpm_level_enable_mask.mclk_dpm_enable_mask,
+-					NULL);
++	int ret;
++
++	ret = smu7_apply_minimum_dce_voltage_request(hwmgr);
++	if (ret)
++		return ret;
++
++	if (!data->sclk_dpm_key_disabled &&
++	    data->dpm_level_enable_mask.sclk_dpm_enable_mask) {
++		ret = smum_send_msg_to_smc_with_parameter(hwmgr,
++				PPSMC_MSG_SCLKDPM_SetEnabledMask,
++				data->dpm_level_enable_mask.sclk_dpm_enable_mask,
++				NULL);
++		if (ret)
++			return ret;
++	}
++	if (!data->mclk_dpm_key_disabled &&
++	    data->dpm_level_enable_mask.mclk_dpm_enable_mask) {
++		ret = smum_send_msg_to_smc_with_parameter(hwmgr,
++				PPSMC_MSG_MCLKDPM_SetEnabledMask,
++				data->dpm_level_enable_mask.mclk_dpm_enable_mask,
++				NULL);
++		if (ret)
++			return ret;
+ 	}
+ 
+ 	return 0;
+@@ -4607,13 +4613,13 @@
+ 
+ static int smu7_set_power_state_tasks(struct pp_hwmgr *hwmgr, const void *input)
+ {
+-	int tmp_result, result = 0;
++	int tmp_result;
+ 	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
+ 
+ 	tmp_result = smu7_find_dpm_states_clocks_in_dpm_table(hwmgr, input);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to find DPM states clocks in DPM table!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	if (phm_cap_enabled(hwmgr->platform_descriptor.platformCaps,
+ 			PHM_PlatformCaps_PCIEPerformanceRequest)) {
+@@ -4621,17 +4627,17 @@
+ 			smu7_request_link_speed_change_before_state_change(hwmgr, input);
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to request link speed change before state change!",
+-				result = tmp_result);
++				return tmp_result);
+ 	}
+ 
+ 	tmp_result = smu7_freeze_sclk_mclk_dpm(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+-			"Failed to freeze SCLK MCLK DPM!", result = tmp_result);
++			"Failed to freeze SCLK MCLK DPM!", return tmp_result);
+ 
+ 	tmp_result = smu7_populate_and_upload_sclk_mclk_dpm_levels(hwmgr, input);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to populate and upload SCLK MCLK DPM levels!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	/*
+ 	 * If a custom pp table is loaded, set DPMTABLE_OD_UPDATE_VDDC flag.
+@@ -4643,32 +4649,32 @@
+ 	tmp_result = smu7_update_avfs(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to update avfs voltages!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	tmp_result = smu7_generate_dpm_level_enable_mask(hwmgr, input);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to generate DPM level enabled mask!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	tmp_result = smum_update_sclk_threshold(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to update SCLK threshold!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	tmp_result = smu7_unfreeze_sclk_mclk_dpm(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to unfreeze SCLK MCLK DPM!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	tmp_result = smu7_upload_dpm_level_enable_mask(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to upload DPM level enabled mask!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	tmp_result = smu7_notify_smc_display(hwmgr);
+ 	PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 			"Failed to notify smc display settings!",
+-			result = tmp_result);
++			return tmp_result);
+ 
+ 	if (phm_cap_enabled(hwmgr->platform_descriptor.platformCaps,
+ 			PHM_PlatformCaps_PCIEPerformanceRequest)) {
+@@ -4676,10 +4682,10 @@
+ 			smu7_notify_link_speed_change_after_state_change(hwmgr, input);
+ 		PP_ASSERT_WITH_CODE((0 == tmp_result),
+ 				"Failed to notify link speed change after state change!",
+-				result = tmp_result);
++				return tmp_result);
+ 	}
+ 	data->apply_optimized_settings = false;
+-	return result;
++	return 0;
+ }
+ 
+ static int smu7_set_max_fan_pwm_output(struct pp_hwmgr *hwmgr, uint16_t us_max_fan_pwm)

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "actual_functions": 2,
+  "scenarios_per_version_architecture": 64,
+  "total_scenarios": 256,
+  "patch_sha256": "a4f05ce909c1c04b257e1b4db9e2565eb879736aa7d7dfe93a2d36080ea1612b",
+  "success_flow_unchanged": true,
+  "hardware_accessed": false,
+  "limits": [
+    "Transition and side effects mocked; first-fault cause not established",
+    "Preserves preexisting successful-state copy semantics",
+    "No GPU recovery or display acceptance"
+  ]
+}
