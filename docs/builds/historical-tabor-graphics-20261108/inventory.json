@@ -1,0 +1,38 @@
+{
+  "historical_files": [
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor_5.4-1.patch",
+      "sha256": "3875573de864520981b38c458ec1e7f75829405f77297104b6f131fc002e29fa"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor3.dts",
+      "sha256": "3cfe02e041ffac688a32319493be93d1889d252e97793d25cad4f02fab3a9055"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/SHA256SUMS",
+      "sha256": "34c3f364748f9c71193048e932cde433db941fc94774f6fad9deb6ba2e23e371"
+    },
+    {
+      "path": "/home/auzieman/Projects/tabor-linux-forge/vendor/a-eon-5.4-rc3-a1222/tabor-5.4-rc3.config",
+      "sha256": "c13ca6ce2eb6d21292d92328df05b2e31ac8bca7c209d3efe48013c666fb608d"
+    }
+  ],
+  "graphics_config": [
+    "CONFIG_DRM_RADEON=y",
+    "# CONFIG_DRM_RADEON_USERPTR is not set",
+    "# CONFIG_DRM_AMDGPU is not set",
+    "# CONFIG_FB_RADEON is not set"
+  ],
+  "vendor_patch_files": [
+    "arch/powerpc/platforms/85xx/Kconfig",
+    "arch/powerpc/platforms/85xx/Makefile",
+    "arch/powerpc/platforms/85xx/tabor.c",
+    "sound/soc/fsl/fsl_ssi.c",
+    "sound/soc/fsl/Kconfig",
+    "sound/soc/fsl/Makefile",
+    "sound/soc/fsl/tabor.c"
+  ],
+  "forum": "https://forum.hyperion-entertainment.com/viewtopic.php?t=5125",
+  "archive_status": "Recovered full HTTP index on R730: 79 links, four Mesa bundles; resumable downloads underway.",
+  "conclusion": "Retained historical kernel selects radeon and disables amdgpu; not a working Polaris control."
+}
