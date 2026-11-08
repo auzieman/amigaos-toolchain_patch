@@ -1,0 +1,33 @@
+{
+  "kernel_release": "6.12.113-tabor-e2e-002",
+  "module_sha256": "a8093090ece8c23e2116b71b41d79da777aeb23785c6f3fdaceee7d928e726e6",
+  "gpu_initialization": "failed",
+  "decoder_ring_passed": true,
+  "encoder_ring_timed_out": true,
+  "ssh_survived_capture": true,
+  "display_accepted": false,
+  "rebind_attempted": false,
+  "events": {
+    "decoder_enter": {
+      "timestamp_us": 129108196,
+      "line": "6,870,129108196,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd type=3 enter"
+    },
+    "decoder_pass": {
+      "timestamp_us": 129151196,
+      "line": "6,873,129151196,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd result=0"
+    },
+    "encoder_timeout": {
+      "timestamp_us": 129401016,
+      "line": "6,875,129401016,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 result=-110"
+    },
+    "first_pcie_error": {
+      "timestamp_us": 135732249,
+      "line": "3,1844,135732249,-;PCIe error(s) detected"
+    },
+    "cleanup_oops": {
+      "timestamp_us": 135767497,
+      "line": "1,1854,135767497,-;BUG: Kernel NULL pointer dereference on write at 0x00000dad"
+    }
+  },
+  "pcie_error_after_encoder_timeout_us": 6331233
+}
