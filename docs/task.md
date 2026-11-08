@@ -2037,3 +2037,5 @@ User requests flexibility for alternative cards. Added separate tabor-modular pr
 2026-11-08 historical graphics intake: retained A-EON5.4 config enables radeon, disables amdgpu; retained vendor patch changes board/audio only. May2025 firsthand report loses Linux after Polaris replacement. Archive web indexes502; package recovery not yet accepted. See builds/historical-tabor-graphics-20261108/.
 
 2026-11-08 derfsss U-Boot review pinned9bfbc801: VBIOS POST/bridge forwarding and framebuffer bus-to-CPU conversion documented; RX560 graphics testing cited on X5000, A1222 console unverified. PCIE1 outbound windows match our captured Linux boot, so no gross address-map fix found. Six-file intake/hashes in builds/derfsss-uboot-review-20261108/. No firmware/hardware change.
+
+2026-11-08 derfsss/qemu isolated sparse checkout on R730 pinned91b22ec (g5-amigaone, VERSION11.0.50). Latest delta changes Teron AmigaOne CPU/interrupt model to970fx, not A1222/SPE. Generic ppce500/e500v2 remains. No build/replacement/test; same-image SPE comparison is the bounded next experiment. See builds/derfsss-qemu-review-20261108/.
