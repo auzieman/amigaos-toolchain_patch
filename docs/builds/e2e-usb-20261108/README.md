@@ -45,3 +45,12 @@ The existing native rescue /init and network/sshd setup are retained. SSH must c
 The prior matched-driver trial passed DPM, PowerPlay and DCE initialization but faulted in UVD ring testing. The full boot set retains UVD and does not claim that fault fixed. No video-block masking or permanent feature removal was applied. Do not repeat initialization after a bus fault; preserve capture and use a fresh boot. DCE success is not scanout/console or accelerated desktop acceptance.
 
 This update preserves the existing rescue userspace, account keys and /init byte-for-byte. A full package-managed Trixie workstation remains a separate open milestone. The new complete kernel/modules set has not yet physically booted.
+
+
+## Complete physical boot and installed-driver result
+
+The A1222 booted6.12.113-tabor-e2e-001 from the updated USB, reached SSH with taint0/no GPU module, and exposed the expected installed driver SHA and all21 matching firmware hashes. The existing BusyBox module loader does not support -n; its dependency file was inspected instead of substituting a module or loader. The next load used ordinary modprobe with no override, rmmod or RAM module replacement. Root was verified read-only and SSH logging moved to RAM before that load.
+
+DPM_Enable acknowledged1 in6087us; PowerPlay and DCE hw_init returned0. The first PCIe fault occurred46172us after entry to the UVD ring test. SSH dropped; no second initialization or diagnostic MMIO retry was made. This independently confirms that the ATOM/AVFS candidate's prior DPM advancement survives a coherent kernel/module/firmware boot. It does not establish an individual fix's causality, working scanout, decoder operation or a desktop. The new UVD failure is reproduced without a mixed-release module explanation.
+
+Evidence: hardware-boot-001/ (boot identity, firmware, dependency metadata and boot dmesg), hardware-installed-001/ (normal module-load stages and off-board kmsg), hardware-summary.json. The absence of a serial cable limits visibility before networking; this boot did reach SSH. Further hardware tests need a fresh boot following this failed initialization.

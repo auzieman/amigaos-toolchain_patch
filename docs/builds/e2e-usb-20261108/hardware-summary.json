@@ -1,0 +1,53 @@
+{
+  "kernel_release": "6.12.113-tabor-e2e-001",
+  "complete_usb_boot_verified": true,
+  "module_loading": "normal installed modprobe; no RAM module replacement or driver override",
+  "module_sha256": "ad5fc87d5b92fde72a1bb4fca2460f5c4dea0a273212c67d6aefecf673f70959",
+  "firmware_hashes_verified": 21,
+  "avfs_calibration_executed": true,
+  "dpm_enable_acknowledged": true,
+  "powerplay_hw_init_returned_zero": true,
+  "dce_hw_init_returned_zero": true,
+  "dpm_response_us": 6087,
+  "first_pcie_fault_after_uvd_ring_entry_us": 46172,
+  "first_pcie_fault_after_dpm_ack_us": 398112,
+  "first_fault_stage": "UVD ring test",
+  "ssh_survived": false,
+  "display_accepted": false,
+  "usb_root_verified_readonly_before_driver_load": true,
+  "no_rebind_after_failure": true,
+  "events": [
+    {
+      "timestamp_us": 96876271,
+      "line": "6,405,96876271,-;amdgpu: SMU_CALIB avfs_supported=1 btc=0"
+    },
+    {
+      "timestamp_us": 96880199,
+      "line": "6,406,96880199,-;amdgpu: SMU_CALIB event_result=0"
+    },
+    {
+      "timestamp_us": 100755849,
+      "line": "6,807,100755849,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e enter"
+    },
+    {
+      "timestamp_us": 100761936,
+      "line": "6,808,100761936,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e response=0x1"
+    },
+    {
+      "timestamp_us": 101087649,
+      "line": "6,865,101087649,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=powerplay result=0"
+    },
+    {
+      "timestamp_us": 101100660,
+      "line": "6,867,101100660,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=dce_v11_0 result=0"
+    },
+    {
+      "timestamp_us": 101113876,
+      "line": "6,869,101113876,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd type=3 enter"
+    },
+    {
+      "timestamp_us": 101160048,
+      "line": "3,871,101160048,-;PCIe error(s) detected"
+    }
+  ]
+}

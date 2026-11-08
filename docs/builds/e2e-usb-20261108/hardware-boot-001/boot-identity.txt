@@ -1,0 +1,14 @@
+Linux tabor-live 6.12.113-tabor-e2e-001 #1 SMP 1970-01-01 00:00:00 UTC ppc
+50.60 95.81
+0
+{
+  "kernel_release": "6.12.113-tabor-e2e-001",
+  "module_sha256": "ad5fc87d5b92fde72a1bb4fca2460f5c4dea0a273212c67d6aefecf673f70959",
+  "tar_sha256": "e15ebba63af9b060860ceb6b51d62edba4bb5e7251822eea6776907021c52cd6",
+  "mode": "kernel-modules-firmware coherent physical test; existing rescue userspace"
+}
+root=PARTUUID=a1221105-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1
+0-1
+MemTotal:        3505072 kB
+MemFree:         3462080 kB
+MemAvailable:    3371548 kB

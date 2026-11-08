@@ -2050,3 +2050,6 @@ User requests flexibility for alternative cards. Added separate tabor-modular pr
 
 
 2026-11-08 user requests coherent USB boot rather than RAM-module split. Complete rebuilt6.12.113-tabor-e2e-001 kernel/43modules/DTB/Polaris firmware bundled on R730, installed to identified SanDisk serial03001919041721081205. All80bundle files/readback/scriptCRC pass; both filesystem checks pass; partitions unmounted. /boot.scr selects versioned e2e payload, exact prior script retained as /boot-before-e2e.scr. Existing rescue/init/SSH keys unchanged, no firmware saveenv. Test capture supports normal installed modprobe mode; simulated RO-gate tests pass. Actual new boot and UVD/display acceptance pending. See builds/e2e-usb-20261108/README.md. No serial cable available; SSH-first/off-board capture remains necessary.
+
+
+2026-11-08 complete USB boot VERIFIED: physical6.12.113-tabor-e2e-001 reached SSH, taint0/no AMDGPU, installed modulead5fc87d/all21firmware hashes match. Normal installed modprobe with off-board capture/rootRO reproduces DPM ack1 and PowerPlay/DCE success, then first PCIe fault46172us after UVD ring-test entry. SSH drops; no retry. This is the complete new boot, not a RAM driver split test. Display/UVD remain unaccepted. See builds/e2e-usb-20261108/hardware-summary.json.
