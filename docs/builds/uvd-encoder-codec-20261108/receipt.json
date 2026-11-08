@@ -1,0 +1,29 @@
+{
+  "gpu_accessed": false,
+  "hardware_tested": false,
+  "patch_sha256": "f70e0f05d1ac3746f7bcd4ebf02fdcc023b0c2023672391e3b7ad3cc0362e0ac",
+  "scenarios_per_version_arch": 128,
+  "ring_instances": 2,
+  "raw_packet_expected_dwords": 14,
+  "model_assumption": "Encoder firmware fetches LE words with no hardware swap. Not established on physical GPU.",
+  "results": {
+    "old-x86": {
+      "status": "PASS",
+      "sha256": "abbf04e34fc06d1d601fa4f87bd8088733d47a5d558bb5a2ce012fec06c87eee"
+    },
+    "old-ppc": {
+      "status": "PASS",
+      "sha256": "269b6a73547ebf850578e412c65e82c8de12a75831f2bc6c40167bab4382fd34"
+    },
+    "fixed-x86": {
+      "status": "PASS",
+      "sha256": "6dc3cc7b00956d69c682f95a82c88dcbb5e8c76a9a5eb1545f4a6a24cb7e0207"
+    },
+    "fixed-ppc": {
+      "status": "PASS",
+      "sha256": "d41131504fe4e4712e757ad96f41bf288586f63d2ad6f796cdd3f7eeefd23467"
+    }
+  },
+  "status": "PASS",
+  "fixed_ppc_matches_unchanged_x86": true
+}

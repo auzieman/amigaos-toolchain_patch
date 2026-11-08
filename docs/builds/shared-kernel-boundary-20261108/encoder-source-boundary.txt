@@ -1,0 +1,73 @@
+amdgpu/amdgpu_ring.c
+bool amdgpu_ring_uses_sw_le(struct amdgpu_ring *ring)
+{
+#ifdef __BIG_ENDIAN
+	return ring->adev->asic_type == CHIP_POLARIS11 &&
+	       (ring->funcs->type == AMDGPU_RING_TYPE_GFX ||
+		ring->funcs->type == AMDGPU_RING_TYPE_KIQ ||
+		ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE);
+#else
+	return false;
+#endif
+}
+amdgpu/amdgpu_ring.h
+static inline u32 amdgpu_ring_encode_dw(struct amdgpu_ring *ring, u32 value)
+{
+	return amdgpu_ring_uses_sw_le(ring) ? (__force u32)cpu_to_le32(value) : value;
+}
+amdgpu/uvd_v6_0.c
+static uint64_t uvd_v6_0_enc_ring_get_rptr(struct amdgpu_ring *ring)
+{
+	struct amdgpu_device *adev = ring->adev;
+
+	if (ring == &adev->uvd.inst->ring_enc[0])
+		return RREG32(mmUVD_RB_RPTR);
+	else
+		return RREG32(mmUVD_RB_RPTR2);
+}
+amdgpu/uvd_v6_0.c
+static void uvd_v6_0_enc_ring_set_wptr(struct amdgpu_ring *ring)
+{
+	struct amdgpu_device *adev = ring->adev;
+
+	if (ring == &adev->uvd.inst->ring_enc[0])
+		WREG32(mmUVD_RB_WPTR,
+			lower_32_bits(ring->wptr));
+	else
+		WREG32(mmUVD_RB_WPTR2,
+			lower_32_bits(ring->wptr));
+}
+amdgpu/uvd_v6_0.c
+static int uvd_v6_0_enc_ring_test_ring(struct amdgpu_ring *ring)
+{
+	struct amdgpu_device *adev = ring->adev;
+	uint32_t rptr;
+	unsigned i;
+	int r;
+
+	r = amdgpu_ring_alloc(ring, 16);
+	if (r)
+		return r;
+
+	rptr = amdgpu_ring_get_rptr(ring);
+
+	amdgpu_ring_write(ring, HEVC_ENC_CMD_END);
+	amdgpu_ring_commit(ring);
+
+	for (i = 0; i < adev->usec_timeout; i++) {
+		if (amdgpu_ring_get_rptr(ring) != rptr)
+			break;
+		udelay(1);
+	}
+
+	if (i >= adev->usec_timeout)
+		r = -ETIMEDOUT;
+
+	return r;
+}
+amdgpu/uvd_v6_0.c: 	WREG32(mmUVD_LMI_SWAP_CNTL, lmi_swap_cntl);
+amdgpu/uvd_v6_0.c: 	WREG32(mmUVD_MP_SWAP_CNTL, mp_swap_cntl);
+include/asic_reg/uvd/uvd_6_0_d.h: #define mmUVD_RB_RPTR                                                           0x3c29
+include/asic_reg/uvd/uvd_6_0_d.h: #define mmUVD_LMI_SWAP_CNTL                                                     0x3d6d
+include/asic_reg/uvd/uvd_6_0_d.h: #define mmUVD_MP_SWAP_CNTL                                                      0x3d6f
+include/asic_reg/uvd/uvd_6_0_d.h: #define ixUVD_LMI_SWAP_CNTL2                                                    0xaa

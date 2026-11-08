@@ -1,0 +1,12 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -762,7 +762,8 @@
+ 	return ring->adev->asic_type == CHIP_POLARIS11 &&
+ 	       (ring->funcs->type == AMDGPU_RING_TYPE_GFX ||
+ 		ring->funcs->type == AMDGPU_RING_TYPE_KIQ ||
+-		ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE);
++		ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE ||
++		ring->funcs->type == AMDGPU_RING_TYPE_UVD_ENC);
+ #else
+ 	return false;
+ #endif
