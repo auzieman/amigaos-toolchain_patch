@@ -1,0 +1,25 @@
+{
+  "status": "PASS",
+  "scenarios_per_build": 72,
+  "accepted_fixed_per_architecture": 72,
+  "old_ppc_rejected_before_upload_or_message": 72,
+  "fixed_mailbox_checks_per_architecture": 432,
+  "actual_source_functions": 10,
+  "hardware_accessed": false,
+  "deployment_allowed": false,
+  "source_sha256": {
+    "old-state.c": "f890a700a1058fd196746c2e841de4bd7ad797a377e12d35ebcca602b1d7c6d4",
+    "old-flow.c": "d5f12f44f5166c5f9d2a2988e8d319e5ff74ece1350cab62b072553be52a874f",
+    "fixed-state.c": "747c6df290826bd24ad1d9b6a350207b273e8b469b9fb0b0557bf4f9a99b35df",
+    "fixed-flow.c": "11eb15d5ea0ec5f620b435b3efcd4bbd5b92a77db419236e0fab06421edfcb72"
+  },
+  "output_bytes": 53883,
+  "output_sha256": "25316e94f8bc8241fd4619d64fbb23448af0c9a584619b2a9109ba3e8d2b83b2",
+  "limitations": [
+    "Synthetic raw state indices and voltage inputs; four observed PLL response fields only",
+    "Individual level objects, not whole DPM table or complete hardware init",
+    "Numeric register mock, no DMA/coherency/timing or physical GPU execution",
+    "Admission guard belongs to offline test only; not a kernel patch",
+    "SCLK mask submitted only; MCLK mask checked without command sequencing"
+  ]
+}
