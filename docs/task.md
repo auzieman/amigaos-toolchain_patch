@@ -2041,3 +2041,6 @@ User requests flexibility for alternative cards. Added separate tabor-modular pr
 2026-11-08 derfsss/qemu isolated sparse checkout on R730 pinned91b22ec (g5-amigaone, VERSION11.0.50). Latest delta changes Teron AmigaOne CPU/interrupt model to970fx, not A1222/SPE. Generic ppce500/e500v2 remains. No build/replacement/test; same-image SPE comparison is the bounded next experiment. See builds/derfsss-qemu-review-20261108/.
 
 2026-11-08 DPM contract rereview: first failing command is SCLK DPM_Enable; MCLK/PCIe-DPM enable follows later. Graphics levels link PCIe states, so source/table coupling remains relevant. Retained experiment0018 propagates mandatory SMC-table/start errors instead of continuing then returning0. Native extracted-routine fault injection passes; apply-check passes. No kernel build/bind accepted. Rejected overwritten-clock-result lead after discovering intentional success fallback. See builds/dpm-contract-review-20261108/.
+
+
+2026-11-08 fresh SMU7 review: confirmed pre-swapped native AVFS calibration literals violate the BE upload byte contract; optional hardware gate remains unrecorded, so causality is unproven. Display-voltage fix already present. Reproducible audit and next complete typed serialization step: docs/builds/smu7-fresh-review-20261108/README.md. No physical retry or deployed fix.

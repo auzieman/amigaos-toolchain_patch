@@ -1,0 +1,38 @@
+{
+  "source_sha256": "006827021c654df7673aa0c579609ccf29b4332fbb97e0ca49f9ae4f889bb26c",
+  "hwmgr_sha256": "5fa7d3f73b835673ceeafad4335fec9143b1816da72cfa3fa97acad45bcef8db",
+  "display_voltage_fix_implementation_present": true,
+  "avfs_native_literal_bytes": [
+    {
+      "field": "VRConfig",
+      "literal": "0x1000500",
+      "x86_memory_bytes": "00050001",
+      "ppc_be_memory_bytes": "01000500",
+      "x86_bytes_as_smc_be_integer": 327681,
+      "ppc_bytes_as_smc_be_integer": 16778496,
+      "equal": false
+    },
+    {
+      "field": "AVFS GraphicsLevel[0].SclkFrequency",
+      "literal": "0x30750000",
+      "x86_memory_bytes": "00007530",
+      "ppc_be_memory_bytes": "30750000",
+      "x86_bytes_as_smc_be_integer": 30000,
+      "ppc_bytes_as_smc_be_integer": 812974080,
+      "equal": false
+    },
+    {
+      "field": "AVFS GraphicsLevel[0].ActivityLevel",
+      "literal": "0x3200",
+      "x86_memory_bytes": "0032",
+      "ppc_be_memory_bytes": "3200",
+      "x86_bytes_as_smc_be_integer": 50,
+      "ppc_bytes_as_smc_be_integer": 12800,
+      "equal": false
+    }
+  ],
+  "avfs_taken_on_hardware": "unproven",
+  "root_cause_proven": false,
+  "source_changed": false,
+  "hardware_retried": false
+}

@@ -1409,3 +1409,6 @@ are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/iss
 2026-11-08 derfsss/qemu isolated sparse checkout on R730 pinned91b22ec (g5-amigaone, VERSION11.0.50). Latest delta changes Teron AmigaOne CPU/interrupt model to970fx, not A1222/SPE. Generic ppce500/e500v2 remains. No build/replacement/test; same-image SPE comparison is the bounded next experiment. See builds/derfsss-qemu-review-20261108/.
 
 2026-11-08 DPM rereview: narrowed first failing command to SCLK enable, not subsequent MCLK/PCIe enable. Prepared mandatory-table/start error-propagation experiment0018 and passed extracted-routine native fault injection; source apply-check0. Not built or physically tested; no root-cause claim. Linked graphics/PCIe state producer and actual SRAM contract remain next review boundary.
+
+
+2026-11-08 fresh SMU7 review: confirmed pre-swapped native AVFS calibration literals violate the BE upload byte contract; optional hardware gate remains unrecorded, so causality is unproven. Display-voltage fix already present. Reproducible audit and next complete typed serialization step: docs/builds/smu7-fresh-review-20261108/README.md. No physical retry or deployed fix.
