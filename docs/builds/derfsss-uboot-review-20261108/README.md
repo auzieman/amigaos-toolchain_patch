@@ -40,3 +40,33 @@ power/link assumptions. Ask contributor for exact Linux patches separately.
 Firmware-framebuffer handoff can be pursued for a console independently of
 accelerated AMDGPU. Do not flash this firmware or issue another GPU bind merely
 because source is available. No hardware mutations performed in this review.
+
+## Broader repository survey
+
+GitHub connector repository search returned33 public repositories. Six READMEs
+were reviewed; branch heads are recorded in repository-overview.json. This is
+README-level qualification, not an implementation or licensing audit:
+
+- MCP-AmigaOS4: native MCPd daemon plus host MCP server, file/command/task/screen
+  and hardware inspection. README reports QEMU Pegasos2 and real X5000 validation;
+  A1222 feature parity not independently established. Strong candidate for the
+  earlier native OS4 remote-access requirement. SECURITY.md explicitly says the
+  TCP daemon lacks authentication/encryption: retain isolated lab access. No
+  install, agent registration, daemon launch or remote write performed.
+- qemu-runner: compile/upload/run/capture cycle and native SerialShell; also
+  supports real networked hardware. Documents os4-gcc6 fallback for misbehaving
+  P1022 binaries. Relevant ABI comparison, not proof our GCC or Linux GPU defect.
+- VirtIOGPU (archived): Picasso96/Workbench and Virgl paths for emulated GPU;
+  not a physical Radeon driver. Status claims require reproduction.
+- minQEMU: X5000/Sam460 AmigaOS-focused emulator; explicitly no Radeon/3D in
+  this project's current scope. Cannot validate A1222 Polaris/PCIe/SPE behavior.
+- VulkanOS4: software ICD and GPU ICD via existing ogles2/Warp3D Nova stack.
+  Could provide useful OS4 rendering comparisons, but depends on the working
+  OS4 GPU driver rather than supplying a Linux Polaris implementation.
+- SandboxVM: driver/program iteration harness, explicitly no MMU isolation;
+  not protection against physical PCIe bus lockups.
+
+Other surfaced repositories include qemu, bboot, adtools, clib4, AmigaNVMeDevice,
+usb3-amigaos4, rust-amigaos4-crate and RustSocket. They remain unreviewed here.
+No dedicated Linux AMDGPU patch repository identified by this name/README
+survey; code inside unreviewed repositories/branches remains an open question.
