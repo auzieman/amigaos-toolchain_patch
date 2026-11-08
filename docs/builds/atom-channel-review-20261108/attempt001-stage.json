@@ -1,0 +1,17 @@
+{
+  "parent_module_sha256": "7067488b2b42329c262c8e6d65ae2c63c47c13a9370bfd88a84e302fa19db247",
+  "candidate": "/srv/data1/tabor-build/linux-live-001/work/atom-channel-20261108-001",
+  "patches": {
+    "0020-atomctrl-serialize-complete-clock-word.patch": "4a5ae6647ad9a2cbbd898c89cb1780a04264dbfec2ab3079ad699ca691e58732",
+    "0019-polaris-avfs-calibration-byte-order.patch": "387e192eccbabc117b525cf0473ff74e520921a4dbb2952eed072bf100a350c4",
+    "0018-polaris-dpm-prerequisite-errors.patch": "7285ffbe66a9de5d789d37933d503160ef5a3863e86f57e0d9e393c77e584e25",
+    "0021-polaris-clock-channel-evidence.patch": "986a1ac423a2b72aa8bf3538fdbbb5b2d5d50154f3024893aa069e0409156a89"
+  },
+  "source_files_sha256": {
+    "drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c": "2101e15480e45109f818f9aa2b74f5b31edf5d038902efa1c1be9b870ed9a4af",
+    "drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c": "463ad96ccb72e036bfa022bd3c6814c0d4223f39b7b16fbfca8a36234231f9fc",
+    "drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c": "a4453c745f58dd0d7750e1541622e6e8a8717cad6d03afac74c620f64d7eaf98"
+  },
+  "hardware_tested": false,
+  "boot_assets_changed": false
+}

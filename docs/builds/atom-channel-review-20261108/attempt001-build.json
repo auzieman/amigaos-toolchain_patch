@@ -1,0 +1,17 @@
+{
+  "status": "failed",
+  "hardware_tested": false,
+  "kernel_release": "6.12.113-tabor-modular",
+  "command": [
+    "make",
+    "-C",
+    "/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "O=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "ARCH=powerpc",
+    "CROSS_COMPILE=powerpc-linux-gnu-",
+    "-j4",
+    "modules"
+  ],
+  "exit": 2,
+  "error": "Kbuild modules failed"
+}

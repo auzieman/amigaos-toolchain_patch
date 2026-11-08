@@ -1,0 +1,165 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
+@@ -24,6 +24,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/delay.h>
++#include <linux/unaligned.h>
+ #include "atom.h"
+ #include "ppatomctrl.h"
+ #include "atombios.h"
+@@ -37,6 +38,25 @@
+ #define LOW_NIBBLE_MASK       0xf
+ #define DATA_EQU_PREV         0
+ #define DATA_FROM_TABLE       4
++
++/* The ATOM parameter word is LE: frequency[23:0], flags[31:24].
++ * Converting a value before assigning a 24-bit C bitfield truncates it on BE.
++ * Read/write the complete parameter word, avoiding native bitfield layout.
++ */
++static void atomctrl_set_clock_word(void *word, uint32_t clock, uint8_t flags)
++{
++	put_unaligned_le32((clock & 0x00ffffff) | ((uint32_t)flags << 24), word);
++}
++
++static uint32_t atomctrl_clock_word_frequency(const void *word)
++{
++	return get_unaligned_le32(word) & 0x00ffffff;
++}
++
++static uint8_t atomctrl_clock_word_flags(const void *word)
++{
++	return get_unaligned_le32(word) >> 24;
++}
+ 
+ union voltage_object_info {
+ 	struct _ATOM_VOLTAGE_OBJECT_INFO v1;
+@@ -356,7 +376,7 @@
+ 	COMPUTE_MEMORY_CLOCK_PARAM_PARAMETERS_V2_2 mpll_parameters;
+ 	int result;
+ 
+-	mpll_parameters.ulClock.ulClock = cpu_to_le32(clock_value);
++	atomctrl_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ComputeMemoryClockParam),
+@@ -364,7 +384,7 @@
+ 
+ 	if (!result)
+ 		mpll_param->mpll_post_divider =
+-				(uint32_t)mpll_parameters.ulClock.ucPostDiv;
++				(uint32_t)atomctrl_clock_word_flags(&mpll_parameters.ulClock);
+ 
+ 	return result;
+ }
+@@ -377,7 +397,7 @@
+ 	COMPUTE_MEMORY_CLOCK_PARAM_PARAMETERS_V2_3 mpll_parameters = {{0}, 0, 0};
+ 	int result;
+ 
+-	mpll_parameters.ulClock.ulClock = cpu_to_le32(clock_value);
++	atomctrl_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 			GetIndexIntoMasterTable(COMMAND, ComputeMemoryClockParam),
+@@ -392,8 +412,8 @@
+ 		mpll_param->ulMclk_fcw_frac =
+ 			le16_to_cpu(mpll_parameters.usMclk_fcw_frac);
+ 		mpll_param->ulClock =
+-			le32_to_cpu(mpll_parameters.ulClock.ulClock);
+-		mpll_param->ulPostDiv = mpll_parameters.ulClock.ucPostDiv;
++			atomctrl_clock_word_frequency(&mpll_parameters.ulClock);
++		mpll_param->ulPostDiv = atomctrl_clock_word_flags(&mpll_parameters.ulClock);
+ 	}
+ 
+ 	return result;
+@@ -407,15 +427,15 @@
+ 	COMPUTE_MEMORY_ENGINE_PLL_PARAMETERS_V4 pll_parameters;
+ 	int result;
+ 
+-	pll_parameters.ulClock = cpu_to_le32(clock_value);
++	atomctrl_set_clock_word(&pll_parameters, clock_value, 0);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+ 		(uint32_t *)&pll_parameters, sizeof(pll_parameters)));
+ 
+ 	if (0 == result) {
+-		dividers->pll_post_divider = pll_parameters.ucPostDiv;
+-		dividers->real_clock = le32_to_cpu(pll_parameters.ulClock);
++		dividers->pll_post_divider = atomctrl_clock_word_flags(&pll_parameters);
++		dividers->real_clock = atomctrl_clock_word_frequency(&pll_parameters);
+ 	}
+ 
+ 	return result;
+@@ -430,8 +450,8 @@
+ 	COMPUTE_GPU_CLOCK_OUTPUT_PARAMETERS_V1_6 pll_patameters;
+ 	int result;
+ 
+-	pll_patameters.ulClock.ulClock = cpu_to_le32(clock_value);
+-	pll_patameters.ulClock.ucPostDiv = COMPUTE_GPUCLK_INPUT_FLAG_SCLK;
++	atomctrl_set_clock_word(&pll_patameters.ulClock, clock_value,
++				COMPUTE_GPUCLK_INPUT_FLAG_SCLK);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+@@ -439,9 +459,9 @@
+ 
+ 	if (0 == result) {
+ 		dividers->pll_post_divider =
+-			pll_patameters.ulClock.ucPostDiv;
++			atomctrl_clock_word_flags(&pll_patameters.ulClock);
+ 		dividers->real_clock =
+-			le32_to_cpu(pll_patameters.ulClock.ulClock);
++			atomctrl_clock_word_frequency(&pll_patameters.ulClock);
+ 
+ 		dividers->ul_fb_div.ul_fb_div_frac =
+ 			le16_to_cpu(pll_patameters.ulFbDiv.usFbDivFrac);
+@@ -467,8 +487,8 @@
+ 	COMPUTE_GPU_CLOCK_OUTPUT_PARAMETERS_V1_7 pll_patameters;
+ 	int result;
+ 
+-	pll_patameters.ulClock.ulClock = cpu_to_le32(clock_value);
+-	pll_patameters.ulClock.ucPostDiv = COMPUTE_GPUCLK_INPUT_FLAG_SCLK;
++	atomctrl_set_clock_word(&pll_patameters.ulClock, clock_value,
++				COMPUTE_GPUCLK_INPUT_FLAG_SCLK);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+@@ -499,9 +519,8 @@
+ 	COMPUTE_GPU_CLOCK_OUTPUT_PARAMETERS_V1_6 pll_patameters;
+ 	int result;
+ 
+-	pll_patameters.ulClock.ulClock = cpu_to_le32(clock_value);
+-	pll_patameters.ulClock.ucPostDiv =
+-		COMPUTE_GPUCLK_INPUT_FLAG_DEFAULT_GPUCLK;
++	atomctrl_set_clock_word(&pll_patameters.ulClock, clock_value,
++				COMPUTE_GPUCLK_INPUT_FLAG_DEFAULT_GPUCLK);
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+@@ -509,9 +528,9 @@
+ 
+ 	if (0 == result) {
+ 		dividers->pll_post_divider =
+-			pll_patameters.ulClock.ucPostDiv;
++			atomctrl_clock_word_flags(&pll_patameters.ulClock);
+ 		dividers->real_clock =
+-			le32_to_cpu(pll_patameters.ulClock.ulClock);
++			atomctrl_clock_word_frequency(&pll_patameters.ulClock);
+ 
+ 		dividers->ul_fb_div.ul_fb_div_frac =
+ 			le16_to_cpu(pll_patameters.ulFbDiv.usFbDivFrac);
+@@ -1387,10 +1406,9 @@
+ 	DYNAMICE_MEMORY_SETTINGS_PARAMETER_V2_1 memory_clock_parameters;
+ 	int result;
+ 
+-	memory_clock_parameters.asDPMMCReg.ulClock.ulClockFreq =
+-		memory_clock & SET_CLOCK_FREQ_MASK;
+-	memory_clock_parameters.asDPMMCReg.ulClock.ulComputeClockFlag =
+-		ADJUST_MC_SETTING_PARAM;
++	atomctrl_set_clock_word(&memory_clock_parameters.asDPMMCReg.ulClock,
++				memory_clock & SET_CLOCK_FREQ_MASK,
++				ADJUST_MC_SETTING_PARAM);
+ 	memory_clock_parameters.asDPMMCReg.ucMclkDPMState = level;
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,

@@ -1412,3 +1412,6 @@ are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/iss
 
 
 2026-11-08 fresh SMU7 review: confirmed pre-swapped native AVFS calibration literals violate the BE upload byte contract; optional hardware gate remains unrecorded, so causality is unproven. Display-voltage fix already present. Reproducible audit and next complete typed serialization step: docs/builds/smu7-fresh-review-20261108/README.md. No physical retry or deployed fix.
+
+
+2026-11-08 clock-channel implementation and physical trial: patches0019/0020 correct complete AVFS wire constants and ATOM clock/flag words (native24-bit bitfield truncation onBE). Compiled full calibration objects and native/PPC input fixtures pass. Candidate44823d09 builds with687matching importCRCs. Physical first bind on the EXISTING6.12.113-tabor-modular kernel confirms AVFS calibration ran, DPM_Enable ack1, smu7_start_dpm/PowerPlay/DCE init0. First fault now duringUVD ring test; SSH drops, no console acceptance, no rebind. Newer kernel NOT booted; no boot/default files changed. Both fixes tested together, individual causality unisolated. See builds/atom-channel-review-20261108/README.md and hardware-summary.json.

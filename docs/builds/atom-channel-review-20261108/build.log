@@ -1,0 +1,21 @@
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /base/work/tabor-smu-diagnostics-20261105-003/source/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/polaris10_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_hwmgr.o
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.o
+  AR      built-in.a
+  AR      vmlinux.a
+  LD      vmlinux.o
+  OBJCOPY modules.builtin.modinfo
+  GEN     modules.builtin
+  GEN     .vmlinux.objs
+  MODPOST Module.symvers
+  LD [M]  drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'

@@ -1,0 +1,37 @@
+{
+  "status": "compiled-crcs-verified-not-deployed",
+  "hardware_tested": false,
+  "kernel_release": "6.12.113-tabor-modular",
+  "command": [
+    "make",
+    "-C",
+    "/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "O=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "ARCH=powerpc",
+    "CROSS_COMPILE=powerpc-linux-gnu-",
+    "-j4",
+    "modules"
+  ],
+  "exit": 0,
+  "verification": {
+    "elf": "ELF32-BE-PowerPC-REL",
+    "vermagic": "6.12.113-tabor-modular SMP mod_unload modversions relocatable ",
+    "module_sha256": "44823d09a89db4ef83c124854008285ae2cb62cf4766d2a029e9d30080d722b0",
+    "export_crcs_checked": true,
+    "hardware_validated": false,
+    "versioned_symbols": 687,
+    "kernel_symvers_sha256": "7ce6a44098e08d521bc33a995774a014609c562587244f95b45cf3546e093593"
+  },
+  "config_sha256": "7effb33413cbb4ab6dcda93563c2600f1948f9764387df70cd016883892fdaec",
+  "patches": {
+    "0020-atomctrl-serialize-complete-clock-word.patch": "b7ea4f34b7e5d7cceb5031a80fc3f779c0e7f6c6cdfa62eda9aa9a2fba1174ff",
+    "0019-polaris-avfs-calibration-byte-order.patch": "387e192eccbabc117b525cf0473ff74e520921a4dbb2952eed072bf100a350c4",
+    "0018-polaris-dpm-prerequisite-errors.patch": "7285ffbe66a9de5d789d37933d503160ef5a3863e86f57e0d9e393c77e584e25",
+    "0021-polaris-clock-channel-evidence.patch": "986a1ac423a2b72aa8bf3538fdbbb5b2d5d50154f3024893aa069e0409156a89"
+  },
+  "tools": {
+    "powerpc-linux-gnu-gcc": "powerpc-linux-gnu-gcc (Debian 14.2.0-19) 14.2.0",
+    "powerpc-linux-gnu-ld": "GNU ld (GNU Binutils for Debian) 2.44"
+  },
+  "tools_image": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0"
+}

@@ -1,0 +1,60 @@
+{
+  "candidate_sha256": "44823d09a89db4ef83c124854008285ae2cb62cf4766d2a029e9d30080d722b0",
+  "avfs_calibration_executed": true,
+  "avfs_btc_parameter": 0,
+  "dpm_enable_acknowledged": true,
+  "start_dpm_returned_zero": true,
+  "powerplay_hw_init_returned_zero": true,
+  "dce_hw_init_returned_zero": true,
+  "next_observed_fault_stage": "uvd_v6_0 ring test",
+  "dpm_ack_us": 5825,
+  "first_pcie_fault_after_dpm_ack_us": 404035,
+  "events": [
+    {
+      "timestamp_us": 583669137,
+      "line": "6,371,583669137,-;amdgpu: SMU_CALIB efuse49=0004dfc3 feature_mask=fff73fdf"
+    },
+    {
+      "timestamp_us": 583927069,
+      "line": "6,405,583927069,-;amdgpu: SMU_CALIB avfs_supported=1 btc=0"
+    },
+    {
+      "timestamp_us": 583931028,
+      "line": "6,406,583931028,-;amdgpu: SMU_CALIB event_result=0"
+    },
+    {
+      "timestamp_us": 587803906,
+      "line": "6,807,587803906,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e enter"
+    },
+    {
+      "timestamp_us": 587809731,
+      "line": "6,808,587809731,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e response=0x1"
+    },
+    {
+      "timestamp_us": 587842993,
+      "line": "6,813,587842993,-;amdgpu: PWR_TRACE smu7_start_dpm(hwmgr) result=0"
+    },
+    {
+      "timestamp_us": 588131393,
+      "line": "6,865,588131393,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=powerplay result=0"
+    },
+    {
+      "timestamp_us": 588144350,
+      "line": "6,867,588144350,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=dce_v11_0 result=0"
+    },
+    {
+      "timestamp_us": 588167303,
+      "line": "6,869,588167303,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd type=3 enter"
+    },
+    {
+      "timestamp_us": 588213766,
+      "line": "3,871,588213766,-;PCIe error(s) detected"
+    }
+  ],
+  "display_accepted": false,
+  "ssh_survived": false,
+  "which_patch_resolved_old_failure": "not isolated: AVFS and ATOM fixes tested together",
+  "boot_defaults_changed": false,
+  "usb_root_readonly_before_bind": true,
+  "no_rebind_after_failure": true
+}

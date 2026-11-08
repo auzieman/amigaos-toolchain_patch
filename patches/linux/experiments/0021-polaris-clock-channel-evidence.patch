@@ -1,0 +1,77 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
+@@ -177,6 +177,8 @@
+ {
+ 	struct smu7_smumgr *smu_data = (struct smu7_smumgr *)(hwmgr->smu_backend);
+ 
++	pr_info("SMU_CALIB avfs_supported=%u btc=%u\n",
++		hwmgr->avfs_supported, smu_data->avfs_btc_param);
+ 	if (!hwmgr->avfs_supported)
+ 		return 0;
+ 
+@@ -311,8 +313,11 @@
+ 	int result = 0;
+ 	struct polaris10_smumgr *smu_data = (struct polaris10_smumgr *)(hwmgr->smu_backend);
+ 
++	bool smc_running = smu7_is_smc_ram_running(hwmgr);
++
++	pr_info("SMU_CALIB smc_running=%u not_vf=%u\n", smc_running, hwmgr->not_vf);
+ 	/* Only start SMC if SMC RAM is not running */
+-	if (!smu7_is_smc_ram_running(hwmgr) && hwmgr->not_vf) {
++	if (!smc_running && hwmgr->not_vf) {
+ 		smu_data->protected_mode = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_MODE));
+ 		smu_data->smu7_data.security_hard_key = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_SEL));
+ 
+@@ -329,7 +334,8 @@
+ 		if (result != 0)
+ 			PP_ASSERT_WITH_CODE(0, "Failed to load SMU ucode.", return result);
+ 
+-		polaris10_avfs_event_mgr(hwmgr);
++		result = polaris10_avfs_event_mgr(hwmgr);
++		pr_info("SMU_CALIB event_result=%d\n", result);
+ 	}
+ 
+ 	/* Setup SoftRegsStart here for register lookup in case DummyBackEnd is used and ProcessFirmwareHeader is not executed */
+@@ -346,6 +352,8 @@
+ 	uint32_t efuse;
+ 
+ 	efuse = cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMU_EFUSE_0 + (49*4));
++	pr_info("SMU_CALIB efuse49=%08x feature_mask=%08x\n",
++		efuse, hwmgr->feature_mask);
+ 	efuse &= 0x00000001;
+ 	if (efuse)
+ 		return true;
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
+@@ -490,11 +490,20 @@
+ 	atomctrl_set_clock_word(&pll_patameters.ulClock, clock_value,
+ 				COMPUTE_GPUCLK_INPUT_FLAG_SCLK);
+ 
++	if (hwmgr->chip_id == CHIP_POLARIS11)
++		pr_info("ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=%u request=%08x\n",
++			clock_value, get_unaligned_le32(&pll_patameters.ulClock));
++
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),
+ 		(uint32_t *)&pll_patameters, sizeof(pll_patameters)));
+ 
+ 	if (0 == result) {
++		if (hwmgr->chip_id == CHIP_POLARIS11)
++			pr_info("ATOM_CLOCK ai fcw_int=%u fcw_frac=%u pll_range=%u ssc=%u\n",
++				le16_to_cpu(pll_patameters.usSclk_fcw_int),
++				le16_to_cpu(pll_patameters.usSclk_fcw_frac),
++				pll_patameters.ucSclkPllRange, pll_patameters.ucSscEnable);
+ 		dividers->usSclk_fcw_frac     = le16_to_cpu(pll_patameters.usSclk_fcw_frac);
+ 		dividers->usSclk_fcw_int      = le16_to_cpu(pll_patameters.usSclk_fcw_int);
+ 		dividers->ucSclkPostDiv       = pll_patameters.ucSclkPostDiv;
+@@ -521,6 +530,10 @@
+ 
+ 	atomctrl_set_clock_word(&pll_patameters.ulClock, clock_value,
+ 				COMPUTE_GPUCLK_INPUT_FLAG_DEFAULT_GPUCLK);
++
++	if (hwmgr->chip_id == CHIP_POLARIS11)
++		pr_info("ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=%u request=%08x\n",
++			clock_value, get_unaligned_le32(&pll_patameters.ulClock));
+ 
+ 	result = PP_INIT_CALL(hwmgr, amdgpu_atom_execute_table(adev->mode_info.atom_context,
+ 		 GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL),

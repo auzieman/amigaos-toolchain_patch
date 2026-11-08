@@ -1,0 +1,35 @@
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /base/work/tabor-smu-diagnostics-20261105-003/source/scripts/checksyscalls.sh
+  CC      init/version.o
+  AR      init/built-in.a
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/smumgr/polaris10_smumgr.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.o
+  CC [M]  drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/smu7_hwmgr.o
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.c: In function ‘atomctrl_get_memory_pll_dividers_si’:
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.c:330:9: error: implicit declaration of function ‘matomctrl_set_clock_word’; did you mean ‘atomctrl_set_clock_word’? [-Wimplicit-function-declaration]
+  330 |         matomctrl_set_clock_word(&pll_parameters, clock_value, 0);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+      |         atomctrl_set_clock_word
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.c:330:35: error: ‘pll_parameters’ undeclared (first use in this function); did you mean ‘mpll_parameters’?
+  330 |         matomctrl_set_clock_word(&pll_parameters, clock_value, 0);
+      |                                   ^~~~~~~~~~~~~~
+      |                                   mpll_parameters
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.c:330:35: note: each undeclared identifier is reported only once for each function it appears in
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.c:343:35: error: implicit declaration of function ‘matomctrl_clock_word_flags’; did you mean ‘atomctrl_clock_word_flags’? [-Wimplicit-function-declaration]
+  343 |                         (uint32_t)matomctrl_clock_word_flags(&pll_parameters);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                   atomctrl_clock_word_flags
+make[7]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/scripts/Makefile.build:234: drivers/gpu/drm/amd/amdgpu/../pm/powerplay/hwmgr/ppatomctrl.o] Error 1
+make[7]: *** Waiting for unfinished jobs....
+make[6]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/scripts/Makefile.build:471: drivers/gpu/drm/amd/amdgpu] Error 2
+make[5]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/scripts/Makefile.build:471: drivers/gpu/drm] Error 2
+make[4]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/scripts/Makefile.build:471: drivers/gpu] Error 2
+make[3]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/scripts/Makefile.build:471: drivers] Error 2
+make[2]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/Makefile:1992: .] Error 2
+make[1]: *** [/base/work/tabor-smu-diagnostics-20261105-003/source/Makefile:236: __sub-make] Error 2
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: *** [Makefile:236: __sub-make] Error 2
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
