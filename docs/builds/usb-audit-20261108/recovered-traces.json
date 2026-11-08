@@ -1,0 +1,101 @@
+{
+  "usb_changed": false,
+  "traces": [
+    {
+      "source": "root/ppc-smu-first-bind-20261106-005/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-smu-first-bind-20261106-005/registers.trace",
+      "bytes": 284947556,
+      "sha256": "9e32d4bab7dda6d1859e98c4c55dbd403fb5e33f3c7b3f36f0291df7ffa83cdd",
+      "lines": 2793611,
+      "matched_register_events": 2793598,
+      "register_channels": {
+        "r:0x00000095": 1793593,
+        "r:0x000001ad": 1000001,
+        "w:0x00000094": 1,
+        "w:0x00000095": 1,
+        "w:0x000001ac": 2
+      }
+    },
+    {
+      "source": "root/ppc-smu-first-bind-20261106-004/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-smu-first-bind-20261106-004/registers.trace",
+      "bytes": 71249190,
+      "sha256": "92522a8c33f6d4120f4a11a4d1b88182c892fc765c332142e297d2d5da875d5f",
+      "lines": 698529,
+      "matched_register_events": 698516,
+      "register_channels": {
+        "r:0x000001ad": 698515,
+        "w:0x000001ac": 1
+      }
+    },
+    {
+      "source": "root/ppc-smu-first-bind-20261106-007/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-smu-first-bind-20261106-007/registers.trace",
+      "bytes": 3347041,
+      "sha256": "cf88bc1bbb117fefe7b55c1c38954ce7f0b3b3482d323b40424c7e68d661fef3",
+      "lines": 32821,
+      "matched_register_events": 32809,
+      "register_channels": {
+        "r:0x00000095": 32,
+        "w:0x00000092": 125,
+        "w:0x00000094": 6,
+        "w:0x00000095": 6,
+        "w:0x000000a4": 6,
+        "w:0x000001ac": 13,
+        "w:0x000001ad": 32621
+      }
+    },
+    {
+      "source": "root/ppc-smu-toc-cold-20261106-001/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-smu-toc-cold-20261106-001/registers.trace",
+      "bytes": 3347245,
+      "sha256": "fccdfd06d9de28f241b156c370c36e2a824dd1728ce1dd0b202b75a457a19fe9",
+      "lines": 32823,
+      "matched_register_events": 32811,
+      "register_channels": {
+        "r:0x00000095": 34,
+        "w:0x00000092": 125,
+        "w:0x00000094": 6,
+        "w:0x00000095": 6,
+        "w:0x000000a4": 6,
+        "w:0x000001ac": 13,
+        "w:0x000001ad": 32621
+      }
+    },
+    {
+      "source": "root/ppc-smu-first-bind-20261106-006/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-smu-first-bind-20261106-006/registers.trace",
+      "bytes": 2455,
+      "sha256": "8e5e9fe0be4e4b7103600c8453ec2bb21d16945d5cf1aa2655c20e7cc966fc61",
+      "lines": 31,
+      "matched_register_events": 19,
+      "register_channels": {
+        "w:0x00000092": 1,
+        "w:0x00000094": 5,
+        "w:0x00000095": 5,
+        "w:0x000000a4": 5,
+        "w:0x000001ac": 2,
+        "w:0x000001ad": 1
+      }
+    },
+    {
+      "source": "root/ppc-gfx-registers-20261106-001/registers.trace",
+      "cached": "/srv/data1/tabor-build/linux-live-001/hardware-evidence/recovered-usb-20261108/ppc-gfx-registers-20261106-001/registers.trace",
+      "bytes": 11017239,
+      "sha256": "4768a95bb03324541158792f80a064df2541598e8e75f5ca6c1731f2e79dca35",
+      "lines": 108019,
+      "matched_register_events": 108007,
+      "register_channels": {
+        "r:0x000021a0": 7998,
+        "r:0x0000c040": 100000,
+        "w:0x00003040": 1,
+        "w:0x00003041": 3,
+        "w:0x00003043": 1,
+        "w:0x00003044": 1,
+        "w:0x00003045": 1,
+        "w:0x000030b1": 1,
+        "w:0x0000c040": 1
+      }
+    }
+  ]
+}

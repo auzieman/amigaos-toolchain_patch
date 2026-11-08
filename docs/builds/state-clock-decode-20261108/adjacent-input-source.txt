@@ -1,0 +1,185 @@
+static int smu7_get_pp_table_entry_callback_func_v1(struct pp_hwmgr *hwmgr,
+		void *state, struct pp_power_state *power_state,
+		void *pp_table, uint32_t classification_flag)
+{
+	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
+	struct smu7_power_state  *smu7_power_state =
+			(struct smu7_power_state *)(&(power_state->hardware));
+	struct smu7_performance_level *performance_level;
+	ATOM_Tonga_State *state_entry = (ATOM_Tonga_State *)state;
+	ATOM_Tonga_POWERPLAYTABLE *powerplay_table =
+			(ATOM_Tonga_POWERPLAYTABLE *)pp_table;
+	PPTable_Generic_SubTable_Header *sclk_dep_table =
+			(PPTable_Generic_SubTable_Header *)
+			(((unsigned long)powerplay_table) +
+				le16_to_cpu(powerplay_table->usSclkDependencyTableOffset));
+
+	ATOM_Tonga_MCLK_Dependency_Table *mclk_dep_table =
+			(ATOM_Tonga_MCLK_Dependency_Table *)
+			(((unsigned long)powerplay_table) +
+				le16_to_cpu(powerplay_table->usMclkDependencyTableOffset));
+
+	/* The following fields are not initialized here: id orderedList allStatesList */
+	power_state->classification.ui_label =
+			(le16_to_cpu(state_entry->usClassification) &
+			ATOM_PPLIB_CLASSIFICATION_UI_MASK) >>
+			ATOM_PPLIB_CLASSIFICATION_UI_SHIFT;
+	power_state->classification.flags = classification_flag;
+	/* NOTE: There is a classification2 flag in BIOS that is not being used right now */
+
+	power_state->classification.temporary_state = false;
+	power_state->classification.to_be_deleted = false;
+
+	power_state->validation.disallowOnDC =
+			(0 != (le32_to_cpu(state_entry->ulCapsAndSettings) &
+					ATOM_Tonga_DISALLOW_ON_DC));
+
+	power_state->pcie.lanes = 0;
+
+	power_state->display.disableFrameModulation = false;
+	power_state->display.limitRefreshrate = false;
+	power_state->display.enableVariBright =
+			(0 != (le32_to_cpu(state_entry->ulCapsAndSettings) &
+					ATOM_Tonga_ENABLE_VARIBRIGHT));
+
+	power_state->validation.supportedPowerLevels = 0;
+	power_state->uvd_clocks.VCLK = 0;
+	power_state->uvd_clocks.DCLK = 0;
+	power_state->temperatures.min = 0;
+	power_state->temperatures.max = 0;
+
+	performance_level = &(smu7_power_state->performance_levels
+			[smu7_power_state->performance_level_count++]);
+
+	PP_ASSERT_WITH_CODE(
+			(smu7_power_state->performance_level_count < smum_get_mac_definition(hwmgr, SMU_MAX_LEVELS_GRAPHICS)),
+			"Performance levels exceeds SMC limit!",
+			return -EINVAL);
+
+	PP_ASSERT_WITH_CODE(
+			(smu7_power_state->performance_level_count <
+					hwmgr->platform_descriptor.hardwareActivityPerformanceLevels),
+			"Performance levels exceeds Driver limit!",
+			return -EINVAL);
+
+	/* Performance levels are arranged from low to high. */
+	performance_level->memory_clock = mclk_dep_table->entries
+			[state_entry->ucMemoryClockIndexLow].ulMclk;
+	if (sclk_dep_table->ucRevId == 0)
+		performance_level->engine_clock = ((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
+			[state_entry->ucEngineClockIndexLow].ulSclk;
+	else if (sclk_dep_table->ucRevId == 1)
+		performance_level->engine_clock = ((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
+			[state_entry->ucEngineClockIndexLow].ulSclk;
+	performance_level->pcie_gen = get_pcie_gen_support(data->pcie_gen_cap,
+			state_entry->ucPCIEGenLow);
+	performance_level->pcie_lane = get_pcie_lane_support(data->pcie_lane_cap,
+			state_entry->ucPCIELaneLow);
+
+	performance_level = &(smu7_power_state->performance_levels
+			[smu7_power_state->performance_level_count++]);
+	performance_level->memory_clock = mclk_dep_table->entries
+			[state_entry->ucMemoryClockIndexHigh].ulMclk;
+
+	if (sclk_dep_table->ucRevId == 0)
+		performance_level->engine_clock = ((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
+			[state_entry->ucEngineClockIndexHigh].ulSclk;
+	else if (sclk_dep_table->ucRevId == 1)
+		performance_level->engine_clock = ((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
+			[state_entry->ucEngineClockIndexHigh].ulSclk;
+
+	performance_level->pcie_gen = get_pcie_gen_support(data->pcie_gen_cap,
+			state_entry->ucPCIEGenHigh);
+	performance_level->pcie_lane = get_pcie_lane_support(data->pcie_lane_cap,
+			state_entry->ucPCIELaneHigh);
+
+	return 0;
+}
+
+static int smu7_get_pp_table_entry_callback_func_v0(struct pp_hwmgr *hwmgr,
+					struct pp_hw_power_state *power_state,
+					unsigned int index, const void *clock_info)
+{
+	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
+	struct smu7_power_state  *ps = cast_phw_smu7_power_state(power_state);
+	const ATOM_PPLIB_CI_CLOCK_INFO *visland_clk_info = clock_info;
+	struct smu7_performance_level *performance_level;
+	uint32_t engine_clock, memory_clock;
+	uint16_t pcie_gen_from_bios;
+
+	engine_clock = visland_clk_info->ucEngineClockHigh << 16 | visland_clk_info->usEngineClockLow;
+	memory_clock = visland_clk_info->ucMemoryClockHigh << 16 | visland_clk_info->usMemoryClockLow;
+
+	if (!(data->mc_micro_code_feature & DISABLE_MC_LOADMICROCODE) && memory_clock > data->highest_mclk)
+		data->highest_mclk = memory_clock;
+
+	PP_ASSERT_WITH_CODE(
+			(ps->performance_level_count < smum_get_mac_definition(hwmgr, SMU_MAX_LEVELS_GRAPHICS)),
+			"Performance levels exceeds SMC limit!",
+			return -EINVAL);
+
+	PP_ASSERT_WITH_CODE(
+			(ps->performance_level_count <
+					hwmgr->platform_descriptor.hardwareActivityPerformanceLevels),
+			"Performance levels exceeds Driver limit, Skip!",
+			return 0);
+
+	performance_level = &(ps->performance_levels
+			[ps->performance_level_count++]);
+
+	/* Performance levels are arranged from low to high. */
+	performance_level->memory_clock = memory_clock;
+	performance_level->engine_clock = min(engine_clock, data->sclk_cap);
+
+	pcie_gen_from_bios = visland_clk_info->ucPCIEGen;
+
+	performance_level->pcie_gen = get_pcie_gen_support(data->pcie_gen_cap, pcie_gen_from_bios);
+	performance_level->pcie_lane = get_pcie_lane_support(data->pcie_lane_cap, visland_clk_info->usPCIELane);
+
+	return 0;
+}
+
+static int smu7_dpm_patch_boot_state(struct pp_hwmgr *hwmgr,
+					struct pp_hw_power_state *hw_ps)
+{
+	struct smu7_hwmgr *data = (struct smu7_hwmgr *)(hwmgr->backend);
+	struct smu7_power_state *ps = (struct smu7_power_state *)hw_ps;
+	ATOM_FIRMWARE_INFO_V2_2 *fw_info;
+	uint16_t size;
+	uint8_t frev, crev;
+	int index = GetIndexIntoMasterTable(DATA, FirmwareInfo);
+
+	/* First retrieve the Boot clocks and VDDC from the firmware info table.
+	 * We assume here that fw_info is unchanged if this call fails.
+	 */
+	fw_info = (ATOM_FIRMWARE_INFO_V2_2 *)smu_atom_get_data_table(hwmgr->adev, index,
+			&size, &frev, &crev);
+	if (!fw_info)
+		/* During a test, there is no firmware info table. */
+		return 0;
+
+	/* Patch the state. */
+	data->vbios_boot_state.sclk_bootup_value =
+			le32_to_cpu(fw_info->ulDefaultEngineClock);
+	data->vbios_boot_state.mclk_bootup_value =
+			le32_to_cpu(fw_info->ulDefaultMemoryClock);
+	data->vbios_boot_state.mvdd_bootup_value =
+			le16_to_cpu(fw_info->usBootUpMVDDCVoltage);
+	data->vbios_boot_state.vddc_bootup_value =
+			le16_to_cpu(fw_info->usBootUpVDDCVoltage);
+	data->vbios_boot_state.vddci_bootup_value =
+			le16_to_cpu(fw_info->usBootUpVDDCIVoltage);
+	data->vbios_boot_state.pcie_gen_bootup_value =
+			smu7_get_current_pcie_speed(hwmgr);
+
+	data->vbios_boot_state.pcie_lane_bootup_value =
+			(uint16_t)smu7_get_current_pcie_lane_number(hwmgr);
+
+	/* set boot power state */
+	ps->performance_levels[0].memory_clock = data->vbios_boot_state.mclk_bootup_value;
+	ps->performance_levels[0].engine_clock = data->vbios_boot_state.sclk_bootup_value;
+	ps->performance_levels[0].pcie_gen = data->vbios_boot_state.pcie_gen_bootup_value;
+	ps->performance_levels[0].pcie_lane = data->vbios_boot_state.pcie_lane_bootup_value;
+
+	return 0;
+}

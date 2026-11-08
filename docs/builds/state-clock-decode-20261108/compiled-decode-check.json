@@ -1,0 +1,15 @@
+{
+  "003": {
+    "disassembly_sha256": "dd521b8d2ca6ce00266d8e7050a180303cf0283dfad91006ac1ba96f64286f8a",
+    "lwbrx": 0,
+    "lbz": 39,
+    "rlwimi": 6
+  },
+  "004": {
+    "disassembly_sha256": "bd5f9c52e90dd36f8e4c684f1317e047373aba313606fec101f76671204b7a6b",
+    "lwbrx": 0,
+    "lbz": 39,
+    "rlwimi": 6
+  },
+  "interpretation": "Packed BIOS fields compile through byte loads/assembly. Counting lwbrx alone does not validate conversion; that initial heuristic was rejected. Source hashes/build receipt and executable actual-source regression are the semantic checks."
+}

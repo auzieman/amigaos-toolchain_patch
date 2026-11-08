@@ -1,0 +1,40 @@
+{
+  "read_only": true,
+  "journal_replay_disabled": true,
+  "filesystem_checks": {
+    "root": 0,
+    "fat": 0
+  },
+  "files_sha256": {
+    "boot.scr": "550078f018abe3a200b9e9c2f240b72f1c448bfbd38b1ba2dbcc18638fd151ee",
+    "uImage": "ead9107e485986084ae2d3aafd798544ef75e52fa15def5c122f23495102a935",
+    "module": "48799ed982a9e52f189d22e8f9d142fcc1db048ecacc35fba6c69eb7a8b42f16"
+  },
+  "retained_rom_or_trace_files": [
+    {
+      "path": "root/ppc-smu-first-bind-20261106-005/registers.trace",
+      "bytes": 284947556
+    },
+    {
+      "path": "root/ppc-smu-first-bind-20261106-004/registers.trace",
+      "bytes": 71249190
+    },
+    {
+      "path": "root/ppc-smu-first-bind-20261106-007/registers.trace",
+      "bytes": 3347041
+    },
+    {
+      "path": "root/ppc-smu-toc-cold-20261106-001/registers.trace",
+      "bytes": 3347245
+    },
+    {
+      "path": "root/ppc-smu-first-bind-20261106-006/registers.trace",
+      "bytes": 2455
+    },
+    {
+      "path": "root/ppc-gfx-registers-20261106-001/registers.trace",
+      "bytes": 11017239
+    }
+  ],
+  "boot_changed": false
+}

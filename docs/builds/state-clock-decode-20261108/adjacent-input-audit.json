@@ -1,0 +1,28 @@
+{
+  "scope": "Adjacent state input constructors, not full driver interface coverage",
+  "V1": {
+    "dependency_offsets": "LE16 decoded",
+    "classification": "LE16 decoded",
+    "caps": "LE32 decoded",
+    "pcie_speed_lane": "byte fields",
+    "raw_clock_loads_missing_decode": 6,
+    "candidate0024_covers": "all six low/high MCLK and Tonga/Polaris SCLK loads"
+  },
+  "boot_firmware_info": {
+    "clock_values": "already LE32 decoded",
+    "voltage_values": "already LE16 decoded",
+    "additional_swap_justified": false
+  },
+  "V0_legacy": {
+    "raw_usEngineClockLow": "native load without LE16 conversion",
+    "raw_usMemoryClockLow": "native load without LE16 conversion",
+    "target_V1_candidate_repairs_this": false,
+    "followup": "Separate format; qualification/selection not established for current card."
+  },
+  "unresolved": [
+    "actual selected physical state blob and indices",
+    "full table lifetime and captured wire bytes",
+    "bounds/caller error propagation",
+    "full ABI/descriptor/IB coverage"
+  ]
+}
