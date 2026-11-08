@@ -8,6 +8,8 @@ suites=[
  ('atom-clock','/home/owner/test-shared-atom-contracts.py','/srv/data1/tabor-build/source-review/shared-kernel-boundary-20261108/tests.json'),
  ('ring-contract','/home/owner/standalone-gpu-codec-20261108/run.py','/srv/data1/tabor-build/source-review/standalone-gpu-codec-20261108/receipt.json'),
  ('encoder-contract','/home/owner/test-uvd-encoder-codec.py','/srv/data1/tabor-build/source-review/uvd-encoder-codec-20261108/receipt.json'),
+ ('clock-table-pipeline','/home/owner/test-clock-table-pipeline.py','/srv/data1/tabor-build/source-review/clock-table-pipeline-20261108/receipt.json'),
+ ('native-state-decode','/home/owner/test-state-clock-decode.py','/srv/data1/tabor-build/source-review/state-clock-decode-20261108/receipt.json'),
  ('smu-transport','/home/owner/review-smu-flow.py','/srv/data1/tabor-build/source-review/smu-flow-review-20261108/receipt.json'),
  ('captured-replay','/home/owner/replay-smu-trace.py',str(W/'receipt.json'))]
 report={'status':'BLOCKED','hardware_accessed':False,'deployment_allowed':False,'resource_bounds':{'cpus':1,'address_space_gib':6},'suites':[]}

@@ -23,3 +23,5 @@ This script runs actual-source ATOM, common ring, UVD encoder, SMU transport and
 Required next coverage: native clock/voltage dependencies -> actual ATOM divider outputs -> complete serialized clock/memory/link table objects -> uploaded bytes -> generated masks -> captured firmware response and error propagation. Use software extraction/replay first, account for every representation's writer and reader, and report missing inputs rather than manufacture known-good data.
 
 No new kernel patch, boot-file change, hardware access or GPU retry occurred here. No claim of a complete simulator or whole-driver fix. See preflight.json, receipt.json, transactions.json and ppc-observations.json.
+
+Follow-up: aggregate entrypoint now includes connected complete-level construction and native V1 state-decoding regression (seven suites). All pass but gate remains blocked. The observed reversed clock was traced to six raw VBIOS clock loads in state construction; actual-source propagation reproduces highest-entry overwrite and mask80. See ../state-clock-decode-20261108/. No final-message swap is required by this evidence.

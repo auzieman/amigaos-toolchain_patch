@@ -1,0 +1,76 @@
+{
+  "source_kmsg_sha256": "f2dc169f3dd7304b35aff58d8c331f01a2e1138c248e847aa14c1f0a8736febf",
+  "valid_observed": {
+    "21400": [
+      34,
+      15728,
+      0,
+      1
+    ],
+    "33500": [
+      53,
+      39321,
+      0,
+      1
+    ],
+    "50300": [
+      40,
+      15728,
+      1,
+      1
+    ],
+    "69700": [
+      55,
+      49807,
+      1,
+      1
+    ],
+    "87400": [
+      34,
+      62914,
+      2,
+      1
+    ],
+    "101900": [
+      40,
+      49807,
+      2,
+      1
+    ],
+    "104300": [
+      41,
+      47185,
+      2,
+      1
+    ],
+    "107100": [
+      42,
+      55050,
+      2,
+      1
+    ]
+  },
+  "out_of_range_inputs": [
+    {
+      "clock": 2555576320,
+      "hex": "0x98530000",
+      "byte_reversed_value": 21400,
+      "decoded_response": [
+        0,
+        0,
+        4,
+        0
+      ]
+    }
+  ],
+  "missing_response_fields": [
+    "ucSclkPostDiv",
+    "ucSclkVcoMode",
+    "usSsc_fcw1_frac",
+    "usSsc_fcw1_int",
+    "usPcc_fcw_int",
+    "usSsc_fcw_slew_frac",
+    "usPcc_fcw_slew_frac"
+  ],
+  "full_physical_response_available": false
+}

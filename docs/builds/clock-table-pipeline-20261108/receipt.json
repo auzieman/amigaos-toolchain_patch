@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "actual_driver_functions": 5,
+  "scenarios_per_architecture": 256,
+  "objects_per_scenario": 2,
+  "gpu_accessed": false,
+  "hardware_tested": false,
+  "mock_inputs": [
+    "Four partial captured ATOM fields; other response fields synthetic",
+    "voltage dependency helper",
+    "display/profile data",
+    "sleep-divider helper",
+    "indexed SRAM registers"
+  ],
+  "limits": "Complete individual GraphicsLevel/MemoryLevel objects, not full DPM table. Four response fields captured; remaining fields and voltage/profile inputs synthetic. Out-of-range physical request retained separately, not silently normalized.",
+  "complete_object_bytes_match": true,
+  "output_bytes_per_architecture": 20480,
+  "output_sha256": "e0182027063af884c066e422501c86612161716544a45146bbd10c31a95c5f91"
+}

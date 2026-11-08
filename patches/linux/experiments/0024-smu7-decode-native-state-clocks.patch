@@ -1,0 +1,45 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/smu7_hwmgr.c
+@@ -3781,14 +3781,14 @@
+ 			return -EINVAL);
+ 
+ 	/* Performance levels are arranged from low to high. */
+-	performance_level->memory_clock = mclk_dep_table->entries
+-			[state_entry->ucMemoryClockIndexLow].ulMclk;
++	performance_level->memory_clock = le32_to_cpu(mclk_dep_table->entries
++			[state_entry->ucMemoryClockIndexLow].ulMclk);
+ 	if (sclk_dep_table->ucRevId == 0)
+-		performance_level->engine_clock = ((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
+-			[state_entry->ucEngineClockIndexLow].ulSclk;
++		performance_level->engine_clock = le32_to_cpu(((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
++			[state_entry->ucEngineClockIndexLow].ulSclk);
+ 	else if (sclk_dep_table->ucRevId == 1)
+-		performance_level->engine_clock = ((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
+-			[state_entry->ucEngineClockIndexLow].ulSclk;
++		performance_level->engine_clock = le32_to_cpu(((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
++			[state_entry->ucEngineClockIndexLow].ulSclk);
+ 	performance_level->pcie_gen = get_pcie_gen_support(data->pcie_gen_cap,
+ 			state_entry->ucPCIEGenLow);
+ 	performance_level->pcie_lane = get_pcie_lane_support(data->pcie_lane_cap,
+@@ -3796,15 +3796,15 @@
+ 
+ 	performance_level = &(smu7_power_state->performance_levels
+ 			[smu7_power_state->performance_level_count++]);
+-	performance_level->memory_clock = mclk_dep_table->entries
+-			[state_entry->ucMemoryClockIndexHigh].ulMclk;
++	performance_level->memory_clock = le32_to_cpu(mclk_dep_table->entries
++			[state_entry->ucMemoryClockIndexHigh].ulMclk);
+ 
+ 	if (sclk_dep_table->ucRevId == 0)
+-		performance_level->engine_clock = ((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
+-			[state_entry->ucEngineClockIndexHigh].ulSclk;
++		performance_level->engine_clock = le32_to_cpu(((ATOM_Tonga_SCLK_Dependency_Table *)sclk_dep_table)->entries
++			[state_entry->ucEngineClockIndexHigh].ulSclk);
+ 	else if (sclk_dep_table->ucRevId == 1)
+-		performance_level->engine_clock = ((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
+-			[state_entry->ucEngineClockIndexHigh].ulSclk;
++		performance_level->engine_clock = le32_to_cpu(((ATOM_Polaris_SCLK_Dependency_Table *)sclk_dep_table)->entries
++			[state_entry->ucEngineClockIndexHigh].ulSclk);
+ 
+ 	performance_level->pcie_gen = get_pcie_gen_support(data->pcie_gen_cap,
+ 			state_entry->ucPCIEGenHigh);
