@@ -1,0 +1,4 @@
+/srv/data1/tabor-build/source-review/smu-flow-review-20261108/transport.c: In function ‘smu7_send_msg_to_smc’:
+/srv/data1/tabor-build/source-review/smu-flow-review-20261108/transport.c:151:31: warning: unused variable ‘adev’ [-Wunused-variable]
+  151 |         struct amdgpu_device *adev = hwmgr->adev;
+      |                               ^~~~

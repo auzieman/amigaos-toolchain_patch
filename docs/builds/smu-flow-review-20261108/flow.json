@@ -1,0 +1,1109 @@
+{
+  "source": "/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-003/source",
+  "files_sha256": {
+    "hwmgr/smu7_hwmgr.c": "a4453c745f58dd0d7750e1541622e6e8a8717cad6d03afac74c620f64d7eaf98",
+    "smumgr/polaris10_smumgr.c": "463ad96ccb72e036bfa022bd3c6814c0d4223f39b7b16fbfca8a36234231f9fc",
+    "smumgr/smu7_smumgr.c": "83f9d6f3b2a61c9d983c05fd5b2cab7356512bc6365b64734e737a9be34d9fcd",
+    "hwmgr/ppatomctrl.c": "8fafb87bfecb736221a402f08b2b795b8adfa21bf831db8f0e7d63702bd672e5",
+    "hwmgr/process_pptables_v1_0.c": "f42174738de588954d88eb7a1407ac4ace3d33c2642e73c3f288694ebb4b9659",
+    "smumgr/smumgr.c": "80ec90cc819941fb591856155121c6dc9765e071c4e9a187374017d44952ee6d",
+    "hwmgr/hwmgr.c": "315a8b3003d1fd412e7854be2660ad51839dadd545ba6e7340b243f7edad92e7"
+  },
+  "roots": [
+    "polaris10_init_smc_table",
+    "polaris10_populate_all_graphic_levels",
+    "polaris10_populate_all_memory_levels",
+    "smu7_set_power_state_tasks",
+    "smu7_force_dpm_level",
+    "smu7_force_dpm_highest",
+    "smu7_upload_dpm_level_enable_mask",
+    "smu7_send_msg_to_smc_with_parameter",
+    "smu7_copy_bytes_to_smc"
+  ],
+  "functions_reached": 85,
+  "nodes": {
+    "polaris10_init_smc_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1942
+      },
+      "resolved_calls": [
+        "polaris10_initialize_power_tune_defaults",
+        "polaris10_populate_smc_voltage_tables",
+        "polaris10_populate_ulv_state",
+        "polaris10_populate_smc_link_level",
+        "polaris10_populate_all_graphic_levels",
+        "polaris10_populate_all_memory_levels",
+        "polaris10_populate_smc_acpi_level",
+        "polaris10_populate_smc_vce_level",
+        "polaris10_populate_smc_samu_level",
+        "polaris10_program_memory_timing_parameters",
+        "polaris10_populate_smc_uvd_level",
+        "polaris10_populate_smc_boot_level",
+        "polaris10_populate_smc_initailial_state",
+        "polaris10_populate_bapm_parameters_in_dpm_table",
+        "polaris10_populate_zero_rpm_parameters",
+        "polaris10_populate_clock_stretcher_data_table",
+        "polaris10_populate_avfs_parameters",
+        "polaris10_populate_vr_config",
+        "atomctrl_get_pp_assign_pin",
+        "smum_send_msg_to_smc",
+        "atomctrl_get_dfs_pll_dividers_vi",
+        "smu7_copy_bytes_to_smc",
+        "polaris10_populate_pm_fuses"
+      ],
+      "external_or_macro_calls": [
+        "phm_cap_enabled",
+        "PP_INIT_CALL",
+        "PP_ASSERT_WITH_CODE",
+        "cgs_write_ind_register",
+        "phm_cap_unset",
+        "phm_cap_set",
+        "cgs_read_register",
+        "PP_HOST_TO_SMC_US",
+        "PP_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_initialize_power_tune_defaults": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1925
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_smc_voltage_tables": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 796
+      },
+      "resolved_calls": [
+        "polaris10_populate_smc_vddc_table",
+        "polaris10_populate_smc_vddci_table",
+        "polaris10_populate_smc_mvdd_table",
+        "polaris10_populate_cac_table"
+      ],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_smc_vddc_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 720
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_smc_vddci_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 745
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_smc_mvdd_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 693
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US",
+        "PP_HOST_TO_SMC_UL"
+      ]
+    },
+    "polaris10_populate_cac_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 770
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "phm_get_voltage_index",
+        "convert_to_vid"
+      ]
+    },
+    "polaris10_populate_ulv_state": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 838
+      },
+      "resolved_calls": [
+        "polaris10_populate_ulv_level"
+      ],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_ulv_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 807
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "ASICID_IS_P20",
+        "ASICID_IS_P21",
+        "ASICID_IS_P30",
+        "ASICID_IS_P31",
+        "CONVERT_FROM_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_smc_link_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 844
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "Index",
+        "encode_pcie_lane_width",
+        "PP_HOST_TO_SMC_UL",
+        "phm_get_dpm_level_enable_mask_value"
+      ]
+    },
+    "polaris10_populate_all_graphic_levels": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1065
+      },
+      "resolved_calls": [
+        "polaris10_get_vddc_shared_railinfo",
+        "polaris10_get_sclk_range_table",
+        "polaris10_populate_single_graphic_level",
+        "atomctrl_get_dfs_pll_dividers_vi",
+        "smum_send_msg_to_smc_with_parameter",
+        "smu7_copy_bytes_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "ASICID_IS_P20",
+        "ASICID_IS_P30",
+        "phm_cap_enabled",
+        "PP_ASSERT_WITH_CODE",
+        "phm_get_dpm_level_enable_mask_value"
+      ]
+    },
+    "polaris10_get_vddc_shared_railinfo": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1055
+      },
+      "resolved_calls": [
+        "atomctrl_get_vddc_shared_railinfo"
+      ],
+      "external_or_macro_calls": []
+    },
+    "atomctrl_get_vddc_shared_railinfo": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 1465
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "smu_atom_get_data_table",
+        "GetIndexIntoMasterTable"
+      ]
+    },
+    "polaris10_get_sclk_range_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 876
+      },
+      "resolved_calls": [
+        "atomctrl_get_smc_sclk_range_table"
+      ],
+      "external_or_macro_calls": [
+        "amdgpu_asic_get_xclk",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "atomctrl_get_smc_sclk_range_table": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 1436
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "smu_atom_get_data_table",
+        "GetIndexIntoMasterTable",
+        "le16_to_cpu"
+      ]
+    },
+    "polaris10_populate_single_graphic_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 984
+      },
+      "resolved_calls": [
+        "polaris10_calculate_sclk_params",
+        "polaris10_get_dependency_volt_by_clk"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "phm_cap_enabled",
+        "smu7_get_sleep_divider_id_from_clock",
+        "CONVERT_FROM_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_calculate_sclk_params": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 919
+      },
+      "resolved_calls": [
+        "atomctrl_get_engine_pll_dividers_ai"
+      ],
+      "external_or_macro_calls": [
+        "amdgpu_asic_get_xclk",
+        "do_div"
+      ]
+    },
+    "atomctrl_get_engine_pll_dividers_ai": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 462
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "amdgpu_atom_set_clock_word",
+        "pr_info",
+        "get_unaligned_le32",
+        "PP_INIT_CALL",
+        "amdgpu_atom_execute_table",
+        "GetIndexIntoMasterTable",
+        "le16_to_cpu"
+      ]
+    },
+    "polaris10_get_dependency_volt_by_clk": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 382
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "phm_find_closest_vddci"
+      ]
+    },
+    "atomctrl_get_dfs_pll_dividers_vi": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 502
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "amdgpu_atom_set_clock_word",
+        "pr_info",
+        "get_unaligned_le32",
+        "PP_INIT_CALL",
+        "amdgpu_atom_execute_table",
+        "GetIndexIntoMasterTable",
+        "amdgpu_atom_clock_word_flags",
+        "amdgpu_atom_clock_word_frequency",
+        "le16_to_cpu"
+      ]
+    },
+    "smum_send_msg_to_smc_with_parameter": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 155
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "mutex_lock",
+        "send_msg_to_smc_with_parameter",
+        "mutex_unlock",
+        "get_argument"
+      ]
+    },
+    "smu7_copy_bytes_to_smc": {
+      "definition": {
+        "file": "smumgr/smu7_smumgr.c",
+        "line": 85
+      },
+      "resolved_calls": [
+        "smu7_set_smc_sram_address"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "cgs_write_register",
+        "cgs_read_register"
+      ]
+    },
+    "smu7_set_smc_sram_address": {
+      "definition": {
+        "file": "smumgr/smu7_smumgr.c",
+        "line": 38
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "cgs_write_register",
+        "PHM_WRITE_FIELD"
+      ]
+    },
+    "polaris10_populate_all_memory_levels": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1237
+      },
+      "resolved_calls": [
+        "polaris10_populate_single_memory_level",
+        "smu7_copy_bytes_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "phm_get_dpm_level_enable_mask_value"
+      ]
+    },
+    "polaris10_populate_single_memory_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1182
+      },
+      "resolved_calls": [
+        "polaris10_get_dependency_volt_by_clk"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "PHM_READ_FIELD",
+        "CONVERT_FROM_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_smc_acpi_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1306
+      },
+      "resolved_calls": [
+        "polaris10_get_dependency_volt_by_clk",
+        "polaris10_calculate_sclk_params",
+        "polaris10_populate_mvdd_value"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "CONVERT_FROM_HOST_TO_SMC_UL",
+        "CONVERT_FROM_HOST_TO_SMC_US",
+        "PP_HOST_TO_SMC_UL",
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_mvdd_value": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1281
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "polaris10_populate_smc_vce_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1394
+      },
+      "resolved_calls": [
+        "atomctrl_get_dfs_pll_dividers_vi"
+      ],
+      "external_or_macro_calls": [
+        "phm_find_closest_vddci",
+        "PP_ASSERT_WITH_CODE",
+        "CONVERT_FROM_HOST_TO_SMC_UL"
+      ]
+    },
+    "polaris10_populate_smc_samu_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1444
+      },
+      "resolved_calls": [
+        "atomctrl_get_dfs_pll_dividers_vi"
+      ],
+      "external_or_macro_calls": [
+        "phm_find_closest_vddci",
+        "PP_ASSERT_WITH_CODE",
+        "CONVERT_FROM_HOST_TO_SMC_UL"
+      ]
+    },
+    "polaris10_program_memory_timing_parameters": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1519
+      },
+      "resolved_calls": [
+        "polaris10_populate_memory_timing_parameters",
+        "atomctrl_set_ac_timing_ai",
+        "smu7_copy_bytes_to_smc"
+      ],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_memory_timing_parameters": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1493
+      },
+      "resolved_calls": [
+        "atomctrl_set_engine_dram_timings_rv770"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "cgs_read_register",
+        "PHM_READ_FIELD",
+        "PP_HOST_TO_SMC_UL"
+      ]
+    },
+    "atomctrl_set_engine_dram_timings_rv770": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 218
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "cpu_to_le32",
+        "amdgpu_atom_execute_table",
+        "GetIndexIntoMasterTable"
+      ]
+    },
+    "atomctrl_set_ac_timing_ai": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 1395
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "amdgpu_atom_set_clock_word",
+        "PP_INIT_CALL",
+        "amdgpu_atom_execute_table",
+        "GetIndexIntoMasterTable"
+      ]
+    },
+    "polaris10_populate_smc_uvd_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1549
+      },
+      "resolved_calls": [
+        "atomctrl_get_dfs_pll_dividers_vi"
+      ],
+      "external_or_macro_calls": [
+        "phm_find_closest_vddci",
+        "PP_ASSERT_WITH_CODE",
+        "CONVERT_FROM_HOST_TO_SMC_UL"
+      ]
+    },
+    "polaris10_populate_smc_boot_level": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1606
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "phm_find_boot_level",
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_smc_initailial_state": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1646
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_bapm_parameters_in_dpm_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 456
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US",
+        "PP_ASSERT_WITH_CODE",
+        "scale_fan_gain_settings"
+      ]
+    },
+    "polaris10_populate_zero_rpm_parameters": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 504
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_clock_stretcher_data_table": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1679
+      },
+      "resolved_calls": [
+        "atomctrl_read_efuse"
+      ],
+      "external_or_macro_calls": [
+        "phm_cap_unset",
+        "PP_ASSERT_WITH_CODE",
+        "cgs_read_ind_register",
+        "cgs_write_ind_register"
+      ]
+    },
+    "atomctrl_read_efuse": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 1368
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "cpu_to_le16",
+        "PP_INIT_CALL",
+        "amdgpu_atom_execute_table",
+        "GetIndexIntoMasterTable",
+        "le32_to_cpu"
+      ]
+    },
+    "polaris10_populate_avfs_parameters": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1798
+      },
+      "resolved_calls": [
+        "atomctrl_get_avfs_information",
+        "smu7_read_smc_sram_dword",
+        "smu7_copy_bytes_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "ASICID_IS_P20",
+        "ASICID_IS_P23",
+        "ASICID_IS_P21",
+        "PP_HOST_TO_SMC_UL",
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "atomctrl_get_avfs_information": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 1479
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "smu_atom_get_data_table",
+        "GetIndexIntoMasterTable",
+        "le32_to_cpu",
+        "le16_to_cpu"
+      ]
+    },
+    "smu7_read_smc_sram_dword": {
+      "definition": {
+        "file": "smumgr/smu7_smumgr.c",
+        "line": 269
+      },
+      "resolved_calls": [
+        "smu7_set_smc_sram_address"
+      ],
+      "external_or_macro_calls": [
+        "cgs_read_register"
+      ]
+    },
+    "polaris10_populate_vr_config": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 1740
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "cgs_write_ind_register"
+      ]
+    },
+    "atomctrl_get_pp_assign_pin": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 688
+      },
+      "resolved_calls": [
+        "atomctrl_lookup_gpio_pin"
+      ],
+      "external_or_macro_calls": [
+        "get_gpio_lookup_table",
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "atomctrl_lookup_gpio_pin": {
+      "definition": {
+        "file": "hwmgr/ppatomctrl.c",
+        "line": 635
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "le16_to_cpu"
+      ]
+    },
+    "smum_send_msg_to_smc": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 130
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "mutex_lock",
+        "send_msg_to_smc",
+        "mutex_unlock",
+        "get_argument"
+      ]
+    },
+    "polaris10_populate_pm_fuses": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 633
+      },
+      "resolved_calls": [
+        "smu7_read_smc_sram_dword",
+        "polaris10_populate_svi_load_line",
+        "polaris10_populate_tdc_limit",
+        "polaris10_populate_dw8",
+        "polaris10_populate_temperature_scaler",
+        "polaris10_populate_fuzzy_fan",
+        "polaris10_populate_gnb_lpml",
+        "polaris10_populate_bapm_vddc_base_leakage_sidd",
+        "smu7_copy_bytes_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "phm_cap_enabled",
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "polaris10_populate_svi_load_line": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 519
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_tdc_limit": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 532
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_dw8": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 550
+      },
+      "resolved_calls": [
+        "smu7_read_smc_sram_dword"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "DW6"
+      ]
+    },
+    "polaris10_populate_temperature_scaler": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 574
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_fuzzy_fan": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 586
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "PP_HOST_TO_SMC_US"
+      ]
+    },
+    "polaris10_populate_gnb_lpml": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 601
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "polaris10_populate_bapm_vddc_base_leakage_sidd": {
+      "definition": {
+        "file": "smumgr/polaris10_smumgr.c",
+        "line": 613
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "CONVERT_FROM_HOST_TO_SMC_US"
+      ]
+    },
+    "smu7_set_power_state_tasks": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4608
+      },
+      "resolved_calls": [
+        "smu7_find_dpm_states_clocks_in_dpm_table",
+        "smu7_request_link_speed_change_before_state_change",
+        "smu7_freeze_sclk_mclk_dpm",
+        "smu7_populate_and_upload_sclk_mclk_dpm_levels",
+        "smu7_update_avfs",
+        "smu7_generate_dpm_level_enable_mask",
+        "smum_update_sclk_threshold",
+        "smu7_unfreeze_sclk_mclk_dpm",
+        "smu7_upload_dpm_level_enable_mask",
+        "smu7_notify_smc_display",
+        "smu7_notify_link_speed_change_after_state_change"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE",
+        "phm_cap_enabled"
+      ]
+    },
+    "smu7_find_dpm_states_clocks_in_dpm_table": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4211
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "cast_const_phw_smu7_power_state"
+      ]
+    },
+    "smu7_request_link_speed_change_before_state_change": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4290
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "cast_const_phw_smu7_power_state",
+        "smu7_get_maximum_link_speed",
+        "amdgpu_acpi_pcie_performance_request",
+        "smu7_get_current_pcie_speed"
+      ]
+    },
+    "smu7_freeze_sclk_mclk_dpm": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4339
+      },
+      "resolved_calls": [
+        "smum_is_dpm_running",
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "smum_is_dpm_running": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 217
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "is_dpm_running"
+      ]
+    },
+    "smu7_populate_and_upload_sclk_mclk_dpm_levels": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4376
+      },
+      "resolved_calls": [
+        "smum_populate_all_graphic_levels",
+        "smum_populate_all_memory_levels"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "smum_populate_all_graphic_levels": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 192
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "populate_all_graphic_levels"
+      ]
+    },
+    "smum_populate_all_memory_levels": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 200
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "populate_all_memory_levels"
+      ]
+    },
+    "smu7_update_avfs": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 1719
+      },
+      "resolved_calls": [
+        "smu7_avfs_control"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_avfs_control": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 1695
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "PHM_READ_VFPF_INDIRECT_FIELD",
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "smu7_generate_dpm_level_enable_mask": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4470
+      },
+      "resolved_calls": [
+        "smu7_trim_dpm_states"
+      ],
+      "external_or_macro_calls": [
+        "cast_const_phw_smu7_power_state",
+        "phm_get_dpm_level_enable_mask_value"
+      ]
+    },
+    "smu7_trim_dpm_states": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4445
+      },
+      "resolved_calls": [
+        "smu7_trim_single_dpm_states"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "smu7_trim_single_dpm_states": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4424
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "smum_update_sclk_threshold": {
+      "definition": {
+        "file": "smumgr/smumgr.c",
+        "line": 73
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "update_sclk_threshold"
+      ]
+    },
+    "smu7_unfreeze_sclk_mclk_dpm": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4495
+      },
+      "resolved_calls": [
+        "smum_is_dpm_running",
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "PP_ASSERT_WITH_CODE"
+      ]
+    },
+    "smu7_upload_dpm_level_enable_mask": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3212
+      },
+      "resolved_calls": [
+        "smu7_apply_minimum_dce_voltage_request",
+        "smum_send_msg_to_smc_with_parameter"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_apply_minimum_dce_voltage_request": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3202
+      },
+      "resolved_calls": [
+        "smu7_lookup_vddc_from_dispclk",
+        "smum_send_msg_to_smc_with_parameter"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_lookup_vddc_from_dispclk": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3183
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "smu7_notify_smc_display": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4595
+      },
+      "resolved_calls": [
+        "smu7_notify_no_display",
+        "smu7_notify_has_display"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_notify_no_display": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4571
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_notify_has_display": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4576
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc_with_parameter",
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_notify_link_speed_change_after_state_change": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 4535
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "cast_const_phw_smu7_power_state",
+        "smu7_get_maximum_link_speed",
+        "smu7_get_current_pcie_speed",
+        "amdgpu_acpi_pcie_performance_request",
+        "pr_info"
+      ]
+    },
+    "smu7_force_dpm_level": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3362
+      },
+      "resolved_calls": [
+        "smu7_force_dpm_highest",
+        "smu7_force_dpm_lowest",
+        "smu7_unforce_dpm_levels",
+        "smu7_get_profiling_clk",
+        "smu7_force_clock_level"
+      ],
+      "external_or_macro_calls": [
+        "smu7_fan_ctrl_set_fan_speed_pwm",
+        "smu7_fan_ctrl_reset_fan_speed_to_default"
+      ]
+    },
+    "smu7_force_dpm_highest": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3131
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc_with_parameter"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_force_dpm_lowest": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3253
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc_with_parameter"
+      ],
+      "external_or_macro_calls": [
+        "phm_get_lowest_enabled_level"
+      ]
+    },
+    "smu7_unforce_dpm_levels": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3237
+      },
+      "resolved_calls": [
+        "smum_is_dpm_running",
+        "smum_send_msg_to_smc",
+        "smu7_upload_dpm_level_enable_mask"
+      ],
+      "external_or_macro_calls": []
+    },
+    "smu7_get_profiling_clk": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 3295
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": []
+    },
+    "smu7_force_clock_level": {
+      "definition": {
+        "file": "hwmgr/smu7_hwmgr.c",
+        "line": 5046
+      },
+      "resolved_calls": [
+        "smum_send_msg_to_smc_with_parameter",
+        "smum_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "fls",
+        "ffs"
+      ]
+    },
+    "smu7_send_msg_to_smc_with_parameter": {
+      "definition": {
+        "file": "smumgr/smu7_smumgr.c",
+        "line": 198
+      },
+      "resolved_calls": [
+        "smu7_send_msg_to_smc"
+      ],
+      "external_or_macro_calls": [
+        "pr_info",
+        "PHM_WAIT_FIELD_UNEQUAL",
+        "cgs_write_register"
+      ]
+    },
+    "smu7_send_msg_to_smc": {
+      "definition": {
+        "file": "smumgr/smu7_smumgr.c",
+        "line": 166
+      },
+      "resolved_calls": [],
+      "external_or_macro_calls": [
+        "dev_info",
+        "PHM_WAIT_FIELD_UNEQUAL",
+        "cgs_write_register",
+        "PHM_READ_FIELD",
+        "dev_dbg"
+      ]
+    }
+  },
+  "limits": "Static direct calls only; callback/PP_INIT_CALL/virtual dispatch must be resolved explicitly, not considered absent."
+}
