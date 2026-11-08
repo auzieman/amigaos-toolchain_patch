@@ -49,3 +49,7 @@ The 22 clock-helper call sites and 56 mock-endpoint cases cover only the ATOM cl
 ## Passive PCI hardware baseline
 
 Read-only PCI config/sysfs comparison passed on the unbound card (1002:67ff). Vendor/device/class/revision decode matches kernel attributes. BAR0 bus e0000000 maps to CPU c40000000; BAR2 f0000000 to c50000000; BAR5 f0200000 to c50200000, all memory examples sharing offset b60000000. These distinct address domains are expected host-bridge translation, not evidence of corruption. I/O BAR4 is1000. SSH survived; no GPU BAR MMIO, config writes, module load or ATOM execution. The new clock fix was not exercised. First attempt found dd unavailable in minimal userspace; corrected collection used read-only sysfs cat and retained the first64 bytes. See passive-pci-001/.
+
+## Live installation of verified candidate
+
+Complete e2e-002 kernel/modules installed via SSH with identified USB serial and hash verification. New versioned boot/e2e-002 payload and module-release directory preserve e2e-001 files. Existing firmware bytes verified without replacing aliases. Boot script selected only after payload readback; exact prior selection retained as /boot-e2e001-rollback.scr. FAT synced and unmounted. No GPU load or reboot performed; physical boot and initialization pending. This deploys the real shared ATOM fix, not the standalone simulated consumer or a complete universal GPU translator. See live-deploy.json and deploy_live.py.
