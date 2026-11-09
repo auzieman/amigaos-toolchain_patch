@@ -1,3 +1,17 @@
+## Candidate007 physical console PASS — 2026-11-08
+
+The user authorized the physical trial and repository updates. Complete007 is
+installed on the identified SanDisk; all80 bundle files and before/after root/FAT
+checks pass, and both partitions are unmounted. Ordinary boot.scr preserves the
+saved startup/load addresses and selects versioned007; exact003 rollback is
+retained. Nineteen offline suites pass. Physical007 boots and the user confirms
+readable text:1920x1080 HDMI,32bpp amdgpudrmfb and bound fbcon. Normal modprobe
+returns0, SSH survives, post-bind kernel taint0, rootRO. SCLK mask0x145 now sends
+0xff/ack1; the asynchronous GFX IB test still times out-110, so acceleration and
+desktop acceptance remain open. Canonical patches remain here; forge receives a pinned build
+snapshot and explicit passing/failing/pending gates. See
+[trial and receipt](builds/e2e007-usb-test-20261108/README.md).
+
 ## 6.12 GPU review checkpoint —2026-11-08
 
 The next6.12 candidate compiles and passes all687 imported CRC checks against

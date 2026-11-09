@@ -1,0 +1,665 @@
+/dev/root / ext4 rw,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0
+PROCESS:/proc/1
+sh
+FD:/proc/1/fd/0
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	21
+FD:/proc/1/fd/1
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	21
+FD:/proc/1/fd/10
+pos:	0
+flags:	02200002
+mnt_id:	23
+ino:	12
+FD:/proc/1/fd/2
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	21
+PROCESS:/proc/10
+kworker/0:0H-events_highpri
+FD:/proc/10/fd/*
+PROCESS:/proc/101
+sshd
+FD:/proc/101/fd/0
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/1
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/2
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/3
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/4
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/5
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/101/fd/6
+pos:	163951
+flags:	0202001
+mnt_id:	22
+ino:	178
+FD:/proc/101/fd/7
+pos:	0
+flags:	02004002
+mnt_id:	9
+ino:	1918
+PROCESS:/proc/11
+kworker/0:1-mm_percpu_wq
+FD:/proc/11/fd/*
+PROCESS:/proc/111
+kworker/0:2-events_power_efficient
+FD:/proc/111/fd/*
+PROCESS:/proc/12
+kworker/u8:0-events_unbound
+FD:/proc/12/fd/*
+PROCESS:/proc/13
+kworker/R-mm_percpu_wq
+FD:/proc/13/fd/*
+PROCESS:/proc/14
+rcu_tasks_trace_kthread
+FD:/proc/14/fd/*
+PROCESS:/proc/15
+ksoftirqd/0
+FD:/proc/15/fd/*
+PROCESS:/proc/16
+rcu_sched
+FD:/proc/16/fd/*
+PROCESS:/proc/17
+rcu_exp_par_gp_kthread_worker/0
+FD:/proc/17/fd/*
+PROCESS:/proc/18
+rcu_exp_gp_kthread_worker
+FD:/proc/18/fd/*
+PROCESS:/proc/19
+migration/0
+FD:/proc/19/fd/*
+PROCESS:/proc/2
+kthreadd
+FD:/proc/2/fd/*
+PROCESS:/proc/20
+cpuhp/0
+FD:/proc/20/fd/*
+PROCESS:/proc/206
+cat
+FD:/proc/206/fd/0
+pos:	0
+flags:	00
+mnt_id:	13
+ino:	855
+FD:/proc/206/fd/1
+pos:	0
+flags:	01
+mnt_id:	13
+ino:	856
+FD:/proc/206/fd/2
+pos:	0
+flags:	01
+mnt_id:	13
+ino:	857
+FD:/proc/206/fd/3
+pos:	0
+flags:	0200000
+mnt_id:	23
+ino:	11
+PROCESS:/proc/21
+cpuhp/1
+FD:/proc/21/fd/*
+PROCESS:/proc/213
+sshd-session
+FD:/proc/213/fd/0
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/1
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/10
+pos:	0
+flags:	02000002
+mnt_id:	9
+ino:	2067
+scm_fds: 0
+FD:/proc/213/fd/2
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/3
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/4
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/5
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/213/fd/6
+pos:	165339
+flags:	0202001
+mnt_id:	22
+ino:	178
+FD:/proc/213/fd/8
+pos:	0
+flags:	02004002
+mnt_id:	9
+ino:	868
+FD:/proc/213/fd/9
+pos:	0
+flags:	02000002
+mnt_id:	9
+ino:	872
+scm_fds: 0
+PROCESS:/proc/215
+sshd-session
+FD:/proc/215/fd/0
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/1
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/10
+pos:	0
+flags:	02000002
+mnt_id:	9
+ino:	2067
+scm_fds: 0
+FD:/proc/215/fd/12
+pos:	0
+flags:	02004000
+mnt_id:	13
+ino:	2072
+FD:/proc/215/fd/14
+pos:	0
+flags:	02004000
+mnt_id:	13
+ino:	2073
+FD:/proc/215/fd/2
+pos:	0
+flags:	02
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/3
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/4
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/5
+pos:	0
+flags:	0200002
+mnt_id:	23
+ino:	5
+FD:/proc/215/fd/6
+pos:	165339
+flags:	0202001
+mnt_id:	22
+ino:	178
+FD:/proc/215/fd/7
+pos:	0
+flags:	02000002
+mnt_id:	9
+ino:	871
+scm_fds: 0
+FD:/proc/215/fd/8
+pos:	0
+flags:	02004002
+mnt_id:	9
+ino:	868
+PROCESS:/proc/216
+sh
+FD:/proc/216/fd/0
+pos:	0
+flags:	00
+mnt_id:	13
+ino:	2071
+FD:/proc/216/fd/1
+pos:	0
+flags:	01
+mnt_id:	13
+ino:	2072
+FD:/proc/216/fd/2
+pos:	0
+flags:	01
+mnt_id:	13
+ino:	2073
+FD:/proc/216/fd/3
+PROCESS:/proc/22
+migration/1
+FD:/proc/22/fd/*
+PROCESS:/proc/23
+ksoftirqd/1
+FD:/proc/23/fd/*
+PROCESS:/proc/24
+kworker/1:0-events
+FD:/proc/24/fd/*
+PROCESS:/proc/25
+kworker/1:0H-events_highpri
+FD:/proc/25/fd/*
+PROCESS:/proc/26
+kdevtmpfs
+FD:/proc/26/fd/*
+PROCESS:/proc/27
+kworker/R-inet_frag_wq
+FD:/proc/27/fd/*
+PROCESS:/proc/28
+kauditd
+FD:/proc/28/fd/*
+PROCESS:/proc/29
+khungtaskd
+FD:/proc/29/fd/*
+PROCESS:/proc/3
+pool_workqueue_release
+FD:/proc/3/fd/*
+PROCESS:/proc/30
+oom_reaper
+FD:/proc/30/fd/*
+PROCESS:/proc/31
+kworker/u8:1-async
+FD:/proc/31/fd/*
+PROCESS:/proc/32
+kworker/R-writeback
+FD:/proc/32/fd/*
+PROCESS:/proc/33
+kcompactd0
+FD:/proc/33/fd/*
+PROCESS:/proc/34
+kworker/R-kblockd
+FD:/proc/34/fd/*
+PROCESS:/proc/35
+kworker/R-ata_sff
+FD:/proc/35/fd/*
+PROCESS:/proc/36
+kworker/R-edac-poller
+FD:/proc/36/fd/*
+PROCESS:/proc/37
+kworker/u8:2-writeback
+FD:/proc/37/fd/*
+PROCESS:/proc/38
+kworker/R-rpciod
+FD:/proc/38/fd/*
+PROCESS:/proc/39
+kworker/0:1H-kblockd
+FD:/proc/39/fd/*
+PROCESS:/proc/4
+kworker/R-kvfree_rcu_reclaim
+FD:/proc/4/fd/*
+PROCESS:/proc/40
+kworker/R-xprtiod
+FD:/proc/40/fd/*
+PROCESS:/proc/41
+kworker/u8:3
+FD:/proc/41/fd/*
+PROCESS:/proc/42
+kswapd0
+FD:/proc/42/fd/*
+PROCESS:/proc/43
+kworker/R-nfsiod
+FD:/proc/43/fd/*
+PROCESS:/proc/44
+kworker/1:1-events_freezable
+FD:/proc/44/fd/*
+PROCESS:/proc/45
+kworker/u9:0
+FD:/proc/45/fd/*
+PROCESS:/proc/46
+kworker/R-nbd0-recv
+FD:/proc/46/fd/*
+PROCESS:/proc/47
+kworker/R-nbd1-recv
+FD:/proc/47/fd/*
+PROCESS:/proc/48
+kworker/R-nbd2-recv
+FD:/proc/48/fd/*
+PROCESS:/proc/49
+kworker/R-nbd3-recv
+FD:/proc/49/fd/*
+PROCESS:/proc/5
+kworker/R-rcu_gp
+FD:/proc/5/fd/*
+PROCESS:/proc/50
+kworker/R-nbd4-recv
+FD:/proc/50/fd/*
+PROCESS:/proc/51
+kworker/R-nbd5-recv
+FD:/proc/51/fd/*
+PROCESS:/proc/52
+kworker/R-nbd6-recv
+FD:/proc/52/fd/*
+PROCESS:/proc/53
+kworker/R-nbd7-recv
+FD:/proc/53/fd/*
+PROCESS:/proc/54
+kworker/R-nbd8-recv
+FD:/proc/54/fd/*
+PROCESS:/proc/55
+kworker/R-nbd9-recv
+FD:/proc/55/fd/*
+PROCESS:/proc/56
+kworker/R-nbd10-recv
+FD:/proc/56/fd/*
+PROCESS:/proc/57
+kworker/R-nbd11-recv
+FD:/proc/57/fd/*
+PROCESS:/proc/58
+kworker/R-nbd12-recv
+FD:/proc/58/fd/*
+PROCESS:/proc/59
+kworker/R-nbd13-recv
+FD:/proc/59/fd/*
+PROCESS:/proc/6
+kworker/R-sync_wq
+FD:/proc/6/fd/*
+PROCESS:/proc/60
+kworker/R-nbd14-recv
+FD:/proc/60/fd/*
+PROCESS:/proc/61
+kworker/R-nbd15-recv
+FD:/proc/61/fd/*
+PROCESS:/proc/62
+scsi_eh_0
+FD:/proc/62/fd/*
+PROCESS:/proc/63
+kworker/R-scsi_tmf_0
+FD:/proc/63/fd/*
+PROCESS:/proc/64
+scsi_eh_1
+FD:/proc/64/fd/*
+PROCESS:/proc/65
+kworker/R-scsi_tmf_1
+FD:/proc/65/fd/*
+PROCESS:/proc/66
+spi0
+FD:/proc/66/fd/*
+PROCESS:/proc/7
+kworker/R-slub_flushwq
+FD:/proc/7/fd/*
+PROCESS:/proc/70
+kworker/R-sdhci
+FD:/proc/70/fd/*
+PROCESS:/proc/71
+irq/72-mmc0
+FD:/proc/71/fd/*
+PROCESS:/proc/72
+kworker/R-mld
+FD:/proc/72/fd/*
+PROCESS:/proc/73
+kworker/R-ipv6_addrconf
+FD:/proc/73/fd/*
+PROCESS:/proc/74
+kworker/1:2-mm_percpu_wq
+FD:/proc/74/fd/*
+PROCESS:/proc/75
+kworker/1:1H-kblockd
+FD:/proc/75/fd/*
+PROCESS:/proc/76
+kworker/R-mmc_complete
+FD:/proc/76/fd/*
+PROCESS:/proc/77
+scsi_eh_2
+FD:/proc/77/fd/*
+PROCESS:/proc/78
+kworker/R-scsi_tmf_2
+FD:/proc/78/fd/*
+PROCESS:/proc/79
+usb-storage
+FD:/proc/79/fd/*
+PROCESS:/proc/8
+kworker/R-netns
+FD:/proc/8/fd/*
+PROCESS:/proc/80
+jbd2/sdb2-8
+FD:/proc/80/fd/*
+PROCESS:/proc/81
+kworker/R-ext4-rsv-conversion
+FD:/proc/81/fd/*
+PROCESS:/proc/83
+sh
+FD:/proc/83/fd/*
+PROCESS:/proc/9
+kworker/0:0-events
+FD:/proc/9/fd/*
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+cat: can't open '/proc/10/fdinfo/*': No such file or directory
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+cat: can't open '/proc/11/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/111/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/12/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/13/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/14/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/15/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/16/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/17/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/18/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/19/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/2/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/20/fdinfo/*': No such file or directory
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+cat: can't open '/proc/21/fdinfo/*': No such file or directory
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+sh: readlink: not found
+cat: can't open '/proc/216/fdinfo/3': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/22/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/23/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/24/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/25/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/26/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/27/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/28/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/29/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/3/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/30/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/31/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/32/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/33/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/34/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/35/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/36/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/37/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/38/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/39/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/4/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/40/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/41/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/42/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/43/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/44/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/45/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/46/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/47/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/48/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/49/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/5/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/50/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/51/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/52/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/53/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/54/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/55/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/56/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/57/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/58/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/59/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/6/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/60/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/61/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/62/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/63/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/64/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/65/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/66/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/7/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/70/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/71/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/72/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/73/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/74/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/75/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/76/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/77/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/78/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/79/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/8/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/80/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/81/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/83/fdinfo/*': No such file or directory
+sh: readlink: not found
+cat: can't open '/proc/9/fdinfo/*': No such file or directory

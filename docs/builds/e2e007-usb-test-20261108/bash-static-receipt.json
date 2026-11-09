@@ -1,0 +1,13 @@
+{
+  "package": "bash-static_5.2.37-2_powerpcspe.deb",
+  "package_sha256": "7512c35f55b1bf6012b902b25ad5fa86a201e9099fb3dd0a64096aff5a020c1c",
+  "binary_sha256": "79c588b7e21b8dfb1f6e68443fb9c84db09681c94c6698e8960f2db155d5b736",
+  "elf": "ELF32-BE-PowerPC-static",
+  "staged_path": "/run/bash",
+  "root_remains_readonly": true,
+  "qemu_e500v2_probe": "PASS",
+  "physical_cpu_probe": "PASS",
+  "probe_output": "BASH=5.2.37(1)-release\nconsole ssh spe\n",
+  "persistent_installation": false,
+  "local_console_command": "/run/bash --noprofile --norc -i"
+}

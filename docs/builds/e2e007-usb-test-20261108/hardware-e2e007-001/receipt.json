@@ -1,0 +1,25 @@
+{
+  "candidate": "/lib/modules/6.12.113-tabor-e2e-007/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko",
+  "sha256": "9ae383a86f58807657ec6965c71021fa6b6c4c4de34bf09438e3a68361f6f475",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "num_kcq": null,
+  "installed_release": "6.12.113-tabor-e2e-007",
+  "module_loading": "normal-modprobe",
+  "error": "03-root-readonly failed; see captured output",
+  "candidate_insert_completed": false
+}

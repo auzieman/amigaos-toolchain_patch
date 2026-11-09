@@ -1,0 +1,49 @@
+{
+  "status": "PHYSICAL_CONSOLE_PASS_GPU_ACCELERATION_FAIL",
+  "kernel_release": "6.12.113-tabor-e2e-007",
+  "module_sha256": "9ae383a86f58807657ec6965c71021fa6b6c4c4de34bf09438e3a68361f6f475",
+  "pci_id": "1002:67ff",
+  "board": "A1222/P1022/e500v2/PPC32-BE",
+  "actual_gpu_loads_this_boot": 1,
+  "pre_bind_attempt001": "stopped-before-load-root-remount-busy",
+  "root_readonly_verified": true,
+  "offboard_kmsg_verified": true,
+  "normal_installed_modprobe_returncode": 0,
+  "ssh_survived": true,
+  "post_bind_uptime_seconds": 244.01,
+  "post_bind_kernel_taint": 0,
+  "framebuffer": "amdgpudrmfb",
+  "geometry": [
+    1920,
+    1080
+  ],
+  "bits_per_pixel": 32,
+  "stride": 7680,
+  "connector": "HDMI-A-1",
+  "connector_status": "connected-enabled",
+  "fbcon_bound": true,
+  "visual_confirmation": {
+    "source": "user",
+    "answer": "Readable terminal or text"
+  },
+  "sclk_enabled_mask": {
+    "command": "0x145",
+    "parameter": "0xff",
+    "response": "0x1"
+  },
+  "remaining_failure": "amdgpu_ib_ring_tests: IB test failed on gfx (-110); asynchronous ib ring test failed (-110)",
+  "boot_warnings": [
+    "PCI root-port BAR0 assignment warning",
+    "GPU BAR0 resize returned -22; initialization continued"
+  ],
+  "no_machine_check_or_completion_timeout_in_retained_capture": true,
+  "hardware_rebound": false,
+  "full_gpu_or_desktop_acceptance": false,
+  "evidence": [
+    "hardware-e2e007-002/receipt.json",
+    "hardware-e2e007-002/kmsg.txt",
+    "console-state.txt",
+    "post-bind-state.txt"
+  ],
+  "interpretation": "Candidate007 reaches visible fbcon and successful SCLK-mask acknowledgement where003 faulted; several changes were tested together, so individual causal attribution is not isolated."
+}

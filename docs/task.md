@@ -2073,3 +2073,13 @@ User requests flexibility for alternative cards. Added separate tabor-modular pr
 2026-11-08 SanDisk moved to R730: serial/partition identity verified, root/FAT read-only checks pass, e2e-003 boot/kernel/module hashes unchanged. Recovered six old PPC traces to server with source/cache hashes,3665760filtered register events; limited scope/polling not full coverage. Adjacent state audit confirms V1offset/class/caps decoding already present, boot FirmwareInfo clocks/voltages decoded, candidate0024covers six V1clockloads; separate legacyV0raw16clockloads remain follow-up. Full e2e-004 build started under4CPU/6GiB for compilequalification only. USB unmounted/unchanged; no physical retry. See builds/usb-audit-20261108/ and state-clock-decode-20261108/adjacent-input-audit.json.
 
 2026-11-08 e2e-004 compile qualification complete: fullkernel/43modules/DTB/U-Boot bundle pass,687AMDGPU importCRCs checked, moduleSHAd96f5e51ed01079c889c670110fb1205cccc6b4cca0c307b34c82350d4303340. No USB installation; selected e2e-003 preserved, partitions unmounted after read-only forensic audit. Seven-suite overall hardware gate remainsBLOCKED; no assertion of completeinterfacefix.
+# 2026-11-08 candidate007 physical trial
+
+User-authorized full007 installation verified all80 bundle files on the SanDisk,
+with clean before/after root/FAT checks and unmounted partitions. Existing rescue
+userspace/SSH/initrd and saved U-Boot startup preserved; boot.scr selects007,
+exact003 rollback retained. Physical007 boot and visible console now PASS: user
+confirms readable text, HDMI1920x1080/32bpp, fbcon bound, SSH survived, taint0/rootRO.
+SCLK maskff/ack1; GFX indirect-buffer test still fails-110. User also requests
+publication to canonical development and forge wip/polaris-be, preserving the
+toolchain as authoritative. See builds/e2e007-usb-test-20261108/README.md.

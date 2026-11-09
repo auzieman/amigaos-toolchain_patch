@@ -1,0 +1,59 @@
+{
+  "status": "installed-selected-awaiting-physical-boot",
+  "release": "6.12.113-tabor-e2e-007",
+  "gpu_loaded": false,
+  "hardware_booted": false,
+  "boot_selected": true,
+  "filesystems": {
+    "root-before": 0,
+    "fat-before": 0,
+    "root-after": 0,
+    "fat-after": 0
+  },
+  "usb_identity": {
+    "name": "sde",
+    "path": "/dev/sde",
+    "serial": "03001919041721081205",
+    "tran": "usb",
+    "partuuid": null,
+    "mountpoints": [],
+    "children": [
+      {
+        "name": "sde1",
+        "path": "/dev/sde1",
+        "serial": null,
+        "tran": null,
+        "partuuid": "a1221105-01",
+        "mountpoints": []
+      },
+      {
+        "name": "sde2",
+        "path": "/dev/sde2",
+        "serial": null,
+        "tran": null,
+        "partuuid": "a1221105-02",
+        "mountpoints": []
+      }
+    ]
+  },
+  "boot_script_sha256": "fc359269763c0a2b7c03c8e07191b98465db9c8f4872b08e95df70c1f334e7e7",
+  "rollback_script_sha256": "550078f018abe3a200b9e9c2f240b72f1c448bfbd38b1ba2dbcc18638fd151ee",
+  "module_sha256": "9ae383a86f58807657ec6965c71021fa6b6c4c4de34bf09438e3a68361f6f475",
+  "verified_bundle_files": 80,
+  "init_unchanged": true,
+  "firmware_initrd_unchanged": true,
+  "unmounts": [
+    {
+      "mount": "/mnt/tabor-e2e007-fat",
+      "rc": 0,
+      "error": ""
+    },
+    {
+      "mount": "/mnt/tabor-e2e007-root",
+      "rc": 0,
+      "error": ""
+    }
+  ],
+  "time_utc": "2026-11-09T00:17:43Z",
+  "safe_to_remove": true
+}
