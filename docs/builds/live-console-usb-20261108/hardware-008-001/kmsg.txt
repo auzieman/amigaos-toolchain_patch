@@ -1,0 +1,480 @@
+6,68,4,-;clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0xb87c6e0cb, max_idle_ns: 440795203664 ns
+6,69,11,-;clocksource: timebase mult[14008316] shift[24] registered
+7,70,29,-;clockevent: decrementer mult[ccc78ea] shift[32] cpu[0]
+6,71,219,-;Console: colour dummy device 80x25
+6,72,244,-;printk: legacy console [tty0] enabled
+6,73,725,-;pid_max: default: 32768 minimum: 301
+6,74,946,-;Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,75,1011,-;Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,76,2137,-;mpic: requesting IPIs...
+6,77,4994,-;e500 family performance monitor hardware support registered
+6,78,5363,-;rcu: Hierarchical SRCU implementation.
+6,79,5409,-;rcu: \x09Max phase no-delay instances is 1000.
+6,80,6037,-;Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+6,81,6753,-;smp: Bringing up secondary CPUs ...
+6,82,8062,-;Activating Kernel Userspace Access Protection
+6,83,8487,-;smp: Brought up 1 node, 2 CPUs
+6,84,8728,-;Memory: 3496976K/3571712K available (13972K kernel code, 1148K rwdata, 18796K rodata, 3448K init, 273K bss, 71616K reserved, 0K cma-reserved, 2785272K highmem)
+6,85,9670,-;devtmpfs: initialized
+6,86,12061,-;futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,87,12839,-;Machine: varisys,TABOR
+6,88,12880,-;SoC family: QorIQ
+6,89,12891,-;SoC ID: svr:0x80e60011, Revision: 1.1
+6,90,13635,-;NET: Registered PF_NETLINK/PF_ROUTE protocol family
+6,91,14254,-;audit: initializing netlink subsys (disabled)
+5,92,14719,-;audit: type=2000 audit(0.012:1): state=initialized audit_enabled=0 res=1
+6,93,23288,-;Found FSL PCI host bridge at 0x0000000fffe0a000. Firmware bus number: 0->1
+6,94,23349,-;PCI host bridge /pcie@fffe0a000 (primary) ranges:
+6,95,23384,-; MEM 0x0000000c40000000..0x0000000c5fffffff -> 0x00000000e0000000 
+6,96,23408,-;  IO 0x0000000fffc20000..0x0000000fffc2ffff -> 0x0000000000000000
+6,97,23459,-;/pcie@fffe0a000: PCICSRBAR @ 0xdff00000
+6,98,23489,-;setup_pci_atmu: end of DRAM da000000
+6,99,23507,-;/pcie@fffe0a000: Setting PCI inbound window greater than memory size
+6,100,25884,-;PCI: Probing PCI hardware
+6,101,26085,-;fsl-pci fffe0a000.pcie: PCI host bridge to bus 0001:00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0a000.pcie
+6,102,26129,-;pci_bus 0001:00: root bus resource [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,103,26153,-;pci_bus 0001:00: root bus resource [mem 0xc40000000-0xc5fffffff] (bus address [0xe0000000-0xffffffff])
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,104,26176,-;pci_bus 0001:00: root bus resource [bus 00-ff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,105,26195,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to ff
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,106,26281,-;pci 0001:00:00.0: [1957:0111] type 01 class 0x060400 PCIe Root Port
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,107,26320,-;pci 0001:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,108,26348,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,109,26369,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc502fffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,110,26446,-;pci 0001:00:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,111,26468,-;pci 0001:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,112,27347,-;pci 0001:01:00.0: [1002:67ff] type 00 class 0x030000 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,113,27418,-;pci 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,114,27455,-;pci 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,115,27483,-;pci 0001:01:00.0: BAR 4 [io  0x1000-0x10ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,116,27508,-;pci 0001:01:00.0: BAR 5 [mem 0xc50200000-0xc5023ffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,117,27535,-;pci 0001:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,118,27563,-;pci 0001:01:00.0: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,119,27728,-;pci 0001:01:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,120,27747,-;pci 0001:01:00.0: PME# supported from D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,121,27796,-;pci 0001:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0001:00:00.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,122,28084,-;pci 0001:01:00.1: [1002:aae0] type 00 class 0x040300 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,123,28152,-;pci 0001:01:00.1: BAR 0 [mem 0xc50240000-0xc50243fff 64bit]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,124,28219,-;pci 0001:01:00.1: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,125,28400,-;pci 0001:01:00.1: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,126,28640,-;pci 0001:00:00.0: PCI bridge to [bus 01-ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,127,28702,-;pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,128,28731,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+4,129,29252,-;PCI: Cannot allocate resource region 0 of device 0001:00:00.0, will remap
+7,130,29309,-;PCI 0001:00 Cannot reserve Legacy IO [io  0x0000-0x0fff]
+6,131,29353,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: can't assign; no space
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,132,29380,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: failed to assign
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,133,29406,-;pci 0001:01:00.0: ROM [mem 0xc50260000-0xc5027ffff pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,134,29430,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,135,29449,-;pci 0001:00:00.0:   bridge window [io  0x0000-0xffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,136,29469,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,137,29492,-;pci_bus 0001:00: Some PCI device resources are unassigned, try booting with pci=realloc
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,138,29511,-;pci_bus 0001:00: resource 4 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,139,29529,-;pci_bus 0001:00: resource 5 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,140,29546,-;pci_bus 0001:01: resource 0 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,141,29561,-;pci_bus 0001:01: resource 1 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+7,142,29740,-;Setting up Freescale MSI support
+6,143,33312,-;HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+6,144,33358,-;HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+6,145,33376,-;HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+6,146,33389,-;HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+6,147,33404,-;HugeTLB: registered 64.0 MiB page size, pre-allocated 0 pages
+6,148,33416,-;HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+6,149,33432,-;HugeTLB: registered 256 MiB page size, pre-allocated 0 pages
+6,150,33445,-;HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+6,151,33460,-;HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+6,152,33472,-;HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+6,153,34430,-;Freescale Elo series DMA driver
+6,154,34712,-;fsl-elo-dma fffe0c300.dma: #2 (fsl,eloplus-dma-channel), irq 78
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,155,34892,-;fsl-elo-dma fffe0c300.dma: #3 (fsl,eloplus-dma-channel), irq 79
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,156,35471,-;fsl-elo-dma fffe21300.dma: #0 (fsl,eloplus-dma-channel), irq 20
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,157,35658,-;fsl-elo-dma fffe21300.dma: #1 (fsl,eloplus-dma-channel), irq 21
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,158,35850,-;fsl-elo-dma fffe21300.dma: #2 (fsl,eloplus-dma-channel), irq 22
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,159,36030,-;fsl-elo-dma fffe21300.dma: #3 (fsl,eloplus-dma-channel), irq 23
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+5,160,37191,-;SCSI subsystem initialized
+7,161,40557,-;libata version 3.00 loaded.
+6,162,40826,-;usbcore: registered new interface driver usbfs
+6,163,40915,-;usbcore: registered new interface driver hub
+6,164,40993,-;usbcore: registered new device driver usb
+6,165,41115,-;pps_core: LinuxPPS API ver. 1 registered
+6,166,41144,-;pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+6,167,41182,-;PTP clock support registered
+6,168,41258,-;EDAC MC: Ver: 3.0.0
+6,169,44867,-;Advanced Linux Sound Architecture Driver Initialized.
+6,170,45876,-;pci 0001:01:00.0: vgaarb: setting as boot VGA device
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,171,45925,-;pci 0001:01:00.0: vgaarb: bridge control possible
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,172,45940,-;pci 0001:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,173,45959,-;vgaarb: loaded
+6,174,48516,-;clocksource: Switched to clocksource timebase
+6,175,67989,-;NET: Registered PF_INET protocol family
+6,176,68307,-;IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+6,177,69810,-;tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+6,178,69876,-;Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+6,179,69906,-;TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+6,180,69984,-;TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+6,181,70411,-;TCP: Hash tables configured (established 8192 bind 8192)
+6,182,70592,-;UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,183,70670,-;UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,184,70920,-;NET: Registered PF_UNIX/PF_LOCAL protocol family
+6,185,72785,-;RPC: Registered named UNIX socket transport module.
+6,186,72833,-;RPC: Registered udp transport module.
+6,187,72845,-;RPC: Registered tcp transport module.
+6,188,72856,-;RPC: Registered tcp-with-tls transport module.
+6,189,72868,-;RPC: Registered tcp NFSv4.1 backchannel transport module.
+6,190,73018,-;pci 0001:01:00.1: D0 power state depends on 0001:01:00.0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,191,73073,-;PCI: CLS 32 bytes, default 32
+6,192,73613,-;Trying to unpack rootfs image as initramfs...
+6,193,78481,-;workingset: timestamp_bits=14 max_order=20 bucket_order=6
+5,194,83267,-;NFS: Registering the id_resolver key type
+5,195,83383,-;Key type id_resolver registered
+5,196,83413,-;Key type id_legacy registered
+6,197,83638,-;jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+6,198,168434,-;Freeing initrd memory: 1528K
+6,199,220851,-;bounce: pool size: 64 pages
+6,200,220929,-;io scheduler mq-deadline registered
+6,201,220954,-;io scheduler kyber registered
+6,202,221006,-;io scheduler bfq registered
+6,203,221703,-;pcieport 0001:00:00.0: enabling device (0106 -> 0107)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,204,221893,-;pcieport 0001:00:00.0: PME: Signaling with IRQ 16
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,205,222755,-;Serial: 8250/16550 driver, 6 ports, IRQ sharing enabled
+6,206,226125,-;printk: legacy console [ttyS0] disabled
+6,207,226606,-;serial8250.0: ttyS0 at MMIO 0xfffe04500 (irq = 42, base_baud = 24997500) is a 16550A
+6,208,226678,-;printk: legacy console [ttyS0] enabled
+6,209,1220016,-;serial8250.0: ttyS1 at MMIO 0xfffe04600 (irq = 42, base_baud = 24997500) is a 16550A
+6,210,1228292,-;ePAPR hypervisor byte channel driver
+6,211,1245205,-;brd: module loaded
+6,212,1254560,-;loop: module loaded
+6,213,1280144,-;st: Version 20160209, fixed bufsize 32768, s/g segs 256
+6,214,1285553,-;fsl-sata fffe18000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe18000.sata
+6,215,1292117,-;scsi host0: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host0
+6,216,1294439,-;ata1: SATA max UDMA/133 irq 74 lpm-pol 0
+6,217,1298409,-;fsl-sata fffe19000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe19000.sata
+6,218,1304978,-;scsi host1: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host1
+6,219,1307240,-;ata2: SATA max UDMA/133 irq 41 lpm-pol 0
+6,220,1313191,-;fsl_espi fffe07000.spi: irq = 59
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe07000.spi
+6,221,1323380,-;fsl-gianfar soc@fffe00000:ethernet@b0000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,222,1341000,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: mac: 80:34:28:6f:89:5c
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,223,1347273,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,224,1353772,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,225,1360617,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,226,1367460,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,227,1374325,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,228,1381892,-;fsl-gianfar soc@fffe00000:ethernet@b1000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,229,1399504,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: mac: d8:47:8f:bb:42:57
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,230,1405782,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,231,1412276,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,232,1419121,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,233,1425963,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,234,1432805,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,235,1439791,-;ucc_geth_driver: QE UCC Gigabit Ethernet Controller
+6,236,1444615,-;e1000: Intel(R) PRO/1000 Network Driver
+6,237,1448260,-;e1000: Copyright (c) 1999-2006 Intel Corporation.
+6,238,1452840,-;e1000e: Intel(R) PRO/1000 Network Driver
+6,239,1456571,-;e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+6,240,1461317,-;igb: Intel(R) Gigabit Ethernet Network Driver
+6,241,1465476,-;igb: Copyright (c) 2007-2014 Intel Corporation.
+6,242,1471212,-;fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,243,1476956,-;fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,244,1483104,-;fsl-ehci fsl-ehci.0: irq 28, io mem 0xfffe22000
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,245,1498333,-;fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,246,1503832,-;hub 1-0:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,247,1506464,-;hub 1-0:1.0: 1 port detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,248,1509783,-;usbcore: registered new interface driver usb-storage
+6,249,1514940,-;i2c_dev: i2c /dev entries driver
+6,250,1518207,-;mpc-i2c fffe03000.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03000.i2c
+6,251,1522635,-;mpc-i2c fffe03100.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03100.i2c
+6,252,1529169,-;rtc-ds1307 1-006f: registered as rtc0
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,253,1533521,-;rtc-ds1307 1-006f: setting system clock to 2026-11-09T04:16:24 UTC (1794197784)
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,254,1541463,-;Freescale(R) MPC85xx EDAC driver, (C) 2006 Montavista Software
+6,255,1547791,-;EDAC PCI0: Giving out device to module MPC85xx_edac controller mpc85xx_pci_err: DEV mpc85xx-pci-edac.0.auto (INTERRUPT)
+6,256,1558458,-;MPC85xx_edac acquired irq 16 for PCI Err
+6,257,1562141,-;MPC85xx_edac PCI err registered
+6,258,1565376,-;sdhci: Secure Digital Host Controller Interface driver
+6,259,1570357,-;sdhci: Copyright(c) Pierre Ossman
+6,260,1573440,-;sdhci-pltfm: SDHCI platform and OF driver helper
+6,261,1578694,-;mmc0 bounce up to 128 segments into one, max segment size 65536 bytes
+6,262,1579110,-;usbcore: registered new interface driver usbhid
+6,263,1589342,-;usbhid: USB HID core driver
+6,264,1591918,-;Freescale hypervisor management driver
+6,265,1595449,-;fsl-hv: no hypervisor found
+4,266,1599635,-;fsl-ssi-dai fffe15000.ssi: No cache defaults, reading back from HW
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe15000.ssi
+6,267,1606634,-;mmc0: SDHCI controller on fffe2e000.sdhc [fffe2e000.sdhc] using DMA
+6,268,1607032,-;ipip: IPv4 and MPLS over IPv4 tunneling driver
+6,269,1617540,-;Initializing XFRM netlink socket
+6,270,1620735,-;NET: Registered PF_INET6 protocol family
+6,271,1626708,-;Segment Routing with IPv6
+6,272,1629209,-;In-situ OAM (IOAM) with IPv6
+6,273,1632006,-;sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+6,274,1637435,-;NET: Registered PF_PACKET protocol family
+6,275,1641294,-;NET: Registered PF_KEY protocol family
+5,276,1644962,-;Key type dns_resolver registered
+6,277,1662419,-;ALSA device list:
+6,278,1664141,-;  No soundcards found.
+6,279,1705826,-;mmc0: new high speed SDHC card at address b36b
+6,280,1711072,-;mmcblk0: mmc0:b36b CBADS 3.73 GiB
+6,281,1716578,-; mmcblk0: p1
+6,282,1782330,-;usb 1-1: new high-speed USB device number 2 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1
+4,283,1814604,-;ata2: No Device OR PHYRDY change,Hstatus = 0xa0000000
+6,284,1819501,-;ata2: SATA link down (SStatus 0 SControl 300)
+6,285,1822334,-;ata1: Signature Update detected @ 516 msecs
+6,286,1931572,-;hub 1-1:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,287,1934181,-;hub 1-1:1.0: 4 ports detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,288,1982336,-;ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+4,289,1988334,-;ata1.00: Model 'CT240BX500SSD1', rev 'M6CR056', applying quirks: nolpm
+4,290,1994684,-;ata1.00: LPM support broken, forcing max_power
+6,291,1998927,-;ata1.00: ATA-10: CT240BX500SSD1, M6CR056, max UDMA/133
+6,292,2003860,-;ata1.00: 468862128 sectors, multi 1: LBA48 NCQ (depth 16/32)
+4,293,2009312,-;ata1.00: ATA Identify Device Log not supported
+4,294,2015729,-;ata1.00: LPM support broken, forcing max_power
+6,295,2020018,-;ata1.00: configured for UDMA/133
+5,296,2023616,-;scsi 0:0:0:0: Direct-Access     ATA      CT240BX500SSD1   056  PQ: 0 ANSI: 5
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,297,2033167,-;sd 0:0:0:0: Attached scsi generic sg0 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,298,2033235,-;sd 0:0:0:0: [sda] 468862128 512-byte logical blocks: (240 GB/224 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,299,2043718,-;sd 0:0:0:0: [sda] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+7,300,2047344,-;sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,301,2051538,-;sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,302,2059935,-;sd 0:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,303,2090970,-;sd 0:0:0:0: [sda] Attached SCSI disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,304,2094638,-;Waiting for root device PARTUUID=a1221108-02...
+6,305,2234338,-;usb 1-1.3: new low-speed USB device number 3 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.3
+6,306,2364459,-;input: Logitech USB Keyboard as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/0003:046D:C31D.0001/input/input0
+6,307,2430726,-;hid-generic 0003:046D:C31D.0001: input: USB HID v1.10 Keyboard [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input0
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0001
+6,308,2450914,-;input: Logitech USB Keyboard Consumer Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input1
+6,309,2518760,-;input: Logitech USB Keyboard System Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input2
+6,310,2533346,-;hid-generic 0003:046D:C31D.0002: input: USB HID v1.10 Device [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input1
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0002
+6,311,3226324,-;usb 1-1.4: new high-speed USB device number 4 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4
+6,312,3344124,-;usb-storage 1-1.4:1.0: USB Mass Storage device detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4:1.0
+6,313,3350129,-;scsi host2: usb-storage 1-1.4:1.0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host2
+5,314,4384143,-;scsi 2:0:0:0: Direct-Access     SanDisk  Cruzer Glide     1.00 PQ: 0 ANSI: 6
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,315,4391878,-;sd 2:0:0:0: Attached scsi generic sg1 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,316,4401906,-;sd 2:0:0:0: [sdb] 30031872 512-byte logical blocks: (15.4 GB/14.3 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,317,4409765,-;sd 2:0:0:0: [sdb] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+7,318,4413354,-;sd 2:0:0:0: [sdb] Mode Sense: 43 00 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,319,4417892,-;sd 2:0:0:0: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,320,4448417,-; sdb: sdb1 sdb2
+5,321,4450734,-;sd 2:0:0:0: [sdb] Attached SCSI removable disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,322,4664053,-;EXT4-fs (sdb2): mounted filesystem a1221108-0000-4000-8000-000000000002 r/w with ordered data mode. Quota mode: disabled.
+6,323,4674961,-;VFS: Mounted root (ext4 filesystem) on device 8:18.
+6,324,4680909,-;devtmpfs: mounted
+6,325,4686816,-;Freeing unused kernel image (initmem) memory: 3448K
+6,326,4691569,-;Run /init as init process
+7,327,4693945,-;  with arguments:
+7,328,4695652,-;    /init
+7,329,4696634,-;  with environment:
+7,330,4698525,-;    HOME=/
+7,331,4699596,-;    TERM=linux
+6,332,23071472,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Link is Up - 1Gbps/Full - flow control off
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+5,333,26994334,-;random: crng init done
+14,334,64570840,-;TABOR_CAPTURE_READY
+6,335,67033221,-;EXT4-fs (sdb2): re-mounted a1221108-0000-4000-8000-000000000002 ro.

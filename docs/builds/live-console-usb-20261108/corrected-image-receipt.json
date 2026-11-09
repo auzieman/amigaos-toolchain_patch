@@ -1,0 +1,36 @@
+{
+  "status": "console-image-built-not-booted",
+  "physical_usb_written": false,
+  "hardware_booted": false,
+  "desktop_included": false,
+  "gcc14_userspace_claimed": false,
+  "default_release": "6.12.113-tabor-e2e-008",
+  "rollback_release": "6.12.113-tabor-e2e-007",
+  "root_partuuid": "a1221108-02",
+  "candidate_007": {
+    "receipt_sha256": "845c3074dc3fde9284a7b864e298f6cdbae5a3aa093531aeda0fe034d18da8f7",
+    "module_sha256": "9ae383a86f58807657ec6965c71021fa6b6c4c4de34bf09438e3a68361f6f475"
+  },
+  "candidate_008": {
+    "receipt_sha256": "28b1298378292269578bd815951647b675888166aec5cad151c84e068f0ae227",
+    "module_sha256": "6fd480b5ca4c0bbd22c1aa98d0cbed4d2fb52373d474918d033f9ff9efcae4f4"
+  },
+  "ssh_host_public_key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAT+MVvSE5U2Yzs41K1sfGDHIrDXobEiSO4aMwoe5ywS root@r730-trixie",
+  "image": "/srv/data1/tabor-build/linux-live-001/work/live-console-usb-20261108-002/tabor-console-008.img",
+  "image_bytes": 4564451328,
+  "image_sha256": "f7191134a93eb5782055f42a11965718d8cb44c6e58366d1ed2af534328568c7",
+  "boot_files_sha256": {
+    "BOOT-README.txt": "7a77577ead0fde716fe86b01fcee76fe3b7ecac024dc3a2c9530b61ead3ff91e",
+    "boot-007-rollback.scr": "2eaeee3c3301ac6084bcaae08ad6bcb31b37442eeb552a6223e3de1a48ebd996",
+    "boot.scr": "21c69a3930271500a768aec4819df033e2537d7c3d34b5bc2cd260014ce85337",
+    "boot-007-rollback.cmd": "e04799984b01fe6f48149f00d6e9df6e25c5f7faf2bc0ecafd0c316caef0698d",
+    "boot.cmd": "a393b47089f646a17a2bdbacedd1288e1708825ae5f54b3988f3ddca7ee57fe0",
+    "boot/uRamdisk-fw": "239e7aa7140b5e5474259fd2e12c7396243067acc5385a43cd37e0d219236745",
+    "boot/e2e-007/uImage": "5af2fd02aff0a5131a7775369b9b312ba3223ca47b84ffabe955cd38805b8b1a",
+    "boot/e2e-007/tabor.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d",
+    "boot/e2e-008/uImage": "cf9b209dc17d2af59a4a899d138156bed57b56bcf1622f26d84f8dae4860bf7c",
+    "boot/e2e-008/tabor.dtb": "e97a43fcbfee804d7fece5c9010f188c73c5bdaa63d3213f17deda77cd16726d"
+  },
+  "root_init_sha256": "f4adcd1fee09de1ba8c96f5bc7dd75f6ee920dcc2455ac7d198826cafa10a761",
+  "recipe_sha256": "2c79e54c0bedfb81ddddd0df895ed3a8c88500036525bc3b44c2368fc7b6c5f1"
+}

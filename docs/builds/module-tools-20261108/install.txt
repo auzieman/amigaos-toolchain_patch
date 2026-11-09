@@ -1,0 +1,21 @@
+4de0ebee34a1798b66c5dd8533cb278c3ab73331237d7622414780b2455286ea  /sbin/busybox-modules
+ae2d1ed0f6ecab70a6c26cec5778b9472a03c79aca7fe98d9feb3d360b44a912  /sbin/busybox-modules
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/video/backlight/backlight.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_panel_orientation_quirks.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_kms_helper.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/display/drm_display_helper.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/ttm/ttm.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_ttm_helper.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_suballoc_helper.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_buddy.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/scheduler/gpu-sched.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/drm_exec.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/amd/amdxcp/amdxcp.ko
+insmod /lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko
+/dev/root / ext4 ro,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /run tmpfs rw,relatime,size=32768k 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0

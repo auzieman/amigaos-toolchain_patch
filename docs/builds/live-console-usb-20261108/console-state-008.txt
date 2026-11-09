@@ -1,0 +1,64 @@
+KERNEL=6.12.113-tabor-e2e-008
+
+BOOT ARGUMENTS
+root=PARTUUID=a1221108-02 rootfstype=ext4 rootwait rw init=/init mem=3500M console=ttyS0,115200 console=tty0 loglevel=8 ignore_loglevel panic=-1
+
+FRAMEBUFFERS
+0 amdgpudrmfb
+
+/sys/class/graphics/fb0
+name=amdgpudrmfb
+virtual_size=1920,1080
+bits_per_pixel=32
+stride=7680
+blank=
+/sys/class/graphics/fbcon
+
+VT CONSOLE BINDINGS
+/sys/class/vtconsole/vtcon0 (S) dummy device
+0
+/sys/class/vtconsole/vtcon1 (M) frame buffer device
+1
+
+CACHED CONNECTOR STATE
+
+/sys/class/drm/card0-DP-1
+disconnected
+disabled
+
+/sys/class/drm/card0-DVI-D-1
+disconnected
+disabled
+
+/sys/class/drm/card0-HDMI-A-1
+connected
+enabled
+1920x1080
+1920x1080
+1920x1080
+1920x1080
+1680x1050
+1600x900
+1440x900
+1280x800
+1280x720
+1280x720
+1280x720
+1280x720
+720x576
+720x576
+720x480
+720x480
+720x480
+720x480
+640x480
+640x480
+
+DRM DEVICE NODES
+crw-------    1   29,   0 /dev/fb0
+
+/dev/dri:
+crw-------    1  226, 128 renderD128
+crw-------    1  226,   0 card0
+
+2D_ACCEPTANCE=PENDING_VISUAL

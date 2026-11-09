@@ -1,0 +1,16 @@
+0 amdgpudrmfb
+lrwxrwxrwx    1         0 /sys/bus/pci/devices/0001:01:00.0/driver -> ../../../../../../bus/pci/drivers/amdgpu
+258.29 495.16
+amdgpu 5234688 0 - Live 0xf1ab5000
+amdxcp 12288 1 amdgpu, Live 0xf1320000
+drm_exec 12288 1 amdgpu, Live 0xf1350000
+gpu_sched 45056 1 amdgpu, Live 0xf133b000
+drm_buddy 12288 1 amdgpu, Live 0xf1323000
+drm_suballoc_helper 12288 1 amdgpu, Live 0xf10c4000
+drm_ttm_helper 16384 2 amdgpu, Live 0xf116e000
+ttm 73728 2 amdgpu,drm_ttm_helper, Live 0xf13a3000
+drm_display_helper 163840 1 amdgpu, Live 0xf1353000
+drm_kms_helper 192512 3 amdgpu,drm_ttm_helper,drm_display_helper, Live 0xf1446000
+drm 565248 11 amdgpu,amdxcp,drm_exec,gpu_sched,drm_buddy,drm_suballoc_helper,drm_ttm_helper,ttm,drm_display_helper,drm_kms_helper, Live 0xf10db000
+drm_panel_orientation_quirks 12288 1 drm, Live 0xf10d5000
+backlight 20480 3 amdgpu,drm_display_helper,drm, Live 0xf1011000

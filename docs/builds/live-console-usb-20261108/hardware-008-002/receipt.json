@@ -1,0 +1,33 @@
+{
+  "candidate": "/lib/modules/6.12.113-tabor-e2e-008/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko",
+  "sha256": "6fd480b5ca4c0bbd22c1aa98d0cbed4d2fb52373d474918d033f9ff9efcae4f4",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 0
+    },
+    {
+      "stage": "02-capture-marker",
+      "returncode": 0
+    },
+    {
+      "stage": "03-root-readonly",
+      "returncode": 0
+    },
+    {
+      "stage": "04-load-installed-driver",
+      "returncode": 0
+    },
+    {
+      "stage": "10-device-state",
+      "returncode": 0
+    }
+  ],
+  "status": "test-returned-review-hardware-state",
+  "boot_defaults_changed": false,
+  "num_kcq": null,
+  "installed_release": "6.12.113-tabor-e2e-008",
+  "module_loading": "normal-modprobe",
+  "installed_driver_load_started": true,
+  "candidate_insert_completed": true
+}

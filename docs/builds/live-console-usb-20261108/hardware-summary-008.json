@@ -1,0 +1,33 @@
+{
+  "status": "boot-ssh-and-framebuffer-registered-acceleration-fails-visual-pending",
+  "kernel_release": "6.12.113-tabor-e2e-008",
+  "module_sha256": "6fd480b5ca4c0bbd22c1aa98d0cbed4d2fb52373d474918d033f9ff9efcae4f4",
+  "actual_gpu_loads": 1,
+  "first_launcher_attempt": "stopped-in-userspace-empty-default-module-directory-no-GPU-init",
+  "module_loader_fixed_sha256": "ae2d1ed0f6ecab70a6c26cec5778b9472a03c79aca7fe98d9feb3d360b44a912",
+  "normal_modprobe_returncode": 0,
+  "root_readonly": true,
+  "offboard_log_capture": true,
+  "ssh_survived": true,
+  "kernel_taint": 0,
+  "framebuffer": {
+    "width": 1920,
+    "height": 1080,
+    "bits_per_pixel": 32,
+    "stride": 7680
+  },
+  "gfx_ib_contract": {
+    "payload": "cafedead",
+    "fence": "00000000",
+    "emitted": "00000001",
+    "signaled": "00000000",
+    "ib_lo": "0094e000",
+    "ib_hi": "000000ff",
+    "length_dw": 5
+  },
+  "gfx_ib_error": -110,
+  "interpretation": "No observed payload/fence completion at timeout; not just post-completion native-vs-LE comparison. Execution/fetch, address translation, visibility and completion remain distinct candidate causes.",
+  "display_visual_confirmation": "pending",
+  "demos_run_this_boot": false,
+  "bash": "5.2.37 powerpc-linux-gnuspe"
+}
