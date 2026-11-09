@@ -49,3 +49,28 @@ and copied helper/tool hashes, submits only explicitLE GFX words, captures
 kernel logs, then checks the latest matching CPU ring IB address has swapbits0.
 PayloadPASS is separate from fetch-selectorPASS. This test has not run yet.
 Do not start existing native-PM4 Mesa while the option is enabled.
+
+## First physical 013 boot and loader correction
+
+Physical boot confirmed `6.12.113-tabor-e2e-013`, taint zero, no modules loaded.
+First bind returned with `amdgpudrmfb`, but the diagnostic parameter read `N`.
+The harness stopped before submitting any explicit-LE commands. This run does
+not test the new fetch contract. See `hardware-013-001/receipt.json`.
+
+Source/config review found `CONFIG_FEATURE_CMDLINE_MODULE_OPTIONS` disabled
+in the installed full BusyBox modprobe build. `do_modprobe()` conditionally
+omits command-line options when this feature is disabled. This is a loader
+configuration defect, not evidence against the GPU hypothesis.
+
+Rebuilt the same pinned BusyBox source/SDK with that feature enabled, using
+a private output and bounded R730 Docker build. On-board `modprobe -D` proves
+the original drops `polaris11_le_user_ib=1` and the replacement preserves it.
+No modules are inserted by these dry runs. Installed replacement SHA256
+`1270d14ab490b0a2b2b663dd6c78181151159930325f816bf8b8fca3ca322932`,
+retaining `/sbin/busybox-modules.before-options-013`. Root returned read-only;
+GPU was not unloaded or reloaded. The first-bind harness now checks argument
+preservation before loading any module, and reports a useful error on `N`.
+
+A further fresh boot is required before repeating first bind with this fixed
+loader. Kernel 013 itself needs no rebuild. No GPU payload or hardware GL
+success is claimed from this boot.

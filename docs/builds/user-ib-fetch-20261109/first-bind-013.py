@@ -47,6 +47,8 @@ def run(stage,command,timeout=15):
 try:
  cmd='test "$(uname -r)" = '+shlex.quote(release)+' && ! grep -q "^amdgpu " /proc/modules && test "$(cat '+pci+'/vendor)" = 0x1002 && test "$(cat '+pci+'/device)" = 0x67ff && uname -r && cat /proc/uptime && /sbin/busybox-modules sha256sum '+shlex.quote(a.candidate)
  out=run('01-preflight',cmd);assert out.split()[-2]==a.sha256,'candidate hash mismatch'
+ dry=run('01b-loader-options-preflight','modprobe -D amdgpu polaris11_le_user_ib=1')
+ assert 'polaris11_le_user_ib=1' in dry, 'module loader drops command-line options; refusing first bind'
  with (a.output/'kmsg.txt').open('wb') as log,(a.output/'kmsg.stderr').open('wb') as err:
   logger=subprocess.Popen([*base,'cat /dev/kmsg'],stdin=subprocess.DEVNULL,stdout=log,stderr=err,start_new_session=True)
   run('02-capture-marker',"printf '<6>TABOR_CAPTURE_READY\\n' > /dev/kmsg")
@@ -61,7 +63,7 @@ try:
   if a.installed_release:
    receipt['installed_driver_load_started']=True
    run('04-load-installed-driver','modprobe amdgpu polaris11_le_user_ib=1',40);candidate_loaded=True
-   assert run('05-verify-fetch-contract','cat /sys/module/amdgpu/parameters/polaris11_le_user_ib').strip() == 'Y'
+   assert run('05-verify-fetch-contract','cat /sys/module/amdgpu/parameters/polaris11_le_user_ib').strip() == 'Y', 'diagnostic option not enabled; stop before submitting explicit-LE commands'
   else:
    run('04-hold-pci',"printf '%s\\n' tabor-held > "+pci+'/driver_override');held=True
    run('05-load-dependencies','modprobe amdgpu',30)
