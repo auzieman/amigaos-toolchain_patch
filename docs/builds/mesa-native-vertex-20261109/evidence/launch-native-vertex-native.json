@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-offline-native-vertex-native-20261109-003",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001:/work",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/mesa-source:/source:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:92b850162c8dcc8aced3d4766e1da85d5b0a63cfcdb14c4732c0756c612d5eef",
+    "-c",
+    "set -e\ntrap 'r=$?; echo \"$r\" > /work/native-vertex-native.exit' EXIT\nninja -C /work/native/build -j2 > /work/native-vertex-native-build.log 2>&1\nDESTDIR=/work/native/output ninja -C /work/native/build install > /work/native-vertex-native-install.log 2>&1\n"
+  ],
+  "stdout": "d58d5e9f0d8ab9c26d6ea1e2c3ed246d893f12a6337307b273447e87602c4449\n",
+  "stderr": "",
+  "exit": 0
+}

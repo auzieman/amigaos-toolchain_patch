@@ -1,0 +1,15 @@
+{
+  "parent": "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001",
+  "default": "off",
+  "option": "TABOR_NATIVE_VERTEX_DATA=1",
+  "scope": "BE GFX8 native scalar vertex inputs and legacy streamout; SSBO-generated vertex data not qualified",
+  "source_sha256": {
+    "src/amd/common/nir/ac_nir_native_vertex.h": "dfd272c9f6dc63148772c8e7bfb1b2041dee8d3f01319c60681c209c537fbedf",
+    "src/gallium/drivers/radeonsi/si_nir_lower_vs_inputs.c": "c7df3b6ed35318ce9dbdcf3f5b5e7297bd89cd3afb95242e008cb503034f6b62",
+    "src/amd/common/nir/ac_nir_prerast_utils.c": "a135a916c8d9d4d6cf64a62f8ae9b55e261dd84514c31f47f0597656493bdcdf",
+    "src/gallium/drivers/radeonsi/si_state.c": "eec5756de67c5b0d60e62c75b7c136f817689a2d6012e5e3f9bd8dbae1c7c882",
+    "src/gallium/drivers/radeonsi/si_get.c": "6d903e62edc9497efbddd30507d1f05bf4eed57898b9fe29bc7fa8a3811d09b3"
+  },
+  "metadata_qualification": "Preflight caught forced-open-fetch using omitted ordinary-format metadata; corrected at vertex-element shader-key producer before any deployment.",
+  "fastpath": "Optional draw_vertex_state capability withheld only for native-payload opt-in: its upstream assertion excludes fetch fixups. Normal draw path retained."
+}

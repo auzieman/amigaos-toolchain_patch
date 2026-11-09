@@ -1,3 +1,15 @@
+## Implemented native vertex / legacy streamout candidate — 2026-11-09
+
+Opt-in BE GFX8 patch now pairs typed vertex decoding with native-format legacy
+streamout stores, complete producer format/key metadata, and a guard routing
+unsupported fast display-list draws through the normal path. SPE/native builds
+pass. Actual NIR checks:128 scalar,190 full format-lowering,16 legacy-store
+cases; extracted helper model20,480cases/arch. x86/off unchanged; enabled RGB
+changes onlyVS52->160bytes. Attribute-free point code remains unchanged: its
+hang is not fixed by this patch. Defaultoff, no board deployment/test. Arbitrary
+SSBO-generated vertices and lowered64 XFB remain unqualified. See
+[native vertex candidate](builds/mesa-native-vertex-20261109/README.md).
+
 ## Submitted buffer audit: native32 vertex payload gap — 2026-11-09
 
 Offline unchanged standard point/RGB tests snapshot11/60 allocation prefixes;

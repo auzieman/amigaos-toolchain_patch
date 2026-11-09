@@ -1,0 +1,217 @@
+--- /dev/null
++++ b/src/amd/common/nir/ac_nir_native_vertex.h
+@@ -0,0 +1,40 @@
++/* SPDX-License-Identifier: MIT
++ * Diagnostic GFX8 native CPU vertex/legacy-XFB payload contract.
++ * Internal GPU descriptors, constants and command words have separate contracts.
++ */
++#ifndef AC_NIR_NATIVE_VERTEX_H
++#define AC_NIR_NATIVE_VERTEX_H
++#include "nir_builder.h"
++#include "amd_family.h"
++#include "util/u_debug.h"
++#include "util/u_endian.h"
++
++static inline bool
++ac_nir_native_vertex_enabled(enum amd_gfx_level gfx_level)
++{
++#if UTIL_ARCH_BIG_ENDIAN
++   return gfx_level == GFX8 && debug_get_bool_option("TABOR_NATIVE_VERTEX_DATA", false);
++#else
++   return false;
++#endif
++}
++
++/* Operate on a scalar representation before numeric/format conversion.
++ * Byte-sized channels are identity; larger scalars reverse their own bytes.
++ */
++static inline nir_def *
++ac_nir_native_vertex_scalar(nir_builder *b, nir_def *value)
++{
++   unsigned bits = value->bit_size;
++   assert(value->num_components == 1);
++   assert(bits == 8 || bits == 16 || bits == 32 || bits == 64);
++   if (bits == 8)
++      return value;
++   nir_def *result = nir_imm_intN_t(b, 0, bits);
++   for (unsigned byte = 0; byte < bits / 8; byte++) {
++      nir_def *part = nir_iand_imm(b, nir_ushr_imm(b, value, byte * 8), 0xff);
++      result = nir_ior(b, result, nir_ishl_imm(b, part, bits - 8 - byte * 8));
++   }
++   return result;
++}
++#endif
+--- a/src/gallium/drivers/radeonsi/si_nir_lower_vs_inputs.c
++++ b/src/gallium/drivers/radeonsi/si_nir_lower_vs_inputs.c
+@@ -7,6 +7,7 @@
+ #include "nir_builder.h"
+ 
+ #include "ac_nir.h"
++#include "ac_nir_native_vertex.h"
+ #include "si_shader_internal.h"
+ #include "si_state.h"
+ #include "si_pipe.h"
+@@ -227,13 +228,23 @@
+       }
+    }
+ 
++   bool native_vertex = ac_nir_native_vertex_enabled(gfx_level);
++   if (native_vertex) {
++      /* Load scalar channels separately so byte arrays and packed formats keep
++       * their format-defined ordering. Doubles are two dwords in memory.
++       */
++      load_log_size = MIN2(log_size, 2);
++      load_num_channels = log_size == 3 ?
++         (format == AC_FETCH_FORMAT_FLOAT ? 2 * num_channels : 1) : num_channels;
++   }
++
+    int log_recombine = 0;
+-   if ((gfx_level == GFX6 || gfx_level >= GFX10) && !known_aligned) {
++   if (!native_vertex && (gfx_level == GFX6 || gfx_level >= GFX10) && !known_aligned) {
+       /* Avoid alignment restrictions by loading one byte at a time. */
+       load_num_channels <<= load_log_size;
+       log_recombine = load_log_size;
+       load_log_size = 0;
+-   } else if (load_num_channels == 2 || load_num_channels == 4) {
++   } else if (!native_vertex && (load_num_channels == 2 || load_num_channels == 4)) {
+       log_recombine = -util_logbase2(load_num_channels);
+       load_num_channels = 1;
+       load_log_size += -log_recombine;
+@@ -247,6 +258,18 @@
+       nir_def *zero = nir_imm_int(b, 0);
+ 
+       loads[i] = nir_load_buffer_amd(b, num_channels, bit_size, rsrc, zero, soffset, vindex);
++   }
++
++   if (native_vertex) {
++      for (unsigned i = 0; i < load_num_channels; i++)
++         loads[i] = ac_nir_native_vertex_scalar(b, loads[i]);
++      if (log_size == 3 && format == AC_FETCH_FORMAT_FLOAT) {
++         for (unsigned i = 0; i < load_num_channels; i += 2) {
++            nir_def *tmp = loads[i];
++            loads[i] = loads[i + 1];
++            loads[i + 1] = tmp;
++         }
++      }
+    }
+ 
+    if (log_recombine > 0) {
+@@ -449,7 +472,7 @@
+     */
+    bool opencode = key->ge.mono.vs_fetch_opencode & (1 << input_index);
+    union si_vs_fix_fetch fix_fetch = key->ge.mono.vs_fix_fetch[input_index];
+-   if (opencode ||
++   if (ac_nir_native_vertex_enabled(sel->screen->info.gfx_level) || opencode ||
+        (fix_fetch.u.log_size == 3 && fix_fetch.u.format == AC_FETCH_FORMAT_FLOAT) ||
+        fix_fetch.u.log_size == 2) {
+       opencoded_load_format(b, vb_desc, vertex_index, fix_fetch, !opencode,
+--- a/src/amd/common/nir/ac_nir_prerast_utils.c
++++ b/src/amd/common/nir/ac_nir_prerast_utils.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include "ac_nir.h"
++#include "ac_nir_native_vertex.h"
+ #include "ac_nir_helpers.h"
+ #include "sid.h"
+ 
+@@ -604,7 +605,8 @@
+ }
+ 
+ void
+-ac_nir_emit_legacy_streamout(nir_builder *b, unsigned stream, nir_xfb_info *info, ac_nir_prerast_out *out)
++ac_nir_emit_legacy_streamout(nir_builder *b, unsigned stream, nir_xfb_info *info, ac_nir_prerast_out *out,
++                             enum amd_gfx_level gfx_level)
+ {
+    nir_def *so_vtx_count = nir_ubfe_imm(b, nir_load_streamout_config_amd(b), 16, 7);
+    nir_def *tid = nir_load_subgroup_invocation(b);
+@@ -650,6 +652,9 @@
+             nir_alu_type base_type = nir_alu_type_get_base_type(output_type[out_comp]);
+             data = nir_convert_to_bit_size(b, data, base_type, 32);
+          }
++
++         if (ac_nir_native_vertex_enabled(gfx_level))
++            data = ac_nir_native_vertex_scalar(b, data);
+ 
+          assert(out_comp >= output->component_offset);
+          const unsigned store_comp = out_comp - output->component_offset;
+--- a/src/amd/common/nir/ac_nir_helpers.h
++++ b/src/amd/common/nir/ac_nir_helpers.h
+@@ -167,7 +167,8 @@
+ ac_get_global_ids(nir_builder *b, unsigned num_components, unsigned bit_size);
+ 
+ void
+-ac_nir_emit_legacy_streamout(nir_builder *b, unsigned stream, nir_xfb_info *info, ac_nir_prerast_out *out);
++ac_nir_emit_legacy_streamout(nir_builder *b, unsigned stream, nir_xfb_info *info, ac_nir_prerast_out *out,
++                             enum amd_gfx_level gfx_level);
+ 
+ bool
+ ac_nir_gs_shader_query(nir_builder *b,
+--- a/src/amd/common/nir/ac_nir_lower_legacy_vs.c
++++ b/src/amd/common/nir/ac_nir_lower_legacy_vs.c
+@@ -65,7 +65,7 @@
+    }
+ 
+    if (!disable_streamout && nir->xfb_info)
+-      ac_nir_emit_legacy_streamout(&b, 0, ac_nir_get_sorted_xfb_info(nir), &out);
++      ac_nir_emit_legacy_streamout(&b, 0, ac_nir_get_sorted_xfb_info(nir), &out, gfx_level);
+ 
+    /* This should be after streamout and before exports. */
+    ac_nir_clamp_vertex_color_outputs(&b, &out);
+--- a/src/amd/common/nir/ac_nir_create_gs_copy_shader.c
++++ b/src/amd/common/nir/ac_nir_create_gs_copy_shader.c
+@@ -106,7 +106,7 @@
+       }
+ 
+       if (stream_id)
+-         ac_nir_emit_legacy_streamout(&b, stream, info, &out);
++         ac_nir_emit_legacy_streamout(&b, stream, info, &out, gfx_level);
+ 
+       /* This should be after streamout and before exports. */
+       ac_nir_clamp_vertex_color_outputs(&b, &out);
+--- a/src/gallium/drivers/radeonsi/si_state.c
++++ b/src/gallium/drivers/radeonsi/si_state.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include "si_build_pm4.h"
++#include "ac_nir_native_vertex.h"
+ #include "si_query.h"
+ #include "si_shader_internal.h"
+ #include "sid.h"
+@@ -4546,7 +4547,11 @@
+       bool check_alignment =
+             log_hw_load_size >= 1 &&
+             (sscreen->info.gfx_level == GFX6 || sscreen->info.gfx_level >= GFX10);
+-      bool opencode = sscreen->options.vs_fetch_always_opencode;
++      /* Native payload decoding also needs complete format metadata in the
++       * shader key, including formats that normally need no fetch fixup.
++       */
++      bool opencode = sscreen->options.vs_fetch_always_opencode ||
++                      ac_nir_native_vertex_enabled(sscreen->info.gfx_level);
+ 
+       if (check_alignment && ((elements[i].src_offset & ((1 << log_hw_load_size) - 1)) != 0 ||
+                               elements[i].src_stride & 3))
+--- a/src/gallium/drivers/radeonsi/si_get.c
++++ b/src/gallium/drivers/radeonsi/si_get.c
+@@ -11,6 +11,7 @@
+ #include "radeon_vce.h"
+ #include "radeon_video.h"
+ #include "si_pipe.h"
++#include "ac_nir_native_vertex.h"
+ #include "util/u_cpu_detect.h"
+ #include "util/u_screen.h"
+ #include "util/u_video.h"
+@@ -1337,7 +1338,11 @@
+    caps->texture_transfer_modes =
+       PIPE_TEXTURE_TRANSFER_BLIT | PIPE_TEXTURE_TRANSFER_COMPUTE;
+ 
+-   caps->draw_vertex_state = !(sscreen->debug_flags & DBG(NO_FAST_DISPLAY_LIST));
++   /* The display-list fast path requires fix_fetch_always == 0. Keep
++    * native vertex decoding on the normal path, which carries its format key.
++    */
++   caps->draw_vertex_state = !(sscreen->debug_flags & DBG(NO_FAST_DISPLAY_LIST)) &&
++                             !ac_nir_native_vertex_enabled(sscreen->info.gfx_level);
+ 
+    caps->shader_samples_identical =
+       sscreen->info.gfx_level < GFX11 && !(sscreen->debug_flags & DBG(NO_FMASK));

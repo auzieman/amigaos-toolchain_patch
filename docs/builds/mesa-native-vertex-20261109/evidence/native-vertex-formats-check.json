@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001:/work",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/mesa-source:/source:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:92b850162c8dcc8aced3d4766e1da85d5b0a63cfcdb14c4732c0756c612d5eef",
+    "-c",
+    "set -e\ncd /work/native/build\ncc -Isrc/amd/common/libamd_common.a.p -Isrc/amd/common -I../../../source/src/amd/common -Iinclude -I../../../source/include -Isrc -I../../../source/src -Isrc/amd -I../../../source/src/amd -I../../../source/src/virtio/virtio-gpu -Isrc/compiler/nir -I../../../source/src/compiler/nir -Isrc/compiler -I../../../source/src/compiler -Isrc/util/format -I/usr/include/libdrm -fvisibility=hidden -fdiagnostics-color=always -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -std=c11 -O3 -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS '-DPACKAGE_VERSION=\"25.0.7\"' '-DPACKAGE_BUGREPORT=\"https://gitlab.freedesktop.org/mesa/mesa/-/issues\"' -DHAVE_OPENGL=1 -DHAVE_OPENGL_ES_1=0 -DHAVE_OPENGL_ES_2=1 -DHAVE_RADEONSI -DHAVE_SOFTPIPE -DHAVE_SWRAST -DVIDEO_CODEC_VC1DEC=0 -DVIDEO_CODEC_H264DEC=0 -DVIDEO_CODEC_H264ENC=0 -DVIDEO_CODEC_H265DEC=0 -DVIDEO_CODEC_H265ENC=0 -DVIDEO_CODEC_AV1DEC=1 -DVIDEO_CODEC_AV1ENC=1 -DVIDEO_CODEC_VP9DEC=1 -DHAVE_SURFACELESS_PLATFORM -DHAVE_DRM_PLATFORM -DUSE_LIBGLVND=0 -DGLAPI_EXPORT_PROTO_ENTRY_POINTS=1 -DALLOW_KCMP -DMESA_DEBUG=0 -DENABLE_SHADER_CACHE -DHAVE___BUILTIN_BSWAP32 -DHAVE___BUILTIN_BSWAP64 -DHAVE___BUILTIN_CLZ -DHAVE___BUILTIN_CLZLL -DHAVE___BUILTIN_CTZ -DHAVE___BUILTIN_EXPECT -DHAVE___BUILTIN_FFS -DHAVE___BUILTIN_FFSLL -DHAVE___BUILTIN_POPCOUNT -DHAVE___BUILTIN_POPCOUNTLL -DHAVE___BUILTIN_UNREACHABLE -DHAVE___BUILTIN_TYPES_COMPATIBLE_P -DHAVE_FUNC_ATTRIBUTE_CONST -DHAVE_FUNC_ATTRIBUTE_FLATTEN -DHAVE_FUNC_ATTRIBUTE_MALLOC -DHAVE_FUNC_ATTRIBUTE_PURE -DHAVE_FUNC_ATTRIBUTE_UNUSED -DHAVE_FUNC_ATTRIBUTE_WARN_UNUSED_RESULT -DHAVE_FUNC_ATTRIBUTE_WEAK -DHAVE_FUNC_ATTRIBUTE_FORMAT -DHAVE_FUNC_ATTRIBUTE_PACKED -DHAVE_FUNC_ATTRIBUTE_RETURNS_NONNULL -DHAVE_FUNC_ATTRIBUTE_ALIAS -DHAVE_FUNC_ATTRIBUTE_NORETURN -DHAVE_FUNC_ATTRIBUTE_OPTIMIZE -DHAVE_FUNC_ATTRIBUTE_VISIBILITY -DHAVE_UINT128 -DHAVE_REALLOCARRAY -DHAVE_FMEMOPEN -D_GNU_SOURCE -DUSE_SSE41 -DHAVE___BUILTIN_IA32_CLFLUSHOPT -DUSE_GCC_ATOMIC_BUILTINS -DUSE_X86_64_ASM -DMAJOR_IN_SYSMACROS -DHAS_SCHED_H -DHAS_SCHED_GETAFFINITY -DHAVE_LINUX_FUTEX_H -DHAVE_ENDIAN_H -DHAVE_DLFCN_H -DHAVE_SYS_SHM_H -DHAVE_CET_H -DHAVE_SYS_INOTIFY_H -DHAVE_LINUX_UDMABUF_H -DHAVE_STRTOF -DHAVE_MKOSTEMP -DHAVE_MEMFD_CREATE -DHAVE_RANDOM_R -DHAVE_FLOCK -DHAVE_STRTOK_R -DHAVE_GETRANDOM -DHAVE_POSIX_FALLOCATE -DHAVE_SECURE_GETENV -DHAVE_GNU_QSORT_R -DHAVE_STRUCT_TIMESPEC -DHAVE_PROGRAM_INVOCATION_NAME -DHAVE_ISSIGNALING -DHAVE_POSIX_MEMALIGN -DHAVE_DIRENT_D_TYPE -DHAVE_STRTOD_L -DHAVE_DLADDR -DHAVE_DL_ITERATE_PHDR -DHAVE_ZLIB -DHAVE_COMPRESSION -DHAVE_PTHREAD -DHAVE_PTHREAD_SETAFFINITY -DHAVE_LIBDRM -DLLVM_AVAILABLE=0 -DDRAW_LLVM_AVAILABLE=0 -DAMD_LLVM_AVAILABLE=0 -DGALLIVM_USE_ORCJIT=0 -DUSE_LIBELF -DTHREAD_SANITIZER=0 -DHAVE_OPENMP -DHAVE_DRI -DHAVE_DRI2 -DHAVE_DRISW_KMS -mtls-dialect=gnu2 -Werror=implicit-function-declaration -Werror=missing-prototypes -Werror=return-type -Werror=empty-body -Werror=incompatible-pointer-types -Werror=int-conversion -Wimplicit-fallthrough -Wmisleading-indentation -Wno-missing-field-initializers -Wno-format-truncation -Wno-nonnull-compare -fno-math-errno -fno-trapping-math -fno-common -Wno-unknown-pragmas -Wno-unused-function -Werror=format -Wformat-security -ffunction-sections -fdata-sections -Wno-unused-variable -Wno-unused-but-set-variable -fPIC -pthread -DADDR_FASTCALL= -UNDEBUG -c /work/check-native-vertex-formats.c -o /work/native-vertex-formats.o\nc++ /work/native-vertex-formats.o -Wl,--gc-sections -Wl,--start-group src/compiler/nir/libnir.a src/compiler/libcompiler.a src/util/libmesa_util.a src/util/libmesa_util_sse41.a src/util/blake3/libblake3.a -Wl,--end-group -lm -lz -ldl -pthread -o /work/native-vertex-formats-test\n/work/native-vertex-formats-test\n"
+  ],
+  "exit": 0,
+  "stdout": "PASS actual vertex format lowering, 190 LE/native scalar/packed/reversed cases\n",
+  "stderr": "",
+  "limits": "Actual opencoded_load_format, ufN_to_float and si_vs_fix_fetch extracted from candidate; real NIR builder/constant folder. GPU scalar loads replaced by little-endian byte-reader model and native predicate controlled. No physical GPU execution."
+}

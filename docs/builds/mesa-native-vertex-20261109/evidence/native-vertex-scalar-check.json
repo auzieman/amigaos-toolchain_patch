@@ -1,0 +1,31 @@
+{
+  "x86": {
+    "argv": [
+      "gcc",
+      "-O2",
+      "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/native-vertex-scalars.c",
+      "-o",
+      "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/scalar-x86"
+    ],
+    "output": "PASS scalar/store cases=16384 double-pair cases=4096 old-BE-mismatches=12275 total=20480\n",
+    "exit": 0
+  },
+  "spe": {
+    "argv": [
+      "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002/bin/powerpc-linux-gnuspe-gcc",
+      "--sysroot=/srv/data1/tabor-build/linux-live-001/sysroot",
+      "-mcpu=8548",
+      "-mabi=spe",
+      "-mspe",
+      "-mfloat-gprs=double",
+      "-mlong-double-128",
+      "-O2",
+      "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/native-vertex-scalars.c",
+      "-o",
+      "/srv/data1/tabor-build/linux-live-001/work/native-vertex-contract-20261109-001/scalar-spe"
+    ],
+    "output": "PASS scalar/store cases=16384 double-pair cases=4096 old-BE-mismatches=12275 total=20480\n",
+    "exit": 0
+  },
+  "limits": "Actual scalar helper extracted; NIR builder integer operations interpreted by mock, not actual NIR optimizer or GPU. Load/store endpoints modeled. Packed formats checked as scalar containers, not full numeric normalization. Double input pairs modeled; lowered64 XFB ordering still unqualified."
+}
