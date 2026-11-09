@@ -1,0 +1,8 @@
+ALLOCATION heap=2 flags=5
+GFX_TEST_ENCODING=explicit-little-endian
+GFX_NATIVE_WRITE va=10000 target=10800 first_bytes=003703c0
+SUBMIT seq=1 ib_count=1 ip=0 ib_va=10000 ib_size=8
+GFX_NATIVE_WRITE fence_complete=1 bytes=addefeca
+GFX_NATIVE_WRITE=PASS
+REMAP_BYTES=addefeca
+/usr/share/libdrm/amdgpu.ids: No such file or directory

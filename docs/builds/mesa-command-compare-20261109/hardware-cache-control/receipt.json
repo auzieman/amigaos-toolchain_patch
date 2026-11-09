@@ -1,0 +1,14 @@
+[
+  {
+    "case": "uswc",
+    "argv": "/run/busybox-render-tools timeout 8 /opt/tabor-piglit-20261109/lib/ld.so.1 --library-path /opt/tabor-piglit-20261109/lib:/opt/tabor-piglit-20261109/usr/lib /run/gfx-write uswc le",
+    "exit": 0,
+    "boot_id": "178dae6d-2771-4fa4-8709-a91f770b0712"
+  },
+  {
+    "case": "cached",
+    "argv": "/run/busybox-render-tools timeout 8 /opt/tabor-piglit-20261109/lib/ld.so.1 --library-path /opt/tabor-piglit-20261109/lib:/opt/tabor-piglit-20261109/usr/lib /run/gfx-write le",
+    "exit": 0,
+    "boot_id": "178dae6d-2771-4fa4-8709-a91f770b0712"
+  }
+]

@@ -1,3 +1,12 @@
+## Physical LE command visibility control: cached and USWC PASS — 2026-11-09
+
+Fresh013 boot, verified installed-module first bind, rootRO, explicitLE GFX
+fetchswap0. Identical8DW allocated WRITE_DATA test passes USWCflags5 and
+cachedflags1: actual markeraddefeca, ioctl fencecomplete, remapidentical. Final
+bootunchanged,taint0,amdgpudrmfb,SSHresponsive. NoGL,resetorreload. This does not
+justify a cache-policy patch or qualify larger/shader/render-target visibility.
+See [hardware control](builds/mesa-command-compare-20261109/README.md).
+
 ## Complete GFX construction comparison — 2026-11-09
 
 Offline standard Piglit point draw now compares finalized command streams across

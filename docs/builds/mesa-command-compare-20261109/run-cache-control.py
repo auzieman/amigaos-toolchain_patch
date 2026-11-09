@@ -3,7 +3,7 @@ from pathlib import Path
 import subprocess,runpy,hashlib,json
 repo=Path(__file__).resolve().parents[3]
 base=runpy.run_path(str(repo/'work/modular-usb-update-20261105-001/board_access.py'))['base']
-out=Path(__file__).resolve().parent/'hardware-cache-control';out.mkdir(exist_ok=False)
+out=Path(__file__).resolve().parent/'hardware-cache-control'
 def ssh(cmd,limit=15):
  return subprocess.run(['ssh',*base,'root@192.168.1.249',cmd],capture_output=True,text=True,timeout=limit)
 def get(cmd):
@@ -18,7 +18,8 @@ module=get('/sbin/busybox-modules sha256sum /lib/modules/6.12.113-tabor-e2e-013/
 assert module=='a50eb602944186f8186e633da8b687d208434af601b1afed67efcb5b7ad1cfb6'
 def clean(log):
  return not any(x in log.lower() for x in ['gpu reset','blocked for more than','ring gfx timeout','ring gfx_0.0.0 timeout'])
-pre=get('dmesg');(out/'before-kmsg.txt').write_text(pre);assert clean(pre),'GPU already reports a failure'
+pre=get('dmesg');assert clean(pre),'GPU already reports a failure'
+out.mkdir(exist_ok=False);(out/'before-kmsg.txt').write_text(pre)
 files=Path('/tmp/tabor-cache-control-artifacts')
 expected={'gfx-write':'903df0d059684808a6f4616adaa7a709e76477fb69b0da5cc444a43a722accdf'}
 for name in ['gfx-write','busybox-render-tools']:

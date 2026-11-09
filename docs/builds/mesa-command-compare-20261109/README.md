@@ -102,3 +102,31 @@ It does not run GL, reload the driver or reset the GPU. The two recovered
 volatile artifacts are saved locally under /tmp/tabor-cache-control-artifacts
 for restaging after boot; the script verifies the accepted test hash and remote
 copies. The script has syntax validation; hardware execution is still pending.
+
+### Physical cached/USWC control: both PASS
+
+Fresh boot178dae6d-2771-4fa4-8709-a91f770b0712. The established installed013
+first-bind procedure verified the module hash and loader option, remounted root
+RO before binding, and enabled polaris11_le_user_ib=Y. Off-board /dev/kmsg logs
+are retained. No reload or GPU reset occurred.
+
+Same accepted gfx-write binary SHA903df0d059684808a6f4616adaa7a709e76477fb69b0da5cc444a43a722accdf,
+same explicit-LE8DW packets, VA0x10000, marker0x10800, kernel GFX fetchswap0:
+
+| GTT CPU allocation | flags | Fence | Marker/remap | Result |
+| --- | --- | --- | --- | --- |
+| USWC | 5 | complete | addefeca / addefeca | PASS |
+| cached | 1 | complete | addefeca / addefeca | PASS |
+
+Post-test boot ID unchanged, taint0, amdgpudrmfb registered, rootRO, SSH responsive.
+No GPU reset/hang reported by the guarded checks. Optional debugfs fence-info
+read was unavailable because debugfs was not mounted; it is not an acceptance
+claim. Missing /usr/share/libdrm/amdgpu.ids is a human-readable-name warning;
+actual allocated/submitted/fenced/verified writes passed.
+
+This qualifies basic cached GTT LE-IB fetch and response for this small control.
+It does not prove visibility for larger command buffers, shader uploads, render
+surfaces or concurrent workloads. The result does not justify a cache-policy
+change. No GL test was launched. Next audit should follow actual shader execution
+and render-target memory publication/response, retaining this negative control
+against an unproven general cached-IB hypothesis.
