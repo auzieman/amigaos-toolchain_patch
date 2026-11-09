@@ -5,6 +5,13 @@ that remains usable without GPU rendering acceleration, followed by accelerated
 Radeon/Mesa/compositing. Profile: profiles/images/a1222-graphical-shell.json.
 This is a required capability plan, not a claim the image currently has it.
 
+2026-11-08: candidate007 now has user-confirmed readable HDMI fbcon and a correct
+CPU/SPE framebuffer fractal. The user prioritizes software X11/E without waiting
+for hardware GL. Actual kernel/input readiness and prepared unaccelerated Xorg
+profiles are recorded in
+[the desktop restart](builds/software-desktop-restart-20261108/README.md).
+The configured Debian desktop root and X/E execution remain separate open gates.
+
 ## Display initialization and rendering are separate
 
 The pinned upstream7.3 drivers/video/fbdev/Kconfig makes FB_VESA depend on X86.

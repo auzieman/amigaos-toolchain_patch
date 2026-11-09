@@ -1,5 +1,5 @@
 {
-  "status": "required-capabilities-not-a-tested-image",
+  "status": "physical-console-and-cpu-spe-fractal-accepted-desktop-pending",
   "architecture": "powerpcspe",
   "sdk_candidate": "profiles/trixie-spe-sdk-candidate.json",
   "goal": "Local login console, software-rendered X11/E shell, then accelerated Radeon desktop",
@@ -97,9 +97,22 @@
     "QEMU Xvfb success proves a physical console"
   ],
   "current_gates": [
-    "modern GCC14 SPE foundation not accepted",
+    "modern GCC14 SPE foundation not fully accepted",
     "full package-managed Trixie root not accepted",
-    "new7.3 QEMU two-CPU startup unresolved",
-    "physical Radeon scanout not accepted"
+    "physical Xorg terminal/repaint/input not tested",
+    "software-rendered E session not tested on this hardware",
+    "GFX indirect-buffer test fails -110; accelerated GL remains separate"
+  ],
+  "accepted_hardware": {
+    "kernel_release": "6.12.113-tabor-e2e-007",
+    "console": "user-confirmed readable HDMI1920x1080/32bpp",
+    "framebuffer_fractal": "user-confirmed correct CPU/SPE image and full framebuffer readback",
+    "keyboard_evdev": true,
+    "evidence": "docs/builds/e2e007-usb-test-20261108/hardware-summary.json",
+    "fractal_evidence": "docs/builds/framebuffer-fractal-20261108/summary.json"
+  },
+  "prepared_xorg_profiles": [
+    "profiles/images/a1222-xorg-fbdev.conf",
+    "profiles/images/a1222-xorg-modesetting-software.conf"
   ]
 }

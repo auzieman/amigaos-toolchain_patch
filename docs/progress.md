@@ -1,5 +1,12 @@
 ## Candidate007 physical console PASS — 2026-11-08
 
+Immediate desktop priority: use accepted2D scanout for software X/E before
+hardware GL. Actual007 config has evdev/USB HID, VT/fbcon, SysV IPC, Unix
+sockets, tmpfs/devtmpfs, inotify and epoll; physical keyboard event nodes exist.
+Prepared separate fbdev and unaccelerated modesetting profiles. The rescue USB
+still lacks configured X/E packages; no server/session launch is claimed. See
+[desktop restart](builds/software-desktop-restart-20261108/README.md).
+
 Follow-up: the existing physical Mandelbrot benchmark reports all12,288 software
 and explicit-SPE escape counts identical, median125574us/23846us. The verified
 result is enlarged8x to1024x768 through fbdev with pixel backup and complete
