@@ -1,3 +1,14 @@
+## Standard Piglit baseline; GPU reset checkpoint — 2026-11-09
+
+Frozen standardPiglit/Waffle sources built unchanged forGLES2. Same standard
+surfacelessEGL/FBO tests physicallypass onsoftpipe (minmax,constantpointnovertex
+attributes,RGBdraw/readback). RadeonSI passesrendererquery/minmax;firstconstant
+pointdraw timesout, GFXseq17/18watchdog causesautomaticGPUreset/VRAMloss. Stop:
+no furtherphysicaldraws or manualreload/reset. SSHalive,taint0,rootRO;GPUclean
+state notaccepted. Onezombietestprocess,noneactive. Freshbootneeded before
+materiallydifferenttrial. See builds/piglit-standard-20261109/. Standardtests
+now baseline; no driverpatch should rely solely oncustomkmscube readback.
+
 ## Systemic Mesa/ACO audit and packed-mode correction — 2026-11-09
 
 Shared boundary ledger now covers compiler packing, executable/command upload,

@@ -1,0 +1,15 @@
+/dev/root / ext4 ro,relatime 0 0
+devtmpfs /dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0
+proc /proc proc rw,relatime 0 0
+sysfs /sys sysfs rw,relatime 0 0
+tmpfs /run tmpfs rw,relatime,size=32768k 0 0
+devpts /dev/pts devpts rw,relatime,mode=600,ptmxmode=000 0 0
+debugfs /sys/kernel/debug debugfs rw,relatime 0 0
+devtmpfs /opt/tabor-mesa-le-ib-20261109/dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0
+proc /opt/tabor-mesa-le-ib-20261109/proc proc rw,relatime 0 0
+sysfs /opt/tabor-mesa-le-ib-20261109/sys sysfs rw,relatime 0 0
+tmpfs /opt/tabor-mesa-le-ib-20261109/run tmpfs rw,relatime,size=32768k 0 0
+devtmpfs /opt/tabor-piglit-20261109/dev devtmpfs rw,relatime,size=1750048k,nr_inodes=178706,mode=755 0 0
+proc /opt/tabor-piglit-20261109/proc proc rw,relatime 0 0
+sysfs /opt/tabor-piglit-20261109/sys sysfs rw,relatime 0 0
+tmpfs /opt/tabor-piglit-20261109/run tmpfs rw,relatime,size=32768k 0 0

@@ -1,0 +1,46 @@
+[
+  {
+    "backend": "softpipe",
+    "test": "renderer",
+    "exit": 0,
+    "piglit_pass": false
+  },
+  {
+    "backend": "softpipe",
+    "test": "minmax",
+    "exit": 0,
+    "piglit_pass": true
+  },
+  {
+    "backend": "softpipe",
+    "test": "point-no-attributes",
+    "exit": 0,
+    "piglit_pass": true
+  },
+  {
+    "backend": "softpipe",
+    "test": "sanity-rgb",
+    "exit": 0,
+    "piglit_pass": true
+  },
+  {
+    "backend": "radeonsi",
+    "test": "renderer",
+    "exit": 0,
+    "piglit_pass": false
+  },
+  {
+    "backend": "radeonsi",
+    "test": "minmax",
+    "exit": 0,
+    "piglit_pass": true
+  },
+  {
+    "backend": "radeonsi",
+    "test": "point-no-attributes",
+    "exit": null,
+    "status": "controller-timeout-40s",
+    "piglit_pass": false,
+    "subsequent_rgb_test": "not run"
+  }
+]

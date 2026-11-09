@@ -1,0 +1,28 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-piglit-standard-20261109-003",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/piglit-standard-20261109-001:/work/piglit",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002:/tools:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/sysroot:/sysroot:ro",
+    "-v",
+    "/var/cache/apt/archives:/native-cache:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "trap 'r=$?; echo \"$r\" > /work/piglit/result.exit' EXIT\nset -e\ndpkg -i /native-cache/python3-numpy_1%3a2.2.4+ds-1_amd64.deb /native-cache/python3-numpy-dev_1%3a2.2.4+ds-1_amd64.deb /native-cache/libblas3_3.12.1-6_amd64.deb /native-cache/liblapack3_3.12.1-6_amd64.deb /native-cache/libgfortran5_14.2.0-19_amd64.deb /native-cache/libquadmath0_14.2.0-19_amd64.deb > /work/piglit/native-tools.log 2>&1\n/usr/bin/python3 -c \"import numpy,mako; print(numpy.__version__)\" >> /work/piglit/native-tools.log\nw=/work/piglit\nmeson setup --reconfigure \"$w/waffle-build\" \"$w/waffle\" --cross-file \"$w/spe-cross.ini\" --prefix=/usr --libdir=lib --wrap-mode=nodownload -Dglx=disabled -Dx11_egl=disabled -Dwayland=disabled -Dgbm=enabled -Dsurfaceless_egl=enabled -Dbuild-tests=false -Dbuild-examples=false > \"$w/waffle-configure.log\" 2>&1\nninja -C \"$w/waffle-build\" -j2 > \"$w/waffle-build.log\" 2>&1\nDESTDIR=\"$w/stage\" ninja -C \"$w/waffle-build\" install > \"$w/waffle-install.log\" 2>&1\nexport PKG_CONFIG_LIBDIR=\"$w/stage/usr/lib/pkgconfig:$w/stage/usr/lib/powerpc-linux-gnuspe/pkgconfig\"\nexport PKG_CONFIG_SYSROOT_DIR=\"$w/stage\"\ncmake -S \"$w/piglit\" -B \"$w/piglit-build\" -G Ninja -DCMAKE_TOOLCHAIN_FILE=\"$w/toolchain.cmake\" -DCMAKE_BUILD_TYPE=Release -DPIGLIT_USE_WAFFLE=ON -DPIGLIT_USE_X11=OFF -DPIGLIT_USE_WAYLAND=OFF -DPIGLIT_USE_GBM=ON -DPIGLIT_BUILD_GL_TESTS=OFF -DPIGLIT_BUILD_GLES1_TESTS=OFF -DPIGLIT_BUILD_GLES2_TESTS=ON -DPIGLIT_BUILD_GLES3_TESTS=OFF -DPIGLIT_BUILD_GLX_TESTS=OFF -DPIGLIT_BUILD_EGL_TESTS=ON -DPIGLIT_BUILD_DMA_BUF_TESTS=OFF -DPIGLIT_BUILD_VK_TESTS=OFF -DPIGLIT_BUILD_CL_TESTS=OFF > \"$w/piglit-configure.log\" 2>&1\nninja -C \"$w/piglit-build\" -j2 shader_runner_gles2 minmax_gles2 glsl-fs-pointcoord_gles2 > \"$w/piglit-build.log\" 2>&1\n"
+  ],
+  "returncode": 0,
+  "stdout": "8ac0e4548e26f8d6c3d1f552c575254b2727bb462af0569a3bf644ee2096a4a0\n",
+  "stderr": ""
+}
