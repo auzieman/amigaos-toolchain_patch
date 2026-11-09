@@ -1,3 +1,13 @@
+## Native vertex physical RGB trial: GFX timeout / recovery — 2026-11-09
+
+Single user-authorized standard offscreen RGB FBO trial reached actual candidate
+RadeonSI/Polaris11/ACO renderer, then controller22s timeout. Off-board kernel log:
+GFXsignaled5/emitted6, automaticGPUreset andVRAMloss. No pixel pass; candidate
+not hardware accepted. SSHsurvived,taint0,bootunchanged,rootRO;post-resetGPUclean
+state unaccepted. No second render/reload/manualreset/reboot. Freshboot required
+before materiallydifferenttrial. Future onscreen rendering is not authorized by
+this one offscreen test. See [physical trial](builds/mesa-native-vertex-20261109/physical-rgb-001/result.json).
+
 ## Native vertex candidate staged; no rendering authorized — 2026-11-09
 
 User-authorized isolated stage at /opt/tabor-native-vertex-20261109. All28 file

@@ -1,0 +1,6 @@
+{
+  "exit": null,
+  "pass": false,
+  "controller_timeout": true,
+  "command": "PIGLIT_PLATFORM=surfaceless_egl EGL_PLATFORM=surfaceless MESA_SHADER_CACHE_DISABLE=true TABOR_POLARIS11_LE_IB=1 TABOR_NATIVE_VERTEX_DATA=1 LIBGL_ALWAYS_SOFTWARE=0 GALLIUM_DRIVER=radeonsi MESA_LOADER_DRIVER_OVERRIDE=radeonsi LD_LIBRARY_PATH=/lib:/usr/lib /run/busybox-render-tools timeout 12 /run/busybox-render-tools chroot /opt/tabor-native-vertex-20261109 /usr/bin/shader_runner_gles2 /tests/sanity.shader_test -auto -fbo"
+}

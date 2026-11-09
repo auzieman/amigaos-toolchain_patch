@@ -1,0 +1,198 @@
+0
+178dae6d-2771-4fa4-8709-a91f770b0712
+/dev/root on / type ext4 (ro,relatime)
+devtmpfs on /dev type devtmpfs (rw,relatime,size=1750048k,nr_inodes=178706,mode=755)
+proc on /proc type proc (rw,relatime)
+sysfs on /sys type sysfs (rw,relatime)
+tmpfs on /run type tmpfs (rw,relatime,size=32768k)
+devpts on /dev/pts type devpts (rw,relatime,mode=600,ptmxmode=000)
+devtmpfs on /opt/tabor-native-vertex-20261109/dev type devtmpfs (rw,relatime,size=1750048k,nr_inodes=178706,mode=755)
+proc on /opt/tabor-native-vertex-20261109/proc type proc (rw,relatime)
+sysfs on /opt/tabor-native-vertex-20261109/sys type sysfs (rw,relatime)
+tmpfs on /opt/tabor-native-vertex-20261109/run type tmpfs (rw,relatime,size=32768k)
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=89000 request=00015ba8
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=73000 request=00011d28
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=92000 request=00016760
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=77000 request=00012cc8
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=95000 request=00017318
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=80000 request=00013880
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_smc_uvd_level(hwmgr, table) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_smc_boot_level(hwmgr, table) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_smc_boot_level(hwmgr, table) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_smc_initailial_state(hwmgr) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_smc_initailial_state(hwmgr) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_bapm_parameters_in_dpm_table(hwmgr) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_bapm_parameters_in_dpm_table(hwmgr) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_clock_stretcher_data_table(hwmgr) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_clock_stretcher_data_table(hwmgr) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_avfs_parameters(hwmgr) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_avfs_parameters(hwmgr) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_vr_config(hwmgr, table) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_vr_config(hwmgr, table) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=2812 request=00000afc
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=26100 request=000065f4
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+<6>amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=26100 request=000065f4
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+<6>amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+<6>amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+<6>amdgpu: PWR_TRACE smu7_copy_bytes_to_smc(hwmgr, smu_data->smu7_data.dpm_table_start + offsetof(SMU74_Discrete_DpmTable, SystemFlags), (uint8_t *)&(table->SystemFlags), sizeof(SMU74_Discrete_DpmTable) - 3 * sizeof(SMU74_PIDController), SMC_RAM_END) enter
+<6>amdgpu: PWR_TRACE smu7_copy_bytes_to_smc(hwmgr, smu_data->smu7_data.dpm_table_start + offsetof(SMU74_Discrete_DpmTable, SystemFlags), (uint8_t *)&(table->SystemFlags), sizeof(SMU74_Discrete_DpmTable) - 3 * sizeof(SMU74_PIDController), SMC_RAM_END) result=0
+<6>amdgpu: PWR_TRACE polaris10_populate_pm_fuses(hwmgr) enter
+<6>amdgpu: PWR_TRACE polaris10_populate_pm_fuses(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smum_init_smc_table(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_vrhot_gpio_interrupt(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu7_enable_vrhot_gpio_interrupt(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_notify_has_display(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu_msg=0x306 parameter=0x14d
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e response=0x1
+<6>amdgpu: PWR_TRACE smu7_notify_has_display(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_populate_edc_leakage_registers(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x317 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x317 response=0x1
+<6>amdgpu: PWR_TRACE smu7_populate_edc_leakage_registers(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_sclk_control(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu7_enable_sclk_control(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_smc_voltage_controller(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x109 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x109 response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_smc_voltage_controller(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_ulv(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x62 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x62 response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_ulv(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_deep_sleep_master_switch(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x18f enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x18f response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_deep_sleep_master_switch(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_didt_config(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu_msg=0x301 parameter=0x40205
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x301 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x301 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x309 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x309 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x30b enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x30b response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_didt_config(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_start_dpm(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x150 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x150 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x136 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x136 response=0x1
+<6>amdgpu: PWR_TRACE smu7_start_dpm(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_smc_cac(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x53 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x53 response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_smc_cac(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_power_containment(hwmgr) enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x169 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x169 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x185 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x185 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x187 parameter=0x2300
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x187 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x187 response=0x1
+<6>amdgpu: PWR_TRACE smu7_enable_power_containment(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_power_control_set_level(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu_msg=0x188 parameter=0x2300
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x188 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x188 response=0x1
+<6>amdgpu: PWR_TRACE smu7_power_control_set_level(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_enable_thermal_auto_throttle(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu7_enable_thermal_auto_throttle(hwmgr) result=0
+<6>amdgpu: PWR_TRACE smu7_pcie_performance_request(hwmgr) enter
+<6>amdgpu: PWR_TRACE smu7_pcie_performance_request(hwmgr) result=0
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x10a enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x10a response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x305 parameter=0x5
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x305 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x305 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x26a enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x26a response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x415 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x415 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x209 parameter=0x23
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x209 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x209 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x206 parameter=0x320
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x206 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x206 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x5b parameter=0x0
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5b enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5b response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x205 parameter=0x10cc
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x205 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x205 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x20a parameter=0x46
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x20a enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x20a response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+<6>amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd type=3 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x154 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x154 response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd result=0
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 type=5 enter
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 result=0
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc1 type=5 enter
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc1 result=0
+<6>[drm] UVD and UVD ENC initialized successfully.
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce0 type=4 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15a enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15a response=0x1
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce0 result=0
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce1 type=4 enter
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce1 result=0
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce2 type=4 enter
+<6>amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce2 result=0
+<6>[drm] VCE initialized successfully.
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x155 enter
+<6>amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x155 response=0x1

@@ -126,3 +126,34 @@ force until they authorize a later trial.
 See staging/ for source/runtime receipt, all target hashes, loader listing,
 mount restoration and final state. assemble-live.py and stage-live.py reproduce
 the stage-only process; they never bind devices or execute the graphics tests.
+
+## Authorized single physical RGB trial: timeout
+
+Following the user's “I was asking you lol but sure”, one bounded standard
+surfaceless/FBO RGB sanity test was authorized and run. No onscreen scanout,
+VT switch, full desktop, extra render trial or boot change was requested/run.
+The private runtime interfaces were bind-mounted for this trial; root stayedRO.
+Verified candidate libgallium hash, kernel013 optionY, clean preflight taint0 and
+absence of prior reset/hang messages. wflinfo with the candidate loader/libraries
+identified actual AMD RadeonSI/Polaris11/ACO, GLES2 Mesa25.0.7.
+
+Standard shader_runner_gles2 sanity.shader_test used TABOR_NATIVE_VERTEX_DATA=1,
+TABOR_POLARIS11_LE_IB=1 and disabled shader cache. The controller timed out at22s.
+Off-board kernel stream reports ring gfx timeout, signaledseq5/emittedseq6,
+automatic GPU reset, successful reset attempt and VRAM loss. No manual reset,
+reload, repeated render or reboot followed. No pixel/readback pass was obtained.
+The new vertex/streamout candidate is not hardware-render accepted and is not
+sufficient to solve the remaining execution timeout.
+
+SSH survived; final taint0 and boot ID unchanged, rootRO. This does not establish
+a clean or functional post-recovery GPU. Require a fresh boot before any later
+materially different hardware trial. Runtime interface mounts remain recorded;
+no cleanup/unbind that could interfere with blocked GPU tasks was attempted.
+
+physical-rgb-001/ retains renderer output, preflight, command/result receipt,
+off-board live kernel stream and post/final state. The initial timeout handler
+saved partial stdout but omitted partial stderr; GPU publication stderr from
+this trial is therefore not asserted captured. The handler was corrected for
+future use, without rerunning this trial. The independent kernel stream remained
+captured. Some later dmesg ring contents were overwritten by verbose logging;
+the off-board stream preserves the reset/VRAM-loss evidence.
