@@ -1,0 +1,20 @@
+{
+  "parent": "/srv/data1/tabor-build/linux-live-001/work/radeonsi-le-ib-20261109-001",
+  "output": "/srv/data1/tabor-build/linux-live-001/work/radeonsi-systemic-20261109-001",
+  "patch_sha256": "d8cf4db20bb4f356b20f872fc7aefce5ff695a9c46fd2118ec642d4b31368bc4",
+  "host_layout_check": {
+    "status": "PASS",
+    "cases_per_arch": 256,
+    "actual_source_type": "aco::float_mode",
+    "old_be_layout_mismatch": true,
+    "new_encode_decode_exact": true,
+    "le_unchanged": true,
+    "source_sha256": "2908a52a0fc4401ce0bf9fa48f5e2b2afbacf3d1f33291e9585e39e05429310d",
+    "patch_sha256": "d8cf4db20bb4f356b20f872fc7aefce5ff695a9c46fd2118ec642d4b31368bc4",
+    "hardware_causality": "not established",
+    "applied_to_mesa": false,
+    "old_be_default_keep_denorm_register": 15,
+    "correct_default_keep_denorm_register": 240
+  },
+  "hardware_tested": false
+}

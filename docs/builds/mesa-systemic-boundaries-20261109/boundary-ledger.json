@@ -1,0 +1,275 @@
+{
+  "scope": "Pinned active RadeonSI/ACO clear + general workstation data paths; source anchors are not complete coverage or hardware acceptance",
+  "boundaries": [
+    {
+      "boundary": "PM4 construction",
+      "path": "src/gallium/include/winsys/radeon_winsys.h",
+      "sha256": "ede4d483122e7371dfdb14161bf83511c6ffcda8d2db224067ed58c1c243e50e",
+      "contract": "CPU native; retain until publication",
+      "state": "source confirmed",
+      "anchors": [
+        {
+          "line": 784,
+          "excerpt": "static inline void radeon_emit(struct radeon_cmdbuf *cs, uint32_t value)\n{\n   cs->current.buf[cs->current.cdw++] = value;\n}\n"
+        }
+      ]
+    },
+    {
+      "boundary": "GFX publication",
+      "path": "src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp",
+      "sha256": "b3a451bcc16e6261295539e448c067b5082f139d4587f25131279aa2197dc240",
+      "contract": "native32 to GPU LE32 after all fixups",
+      "state": "physically traced; shaderless write accepted",
+      "anchors": [
+        {
+          "line": 2196,
+          "excerpt": "         for (unsigned i = 0; i < rcs->num_prev; i++)\n            tabor_serialize_gfx_ib(rcs->prev[i].buf, rcs->prev[i].cdw);\n         tabor_serialize_gfx_ib(rcs->current.buf, rcs->current.cdw);\n      }\n"
+        }
+      ]
+    },
+    {
+      "boundary": "GFX chains",
+      "path": "src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp",
+      "sha256": "b3a451bcc16e6261295539e448c067b5082f139d4587f25131279aa2197dc240",
+      "contract": "same conversion for all finalized chunks",
+      "state": "offline byte checks; physical chain coverage open",
+      "anchors": [
+        {
+          "line": 2195,
+          "excerpt": "      if (tabor_explicit_le_gfx_ib(aws, cs->ip_type)) {\n         for (unsigned i = 0; i < rcs->num_prev; i++)\n            tabor_serialize_gfx_ib(rcs->prev[i].buf, rcs->prev[i].cdw);\n         tabor_serialize_gfx_ib(rcs->current.buf, rcs->current.cdw);\n      }"
+        }
+      ]
+    },
+    {
+      "boundary": "Preamble",
+      "path": "src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp",
+      "sha256": "b3a451bcc16e6261295539e448c067b5082f139d4587f25131279aa2197dc240",
+      "contract": "serialize once after padding",
+      "state": "offline checks; preemption physical coverage open",
+      "anchors": [
+        {
+          "line": 1070,
+          "excerpt": "   amdgpu_pad_gfx_compute_ib(aws, cs->ip_type, map, &preamble_num_dw, 0);\n   if (tabor_explicit_le_gfx_ib(aws, cs->ip_type))\n      tabor_serialize_gfx_ib(map, preamble_num_dw);\n   amdgpu_bo_unmap(&aws->dummy_sws.base, preamble_bo);\n"
+        }
+      ]
+    },
+    {
+      "boundary": "Shader executable",
+      "path": "src/gallium/drivers/radeonsi/si_shader.c",
+      "sha256": "306087c71eec54d36ce71824dc7c2e8e6214ee7d6e43f6613f0737944257e9a6",
+      "contract": "ACO native executable words to LE after relocation",
+      "state": "offline upload checks; shader execution open",
+      "anchors": [
+        {
+          "line": 1133,
+          "excerpt": "      uint32_t *exec = (uint32_t *)(rx_ptr + exec_offset);\n      for (unsigned j = 0; j < bin[i]->exec_size / 4; j++)\n         exec[j] = util_cpu_to_le32(exec[j]);\n#endif\n"
+        }
+      ]
+    },
+    {
+      "boundary": "Compiler GPU mode",
+      "path": "src/amd/compiler/aco_ir.h",
+      "sha256": "8e94d4e03f1ef3c728fe79e99206ece95a6711f61c5bf73568e11b4c5bce0d50",
+      "contract": "packed GPU mode must be CPU-independent before serialization",
+      "state": "old BE defect reproduced all256 settings; candidate fixed",
+      "anchors": [
+        {
+          "line": 140,
+          "excerpt": "};\n\nstruct float_mode {\n   /* matches encoding of the MODE register */\n   union {"
+        }
+      ]
+    },
+    {
+      "boundary": "Compiler mode producer",
+      "path": "src/amd/compiler/aco_instruction_selection.cpp",
+      "sha256": "b96cc3b28e5b571ff47f3bc5eb8bdbc6bf6c583b3893caafdc0dc0f8eb36de8c",
+      "contract": "shared float_mode.val becomes config numeric GPU mode",
+      "state": "source confirmed; connected build candidate",
+      "anchors": [
+        {
+          "line": 11183,
+          "excerpt": "   }\n\n   ctx.program->config->float_mode = ctx.program->blocks[0].fp_mode.val;\n   finish_program(&ctx);\n}"
+        },
+        {
+          "line": 11443,
+          "excerpt": "\n   if (need_endpgm) {\n      program->config->float_mode = program->blocks[0].fp_mode.val;\n\n      append_logical_end(ctx.block);"
+        },
+        {
+          "line": 12291,
+          "excerpt": "            Operand::c32(0u));\n\n   program->config->float_mode = program->blocks[0].fp_mode.val;\n\n   append_logical_end(ctx.block);"
+        },
+        {
+          "line": 12626,
+          "excerpt": "   bld.sop1(aco_opcode::s_setpc_b64, Operand(out_uniform_shader_addr, s2));\n\n   program->config->float_mode = program->blocks[0].fp_mode.val;\n   program->config->num_vgprs = get_vgpr_alloc(program, num_vgprs);\n   program->config->num_sgprs = get_sgpr_alloc(program, num_sgprs);"
+        },
+        {
+          "line": 13124,
+          "excerpt": "   bld.sop1(aco_opcode::s_setpc_b64, continue_pc);\n\n   program->config->float_mode = program->blocks[0].fp_mode.val;\n   program->config->num_vgprs = std::min<uint16_t>(get_vgpr_alloc(program, num_vgprs), 256);\n   program->config->num_sgprs = get_sgpr_alloc(program, num_sgprs);"
+        },
+        {
+          "line": 13220,
+          "excerpt": "   }\n\n   program->config->float_mode = program->blocks[0].fp_mode.val;\n\n   append_logical_end(ctx.block);"
+        },
+        {
+          "line": 13256,
+          "excerpt": "   interpolate_color_args(&ctx, finfo, regs);\n\n   program->config->float_mode = program->blocks[0].fp_mode.val;\n\n   append_logical_end(ctx.block);"
+        }
+      ]
+    },
+    {
+      "boundary": "Shader mode register",
+      "path": "src/gallium/drivers/radeonsi/si_state_shaders.cpp",
+      "sha256": "30274a60e8b546190c8ab5621661497086075fd05c2094e225fd018426f7c0d7",
+      "contract": "numeric mode inserted into PS register then PM4 serialized",
+      "state": "source confirmed; physical acceptance open",
+      "anchors": [
+        {
+          "line": 1952,
+          "excerpt": "      S_00B128_DX10_CLAMP(1) |\n      S_00B128_MEM_ORDERED(si_shader_mem_ordered(shader)) |\n      S_00B128_FLOAT_MODE(shader->config.float_mode);\n   uint32_t rsrc2 = S_00B12C_USER_SGPR(num_user_sgprs) | S_00B12C_OC_LDS_EN(oc_lds_en) |\n                    S_00B12C_SCRATCH_EN(shader->config.scratch_bytes_per_wave > 0);"
+        }
+      ]
+    },
+    {
+      "boundary": "Descriptors",
+      "path": "src/gallium/drivers/radeonsi/si_descriptors.c",
+      "sha256": "92e376382839dc7484bd9023070babf5f36995004e6971bb14de7b59bdf14df9",
+      "contract": "native descriptor words serialized by existing helper",
+      "state": "existing conversion; do not double-swap",
+      "anchors": [
+        {
+          "line": 147,
+          "excerpt": "   }\n\n   util_memcpy_cpu_to_le32(ptr, (char *)desc->list + first_slot_offset, upload_size);\n   desc->gpu_list = ptr - first_slot_offset / 4;\n"
+        }
+      ]
+    },
+    {
+      "boundary": "Constant buffers",
+      "path": "src/gallium/drivers/radeonsi/si_descriptors.c",
+      "sha256": "92e376382839dc7484bd9023070babf5f36995004e6971bb14de7b59bdf14df9",
+      "contract": "native CPU constants serialized by existing helper",
+      "state": "existing conversion; indirect paths need qualification",
+      "anchors": [
+        {
+          "line": 1142,
+          "excerpt": "                  const_offset, (struct pipe_resource **)buf, &tmp);\n   if (*buf)\n      util_memcpy_cpu_to_le32(tmp, ptr, size);\n}\n"
+        }
+      ]
+    },
+    {
+      "boundary": "Blitter vertices",
+      "path": "src/gallium/drivers/radeonsi/si_state_draw.cpp",
+      "sha256": "50a2d06e436273c1fe04cc2de694d58c1c64e473afecced8d7e2018d91316486",
+      "contract": "clear rectangle uses native scalar user-SGPR packet data",
+      "state": "exclude ordinary vertex upload for this clear",
+      "anchors": [
+        {
+          "line": 2516,
+          "excerpt": "   draw.count = 3;\n\n   /* Blits don't use vertex buffers. */\n   sctx->vertex_buffers_dirty = false;\n"
+        }
+      ]
+    },
+    {
+      "boundary": "General vertex buffers",
+      "path": "src/gallium/drivers/radeonsi/si_state_draw.cpp",
+      "sha256": "50a2d06e436273c1fe04cc2de694d58c1c64e473afecced8d7e2018d91316486",
+      "contract": "typed/raw vertex data distinct from LE descriptor words",
+      "state": "open; no blanket raw BO swap",
+      "anchors": [
+        {
+          "line": 1749,
+          "excerpt": "#if GFX_VER == 6 /* declare this function only once because it supports all chips. */\n\nvoid si_set_vertex_buffer_descriptor(struct si_screen *sscreen, struct si_vertex_elements *velems,\n                                     const struct pipe_vertex_buffer *vb, unsigned element_index,\n                                     uint32_t *out)"
+        }
+      ]
+    },
+    {
+      "boundary": "Color surface layout",
+      "path": "src/amd/common/ac_formats.c",
+      "sha256": "fd5f03381eeaa39556ef19a57274d307ec23bc4a0c8f49ade86c3c5324d8fd77",
+      "contract": "existing format-specific hardware endian selection",
+      "state": "source confirmed; preserve typed policy",
+      "anchors": [
+        {
+          "line": 637,
+          "excerpt": "\nuint32_t\nac_colorformat_endian_swap(uint32_t colorformat)\n{\n   if (UTIL_ARCH_BIG_ENDIAN) {"
+        }
+      ]
+    },
+    {
+      "boundary": "Readback staging",
+      "path": "src/gallium/drivers/radeonsi/si_texture.c",
+      "sha256": "6208c151c56b5f8f607da00dd02746bcda13dc1b901c99b4b9fe443cec69bdc0",
+      "contract": "tiled VRAM readback stages into linear CPU mapping",
+      "state": "open connected shader/copy/map validation",
+      "anchors": [
+        {
+          "line": 2009,
+          "excerpt": "}\n\nstatic void *si_texture_transfer_map(struct pipe_context *ctx, struct pipe_resource *texture,\n                                     unsigned level, unsigned usage, const struct pipe_box *box,\n                                     struct pipe_transfer **ptransfer)"
+        }
+      ]
+    },
+    {
+      "boundary": "Raw buffer mapping",
+      "path": "src/gallium/drivers/radeonsi/si_buffer.c",
+      "sha256": "c2dda5188e5d750e693a4685e0a9c41ceef7af2e8907ad74f43cb08dfc7fd02e",
+      "contract": "byte mapping is not universally numeric conversion",
+      "state": "open typed consumer audit",
+      "anchors": [
+        {
+          "line": 328,
+          "excerpt": "}\n\nstatic void *si_buffer_transfer_map(struct pipe_context *ctx, struct pipe_resource *resource,\n                                    unsigned level, unsigned usage, const struct pipe_box *box,\n                                    struct pipe_transfer **ptransfer)"
+        }
+      ]
+    },
+    {
+      "boundary": "Completion response",
+      "path": "src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp",
+      "sha256": "b3a451bcc16e6261295539e448c067b5082f139d4587f25131279aa2197dc240",
+      "contract": "GPU LE64 fence to native comparison",
+      "state": "8192cases/arch pass; physical clear still zero",
+      "anchors": [
+        {
+          "line": 223,
+          "excerpt": "   user_fence_cpu = afence->user_fence_cpu_address;\n   if (user_fence_cpu) {\n      if (util_le64_to_cpu(*user_fence_cpu) >= afence->seq_no) {\n         afence->signalled = true;\n         return true;"
+        },
+        {
+          "line": 242,
+          "excerpt": "   /* Check that guest-side syncobj agrees with the user fence. */\n   if (user_fence_cpu && afence->aws->info.is_virtio)\n      assert(afence->seq_no <= util_le64_to_cpu(*user_fence_cpu));\n\n   afence->signalled = true;"
+        }
+      ]
+    },
+    {
+      "boundary": "Userqueue response",
+      "path": "src/gallium/winsys/amdgpu/drm/amdgpu_userq.h",
+      "sha256": "ea6e4f4d08067a66d512f69648641d95564223aedc9f5106a486af587c5957c9",
+      "contract": "native dereference of GPU fence requires endian review",
+      "state": "not active on6.12 kernel queue; unresolved",
+      "anchors": [
+        {
+          "line": 31,
+          "excerpt": "\n#define amdgpu_pkt_end() do { \\\n   assert(__next_wptr - *userq->user_fence_ptr <= AMDGPU_USERQ_RING_SIZE_DW); \\\n   userq->next_wptr = __next_wptr; \\\n} while (0)"
+        }
+      ]
+    },
+    {
+      "boundary": "Compiler bit helpers",
+      "path": "src/amd/compiler/aco_util.h",
+      "sha256": "80d533e37d8324cc4004c060ce9c4981a6fac1b004ae18c8d89a42f421479ef5",
+      "contract": "explicit numeric shifts independent of memory byte order",
+      "state": "source confirmed; not all C++ bitfields are unsafe",
+      "anchors": [
+        {
+          "line": 647,
+          "excerpt": "   {\n      storage &= ~(mask << offset);\n      storage |= data_type(value & mask) << offset;\n      return *this;\n   }"
+        },
+        {
+          "line": 658,
+          "excerpt": "   constexpr bitfield_uint& operator|=(const access_type& value)\n   {\n      storage |= data_type(value & mask) << offset;\n      return *this;\n   }"
+        },
+        {
+          "line": 961,
+          "excerpt": "   {\n      storage &= ~(mask << offset);\n      storage |= data_type(value & mask) << offset;\n      return *this;\n   }"
+        }
+      ]
+    }
+  ]
+}

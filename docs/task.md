@@ -1,3 +1,15 @@
+## Systemic Mesa/ACO audit and packed-mode correction — 2026-11-09
+
+Shared boundary ledger now covers compiler packing, executable/command upload,
+descriptors/constants, vertex/blitter state, surface endian policy, staging and
+completion responses. Actual ACO float_mode type encodes0xf0 as0x0f onoldBE;
+all256 field/alias encode/decode cases match unchangedx86 after endian-aware
+layout fix. Full isolated41step Mesa build passes. Physicalclear remainszero,
+SSH/VT1/taint0 preserved. See builds/mesa-systemic-boundaries-20261109/. No
+3Dacceptance or claim all paths translated. Next: connected compiledshader/
+config/descriptor and render-target/readback validation, not further unchanged
+blackframe trials or blanket BO swapping.
+
 ## Mesa paired GFX encoding and fence decode — 2026-11-09
 
 Physical013 plus fixed module loader passes allocated userspace GFX WRITE_DATA:

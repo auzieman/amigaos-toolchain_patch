@@ -1,0 +1,29 @@
+--- a/src/amd/compiler/aco_ir.h
++++ b/src/amd/compiler/aco_ir.h
+@@ -141,14 +141,26 @@
+    /* matches encoding of the MODE register */
+    union {
+       struct {
++#if UTIL_ARCH_BIG_ENDIAN
++         unsigned denorm16_64 : 2;
++         unsigned denorm32 : 2;
++         fp_round round16_64 : 2;
++         fp_round round32 : 2;
++#else
+          fp_round round32 : 2;
+          fp_round round16_64 : 2;
+          unsigned denorm32 : 2;
+          unsigned denorm16_64 : 2;
++#endif
+       };
+       struct {
++#if UTIL_ARCH_BIG_ENDIAN
++         uint8_t denorm : 4;
++         uint8_t round : 4;
++#else
+          uint8_t round : 4;
+          uint8_t denorm : 4;
++#endif
+       };
+       uint8_t val = 0;
+    };
