@@ -1,0 +1,10 @@
+{
+  "vmid": 7,
+  "pte_gpu_address": "0xf4fffda080",
+  "expected_pte": "0xd749f077",
+  "pde_gpu_address": "0xf4fffa0000",
+  "reads": {
+    "pte": "VRAM_OFFSET=fffda080 LOW=d749f077 HIGH=00000000 ENTRY=00000000d749f077",
+    "pde": "VRAM_OFFSET=fffa0000 LOW=fffda001 HIGH=000000f4 ENTRY=000000f4fffda001"
+  }
+}

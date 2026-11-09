@@ -1,0 +1,39 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu.h
+@@ -187,6 +187,7 @@
+ extern int amdgpu_vm_fault_stop;
+ extern int amdgpu_vm_debug;
+ extern int amdgpu_vm_update_mode;
++extern bool amdgpu_polaris11_le_user_ib;
+ extern int amdgpu_exp_hw_support;
+ extern int amdgpu_dc;
+ extern int amdgpu_sched_jobs;
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
+@@ -160,6 +160,10 @@
+ int amdgpu_vm_block_size = -1;
+ int amdgpu_vm_fault_stop;
+ int amdgpu_vm_update_mode = -1;
++/* Diagnostic only: callers must explicitly submit LE GFX IB bytes. */
++bool amdgpu_polaris11_le_user_ib;
++module_param_named(polaris11_le_user_ib, amdgpu_polaris11_le_user_ib, bool, 0444);
++MODULE_PARM_DESC(polaris11_le_user_ib, "Polaris11 BE diagnostic: fetch explicit LE userspace GFX IBs without legacy hardware swapping (default off)");
+ int amdgpu_exp_hw_support;
+ int amdgpu_dc = -1;
+ int amdgpu_sched_jobs = 32;
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
+@@ -414,6 +414,13 @@
+ 	ib->gpu_addr = chunk_ib->va_start;
+ 	ib->length_dw = chunk_ib->ib_bytes / 4;
+ 	ib->flags = chunk_ib->flags;
++#ifdef __BIG_ENDIAN
++	/* This option changes the fetch contract, not the command values. */
++	if (amdgpu_polaris11_le_user_ib &&
++	    p->adev->asic_type == CHIP_POLARIS11 &&
++	    ring->funcs->type == AMDGPU_RING_TYPE_GFX)
++		ib->is_le = true;
++#endif
+ 	return 0;
+ }
+ 

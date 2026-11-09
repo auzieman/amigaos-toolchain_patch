@@ -1,0 +1,21 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 9/9   #P:2
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+         ld.so.1-487     [000] .....  1455.371472: amdgpu_vm_set_ptes: pe=f4fffa0000, addr=0000000000, incr=0, flags=0, count=16384, immediate=0
+         ld.so.1-487     [000] .....  1455.371708: amdgpu_vm_set_ptes: pe=f4fffdc000, addr=0000000000, incr=0, flags=0, count=1024, immediate=0
+         ld.so.1-487     [000] .....  1455.371744: amdgpu_vm_set_ptes: pe=f4fffdc000, addr=00d7a00000, incr=4096, flags=4a7, count=512, immediate=0
+         ld.so.1-487     [000] .....  1455.373038: amdgpu_vm_set_ptes: pe=f4fffda000, addr=0000000000, incr=0, flags=0, count=1024, immediate=0
+         ld.so.1-487     [000] .n...  1455.373112: amdgpu_vm_set_ptes: pe=f4fffda080, addr=0000384000, incr=4096, flags=71, count=1, immediate=0
+         ld.so.1-487     [000] .n...  1455.373146: amdgpu_vm_set_ptes: pe=f4fffa0000, addr=f4fffda000, incr=0, flags=1, count=1, immediate=0
+         ld.so.1-487     [000] .n...  1455.373150: amdgpu_vm_set_ptes: pe=f4fffbfff8, addr=f4fffdc000, incr=0, flags=1, count=1, immediate=0
+         ld.so.1-487     [000] .....  1455.373630: amdgpu_cs_ioctl: sched_job=9, timeline=gfx, context=329, seqno=1, ring_name=gfx, num_ibs=1
+    kworker/u8:1-31      [000] .n...  1455.374055: amdgpu_vm_flush: ring=gfx, id=2, hub=0, pd_addr=f4fffa0000

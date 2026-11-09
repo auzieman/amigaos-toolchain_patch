@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--name",
+    "tabor-gfx-write-20261109-003",
+    "--cpus=1",
+    "--memory=1g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/gfx-write-20261109-003:/test",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/kmscube-build-20261109-001/stage:/deps:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002:/tools:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/sysroot:/sysroot:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "/tools/bin/powerpc-linux-gnuspe-gcc --sysroot=/sysroot -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 -I/deps/usr/include/libdrm /test/gfx-write.c -L/deps/usr/lib/powerpc-linux-gnuspe -Wl,-rpath-link,/deps/usr/lib/powerpc-linux-gnuspe -ldrm_amdgpu -ldrm -o /test/gfx-write && /tools/bin/powerpc-linux-gnuspe-gcc --sysroot=/sysroot -mcpu=8548 -mabi=spe -mspe -mfloat-gprs=double -mlong-double-128 -O2 /test/read-vram.c -o /test/read-vram"
+  ],
+  "exit": 0
+}

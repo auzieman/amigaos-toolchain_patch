@@ -1,0 +1,38 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 10/10   #P:2
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+         ld.so.1-331     [001] .....   934.614617: amdgpu_vm_set_ptes: pe=f4fffa0000, addr=0000000000, incr=0, flags=0, count=16384, immediate=0
+         ld.so.1-331     [001] .....   934.614766: amdgpu_vm_set_ptes: pe=f4fffdc000, addr=0000000000, incr=0, flags=0, count=1024, immediate=0
+         ld.so.1-331     [001] .....   934.614843: amdgpu_vm_set_ptes: pe=f4fffdc000, addr=00d7a00000, incr=4096, flags=4a7, count=512, immediate=0
+         ld.so.1-331     [001] .....   934.616235: amdgpu_vm_set_ptes: pe=f4fffda000, addr=0000000000, incr=0, flags=0, count=1024, immediate=0
+         ld.so.1-331     [001] .....   934.616331: amdgpu_vm_set_ptes: pe=f4fffda080, addr=00d74ac000, incr=4096, flags=77, count=1, immediate=0
+         ld.so.1-331     [001] .....   934.616377: amdgpu_vm_set_ptes: pe=f4fffa0000, addr=f4fffda000, incr=0, flags=1, count=1, immediate=0
+         ld.so.1-331     [001] .....   934.616379: amdgpu_vm_set_ptes: pe=f4fffbfff8, addr=f4fffdc000, incr=0, flags=1, count=1, immediate=0
+         ld.so.1-331     [001] .....   934.616850: amdgpu_cs_ioctl: sched_job=6, timeline=gfx, context=308, seqno=1, ring_name=gfx, num_ibs=1
+    kworker/u8:1-31      [000] .....   934.616945: amdgpu_vm_flush: ring=gfx, id=6, hub=0, pd_addr=f4fffa0000
+         ld.so.1-331     [001] .....   934.618275: amdgpu_vm_set_ptes: pe=f4fffda080, addr=0000000000, incr=4096, flags=0, count=1, immediate=0
+entries: 1
+overrun: 0
+commit overrun: 0
+bytes: 40
+oldest event ts:   934.616945
+now ts:   936.917299
+dropped events: 0
+read events: 0
+entries: 9
+overrun: 0
+commit overrun: 0
+bytes: 468
+oldest event ts:   934.614617
+now ts:   936.919517
+dropped events: 0
+read events: 0
