@@ -19,6 +19,8 @@ docs/builds/source-coverage-20261102/*-tail.log -text whitespace=-blank-at-eol
 docs/builds/**/kmsg.txt -whitespace
 docs/builds/**/hardware-kmsg.txt -whitespace
 docs/builds/**/boot-dmesg.txt -whitespace
+# Raw /proc input-device dumps include kernel-emitted spaces in handler lists.
+docs/builds/software-desktop-restart-*/physical-input-storage.txt -whitespace
 docs/builds/**/09-bind.txt -whitespace
 docs/builds/**/hardware-load-result.txt -whitespace
 *.patch -whitespace
