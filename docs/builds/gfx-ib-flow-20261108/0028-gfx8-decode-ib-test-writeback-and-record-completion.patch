@@ -1,0 +1,27 @@
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -937,13 +937,23 @@
+ 
+ 	r = dma_fence_wait_timeout(f, false, timeout);
+ 	if (r == 0) {
++		/* CPU-visible state only: no register reads or recovery submission. */
++		dev_err(adev->dev,
++			"IB_CONTRACT ring=%s payload=%08x fence=%08x emitted=%08x signaled=%08x ib_lo=%08x ib_hi=%08x length=%u\n",
++			ring->name, le32_to_cpu(READ_ONCE(adev->wb.wb[index])),
++			ring->fence_drv.cpu_addr ?
++				le32_to_cpu(READ_ONCE(*ring->fence_drv.cpu_addr)) : 0,
++			READ_ONCE(ring->fence_drv.sync_seq),
++			atomic_read(&ring->fence_drv.last_seq),
++			lower_32_bits(ib.gpu_addr), upper_32_bits(ib.gpu_addr),
++			ib.length_dw);
+ 		r = -ETIMEDOUT;
+ 		goto err2;
+ 	} else if (r < 0) {
+ 		goto err2;
+ 	}
+ 
+-	tmp = adev->wb.wb[index];
++	tmp = le32_to_cpu(READ_ONCE(adev->wb.wb[index]));
+ 	if (tmp == 0xDEADBEEF)
+ 		r = 0;
+ 	else

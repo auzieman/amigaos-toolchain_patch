@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "hardware_accessed": false,
+  "source_candidate": "/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-007/source",
+  "source_sha256": "ed25f6d2e249eabce04b54917fe70a317fa0fedb0995f616254a27df9665e2cc",
+  "patch_sha256": "8d753ea22442f2b6a545f18c96968d2371661e5ddb505df44b786af00ff280c9",
+  "source_inputs_sha256": {
+    "drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c": "a9bc6e3380f100e7ddd8d7011229f07e0beb65868297c882165d3544a5d1d098",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h": "984222614886f4dd52ec8d74a58e5aec50704772b0d4aedc93b11c95fce1a23f",
+    "drivers/gpu/drm/amd/amdgpu/amdgpu_fence.c": "1ad1a10eca63b2e779dfd102703c37da145d2ad4354ad4ab9d2805dbfef2257f",
+    "drivers/gpu/drm/amd/amdgpu/vid.h": "4b42454a90a714c4c0176cfdb8ace4bd379880f98f95577acd708741d90d672d",
+    "drivers/gpu/drm/amd/include/asic_reg/gca/gfx_8_0_enum.h": "fa6b8ff974fccdd54aa0e1b6a6430508a558fd263ead90eaf70bef262e4d5d63"
+  },
+  "cases_per_architecture": 512,
+  "coverage": [
+    "actual shared GFX/compute test caller",
+    "actual primary-ring word encoder/writer",
+    "actual GFX and compute IB descriptors",
+    "actual EOP/RELEASE_MEM fence packets",
+    "actual CPU fence LE decoder",
+    "original/corrected payload comparison",
+    "CPU-only timeout classification: no completion vs completed without signal"
+  ],
+  "negative_controls": [
+    "original BE test rejects completed LE payload; x86 passes",
+    "modeled missing IB fetch swap fails BE without changing x86",
+    "pre-swapping a native IB while leaving fetch swap active fails BE"
+  ],
+  "matching_normalized_output_bytes": 512,
+  "limitations": [
+    "allocation, scheduler dispatch, GPU execution and fence wakeup are modeled",
+    "IB fetch swap is a selectable model, not a hardware observation",
+    "does not establish physical DMA/cache/IRQ completion or fix the timeout"
+  ]
+}
