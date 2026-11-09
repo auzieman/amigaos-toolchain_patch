@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "file": "tabor-spe-toolchain/docs/builds/mesa-command-compare-20261109/evidence/commands-native-captures/ib-1-chunk-0-canonical.bin",
+      "dwords": 400,
+      "packets": 103,
+      "status": "PASS"
+    },
+    {
+      "file": "tabor-spe-toolchain/docs/builds/mesa-command-compare-20261109/evidence/offline-spe-captures-007/ib-1-chunk-0-canonical.bin",
+      "dwords": 400,
+      "packets": 103,
+      "status": "PASS"
+    }
+  ],
+  "truncated_packet_rejection": "PASS",
+  "limits": "Canonical offline point IB framing only; not live RGB, register semantics, referenced-buffer bounds, or execution."
+}
