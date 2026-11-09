@@ -84,3 +84,21 @@ QEMU, run-native.py uses a container with no physical GPU. compare.py checks
 complete streams and the decoded register difference. evidence/ retains the
 patch, before/after source hashes, launch/build/run receipts and raw captures.
 The private offline libgallium was refreshed; no installed board runtime changed.
+
+### Hardware preflight: waiting for fresh boot
+
+User authorized the control trial. SSH reached kernel013, taint0, rootRO and the
+expected module hash, but boot645ccbbf-c51a-4a08-83e1-c53c7369761a retains GPU
+cleanup tasks blocked on fences from the prior shader failure. Saved the kernel
+log before restarting. `sync; /sbin/reboot` returned127: this rescue image has
+no reboot command, PID1 is sh. No forced reset, sysrq or test submission followed.
+User needs to power-cycle and select the normal Linux entry.
+
+run-cache-control.py refuses that failed boot ID and checks kernel/module/root,
+parameter and kernel-error state. It stages the already-accepted binary and
+existing bounded launcher into /run only. Run USWC+LE control first, then cached+LE
+only if successful and kernel remains clean; stop immediately on any failure.
+It does not run GL, reload the driver or reset the GPU. The two recovered
+volatile artifacts are saved locally under /tmp/tabor-cache-control-artifacts
+for restaging after boot; the script verifies the accepted test hash and remote
+copies. The script has syntax validation; hardware execution is still pending.
