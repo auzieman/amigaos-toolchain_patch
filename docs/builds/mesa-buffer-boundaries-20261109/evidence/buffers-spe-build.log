@@ -1,0 +1,8 @@
+ninja: Entering directory `/work/radeonsi-aco-20261109-001/build'
+[1/18] Generating src/git_sha1.h with a custom command
+[2/3] Compiling C object src/amd/drm-shim/libamdgpu_noop_drm_shim.so.p/amdgpu_noop_drm_shim.c.o
+../mesa-source/src/amd/drm-shim/amdgpu_noop_drm_shim.c: In function 'amdgpu_ioctl_info':
+../mesa-source/src/amd/drm-shim/amdgpu_noop_drm_shim.c:190:21: warning: cast to pointer from integer of different size [-Wint-to-pointer-cast]
+    } out = { .ptr = (void *)info->return_pointer };
+                     ^
+[3/3] Linking target src/amd/drm-shim/libamdgpu_noop_drm_shim.so

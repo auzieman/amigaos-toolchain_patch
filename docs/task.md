@@ -1,3 +1,15 @@
+## Submitted buffer audit: native32 vertex payload gap — 2026-11-09
+
+Offline unchanged standard point/RGB tests snapshot11/60 allocation prefixes;
+8/47 are byte-identical across x86/SPE. RGB rectangle coordinates reach storage
+as nativeBE float32, while all4 RGB executable shader captures matchx86 and
+source vertex-load paths show no explicit BE scalar decode. This is a concrete
+CPU vertex-input contract gap, separate from descriptors and the no-attribute
+point hang. Streamout GPU producers must be paired with any shared fetch change;
+no blind decoder or speculative GL fix committed. Both instrumented builds pass.
+No board access/deployment/test. Full bounded captures and connected ledger:
+[buffer audit](builds/mesa-buffer-boundaries-20261109/README.md).
+
 ## Physical LE command visibility control: cached and USWC PASS — 2026-11-09
 
 Fresh013 boot, verified installed-module first bind, rootRO, explicitLE GFX

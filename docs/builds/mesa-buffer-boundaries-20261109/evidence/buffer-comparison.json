@@ -1,0 +1,1498 @@
+{
+  "point": {
+    "capture_count": 11,
+    "identical_prefix_count": 8,
+    "entries": [
+      {
+        "file": "cs-1-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "1f255147d5e28aa10a8f0930e1bfdd6b0b75a2a59328d1d8b6d80ddf952711e5",
+        "spe_sha256": "fe5316e262017512eabdba4ac47d6aea5d3304a771753473a471063d8f11f4ba",
+        "differing_dwords": 10,
+        "byte_reversed_dwords": 10,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 600,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 604,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 608,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 612,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 616,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      },
+      {
+        "file": "cs-1-bo-11-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "1cc9953ae0f2429c5cccf00cd7ccef842288df7971e5e98a8bc64ffff99dbcd1",
+        "spe_sha256": "a06046a9e7908f109de78e48b69ac86d098b5261aa8cc5368a54d8a73dacff3d",
+        "differing_dwords": 69,
+        "byte_reversed_dwords": 69,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-1-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "e1d722368274e47b99b6a7364c3a61d94dbc1cd98dcaaef29371b3ef4224d877",
+        "spe_sha256": "1e004c7328b773d2fdae1df6e2dfe0abeb3256a4bbda0b988335a44f8298e1fe",
+        "differing_dwords": 2,
+        "byte_reversed_dwords": 0,
+        "first_differences": [
+          {
+            "offset": 152,
+            "x86": "00eddba5",
+            "spe": "00000000"
+          },
+          {
+            "offset": 156,
+            "x86": "207f0000",
+            "spe": "7846250f"
+          }
+        ]
+      }
+    ]
+  },
+  "rgb": {
+    "capture_count": 60,
+    "identical_prefix_count": 47,
+    "entries": [
+      {
+        "file": "cs-1-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "e06fea91500a088adab713bd4a8a9d31c9c2bd6ad51fa4027e8b45a0e9c0f704",
+        "spe_sha256": "e06fea91500a088adab713bd4a8a9d31c9c2bd6ad51fa4027e8b45a0e9c0f704",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "5ee860daa781372711bfe25a5d9ba20cd30cad0470e0c9514c3dd07ea0b1fa1a",
+        "spe_sha256": "99dc90641731404130cc3c45ef5d7b1178be731496300607abd37db623773607",
+        "differing_dwords": 126,
+        "byte_reversed_dwords": 126,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-1-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-1-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "5950f29d043ce2cb1364f8427a3168c75050d9bd9f9af16e14db229441c1e354",
+        "spe_sha256": "2aa9171a6ffa40a23e1c73f62ca9dc96e1d6097f77788990c7263661ade100da",
+        "differing_dwords": 5,
+        "byte_reversed_dwords": 5,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      },
+      {
+        "file": "cs-2-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "spe_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-11-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "d78773a7d94096029bf53c0851542ad4361641a7c5a44744dccfa31e8adc9e88",
+        "spe_sha256": "30abe0591d441edb108f87924b87e511a9f057dc63e0544b5944fc3674eaad4a",
+        "differing_dwords": 183,
+        "byte_reversed_dwords": 183,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-2-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-2-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "5950f29d043ce2cb1364f8427a3168c75050d9bd9f9af16e14db229441c1e354",
+        "spe_sha256": "2aa9171a6ffa40a23e1c73f62ca9dc96e1d6097f77788990c7263661ade100da",
+        "differing_dwords": 5,
+        "byte_reversed_dwords": 5,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      },
+      {
+        "file": "cs-3-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "spe_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-11-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-12-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "4114c93b51be21aea3798263512bfce5362de5d53f4c3f99c077b989e923f77c",
+        "spe_sha256": "eb2975f1136b0393e46ee0c313a8537add47f8919fc5deea59fcc7674c7efc75",
+        "differing_dwords": 8,
+        "byte_reversed_dwords": 8,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 4,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 8,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 12,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 16,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 20,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 24,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 28,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          }
+        ]
+      },
+      {
+        "file": "cs-3-bo-13-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "d78773a7d94096029bf53c0851542ad4361641a7c5a44744dccfa31e8adc9e88",
+        "spe_sha256": "30abe0591d441edb108f87924b87e511a9f057dc63e0544b5944fc3674eaad4a",
+        "differing_dwords": 183,
+        "byte_reversed_dwords": 183,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-3-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-3-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "94acce579bbc6e2318b418d9da8e68ba72834a7a90a9cff082324b9725340bff",
+        "spe_sha256": "cdaf56f1adb33bc645b6e26052c7737e1c8ba3b781494f26014471eb51b33061",
+        "differing_dwords": 15,
+        "byte_reversed_dwords": 15,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 288,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 292,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 296,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 300,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 304,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 912,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 916,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      },
+      {
+        "file": "cs-4-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "spe_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-11-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-12-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "4114c93b51be21aea3798263512bfce5362de5d53f4c3f99c077b989e923f77c",
+        "spe_sha256": "eb2975f1136b0393e46ee0c313a8537add47f8919fc5deea59fcc7674c7efc75",
+        "differing_dwords": 8,
+        "byte_reversed_dwords": 8,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 4,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 8,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 12,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 16,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 20,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 24,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 28,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          }
+        ]
+      },
+      {
+        "file": "cs-4-bo-13-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "d78773a7d94096029bf53c0851542ad4361641a7c5a44744dccfa31e8adc9e88",
+        "spe_sha256": "30abe0591d441edb108f87924b87e511a9f057dc63e0544b5944fc3674eaad4a",
+        "differing_dwords": 183,
+        "byte_reversed_dwords": 183,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-4-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-4-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "94acce579bbc6e2318b418d9da8e68ba72834a7a90a9cff082324b9725340bff",
+        "spe_sha256": "cdaf56f1adb33bc645b6e26052c7737e1c8ba3b781494f26014471eb51b33061",
+        "differing_dwords": 15,
+        "byte_reversed_dwords": 15,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 288,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 292,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 296,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 300,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 304,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 912,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 916,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      },
+      {
+        "file": "cs-5-bo-1-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-10-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "spe_sha256": "232af2f8662dd52850d01fb53da64de52e2acaf7525eaabc6d240c92b3bf7720",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-11-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-12-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "4114c93b51be21aea3798263512bfce5362de5d53f4c3f99c077b989e923f77c",
+        "spe_sha256": "eb2975f1136b0393e46ee0c313a8537add47f8919fc5deea59fcc7674c7efc75",
+        "differing_dwords": 8,
+        "byte_reversed_dwords": 8,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 4,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 8,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 12,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 16,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 20,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          },
+          {
+            "offset": 24,
+            "x86": "000080bf",
+            "spe": "bf800000"
+          },
+          {
+            "offset": 28,
+            "x86": "0000803f",
+            "spe": "3f800000"
+          }
+        ]
+      },
+      {
+        "file": "cs-5-bo-13-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-2-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-3-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "d78773a7d94096029bf53c0851542ad4361641a7c5a44744dccfa31e8adc9e88",
+        "spe_sha256": "30abe0591d441edb108f87924b87e511a9f057dc63e0544b5944fc3674eaad4a",
+        "differing_dwords": 183,
+        "byte_reversed_dwords": 183,
+        "first_differences": [
+          {
+            "offset": 0,
+            "x86": "002801c0",
+            "spe": "c0012800"
+          },
+          {
+            "offset": 4,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 8,
+            "x86": "00000080",
+            "spe": "80000000"
+          },
+          {
+            "offset": 12,
+            "x86": "001200c0",
+            "spe": "c0001200"
+          },
+          {
+            "offset": 20,
+            "x86": "007601c0",
+            "spe": "c0017600"
+          },
+          {
+            "offset": 24,
+            "x86": "0d020000",
+            "spe": "0000020d"
+          },
+          {
+            "offset": 32,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 36,
+            "x86": "16020000",
+            "spe": "00000216"
+          },
+          {
+            "offset": 48,
+            "x86": "007602c0",
+            "spe": "c0027600"
+          },
+          {
+            "offset": 52,
+            "x86": "19020000",
+            "spe": "00000219"
+          },
+          {
+            "offset": 64,
+            "x86": "007902c0",
+            "spe": "c0027900"
+          },
+          {
+            "offset": 68,
+            "x86": "80030000",
+            "spe": "00000380"
+          }
+        ]
+      },
+      {
+        "file": "cs-5-bo-4-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-5-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-6-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-7-size-4096.bin",
+        "bytes_compared": 4096,
+        "x86_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "spe_sha256": "ad7facb2586fc6e966c004d7d1d16b024f5805ff7cb47c7a85dabd8b48892ca7",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-8-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "spe_sha256": "de2f256064a0af797747c2b97505dc0b9f3df0de4f489eac731c23ae9ca9cc31",
+        "differing_dwords": 0,
+        "byte_reversed_dwords": 0,
+        "first_differences": []
+      },
+      {
+        "file": "cs-5-bo-9-size-2097152.bin",
+        "bytes_compared": 65536,
+        "x86_sha256": "94acce579bbc6e2318b418d9da8e68ba72834a7a90a9cff082324b9725340bff",
+        "spe_sha256": "cdaf56f1adb33bc645b6e26052c7737e1c8ba3b781494f26014471eb51b33061",
+        "differing_dwords": 15,
+        "byte_reversed_dwords": 15,
+        "first_differences": [
+          {
+            "offset": 32,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 36,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 40,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 44,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 48,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 288,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 292,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 296,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 300,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 304,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 912,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          },
+          {
+            "offset": 916,
+            "x86": "00009fbf",
+            "spe": "bf9f0000"
+          }
+        ]
+      }
+    ]
+  },
+  "vertex32_evidence": {
+    "expected_native_coordinates": [
+      -1.0,
+      -1.0,
+      1.0,
+      -1.0,
+      1.0,
+      1.0,
+      -1.0,
+      1.0
+    ],
+    "gpu_LE_interpretation_of_SPE_bytes": [
+      4.618539608568165e-41,
+      4.618539608568165e-41,
+      4.600602988224807e-41,
+      4.618539608568165e-41,
+      4.600602988224807e-41,
+      4.600602988224807e-41,
+      4.618539608568165e-41,
+      4.600602988224807e-41
+    ],
+    "spe_bytes": "bf800000bf8000003f800000bf8000003f8000003f800000bf8000003f800000",
+    "x86_bytes": "000080bf000080bf0000803f000080bf0000803f0000803f000080bf0000803f",
+    "scope": "raw CPU-generated RGB vertex payload; paired with source fetch loads lacking explicit endian decode. GPU-generated buffers require a separate producer contract before a shared fetch change."
+  },
+  "rgb_shader_comparison": [
+    {
+      "file": "upload-1-stage-5.json",
+      "bytes": 52,
+      "executable_match": true,
+      "UMR_marker_tail_only": true
+    },
+    {
+      "file": "upload-2-stage-0.json",
+      "bytes": 52,
+      "executable_match": true,
+      "UMR_marker_tail_only": true
+    },
+    {
+      "file": "upload-3-stage-4.json",
+      "bytes": 100,
+      "executable_match": true,
+      "UMR_marker_tail_only": false
+    },
+    {
+      "file": "upload-4-stage-5.json",
+      "bytes": 164,
+      "executable_match": true,
+      "UMR_marker_tail_only": true
+    }
+  ],
+  "limits": [
+    "No GPU execution; Polaris12 no-op profile only",
+    "At most first65536bytes per active allocation; snapshots may include unused padding",
+    "Point BO9 difference at0x98/0x9c is not classified as a consumed field; no root-cause claim",
+    "Native PM4 published on SPE expected because this is not the enabled Polaris11 selector",
+    "No driver conversion patch or hardware test from these captures"
+  ]
+}
+
