@@ -61,3 +61,14 @@ installation. All staged kernel/module/DTB bytes and U-Boot script read back
 correctly. /boot.scr selects012; boot-011-rollback.scr retains exact011 script.
 FAT unmounted and root restoredRO. Running board remains011; no reboot issued.
 Physical012 PTE/GFX/GL validation is pending. Existing startup command is reused.
+
+## Physical012 negative result
+
+User physically rebooted012; exact module hash accepted before normal first
+modprobe. Driver returns, fbcon registers, SSH survives and taint0; knownVCE0
+IB timeout remains. Independent low32bitVA GFX WRITE_DATA tests still leave
+payloadzero with completedfences, both nativeBE and explicitLE commandwords.
+No GL submission follows this failed prerequisite. No unload/rebind/reset.
+The PTE byte defect is source-proven but is not sufficient to repair current
+userspace GPU writes; memory mapping/coherency and VM command execution remain
+unisolated. Do not report012 as a rendering fix.

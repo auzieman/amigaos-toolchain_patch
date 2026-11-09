@@ -1,0 +1,13 @@
+{
+  "kernel": "6.12.113-tabor-e2e-012",
+  "module_sha256": "d26c85e311ce5c13e4625f7dc3f8bc898a04b6dc91dcc4d1d7816630344dbfbc",
+  "first_driver_load": "returned; readable fbcon device registered; known vce0 IB failure remains",
+  "root_readonly": true,
+  "native_va32_write": "FAIL fence complete, payload remains zero",
+  "explicit_le_va32_write": "FAIL fence complete, payload remains zero",
+  "kernel_taint": 0,
+  "ssh_survived": true,
+  "GL_attempted_after_failed_payload_gate": false,
+  "conclusion": "PTE serialization defect fixed in source but insufficient to restore userspace buffer writes; physical root causality not established",
+  "reset_or_reload_after_failure": false
+}
