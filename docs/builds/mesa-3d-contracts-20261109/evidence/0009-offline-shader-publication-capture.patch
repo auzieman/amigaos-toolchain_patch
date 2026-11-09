@@ -1,0 +1,37 @@
+--- a/src/gallium/drivers/radeonsi/si_shader.c
++++ b/src/gallium/drivers/radeonsi/si_shader.c
+@@ -982,6 +982,34 @@
+                                struct pipe_resource *staging,
+                                unsigned staging_offset)
+ {
++   /* CPU-only offline qualification. The no-op DRM backend executes no GPU
++    * commands; retain exact publication bytes and native scalar metadata.
++    */
++   const char *capture_dir = getenv("TABOR_SHADER_CAPTURE_DIR");
++   if (capture_dir && shader->binary.type == SI_SHADER_BINARY_RAW) {
++      static unsigned capture_serial;
++      unsigned serial = p_atomic_inc_return(&capture_serial);
++      int stage = shader->selector ? shader->selector->stage : -1;
++      char path[1024];
++      snprintf(path, sizeof(path), "%s/upload-%u-stage-%d.bin", capture_dir, serial, stage);
++      FILE *capture = fopen(path, "wb");
++      if (capture) {
++         fwrite(code, 1, code_size, capture);
++         fclose(capture);
++         snprintf(path, sizeof(path), "%s/upload-%u-stage-%d.json", capture_dir, serial, stage);
++         capture = fopen(path, "w");
++         if (capture) {
++            fprintf(capture, "{\"stage\":%d,\"bytes\":%u,\"sgprs\":%u,\"vgprs\":%u,\"float_mode\":%u,\"lds_size\":%u,\"scratch_bytes_per_wave\":%u}\n",
++                    stage, code_size, shader->config.num_sgprs, shader->config.num_vgprs,
++                    shader->config.float_mode, shader->config.lds_size,
++                    shader->config.scratch_bytes_per_wave);
++            fclose(capture);
++         }
++      } else {
++         fprintf(stderr, "TABOR_SHADER_CAPTURE failed: %s\n", path);
++      }
++   }
++
+    if (sscreen->debug_flags & DBG(SQTT)) {
+       /* Remember the uploaded code */
+       shader->binary.uploaded_code_size = code_size;

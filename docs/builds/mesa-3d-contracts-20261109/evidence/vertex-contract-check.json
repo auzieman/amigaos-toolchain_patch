@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "descriptor_count_inline_combinations_per_arch": 198,
+  "divisor_table_sizes_per_arch": 32,
+  "controls": [
+    "oldBE differs from known LE byte oracle",
+    "unchanged x86 matches",
+    "actual publication block converges after both writers",
+    "only initialized descriptor words converted",
+    "padding and native inline SGPR words unchanged",
+    "existing util_memcpy_cpu_to_le32 copied from source",
+    "divisor CPU source retained"
+  ],
+  "limits": "Descriptor producer values and GPU reader modeled; full draw function not executed; no GPU test."
+}

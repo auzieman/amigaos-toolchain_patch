@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-offline-shader-native-20261109-001",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=bridge",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001:/work",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001/mesa-source:/source:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/native-qualification-apt-cache:/var/cache/apt/archives",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "set -e\nw=/work\ntrap 'r=$?; echo \"$r\" > \"$w/native/result.exit\"' EXIT\nprintf '%s\\n' 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261102T220000Z/ trixie main' 'deb [check-valid-until=no] https://snapshot.debian.org/archive/debian-security/20261102T220000Z/ trixie-security main' > /etc/apt/sources.list\nrm -f /etc/apt/sources.list.d/debian.sources\napt-get -o Acquire::Retries=3 -o Acquire::https::Timeout=30 update > \"$w/native/apt-update.log\" 2>&1\napt-get -y --no-install-recommends -o Acquire::Retries=3 install libdrm-dev libelf-dev libexpat1-dev zlib1g-dev piglit waffle-utils > \"$w/native/apt-install.log\" 2>&1\ndpkg-query -W libc6 libdrm-dev libelf-dev libexpat1-dev zlib1g-dev piglit waffle-utils > \"$w/native/native-versions.txt\"\ntest \"$(dpkg-query -W -f='${Version}' libc6)\" = '2.41-12+deb13u4'\nmeson setup \"$w/native/build\" /source --prefix=/usr --libdir=lib --buildtype=release --wrap-mode=nodownload -Dplatforms=[] -Dgallium-drivers=radeonsi,softpipe -Dvulkan-drivers=[] -Dglx=disabled -Degl=enabled -Dgbm=enabled -Dglvnd=disabled -Dgles1=disabled -Dgles2=enabled -Dllvm=disabled -Damd-use-llvm=false -Ddraw-use-llvm=false -Dpower8=disabled -Dgallium-vdpau=disabled -Dgallium-va=disabled -Dgallium-xa=disabled -Dgallium-opencl=disabled -Dgallium-rusticl=false -Dlmsensors=disabled -Dzstd=disabled -Dbuild-tests=false -Dtools=drm-shim > \"$w/native/configure.log\" 2>&1\nninja -C \"$w/native/build\" -j2 > \"$w/native/build.log\" 2>&1\nDESTDIR=\"$w/native/output\" ninja -C \"$w/native/build\" install > \"$w/native/install.log\" 2>&1\n"
+  ],
+  "returncode": 0,
+  "stdout": "42190d4f1d50e711fe8711acf1659a71793a3e6d021db7aeb064d3dd99c907d7\n",
+  "stderr": "",
+  "purpose": "native compiler-output reference only, no amd64 target archive/foundation rebuild"
+}

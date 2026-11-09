@@ -1,0 +1,29 @@
+--- a/src/gallium/drivers/radeonsi/si_state_draw.cpp
++++ b/src/gallium/drivers/radeonsi/si_state_draw.cpp
+@@ -1941,6 +1941,15 @@
+ 
+          sctx->vertex_buffers_dirty = false;
+       }
++      /* Inline descriptors remain native PM4 payload until CS publication.
++       * Only the separate shader-fetched descriptor table is GPU LE memory.
++       * Both normal draw and draw_vertex_state writers converge here.
++       */
++      if (alloc_size) {
++         unsigned num_dw = (count - count_in_user_sgprs) * 4;
++         for (unsigned dw = 0; dw < num_dw; dw++)
++            ptr[dw] = util_cpu_to_le32(ptr[dw]);
++      }
+    }
+ 
+    return true;
+--- a/src/gallium/drivers/radeonsi/si_state.c
++++ b/src/gallium/drivers/radeonsi/si_state.c
+@@ -4599,7 +4599,7 @@
+       }
+       void *map =
+          sscreen->ws->buffer_map(sscreen->ws, v->instance_divisor_factor_buffer->buf, NULL, PIPE_MAP_WRITE);
+-      memcpy(map, divisor_factors, num_divisors * sizeof(divisor_factors[0]));
++      util_memcpy_cpu_to_le32(map, divisor_factors, num_divisors * sizeof(divisor_factors[0]));
+    }
+    return v;
+ }

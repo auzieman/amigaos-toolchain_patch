@@ -1,0 +1,14 @@
+{
+  "parent": "/srv/data1/tabor-build/linux-live-001/work/radeonsi-systemic-20261109-001",
+  "before": {
+    "src/gallium/drivers/radeonsi/si_query.c": "9ccb2fdec05a4ca96daad98b7f8b91f037f1fb03d8809f8ed000dc16b5ca2b7a",
+    "src/gallium/drivers/radeonsi/si_perfcounter.c": "836f77082e5f5627712fa93175bcd1414cf21f8086db87207a3f41a996f8725d"
+  },
+  "after": {
+    "src/gallium/drivers/radeonsi/si_query.c": "bd8dc9a5dff2100671e9e76eb2c335e1a5442bd658eb1c8a4774ff82ec56d4e9",
+    "src/gallium/drivers/radeonsi/si_perfcounter.c": "ddf00ce0337f636e55db103372eba8ca8761a8f223c51e2b3332b0e6f71243a6"
+  },
+  "patch_sha256": "ce9b8cd5f7defbb86d8760e3f65613197f85ef7614fd25e760ce9115a7263b71",
+  "scope": "GPU-visible status markers and CPU reads of GPU query/timestamp/perfcounter memory; native API results unchanged",
+  "hardware_tested": false
+}

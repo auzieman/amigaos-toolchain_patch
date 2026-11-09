@@ -1,0 +1,9 @@
+Initializing DRM shim on /dev/dri/renderD128
+amdgpu: os_same_file_description couldn't determine if two DRM fds reference the same file description.
+If they do, bad things may happen!
+DRM_IOCTL_GET_CAP: unhandled 0x10
+Probe color at (0,0)
+  Expected: 0.000000 1.000000 0.000000 1.000000
+  Observed: 0.000000 0.000000 0.000000 0.000000
+Test failure on line 25
+PIGLIT: {"result": "fail" }

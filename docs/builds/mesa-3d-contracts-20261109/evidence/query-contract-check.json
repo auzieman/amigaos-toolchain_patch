@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "prepare_cases_per_arch": 48,
+  "response_scenarios_per_arch": 4096,
+  "actual_source": [
+    "si_query_hw_prepare_buffer",
+    "si_query_read_result",
+    "si_pc_query_add_result",
+    "timestamp assignment from si_query_hw_add_result"
+  ],
+  "controls": [
+    "old BE wire/status mismatch reproduced",
+    "unchanged x86 expectations pass",
+    "fixed BE status/counters/timestamp match known LE inputs",
+    "status missing/partial/complete cases",
+    "counter accumulation across base/stride/qwords"
+  ],
+  "limits": "GPU status/counter writes and mapping endpoint modeled; no hardware or application query execution. Not a cause claim for attribute-free point hang."
+}

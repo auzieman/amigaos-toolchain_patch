@@ -1,0 +1,149 @@
+{
+  "x86": [
+    {
+      "metadata": {
+        "stage": 0,
+        "bytes": 52,
+        "sgprs": 16,
+        "vgprs": 4,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "0e78a393c30c86e1e7e28d36abeb7f382f295f2dc841e881ea408bcb658eb4e3",
+      "file": "upload-1-stage-0.json"
+    },
+    {
+      "metadata": {
+        "stage": 4,
+        "bytes": 68,
+        "sgprs": 16,
+        "vgprs": 16,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "156c1284f12614c7f632e021d6202a3c1c968279d146138adcec2509bc4e7149",
+      "file": "upload-2-stage-4.json"
+    },
+    {
+      "metadata": {
+        "stage": 5,
+        "bytes": 108,
+        "sgprs": 48,
+        "vgprs": 8,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "8272aa765c9468e3a9e9b93809dcecc50aebc7012e5b34b7dcc50bd66e37454e",
+      "file": "upload-3-stage-5.json"
+    }
+  ],
+  "spe": [
+    {
+      "metadata": {
+        "stage": 0,
+        "bytes": 52,
+        "sgprs": 16,
+        "vgprs": 4,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "70b4c895fc4e28040b64882c02886b2ad9748b766322733c3e209b233d4b0c9e",
+      "file": "upload-1-stage-0.json"
+    },
+    {
+      "metadata": {
+        "stage": 4,
+        "bytes": 68,
+        "sgprs": 16,
+        "vgprs": 16,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "156c1284f12614c7f632e021d6202a3c1c968279d146138adcec2509bc4e7149",
+      "file": "upload-2-stage-4.json"
+    },
+    {
+      "metadata": {
+        "stage": 5,
+        "bytes": 108,
+        "sgprs": 48,
+        "vgprs": 8,
+        "float_mode": 192,
+        "lds_size": 0,
+        "scratch_bytes_per_wave": 0
+      },
+      "sha256": "61db204a47bc1ff985c1dbf6a45ed0409ce8243ace7681f522ce6de6880b6514",
+      "file": "upload-3-stage-5.json"
+    }
+  ],
+  "match": false,
+  "byte_analysis": [
+    {
+      "file": "upload-1-stage-0.bin",
+      "identical": false,
+      "differing_byte_offsets": [
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "only_native_UMR_marker_tail": true
+    },
+    {
+      "file": "upload-2-stage-4.bin",
+      "identical": true,
+      "differing_byte_offsets": [],
+      "only_native_UMR_marker_tail": false
+    },
+    {
+      "file": "upload-3-stage-5.bin",
+      "identical": false,
+      "differing_byte_offsets": [
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107
+      ],
+      "only_native_UMR_marker_tail": true
+    }
+  ],
+  "executable_comparison": "All captured uploads identical or differ only in the five non-executed UMR end markers; no constants or scratch in this test.",
+  "scope": "Complete published shader bytes and scalar metadata; standard constant-point Piglit, same Polaris12 no-op profile. No GPU execution or board acceptance."
+}

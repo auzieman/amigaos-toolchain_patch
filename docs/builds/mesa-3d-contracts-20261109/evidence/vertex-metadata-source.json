@@ -1,0 +1,15 @@
+{
+  "files": {
+    "src/gallium/drivers/radeonsi/si_state_draw.cpp": {
+      "before": "50a2d06e436273c1fe04cc2de694d58c1c64e473afecced8d7e2018d91316486",
+      "after": "67086ef5b61dc87969e8d70432d0c1f9e1d818b558533aa61e55acbec34b0e2c"
+    },
+    "src/gallium/drivers/radeonsi/si_state.c": {
+      "before": "4ab5d2269cec4a1ecdb65fc32bfae04006758ca3c84dbd4077869fea9ea42073",
+      "after": "2e3be1b6424cfb822312c07467dfe97e78b30f76b08626cba92b6ee1adbcb8d7"
+    }
+  },
+  "patch_sha256": "6c8450e4a3c609a7a635d8327d6d1ab902916a26a997ee9b0326a27cea32d978",
+  "scope": "GPU-fetched VB descriptor tables and four-word instance divisor factors; CPU cached descriptors and inline PM4 remain native",
+  "hardware_tested": false
+}

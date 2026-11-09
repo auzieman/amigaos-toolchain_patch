@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-mesa-3d-contracts-20261109-001",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001:/work/radeonsi-aco-20261109-001",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002:/tools:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/sysroot:/sysroot:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "set -e\nw=/work/radeonsi-aco-20261109-001\ntrap 'r=$?; echo \"$r\" > \"$w/3d-build.exit\"' EXIT\nninja -C \"$w/build\" -j2 > \"$w/3d-build.log\" 2>&1\nDESTDIR=\"$w/output\" ninja -C \"$w/build\" install > \"$w/3d-install.log\" 2>&1\n"
+  ],
+  "returncode": 0,
+  "stdout": "50bb3c480893f6c64ae6416334344fb371d5eea9e6c1691fb1d578b0101601c7\n",
+  "stderr": ""
+}
