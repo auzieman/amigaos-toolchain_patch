@@ -1,0 +1,14 @@
+{
+  "baseline_release": "6.12.113-tabor-e2e-009",
+  "source_sha256": {
+    "amdgpu_ring.c": "4ca52c3ca04d1b03a6ac07a7b2663af8360ab66a0a37aac0e4ba24385d06d6fe",
+    "amdgpu_gart.c": "a436867f318e868de87f87dba38e534d1a28fb646eeafee51fbd1719035aa95d",
+    "gfx_v8_0.c": "bd4e9c98ad33e004a2cff68ca714d25520a30586fac849ae36123f3c06e990cb",
+    "amdgpu_ib.c": "de958a1a106a1f04c24b7cc4b0016bedf966c61f8937187e0accdbd28e04e2d0",
+    "amdgpu_fence.c": "1ad1a10eca63b2e779dfd102703c37da145d2ad4354ad4ab9d2805dbfef2257f",
+    "gmc_v8_0.c": "30863874db3adbc46f59f31860c55ea85379dd852e8ec355ebcb57b041e00d5e"
+  },
+  "physical_result": "IB swap-policy change did not resolve timeout; readable console and responsiveness user confirmed",
+  "diagnostic_patch": "CPU mapped ring envelope and IB bytes only; not installed",
+  "hardware_accessed_by_audit": false
+}

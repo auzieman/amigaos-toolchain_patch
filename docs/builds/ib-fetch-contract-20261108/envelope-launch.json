@@ -1,0 +1,29 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-ib-envelope-compile-001",
+    "--cpus",
+    "2",
+    "--memory",
+    "4g",
+    "--network",
+    "none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/ib-envelope-compile-20261108-001/source:/base/work/tabor-smu-diagnostics-20261105-003/source",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/ib-envelope-compile-20261108-001/output:/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/ib-envelope-compile-20261108-001:/candidate",
+    "--entrypoint",
+    "sh",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "-c",
+    "make -C /base/work/tabor-smu-diagnostics-20261105-003/source O=/base/work/tabor-smu-diagnostics-20261105-003/output ARCH=powerpc CROSS_COMPILE=powerpc-linux-gnu- -j2 drivers/gpu/drm/amd/amdgpu/gfx_v8_0.o > /candidate/compile.log 2>&1; result=$?; echo \"$result\" > /candidate/compile.exit; exit \"$result\""
+  ],
+  "container": "690b2a90fc5f39393bc8f099b00f60a5683bc87946f2210593cfcbb4b12b66e9",
+  "patch_sha256": "587c8286c86136c7b0d1f30f4e048619aee714064d46468f40e0e0d60ee5afc3",
+  "hardware_accessed": false
+}

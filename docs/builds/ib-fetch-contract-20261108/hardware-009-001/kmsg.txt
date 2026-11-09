@@ -1,0 +1,2690 @@
+6,68,4,-;clocksource: timebase: mask: 0xffffffffffffffff max_cycles: 0xb87c6e0cb, max_idle_ns: 440795203664 ns
+6,69,11,-;clocksource: timebase mult[14008316] shift[24] registered
+7,70,29,-;clockevent: decrementer mult[ccc78ea] shift[32] cpu[0]
+6,71,218,-;Console: colour dummy device 80x25
+6,72,243,-;printk: legacy console [tty0] enabled
+6,73,726,-;pid_max: default: 32768 minimum: 301
+6,74,947,-;Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,75,1013,-;Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+6,76,2149,-;mpic: requesting IPIs...
+6,77,5012,-;e500 family performance monitor hardware support registered
+6,78,5385,-;rcu: Hierarchical SRCU implementation.
+6,79,5431,-;rcu: \x09Max phase no-delay instances is 1000.
+6,80,6063,-;Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+6,81,6786,-;smp: Bringing up secondary CPUs ...
+6,82,8181,-;Activating Kernel Userspace Access Protection
+6,83,8568,-;smp: Brought up 1 node, 2 CPUs
+6,84,8812,-;Memory: 3496976K/3571712K available (13972K kernel code, 1148K rwdata, 18796K rodata, 3448K init, 273K bss, 71616K reserved, 0K cma-reserved, 2785272K highmem)
+6,85,9773,-;devtmpfs: initialized
+6,86,12254,-;futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,87,12956,-;Machine: varisys,TABOR
+6,88,12997,-;SoC family: QorIQ
+6,89,13008,-;SoC ID: svr:0x80e60011, Revision: 1.1
+6,90,13758,-;NET: Registered PF_NETLINK/PF_ROUTE protocol family
+6,91,14381,-;audit: initializing netlink subsys (disabled)
+5,92,14848,-;audit: type=2000 audit(0.012:1): state=initialized audit_enabled=0 res=1
+6,93,23483,-;Found FSL PCI host bridge at 0x0000000fffe0a000. Firmware bus number: 0->1
+6,94,23544,-;PCI host bridge /pcie@fffe0a000 (primary) ranges:
+6,95,23579,-; MEM 0x0000000c40000000..0x0000000c5fffffff -> 0x00000000e0000000 
+6,96,23603,-;  IO 0x0000000fffc20000..0x0000000fffc2ffff -> 0x0000000000000000
+6,97,23655,-;/pcie@fffe0a000: PCICSRBAR @ 0xdff00000
+6,98,23686,-;setup_pci_atmu: end of DRAM da000000
+6,99,23703,-;/pcie@fffe0a000: Setting PCI inbound window greater than memory size
+6,100,26011,-;PCI: Probing PCI hardware
+6,101,26213,-;fsl-pci fffe0a000.pcie: PCI host bridge to bus 0001:00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0a000.pcie
+6,102,26256,-;pci_bus 0001:00: root bus resource [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,103,26280,-;pci_bus 0001:00: root bus resource [mem 0xc40000000-0xc5fffffff] (bus address [0xe0000000-0xffffffff])
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,104,26304,-;pci_bus 0001:00: root bus resource [bus 00-ff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,105,26323,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to ff
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,106,26411,-;pci 0001:00:00.0: [1957:0111] type 01 class 0x060400 PCIe Root Port
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,107,26450,-;pci 0001:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,108,26478,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,109,26500,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc502fffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,110,26577,-;pci 0001:00:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,111,26600,-;pci 0001:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,112,27486,-;pci 0001:01:00.0: [1002:67ff] type 00 class 0x030000 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,113,27558,-;pci 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,114,27595,-;pci 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,115,27623,-;pci 0001:01:00.0: BAR 4 [io  0x1000-0x10ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,116,27649,-;pci 0001:01:00.0: BAR 5 [mem 0xc50200000-0xc5023ffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,117,27676,-;pci 0001:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,118,27705,-;pci 0001:01:00.0: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,119,27869,-;pci 0001:01:00.0: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,120,27890,-;pci 0001:01:00.0: PME# supported from D1 D2 D3hot D3cold
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,121,27938,-;pci 0001:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0001:00:00.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,122,28229,-;pci 0001:01:00.1: [1002:aae0] type 00 class 0x040300 PCIe Legacy Endpoint
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,123,28305,-;pci 0001:01:00.1: BAR 0 [mem 0xc50240000-0xc50243fff 64bit]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,124,28442,-;pci 0001:01:00.1: enabling Extended Tags
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,125,28579,-;pci 0001:01:00.1: supports D1 D2
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,126,28807,-;pci 0001:00:00.0: PCI bridge to [bus 01-ff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,127,28869,-;pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,128,28898,-;pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to 01
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+4,129,29426,-;PCI: Cannot allocate resource region 0 of device 0001:00:00.0, will remap
+7,130,29484,-;PCI 0001:00 Cannot reserve Legacy IO [io  0x0000-0x0fff]
+6,131,29529,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: can't assign; no space
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,132,29556,-;pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: failed to assign
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,133,29582,-;pci 0001:01:00.0: ROM [mem 0xc50260000-0xc5027ffff pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,134,29606,-;pci 0001:00:00.0: PCI bridge to [bus 01]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,135,29625,-;pci 0001:00:00.0:   bridge window [io  0x0000-0xffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,136,29646,-;pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,137,29668,-;pci_bus 0001:00: Some PCI device resources are unassigned, try booting with pci=realloc
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,138,29687,-;pci_bus 0001:00: resource 4 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,139,29704,-;pci_bus 0001:00: resource 5 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:00
+6,140,29721,-;pci_bus 0001:01: resource 0 [io  0x0000-0xffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+6,141,29737,-;pci_bus 0001:01: resource 1 [mem 0xc40000000-0xc5fffffff]
+ SUBSYSTEM=pci_bus
+ DEVICE=+pci_bus:0001:01
+7,142,29919,-;Setting up Freescale MSI support
+6,143,36517,-;HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+6,144,36563,-;HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+6,145,36580,-;HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+6,146,36593,-;HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+6,147,36607,-;HugeTLB: registered 64.0 MiB page size, pre-allocated 0 pages
+6,148,36621,-;HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+6,149,36636,-;HugeTLB: registered 256 MiB page size, pre-allocated 0 pages
+6,150,36649,-;HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+6,151,36663,-;HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+6,152,36676,-;HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+6,153,37602,-;Freescale Elo series DMA driver
+6,154,37887,-;fsl-elo-dma fffe0c300.dma: #2 (fsl,eloplus-dma-channel), irq 78
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,155,38069,-;fsl-elo-dma fffe0c300.dma: #3 (fsl,eloplus-dma-channel), irq 79
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe0c300.dma
+6,156,38652,-;fsl-elo-dma fffe21300.dma: #0 (fsl,eloplus-dma-channel), irq 20
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,157,38842,-;fsl-elo-dma fffe21300.dma: #1 (fsl,eloplus-dma-channel), irq 21
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,158,39036,-;fsl-elo-dma fffe21300.dma: #2 (fsl,eloplus-dma-channel), irq 22
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+6,159,39217,-;fsl-elo-dma fffe21300.dma: #3 (fsl,eloplus-dma-channel), irq 23
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe21300.dma
+5,160,40276,-;SCSI subsystem initialized
+7,161,40845,-;libata version 3.00 loaded.
+6,162,41114,-;usbcore: registered new interface driver usbfs
+6,163,41204,-;usbcore: registered new interface driver hub
+6,164,41282,-;usbcore: registered new device driver usb
+6,165,41408,-;pps_core: LinuxPPS API ver. 1 registered
+6,166,41438,-;pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+6,167,41476,-;PTP clock support registered
+6,168,41551,-;EDAC MC: Ver: 3.0.0
+6,169,42429,-;Advanced Linux Sound Architecture Driver Initialized.
+6,170,43469,-;pci 0001:01:00.0: vgaarb: setting as boot VGA device
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,171,43519,-;pci 0001:01:00.0: vgaarb: bridge control possible
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,172,43534,-;pci 0001:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,173,43554,-;vgaarb: loaded
+6,174,44487,-;clocksource: Switched to clocksource timebase
+6,175,70669,-;NET: Registered PF_INET protocol family
+6,176,70990,-;IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+6,177,72559,-;tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+6,178,72630,-;Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+6,179,72659,-;TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+6,180,72739,-;TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+6,181,73121,-;TCP: Hash tables configured (established 8192 bind 8192)
+6,182,73288,-;UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,183,73366,-;UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+6,184,73620,-;NET: Registered PF_UNIX/PF_LOCAL protocol family
+6,185,76176,-;RPC: Registered named UNIX socket transport module.
+6,186,76222,-;RPC: Registered udp transport module.
+6,187,76233,-;RPC: Registered tcp transport module.
+6,188,76243,-;RPC: Registered tcp-with-tls transport module.
+6,189,76253,-;RPC: Registered tcp NFSv4.1 backchannel transport module.
+6,190,76396,-;pci 0001:01:00.1: D0 power state depends on 0001:01:00.0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.1
+6,191,76449,-;PCI: CLS 32 bytes, default 32
+6,192,77057,-;Trying to unpack rootfs image as initramfs...
+6,193,84551,-;workingset: timestamp_bits=14 max_order=20 bucket_order=6
+5,194,88244,-;NFS: Registering the id_resolver key type
+5,195,88341,-;Key type id_resolver registered
+5,196,88364,-;Key type id_legacy registered
+6,197,88569,-;jffs2: version 2.2. (NAND) \xc2\xa9 2001-2006 Red Hat, Inc.
+6,198,224925,-;bounce: pool size: 64 pages
+6,199,225013,-;io scheduler mq-deadline registered
+6,200,225042,-;io scheduler kyber registered
+6,201,225100,-;io scheduler bfq registered
+6,202,233060,-;pcieport 0001:00:00.0: enabling device (0106 -> 0107)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,203,233287,-;pcieport 0001:00:00.0: PME: Signaling with IRQ 16
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:00:00.0
+6,204,234121,-;Serial: 8250/16550 driver, 6 ports, IRQ sharing enabled
+6,205,243909,-;printk: legacy console [ttyS0] disabled
+6,206,244416,-;serial8250.0: ttyS0 at MMIO 0xfffe04500 (irq = 42, base_baud = 24997500) is a 16550A
+6,207,244490,-;printk: legacy console [ttyS0] enabled
+6,208,286239,-;Freeing initrd memory: 1528K
+6,209,332828,-;serial8250.0: ttyS1 at MMIO 0xfffe04600 (irq = 42, base_baud = 24997500) is a 16550A
+6,210,1241995,-;ePAPR hypervisor byte channel driver
+6,211,1258962,-;brd: module loaded
+6,212,1268339,-;loop: module loaded
+6,213,1294198,-;st: Version 20160209, fixed bufsize 32768, s/g segs 256
+6,214,1299631,-;fsl-sata fffe18000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe18000.sata
+6,215,1306181,-;scsi host0: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host0
+6,216,1308486,-;ata1: SATA max UDMA/133 irq 74 lpm-pol 0
+6,217,1312420,-;fsl-sata fffe19000.sata: Sata FSL Platform/CSB Driver init
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe19000.sata
+6,218,1319028,-;scsi host1: sata_fsl
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host1
+6,219,1321318,-;ata2: SATA max UDMA/133 irq 41 lpm-pol 0
+6,220,1327189,-;fsl_espi fffe07000.spi: irq = 59
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe07000.spi
+6,221,1337774,-;fsl-gianfar soc@fffe00000:ethernet@b0000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,222,1355447,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: mac: 80:34:28:6f:89:5c
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,223,1361714,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,224,1368196,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,225,1375030,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,226,1381863,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,227,1388698,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+6,228,1396349,-;fsl-gianfar soc@fffe00000:ethernet@b1000: enabled errata workarounds, flags: 0x4
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,229,1414010,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: mac: d8:47:8f:bb:42:57
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,230,1420276,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: Running with NAPI enabled
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,231,1426771,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,232,1433612,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,233,1440446,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[0]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,234,1447286,-;fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[1]: 256
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b1000
+6,235,1454251,-;ucc_geth_driver: QE UCC Gigabit Ethernet Controller
+6,236,1459076,-;e1000: Intel(R) PRO/1000 Network Driver
+6,237,1462711,-;e1000: Copyright (c) 1999-2006 Intel Corporation.
+6,238,1467273,-;e1000e: Intel(R) PRO/1000 Network Driver
+6,239,1470987,-;e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+6,240,1475758,-;igb: Intel(R) Gigabit Ethernet Network Driver
+6,241,1479920,-;igb: Copyright (c) 2007-2014 Intel Corporation.
+6,242,1485644,-;fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,243,1491418,-;fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,244,1497560,-;fsl-ehci fsl-ehci.0: irq 28, io mem 0xfffe22000
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,245,1511924,-;fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+ SUBSYSTEM=platform
+ DEVICE=+platform:fsl-ehci.0
+6,246,1517478,-;hub 1-0:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,247,1520139,-;hub 1-0:1.0: 1 port detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-0:1.0
+6,248,1523501,-;usbcore: registered new interface driver usb-storage
+6,249,1528697,-;i2c_dev: i2c /dev entries driver
+6,250,1532077,-;mpc-i2c fffe03000.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03000.i2c
+6,251,1536517,-;mpc-i2c fffe03100.i2c: timeout 1000000 us
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe03100.i2c
+6,252,1543080,-;rtc-ds1307 1-006f: registered as rtc0
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,253,1547421,-;rtc-ds1307 1-006f: setting system clock to 2026-11-09T04:56:09 UTC (1794200169)
+ SUBSYSTEM=i2c
+ DEVICE=+i2c:1-006f
+6,254,1555428,-;Freescale(R) MPC85xx EDAC driver, (C) 2006 Montavista Software
+6,255,1561847,-;EDAC PCI0: Giving out device to module MPC85xx_edac controller mpc85xx_pci_err: DEV mpc85xx-pci-edac.0.auto (INTERRUPT)
+6,256,1572563,-;MPC85xx_edac acquired irq 16 for PCI Err
+6,257,1576293,-;MPC85xx_edac PCI err registered
+6,258,1579498,-;sdhci: Secure Digital Host Controller Interface driver
+6,259,1584455,-;sdhci: Copyright(c) Pierre Ossman
+6,260,1587529,-;sdhci-pltfm: SDHCI platform and OF driver helper
+6,261,1592658,-;mmc0 bounce up to 128 segments into one, max segment size 65536 bytes
+6,262,1593299,-;usbcore: registered new interface driver usbhid
+6,263,1603281,-;usbhid: USB HID core driver
+6,264,1605865,-;Freescale hypervisor management driver
+6,265,1609401,-;fsl-hv: no hypervisor found
+4,266,1613594,-;fsl-ssi-dai fffe15000.ssi: No cache defaults, reading back from HW
+ SUBSYSTEM=platform
+ DEVICE=+platform:fffe15000.ssi
+6,267,1621133,-;ipip: IPv4 and MPLS over IPv4 tunneling driver
+6,268,1623899,-;mmc0: SDHCI controller on fffe2e000.sdhc [fffe2e000.sdhc] using DMA
+6,269,1625891,-;Initializing XFRM netlink socket
+6,270,1634633,-;NET: Registered PF_INET6 protocol family
+6,271,1640672,-;Segment Routing with IPv6
+6,272,1643174,-;In-situ OAM (IOAM) with IPv6
+6,273,1645935,-;sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+6,274,1651202,-;NET: Registered PF_PACKET protocol family
+6,275,1655051,-;NET: Registered PF_KEY protocol family
+5,276,1658675,-;Key type dns_resolver registered
+6,277,1675692,-;ALSA device list:
+6,278,1677499,-;  No soundcards found.
+6,279,1726223,-;mmc0: new high speed SDHC card at address b36f
+6,280,1731343,-;mmcblk0: mmc0:b36f CBADS 3.73 GiB
+6,281,1736802,-; mmcblk0: p1
+6,282,1767929,-;usb 1-1: new high-speed USB device number 2 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1
+6,283,1827992,-;ata1: Signature Update detected @ 508 msecs
+4,284,1828196,-;ata2: No Device OR PHYRDY change,Hstatus = 0xa0000000
+6,285,1836892,-;ata2: SATA link down (SStatus 0 SControl 300)
+6,286,1917271,-;hub 1-1:1.0: USB hub found
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,287,1919996,-;hub 1-1:1.0: 4 ports detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1:1.0
+6,288,1987936,-;ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+4,289,1993933,-;ata1.00: Model 'CT240BX500SSD1', rev 'M6CR056', applying quirks: nolpm
+4,290,2000287,-;ata1.00: LPM support broken, forcing max_power
+6,291,2004535,-;ata1.00: ATA-10: CT240BX500SSD1, M6CR056, max UDMA/133
+6,292,2009472,-;ata1.00: 468862128 sectors, multi 1: LBA48 NCQ (depth 16/32)
+4,293,2014925,-;ata1.00: ATA Identify Device Log not supported
+4,294,2021338,-;ata1.00: LPM support broken, forcing max_power
+6,295,2025631,-;ata1.00: configured for UDMA/133
+5,296,2029418,-;scsi 0:0:0:0: Direct-Access     ATA      CT240BX500SSD1   056  PQ: 0 ANSI: 5
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,297,2039076,-;sd 0:0:0:0: Attached scsi generic sg0 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,298,2039183,-;sd 0:0:0:0: [sda] 468862128 512-byte logical blocks: (240 GB/224 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,299,2049578,-;sd 0:0:0:0: [sda] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+7,300,2053160,-;sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,301,2057187,-;sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,302,2065413,-;sd 0:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+5,303,2088613,-;sd 0:0:0:0: [sda] Attached SCSI disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:0:0:0:0
+6,304,2092290,-;Waiting for root device PARTUUID=a1221108-02...
+6,305,2211931,-;usb 1-1.3: new low-speed USB device number 3 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.3
+6,306,2341859,-;input: Logitech USB Keyboard as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.0/0003:046D:C31D.0001/input/input0
+6,307,2408303,-;hid-generic 0003:046D:C31D.0001: input: USB HID v1.10 Keyboard [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input0
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0001
+6,308,2428195,-;input: Logitech USB Keyboard Consumer Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input1
+6,309,2496326,-;input: Logitech USB Keyboard System Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.3/1-1.3:1.1/0003:046D:C31D.0002/input/input2
+6,310,2510914,-;hid-generic 0003:046D:C31D.0002: input: USB HID v1.10 Device [Logitech USB Keyboard] on usb-fsl-ehci.0-1.3/input1
+ SUBSYSTEM=hid
+ DEVICE=+hid:0003:046D:C31D.0002
+6,311,3239945,-;usb 1-1.4: new high-speed USB device number 4 using fsl-ehci
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4
+6,312,3357838,-;usb-storage 1-1.4:1.0: USB Mass Storage device detected
+ SUBSYSTEM=usb
+ DEVICE=+usb:1-1.4:1.0
+6,313,3363775,-;scsi host2: usb-storage 1-1.4:1.0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:host2
+5,314,4389746,-;scsi 2:0:0:0: Direct-Access     SanDisk  Cruzer Glide     1.00 PQ: 0 ANSI: 6
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,315,4397328,-;sd 2:0:0:0: Attached scsi generic sg1 type 0
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,316,4403514,-;sd 2:0:0:0: [sdb] 30031872 512-byte logical blocks: (15.4 GB/14.3 GiB)
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,317,4411748,-;sd 2:0:0:0: [sdb] Write Protect is off
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+7,318,4415366,-;sd 2:0:0:0: [sdb] Mode Sense: 43 00 00 00
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+5,319,4420248,-;sd 2:0:0:0: [sdb] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,320,4450246,-; sdb: sdb1 sdb2
+5,321,4452569,-;sd 2:0:0:0: [sdb] Attached SCSI removable disk
+ SUBSYSTEM=scsi
+ DEVICE=+scsi:2:0:0:0
+6,322,4650762,-;EXT4-fs (sdb2): mounted filesystem a1221108-0000-4000-8000-000000000002 r/w with ordered data mode. Quota mode: disabled.
+6,323,4661676,-;VFS: Mounted root (ext4 filesystem) on device 8:18.
+6,324,4667613,-;devtmpfs: mounted
+6,325,4673409,-;Freeing unused kernel image (initmem) memory: 3448K
+6,326,4678162,-;Run /init as init process
+7,327,4680579,-;  with arguments:
+7,328,4682253,-;    /init
+7,329,4683222,-;  with environment:
+7,330,4685109,-;    HOME=/
+7,331,4686179,-;    TERM=linux
+6,332,23045067,-;fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Link is Up - 1Gbps/Full - flow control off
+ SUBSYSTEM=platform
+ DEVICE=+platform:soc@fffe00000:ethernet@b0000
+5,333,24191907,-;random: crng init done
+14,334,75648440,-;TABOR_CAPTURE_READY
+6,335,76089873,-;EXT4-fs (sdb2): re-mounted a1221108-0000-4000-8000-000000000002 ro.
+6,336,77175511,-;[drm] initializing kernel modesetting (POLARIS11 0x1002:0x67FF 0x1002:0x0B04 0xFF).
+6,337,77183063,-;[drm] register mmio base: 0x50200000
+6,338,77186471,-;[drm] register mmio size: 262144
+6,339,77189855,-;[drm] add ip block number 0 <vi_common>
+6,340,77193607,-;[drm] add ip block number 1 <gmc_v8_0>
+6,341,77197173,-;[drm] add ip block number 2 <tonga_ih>
+6,342,77200801,-;[drm] add ip block number 3 <gfx_v8_0>
+6,343,77204372,-;[drm] add ip block number 4 <sdma_v3_0>
+6,344,77208086,-;[drm] add ip block number 5 <powerplay>
+6,345,77211684,-;[drm] add ip block number 6 <dce_v11_0>
+6,346,77215321,-;[drm] add ip block number 7 <uvd_v6_0>
+6,347,77218939,-;[drm] add ip block number 8 <vce_v3_0>
+6,348,77568864,-;amdgpu 0001:01:00.0: amdgpu: Fetched VBIOS from ROM BAR
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,349,77573949,-;amdgpu: ATOM BIOS: 
+6,350,77581996,-;[drm] UVD is enabled in VM mode
+6,351,77584978,-;[drm] UVD ENC is enabled in VM mode
+6,352,77588289,-;[drm] VCE enabled in VM mode
+6,353,77591021,-;amdgpu 0001:01:00.0: amdgpu: Trusted Memory Zone (TMZ) feature not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,354,77597931,-;amdgpu 0001:01:00.0: amdgpu: PCIE atomic ops is not supported
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,355,77606515,-;[drm] vm size is 64 GB, 2 levels, block size is 10-bit, fragment size is 9-bit
+6,356,77615727,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,357,77622858,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: releasing
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,358,77630000,-;[drm:amdgpu_device_resize_fb_bar [amdgpu]] *ERROR* Problem resizing BAR0 (-22).
+6,359,77632419,-;amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,360,77646470,-;amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: assigned
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,361,77653455,-;amdgpu 0001:01:00.0: amdgpu: VRAM: 4096M 0x000000F400000000 - 0x000000F4FFFFFFFF (4096M used)
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,362,77661822,-;amdgpu 0001:01:00.0: amdgpu: GART: 256M 0x000000FF00000000 - 0x000000FF0FFFFFFF
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,363,77669050,-;[drm] Detected VRAM RAM=4096M, BAR=256M
+6,364,77672794,-;[drm] RAM width 128bits GDDR5
+6,365,77676078,-;[drm] amdgpu: 4096M of VRAM memory ready
+6,366,77679954,-;[drm] amdgpu: 1711M of GTT memory ready.
+6,367,77683779,-;[drm] GART: num cpu pages 65536, num gpu pages 65536
+6,368,77692554,-;[drm] PCIE GART of 256M enabled (table at 0x000000F400300000).
+6,369,77705363,-;[drm] Chained IB support enabled!
+6,370,77732605,-;amdgpu: hwmgr_sw_init smu backed is polaris10_smu
+6,371,77737304,-;amdgpu: SMU_CALIB efuse49=0004dfc3 feature_mask=fff73fdf
+6,372,77742669,-;[drm] AMDGPU Display Connectors
+6,373,77745751,-;[drm] Connector 0:
+6,374,77747522,-;[drm]   DP-1
+6,375,77748815,-;[drm]   HPD5
+6,376,77750136,-;[drm]   DDC: 0x4868 0x4868 0x4869 0x4869 0x486a 0x486a 0x486b 0x486b
+6,377,77756321,-;[drm]   Encoders:
+6,378,77758074,-;[drm]     DFP1: INTERNAL_UNIPHY1
+6,379,77761129,-;[drm] Connector 1:
+6,380,77762975,-;[drm]   HDMI-A-1
+6,381,77764629,-;[drm]   HPD3
+6,382,77765950,-;[drm]   DDC: 0x4874 0x4874 0x4875 0x4875 0x4876 0x4876 0x4877 0x4877
+6,383,77772128,-;[drm]   Encoders:
+6,384,77773882,-;[drm]     DFP2: INTERNAL_UNIPHY1
+6,385,77776928,-;[drm] Connector 2:
+6,386,77778772,-;[drm]   DVI-D-1
+6,387,77780378,-;[drm]   HPD4
+6,388,77781700,-;[drm]   DDC: 0x4878 0x4878 0x4879 0x4879 0x487a 0x487a 0x487b 0x487b
+6,389,77787883,-;[drm]   Encoders:
+6,390,77789636,-;[drm]     DFP3: INTERNAL_UNIPHY
+6,391,77808009,-;[drm] Found UVD firmware Version: 1.130 Family ID: 16
+6,392,77836967,-;[drm] Found VCE firmware Version: 53.26 Binary ID: 3
+6,393,77846426,-;amdgpu: SMU_CALIB smc_running=0 not_vf=1
+6,394,77850193,-;amdgpu: SMU_DIAG protected=1 security=1
+6,395,77853842,-;amdgpu: SMU_DIAG before-start pc=0000278c status=00000000 events=000f0084 flags=00000001 resp=00000001
+6,396,77863024,-;amdgpu 0001:01:00.0: amdgpu: SMU_DIAG firmware=amdgpu/polaris11_k_smc.bin
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,397,77874610,-;amdgpu 0001:01:00.0: amdgpu: SMU_DIAG version=00001800 bytes=129972 offset=256 start=00020000
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,398,77883002,-;amdgpu: SMU_DIAG upload security=1 version=00001800 bytes=129972 first_native=801e7735 first_le=35771e80
+6,399,77894527,-;amdgpu: SMU_DIAG after-interrupt-wait pc=00002ac8 status=00000000 events=000f0084 flags=00000000 resp=00000001
+6,400,77904362,-;amdgpu: PWR_TRACE smu_msg=0x100 parameter=0x20000
+6,401,77908886,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x100 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,402,77967355,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x100 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,403,77973278,-;amdgpu: SMU_DIAG after-test-message pc=0000278c status=00000003 events=000f0084 flags=00000000 resp=00000001
+6,404,77982938,-;amdgpu: SMU_DIAG after-done-wait pc=00002ac8 status=00000003 events=000f0084 flags=00000000 resp=00000001
+6,405,77992472,-;amdgpu: SMU_CALIB avfs_supported=1 btc=0
+6,406,77996429,-;amdgpu: SMU_CALIB event_result=0
+6,407,78001941,-;amdgpu: PWR_TRACE smu_msg=0x252 parameter=0xf4
+6,408,78006234,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x252 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,409,78011570,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x252 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,410,78017517,-;amdgpu: PWR_TRACE smu_msg=0x253 parameter=0x400000
+6,411,78022138,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x253 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,412,78027493,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x253 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,413,78033440,-;amdgpu: PWR_TRACE smu_msg=0x250 parameter=0xf4
+6,414,78037744,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x250 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,415,78043087,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x250 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,416,78049032,-;amdgpu: PWR_TRACE smu_msg=0x251 parameter=0x383000
+6,417,78053654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x251 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,418,78059011,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x251 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,419,78064954,-;amdgpu: PWR_TRACE smu_msg=0x254 parameter=0x47e
+6,420,78069352,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x254 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,421,78077469,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x254 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,422,78083393,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=gfx_v8_0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,423,78089472,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=kiq_0.2.1.0 gpu=000000f400382000 vram=1 header=c0310800 pq=c0318911 base=00000000:ff0061c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,424,78101687,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=1 expected=0041880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,425,78108922,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=2 expected=8041880a actual=8041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,426,78117177,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=3 expected=0041880a actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,427,78124482,-;amdgpu 0001:01:00.0: amdgpu: GFX_SWAP phase=started actual=0041880a
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,428,78130742,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.0 gpu=000000ff0071c000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060b0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,429,78142817,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.1 gpu=000000ff0071d000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060d0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,430,78154938,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.2 gpu=000000ff0071e000 vram=0 header=c0310800 pq=c031890a base=00000000:ff0060f0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,431,78167108,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.3 gpu=000000ff0071f000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006110
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,432,78179263,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.4 gpu=000000ff00720000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006130
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,433,78191353,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.5 gpu=000000ff00721000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006150
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,434,78203505,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.6 gpu=000000ff00722000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006170
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,435,78215572,-;amdgpu 0001:01:00.0: amdgpu: MQD_PUBLISH name=comp_1.0.7 gpu=000000ff00723000 vram=0 header=c0310800 pq=c031890a base=00000000:ff006190
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,436,78227668,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE testing control ring before queue mapping
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,437,78234804,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,438,78241289,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,439,78247236,-;amdgpu 0001:01:00.0: amdgpu: KIQ_GATE control ring result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,440,78252718,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ begin GPU-memory contract check
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,441,78259032,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=immediate offset=0 source=5 addr=000000001234abcd expected=1234abcd actual=1234abcd wb_bytes=cd ab 34 12
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,442,78272259,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=0 source=1 addr=000000f400382000 expected=c0310800 actual=c0310800 wb_bytes=00 08 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,443,78285595,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=512 source=1 addr=000000f400382200 expected=00382000 actual=00382000 wb_bytes=00 20 38 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,444,78299172,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=516 source=1 addr=000000f400382204 expected=000000f4 actual=000000f4 wb_bytes=f4 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,445,78312719,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=648 source=1 addr=000000f400382288 expected=18000100 actual=18000100 wb_bytes=00 01 00 18
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,446,78326298,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=544 source=1 addr=000000f400382220 expected=ff0061c0 actual=ff0061c0 wb_bytes=c0 61 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,447,78339813,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=548 source=1 addr=000000f400382224 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,448,78353408,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=580 source=1 addr=000000f400382244 expected=c0318911 actual=c0318911 wb_bytes=11 89 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,449,78366923,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=556 source=1 addr=000000f40038222c expected=004015a0 actual=004015a0 wb_bytes=a0 15 40 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,450,78380505,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=560 source=1 addr=000000f400382230 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,451,78394045,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=660 source=1 addr=000000f400382294 expected=ff0061b0 actual=ff0061b0 wb_bytes=b0 61 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,452,78407660,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=kiq_0.2.1.0 offset=664 source=1 addr=000000f400382298 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,453,78421211,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=0 source=1 addr=000000ff0071c000 expected=c0310800 actual=c0310800 wb_bytes=00 08 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,454,78434545,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=512 source=1 addr=000000ff0071c200 expected=0071c000 actual=0071c000 wb_bytes=00 c0 71 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,455,78447984,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=516 source=1 addr=000000ff0071c204 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,456,78461481,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=648 source=1 addr=000000ff0071c288 expected=18000100 actual=18000100 wb_bytes=00 01 00 18
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,457,78474944,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=544 source=1 addr=000000ff0071c220 expected=ff0060b0 actual=ff0060b0 wb_bytes=b0 60 00 ff
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,458,78488450,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=548 source=1 addr=000000ff0071c224 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,459,78501881,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=580 source=1 addr=000000ff0071c244 expected=c031890a actual=c031890a wb_bytes=0a 89 31 c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,460,78515382,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=556 source=1 addr=000000ff0071c22c expected=004010a0 actual=004010a0 wb_bytes=a0 10 40 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,461,78528825,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=560 source=1 addr=000000ff0071c230 expected=000000ff actual=000000ff wb_bytes=ff 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,462,78542319,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=660 source=1 addr=000000ff0071c294 expected=f4003880 actual=f4003880 wb_bytes=80 38 00 f4
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,463,78555776,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ label=comp_1.0.0 offset=664 source=1 addr=000000ff0071c298 expected=00000000 actual=00000000 wb_bytes=00 00 00 00
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,464,78569260,-;amdgpu 0001:01:00.0: amdgpu: MQD_READ contract result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,465,78574328,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE resources mask=00000000000000ff queues=8
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,466,78581472,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,467,78587870,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,468,78593858,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE resources result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,469,78599028,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=0 me=1 pipe=0 slot=0 doorbell=16 mqd=000000ff0071c000 wptr=000000ff004010c0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,470,78609735,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,471,78616154,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,472,78622143,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,473,78627114,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=1 me=1 pipe=0 slot=1 doorbell=17 mqd=000000ff0071d000 wptr=000000ff00401160
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,474,78637821,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,475,78644210,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,476,78650195,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=1 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,477,78655165,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=2 me=1 pipe=0 slot=2 doorbell=18 mqd=000000ff0071e000 wptr=000000ff00401200
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,478,78665865,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,479,78672255,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,480,78678240,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=2 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,481,78683233,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=3 me=1 pipe=0 slot=3 doorbell=19 mqd=000000ff0071f000 wptr=000000ff004012a0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,482,78693950,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,483,78700335,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,484,78706319,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=3 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,485,78711288,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=4 me=1 pipe=0 slot=4 doorbell=20 mqd=000000ff00720000 wptr=000000ff00401340
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,486,78721999,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,487,78728390,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,488,78734374,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=4 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,489,78739344,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=5 me=1 pipe=0 slot=5 doorbell=21 mqd=000000ff00721000 wptr=000000ff004013e0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,490,78750048,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,491,78756458,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,492,78762458,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=5 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,493,78767429,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=6 me=1 pipe=0 slot=6 doorbell=22 mqd=000000ff00722000 wptr=000000ff00401480
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,494,78778130,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,495,78784521,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,496,78790504,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=6 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,497,78795474,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=7 me=1 pipe=0 slot=7 doorbell=23 mqd=000000ff00723000 wptr=000000ff00401520
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,498,78806182,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,499,78812571,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,500,78818556,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE queue=7 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,501,78823565,-;amdgpu 0001:01:00.0: amdgpu: MAP_GATE all queue submissions completed
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,502,78829914,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=gfx type=0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,503,78835519,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=gfx result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,504,78840808,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 type=10 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,505,78847189,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=kiq_0.2.1.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,506,78853185,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.0 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,507,78859412,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,508,78865321,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.1 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,509,78871583,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.1 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,510,78877486,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.2 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,511,78883715,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.2 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,512,78889609,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.3 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,513,78895815,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.3 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,514,78901736,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.4 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,515,78907956,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.4 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,516,78913862,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.5 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,517,78920077,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.5 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,518,78926001,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.6 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,519,78932212,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.6 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,520,78938112,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.7 type=1 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,521,78944344,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=comp_1.0.7 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,522,78950248,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE gfx8_gui_idle enable
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,523,78955737,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE gfx8_gui_idle enabled
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,524,78961380,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=gfx_v8_0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,525,78967325,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=sdma_v3_0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,526,78973264,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=sdma0 type=2 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,527,78979053,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=sdma0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,528,78984543,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=sdma1 type=2 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,529,78990314,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=sdma1 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,530,78995792,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=sdma_v3_0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,531,79001813,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=powerplay enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,532,79007620,-;amdgpu: PWR_TRACE hwmgr->pptable_func->pptable_init(hwmgr) enter
+6,533,79013496,-;amdgpu: PWR_TRACE hwmgr->pptable_func->pptable_init(hwmgr) result=0
+6,534,79019662,-;amdgpu: PWR_TRACE hwmgr->hwmgr_func->backend_init(hwmgr) enter
+6,535,79025331,-;amdgpu: PWR_TRACE smu7_get_evv_voltages(hwmgr) enter
+6,536,79030190,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) enter
+6,537,79045786,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) result=0
+6,538,79061688,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) enter
+6,539,79077318,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) result=0
+6,540,79093232,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,541,79111907,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,542,79130778,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,543,79149445,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,544,79168314,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,545,79187042,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,546,79205834,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,547,79224540,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,548,79243367,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,549,79262073,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,550,79280865,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,551,79299567,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,552,79318381,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) enter
+6,553,79337088,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, GetVoltageInfo), (uint32_t *)&get_voltage_info_param_space, sizeof(get_voltage_info_param_space)) result=0
+6,554,79355903,-;amdgpu: PWR_TRACE smu7_get_evv_voltages(hwmgr) result=0
+6,555,79361024,-;amdgpu: PWR_TRACE smu7_init_voltage_dependency_on_display_clock_table(hwmgr) enter
+6,556,79368425,-;amdgpu: PWR_TRACE smu7_init_voltage_dependency_on_display_clock_table(hwmgr) result=0
+6,557,79376156,-;amdgpu: PWR_TRACE phm_initializa_dynamic_state_adjustment_rule_settings(hwmgr) enter
+6,558,79383763,-;amdgpu: PWR_TRACE phm_initializa_dynamic_state_adjustment_rule_settings(hwmgr) result=0
+6,559,79391673,-;amdgpu: PWR_TRACE smu7_update_edc_leakage_table(hwmgr) enter
+6,560,79397166,-;amdgpu: PWR_TRACE smu7_update_edc_leakage_table(hwmgr) result=0
+6,561,79402970,-;amdgpu: PWR_TRACE hwmgr->hwmgr_func->backend_init(hwmgr) result=0
+6,562,79408900,-;amdgpu: PWR_TRACE psm_init_power_state_table(hwmgr) enter
+6,563,79414213,-;amdgpu: PWR_TRACE psm_init_power_state_table(hwmgr) result=0
+6,564,79419702,-;amdgpu: PWR_TRACE phm_setup_asic(hwmgr) enter
+6,565,79423955,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x308 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,566,79429355,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x308 response=0xfe
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,567,79435419,-;amdgpu: PWR_TRACE smu7_read_clock_registers(hwmgr) enter
+6,568,79441831,-;amdgpu: PWR_TRACE smu7_read_clock_registers(hwmgr) result=0
+6,569,79447238,-;amdgpu: PWR_TRACE smu7_get_memory_type(hwmgr) enter
+6,570,79452007,-;amdgpu: PWR_TRACE smu7_get_memory_type(hwmgr) result=0
+6,571,79456980,-;amdgpu: PWR_TRACE smu7_enable_acpi_power_management(hwmgr) enter
+6,572,79462891,-;amdgpu: PWR_TRACE smu7_enable_acpi_power_management(hwmgr) result=0
+6,573,79468991,-;amdgpu: PWR_TRACE smu7_init_power_gate_state(hwmgr) enter
+6,574,79474269,-;amdgpu: PWR_TRACE smu7_init_power_gate_state(hwmgr) result=0
+6,575,79479752,-;amdgpu: PWR_TRACE smu7_get_mc_microcode_version(hwmgr) enter
+6,576,79485300,-;amdgpu: PWR_TRACE smu7_get_mc_microcode_version(hwmgr) result=0
+6,577,79491055,-;amdgpu: PWR_TRACE smu7_init_sclk_threshold(hwmgr) enter
+6,578,79496159,-;amdgpu: PWR_TRACE smu7_init_sclk_threshold(hwmgr) result=0
+6,579,79501492,-;amdgpu: PWR_TRACE phm_setup_asic(hwmgr) result=0
+6,580,79505992,-;amdgpu: PWR_TRACE phm_enable_dynamic_state_management(hwmgr) enter
+6,581,79512010,-;amdgpu: PWR_TRACE smu7_enable_voltage_control(hwmgr) enter
+6,582,79517387,-;amdgpu: PWR_TRACE smu7_enable_voltage_control(hwmgr) result=0
+6,583,79522959,-;amdgpu: PWR_TRACE smu7_construct_voltage_tables(hwmgr) enter
+6,584,79528508,-;amdgpu: PWR_TRACE smu7_construct_voltage_tables(hwmgr) result=0
+6,585,79534282,-;amdgpu: PWR_TRACE smu7_program_static_screen_threshold_parameters(hwmgr) enter
+6,586,79541393,-;amdgpu: PWR_TRACE smu7_program_static_screen_threshold_parameters(hwmgr) result=0
+6,587,79548712,-;amdgpu: PWR_TRACE smu7_enable_display_gap(hwmgr) enter
+6,588,79553734,-;amdgpu: PWR_TRACE smu7_enable_display_gap(hwmgr) result=0
+6,589,79558967,-;amdgpu: PWR_TRACE smu7_program_voting_clients(hwmgr) enter
+6,590,79564356,-;amdgpu: PWR_TRACE smu7_program_voting_clients(hwmgr) result=0
+6,591,79569962,-;amdgpu: PWR_TRACE smum_process_firmware_header(hwmgr) enter
+6,592,79575436,-;amdgpu: PWR_TRACE smum_process_firmware_header(hwmgr) result=0
+6,593,79581102,-;amdgpu: PWR_TRACE smu7_initial_switch_from_arbf0_to_f1(hwmgr) enter
+6,594,79587260,-;amdgpu: PWR_TRACE smu7_initial_switch_from_arbf0_to_f1(hwmgr) result=0
+6,595,79593611,-;amdgpu: PWR_TRACE smu7_setup_default_dpm_tables(hwmgr) enter
+6,596,79599157,-;amdgpu: PWR_TRACE smu7_setup_default_dpm_tables(hwmgr) result=0
+6,597,79604904,-;amdgpu: PWR_TRACE smum_init_smc_table(hwmgr) enter
+6,598,79609592,-;amdgpu: PWR_TRACE polaris10_populate_ulv_state(hwmgr, table) enter
+6,599,79615606,-;amdgpu: PWR_TRACE polaris10_populate_ulv_state(hwmgr, table) result=0
+6,600,79621957,-;amdgpu: PWR_TRACE polaris10_populate_smc_link_level(hwmgr, table) enter
+6,601,79628424,-;amdgpu: PWR_TRACE polaris10_populate_smc_link_level(hwmgr, table) result=0
+6,602,79635199,-;amdgpu: PWR_TRACE polaris10_populate_all_graphic_levels(hwmgr) enter
+6,603,79641386,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=21400 request=01005398
+6,604,79648938,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,605,79665769,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,606,79682898,-;amdgpu: ATOM_CLOCK ai fcw_int=34 fcw_frac=15728 pll_range=0 ssc=1
+6,607,79688851,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=33500 request=010082dc
+6,608,79696416,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,609,79713229,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,610,79730339,-;amdgpu: ATOM_CLOCK ai fcw_int=53 fcw_frac=39321 pll_range=0 ssc=1
+6,611,79736283,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=50300 request=0100c47c
+6,612,79743826,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,613,79760745,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,614,79777827,-;amdgpu: ATOM_CLOCK ai fcw_int=40 fcw_frac=15728 pll_range=1 ssc=1
+6,615,79783825,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=69700 request=01011044
+6,616,79791427,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,617,79808245,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,618,79825374,-;amdgpu: ATOM_CLOCK ai fcw_int=55 fcw_frac=49807 pll_range=1 ssc=1
+6,619,79831311,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=87400 request=01015568
+6,620,79838856,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,621,79855747,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,622,79872896,-;amdgpu: ATOM_CLOCK ai fcw_int=34 fcw_frac=62914 pll_range=2 ssc=1
+6,623,79878837,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=101900 request=01018e0c
+6,624,79886481,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,625,79903295,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,626,79920414,-;amdgpu: ATOM_CLOCK ai fcw_int=40 fcw_frac=49807 pll_range=2 ssc=1
+6,627,79926372,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=104300 request=0101976c
+6,628,79934018,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,629,79950831,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,630,79967952,-;amdgpu: ATOM_CLOCK ai fcw_int=41 fcw_frac=47185 pll_range=2 ssc=1
+6,631,79973893,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=107100 request=0101a25c
+6,632,79981530,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,633,79998367,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,634,80015492,-;amdgpu: ATOM_CLOCK ai fcw_int=42 fcw_frac=55050 pll_range=2 ssc=1
+6,635,80021426,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=21400 request=00005398
+6,636,80028724,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,637,80045538,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,638,80062653,-;amdgpu: PWR_TRACE smu_msg=0x300 parameter=0x41
+6,639,80066964,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x300 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,640,80072378,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x300 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,641,80078472,-;amdgpu: PWR_TRACE polaris10_populate_all_graphic_levels(hwmgr) result=0
+6,642,80085004,-;amdgpu: PWR_TRACE polaris10_populate_all_memory_levels(hwmgr) enter
+6,643,80091205,-;amdgpu: PWR_TRACE polaris10_populate_all_memory_levels(hwmgr) result=0
+6,644,80097556,-;amdgpu: PWR_TRACE polaris10_populate_smc_acpi_level(hwmgr, table) enter
+6,645,80104051,-;amdgpu: ATOM_CLOCK atomctrl_get_engine_pll_dividers_ai clock=21400 request=01005398
+6,646,80111537,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,647,80128426,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,648,80145591,-;amdgpu: ATOM_CLOCK ai fcw_int=34 fcw_frac=15728 pll_range=0 ssc=1
+6,649,80151592,-;amdgpu: PWR_TRACE polaris10_populate_smc_acpi_level(hwmgr, table) result=0
+6,650,80158297,-;amdgpu: PWR_TRACE polaris10_populate_smc_vce_level(hwmgr, table) enter
+6,651,80164722,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=63000 request=0000f618
+6,652,80171959,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,653,80188839,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,654,80205921,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=69000 request=00010d88
+6,655,80213226,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,656,80230032,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,657,80247154,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=75000 request=000124f8
+6,658,80254385,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,659,80271253,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,660,80288329,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=81000 request=00013c68
+6,661,80295632,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,662,80312432,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,663,80329552,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=86000 request=00014ff0
+6,664,80336789,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,665,80353641,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,666,80370714,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=91000 request=00016378
+6,667,80378017,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,668,80394833,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,669,80411971,-;amdgpu: PWR_TRACE polaris10_populate_smc_vce_level(hwmgr, table) result=0
+6,670,80418592,-;amdgpu: PWR_TRACE polaris10_populate_smc_samu_level(hwmgr, table) enter
+6,671,80425099,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=57000 request=0000dea8
+6,672,80432351,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,673,80449230,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,674,80466351,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=64000 request=0000fa00
+6,675,80473671,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,676,80490482,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,677,80507601,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=70000 request=00011170
+6,678,80514865,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,679,80531737,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,680,80548794,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=76000 request=000128e0
+6,681,80556081,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,682,80572957,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,683,80590112,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=81000 request=00013c68
+6,684,80597353,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,685,80614222,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,686,80631286,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=85000 request=00014c08
+6,687,80638578,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,688,80655414,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,689,80672538,-;amdgpu: PWR_TRACE polaris10_populate_smc_samu_level(hwmgr, table) result=0
+6,690,80679247,-;amdgpu: PWR_TRACE polaris10_program_memory_timing_parameters(hwmgr) enter
+6,691,80685998,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) enter
+6,692,80704307,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) result=0
+6,693,80722969,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) enter
+6,694,80741312,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) result=0
+6,695,80759996,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) enter
+6,696,80778311,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, DynamicMemorySettings), (uint32_t *)&memory_clock_parameters, sizeof(memory_clock_parameters)) result=0
+6,697,80798068,-;amdgpu: PWR_TRACE polaris10_program_memory_timing_parameters(hwmgr) result=0
+6,698,80804976,-;amdgpu: PWR_TRACE polaris10_populate_smc_uvd_level(hwmgr, table) enter
+6,699,80811401,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=75000 request=000124f8
+6,700,80818625,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,701,80835487,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,702,80852607,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=58000 request=0000e290
+6,703,80859923,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,704,80876755,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,705,80893880,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=80000 request=00013880
+6,706,80901109,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,707,80917978,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,708,80935034,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=63000 request=0000f618
+6,709,80942324,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,710,80959163,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,711,80976294,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=85000 request=00014c08
+6,712,80983525,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,713,81000388,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,714,81017461,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=68000 request=000109a0
+6,715,81024763,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,716,81041579,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,717,81058707,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=89000 request=00015ba8
+6,718,81065949,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,719,81082820,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,720,81099905,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=73000 request=00011d28
+6,721,81107190,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,722,81124017,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,723,81141133,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=92000 request=00016760
+6,724,81148369,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,725,81165238,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,726,81182321,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=77000 request=00012cc8
+6,727,81189622,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,728,81206430,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,729,81223549,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=95000 request=00017318
+6,730,81230785,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,731,81247647,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,732,81264713,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=80000 request=00013880
+6,733,81272007,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,734,81288831,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,735,81305956,-;amdgpu: PWR_TRACE polaris10_populate_smc_uvd_level(hwmgr, table) result=0
+6,736,81312579,-;amdgpu: PWR_TRACE polaris10_populate_smc_boot_level(hwmgr, table) enter
+6,737,81319082,-;amdgpu: PWR_TRACE polaris10_populate_smc_boot_level(hwmgr, table) result=0
+6,738,81325803,-;amdgpu: PWR_TRACE polaris10_populate_smc_initailial_state(hwmgr) enter
+6,739,81332237,-;amdgpu: PWR_TRACE polaris10_populate_smc_initailial_state(hwmgr) result=0
+6,740,81338871,-;amdgpu: PWR_TRACE polaris10_populate_bapm_parameters_in_dpm_table(hwmgr) enter
+6,741,81345973,-;amdgpu: PWR_TRACE polaris10_populate_bapm_parameters_in_dpm_table(hwmgr) result=0
+6,742,81353292,-;amdgpu: PWR_TRACE polaris10_populate_clock_stretcher_data_table(hwmgr) enter
+6,743,81360228,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) enter
+6,744,81375828,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ReadEfuseValue), (uint32_t *)&efuse_param, sizeof(efuse_param)) result=0
+6,745,81391770,-;amdgpu: PWR_TRACE polaris10_populate_clock_stretcher_data_table(hwmgr) result=0
+6,746,81398943,-;amdgpu: PWR_TRACE polaris10_populate_avfs_parameters(hwmgr) enter
+6,747,81404965,-;amdgpu: PWR_TRACE polaris10_populate_avfs_parameters(hwmgr) result=0
+6,748,81411155,-;amdgpu: PWR_TRACE polaris10_populate_vr_config(hwmgr, table) enter
+6,749,81417227,-;amdgpu: PWR_TRACE polaris10_populate_vr_config(hwmgr, table) result=0
+6,750,81423497,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+6,751,81432787,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=2812 request=00000afc
+6,752,81439927,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,753,81456805,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,754,81473878,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+6,755,81483440,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+6,756,81492677,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=26100 request=000065f4
+6,757,81499980,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,758,81516794,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,759,81533909,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+6,760,81543424,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) enter
+6,761,81552720,-;amdgpu: ATOM_CLOCK atomctrl_get_dfs_pll_dividers_vi clock=26100 request=000065f4
+6,762,81559953,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) enter
+6,763,81576819,-;amdgpu: PWR_TRACE amdgpu_atom_execute_table(adev->mode_info.atom_context, GetIndexIntoMasterTable(COMMAND, ComputeMemoryEnginePLL), (uint32_t *)&pll_patameters, sizeof(pll_patameters)) result=0
+6,764,81593882,-;amdgpu: PWR_TRACE atomctrl_get_dfs_pll_dividers_vi(hwmgr, smu_data->bif_sclk_table[i], &dividers) result=0
+6,765,81603439,-;amdgpu: PWR_TRACE smu7_copy_bytes_to_smc(hwmgr, smu_data->smu7_data.dpm_table_start + offsetof(SMU74_Discrete_DpmTable, SystemFlags), (uint8_t *)&(table->SystemFlags), sizeof(SMU74_Discrete_DpmTable) - 3 * sizeof(SMU74_PIDController), SMC_RAM_END) enter
+6,766,81626387,-;amdgpu: PWR_TRACE smu7_copy_bytes_to_smc(hwmgr, smu_data->smu7_data.dpm_table_start + offsetof(SMU74_Discrete_DpmTable, SystemFlags), (uint8_t *)&(table->SystemFlags), sizeof(SMU74_Discrete_DpmTable) - 3 * sizeof(SMU74_PIDController), SMC_RAM_END) result=0
+6,767,81648986,-;amdgpu: PWR_TRACE polaris10_populate_pm_fuses(hwmgr) enter
+6,768,81654404,-;amdgpu: PWR_TRACE polaris10_populate_pm_fuses(hwmgr) result=0
+6,769,81659983,-;amdgpu: PWR_TRACE smum_init_smc_table(hwmgr) result=0
+6,770,81664929,-;amdgpu: PWR_TRACE smu7_enable_vrhot_gpio_interrupt(hwmgr) enter
+6,771,81670683,-;amdgpu: PWR_TRACE smu7_enable_vrhot_gpio_interrupt(hwmgr) result=0
+6,772,81676766,-;amdgpu: PWR_TRACE smu7_notify_has_display(hwmgr) enter
+6,773,81681737,-;amdgpu: PWR_TRACE smu_msg=0x306 parameter=0x0
+6,774,81685997,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,775,81691363,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,776,81697359,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,777,81702622,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,778,81708526,-;amdgpu: PWR_TRACE smu7_notify_has_display(hwmgr) result=0
+6,779,81713754,-;amdgpu: PWR_TRACE smu7_populate_edc_leakage_registers(hwmgr) enter
+6,780,81719831,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x317 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,781,81725281,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x317 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,782,81731201,-;amdgpu: PWR_TRACE smu7_populate_edc_leakage_registers(hwmgr) result=0
+6,783,81737543,-;amdgpu: PWR_TRACE smu7_enable_sclk_control(hwmgr) enter
+6,784,81742605,-;amdgpu: PWR_TRACE smu7_enable_sclk_control(hwmgr) result=0
+6,785,81747987,-;amdgpu: PWR_TRACE smu7_enable_smc_voltage_controller(hwmgr) enter
+6,786,81753950,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x109 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,787,81759351,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x109 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,788,81765282,-;amdgpu: PWR_TRACE smu7_enable_smc_voltage_controller(hwmgr) result=0
+6,789,81771522,-;amdgpu: PWR_TRACE smu7_enable_ulv(hwmgr) enter
+6,790,81775795,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x62 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,791,81781122,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x62 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,792,81786965,-;amdgpu: PWR_TRACE smu7_enable_ulv(hwmgr) result=0
+6,793,81791550,-;amdgpu: PWR_TRACE smu7_enable_deep_sleep_master_switch(hwmgr) enter
+6,794,81797664,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x18f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,795,81803111,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x18f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,796,81809041,-;amdgpu: PWR_TRACE smu7_enable_deep_sleep_master_switch(hwmgr) result=0
+6,797,81815463,-;amdgpu: PWR_TRACE smu7_enable_didt_config(hwmgr) enter
+6,798,81820858,-;amdgpu: PWR_TRACE smu_msg=0x301 parameter=0x40205
+6,799,81825456,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x301 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,800,81830800,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x301 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,801,81836795,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x309 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,802,81842144,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x309 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,803,81848130,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x30b enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,804,81853473,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x30b response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,805,81859477,-;amdgpu: PWR_TRACE smu7_enable_didt_config(hwmgr) result=0
+6,806,81864711,-;amdgpu: PWR_TRACE smu7_start_dpm(hwmgr) enter
+6,807,81868970,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,808,81875156,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x14e response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,809,81881126,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x150 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,810,81903145,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x150 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,811,81909074,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x136 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,812,81914424,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x136 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,813,81920416,-;amdgpu: PWR_TRACE smu7_start_dpm(hwmgr) result=0
+6,814,81924861,-;amdgpu: PWR_TRACE smu7_enable_smc_cac(hwmgr) enter
+6,815,81929566,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x53 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,816,81934823,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x53 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,817,81940728,-;amdgpu: PWR_TRACE smu7_enable_smc_cac(hwmgr) result=0
+6,818,81945628,-;amdgpu: PWR_TRACE smu7_enable_power_containment(hwmgr) enter
+6,819,81951174,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x169 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,820,81956523,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x169 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,821,81962510,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x185 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,822,81967870,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x185 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,823,81973853,-;amdgpu: PWR_TRACE smu_msg=0x187 parameter=0x2300
+6,824,81978304,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x187 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,825,81983715,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x187 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,826,81989644,-;amdgpu: PWR_TRACE smu7_enable_power_containment(hwmgr) result=0
+6,827,81995455,-;amdgpu: PWR_TRACE smu7_power_control_set_level(hwmgr) enter
+6,828,82000862,-;amdgpu: PWR_TRACE smu_msg=0x188 parameter=0x2300
+6,829,82005384,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x188 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,830,82010749,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x188 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,831,82016747,-;amdgpu: PWR_TRACE smu7_power_control_set_level(hwmgr) result=0
+6,832,82022420,-;amdgpu: PWR_TRACE smu7_enable_thermal_auto_throttle(hwmgr) enter
+6,833,82028325,-;amdgpu: PWR_TRACE smu7_enable_thermal_auto_throttle(hwmgr) result=0
+6,834,82034418,-;amdgpu: PWR_TRACE smu7_pcie_performance_request(hwmgr) enter
+6,835,82039970,-;amdgpu: PWR_TRACE smu7_pcie_performance_request(hwmgr) result=0
+6,836,82045718,-;amdgpu: PWR_TRACE phm_enable_dynamic_state_management(hwmgr) result=0
+6,837,82052053,-;amdgpu: PWR_TRACE phm_start_thermal_controller(hwmgr) enter
+6,838,82057477,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x10a enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,839,82063323,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x10a response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,840,82069276,-;amdgpu: PWR_TRACE smu_msg=0x305 parameter=0x5
+6,841,82073544,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x305 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,842,82078883,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x305 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,843,82084878,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x26a enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,844,82096648,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x26a response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,845,82102569,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x415 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,846,82107907,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x415 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,847,82113913,-;amdgpu: PWR_TRACE smu_msg=0x209 parameter=0x23
+6,848,82118287,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x209 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,849,82123715,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x209 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,850,82129666,-;amdgpu: PWR_TRACE smu_msg=0x206 parameter=0x320
+6,851,82134107,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x206 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,852,82139455,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x206 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,853,82145447,-;amdgpu: PWR_TRACE smu_msg=0x5b parameter=0x0
+6,854,82149554,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5b enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,855,82154893,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5b response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,856,82160742,-;amdgpu: PWR_TRACE smu_msg=0x205 parameter=0x10cc
+6,857,82165253,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x205 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,858,82170593,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x205 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,859,82176587,-;amdgpu: PWR_TRACE smu_msg=0x20a parameter=0x46
+6,860,82180879,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x20a enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,861,82186366,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x20a response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,862,82192329,-;amdgpu: PWR_TRACE phm_start_thermal_controller(hwmgr) result=0
+6,863,82198063,-;amdgpu: PWR_TRACE psm_set_performance_states(hwmgr) enter
+6,864,82203298,-;amdgpu: PWR_TRACE psm_set_performance_states(hwmgr) result=0
+6,865,82208867,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=powerplay result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,866,82214886,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=dce_v11_0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,867,82221836,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=dce_v11_0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,868,82227873,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=uvd_v6_0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,869,82243455,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd type=3 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,870,82274550,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x154 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,871,82280437,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x154 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,872,82286370,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,873,82291674,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 type=5 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,874,82298488,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,875,82304184,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc1 type=5 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,876,82311394,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=uvd_enc1 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,877,82317072,-;[drm] UVD and UVD ENC initialized successfully.
+6,878,82321423,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=uvd_v6_0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,879,82327417,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=vce_v3_0 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,880,82333135,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce0 type=4 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,881,82436964,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15a enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,882,82443414,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15a response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,883,82449396,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,884,82454778,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce1 type=4 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,885,82460507,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce1 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,886,82465888,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce2 type=4 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,887,82471608,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE ring=vce2 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,888,82476991,-;[drm] VCE initialized successfully.
+6,889,82480316,-;amdgpu 0001:01:00.0: amdgpu: INIT_TRACE hw_init=vce_v3_0 result=0
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,890,82491080,-;amdgpu 0001:01:00.0: amdgpu: SE 2, SH per SE 1, CU per SH 8, active_cu_number 10
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,891,82498448,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,892,82502628,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,893,82507978,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,894,82513907,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,895,82518203,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,896,82524416,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,897,82530303,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,898,82534492,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,899,82552695,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,900,82558588,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,901,82563814,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,902,82569668,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,903,82575433,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,904,82581344,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,905,82585528,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,906,82590848,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,907,82596762,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,908,82601020,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,909,82606450,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,910,82612369,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,911,82616572,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,912,82621892,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,913,82627815,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x4
+6,914,82632043,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,915,82637468,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,916,82643409,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x8
+6,917,82647618,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,918,82652959,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,919,82658880,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x10
+6,920,82663141,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,921,82668483,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,922,82674390,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x20
+6,923,82678661,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,924,82683992,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,925,82689910,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x80
+6,926,82694169,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,927,82699513,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,928,82705444,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x100
+6,929,82709834,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,930,82715166,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,931,82721084,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x1
+6,932,82725269,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,933,82730613,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,934,82736521,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x400
+6,935,82740879,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,936,82746210,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,937,82752127,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x200
+6,938,82756473,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,939,82761822,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,940,82767753,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x2
+6,941,82771969,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,942,82777482,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,943,82783400,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x10000
+6,944,82787925,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,945,82793502,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,946,82799407,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x20000
+6,947,82803939,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,948,82809520,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,949,82815426,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x200000
+6,950,82820031,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,951,82825503,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,952,82831441,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x400000
+6,953,82836091,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,954,82841503,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,955,82847418,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x1c0000
+6,956,82852056,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,957,82857530,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,958,82863438,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x800000
+6,959,82868062,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,960,82873499,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,961,82879417,-;amdgpu: PWR_TRACE smu_msg=0x260 parameter=0x1000000
+6,962,82884114,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,963,82889500,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x260 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,964,82895447,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x281 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,965,82900813,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x281 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,966,82906927,-;amdgpu: PWR_TRACE smu_msg=0x282 parameter=0x0
+6,967,82911133,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x282 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,968,82916502,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x282 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,969,82922868,-;amdgpu 0001:01:00.0: amdgpu: Using BACO for runtime pm
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,970,82929554,-;[drm] Initialized amdgpu 3.61.0 for 0001:01:00.0 on minor 0
+6,971,83337835,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x155 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,972,83343560,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x155 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,973,83492248,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15b enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,974,83498584,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15b response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,975,83939951,-;amdgpu 0001:01:00.0: amdgpu: IB_CONTRACT ring=gfx payload=cafedead fence=00000000 emitted=00000001 signaled=00000000 ib_lo=0094e000 ib_hi=000000ff length=5
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,976,83953740,-;amdgpu 0001:01:00.0: [drm:amdgpu_ib_ring_tests [amdgpu]] *ERROR* IB test failed on gfx (-110).
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+3,977,83964600,-;[drm:process_one_work] *ERROR* ib ring test failed (-110).
+6,978,83986065,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,979,83990261,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,980,83995687,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,981,84001671,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,982,84005954,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,983,84011353,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,984,84017296,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,985,84021569,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,986,84026913,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,987,84032889,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,988,84038147,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,989,84044044,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,990,84049679,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,991,84055649,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,992,84059862,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,993,84065263,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,994,84071211,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,995,84075565,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,996,84080933,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,997,84086932,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,998,84091123,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,999,84096704,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1000,84102821,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1001,84107104,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1002,84112683,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1003,84118749,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1004,84123139,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1005,84128712,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1006,84134634,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1007,84138883,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1008,84144251,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1009,84150259,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1010,84155713,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1011,84161620,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1012,84167699,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1013,84173695,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1014,84177953,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1015,84183297,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1016,84189279,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1017,84193557,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1018,84198965,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1019,84204909,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1020,84209179,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1021,84214725,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1022,84220944,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1023,84225176,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1024,84230726,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1025,84236666,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1026,84240932,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1027,84246290,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1028,84252231,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1029,84256452,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1030,84261778,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1031,84267691,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1032,84272981,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1033,84278852,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1034,84284716,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1035,84290637,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1036,84294848,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1037,84300192,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1038,84306134,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1039,84310408,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1040,84315777,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1041,84321723,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1042,84325937,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1043,84331281,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1044,84337737,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1045,84342027,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1046,84347368,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1047,84353366,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1048,84357669,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1049,84363109,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1050,84369032,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1051,84373290,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1052,84378752,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1053,84384740,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1054,84390004,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1055,84395936,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1056,84401738,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1057,84407703,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1058,84411897,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1059,84417328,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1060,84423272,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1061,84427639,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1062,84433000,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1063,84438996,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1064,84443197,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1065,84448763,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1066,84454975,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1067,84459263,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1068,84464767,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1069,84470770,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1070,84475116,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1071,84480464,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1072,84486445,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1073,84490637,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1074,84496049,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1075,84501973,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1076,84507290,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1077,84513138,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1078,84519757,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1079,84525726,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1080,84529989,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1081,84535334,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1082,84541317,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1083,84545595,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1084,84551010,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1085,84556931,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1086,84561181,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1087,84566524,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1088,84680248,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1089,84680278,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1090,84680299,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1091,84680305,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1092,84680312,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1093,84680329,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1094,84680335,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1095,84680341,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1096,84680358,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1097,84680366,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1098,84680383,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5d response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1099,84680394,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1100,84680650,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1101,84680656,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0x0
+6,1102,84680663,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1103,84680680,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1104,84680685,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1105,84680691,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1106,84680708,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1107,84680714,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1108,84680720,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1109,84680737,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1110,84688293,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1111,84688322,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1112,84688653,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1113,84688660,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1114,84688666,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1115,84688683,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1116,84688689,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1117,84688695,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1118,84688712,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1119,84688718,-;amdgpu: PWR_TRACE smu_msg=0x306 parameter=0x14d
+6,1120,84688725,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1121,84688742,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x306 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1122,84688749,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1123,84688766,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x5e response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1124,84688777,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1125,84689651,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1126,84689657,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1127,84689664,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1128,84690653,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1129,84690659,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1130,84690665,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1131,84690682,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1132,84690688,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1133,84690694,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1134,84690711,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1135,84691213,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1136,84691654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1137,84691664,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1138,84691672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1139,84692659,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1140,84692683,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1141,84692692,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1142,84692711,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1143,84692718,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1144,84692725,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1145,84692743,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1146,84692964,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1147,84693654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1148,84693664,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1149,84693672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1150,84694654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1151,84694661,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1152,84694668,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1153,84694686,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1154,84694693,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1155,84694700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1156,84694718,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1157,84694920,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1158,84695655,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1159,84695664,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1160,84695673,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1161,84696662,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1162,84696686,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1163,84696695,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1164,84696713,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1165,84696720,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1166,84696728,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1167,84696746,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1168,84696959,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1169,84697654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1170,84697664,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1171,84697672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1172,84698654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1173,84698661,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1174,84698668,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1175,84698686,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1176,84698693,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1177,84698700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1178,84698718,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1179,84698966,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1180,84699655,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1181,84699665,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1182,84699673,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1183,84700662,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1184,84700687,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1185,84700697,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1186,84700715,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1187,84700722,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1188,84700729,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1189,84700747,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1190,84700961,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1191,84701655,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1192,84701664,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1193,84701673,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1194,84702654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1195,84702661,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1196,84702668,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1197,84702686,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1198,84702693,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1199,84702700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1200,84702718,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1201,84702918,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1202,84703656,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1203,84703666,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1204,84703675,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1205,84704692,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1206,84704717,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1207,84704726,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1208,84704744,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1209,84704752,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1210,84704758,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1211,84704776,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1212,84704989,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1213,84705657,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1214,84705666,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1215,84705675,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1216,84706654,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1217,84706661,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1218,84706668,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1219,84706686,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1220,84706693,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1221,84706700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1222,84706718,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1223,84706957,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1224,84707656,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1225,84707665,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1226,84707673,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1227,84708663,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1228,84708688,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1229,84708697,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1230,84708716,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1231,84708723,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1232,84708730,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1233,84708748,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1234,84708956,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1235,84709657,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1236,84709667,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1237,84709675,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1238,84710656,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1239,84710663,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1240,84710671,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1241,84710689,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1242,84710696,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1243,84710702,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1244,84710720,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1245,84710919,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1246,84711658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1247,84711667,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1248,84711676,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1249,84712663,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1250,84712687,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1251,84712696,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1252,84712715,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1253,84712722,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1254,84712729,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1255,84712747,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1256,84712962,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1257,84713658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1258,84713667,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1259,84713676,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1260,84714657,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1261,84714664,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1262,84714671,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1263,84714689,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1264,84714696,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1265,84714703,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1266,84714721,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1267,84714946,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1268,84715657,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1269,84715667,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1270,84715675,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1271,84716664,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1272,84716688,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1273,84716698,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1274,84716716,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1275,84716723,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1276,84716730,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1277,84716749,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1278,84716971,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1279,84717658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1280,84717668,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1281,84717676,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1282,84718658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1283,84718665,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1284,84718672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1285,84718690,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1286,84718697,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1287,84718704,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1288,84718723,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1289,84718922,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1290,84719658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1291,84719668,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1292,84719676,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1293,84720666,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1294,84720690,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1295,84720700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1296,84720718,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1297,84720725,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1298,84720732,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1299,84720750,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1300,84720969,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1301,84721660,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1302,84721669,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1303,84721677,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1304,84722658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1305,84722665,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1306,84722672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1307,84722690,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1308,84722697,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1309,84722704,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1310,84722722,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1311,84722963,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1312,84723659,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1313,84723668,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1314,84723676,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1315,84724666,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1316,84724689,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1317,84724699,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1318,84724717,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1319,84724724,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1320,84724731,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1321,84724749,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1322,84724972,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1323,84725660,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1324,84725670,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1325,84725678,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1326,84726658,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1327,84726665,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1328,84726672,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1329,84726690,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1330,84726697,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1331,84726704,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1332,84726722,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1333,84726921,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1334,84727661,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1335,84727670,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1336,84727678,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1337,84728666,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1338,84728691,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1339,84728700,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1340,84728719,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1341,84728726,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1342,84728733,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1343,84728752,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1344,84728967,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1345,84729660,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1346,84729669,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1347,84729678,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1348,84730659,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1349,84730666,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1350,84730673,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1351,84730692,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1352,84730699,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1353,84730705,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1354,84730723,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1355,84730764,-;Console: switching to colour frame buffer device 240x67
+6,1356,86696285,-;amdgpu 0001:01:00.0: [drm] fb0: amdgpudrmfb frame buffer device
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1357,86861495,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1358,86870978,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1359,86880094,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1360,86887612,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1361,86896980,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1362,86906085,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1363,86913577,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1364,86922160,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1365,86931284,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1366,86938686,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1367,86947279,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1368,86956727,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1369,86965993,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1370,86975133,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1371,86982757,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1372,86992000,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1373,87001062,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1374,87008600,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1375,87017190,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1376,87026560,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1377,87034177,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1378,87042868,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1379,87053068,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1380,87062011,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1381,87071207,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1382,87078817,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1383,87088026,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1384,87097165,-;amdgpu: PWR_TRACE smu_msg=0x145 parameter=0xff
+6,1385,87104729,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1386,87113525,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1387,87122780,-;amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+6,1388,87130224,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1389,87138860,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1390,87148492,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1391,87158035,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x148 response=0x1
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0
+6,1392,87167675,-;amdgpu: PWR_TRACE smu_msg=0x15f parameter=0xc80
+6,1393,87175565,-;amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x15f enter
+ SUBSYSTEM=pci
+ DEVICE=+pci:0001:01:00.0

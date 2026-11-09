@@ -1,0 +1,82 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.h
+@@ -101,6 +101,8 @@
+ 	uint64_t			gpu_addr;
+ 	uint32_t			*ptr;
+ 	uint32_t			flags;
++	/* Explicit CPU encoding of kernel-owned IB words; legacy is native. */
++	bool				is_le;
+ };
+ 
+ struct amdgpu_sched {
+@@ -499,7 +501,7 @@
+ static inline u32 amdgpu_ib_get_value(struct amdgpu_ib *ib, uint32_t idx)
+ {
+ 	if (idx < ib->length_dw)
+-		return ib->ptr[idx];
++		return ib->is_le ? le32_to_cpu(ib->ptr[idx]) : ib->ptr[idx];
+ 	return 0;
+ }
+ 
+@@ -507,7 +509,7 @@
+ 				       uint32_t value)
+ {
+ 	if (idx < ib->length_dw)
+-		ib->ptr[idx] = value;
++		ib->ptr[idx] = ib->is_le ? cpu_to_le32(value) : value;
+ }
+ 
+ int amdgpu_ib_get(struct amdgpu_device *adev, struct amdgpu_vm *vm,
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
+@@ -66,6 +66,8 @@
+ 		  struct amdgpu_ib *ib)
+ {
+ 	int r;
++
++	ib->is_le = false;
+ 
+ 	if (size) {
+ 		r = amdgpu_sa_bo_new(&adev->ib_pools[pool_type],
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -924,12 +924,16 @@
+ 	if (r)
+ 		goto err1;
+ 
+-	ib.ptr[0] = PACKET3(PACKET3_WRITE_DATA, 3);
+-	ib.ptr[1] = WRITE_DATA_DST_SEL(5) | WR_CONFIRM;
+-	ib.ptr[2] = lower_32_bits(gpu_addr);
+-	ib.ptr[3] = upper_32_bits(gpu_addr);
+-	ib.ptr[4] = 0xDEADBEEF;
++	/* Test explicit LE fetch without relying on the legacy IB swap bits.
++	 * AVFS and userspace submissions retain their existing native contract.
++	 */
++	ib.is_le = amdgpu_ring_uses_sw_le(ring);
+ 	ib.length_dw = 5;
++	amdgpu_ib_set_value(&ib, 0, PACKET3(PACKET3_WRITE_DATA, 3));
++	amdgpu_ib_set_value(&ib, 1, WRITE_DATA_DST_SEL(5) | WR_CONFIRM);
++	amdgpu_ib_set_value(&ib, 2, lower_32_bits(gpu_addr));
++	amdgpu_ib_set_value(&ib, 3, upper_32_bits(gpu_addr));
++	amdgpu_ib_set_value(&ib, 4, 0xDEADBEEF);
+ 
+ 	r = amdgpu_ib_schedule(ring, 1, &ib, NULL, &f);
+ 	if (r)
+@@ -6372,7 +6376,7 @@
+ 	amdgpu_ring_write(ring, header);
+ 	amdgpu_ring_write(ring,
+ #ifdef __BIG_ENDIAN
+-			  (2 << 0) |
++			  (ib->is_le ? 0 : (2 << 0)) |
+ #endif
+ 			  (ib->gpu_addr & 0xFFFFFFFC));
+ 	amdgpu_ring_write(ring, upper_32_bits(ib->gpu_addr) & 0xFFFF);
+@@ -6406,7 +6410,7 @@
+ 	amdgpu_ring_write(ring, PACKET3(PACKET3_INDIRECT_BUFFER, 2));
+ 	amdgpu_ring_write(ring,
+ #ifdef __BIG_ENDIAN
+-				(2 << 0) |
++				(ib->is_le ? 0 : (2 << 0)) |
+ #endif
+ 				(ib->gpu_addr & 0xFFFFFFFC));
+ 	amdgpu_ring_write(ring, upper_32_bits(ib->gpu_addr) & 0xFFFF);

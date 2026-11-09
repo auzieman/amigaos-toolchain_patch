@@ -1,0 +1,16 @@
+{
+  "status": "experimental-encoding-pair-not-hardware-validated",
+  "parent": "e2e-usb-20261108-008",
+  "inputs": {
+    "amdgpu_ring.h": "984222614886f4dd52ec8d74a58e5aec50704772b0d4aedc93b11c95fce1a23f",
+    "amdgpu_ib.c": "7f5f6ca25fc8b1a6d7545ad9017573c7878cdc44a581e3b590022d37f7095252",
+    "gfx_v8_0.c": "c6ddc36d976905294f76432d2b3a9b4883c216b190875a5c18a2d4204e58d5e5"
+  },
+  "outputs": {
+    "amdgpu_ring.h": "ba177bf2ed9f107a42c54c325a57daa8834683f5cf4ecf4ae6d69fc47d1714a5",
+    "amdgpu_ib.c": "de958a1a106a1f04c24b7cc4b0016bedf966c61f8937187e0accdbd28e04e2d0",
+    "gfx_v8_0.c": "bd4e9c98ad33e004a2cff68ca714d25520a30586fac849ae36123f3c06e990cb"
+  },
+  "patch_sha256": "611c6e51ca777c2122c74f83df5e5bcd2cb82010a36d12402d518e85c417aeb4",
+  "scope": "Only gfx8 selected-ring selftest marks an IB as LE; get defaults native, preserving AVFS and job/user streams"
+}

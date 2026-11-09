@@ -1,0 +1,12 @@
+make: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/source'
+make[1]: Entering directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+  GEN     Makefile
+  UPD     include/generated/compile.h
+  CALL    /base/work/tabor-smu-diagnostics-20261105-003/source/scripts/checksyscalls.sh
+  CC [M]  drivers/gpu/drm/amd/amdgpu/gfx_v8_0.o
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c: In function 'gfx_v8_0_ring_test_ring':
+/base/work/tabor-smu-diagnostics-20261105-003/source/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c:884:37: warning: initialization discards 'volatile' qualifier from pointer target type [-Wdiscarded-qualifiers]
+  884 |                         u32 *word = &ring->ring[(producer_start + j) & ring->buf_mask];
+      |                                     ^
+make[1]: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/output'
+make: Leaving directory '/base/work/tabor-smu-diagnostics-20261105-003/source'

@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "results": [
+    {
+      "policy": "old",
+      "cases_per_arch": 512,
+      "normalized_result_bytes": 512,
+      "fixture_sha256": "2a972ac997ad368f3128ad62d369d1075919d61315810fc1c3ec4b5abfca1de2"
+    },
+    {
+      "policy": "new",
+      "cases_per_arch": 512,
+      "normalized_result_bytes": 512,
+      "fixture_sha256": "2b021d7b689d192629a7ec599f12829c5b5a221daa1f4b626b0baf2806c2e0fa"
+    }
+  ],
+  "hardware_accessed": false,
+  "negative_controls": [
+    "old BE requires modeled hardware fetch swap",
+    "new explicit LE succeeds with swap honored or absent",
+    "double conversion still fails BE",
+    "completed memory without wakeup still times out"
+  ],
+  "scope": "Actual GFX/compute emitters, typed IB setters and test callers; scheduler/GPU endpoints remain modeled",
+  "remaining": "Hardware fetch, preamble completion, coherency, GPU address translation and IRQ behavior unproven"
+}
