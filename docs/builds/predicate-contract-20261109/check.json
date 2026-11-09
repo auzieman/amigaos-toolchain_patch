@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "source_release": "6.12.113-tabor-e2e-010",
+  "patch_sha256": "bcc530406affa48c6e73cfb2e0e53d8f07412321788d0a9c2b05db5464f4d1eb",
+  "source_sha256": "4ca52c3ca04d1b03a6ac07a7b2663af8360ab66a0a37aac0e4ba24385d06d6fe",
+  "outputs_hex": {
+    "x86": "01000000010000000100000001000000",
+    "ppc": "00000001010000000100000000000001"
+  },
+  "word_order": [
+    "old_initializer",
+    "existing_runtime_setter",
+    "fixed_initializer",
+    "unselected_ring_fixed_initializer"
+  ],
+  "scope": "Actual shared encoding helper and setter; selection predicate modeled, no GPU hardware",
+  "hardware_causality_proven": false
+}

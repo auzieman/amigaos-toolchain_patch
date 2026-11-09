@@ -6,7 +6,8 @@ def decode(words):
  result=[];i=0
  while i<len(words):
   header=words[i];kind=header>>30
-  if kind==2:size=1
+  if header==0xffff1000:size=1  # GFX8 one-DW NOP padding sentinel
+  elif kind==2:size=1
   elif kind in (0,3):size=((header>>16)&0x3fff)+2
   else:raise ValueError('Invalid packet type at word '+str(i))
   if i+size>len(words):raise ValueError('Truncated/corrupt packet at word '+str(i))
@@ -29,6 +30,7 @@ def captured(text,label):
 def selftest():
  # Source-independent PM4 framing controls: header word count excludes two DWs.
  good=[0xc0034300,0xabcdef01,0xffffffff,0,10,0xc0023f00,0x0094e000,0xff,5]
+ assert len(decode([0xffff1000]*4))==4
  assert [x['name'] for x in decode(good)]==['SURFACE_SYNC','INDIRECT_BUFFER']
  assert decode(good)[1]['address']=='00ff0094e000'
  for bad in [good[:-1],[0x40000000]]:

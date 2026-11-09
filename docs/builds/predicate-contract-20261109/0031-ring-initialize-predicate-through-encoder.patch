@@ -1,0 +1,11 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -306,7 +306,7 @@
+ 		amdgpu_ring_get_cpu_addr(ring, ring->cond_exe_offs);
+ 
+ 	/* always set cond_exec_polling to CONTINUE */
+-	*ring->cond_exe_cpu_addr = 1;
++	amdgpu_ring_set_preempt_cond_exec(ring, true);
+ 
+ 	r = amdgpu_fence_driver_start_ring(ring, irq_src, irq_type);
+ 	if (r) {
