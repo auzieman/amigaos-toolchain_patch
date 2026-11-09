@@ -1,5 +1,14 @@
 ## Candidate007 physical console PASS — 2026-11-08
 
+Follow-up: the existing physical Mandelbrot benchmark reports all12,288 software
+and explicit-SPE escape counts identical, median125574us/23846us. The verified
+result is enlarged8x to1024x768 through fbdev with pixel backup and complete
+readback verification; the user confirms the fractal looks correct on HDMI. See
+[fractal evidence and restore command](builds/framebuffer-fractal-20261108/README.md).
+The canonical console trial is published atc89c3cd and the public pinned forge
+export at7453a02. Remaining GFX IB timeout is tracked in canonical issue28 and
+forge issue1; full GPU acceleration remains unaccepted.
+
 The user authorized the physical trial and repository updates. Complete007 is
 installed on the identified SanDisk; all80 bundle files and before/after root/FAT
 checks pass, and both partitions are unmounted. Ordinary boot.scr preserves the

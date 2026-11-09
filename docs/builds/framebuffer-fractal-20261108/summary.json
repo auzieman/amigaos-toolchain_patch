@@ -1,0 +1,53 @@
+{
+  "status": "PHYSICAL_FRACTAL_VISUAL_PASS",
+  "kernel_release": "6.12.113-tabor-e2e-007",
+  "framebuffer": [
+    1920,
+    1080,
+    32
+  ],
+  "render_grid": [
+    128,
+    96
+  ],
+  "maximum_iterations": 96,
+  "identical_escape_counts": 12288,
+  "render_median_us": {
+    "SOFT": 125574,
+    "SPE": 23846
+  },
+  "render_trials_us": {
+    "SOFT": [
+      125590,
+      125574,
+      125547
+    ],
+    "SPE": [
+      23846,
+      23853,
+      23845
+    ]
+  },
+  "median_software_to_explicit_spe_ratio": 5.266040426067265,
+  "benchmark_scope": "Integer GNU soft-fp wrappers versus explicit SPE instructions; one small single-precision Mandelbrot workload, not a general SDK/GPU performance result. Timing excludes display.",
+  "presented_size": [
+    1024,
+    768
+  ],
+  "scaling": "nearest-neighbour 8x",
+  "presenter_source_sha256": "a17e0338a5b159e4111756bd3069ea04ee8d93587feb45acb5d8dc6417b984cc",
+  "presenter_binary_sha256": "16dd8c21f9b0e1e3c120934ea0c1ff0178a5f0dd2fe09335a8a2280c73abd97f",
+  "counts_sha256": "927af0852454fd8c2324a27158d36f31af1e0386019a653070d625921de56d50",
+  "draw_readback": "PASS",
+  "visual_confirmation": {
+    "source": "user",
+    "answer": "Yes, fractal looks correct"
+  },
+  "gpu_acceleration_used": false,
+  "gpu_modesetting_or_rebind_performed": false,
+  "console_backup": "/run/fractal-console.backup",
+  "restore_command": "/run/fb-fractal --restore /run/fractal-console.backup",
+  "root_readonly": true,
+  "build_image": "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+  "presenter_build_flags": "-O2 -Wall -Werror -msoft-float -mcpu=8548 -ffreestanding -fno-builtin -fno-stack-protector -fno-pie -msdata=none -nostdlib -static -no-pie -Wl,-e,_start"
+}

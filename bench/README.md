@@ -1,5 +1,10 @@
 # Freestanding fractal comparison
 
+Physical A1222 follow-up: [2026-11-08 framebuffer demo](../docs/builds/framebuffer-fractal-20261108/README.md)
+retains identical software/SPE pixels and actual hardware render times, then
+presents the verified result through fbdev. This is separate from the historical
+QEMU results below and does not establish GPU acceleration.
+
 The Mandelbrot demo compares integer-only GNU soft-fp single-precision
 operations with explicit SPE inline instructions, using the same bit-pattern
 function interface, kernel, grid, escape algorithm, iteration cap and image

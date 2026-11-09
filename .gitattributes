@@ -9,6 +9,7 @@ docs/builds/shell-*/serial.log -text whitespace=-blank-at-eol,cr-at-eol
 docs/builds/abi-*/serial.log -text whitespace=-blank-at-eol,cr-at-eol
 docs/builds/qemu11-*/*serial.log -text whitespace=-blank-at-eol,cr-at-eol
 *.ppm binary
+docs/builds/framebuffer-fractal-*/escape-counts.bin binary
 # Raw kernel/storage serial capture retains CR/CRLF and its receipt hash.
 docs/builds/boot-candidate-*/kernel-storage-*.log -text whitespace=-blank-at-eol,cr-at-eol
 # Preserve raw configure/compiler evidence, including emitted trailing spaces.

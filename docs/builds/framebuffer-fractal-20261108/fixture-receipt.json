@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "device_access": false,
+  "cpu": "QEMU e500v2",
+  "source_sha256": "a17e0338a5b159e4111756bd3069ea04ee8d93587feb45acb5d8dc6417b984cc",
+  "binary_sha256": "16dd8c21f9b0e1e3c120934ea0c1ff0178a5f0dd2fe09335a8a2280c73abd97f",
+  "counts_sha256": "927af0852454fd8c2324a27158d36f31af1e0386019a653070d625921de56d50",
+  "draw_output": "FB_GEOMETRY width=1920 height=1080 bpp=32 stride=7680 red=16 green=8 blue=0\nFB_FRACTAL_DRAWN width=1024 height=768 scale=8 readback=PASS\n",
+  "restore_output": "FB_GEOMETRY width=1920 height=1080 bpp=32 stride=7680 red=16 green=8 blue=0\nFB_FRACTAL_RESTORED\n",
+  "negative_output": "FB_GEOMETRY width=1920 height=1080 bpp=32 stride=7680 red=16 green=8 blue=0\nFB_FRACTAL_FAIL escape count range\n",
+  "exact_whole_file_draw_comparison": true,
+  "exact_restore": true,
+  "invalid_input_refused_before_backup_or_drawing": true,
+  "no_float_instructions_in_integer_only_presenter": true,
+  "physical_scanout_accepted": false
+}
