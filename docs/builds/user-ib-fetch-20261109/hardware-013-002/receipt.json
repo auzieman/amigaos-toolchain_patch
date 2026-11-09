@@ -1,0 +1,20 @@
+{
+  "candidate": "/lib/modules/6.12.113-tabor-e2e-013/kernel/drivers/gpu/drm/amd/amdgpu/amdgpu.ko",
+  "sha256": "a50eb602944186f8186e633da8b687d208434af601b1afed67efcb5b7ad1cfb6",
+  "stages": [
+    {
+      "stage": "01-preflight",
+      "returncode": 255
+    }
+  ],
+  "status": "incomplete",
+  "boot_defaults_changed": false,
+  "num_kcq": null,
+  "installed_release": "6.12.113-tabor-e2e-013",
+  "module_loading": "normal-modprobe",
+  "test_module_options": {
+    "polaris11_le_user_ib": true
+  },
+  "error": "01-preflight failed; see captured output",
+  "candidate_insert_completed": false
+}

@@ -74,3 +74,31 @@ preservation before loading any module, and reports a useful error on `N`.
 A further fresh boot is required before repeating first bind with this fixed
 loader. Kernel 013 itself needs no rebuild. No GPU payload or hardware GL
 success is claimed from this boot.
+
+## Physical explicit-LE write accepted
+
+After the corrected loader and a fresh 013 boot, first-bind capture
+`hardware-013-003` verifies diagnostic parameter `Y`. An earlier connection
+attempt `hardware-013-002` reached SSH before the service was ready; it did
+not load the driver. The actual first bind returned with framebuffer support.
+The known VCE IB self-test timeout remains; video encode is not accepted.
+
+`run-explicit-le-013.py` submitted a shader-independent GFX WRITE_DATA packet
+from an allocated USWC GTT buffer, explicit-LE bytes `003703c0`, VA `0x10000`,
+target `0x10800`. Submission sequence 1 completed and the actual target bytes
+were `addefeca`, representing marker `0xcafedead` in LE. Unmap/remap retained
+the same bytes. Helper exit 0, kernel taint 0.
+
+Captured ring pointers all equal 1792. Latest matching userspace IB at offset
+1607 has address word `0x10000`, control `0x01000008`: VMID 1, length 8 DW,
+fetch swap bits **0**. See `fetch-013-result.json`, `gfx-ring-013.bin`,
+`uswc-le-traced-result.txt`, and offboard `uswc-le-traced-kmsg.txt`.
+
+This physically accepts the previously untested combination: explicit-LE
+userspace command bytes with no hardware IB swapping. Prior native and LE
+controls using fetch swap 2 failed the actual payload check. It demonstrates
+a working userspace GFX allocated-memory write, not shader execution or GL.
+It does not prove every engine or DMA boundary correct. No existing native
+PM4 Mesa run was attempted with this diagnostic enabled. Next implementation
+must pair Mesa command serialization with this fetch contract, preserving the
+legacy default and avoiding double conversion of already-LE structures.
