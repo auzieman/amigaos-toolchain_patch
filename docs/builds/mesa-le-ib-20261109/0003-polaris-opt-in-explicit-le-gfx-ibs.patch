@@ -1,0 +1,74 @@
+--- a/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
++++ b/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
+@@ -10,6 +10,8 @@
+ #include "util/detect_os.h"
+ #include "amdgpu_winsys.h"
+ #include "util/os_time.h"
++#include "util/u_debug.h"
++#include "util/u_math.h"
+ #include <inttypes.h>
+ #include <stdio.h>
+ 
+@@ -23,6 +25,26 @@
+ #elif DETECT_OS_FREEBSD || DETECT_OS_DRAGONFLY
+ #define ENODATA ECONNREFUSED
+ #endif
++
++/* Opt-in diagnostic paired with kernel polaris11_le_user_ib=1.
++ * Keep CPU construction and chain-size fixups native until publication.
++ * This does not touch descriptors, shader binaries, or other engines.
++ */
++static bool tabor_explicit_le_gfx_ib(struct amdgpu_winsys *aws, enum amd_ip_type ip)
++{
++#if UTIL_ARCH_BIG_ENDIAN
++   return ip == AMD_IP_GFX && aws->info.family == CHIP_POLARIS11 &&
++          debug_get_bool_option("TABOR_POLARIS11_LE_IB", false);
++#else
++   return false;
++#endif
++}
++
++static void tabor_serialize_gfx_ib(uint32_t *words, unsigned count)
++{
++   for (unsigned i = 0; i < count; i++)
++      words[i] = util_cpu_to_le32(words[i]);
++}
+ 
+ /* FENCES */
+ 
+@@ -412,6 +434,9 @@
+ 
+    noop_dw_size = ctx->aws->info.ip[AMD_IP_GFX].ib_pad_dw_mask + 1;
+    ((uint32_t*)cpu)[0] = PKT3(PKT3_NOP, noop_dw_size - 2, 0);
++
++   if (tabor_explicit_le_gfx_ib(ctx->aws, AMD_IP_GFX))
++      tabor_serialize_gfx_ib((uint32_t *)cpu, 1);
+ 
+    ac_drm_bo_cpu_unmap(ctx->aws->dev, bo);
+ 
+@@ -1038,6 +1063,8 @@
+ 
+    /* Pad the IB. */
+    amdgpu_pad_gfx_compute_ib(aws, cs->ip_type, map, &preamble_num_dw, 0);
++   if (tabor_explicit_le_gfx_ib(aws, cs->ip_type))
++      tabor_serialize_gfx_ib(map, preamble_num_dw);
+    amdgpu_bo_unmap(&aws->dummy_sws.base, preamble_bo);
+ 
+    for (unsigned i = 0; i < 2; i++) {
+@@ -2156,6 +2183,16 @@
+          cur->chunk_ib[IB_MAIN].ib_bytes = noop_dw_size * 4;
+       }
+ 
++      /* Sizes, padding and optional noop replacement are now final. Serialize
++       * each completed chunk once, including links patched by set_ib_size.
++       * Kernel chunk metadata remains native; only GPU IB memory is LE.
++       */
++      if (tabor_explicit_le_gfx_ib(aws, cs->ip_type)) {
++         for (unsigned i = 0; i < rcs->num_prev; i++)
++            tabor_serialize_gfx_ib(rcs->prev[i].buf, rcs->prev[i].cdw);
++         tabor_serialize_gfx_ib(rcs->current.buf, rcs->current.cdw);
++      }
++
+       /* Swap command streams. "cst" is going to be submitted. */
+       rcs->csc = cs->csc = cs->cst;
+       cs->cst = cur;

@@ -1,0 +1,20 @@
+--- a/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
++++ b/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
+@@ -220,7 +220,7 @@
+ 
+    user_fence_cpu = afence->user_fence_cpu_address;
+    if (user_fence_cpu) {
+-      if (*user_fence_cpu >= afence->seq_no) {
++      if (util_le64_to_cpu(*user_fence_cpu) >= afence->seq_no) {
+          afence->signalled = true;
+          return true;
+       }
+@@ -239,7 +239,7 @@
+ 
+    /* Check that guest-side syncobj agrees with the user fence. */
+    if (user_fence_cpu && afence->aws->info.is_virtio)
+-      assert(afence->seq_no <= *user_fence_cpu);
++      assert(afence->seq_no <= util_le64_to_cpu(*user_fence_cpu));
+ 
+    afence->signalled = true;
+    return true;

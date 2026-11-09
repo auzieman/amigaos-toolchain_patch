@@ -1,3 +1,18 @@
+## Mesa paired GFX encoding and fence decode — 2026-11-09
+
+Physical013 plus fixed module loader passes allocated userspace GFX WRITE_DATA:
+actual cafedead LE payload and swap0 verified. Paired Mesa25.0.7 opt-in now
+serializes complete GFX main/chained/preamble/reset-nop IBs after CPU fixups;
+actual-source cross-arch byte checks and bounded full build pass. Actual Mesa
+publication traces confirm the conversion ran, but red-clear readback stays
+zero with normal and direct shader-upload controls. Shared user-fence LE64
+decode defect independently reproduced/fixed/tested (8192cases/arch); physical
+clear remains zero after correction. No hardwareGL/cube acceptance. Board
+SSH/VT1/taint0 preserved; no reset/reload. See builds/mesa-le-ib-20261109/.
+Next: shader execution/image readback contract, preserving paired command
+encoding and decoded completion values; do not launch native-PM4 Mesa against
+the enabled013 diagnostic or blanket-swap descriptors already serializedLE.
+
 ## PowerPlay failure narrowed and candidate built —2026-11-08
 
 The protected physical bind of080f5493 passes GFX/KIQ/all8 compute/SDMA0/SDMA1

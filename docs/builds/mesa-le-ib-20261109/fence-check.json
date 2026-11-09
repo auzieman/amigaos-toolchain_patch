@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "pending_cases_per_arch": 4096,
+  "completed_cases_per_arch": 4096,
+  "actual_function": "amdgpu_fence_wait",
+  "old_be_false_completion_reproduced": true,
+  "new_pending_remains_pending": true,
+  "completed_remains_completed": true,
+  "limits": "Mapped fence memory and submission readiness modeled; ioctl timeout path stubbed; no physical causality claimed",
+  "source_sha256": "b3a451bcc16e6261295539e448c067b5082f139d4587f25131279aa2197dc240"
+}

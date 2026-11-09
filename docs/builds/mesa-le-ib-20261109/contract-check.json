@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "selector_cases_per_arch": 18,
+  "buffer_cases_per_arch": 128,
+  "serialized_bytes_per_arch": 12800,
+  "controls": [
+    "actual selector and serializer extracted from patched source",
+    "default off and non-GFX/non-Polaris exclusion",
+    "main/chained/preamble/reset-nop bytes",
+    "native chain-length fixup before serialization",
+    "old BE bytes fail equivalence",
+    "LE output unchanged"
+  ],
+  "limitations": "Buffer lifecycle/queue/GPU fetch modeled; call-site ordering statically checked. Does not execute complete Mesa or simulate GPU.",
+  "source_sha256": "132f46d8bbe2483f2956399335d1d15d0fa9c2e059ef3727534f0224543797f7"
+}

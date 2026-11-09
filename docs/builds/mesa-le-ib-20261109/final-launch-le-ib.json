@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-radeonsi-le-ib-fence-20261109-001",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/radeonsi-le-ib-20261109-001:/work/radeonsi-aco-20261109-001",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002:/tools:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/sysroot:/sysroot:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "w=/work/radeonsi-aco-20261109-001\necho compiling-boundary-fix > \"$w/status\"\nninja -C \"$w/build\" -j2 > \"$w/le-ib-build.log\" 2>&1 || { echo compile-failed > \"$w/status\"; exit 1; }\nDESTDIR=\"$w/output\" ninja -C \"$w/build\" install > \"$w/le-ib-install.log\" 2>&1 || { echo install-failed > \"$w/status\"; exit 1; }\necho built-patched-not-runtime-validated > \"$w/status\""
+  ],
+  "exit": 0,
+  "stdout": "9ec29422e99cccc025f140ad72df70aff9f4e0821ced23ea2de16f63dc381e41\n",
+  "stderr": ""
+}

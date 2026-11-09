@@ -1,0 +1,34 @@
+--- a/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
++++ b/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
+@@ -42,8 +42,11 @@
+ 
+ static void tabor_serialize_gfx_ib(uint32_t *words, unsigned count)
+ {
++   uint32_t first = count ? words[0] : 0;
+    for (unsigned i = 0; i < count; i++)
+       words[i] = util_cpu_to_le32(words[i]);
++   fprintf(stderr, "TABOR_IB_SERIALIZED dw=%u first_native=%08x stored_native=%08x\n",
++           count, first, count ? words[0] : 0);
+ }
+ 
+ /* FENCES */
+--- a/src/gallium/drivers/radeonsi/si_clear.c
++++ b/src/gallium/drivers/radeonsi/si_clear.c
+@@ -1109,11 +1109,17 @@
+    else if (!util_format_has_stencil(util_format_description(zsbuf->format)))
+       buffers &= ~PIPE_CLEAR_STENCIL;
+ 
++   if (getenv("TABOR_POLARIS11_LE_IB"))
++      fprintf(stderr, "TABOR_CLEAR_PATH before_fast=%x\n", buffers);
+    si_fast_clear(sctx, &buffers, color, depth, stencil);
++   if (getenv("TABOR_POLARIS11_LE_IB"))
++      fprintf(stderr, "TABOR_CLEAR_PATH after_fast=%x\n", buffers);
+    if (!buffers)
+       return; /* all buffers have been cleared */
+ 
+    si_fb_clear_via_compute(sctx, &buffers, color);
++   if (getenv("TABOR_POLARIS11_LE_IB"))
++      fprintf(stderr, "TABOR_CLEAR_PATH after_compute=%x\n", buffers);
+    if (!buffers)
+       return; /* all buffers have been cleared */
+ 
