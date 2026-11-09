@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "glyphs": 256,
+  "pixel_depths": [
+    8,
+    16,
+    32
+  ],
+  "placements": 2,
+  "scenarios_per_architecture": 1536,
+  "glyph_pixels_per_architecture": 196608,
+  "source_sha256": "7f42bcff308d88245ff8ee8c44e6f42ba9b52f117a4c80ce659b5dc5e4d5fb41",
+  "output_sha256": "2962b2ce008c54a3c016fb14197ab280cd510d17b3fd04a415c3ea9e044ff88b",
+  "font_sha256": "786c901bd04e74ad7c81627146df2384622e874cea4b3bb76c2e4b35be4af2e6",
+  "hardware_accessed": false,
+  "limits": [
+    "Actual monochrome sys_imageblit path, font, TTM copy and DCE11 surface function; modeled IO/BO/register endpoints",
+    "No VT input/parser/scroll or real display timing",
+    "Decoded pixel words validated; physical wire colors and output not observed"
+  ]
+}

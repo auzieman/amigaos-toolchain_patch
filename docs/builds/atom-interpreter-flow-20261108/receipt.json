@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "source_sha256": "950ac6a17970a4f6ea6702bea9db9890f5053208c5198d1306542df85d19a688",
+  "actual_interpreter_lines": 1272,
+  "scenarios_per_architecture": 656,
+  "output_sha256": "c34a13cabd6d8643987e39d07cb5c303e3388304f84a96f124979dfc68776b89",
+  "output_bytes": 34496,
+  "hardware_accessed": false,
+  "limits": [
+    "Synthetic valid BIOS instruction streams, not captured GPU VBIOS",
+    "Register/PLL/MC endpoints numeric memory models; allocation, locks and time shimmed",
+    "Invalid table bounds/units investigated separately; no broad interpreter correctness claim",
+    "No hardware register side effects or firmware timing"
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "status": "PASS",
+  "display_scenarios_per_architecture": 392,
+  "actual_interpreter_lines": 1272,
+  "full_request_bytes": 8192,
+  "output_sha256": "60a2ab6ee1af1e9bd0cd49a1afd2fe609eaf8b51b48672e6d8c01bd37453e551",
+  "caller_source_sha256": "40eacf1302ff60d36e8abafedf38ae291aa6db131f302622b6498e2020056bae",
+  "engine_source_sha256": "950ac6a17970a4f6ea6702bea9db9890f5053208c5198d1306542df85d19a688",
+  "controls": {
+    "baseline-x86": {
+      "exit": 0,
+      "output_bytes": 8192
+    },
+    "baseline-ppc": {
+      "exit": 0,
+      "output_bytes": 8192
+    },
+    "native-ps-read-x86": {
+      "exit": 0,
+      "output_bytes": 8192
+    },
+    "native-ps-read-ppc": {
+      "exit": 5,
+      "output_bytes": 5760
+    },
+    "native-ps-write-x86": {
+      "exit": 0,
+      "output_bytes": 8192
+    },
+    "native-ps-write-ppc": {
+      "exit": 5,
+      "output_bytes": 5760
+    }
+  },
+  "hardware_accessed": false,
+  "limits": [
+    "Synthetic ATOM bytecode transports real caller parameter buffers, not actual GPU VBIOS programs",
+    "Numeric register endpoint and Linux scheduling/allocation shims",
+    "Confirms serializer/interpreter agreement for exercised requests, not device state/timing"
+  ]
+}

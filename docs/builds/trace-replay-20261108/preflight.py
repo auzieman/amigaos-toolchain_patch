@@ -19,6 +19,9 @@ suites=[
  ('selected-console-pixel-path','/home/owner/test-selected-console-path.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/receipt.json'),
  ('display-atom-contracts','/home/owner/test-atom-display.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/atom-receipt.json'),
  ('selected-modeset-errors','/home/owner/test-selected-modeset.py','/srv/data1/tabor-build/source-review/console-selected-path-20261108/modeset-receipt.json'),
+ ('actual-atom-interpreter','/home/owner/test-atom-interpreter.py','/srv/data1/tabor-build/source-review/atom-interpreter-flow-20261108/receipt.json'),
+ ('connected-display-interpreter','/home/owner/test-connected-atom-display.py','/srv/data1/tabor-build/source-review/atom-interpreter-flow-20261108/connected-receipt.json'),
+ ('console-glyph-flow','/home/owner/test-console-glyphs.py','/srv/data1/tabor-build/source-review/atom-interpreter-flow-20261108/glyph-receipt.json'),
  ('smu-transport','/home/owner/review-smu-flow.py','/srv/data1/tabor-build/source-review/smu-flow-review-20261108/receipt.json'),
  ('captured-replay','/home/owner/replay-smu-trace.py',str(W/'receipt.json'))]
 report={'status':'BLOCKED','hardware_accessed':False,'deployment_allowed':False,'resource_bounds':{'cpus':1,'address_space_gib':6},'suites':[]}

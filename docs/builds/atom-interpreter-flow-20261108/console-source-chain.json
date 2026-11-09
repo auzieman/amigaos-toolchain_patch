@@ -1,0 +1,325 @@
+{
+  "source_root": "/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261108-007/source",
+  "functions": [
+    {
+      "function": "amdgpu_pci_probe",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c",
+      "line": 2255,
+      "body_sha256": "ed69c42341dcaa05f081aae83fb50d9b2ddb12334a7864e2a4bb7d1351a3a71b"
+    },
+    {
+      "function": "amdgpu_driver_load_kms",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_kms.c",
+      "line": 135,
+      "body_sha256": "02a7960c30252d4d0b385e11ac5217ba1aa426bfc0472b6f90221d0719338929"
+    },
+    {
+      "function": "amdgpu_device_init",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+      "line": 4195,
+      "body_sha256": "c883c3a6819e967c5a9e876a68130c079b1dbe4050b6ecc8242d20038dc6ede0"
+    },
+    {
+      "function": "amdgpu_device_ip_init",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+      "line": 2925,
+      "body_sha256": "680ad0d5efebfe60f03e12a778c13df0d9931a65a5a4eaf84958b71c4203e6fb"
+    },
+    {
+      "function": "amdgpu_device_ip_late_init",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+      "line": 3268,
+      "body_sha256": "95267d8b5242dee597cc1239dbc4656a1b9ec7f2a0cf1657fd297ff1b89062cb"
+    },
+    {
+      "function": "amdgpu_device_delayed_init_work_handler",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_device.c",
+      "line": 3488,
+      "body_sha256": "85a4d2f603a1bad135217398e03775785be4f18241b26165828663540318b7de"
+    },
+    {
+      "function": "drm_fbdev_ttm_setup",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 304,
+      "body_sha256": "f132fe14cac225df105d1346c9e2a7d19b8e6aa5aee7a79351217286928f0f25"
+    },
+    {
+      "function": "drm_fbdev_ttm_client_hotplug",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 267,
+      "body_sha256": "9407f296efc100529e3239f8fb58e17e8683349a8e7d2ab4b29c54161971ad51"
+    },
+    {
+      "function": "drm_fbdev_ttm_driver_fbdev_probe",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 183,
+      "body_sha256": "a8d9cdbfb7d6a85c05a5da92305afa0766900ceb961d2fe125f7139abce29ac4"
+    },
+    {
+      "function": "drm_fbdev_ttm_helper_fb_dirty",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 151,
+      "body_sha256": "041b8bf1fc06506f25ef139b16d18b01d6c8f1da601f128708a34c4f2a5067fc"
+    },
+    {
+      "function": "drm_fbdev_ttm_damage_blit",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 116,
+      "body_sha256": "07ca8b5b3eaee0b183b68ac4918a2914954e1b9ee5fe4dd851336ac4f008962a"
+    },
+    {
+      "function": "drm_fbdev_ttm_damage_blit_real",
+      "file": "drivers/gpu/drm/drm_fbdev_ttm.c",
+      "line": 77,
+      "body_sha256": "7fbb01d1e2c4eba9f5247f63e8031f4260a074930928b71f5df0a0ad98aaaa35"
+    },
+    {
+      "function": "drm_client_register",
+      "file": "drivers/gpu/drm/drm_client.c",
+      "line": 71,
+      "body_sha256": "4b0495124dcc5da1c96c3be9e513a41327ab77ab36c3db4d38e3ed824672eff5"
+    },
+    {
+      "function": "drm_client_framebuffer_create",
+      "file": "drivers/gpu/drm/drm_client.c",
+      "line": 511,
+      "body_sha256": "333d5b0cabcea608c968d1972cae0f91e0c93e86f7f1faeac124cc406ee5f948"
+    },
+    {
+      "function": "drm_fb_helper_initial_config",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 460,
+      "body_sha256": "ec80564db1ff6d599e0604458be960b01fc613959d59bd3c37bdc4e3c26af152"
+    },
+    {
+      "function": "__drm_fb_helper_initial_config_and_unlock",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 1773,
+      "body_sha256": "c5bd43feccb9aa107654d2dae596e7141ecadf6c1073127c98c2b542fa81a03a"
+    },
+    {
+      "function": "drm_fb_helper_single_fb_probe",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 1591,
+      "body_sha256": "fc30c2dd649d7748815e5909abf48ce5ee37b7898928533f8c75eda50083197e"
+    },
+    {
+      "function": "drm_fb_helper_fill_info",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 1681,
+      "body_sha256": "de0fa5dcfa2ddbce19c2c76d9056905dd6b46465de249dd4022badfd7fa24232"
+    },
+    {
+      "function": "drm_fb_helper_set_par",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 1294,
+      "body_sha256": "b4e3fa563029bb150e986b957fe630a38ad6b0ad222b0fc2297e87f81b6aed51"
+    },
+    {
+      "function": "drm_fb_helper_deferred_io",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 113,
+      "body_sha256": "66a38f2426e71a2ff04913984583f582d5d62f9b0acbac8d7a4177d4fa84d339"
+    },
+    {
+      "function": "drm_fb_helper_damage_area",
+      "file": "drivers/gpu/drm/drm_fb_helper.c",
+      "line": 664,
+      "body_sha256": "5c52f6d29e3220083ff24ed3273ab0d5c6247c9386b0c0562102a20f42768db0"
+    },
+    {
+      "function": "drm_client_modeset_probe",
+      "file": "drivers/gpu/drm/drm_client_modeset.c",
+      "line": 781,
+      "body_sha256": "d9c4b482603ee93cadb1fb02cc44286fad53d5851b9901f2b7641f2c5dfa4cc3"
+    },
+    {
+      "function": "drm_client_modeset_commit_legacy",
+      "file": "drivers/gpu/drm/drm_client_modeset.c",
+      "line": 1097,
+      "body_sha256": "12fe1437035db94c9d8e35967e0210ea13543cb7514d5c2006ead492d81f8e81"
+    },
+    {
+      "function": "drm_mode_set_config_internal",
+      "file": "drivers/gpu/drm/drm_crtc.c",
+      "line": 642,
+      "body_sha256": "6ec8831351f61d16ca961fc056db4b60c182eab0e464bf78e97b4ea7d602e6a6"
+    },
+    {
+      "function": "drm_crtc_helper_set_config",
+      "file": "drivers/gpu/drm/drm_crtc_helper.c",
+      "line": 69,
+      "body_sha256": "80c29fb5648aa2fde7a9293c22abcf71d685715bf2436b69aa43cf8e014239b0"
+    },
+    {
+      "function": "drm_crtc_helper_set_mode",
+      "file": "drivers/gpu/drm/drm_crtc_helper.c",
+      "line": 283,
+      "body_sha256": "b5b5f2ddaecdbf54b3b86119bbc9b7748e8454816b84898f1ea237d535d92828"
+    },
+    {
+      "function": "amdgpu_display_crtc_set_config",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_display.c",
+      "line": 310,
+      "body_sha256": "a200b04591a08bd58283a97e1bf8bbeda45b82040132a94f6bfab84d20aa2ace"
+    },
+    {
+      "function": "amdgpu_mode_dumb_create",
+      "file": "drivers/gpu/drm/amd/amdgpu/amdgpu_gem.c",
+      "line": 967,
+      "body_sha256": "a7c15b347913b92a7f1d3c3752e36baabe8166889b7202981a3b9448d0fdc0f6"
+    },
+    {
+      "function": "dce_v11_0_sw_init",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 2892,
+      "body_sha256": "eecf7fc6e1982c3306838f125efb5feb7dccbc82c72c929b45aa4a2c18ffd374"
+    },
+    {
+      "function": "dce_v11_0_hw_init",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 2990,
+      "body_sha256": "36870102ff59cd06389ff1387fb6133ece8a924c750fe7b2947dfa22c6fba59c"
+    },
+    {
+      "function": "dce_v11_0_crtc_mode_fixup",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 2741,
+      "body_sha256": "c53d03e4c95160c0b80f8be397d66627f6505fa271a665424ee52b4a82d5b308"
+    },
+    {
+      "function": "dce_v11_0_crtc_mode_set",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 2697,
+      "body_sha256": "d10242c03cbf9018e879b7293489fad414941769cf48805f45dab04487e3c057"
+    },
+    {
+      "function": "dce_v11_0_crtc_do_set_base",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 1890,
+      "body_sha256": "e04ea4f549d76e59dfdf2dc9b103ef11e7547304e62650f70cefb542ef4aa011"
+    },
+    {
+      "function": "dce_v11_0_crtc_commit",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 2624,
+      "body_sha256": "36df5447dd71914d1e110a9200ecb0d5db2be62ce7999cf9e68e1aa90f60a3ba"
+    },
+    {
+      "function": "dce_v11_0_encoder_prepare",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 3492,
+      "body_sha256": "e2963dcaed759b2743079cd97135a3c5c4798e11b4404120a20cd525e2652def"
+    },
+    {
+      "function": "dce_v11_0_encoder_mode_set",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 3472,
+      "body_sha256": "556125ad5d56066d6b1289f9ece4531c97b326e730d698ae9e97b1dda3322c03"
+    },
+    {
+      "function": "dce_v11_0_encoder_commit",
+      "file": "drivers/gpu/drm/amd/amdgpu/dce_v11_0.c",
+      "line": 3531,
+      "body_sha256": "b9791d3346bf03a78feee611a61df5c8bb6f6de70cc8dc1ad11b107400dd7961"
+    },
+    {
+      "function": "amdgpu_atombios_crtc_program_pll",
+      "file": "drivers/gpu/drm/amd/amdgpu/atombios_crtc.c",
+      "line": 575,
+      "body_sha256": "aacea4170ffb3972e8d618255222625e829e6faeae6e9b95efdffc770745a570"
+    },
+    {
+      "function": "amdgpu_atombios_crtc_set_dce_clock",
+      "file": "drivers/gpu/drm/amd/amdgpu/atombios_crtc.c",
+      "line": 525,
+      "body_sha256": "774ac754759c97581db6ec407df14addafa4db66bdb3cad0efc59a6b1af930b1"
+    },
+    {
+      "function": "amdgpu_atombios_crtc_set_dtd_timing",
+      "file": "drivers/gpu/drm/amd/amdgpu/atombios_crtc.c",
+      "line": 189,
+      "body_sha256": "7ade72830d0eb72dcc5eeaa43a02446ed1333b49d2dec5c6c86feccbdbd10cd7"
+    },
+    {
+      "function": "amdgpu_atom_execute_table",
+      "file": "drivers/gpu/drm/amd/amdgpu/atom.c",
+      "line": 1291,
+      "body_sha256": "d70dfbc900c81b76a1c248cb2e67a91093c49af7533287474fb4ea4d8a683abe"
+    },
+    {
+      "function": "amdgpu_atom_execute_table_locked",
+      "file": "drivers/gpu/drm/amd/amdgpu/atom.c",
+      "line": 1221,
+      "body_sha256": "96ba8fc62a396bc29f7e854115b00efb9aeae6d288d7a9a1140d1c68c4d9c842"
+    },
+    {
+      "function": "atom_get_src_int",
+      "file": "drivers/gpu/drm/amd/amdgpu/atom.c",
+      "line": 182,
+      "body_sha256": "83db78417ac5be99cd143c8a79f343c556eb9f0cdafaee6fa327c1f61aa3440e"
+    },
+    {
+      "function": "atom_put_dst",
+      "file": "drivers/gpu/drm/amd/amdgpu/atom.c",
+      "line": 455,
+      "body_sha256": "1161c3f5d465e48966e2564faddf10e04af6b9c94e2c5ef2eddc6269a0156288"
+    },
+    {
+      "function": "register_framebuffer",
+      "file": "drivers/video/fbdev/core/fbmem.c",
+      "line": 520,
+      "body_sha256": "ed9c1a38969abc7c43c3a71ad7f8837f07b94525de979bcedbbd457c402eb966"
+    },
+    {
+      "function": "do_register_framebuffer",
+      "file": "drivers/video/fbdev/core/fbmem.c",
+      "line": 391,
+      "body_sha256": "6e1b23301fed6886dbb56c358d62f0907d3bf04a73900943d4a35d0d28f51085"
+    },
+    {
+      "function": "fbcon_fb_registered",
+      "file": "drivers/video/fbdev/core/fbcon.c",
+      "line": 3045,
+      "body_sha256": "5c373b0235726c89a013e88d101d1a90247c75bfaca6619cbb85ab26e4b1a73f"
+    },
+    {
+      "function": "fbcon_init",
+      "file": "drivers/video/fbdev/core/fbcon.c",
+      "line": 1017,
+      "body_sha256": "63872b7f79bc616ddf095d8d7dd819a93a7aff83d8d7e16d692d864b1c2767be"
+    },
+    {
+      "function": "fbcon_putcs",
+      "file": "drivers/video/fbdev/core/fbcon.c",
+      "line": 1311,
+      "body_sha256": "840ee1451476a27d4508b64c005e6fcdab4004bb5c4fb282ea88a6875a1c5a46"
+    },
+    {
+      "function": "bit_putcs",
+      "file": "drivers/video/fbdev/core/bitblit.c",
+      "line": 150,
+      "body_sha256": "33875e40b622e8b847735d94e31b57cb94e8e1c24f7b1b1ac4311f4d5330e5fb"
+    },
+    {
+      "function": "sys_imageblit",
+      "file": "drivers/video/fbdev/core/sysimgblt.c",
+      "line": 288,
+      "body_sha256": "08285d267c071c265a98fcabbf78a1ac132d3a1dedf88fb4a46a7894eeb79eb2"
+    },
+    {
+      "function": "fast_imageblit",
+      "file": "drivers/video/fbdev/core/sysimgblt.c",
+      "line": 186,
+      "body_sha256": "b3ca0b0a9b94231357faaa082ec4107804678de63970865fb24d6d30fb7d1349"
+    },
+    {
+      "function": "slow_imageblit",
+      "file": "drivers/video/fbdev/core/sysimgblt.c",
+      "line": 111,
+      "body_sha256": "f970c1727ddab37d85daab572551c10f3bfea624a41f3c17da903e9543e5b786"
+    }
+  ],
+  "hardware_accessed": false,
+  "note": "Source anchors for reviewed direct and callback handoffs; not a runtime execution trace."
+}
