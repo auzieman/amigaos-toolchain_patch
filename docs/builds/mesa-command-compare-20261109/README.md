@@ -1,0 +1,86 @@
+# Finalized GFX command-stream cross-architecture comparison
+
+2026-11-09. Source review and offline execution only; no board calls, deployment,
+render attempt, reset or reboot in this pass.
+
+## Result
+
+The unchanged upstream Piglit constant-point test produces one finalized
+400-dword GFX indirect buffer on both native x86 and QEMU e500v2 SPE with the
+same upstream no-op Polaris12 profile. After encoding CPU-constructed numeric
+words canonically as LE, 399 words are identical. The sole difference is
+CB_COLOR0_INFO.ENDIAN: x86 NONE (0), SPE 8IN32 (2).
+
+The comparison decodes its SET_CONTEXT_REG packet: header at dword143,
+register offset0x318 at144, differing value at149, register0x028c70.
+`ac_init_gfx6_cb_surface` calls upstream `ac_colorformat_endian_swap`, which
+returns ENDIAN_8IN32 for COLOR_8_8_8_8 on a BE host. This is an existing explicit
+format contract, not a missing translation or an arbitrary ignored difference.
+
+Complete shader executable comparison from the previous pass also matched for
+this test; its five non-executed UMR marker differences remain documented in
+../mesa-3d-contracts-20261109/README.md. These results do not prove correct GPU
+execution, but do not support adding further blanket swaps to this workload.
+
+## Method and limits
+
+Default-off TABOR_IB_CAPTURE_DIR instrumentation records two files per completed
+GFX chunk: canonical LE encoding of final native construction, and actual bytes
+at publication. Capture happens after size/chain fixups, padding and optional
+NOP replacement. It adds no GPU commands or allocation-policy changes.
+
+Both native and SPE builds pass. Standard Piglit, EGL, libdrm and the same
+Mesa source are used; the SPE backend uses the previously documented offline
+Trixie time64 adapter. No physical GPU device is available to the runs. Zero
+pixel results are expected because the no-op backend does not execute commands.
+
+The captured profile is Polaris12, not the actual Polaris11 board. Its selector
+correctly leaves the existing Polaris11-only TABOR_POLARIS11_LE_IB opt-in
+inactive: actual published SPE bytes remain native BE, while the canonical
+files encode construction values LE for comparison. The comparison explicitly
+checks and reports this; it does not claim the no-op run exercised the physical
+kernel013 LE/swap0 pairing. Existing actual-source serializer fixtures and
+physical Polaris11 publication traces are separate evidence.
+
+Only one main IB is emitted in this test. Although the hook covers previous
+chunks, this run does not exercise chains, preambles or reset-NOP paths.
+Addresses happen to match across these runs; no address normalization was used.
+All 400 words are compared; the sole expected difference is decoded and asserted.
+
+## Remaining publication distinction / next hardware plan
+
+Source: amdgpu_ib_new_buffer allocates GTT command memory without
+RADEON_FLAG_GTT_WC. amdgpu_bo_create adds CPU_GTT_USWC only when that flag is
+present. Kernel amdgpu_ttm_tt_create selects ttm_cached versus
+ttm_write_combined from the flag; amdgpu_ttm_tt_pde_flags also derives SNOOPED
+from cached memory. Thus changing this policy changes both CPU mapping and GPU
+page-table coherency attributes. A memory barrier is not proof of cache cleaning.
+
+The accepted explicit-LE/swap0 WRITE_DATA test used USWC, with actual marker,
+fence and remap validation. An equivalent cached LE/swap0 case has not passed.
+Earlier cached tests used a different fetch-swap setting and are not a control
+for this remaining question. Do not claim a cache bug is proven.
+
+After a clean boot and read-only root/module/hash checks, the next discriminating
+trial should use the already-qualified allocated-buffer WRITE_DATA binary with
+identical LE packets, kernel013 swap0, queue, addresses/alignment and marker
+checks, varying only cached versus USWC allocation policy. Retain actual
+allocation flags, fence and marker/remap bytes plus off-board kernel logs.
+Stop immediately on a failure/recovery; do not proceed into GL or reload the
+module. Even a timeout cannot guarantee recovery from a bus/kernel hang.
+
+If only USWC passes, qualify a narrowly gated shared GFX-IB allocation-policy
+candidate before another standard point draw. If both pass, do not change cache
+policy merely because it was suspected: retain evidence and inspect shader/
+render-target visibility separately. No production cache-policy patch was
+added based solely on this source review.
+
+## Reproduction / provenance
+
+prepare.py adds capture hook to the private candidate. build-spe.py and
+build-native.py reuse pinned environments with 2 CPUs/4GiB, network disabled;
+heavy jobs ran sequentially on R730. run-spe.py uses PrivateDevices and bounded
+QEMU, run-native.py uses a container with no physical GPU. compare.py checks
+complete streams and the decoded register difference. evidence/ retains the
+patch, before/after source hashes, launch/build/run receipts and raw captures.
+The private offline libgallium was refreshed; no installed board runtime changed.

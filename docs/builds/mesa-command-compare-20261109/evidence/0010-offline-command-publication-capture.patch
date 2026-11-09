@@ -1,0 +1,66 @@
+--- a/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
++++ b/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
+@@ -47,6 +47,32 @@
+       words[i] = util_cpu_to_le32(words[i]);
+    fprintf(stderr, "TABOR_IB_SERIALIZED dw=%u first_native=%08x stored_native=%08x\n",
+            count, first, count ? words[0] : 0);
++}
++
++/* Default-off CPU-only offline comparison. Canonical files encode final
++ * CPU-constructed numeric words as LE. Published files retain actual bytes.
++ * No GPU commands, addresses, or production allocation policy are changed.
++ */
++static void tabor_capture_ib(const char *dir, unsigned submit, unsigned chunk,
++                             const char *phase, const uint32_t *words,
++                             unsigned count, bool canonical)
++{
++   char path[1024];
++   snprintf(path, sizeof(path), "%s/ib-%u-chunk-%u-%s.bin", dir, submit, chunk, phase);
++   FILE *f = fopen(path, "wb");
++   if (!f) {
++      fprintf(stderr, "TABOR_IB_CAPTURE failed: %s\n", path);
++      return;
++   }
++   if (canonical) {
++      for (unsigned i = 0; i < count; i++) {
++         uint32_t word = util_cpu_to_le32(words[i]);
++         fwrite(&word, sizeof(word), 1, f);
++      }
++   } else {
++      fwrite(words, sizeof(*words), count, f);
++   }
++   fclose(f);
+ }
+ 
+ /* FENCES */
+@@ -2190,10 +2216,30 @@
+        * each completed chunk once, including links patched by set_ib_size.
+        * Kernel chunk metadata remains native; only GPU IB memory is LE.
+        */
++      const char *capture_dir = cs->ip_type == AMD_IP_GFX ? getenv("TABOR_IB_CAPTURE_DIR") : NULL;
++      static unsigned capture_serial;
++      unsigned capture_id = 0;
++      if (capture_dir) {
++         capture_id = p_atomic_inc_return(&capture_serial);
++         for (unsigned i = 0; i < rcs->num_prev; i++)
++            tabor_capture_ib(capture_dir, capture_id, i, "canonical", rcs->prev[i].buf,
++                             rcs->prev[i].cdw, true);
++         tabor_capture_ib(capture_dir, capture_id, rcs->num_prev, "canonical",
++                          rcs->current.buf, rcs->current.cdw, true);
++      }
++
+       if (tabor_explicit_le_gfx_ib(aws, cs->ip_type)) {
+          for (unsigned i = 0; i < rcs->num_prev; i++)
+             tabor_serialize_gfx_ib(rcs->prev[i].buf, rcs->prev[i].cdw);
+          tabor_serialize_gfx_ib(rcs->current.buf, rcs->current.cdw);
++      }
++
++      if (capture_dir) {
++         for (unsigned i = 0; i < rcs->num_prev; i++)
++            tabor_capture_ib(capture_dir, capture_id, i, "published", rcs->prev[i].buf,
++                             rcs->prev[i].cdw, false);
++         tabor_capture_ib(capture_dir, capture_id, rcs->num_prev, "published",
++                          rcs->current.buf, rcs->current.cdw, false);
+       }
+ 
+       /* Swap command streams. "cst" is going to be submitted. */

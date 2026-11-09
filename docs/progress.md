@@ -1,3 +1,15 @@
+## Complete GFX construction comparison — 2026-11-09
+
+Offline standard Piglit point draw now compares finalized command streams across
+native x86 and SPE: one400DW GFX IB,399 identical numeric words; sole difference
+is upstream CB_COLOR0_INFO.ENDIAN8IN32 on BE, decoded from its owning packet.
+Prior executable-shader comparison also matches for this workload. Profile is
+upstream Polaris12 no-op, not boardPolaris11; no GPU execution or physical
+LEpublication acceptance claimed. Both instrumented builds pass. No board test,
+deployment or reboot. Remaining cached-vs-USWC publication/coherency control is
+specified before another GL attempt; no speculative cache-policy fix added.
+See [command comparison](builds/mesa-command-compare-20261109/README.md).
+
 ## Candidate007 physical console PASS — 2026-11-08
 
 Immediate desktop priority: use accepted2D scanout for software X/E before

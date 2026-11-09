@@ -1,0 +1,33 @@
+{
+  "status": "PASS: construction comparison; GPU execution not tested",
+  "records": [
+    {
+      "file": "ib-1-chunk-0-canonical.bin",
+      "dwords": 400,
+      "differences": [
+        {
+          "dword": 149,
+          "x86": 163880,
+          "spe": 163882
+        }
+      ],
+      "x86_canonical_sha256": "d278debfb92357daaf0691e14b62ecf50a6c86a2de0a8458adb95a01412e29cb",
+      "spe_canonical_sha256": "b117c54ac1c2c34a2dbe65011c32590d13ead0cf0c37487424562dba352d8c1f",
+      "publication": "x86 native LE; SPE native BE, expected for unchanged Polaris12 selector; no claim of physical LE publication"
+    }
+  ],
+  "difference_owner": {
+    "register": "0x28c70",
+    "name": "CB_COLOR0_INFO",
+    "field": "ENDIAN",
+    "x86": 0,
+    "spe": 2,
+    "source": "ac_colorformat_endian_swap returns ENDIAN_8IN32 for COLOR_8_8_8_8 on BE; ac_init_gfx6_cb_surface encodes S_028C70_ENDIAN"
+  },
+  "limits": [
+    "Polaris12 upstream no-op profile, not physical Polaris11",
+    "one finalized main GFX IB, no chain or preamble exercised",
+    "raw SPE published IB intentionally native for this selector; kernel013 opt-in pairing not exercised",
+    "no GPU execution, cache visibility or address-translation acceptance"
+  ]
+}

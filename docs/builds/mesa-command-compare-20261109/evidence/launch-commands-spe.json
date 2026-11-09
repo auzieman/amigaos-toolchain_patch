@@ -1,0 +1,26 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-offline-commands-spe-20261109-001",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001:/work/radeonsi-aco-20261109-001",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/tools/cxx-reference-002:/tools:ro",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/sysroot:/sysroot:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:0434a7f8dfeec379cd81d334e2a2eaa02208653e494d56334bcc486950be8a49",
+    "-c",
+    "set -e\nw=/work/radeonsi-aco-20261109-001\ntrap 'r=$?; echo \"$r\" > \"$w/commands-spe.exit\"' EXIT\nmeson configure \"$w/build\" -Dtools=drm-shim > \"$w/offline-spe-configure.log\" 2>&1\nninja -C \"$w/build\" -j2 > \"$w/commands-spe-build.log\" 2>&1\nDESTDIR=\"$w/offline-spe-output\" ninja -C \"$w/build\" install > \"$w/commands-spe-install.log\" 2>&1\n"
+  ],
+  "returncode": 0,
+  "stdout": "3398ec3e51aa57a18cea39ac421948e59725ec7f270bef8a2c2e3e808dbed151\n",
+  "stderr": ""
+}

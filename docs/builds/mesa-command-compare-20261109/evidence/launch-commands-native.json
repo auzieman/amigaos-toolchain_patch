@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-offline-commands-native-20261109-001",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001:/work",
+    "-v",
+    "/srv/data1/tabor-build/linux-live-001/work/mesa-3d-contracts-20261109-001/mesa-source:/source:ro",
+    "--entrypoint",
+    "sh",
+    "sha256:92b850162c8dcc8aced3d4766e1da85d5b0a63cfcdb14c4732c0756c612d5eef",
+    "-c",
+    "set -e\ntrap 'r=$?; echo \"$r\" > /work/commands-native.exit' EXIT\nninja -C /work/native/build -j2 > /work/commands-native-build.log 2>&1\nDESTDIR=/work/native/output ninja -C /work/native/build install > /work/commands-native-install.log 2>&1\n"
+  ],
+  "stdout": "324a8b71f1f504b629b66f87d0e264bcc3b369f01979bd0ab35017b2d68fb15d\n",
+  "stderr": "",
+  "exit": 0
+}
