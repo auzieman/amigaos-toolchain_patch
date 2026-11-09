@@ -1,0 +1,255 @@
+opened device `AMD GPU` on driver `amdgpu` (version 3.61.0 at 0)
+Connectors:
+id	encoder	status		name		size (mm)	modes	encoders
+51	0	disconnected	DP-1           	0x0		0	50
+  props:
+	1 EDID:
+		flags: immutable blob
+		blobs:
+
+		value:
+	2 DPMS:
+		flags: enum
+		enums: On=0 Standby=1 Suspend=2 Off=3
+		value: 0
+	5 link-status:
+		flags: enum
+		enums: Good=0 Bad=1
+		value: 0
+	6 non-desktop:
+		flags: immutable range
+		values: 0 1
+		value: 0
+	4 TILE:
+		flags: immutable blob
+		blobs:
+
+		value:
+	32 coherent:
+		flags: range
+		values: 0 1
+		value: 1
+	35 underscan:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 0
+	36 underscan hborder:
+		flags: range
+		values: 0 128
+		value: 0
+	37 underscan vborder:
+		flags: range
+		values: 0 128
+		value: 0
+	34 scaling mode:
+		flags: enum
+		enums: None=0 Full=1 Center=2 Full aspect=3
+		value: 0
+	38 audio:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 2
+	39 dither:
+		flags: enum
+		enums: off=0 on=1
+		value: 0
+	52 subconnector:
+		flags: immutable enum
+		enums: Unknown=0 VGA=1 DVI-D=3 HDMI=11 DP=10 Wireless=18 Native=15
+		value: 0
+54	53	connected	HDMI-A-1       	600x340		17	53
+  modes:
+	index name refresh (Hz) hdisp hss hse htot vdisp vss vse vtot
+  #0 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 flags: phsync, pvsync; type: preferred, driver
+  #1 1920x1080 59.94 1920 2008 2052 2200 1080 1084 1089 1125 148352 flags: phsync, pvsync; type: driver
+  #2 1920x1080 50.00 1920 2448 2492 2640 1080 1084 1089 1125 148500 flags: phsync, pvsync; type: driver
+  #3 1600x1200 60.00 1600 1664 1856 2160 1200 1201 1204 1250 162000 flags: phsync, pvsync; type: driver
+  #4 1680x1050 59.88 1680 1728 1760 1840 1050 1053 1059 1080 119000 flags: phsync, nvsync; type: driver
+  #5 1600x900 60.00 1600 1624 1704 1800 900 901 904 1000 108000 flags: phsync, pvsync; type: driver
+  #6 1440x900 59.90 1440 1488 1520 1600 900 903 909 926 88750 flags: phsync, nvsync; type: driver
+  #7 1280x800 59.91 1280 1328 1360 1440 800 803 809 823 71000 flags: phsync, nvsync; type: driver
+  #8 1280x720 60.12 1280 1390 1430 1650 720 725 730 750 74400 flags: phsync, pvsync; type: driver
+  #9 1280x720 60.00 1280 1390 1430 1650 720 725 730 750 74250 flags: phsync, pvsync; type: driver
+  #10 1280x720 59.94 1280 1390 1430 1650 720 725 730 750 74176 flags: phsync, pvsync; type: driver
+  #11 1280x720 50.00 1280 1720 1760 1980 720 725 730 750 74250 flags: phsync, pvsync; type: driver
+  #12 720x576 50.00 720 732 796 864 576 581 586 625 27000 flags: nhsync, nvsync; type: driver
+  #13 720x480 60.00 720 736 798 858 480 489 495 525 27027 flags: nhsync, nvsync; type: driver
+  #14 720x480 59.94 720 736 798 858 480 489 495 525 27000 flags: nhsync, nvsync; type: driver
+  #15 640x480 60.00 640 656 752 800 480 490 492 525 25200 flags: nhsync, nvsync; type: driver
+  #16 640x480 59.94 640 656 752 800 480 490 492 525 25175 flags: nhsync, nvsync; type: driver
+  props:
+	1 EDID:
+		flags: immutable blob
+		blobs:
+
+		value:
+			00ffffffffffff0014e16a0000000000
+			1b1d0103803c22780adaffa3584aa229
+			17494b00000081c0810001019500a940
+			b300d1c0a9c0023a801871382d40582c
+			4500ba882100001e101d007251d01e20
+			6e285500c48e2100001e000000fc0048
+			44363020532b0a202020202000000000
+			000000000000000000000000000001a3
+			02031ee0490204131f10010311122083
+			0100006a030c001000b83c0000000000
+			00000000000000000000000000000000
+			00000000000000000000000000000000
+			00000000000000000000000000000000
+			00000000000000000000000000000000
+			00000000000000000000000000000000
+			00000000000000000000000000000024
+	2 DPMS:
+		flags: enum
+		enums: On=0 Standby=1 Suspend=2 Off=3
+		value: 0
+	5 link-status:
+		flags: enum
+		enums: Good=0 Bad=1
+		value: 0
+	6 non-desktop:
+		flags: immutable range
+		values: 0 1
+		value: 0
+	4 TILE:
+		flags: immutable blob
+		blobs:
+
+		value:
+	32 coherent:
+		flags: range
+		values: 0 1
+		value: 1
+	35 underscan:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 0
+	36 underscan hborder:
+		flags: range
+		values: 0 128
+		value: 0
+	37 underscan vborder:
+		flags: range
+		values: 0 128
+		value: 0
+	34 scaling mode:
+		flags: enum
+		enums: None=0 Full=1 Center=2 Full aspect=3
+		value: 0
+	38 audio:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 2
+	39 dither:
+		flags: enum
+		enums: off=0 on=1
+		value: 0
+56	0	disconnected	DVI-D-1        	0x0		0	55
+  props:
+	1 EDID:
+		flags: immutable blob
+		blobs:
+
+		value:
+	2 DPMS:
+		flags: enum
+		enums: On=0 Standby=1 Suspend=2 Off=3
+		value: 0
+	5 link-status:
+		flags: enum
+		enums: Good=0 Bad=1
+		value: 0
+	6 non-desktop:
+		flags: immutable range
+		values: 0 1
+		value: 0
+	4 TILE:
+		flags: immutable blob
+		blobs:
+
+		value:
+	32 coherent:
+		flags: range
+		values: 0 1
+		value: 1
+	35 underscan:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 0
+	36 underscan hborder:
+		flags: range
+		values: 0 128
+		value: 0
+	37 underscan vborder:
+		flags: range
+		values: 0 128
+		value: 0
+	34 scaling mode:
+		flags: enum
+		enums: None=0 Full=1 Center=2 Full aspect=3
+		value: 0
+	38 audio:
+		flags: enum
+		enums: off=0 on=1 auto=2
+		value: 2
+	39 dither:
+		flags: enum
+		enums: off=0 on=1
+		value: 0
+
+CRTCs:
+id	fb	pos	size
+41	57	(0,0)	(1920x1080)
+  #0 1920x1080 60.00 1920 2008 2052 2200 1080 1084 1089 1125 148500 flags: phsync, pvsync; type: preferred, driver
+  props:
+43	0	(0,0)	(0x0)
+  #0  nan 0 0 0 0 0 0 0 0 0 flags: ; type: 
+  props:
+45	0	(0,0)	(0x0)
+  #0  nan 0 0 0 0 0 0 0 0 0 flags: ; type: 
+  props:
+47	0	(0,0)	(0x0)
+  #0  nan 0 0 0 0 0 0 0 0 0 flags: ; type: 
+  props:
+49	0	(0,0)	(0x0)
+  #0  nan 0 0 0 0 0 0 0 0 0 flags: ; type: 
+  props:
+
+Planes:
+id	crtc	fb	CRTC x,y	x,y	gamma size	possible crtcs
+40	41	57	0,0		0,0	0       	0x00000001
+  formats: XR24 AR24
+  props:
+	8 type:
+		flags: immutable enum
+		enums: Overlay=0 Primary=1 Cursor=2
+		value: 1
+42	0	0	0,0		0,0	0       	0x00000002
+  formats: XR24 AR24
+  props:
+	8 type:
+		flags: immutable enum
+		enums: Overlay=0 Primary=1 Cursor=2
+		value: 1
+44	0	0	0,0		0,0	0       	0x00000004
+  formats: XR24 AR24
+  props:
+	8 type:
+		flags: immutable enum
+		enums: Overlay=0 Primary=1 Cursor=2
+		value: 1
+46	0	0	0,0		0,0	0       	0x00000008
+  formats: XR24 AR24
+  props:
+	8 type:
+		flags: immutable enum
+		enums: Overlay=0 Primary=1 Cursor=2
+		value: 1
+48	0	0	0,0		0,0	0       	0x00000010
+  formats: XR24 AR24
+  props:
+	8 type:
+		flags: immutable enum
+		enums: Overlay=0 Primary=1 Cursor=2
+		value: 1
+

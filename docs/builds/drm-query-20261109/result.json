@@ -1,0 +1,33 @@
+{
+  "probe_sha256": "29985eeafd2a6380836796b27f049a09f6e1c70144f356ef8f51c833f5ecece9",
+  "open_fd": 3,
+  "accel_query_result": 0,
+  "accel_working": 1,
+  "engines": {
+    "gfx": {
+      "query_result": 0,
+      "available_rings_mask": 1
+    },
+    "compute": {
+      "query_result": 0,
+      "available_rings_mask": 15
+    },
+    "sdma": {
+      "query_result": 0,
+      "available_rings_mask": 3
+    },
+    "uvd": {
+      "query_result": 0,
+      "available_rings_mask": 1
+    },
+    "vce": {
+      "query_result": 0,
+      "available_rings_mask": 1
+    },
+    "uvd_enc": {
+      "query_result": 0,
+      "available_rings_mask": 1
+    }
+  },
+  "gpu_commands_submitted": false
+}
