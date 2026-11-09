@@ -2083,3 +2083,5 @@ confirms readable text, HDMI1920x1080/32bpp, fbcon bound, SSH survived, taint0/r
 SCLK maskff/ack1; GFX indirect-buffer test still fails-110. User also requests
 publication to canonical development and forge wip/polaris-be, preserving the
 toolchain as authoritative. See builds/e2e007-usb-test-20261108/README.md.
+
+2026-11-09 RadeonSI/ACO qualification: pinned Mesa25.0.7 builds with SDK8.5; raw ACO executable upload serialization fixture passes. Physical GBM native-format mismatch corrected, actual RadeonSI/Polaris11/ACO ES2.0 context reached. Scanout AddFB2 fails EOPNOTSUPP; separate draw/readback is all black, so accelerated rendering FAIL, not accepted. SSH/VT1/taint0 preserved without reload/reset. Frozen workstation dependency audit completed:7 metadata-ready/9 blocked sources; GCC14 C++ thunk failure still blocks SDK promotion and fresh workstation batch. See builds/radeonsi-aco-20261109/README.md.

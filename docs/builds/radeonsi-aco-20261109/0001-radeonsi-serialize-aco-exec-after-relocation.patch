@@ -1,0 +1,20 @@
+--- a/src/gallium/drivers/radeonsi/si_shader.c
++++ b/src/gallium/drivers/radeonsi/si_shader.c
+@@ -1121,6 +1121,17 @@
+          si_aco_resolve_symbols(sh, rx_ptr + exec_offset, (const uint32_t *)bin[i]->code_buffer,
+                                 scratch_va, const_offset);
+       }
++
++#if UTIL_ARCH_BIG_ENDIAN
++      /* ACO raw instructions and symbol fixups are CPU-native words.
++       * Serialize only executable words after relocation. Constant-data
++       * bytes and cached CPU-side binaries retain their own layouts.
++       */
++      assert(bin[i]->exec_size % 4 == 0);
++      uint32_t *exec = (uint32_t *)(rx_ptr + exec_offset);
++      for (unsigned j = 0; j < bin[i]->exec_size / 4; j++)
++         exec[j] = util_cpu_to_le32(exec[j]);
++#endif
+ 
+       exec_offset += bin[i]->exec_size;
+ 

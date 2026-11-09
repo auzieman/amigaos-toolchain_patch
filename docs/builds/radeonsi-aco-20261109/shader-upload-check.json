@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "cases_per_arch": 64,
+  "source_sha256": "655d280287024423158d2c09fef96ff74de0b9c05494b56d7afc922d12e6d2e1",
+  "patch_sha256": "db7ba160fae756d96bc228cd9076d5ad830c008a76a8bb9f6922baa8effe3570",
+  "controls": [
+    "old raw upload differs BE vs LE",
+    "new executable bytes identical BE vs LE",
+    "LE behavior unchanged",
+    "relocated words serialized after fixup",
+    "mixed constant-data bytes untouched",
+    "cached input binary not modified"
+  ],
+  "scope": "Actual upload_binary_raw function; compiler, allocator, relocation and publication endpoints modeled",
+  "hardware_tested": false
+}

@@ -1,0 +1,34 @@
+{
+  "purpose": "isolated hardware-renderer qualification; not a Debian package build or SDK14 promotion",
+  "parent_receipt_sha256": "42dcaed65ac0e44e68bc9e1aa3b499ca56e808863130c7e34d8b508c47d351f4",
+  "compiler_sha256": "cd426582533f655db4af7f3b4a694a9f122dbc77eb0080204649c4144fba09ba",
+  "debian_dependencies": [
+    {
+      "file": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libdrm/libdrm-dev_2.4.124-2_powerpcspe.deb",
+      "sha256": "78d63f7bba32b56a8565981b460cb00e2f972d8c840163c588a5a06584df4f66",
+      "receipt_sha256": "96106f84367581cd9f04a49089d134eef91794863e1e1b590ad40e4e035c08da"
+    },
+    {
+      "file": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libdrm/libdrm2_2.4.124-2_powerpcspe.deb",
+      "sha256": "f2b122ef5528ddda06069301d63a1048eeadbbd8b5a61c7bbedd557b8dbd596e",
+      "receipt_sha256": "96106f84367581cd9f04a49089d134eef91794863e1e1b590ad40e4e035c08da"
+    },
+    {
+      "file": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-017-base-libraries-libdrm/libdrm-amdgpu1_2.4.124-2_powerpcspe.deb",
+      "sha256": "dff2e0997c164659ffb5fea589eccd0f9fbf73d1c753bf524ca09e812be76414",
+      "receipt_sha256": "96106f84367581cd9f04a49089d134eef91794863e1e1b590ad40e4e035c08da"
+    },
+    {
+      "file": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-010-base-libraries-elfutils/libelf-dev_0.192-4_powerpcspe.deb",
+      "sha256": "dfe48adf2eb463b052abbebf538f5bafda01102f64ebe824b27db9c071678c39",
+      "receipt_sha256": "04c53376af5b5d21ed29a2fa813d4fa91444f70e78f6292bbb94f18f2b17403d"
+    },
+    {
+      "file": "/srv/data1/tabor-build/linux-live-001/work/port-pipeline-20261104-010-base-libraries-elfutils/libelf1t64_0.192-4_powerpcspe.deb",
+      "sha256": "ed58048a91f97714f7b5e1e45c6fd030fbbb7e97e728a3791096efe43d270a8a",
+      "receipt_sha256": "04c53376af5b5d21ed29a2fa813d4fa91444f70e78f6292bbb94f18f2b17403d"
+    }
+  ],
+  "source_build_options": "radeonsi+ACO, EGL+GBM, no LLVM; same pinned Mesa25.0.7 source as software control",
+  "abi": "powerpcspe PPC32 BE e500v2 SPE GPR double long-double128"
+}

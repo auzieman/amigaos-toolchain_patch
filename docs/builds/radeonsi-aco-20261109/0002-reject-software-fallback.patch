@@ -1,0 +1,18 @@
+--- a/common.c
++++ b/common.c
+@@ -404,6 +404,15 @@
+ 	eglMakeCurrent(egl->display, egl->surface, egl->surface, egl->context);
+ 
+ 	gl_exts = (char *) glGetString(GL_EXTENSIONS);
++ if (getenv("TABOR_REQUIRE_HARDWARE")) {
++  const char *renderer = (const char *)glGetString(GL_RENDERER);
++  if (!renderer || strstr(renderer, "softpipe") || strstr(renderer, "llvmpipe") ||
++      !(strstr(renderer, "Radeon") || strstr(renderer, "RADEON") || strstr(renderer, "AMD"))) {
++   fprintf(stderr, "TABOR_HARDWARE_RENDERER_REJECTED=%s\n", renderer ? renderer : "none");
++   return -1;
++  }
++ }
++
+ 	printf("OpenGL ES 2.x information:\n");
+ 	printf("  version: \"%s\"\n", glGetString(GL_VERSION));
+ 	printf("  shading language version: \"%s\"\n", glGetString(GL_SHADING_LANGUAGE_VERSION));
