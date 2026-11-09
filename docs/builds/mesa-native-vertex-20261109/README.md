@@ -105,3 +105,24 @@ Evidence includes final patch, all modified source hashes, libgallium hash,
 immutable build images/mounts, build exits/logs, actual helper/format/streamout
 checks, regression manifest and complete tiny final shader uploads. Earlier
 intermediate run scripts/receipts are kept for traceability, not acceptance.
+
+## Stage-only deployment authorized and verified
+
+User explicitly requested staging and no actual onscreen renders. Candidate is
+installed separately at /opt/tabor-native-vertex-20261109 on A1222 kernel013.
+All28 regular files match the qualified assembly manifest; the native dynamic
+loader's --list mode resolves the standard shader runner's dependencies without
+running its main function or shared-library initializers. No EGL context, shader
+compile, DRM ioctl or render workload was launched on the board.
+
+No runtime device/proc/sys/run interfaces were mounted. The no-op DRM shims and
+offline time64 adapter are excluded. Existing runtime, module, boot script and
+default environment are untouched. Root was briefly remounted writable for the
+new directory, then synced and restored read-only. Final boot ID matches the
+preflight (178dae6d-2771-4fa4-8709-a91f770b0712), taint0, amdgpudrmfb registered.
+Staging is not rendering acceptance. User's no-render instruction remains in
+force until they authorize a later trial.
+
+See staging/ for source/runtime receipt, all target hashes, loader listing,
+mount restoration and final state. assemble-live.py and stage-live.py reproduce
+the stage-only process; they never bind devices or execute the graphics tests.

@@ -1,3 +1,12 @@
+## Native vertex candidate staged; no rendering authorized — 2026-11-09
+
+User-authorized isolated stage at /opt/tabor-native-vertex-20261109. All28 file
+hashes match, native loader dependency listing passes, root restoredRO, boot ID
+unchanged,taint0. No runtime device mounts, EGL/DRM workload, render or reboot.
+Existing runtime/module/boot/default flags remain. User explicitly defers actual
+onscreen rendering; do not launch a graphics validation until later authorized.
+See [staging receipt](builds/mesa-native-vertex-20261109/staging/staging-result.json).
+
 ## Implemented native vertex / legacy streamout candidate — 2026-11-09
 
 Opt-in BE GFX8 patch now pairs typed vertex decoding with native-format legacy
