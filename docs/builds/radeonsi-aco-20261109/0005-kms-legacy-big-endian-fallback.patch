@@ -1,0 +1,19 @@
+--- a/drm-common.c
++++ b/drm-common.c
+@@ -109,6 +109,16 @@
+ 				handles, strides, offsets, &fb->fb_id, 0);
+ 	}
+ 
++
++ /* drm_mode_addfb2_ioctl deliberately rejects unconverted BE drivers.
++  * Only legacy-compatible, single-plane, zero-offset RGB may fall back. */
++ if (ret == -EOPNOTSUPP && offsets[0] == 0 &&
++     (format == GBM_FORMAT_XRGB8888 || format == GBM_FORMAT_ARGB8888)) {
++  uint8_t depth = format == GBM_FORMAT_ARGB8888 ? 32 : 24;
++  ret = drmModeAddFB(drm_fd, width, height, depth, 32,
++                    strides[0], handles[0], &fb->fb_id);
++  fprintf(stderr,"TABOR_LEGACY_ADDFB ret=%d id=%u\n",ret,fb->fb_id);
++ }
+ 	fprintf(stderr,"TABOR_ADDFB fd=%d size=%ux%u format=%08x handle=%u stride=%u offset=%u flags=%x ret=%d errno=%d\n",drm_fd,width,height,format,handles[0],strides[0],offsets[0],flags,ret,errno);
+ 	if (ret) {
+ 		printf("failed to create fb: %s\n", strerror(errno));

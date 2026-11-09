@@ -20,7 +20,7 @@ while queue:
  p=queue.pop();s=subprocess.check_output(['powerpc-linux-gnu-readelf','-d',str(p)],text=True)
  for soname in re.findall(r'NEEDED.*\[(.*?)\]',s):
   if (root/'usr/lib'/soname).exists() or (root/'lib'/soname).exists():continue
-  choices=[libc/soname]+list((k/'stage').rglob(soname))
+  choices=[libc/soname,k/'stage/usr/lib/powerpc-linux-gnuspe'/soname]+list((k/'stage').rglob(soname))
   src=next((p for p in choices if p.is_file()),None);assert src,soname
   # Dependencies are copied by SONAME to avoid absolute package symlinks.
   add(src.resolve(),'lib/'+soname)

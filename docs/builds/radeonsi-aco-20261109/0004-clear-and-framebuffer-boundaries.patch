@@ -1,0 +1,32 @@
+--- a/drm-legacy.c
++++ b/drm-legacy.c
+@@ -83,6 +83,19 @@
+  /* Separate shader execution/readback from KMS framebuffer registration. */
+  if (getenv("TABOR_RENDER_ONLY")) {
+   if (!gbm->surface) return -1;
++  GLint vp[4]={0}, binding=-1;
++  unsigned char pixel[4]={0};
++  glGetIntegerv(GL_VIEWPORT,vp);
++  glGetIntegerv(GL_FRAMEBUFFER_BINDING,&binding);
++  fprintf(stderr,"TABOR_DRAW_STATE viewport=%d,%d,%d,%d framebuffer=%d status=%x error=%x\n",vp[0],vp[1],vp[2],vp[3],binding,glCheckFramebufferStatus(GL_FRAMEBUFFER),glGetError());
++  glDisable(GL_SCISSOR_TEST);
++  glColorMask(GL_TRUE,GL_TRUE,GL_TRUE,GL_TRUE);
++  glClearColor(1.0f,0.0f,0.0f,1.0f);
++  glClear(GL_COLOR_BUFFER_BIT);
++  glFinish();
++  glReadPixels(0,0,1,1,GL_RGBA,GL_UNSIGNED_BYTE,pixel);
++  fprintf(stderr,"TABOR_RED_CLEAR rgba=%u,%u,%u,%u error=%x\n",pixel[0],pixel[1],pixel[2],pixel[3],glGetError());
++  if(getenv("TABOR_CLEAR_ONLY")) return pixel[0]>240 && pixel[1]<16 && pixel[2]<16 ? 0 : -1;
+   egl->draw(0);
+   return tabor_readback(gbm);
+  }
+--- a/drm-common.c
++++ b/drm-common.c
+@@ -109,6 +109,7 @@
+ 				handles, strides, offsets, &fb->fb_id, 0);
+ 	}
+ 
++	fprintf(stderr,"TABOR_ADDFB fd=%d size=%ux%u format=%08x handle=%u stride=%u offset=%u flags=%x ret=%d errno=%d\n",drm_fd,width,height,format,handles[0],strides[0],offsets[0],flags,ret,errno);
+ 	if (ret) {
+ 		printf("failed to create fb: %s\n", strerror(errno));
+ 		free(fb);

@@ -1,0 +1,7 @@
+GFX_TEST_ENCODING=explicit-little-endian
+GFX_NATIVE_WRITE va=100000000 target=100000800 first_bytes=003703c0
+GFX_NATIVE_WRITE fence_complete=1 bytes=00000000
+GFX_NATIVE_WRITE=FAIL
+GFX_WRITE_EXIT=1
+0
+/usr/share/libdrm/amdgpu.ids: No such file or directory

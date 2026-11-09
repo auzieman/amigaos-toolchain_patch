@@ -1,0 +1,139 @@
+255
+/usr/share/libdrm/amdgpu.ids: No such file or directory
+libEGL debug: No DRI config supports native format R8  
+libEGL debug: No DRI config supports native format R16 
+libEGL debug: No DRI config supports native format GR88
+libEGL debug: No DRI config supports native format GR32
+libEGL debug: No DRI config supports native format BX24
+libEGL debug: No DRI config supports native format BA24
+libEGL debug: No DRI config supports native format RX24
+libEGL debug: No DRI config supports native format RA24
+libEGL debug: No DRI config supports native format XB24
+libEGL debug: No DRI config supports native format AB24
+libEGL debug: No DRI config supports native format XR30
+libEGL debug: No DRI config supports native format AR30
+libEGL debug: No DRI config supports native format XB30
+libEGL debug: No DRI config supports native format AB30
+libEGL debug: No DRI config supports native format XB48
+libEGL debug: No DRI config supports native format AB48
+Using display 0x102763b0 with EGL version 1.5
+===================================
+EGL information:
+  version: "1.5"
+  vendor: "Mesa Project"
+  client extensions: "EGL_EXT_client_extensions EGL_EXT_device_base EGL_EXT_device_enumeration EGL_EXT_device_query EGL_EXT_platform_base EGL_KHR_client_get_all_proc_addresses EGL_KHR_debug EGL_EXT_platform_device EGL_EXT_explicit_device EGL_MESA_platform_gbm EGL_KHR_platform_gbm EGL_MESA_platform_surfaceless"
+  display extensions: "EGL_ANDROID_blob_cache EGL_ANDROID_native_fence_sync EGL_EXT_buffer_age EGL_EXT_config_select_group EGL_EXT_create_context_robustness EGL_EXT_image_dma_buf_import EGL_EXT_image_dma_buf_import_modifiers EGL_EXT_query_reset_notification_strategy EGL_EXT_surface_compression EGL_IMG_context_priority EGL_KHR_cl_event2 EGL_KHR_config_attribs EGL_KHR_context_flush_control EGL_KHR_create_context EGL_KHR_create_context_no_error EGL_KHR_fence_sync EGL_KHR_get_all_proc_addresses EGL_KHR_gl_colorspace EGL_KHR_gl_renderbuffer_image EGL_KHR_gl_texture_2D_image EGL_KHR_gl_texture_3D_image EGL_KHR_gl_texture_cubemap_image EGL_KHR_image EGL_KHR_image_base EGL_KHR_image_pixmap EGL_KHR_no_config_context EGL_KHR_reusable_sync EGL_KHR_surfaceless_context EGL_EXT_pixel_format_float EGL_KHR_wait_sync EGL_MESA_configless_context EGL_MESA_drm_image EGL_MESA_gl_interop EGL_MESA_image_dma_buf_export EGL_MESA_query_driver EGL_MESA_x11_native_visual_id "
+===================================
+libEGL debug: eglPrintConfigDebug: nothing to print
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:  16 0x001 32  0  8  8  8  8   0  0  0 0 0x34325241--            y  y   y                    win,
+libEGL debug:  17 0x002 32  0  8  8  8  8  16  0  0 0 0x34325241--            y  y   y                    win,
+libEGL debug:  18 0x003 32  0  8  8  8  8  24  0  0 0 0x34325241--            y  y   y                    win,
+libEGL debug:  19 0x004 32  0  8  8  8  8  24  8  0 0 0x34325241--            y  y   y                    win,
+libEGL debug:  20 0x005 32  0  8  8  8  8   0  0  2 1 0x34325241--            y  y   y                    win,
+libEGL debug:  24 0x006 32  0  8  8  8  8   0  0  4 1 0x34325241--            y  y   y                    win,
+libEGL debug:  28 0x007 32  0  8  8  8  8   0  0  8 1 0x34325241--            y  y   y                    win,
+libEGL debug:  21 0x008 32  0  8  8  8  8  16  0  2 1 0x34325241--            y  y   y                    win,
+libEGL debug:  25 0x009 32  0  8  8  8  8  16  0  4 1 0x34325241--            y  y   y                    win,
+libEGL debug:  29 0x00a 32  0  8  8  8  8  16  0  8 1 0x34325241--            y  y   y                    win,
+libEGL debug:  22 0x00b 32  0  8  8  8  8  24  0  2 1 0x34325241--            y  y   y                    win,
+libEGL debug:  26 0x00c 32  0  8  8  8  8  24  0  4 1 0x34325241--            y  y   y                    win,
+libEGL debug:  30 0x00d 32  0  8  8  8  8  24  0  8 1 0x34325241--            y  y   y                    win,
+libEGL debug:  23 0x00e 32  0  8  8  8  8  24  8  2 1 0x34325241--            y  y   y                    win,
+libEGL debug:  27 0x00f 32  0  8  8  8  8  24  8  4 1 0x34325241--            y  y   y                    win,
+libEGL debug:  31 0x010 32  0  8  8  8  8  24  8  8 1 0x34325241--            y  y   y                    win,
+libEGL debug:   0 0x011 24  0  8  8  8  0   0  0  0 0 0x34325258--            y  y   y                    win,
+libEGL debug:   1 0x012 24  0  8  8  8  0  16  0  0 0 0x34325258--            y  y   y                    win,
+libEGL debug:   2 0x013 24  0  8  8  8  0  24  0  0 0 0x34325258--            y  y   y                    win,
+libEGL debug:   3 0x014 24  0  8  8  8  0  24  8  0 0 0x34325258--            y  y   y                    win,
+libEGL debug:   4 0x015 24  0  8  8  8  0   0  0  2 1 0x34325258--            y  y   y                    win,
+libEGL debug:   8 0x016 24  0  8  8  8  0   0  0  4 1 0x34325258--            y  y   y                    win,
+libEGL debug:  12 0x017 24  0  8  8  8  0   0  0  8 1 0x34325258--            y  y   y                    win,
+libEGL debug:   5 0x018 24  0  8  8  8  0  16  0  2 1 0x34325258--            y  y   y                    win,
+libEGL debug:   9 0x019 24  0  8  8  8  0  16  0  4 1 0x34325258--            y  y   y                    win,
+libEGL debug:  13 0x01a 24  0  8  8  8  0  16  0  8 1 0x34325258--            y  y   y                    win,
+libEGL debug:   6 0x01b 24  0  8  8  8  0  24  0  2 1 0x34325258--            y  y   y                    win,
+libEGL debug:  10 0x01c 24  0  8  8  8  0  24  0  4 1 0x34325258--            y  y   y                    win,
+libEGL debug:  14 0x01d 24  0  8  8  8  0  24  0  8 1 0x34325258--            y  y   y                    win,
+libEGL debug:   7 0x01e 24  0  8  8  8  0  24  8  2 1 0x34325258--            y  y   y                    win,
+libEGL debug:  11 0x01f 24  0  8  8  8  0  24  8  4 1 0x34325258--            y  y   y                    win,
+libEGL debug:  15 0x020 24  0  8  8  8  0  24  8  8 1 0x34325258--            y  y   y                    win,
+libEGL debug:  32 0x021 16  0  5  6  5  0   0  0  0 0 0x36314752--            y  y   y                    win,
+libEGL debug:  33 0x022 16  0  5  6  5  0  16  0  0 0 0x36314752--            y  y   y                    win,
+libEGL debug:  34 0x023 16  0  5  6  5  0  24  0  0 0 0x36314752--            y  y   y                    win,
+libEGL debug:  35 0x024 16  0  5  6  5  0  24  8  0 0 0x36314752--            y  y   y                    win,
+libEGL debug:  36 0x025 16  0  5  6  5  0   0  0  2 1 0x36314752--            y  y   y                    win,
+libEGL debug:  40 0x026 16  0  5  6  5  0   0  0  4 1 0x36314752--            y  y   y                    win,
+libEGL debug:  44 0x027 16  0  5  6  5  0   0  0  8 1 0x36314752--            y  y   y                    win,
+libEGL debug:  37 0x028 16  0  5  6  5  0  16  0  2 1 0x36314752--            y  y   y                    win,
+libEGL debug:  41 0x029 16  0  5  6  5  0  16  0  4 1 0x36314752--            y  y   y                    win,
+libEGL debug:  45 0x02a 16  0  5  6  5  0  16  0  8 1 0x36314752--            y  y   y                    win,
+libEGL debug:  38 0x02b 16  0  5  6  5  0  24  0  2 1 0x36314752--            y  y   y                    win,
+libEGL debug:  42 0x02c 16  0  5  6  5  0  24  0  4 1 0x36314752--            y  y   y                    win,
+libEGL debug:  46 0x02d 16  0  5  6  5  0  24  0  8 1 0x36314752--            y  y   y                    win,
+libEGL debug:  39 0x02e 16  0  5  6  5  0  24  8  2 1 0x36314752--            y  y   y                    win,
+libEGL debug:  43 0x02f 16  0  5  6  5  0  24  8  4 1 0x36314752--            y  y   y                    win,
+libEGL debug:  47 0x030 16  0  5  6  5  0  24  8  8 1 0x36314752--            y  y   y                    win,
+libEGL debug:     0x031 64  0 16 16 16 16   0  0  0 0 0x48344241--            y  y   y                    win,
+libEGL debug:     0x032 64  0 16 16 16 16  16  0  0 0 0x48344241--            y  y   y                    win,
+libEGL debug:     0x033 64  0 16 16 16 16  24  0  0 0 0x48344241--            y  y   y                    win,
+libEGL debug:     0x034 64  0 16 16 16 16  24  8  0 0 0x48344241--            y  y   y                    win,
+libEGL debug:     0x035 64  0 16 16 16 16   0  0  2 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x036 64  0 16 16 16 16   0  0  4 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x037 64  0 16 16 16 16   0  0  8 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x038 64  0 16 16 16 16  16  0  2 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x039 64  0 16 16 16 16  16  0  4 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03a 64  0 16 16 16 16  16  0  8 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03b 64  0 16 16 16 16  24  0  2 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03c 64  0 16 16 16 16  24  0  4 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03d 64  0 16 16 16 16  24  0  8 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03e 64  0 16 16 16 16  24  8  2 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x03f 64  0 16 16 16 16  24  8  4 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x040 64  0 16 16 16 16  24  8  8 1 0x48344241--            y  y   y                    win,
+libEGL debug:     0x041 48  0 16 16 16  0   0  0  0 0 0x48344258--            y  y   y                    win,
+libEGL debug:     0x042 48  0 16 16 16  0  16  0  0 0 0x48344258--            y  y   y                    win,
+libEGL debug:     0x043 48  0 16 16 16  0  24  0  0 0 0x48344258--            y  y   y                    win,
+libEGL debug:     0x044 48  0 16 16 16  0  24  8  0 0 0x48344258--            y  y   y                    win,
+libEGL debug:     0x045 48  0 16 16 16  0   0  0  2 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x046 48  0 16 16 16  0   0  0  4 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x047 48  0 16 16 16  0   0  0  8 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x048 48  0 16 16 16  0  16  0  2 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x049 48  0 16 16 16  0  16  0  4 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04a 48  0 16 16 16  0  16  0  8 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04b 48  0 16 16 16  0  24  0  2 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04c 48  0 16 16 16  0  24  0  4 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04d 48  0 16 16 16  0  24  0  8 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04e 48  0 16 16 16  0  24  8  2 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x04f 48  0 16 16 16  0  24  8  4 1 0x48344258--            y  y   y                    win,
+libEGL debug:     0x050 48  0 16 16 16  0  24  8  8 1 0x48344258--            y  y   y                    win,
+libEGL debug:  48 0x051 16  0  5  5  5  1   0  0  0 0 0x35315241--            y  y   y                    win,
+libEGL debug:  49 0x052 16  0  5  5  5  1  16  0  0 0 0x35315241--            y  y   y                    win,
+libEGL debug:  50 0x053 16  0  5  5  5  1  24  0  0 0 0x35315241--            y  y   y                    win,
+libEGL debug:  51 0x054 16  0  5  5  5  1  24  8  0 0 0x35315241--            y  y   y                    win,
+libEGL debug:  52 0x055 16  0  5  5  5  1   0  0  2 1 0x35315241--            y  y   y                    win,
+libEGL debug:  56 0x056 16  0  5  5  5  1   0  0  4 1 0x35315241--            y  y   y                    win,
+libEGL debug:  60 0x057 16  0  5  5  5  1   0  0  8 1 0x35315241--            y  y   y                    win,
+libEGL debug:  53 0x058 16  0  5  5  5  1  16  0  2 1 0x35315241--            y  y   y                    win,
+libEGL debug:  57 0x059 16  0  5  5  5  1  16  0  4 1 0x35315241--            y  y   y                    win,
+libEGL debug:  61 0x05a 16  0  5  5  5  1  16  0  8 1 0x35315241--            y  y   y                    win,
+libEGL debug:  54 0x05b 16  0  5  5  5  1  24  0  2 1 0x35315241--            y  y   y                    win,
+libEGL debug:  58 0x05c 16  0  5  5  5  1  24  0  4 1 0x35315241--            y  y   y                    win,
+libEGL debug:  62 0x05d 16  0  5  5  5  1  24  0  8 1 0x35315241--            y  y   y                    win,
+libEGL debug:  55 0x05e 16  0  5  5  5  1  24  8  2 1 0x35315241--            y  y   y                    win,
+libEGL debug:  59 0x05f 16  0  5  5  5  1  24  8  4 1 0x35315241--            y  y   y                    win,
+libEGL debug:  63 0x060 16  0  5  5  5  1  24  8  8 1 0x35315241--            y  y   y                    win,
+OpenGL ES 2.x information:
+  version: "OpenGL ES 2.0 Mesa 25.0.7"
+  shading language version: "OpenGL ES GLSL ES 1.0.16"
+  vendor: "AMD"
+  renderer: "AMD Radeon Graphics (radeonsi, polaris11, ACO, DRM 3.61, 6.12.113-tabor-e2e-011)"
+  extensions: "GL_EXT_blend_minmax GL_EXT_multi_draw_arrays GL_EXT_texture_filter_anisotropic GL_EXT_texture_compression_s3tc GL_EXT_texture_compression_dxt1 GL_EXT_texture_format_BGRA8888 GL_OES_compressed_ETC1_RGB8_texture GL_OES_depth24 GL_OES_element_index_uint GL_OES_fbo_render_mipmap GL_OES_mapbuffer GL_OES_rgb8_rgba8 GL_OES_standard_derivatives GL_OES_stencil8 GL_OES_texture_3D GL_OES_texture_float GL_OES_texture_float_linear GL_OES_texture_half_float GL_OES_texture_half_float_linear GL_OES_texture_npot GL_OES_vertex_half_float GL_EXT_draw_instanced GL_OES_EGL_image GL_OES_depth_texture GL_AMD_performance_monitor GL_OES_packed_depth_stencil GL_NV_conditional_render GL_OES_get_program_binary GL_APPLE_texture_max_level GL_EXT_discard_framebuffer GL_EXT_read_format_bgra GL_EXT_texture_storage GL_NV_pack_subimage GL_NV_texture_barrier GL_EXT_frag_depth GL_NV_fbo_color_attachments GL_OES_EGL_image_external GL_OES_EGL_sync GL_OES_vertex_array_object GL_ANGLE_pack_reverse_row_order GL_ANGLE_texture_compression_dxt3 GL_ANGLE_texture_compression_dxt5 GL_EXT_occlusion_query_boolean GL_EXT_robustness GL_EXT_texture_rg GL_EXT_unpack_subimage GL_NV_draw_buffers GL_NV_read_buffer GL_NV_read_depth GL_NV_read_depth_stencil GL_NV_read_stencil GL_APPLE_sync GL_EXT_draw_buffers GL_EXT_instanced_arrays GL_EXT_map_buffer_range GL_EXT_shadow_samplers GL_KHR_debug GL_KHR_robustness GL_KHR_texture_compression_astc_ldr GL_NV_generate_mipmap_sRGB GL_NV_pixel_buffer_object GL_OES_depth_texture_cube_map GL_OES_required_internalformat GL_OES_surfaceless_context GL_EXT_debug_label GL_EXT_separate_shader_objects GL_EXT_compressed_ETC1_RGB8_sub_texture GL_EXT_draw_elements_base_vertex GL_EXT_polygon_offset_clamp GL_EXT_texture_border_clamp GL_KHR_blend_equation_advanced GL_KHR_context_flush_control GL_KHR_robust_buffer_access_behavior GL_OES_draw_elements_base_vertex GL_OES_texture_border_clamp GL_EXT_blend_func_extended GL_KHR_no_error GL_KHR_texture_compression_astc_sliced_3d GL_EXT_disjoint_timer_query GL_EXT_texture_compression_s3tc_srgb GL_EXT_clip_control GL_EXT_color_buffer_half_float GL_EXT_memory_object GL_EXT_memory_object_fd GL_EXT_semaphore GL_EXT_semaphore_fd GL_EXT_texture_mirror_clamp_to_edge GL_KHR_parallel_shader_compile GL_NV_alpha_to_coverage_dither_control GL_AMD_framebuffer_multisample_advanced GL_INTEL_blackhole_render GL_EXT_demote_to_helper_invocation GL_EXT_depth_clamp GL_MESA_sampler_objects GL_MESA_bgra GL_MESA_texture_const_bandwidth "
+===================================
+TABOR_DRAW_STATE viewport=0,0,1920,1080 framebuffer=0 status=8cd5 error=0
+TABOR_RED_CLEAR rgba=0,0,0,0 error=0
+0
+tty1

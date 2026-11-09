@@ -1,0 +1,26 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vm_sdma.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vm_sdma.c
+@@ -225,7 +225,7 @@
+ 	struct dma_resv_iter cursor;
+ 	unsigned int i, ndw, nptes;
+ 	struct dma_fence *fence;
+-	uint64_t *pte;
++	__le64 *pte;
+ 	int r;
+ 
+ 	/* Wait for PD/PT moves to be completed */
+@@ -273,10 +273,11 @@
+ 
+ 		/* Put the PTEs at the end of the IB. */
+ 		p->num_dw_left -= nptes * 2;
+-		pte = (uint64_t *)&(p->job->ibs->ptr[p->num_dw_left]);
++		pte = (__le64 *)&(p->job->ibs->ptr[p->num_dw_left]);
+ 		for (i = 0; i < nptes; ++i, addr += incr) {
+-			pte[i] = amdgpu_vm_map_gart(p->pages_addr, addr);
+-			pte[i] |= flags;
++			/* SDMA copies these bytes without interpreting IB words. */
++			pte[i] = cpu_to_le64(amdgpu_vm_map_gart(p->pages_addr,
++							    addr) | flags);
+ 		}
+ 
+ 		amdgpu_vm_sdma_copy_ptes(p, bo, pe, nptes);

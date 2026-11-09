@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "cases_per_arch": 256,
+  "source_sha256": "c9c9d6282b2908b2ec898a14d75631131f912c500376e91f0815edf9e6f45cc9",
+  "patch_sha256": "dbb3e8a2a298617e017a8e3e962e5635c5bba31788f6ab36ecd60b0e6ca180d0",
+  "scope": "Actual PTE producer block; DMA copy modeled as byte-preserving; supplied address/flags modeled",
+  "negative_control": "old BE PTE array differs from GPU LE entries",
+  "fixed_sha256": "e73e97d8a06b95839e365642ecc2efeba34b684d19121e7a5cd261c2a1b38bce",
+  "hardware_causality_proven": false
+}

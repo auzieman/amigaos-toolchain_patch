@@ -45,3 +45,20 @@ was performed. Verify recovered file completeness and media suitability first.
 Next: trace black draw versus readback/format handling and the exact AddFB2
 rejection independently; qualify GCC14 C++ runtime and package coinstallation
 before widening the standard sbuild workstation batch.
+
+## Follow-up: actual scanout compatibility repaired
+
+The kernel's drm_mode_addfb2_ioctl intentionally returns EOPNOTSUPP on BE when
+quirk_addfb_prefer_host_byte_order is unset. kmscube has no original ADDFB
+fallback. Patch0005 adds it only for XR24/AR24 and zero offset; physical legacy
+ADDFB now returns0/framebuffer59 and modesetting succeeds. Rendering remains
+black. See legacy-physical-result.txt. Clear API values are correct, and a
+nodcc control still reads zeros. Matching package libdrm_amdgpu is now deployed;
+its update hash is recorded, and the bundle selector prefers qualified package
+paths. The initial runtime receipt predates these explicitly recorded updates.
+
+Independent allocated-buffer GFX writes reproduce missing data without Mesa,
+using both native/LE command words and a low32bit VA control. Fence completion
+is not payload completion. This led to a source-proven native PTE array copied
+without serialization: ../vm-pte-contract-20261109/README.md. Candidate012 fixes
+that shared GPUVM producer; no claim of physical rendering success yet.
