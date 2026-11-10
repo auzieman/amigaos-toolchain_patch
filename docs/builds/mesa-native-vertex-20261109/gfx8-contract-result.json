@@ -1,0 +1,21 @@
+{
+  "source_sha256": "df5835052091c3d4d15e6287233c57c5dded8db053d441fc8da339c91adbad82",
+  "extracted_sha256": "95c1f72e020dca1852415dba83a238b43095f422a96174b8ba0662f94f77d864",
+  "results": {
+    "x86": {
+      "exit": 0,
+      "stdout": "PASS cases=2816: IB fields, EOP fields, pipeline wait fields and LE bytes\n",
+      "stderr": ""
+    },
+    "spe": {
+      "exit": 0,
+      "stdout": "PASS cases=2816: IB fields, EOP fields, pipeline wait fields and LE bytes\n",
+      "stderr": ""
+    }
+  },
+  "limits": [
+    "actual three emitters, mocked numeric ring writer and non-SRIOV job",
+    "explicit byte serialization checker, not actual kernel ring helper",
+    "QEMU user execution on R730; no physical GPU, mappings, cache visibility, or initialization-state proof"
+  ]
+}

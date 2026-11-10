@@ -1,0 +1,91 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ib.c
+@@ -27,6 +27,7 @@
+  *          Christian König
+  */
+ #include <linux/seq_file.h>
++#include <linux/moduleparam.h>
+ #include <linux/slab.h>
+ 
+ #include <drm/amdgpu_drm.h>
+@@ -34,6 +35,55 @@
+ #include "amdgpu.h"
+ #include "atom.h"
+ #include "amdgpu_trace.h"
++
++/* Diagnostic only: arm after boot; captures CPU-owned command-ring storage.
++ * No MMIO, GPU submissions, fence processing or recovery from this helper.
++ */
++static bool polaris11_submit_trace;
++module_param_named(polaris11_submit_trace, polaris11_submit_trace, bool, 0600);
++MODULE_PARM_DESC(polaris11_submit_trace, "Trace first 16 Polaris11 GFX envelopes before publication");
++static atomic_t polaris11_submit_trace_count = ATOMIC_INIT(0);
++
++static void amdgpu_ib_trace_envelope(struct amdgpu_ring *ring, u64 start,
++                                   unsigned int num_ibs, struct amdgpu_ib *ibs,
++                                   struct amdgpu_job *job)
++{
++ unsigned int id, i, count;
++ u64 end;
++ if (!READ_ONCE(polaris11_submit_trace) ||
++     ring->adev->asic_type != CHIP_POLARIS11 ||
++     ring->funcs->type != AMDGPU_RING_TYPE_GFX)
++  return;
++ id = atomic_inc_return(&polaris11_submit_trace_count);
++ if (id > 16)
++  return;
++ end = ring->wptr;
++ count = min_t(u64, (end - start) & ring->ptr_mask, 512);
++ dev_info(ring->adev->dev,
++          "SUBMIT_ENV id=%u ring=%s start=%llu end=%llu count=%u truncated=%u sw_le=%u vmid=%u sync=%u last=%u\n",
++          id, ring->name, (unsigned long long)start, (unsigned long long)end,
++          count, ((end - start) & ring->ptr_mask) > count,
++          amdgpu_ring_uses_sw_le(ring), job ? AMDGPU_JOB_GET_VMID(job) : 0,
++          READ_ONCE(ring->fence_drv.sync_seq),
++          atomic_read(&ring->fence_drv.last_seq));
++ if (ring->fence_drv.cpu_addr) {
++  u32 raw = READ_ONCE(*ring->fence_drv.cpu_addr);
++  dev_info(ring->adev->dev,
++           "SUBMIT_ENV_FENCE id=%u addr=%016llx bytes=%4ph decoded=%u\n",
++           id, (unsigned long long)ring->fence_drv.gpu_addr, &raw,
++           le32_to_cpu((__force __le32)raw));
++ }
++ for (i = 0; i < num_ibs && i < 16; i++)
++  dev_info(ring->adev->dev,
++           "SUBMIT_ENV_IB id=%u n=%u addr=%016llx dw=%u flags=%x le=%u\n",
++           id, i, (unsigned long long)ibs[i].gpu_addr, ibs[i].length_dw,
++           ibs[i].flags, ibs[i].is_le);
++ for (i = 0; i < count; i++) {
++  u32 raw = READ_ONCE(ring->ring[(start + i) & ring->buf_mask]);
++  dev_info(ring->adev->dev, "SUBMIT_ENV_DW id=%u n=%u bytes=%4ph\n",
++           id, i, &raw);
++ }
++}
+ 
+ #define AMDGPU_IB_TEST_TIMEOUT	msecs_to_jiffies(1000)
+ #define AMDGPU_IB_TEST_GFX_XGMI_TIMEOUT	msecs_to_jiffies(2000)
+@@ -142,6 +192,7 @@
+ 	int vmid = AMDGPU_JOB_GET_VMID(job);
+ 	bool need_pipe_sync = false;
+ 	unsigned int cond_exec;
++	u64 tabor_submit_start;
+ 
+ 	unsigned int i;
+ 	int r = 0;
+@@ -192,6 +243,8 @@
+ 		return r;
+ 	}
+ 
++	tabor_submit_start = ring->wptr;
++
+ 	need_ctx_switch = ring->current_ctx != fence_ctx;
+ 	if (ring->funcs->emit_pipeline_sync && job &&
+ 	    ((tmp = amdgpu_sync_get_fence(&job->explicit_sync)) ||
+@@ -310,6 +363,7 @@
+ 		ring->funcs->emit_wave_limit(ring, false);
+ 
+ 	amdgpu_ring_ib_end(ring);
++	amdgpu_ib_trace_envelope(ring, tabor_submit_start, num_ibs, ibs, job);
+ 	amdgpu_ring_commit(ring);
+ 	return 0;
+ }

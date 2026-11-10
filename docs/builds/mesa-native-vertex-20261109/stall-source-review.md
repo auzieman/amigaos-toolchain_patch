@@ -181,3 +181,114 @@ code_size. Correctness depends on exec_size<=code_size, checked arithmetic and
 symbol offsets inside executable storage. Existing inspection of loop shape
 alone is not a complete bounds proof for compiler-provided metadata. These
 producer invariants are the next concrete source-level audit targets.
+
+## Structural-layout follow-up: numeric shader state
+
+Decoded the retained400DW canonical point IBs using packet boundaries, then
+SET_SH_REG/SET_SH_REG_INDEX offsets. Both x86 and SPE produce identical values:
+VS PGM_LO=0x6000, PGM_HI=0, RSRC1=0x2c0040, RSRC2=0x12;
+PS PGM_LO=0x6001, PGM_HI=0, RSRC1=0x2c0043, RSRC2=0xe.
+Program addresses reconstructed in256-byte units are VS0x600000/PS0x600100.
+These are offline shim addresses, not physical failing-run addresses. This
+checks the numeric packed state, beyond endian serialization, for that capture.
+It does not establish residency, executable destination contents or validity of
+all required state. No divergence in these eight shared shader fields found.
+
+Inspected ac_hw_cache_flags producer and union: packed gfx12 bitfields are
+outside Polaris/GFX8; applicable GFX6-8 producer uses numeric value bits instead.
+Do not transplant the float_mode fix into an inactive gfx12 union as a claimed
+Polaris correction. Operand/Definition control unions initialize zero and named
+flags remain compiler-local; no analogous exported packed numeric alias was
+identified in the inspected declarations. No new root-cause fix claimed.
+
+## Extracted upload-loop bounds execution
+
+check-upload-bounds.py extracts actual get_shader_binaries/upload_binary_raw
+from the final Mesa source and runs on R730 with guarded mocked allocation,
+pre/post hooks, symbol resolver and UBSan. All8 prolog/previous/epilog combinations
+pass with conversion branch disabled and enabled (16 cases). Constant tails and
+allocation guards match. Native-host bswap branch is not PPC ABI execution.
+
+Negative controls: exec_size32/code_size4 causes SIGSEGV via unchecked size
+underflow/copy; a deliberately out-of-range mocked symbol write trips the tail
+guard (SIGABRT). These demonstrate a real missing metadata defense in the
+inspected loader, not that valid compiler output in our failed trial violates it.
+Actual ACO relocation semantics are not tested by the mocked resolver. No new
+GPU driver patch or hardware test; source hash and results retained. Initial
+harness attempts hit a non-writable work directory and missing stdbool include;
+corrected to owner-private work path and explicit header before accepted runs.
+
+## Direct/bulk ring writer bypass audit
+
+Searched kernel013 gfx_v8_0.c, amdgpu_ring.c/.h and amdgpu_ib.c for direct
+ring indexing and bulk writes, then checked repository-wide hits for active
+GFX8 callers. Ring clear, scalar writes and conditional-execution backpatches
+all call encode_dw. write_multiple routes the targeted software-LE ring through
+scalar encoding and returns before the memcpy fallback. GFX8 CE/DE metadata
+bulk callers build native fields; they are behind the SR-IOV/preemption branch
+in the IB emitter, not the ordinary bare-metal path. Diagnostic ring-pointer
+reads do not modify data. No active GFX8 bypass found in these writers.
+
+Ring-mux copying existing ring storage through write_multiple would require
+careful representation ownership if enabled with software-LE rings; its init
+callers are GFX9, not this Polaris/GFX8 path. Do not claim it caused this hang.
+JPEG/newer-GFX direct stores found by global search likewise are not this ring.
+GFX8 read/write pointer helpers decode/encode when software-LE applies; zero
+initialization is endian invariant. This review found no new faulty expression
+and does not establish whole-driver conversion completeness.
+
+The sample GPU address0x0000000312345678, packet header0xc0023200 and explicit
+low/high slots produce bytes003202c07856341203000000 after per-word conversion,
+identical to x86. This demonstrates that explicit slot order is preserved;
+word-sequence reversal would corrupt this packet rather than fix it.
+
+## AMD reference comparison and envelope trace candidate
+
+AMD PAL commit2de164b431f8a27652e63513ae73338dc512e5bf packet headers and
+builders were fetched and SHA256-verified against prior packet-source.json.
+BuildIndirectBuffer explicitly emits low/high address fields, VI validity and
+preemption bits. Kernel GFX and compute envelopes are different: do not infer
+missing VI VALID in the longstanding kernel GFX emitter is a PPC fault solely
+from PAL userspace construction. BuildWaitRegMem defines memory/register space,
+comparison, engine, reference and mask. BuildEventWriteEop documents alignment,
+48-bit address limit and confirmation selectors; kernel emits dummy+real events
+with different interrupt choices. These require decoded semantic comparison,
+not word-sequence reversal or blind PAL struct copying on BE.
+
+Prepared0013-opt-in-prepublish-envelope-trace.patch for exact kernel013 source.
+Defaultoff module parameter polaris11_submit_trace, writable root-only; arm
+later after init if built/qualified. Captures first16 targeted GFX envelopes,
+up to512 raw dwords each, IB addresses/lengths/flags/LE contract, VMID and fence
+sequence/address/raw decoded completion. Reads only existing CPU mappings,
+never submits work or accesses MMIO. Runs after late packet backpatches and
+before ring commit/doorbell. Final alignment NOPs added inside commit are not
+captured. Logging changes timing and can perturb behavior. Bounded output is
+still substantial and requires offboard collection. IB list logs capped16.
+
+Patch dry-run against exact pinned source passes. No kernel source modified,
+compilation, deployment or hardware trial in this pass. This is diagnostic code,
+not a root-cause fix. Its purpose is to capture the kernel waits/setup/completion
+that the prior Mesa-only snapshots omitted, and associate5/6 with actual packet
+positions and addresses before automatic reset destroys original state.
+
+## Executed GFX8 constructor contract checks
+
+check-gfx8-contract.py extracts exact kernel013 IB-GFX, EOP-fence-GFX and
+pipeline-sync emitters, with actual vid.h packet macros. Runs on R730 using
+native GCC and accepted SPE SDK8.5 plus QEMU e500v2. Both pass2816 cases:
+512 IB cases (four addresses including >32bit/48bit, four lengths through20bit
+maximum,16VMIDs,CE/nonCE);2048 EOP cases (32/64bit write, interrupt/EXEC flags,
+dummy/real values including carry across32bits);256 pipeline-wait cases.
+Numeric ordinal fields and explicitly serialized LE bytes are checked against
+independent PAL field-position definitions. EXEC bit28 is from kernel vid.h,
+not specified by the older PAL EOP struct. Some kernel choices (GFX IB VALID
+and interrupt selectors) differ from PAL user-mode builders; test establishes
+field packing, not that every selected policy is appropriate for hardware.
+
+The ring writer and structs are mocked; explicit byte checking does not execute
+actual kernel publication/accessors. Non-SRIOV only, opt-in is_le=true. This is
+actual PPC32 compiler execution, not a simulatedBE branch on x86. It establishes
+no numeric/byte divergence for these constructor inputs, not runtime-state,
+VM mappings, descriptor contents, firmware, visibility or GPU execution.
+Harness setup initially used sid.h instead of gfx8 vid.h and omitted event enum;
+corrected before accepted runs. No physical workload/build/deployment change.

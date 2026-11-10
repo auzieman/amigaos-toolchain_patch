@@ -1,0 +1,47 @@
+{
+  "source_sha256": "11cc41f17355b82e37fd4cb401af338f2ba1e5f9f85fc9911c90b5d669f780f4",
+  "extracted_functions_sha256": "00c1886e6f38a2b7218dd8513de3ab979b15e7995305783ab320e978336288b2",
+  "records": [
+    {
+      "conversion_branch": 0,
+      "exit": 0,
+      "stdout": "PASS: 8 part combinations, allocation guards and constant-tail placement\n",
+      "stderr": "",
+      "negative_controls": [
+        {
+          "case": "BAD_SIZE",
+          "exit": -11,
+          "process_failed_as_expected": true
+        },
+        {
+          "case": "BAD_SYMBOL",
+          "exit": -6,
+          "process_failed_as_expected": true
+        }
+      ]
+    },
+    {
+      "conversion_branch": 1,
+      "exit": 0,
+      "stdout": "PASS: 8 part combinations, allocation guards and constant-tail placement\n",
+      "stderr": "",
+      "negative_controls": [
+        {
+          "case": "BAD_SIZE",
+          "exit": -11,
+          "process_failed_as_expected": true
+        },
+        {
+          "case": "BAD_SYMBOL",
+          "exit": -6,
+          "process_failed_as_expected": true
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "native compiler only; branch1 exercises bswap logic, not PPC ABI",
+    "pre/post allocator and symbol resolver mocked",
+    "synthetic invalid size triggers native SIGSEGV from underflow/copy; out-of-range mocked relocation triggers guard assertion; actual ACO symbol resolver not extracted; no GPU execution, DMA, mapping or visibility proof"
+  ]
+}

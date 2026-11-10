@@ -1,0 +1,31 @@
+{
+  "argv": [
+    "docker",
+    "run",
+    "-d",
+    "--name",
+    "tabor-e2e-usb-build-014",
+    "--cpus=2",
+    "--memory=4g",
+    "--network=none",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001,dst=/base,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261109-014,dst=/candidate",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261109-014/source,dst=/base/work/tabor-smu-diagnostics-20261105-003/source,readonly",
+    "--mount",
+    "type=bind,src=/srv/data1/tabor-build/linux-live-001/work/e2e-usb-20261109-014/output,dst=/base/work/tabor-smu-diagnostics-20261105-003/output",
+    "--mount",
+    "type=bind,src=/home/owner/envelope-trace-20261109,dst=/inputs,readonly",
+    "--mount",
+    "type=bind,src=/home/owner/gfx-postmap-review-20261108,dst=/qualification,readonly",
+    "--entrypoint",
+    "python3",
+    "sha256:2781e11839beffa351f8c411d71b7e2bd1ae0336d24c60b407778c3350dd9da0",
+    "/inputs/build.py"
+  ],
+  "exit": 0,
+  "stdout": "e9073257230eae89fdd7d526902b9f167b45293252689d4bc81389776010346d\n",
+  "stderr": ""
+}
