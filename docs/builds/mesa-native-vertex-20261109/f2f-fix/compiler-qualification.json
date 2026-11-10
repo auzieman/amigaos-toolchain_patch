@@ -1,0 +1,28 @@
+[
+  {
+    "log": "offline-spe-point-020.log",
+    "compiler_gate": "FAIL",
+    "workload_evidence": true,
+    "errors": [
+      "ACO ERROR:",
+      "    Unimplemented NIR instr bit size: div 32    %7 = f2f32 %5",
+      "ACO ERROR:",
+      "    %8 never defined: exp %8, %37, %37, %39 pos0"
+    ],
+    "gpu_execution_tested": false
+  },
+  {
+    "log": "offline-spe-point-023.log",
+    "compiler_gate": "PASS",
+    "workload_evidence": true,
+    "errors": [],
+    "gpu_execution_tested": false
+  },
+  {
+    "log": "offline-spe-point-024.log",
+    "compiler_gate": "PASS",
+    "workload_evidence": true,
+    "errors": [],
+    "gpu_execution_tested": false
+  }
+]

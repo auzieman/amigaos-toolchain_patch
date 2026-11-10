@@ -1,0 +1,131 @@
+Initializing DRM shim on /dev/dri/renderD128
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/owner/.drirc: No such file or directory.
+libGL: Can't open configuration file /etc/drirc: No such file or directory.
+libGL: Can't open configuration file /home/owner/.drirc: No such file or directory.
+/usr/share/libdrm/amdgpu.ids: No such file or directory
+DRM_IOCTL_GET_CAP: unhandled 0x10
+TABOR_FETCH_PRODUCER i=0 format=16 channel_bits=32 bits=b0 log=2 channels=4 kind=0
+TABOR_FETCH_PRODUCER i=1 format=16 channel_bits=32 bits=b0 log=2 channels=4 kind=0
+TABOR_FETCH_PRODUCER i=0 format=104 channel_bits=32 bits=8c log=2 channels=1 kind=6
+TABOR_FETCH_PRODUCER i=0 format=105 channel_bits=32 bits=9c log=2 channels=2 kind=6
+TABOR_FETCH_PRODUCER i=0 format=106 channel_bits=32 bits=ac log=2 channels=3 kind=6
+TABOR_FETCH_PRODUCER i=0 format=107 channel_bits=32 bits=bc log=2 channels=4 kind=6
+libEGL debug: No DRI config supports native format PIPE_FORMAT_B10G10R10A2_UNORM
+libEGL debug: No DRI config supports native format PIPE_FORMAT_B10G10R10X2_UNORM
+libEGL debug: ---------------
+libEGL debug: Configurations:
+libEGL debug: cho       bf lv colourbuffer dp st  ms           vis  cav  bi     renderable           supported
+libEGL debug: sen    id sz  l  r  g  b  a  th cl ns b           id  eat  nd  gl es es2 es3 vg         surfaces
+libEGL debug: ---------------
+libEGL debug:     0x001 32  0  8  8  8  8   0  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x002 32  0  8  8  8  8  16  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x003 32  0  8  8  8  8  24  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x004 32  0  8  8  8  8  24  8  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x005 32  0  8  8  8  8   0  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x006 32  0  8  8  8  8   0  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x007 32  0  8  8  8  8   0  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x008 32  0  8  8  8  8  16  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x009 32  0  8  8  8  8  16  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00a 32  0  8  8  8  8  16  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00b 32  0  8  8  8  8  24  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00c 32  0  8  8  8  8  24  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00d 32  0  8  8  8  8  24  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00e 32  0  8  8  8  8  24  8  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x00f 32  0  8  8  8  8  24  8  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x010 32  0  8  8  8  8  24  8  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x011 24  0  8  8  8  0   0  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x012 24  0  8  8  8  0  16  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x013 24  0  8  8  8  0  24  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x014 24  0  8  8  8  0  24  8  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x015 24  0  8  8  8  0   0  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x016 24  0  8  8  8  0   0  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x017 24  0  8  8  8  0   0  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x018 24  0  8  8  8  0  16  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x019 24  0  8  8  8  0  16  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01a 24  0  8  8  8  0  16  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01b 24  0  8  8  8  0  24  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01c 24  0  8  8  8  0  24  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01d 24  0  8  8  8  0  24  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01e 24  0  8  8  8  0  24  8  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x01f 24  0  8  8  8  0  24  8  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x020 24  0  8  8  8  0  24  8  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:   0 0x021 16  0  5  6  5  0   0  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x022 16  0  5  6  5  0  16  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x023 16  0  5  6  5  0  24  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x024 16  0  5  6  5  0  24  8  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x025 16  0  5  6  5  0   0  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x026 16  0  5  6  5  0   0  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x027 16  0  5  6  5  0   0  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x028 16  0  5  6  5  0  16  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x029 16  0  5  6  5  0  16  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02a 16  0  5  6  5  0  16  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02b 16  0  5  6  5  0  24  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02c 16  0  5  6  5  0  24  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02d 16  0  5  6  5  0  24  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02e 16  0  5  6  5  0  24  8  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x02f 16  0  5  6  5  0  24  8  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x030 16  0  5  6  5  0  24  8  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x031 64  0 16 16 16 16   0  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x032 64  0 16 16 16 16  16  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x033 64  0 16 16 16 16  24  0  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x034 64  0 16 16 16 16  24  8  0 0 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x035 64  0 16 16 16 16   0  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x036 64  0 16 16 16 16   0  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x037 64  0 16 16 16 16   0  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x038 64  0 16 16 16 16  16  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x039 64  0 16 16 16 16  16  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03a 64  0 16 16 16 16  16  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03b 64  0 16 16 16 16  24  0  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03c 64  0 16 16 16 16  24  0  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03d 64  0 16 16 16 16  24  0  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03e 64  0 16 16 16 16  24  8  2 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x03f 64  0 16 16 16 16  24  8  4 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x040 64  0 16 16 16 16  24  8  8 1 0x00000000--        a   y  y   y                     pb,
+libEGL debug:     0x041 48  0 16 16 16  0   0  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x042 48  0 16 16 16  0  16  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x043 48  0 16 16 16  0  24  0  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x044 48  0 16 16 16  0  24  8  0 0 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x045 48  0 16 16 16  0   0  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x046 48  0 16 16 16  0   0  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x047 48  0 16 16 16  0   0  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x048 48  0 16 16 16  0  16  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x049 48  0 16 16 16  0  16  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04a 48  0 16 16 16  0  16  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04b 48  0 16 16 16  0  24  0  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04c 48  0 16 16 16  0  24  0  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04d 48  0 16 16 16  0  24  0  8 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04e 48  0 16 16 16  0  24  8  2 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x04f 48  0 16 16 16  0  24  8  4 1 0x00000000--        y   y  y   y                     pb,
+libEGL debug:     0x050 48  0 16 16 16  0  24  8  8 1 0x00000000--        y   y  y   y                     pb,
+TABOR_FETCH_PRODUCER i=0 format=16 channel_bits=32 bits=b0 log=2 channels=4 kind=0
+TABOR_FETCH_PRODUCER i=1 format=16 channel_bits=32 bits=b0 log=2 channels=4 kind=0
+TABOR_FETCH_PRODUCER i=0 format=104 channel_bits=32 bits=8c log=2 channels=1 kind=6
+TABOR_FETCH_PRODUCER i=0 format=105 channel_bits=32 bits=9c log=2 channels=2 kind=6
+TABOR_FETCH_PRODUCER i=0 format=106 channel_bits=32 bits=ac log=2 channels=3 kind=6
+TABOR_FETCH_PRODUCER i=0 format=107 channel_bits=32 bits=bc log=2 channels=4 kind=6
+TABOR_FETCH_CONSUMER raw=00 log=0 channels=1 kind=0
+TABOR_F2F32 source_bits=8 dest_bits=32 components=1
+div 8     %5 = @load_buffer_amd (%3, %4 (0x0), %4 (0x0), %2) (base=0, mem_modes=0, access=none)
+ACO ERROR:
+    In file ../mesa-source/src/amd/compiler/aco_instruction_selection.cpp:2950
+    Unimplemented NIR instr bit size: div 32    %7 = f2f32 %5
+ACO ERROR:
+    In file ../mesa-source/src/amd/compiler/aco_validate.cpp:70
+    %8 never defined: exp %8, %37, %37, %39 pos0
+TABOR_FETCH_PRODUCER i=0 format=14 channel_bits=32 bits=90 log=2 channels=2 kind=0
+TABOR_FETCH_KEY i=0 raw=90 log=2 kind=0
+TABOR_FETCH_CONSUMER raw=90 log=2 channels=2 kind=0
+Probe color at (0,0)
+  Expected: 1.000000 0.000000 0.000000 1.000000
+  Observed: 0.000000 0.000000 0.000000 0.000000
+Test failure on line 33
+Probe color at (0,0)
+  Expected: 0.000000 1.000000 0.000000 1.000000
+  Observed: 0.000000 0.000000 0.000000 0.000000
+Test failure on line 37
+Probe color at (0,0)
+  Expected: 0.000000 0.000000 1.000000 1.000000
+  Observed: 0.000000 0.000000 0.000000 0.000000
+Test failure on line 41
+PIGLIT: {"result": "fail" }

@@ -1,0 +1,14 @@
+--- a/src/gallium/drivers/radeonsi/si_nir_lower_vs_inputs.c
++++ b/src/gallium/drivers/radeonsi/si_nir_lower_vs_inputs.c
+@@ -472,7 +472,10 @@
+     */
+    bool opencode = key->ge.mono.vs_fetch_opencode & (1 << input_index);
+    union si_vs_fix_fetch fix_fetch = key->ge.mono.vs_fix_fetch[input_index];
+-   if (ac_nir_native_vertex_enabled(sel->screen->info.gfx_level) || opencode ||
++   /* The producer records native fetch conversion in the populated shader key.
++    * Provisional variants have no format metadata and must keep typed loads.
++    */
++   if (opencode ||
+        (fix_fetch.u.log_size == 3 && fix_fetch.u.format == AC_FETCH_FORMAT_FLOAT) ||
+        fix_fetch.u.log_size == 2) {
+       opencoded_load_format(b, vb_desc, vertex_index, fix_fetch, !opencode,
