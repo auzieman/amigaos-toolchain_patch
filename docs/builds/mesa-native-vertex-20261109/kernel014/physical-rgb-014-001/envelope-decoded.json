@@ -1,0 +1,116 @@
+{
+  "scope": "CPU-published packet fields; no proof of GPU fetch/progress",
+  "envelopes": [
+    {
+      "id": 1,
+      "status": "DECODED",
+      "metadata": {
+        "id": "1",
+        "ring": "gfx",
+        "start": "1536",
+        "end": "1606",
+        "count": "70",
+        "truncated": "0",
+        "sw_le": "1",
+        "vmid": "7",
+        "sync": "2",
+        "last": "1"
+      },
+      "fence": {
+        "address": 1095220858944,
+        "decoded": 1,
+        "raw_le": 1
+      },
+      "ibs": [
+        {
+          "n": 0,
+          "addr": 2195456,
+          "dw": 408,
+          "flags": 8,
+          "le": 1
+        }
+      ],
+      "packets": [
+        {
+          "offset": 5,
+          "kind": "WAIT",
+          "function": 3,
+          "space": 1,
+          "operation": 0,
+          "engine": 1,
+          "address_or_register": "0xff00401040",
+          "register_hi_operand": null,
+          "reference": "0x1",
+          "mask": "0xffffffff",
+          "poll": 4,
+          "targets_kernel_fence": true
+        },
+        {
+          "offset": 21,
+          "kind": "WAIT",
+          "function": 3,
+          "space": 0,
+          "operation": 1,
+          "engine": 1,
+          "address_or_register": "0x1537",
+          "register_hi_operand": "0x1538",
+          "reference": "0x1",
+          "mask": "0x1",
+          "poll": 32,
+          "targets_kernel_fence": false
+        },
+        {
+          "offset": 35,
+          "kind": "IB",
+          "address": "0x218000",
+          "swap": 0,
+          "length_dw": 408,
+          "vmid": 7,
+          "valid": 0,
+          "chain": 0,
+          "matches_logged_ib": true
+        },
+        {
+          "offset": 44,
+          "kind": "EOP",
+          "address": "0xff00aed000",
+          "data_select": 1,
+          "interrupt_select": 0,
+          "value": "0x0",
+          "event": 20,
+          "event_index": 5
+        },
+        {
+          "offset": 50,
+          "kind": "EOP",
+          "address": "0xff00aed000",
+          "data_select": 2,
+          "interrupt_select": 0,
+          "value": "0x1",
+          "event": 20,
+          "event_index": 5
+        },
+        {
+          "offset": 56,
+          "kind": "EOP",
+          "address": "0xff00401040",
+          "data_select": 1,
+          "interrupt_select": 0,
+          "value": "0x1",
+          "event": 20,
+          "event_index": 5
+        },
+        {
+          "offset": 62,
+          "kind": "EOP",
+          "address": "0xff00401040",
+          "data_select": 1,
+          "interrupt_select": 2,
+          "value": "0x2",
+          "event": 20,
+          "event_index": 5
+        }
+      ]
+    }
+  ]
+}

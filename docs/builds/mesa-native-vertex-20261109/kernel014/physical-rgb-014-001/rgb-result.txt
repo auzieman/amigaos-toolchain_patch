@@ -1,0 +1,10 @@
+/usr/share/libdrm/amdgpu.ids: No such file or directory
+ACO ERROR:
+    In file ../mesa-source/src/amd/compiler/aco_instruction_selection.cpp:2947
+    Unimplemented NIR instr bit size: div 32    %7 = f2f32 %5
+ACO ERROR:
+    In file ../mesa-source/src/amd/compiler/aco_validate.cpp:70
+    %8 never defined: exp %8, %37, %37, %39 pos0
+TABOR_IB_SERIALIZED dw=408 first_native=c0012800 stored_native=002801c0
+
+CONTROLLER_TIMEOUT; NO RETRY/RESET

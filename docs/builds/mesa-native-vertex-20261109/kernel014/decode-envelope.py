@@ -52,7 +52,7 @@ def decode(text):
                 relevant.append({'offset':offset,'kind':'IB','address':hex(addr),'swap':p[1]&3,'length_dw':p[3]&0xfffff,'vmid':(p[3]>>24)&15,'valid':(p[3]>>23)&1,'chain':(p[3]>>20)&1,'matches_logged_ib':any(i['addr']==addr and i['dw']==(p[3]&0xfffff) for i in entry['ibs'])})
             elif op=='0x3c' and len(p)==7:
                 addr=p[2]|(p[3]<<32)
-                relevant.append({'offset':offset,'kind':'WAIT','function':p[1]&7,'space':(p[1]>>4)&3,'operation':(p[1]>>6)&3,'engine':(p[1]>>8)&3,'address_or_register':hex(addr),'reference':hex(p[4]),'mask':hex(p[5]),'poll':p[6],'targets_kernel_fence':addr==entry.get('fence',{}).get('address') and ((p[1]>>4)&3)==1})
+                relevant.append({'offset':offset,'kind':'WAIT','function':p[1]&7,'space':(p[1]>>4)&3,'operation':(p[1]>>6)&3,'engine':(p[1]>>8)&3,'address_or_register':hex(addr) if ((p[1]>>4)&3)==1 else hex(p[2]),'register_hi_operand':hex(p[3]) if ((p[1]>>4)&3)==0 else None,'reference':hex(p[4]),'mask':hex(p[5]),'poll':p[6],'targets_kernel_fence':addr==entry.get('fence',{}).get('address') and ((p[1]>>4)&3)==1})
             elif op=='0x47' and len(p)==6:
                 relevant.append({'offset':offset,'kind':'EOP','address':hex((p[2]&~3)|((p[3]&0xffff)<<32)),'data_select':(p[3]>>29)&7,'interrupt_select':(p[3]>>24)&3,'value':hex(p[4]|(p[5]<<32)),'event':p[1]&63,'event_index':(p[1]>>8)&15})
         output.append({'id':identifier,'status':'TRUNCATED' if meta.get('truncated')=='1' else 'DECODED','metadata':meta,'fence':entry.get('fence'),'ibs':entry['ibs'],'packets':relevant})
