@@ -1,0 +1,265 @@
+rcu: Hierarchical SRCU implementation.
+rcu: 	Max phase no-delay instances is 1000.
+Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+smp: Bringing up secondary CPUs ...
+Activating Kernel Userspace Access Protection
+smp: Brought up 1 node, 2 CPUs
+Memory: 3498512K/3571712K available (13972K kernel code, 1148K rwdata, 18796K rodata, 3448K init, 273K bss, 70080K reserved, 0K cma-reserved, 2785272K highmem)
+devtmpfs: initialized
+futex hash table entries: 512 (order: 2, 16384 bytes, linear)
+Machine: varisys,TABOR
+SoC family: QorIQ
+SoC ID: svr:0x80e60011, Revision: 1.1
+NET: Registered PF_NETLINK/PF_ROUTE protocol family
+audit: initializing netlink subsys (disabled)
+audit: type=2000 audit(0.012:1): state=initialized audit_enabled=0 res=1
+Found FSL PCI host bridge at 0x0000000fffe0a000. Firmware bus number: 0->1
+PCI host bridge /pcie@fffe0a000 (primary) ranges:
+ MEM 0x0000000c40000000..0x0000000c5fffffff -> 0x00000000e0000000 
+  IO 0x0000000fffc20000..0x0000000fffc2ffff -> 0x0000000000000000
+/pcie@fffe0a000: PCICSRBAR @ 0xdff00000
+setup_pci_atmu: end of DRAM da000000
+/pcie@fffe0a000: Setting PCI inbound window greater than memory size
+PCI: Probing PCI hardware
+fsl-pci fffe0a000.pcie: PCI host bridge to bus 0001:00
+pci_bus 0001:00: root bus resource [io  0x0000-0xffff]
+pci_bus 0001:00: root bus resource [mem 0xc40000000-0xc5fffffff] (bus address [0xe0000000-0xffffffff])
+pci_bus 0001:00: root bus resource [bus 00-ff]
+pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to ff
+pci 0001:00:00.0: [1957:0111] type 01 class 0x060400 PCIe Root Port
+pci 0001:00:00.0: BAR 0 [mem 0xdff00000-0xdfffffff]
+pci 0001:00:00.0: PCI bridge to [bus 01]
+pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc502fffff]
+pci 0001:00:00.0: supports D1 D2
+pci 0001:00:00.0: PME# supported from D0 D1 D2 D3hot D3cold
+pci 0001:01:00.0: [1002:67ff] type 00 class 0x030000 PCIe Legacy Endpoint
+pci 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]
+pci 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]
+pci 0001:01:00.0: BAR 4 [io  0x1000-0x10ff]
+pci 0001:01:00.0: BAR 5 [mem 0xc50200000-0xc5023ffff]
+pci 0001:01:00.0: ROM [mem 0x00000000-0x0001ffff pref]
+pci 0001:01:00.0: enabling Extended Tags
+pci 0001:01:00.0: supports D1 D2
+pci 0001:01:00.0: PME# supported from D1 D2 D3hot D3cold
+pci 0001:01:00.0: 8.000 Gb/s available PCIe bandwidth, limited by 2.5 GT/s PCIe x4 link at 0001:00:00.0 (capable of 63.008 Gb/s with 8.0 GT/s PCIe x8 link)
+pci 0001:01:00.1: [1002:aae0] type 00 class 0x040300 PCIe Legacy Endpoint
+pci 0001:01:00.1: BAR 0 [mem 0xc50240000-0xc50243fff 64bit]
+pci 0001:01:00.1: enabling Extended Tags
+pci 0001:01:00.1: supports D1 D2
+pci 0001:00:00.0: PCI bridge to [bus 01-ff]
+pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 01
+pci_bus 0001:00: busn_res: [bus 00-ff] end is updated to 01
+PCI: Cannot allocate resource region 0 of device 0001:00:00.0, will remap
+PCI 0001:00 Cannot reserve Legacy IO [io  0x0000-0x0fff]
+pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: can't assign; no space
+pci 0001:00:00.0: BAR 0 [mem size 0x00100000]: failed to assign
+pci 0001:01:00.0: ROM [mem 0xc50260000-0xc5027ffff pref]: assigned
+pci 0001:00:00.0: PCI bridge to [bus 01]
+pci 0001:00:00.0:   bridge window [io  0x0000-0xffff]
+pci 0001:00:00.0:   bridge window [mem 0xc40000000-0xc5fffffff]
+pci_bus 0001:00: Some PCI device resources are unassigned, try booting with pci=realloc
+pci_bus 0001:00: resource 4 [io  0x0000-0xffff]
+pci_bus 0001:00: resource 5 [mem 0xc40000000-0xc5fffffff]
+pci_bus 0001:01: resource 0 [io  0x0000-0xffff]
+pci_bus 0001:01: resource 1 [mem 0xc40000000-0xc5fffffff]
+Setting up Freescale MSI support
+HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+HugeTLB: registered 64.0 MiB page size, pre-allocated 0 pages
+HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+HugeTLB: registered 256 MiB page size, pre-allocated 0 pages
+HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+Freescale Elo series DMA driver
+fsl-elo-dma fffe0c300.dma: #2 (fsl,eloplus-dma-channel), irq 78
+fsl-elo-dma fffe0c300.dma: #3 (fsl,eloplus-dma-channel), irq 79
+fsl-elo-dma fffe21300.dma: #0 (fsl,eloplus-dma-channel), irq 20
+fsl-elo-dma fffe21300.dma: #1 (fsl,eloplus-dma-channel), irq 21
+fsl-elo-dma fffe21300.dma: #2 (fsl,eloplus-dma-channel), irq 22
+fsl-elo-dma fffe21300.dma: #3 (fsl,eloplus-dma-channel), irq 23
+SCSI subsystem initialized
+libata version 3.00 loaded.
+usbcore: registered new interface driver usbfs
+usbcore: registered new interface driver hub
+usbcore: registered new device driver usb
+pps_core: LinuxPPS API ver. 1 registered
+pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+PTP clock support registered
+EDAC MC: Ver: 3.0.0
+Advanced Linux Sound Architecture Driver Initialized.
+pci 0001:01:00.0: vgaarb: setting as boot VGA device
+pci 0001:01:00.0: vgaarb: bridge control possible
+pci 0001:01:00.0: vgaarb: VGA device added: decodes=io+mem,owns=none,locks=none
+vgaarb: loaded
+clocksource: Switched to clocksource timebase
+NET: Registered PF_INET protocol family
+IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+TCP: Hash tables configured (established 8192 bind 8192)
+UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+NET: Registered PF_UNIX/PF_LOCAL protocol family
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp-with-tls transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+pci 0001:01:00.1: D0 power state depends on 0001:01:00.0
+PCI: CLS 32 bytes, default 32
+workingset: timestamp_bits=14 max_order=20 bucket_order=6
+NFS: Registering the id_resolver key type
+Key type id_resolver registered
+Key type id_legacy registered
+jffs2: version 2.2. (NAND) © 2001-2006 Red Hat, Inc.
+bounce: pool size: 64 pages
+io scheduler mq-deadline registered
+io scheduler kyber registered
+io scheduler bfq registered
+pcieport 0001:00:00.0: enabling device (0106 -> 0107)
+pcieport 0001:00:00.0: PME: Signaling with IRQ 16
+Serial: 8250/16550 driver, 6 ports, IRQ sharing enabled
+printk: legacy console [ttyS0] disabled
+serial8250.0: ttyS0 at MMIO 0xfffe04500 (irq = 42, base_baud = 24997500) is a 16550A
+printk: legacy console [ttyS0] enabled
+serial8250.0: ttyS1 at MMIO 0xfffe04600 (irq = 42, base_baud = 24997500) is a 16550A
+ePAPR hypervisor byte channel driver
+brd: module loaded
+loop: module loaded
+st: Version 20160209, fixed bufsize 32768, s/g segs 256
+fsl-sata fffe18000.sata: Sata FSL Platform/CSB Driver init
+scsi host0: sata_fsl
+ata1: SATA max UDMA/133 irq 74 lpm-pol 0
+fsl-sata fffe19000.sata: Sata FSL Platform/CSB Driver init
+scsi host1: sata_fsl
+ata2: SATA max UDMA/133 irq 41 lpm-pol 0
+fsl_espi fffe07000.spi: irq = 59
+fsl-gianfar soc@fffe00000:ethernet@b0000: enabled errata workarounds, flags: 0x4
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: mac: 80:34:28:6f:87:6b
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Running with NAPI enabled
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[0]: 256
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: RX BD ring size for Q[1]: 256
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[0]: 256
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: TX BD ring size for Q[1]: 256
+fsl-gianfar soc@fffe00000:ethernet@b1000: enabled errata workarounds, flags: 0x4
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: mac: d8:47:8f:bb:24:69
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: Running with NAPI enabled
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[0]: 256
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: RX BD ring size for Q[1]: 256
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[0]: 256
+fsl-gianfar soc@fffe00000:ethernet@b1000 eth1: TX BD ring size for Q[1]: 256
+ucc_geth_driver: QE UCC Gigabit Ethernet Controller
+e1000: Intel(R) PRO/1000 Network Driver
+e1000: Copyright (c) 1999-2006 Intel Corporation.
+e1000e: Intel(R) PRO/1000 Network Driver
+e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+igb: Intel(R) Gigabit Ethernet Network Driver
+igb: Copyright (c) 2007-2014 Intel Corporation.
+fsl-ehci fsl-ehci.0: Freescale On-Chip EHCI Host Controller
+fsl-ehci fsl-ehci.0: new USB bus registered, assigned bus number 1
+fsl-ehci fsl-ehci.0: irq 28, io mem 0xfffe22000
+fsl-ehci fsl-ehci.0: USB 2.0 started, EHCI 1.00
+hub 1-0:1.0: USB hub found
+hub 1-0:1.0: 1 port detected
+usbcore: registered new interface driver usb-storage
+i2c_dev: i2c /dev entries driver
+mpc-i2c fffe03000.i2c: timeout 1000000 us
+mpc-i2c fffe03100.i2c: timeout 1000000 us
+rtc-ds1307 1-006f: registered as rtc0
+rtc-ds1307 1-006f: setting system clock to 2026-11-13T17:33:55 UTC (1794591235)
+Freescale(R) MPC85xx EDAC driver, (C) 2006 Montavista Software
+EDAC PCI0: Giving out device to module MPC85xx_edac controller mpc85xx_pci_err: DEV mpc85xx-pci-edac.0.auto (INTERRUPT)
+MPC85xx_edac acquired irq 16 for PCI Err
+MPC85xx_edac PCI err registered
+sdhci: Secure Digital Host Controller Interface driver
+sdhci: Copyright(c) Pierre Ossman
+sdhci-pltfm: SDHCI platform and OF driver helper
+mmc0 bounce up to 128 segments into one, max segment size 65536 bytes
+usbcore: registered new interface driver usbhid
+usbhid: USB HID core driver
+Freescale hypervisor management driver
+fsl-hv: no hypervisor found
+fsl-ssi-dai fffe15000.ssi: No cache defaults, reading back from HW
+ipip: IPv4 and MPLS over IPv4 tunneling driver
+mmc0: SDHCI controller on fffe2e000.sdhc [fffe2e000.sdhc] using DMA
+Initializing XFRM netlink socket
+NET: Registered PF_INET6 protocol family
+Segment Routing with IPv6
+In-situ OAM (IOAM) with IPv6
+sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+NET: Registered PF_PACKET protocol family
+NET: Registered PF_KEY protocol family
+Key type dns_resolver registered
+ALSA device list:
+  No soundcards found.
+mmc0: new high speed SDHC card at address 1234
+mmcblk0: mmc0:1234 SA16G 14.6 GiB
+ mmcblk0: p1
+usb 1-1: new high-speed USB device number 2 using fsl-ehci
+ata1: Signature Update detected @ 512 msecs
+ata2: Signature Update detected @ 532 msecs
+hub 1-1:1.0: USB hub found
+hub 1-1:1.0: 4 ports detected
+ata1: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+ata1.00: ATA-8: KINGSTON SV300S37A60G, 60AABBF0, max UDMA/133
+ata1.00: 117231408 sectors, multi 1: LBA48 NCQ (depth 16/32)
+ata1.00: configured for UDMA/133
+scsi 0:0:0:0: Direct-Access     ATA      KINGSTON SV300S3 BBF0 PQ: 0 ANSI: 5
+ata2: SATA link up 3.0 Gbps (SStatus 123 SControl 300)
+scsi 0:0:0:0: Attached scsi generic sg0 type 0
+sd 0:0:0:0: [sda] 117231408 512-byte logical blocks: (60.0 GB/55.9 GiB)
+ata2.00: ATA-11: V Series SATA SSD 250GB, V1.3.3A, max UDMA/133
+sd 0:0:0:0: [sda] Write Protect is off
+ata2.00: 488397168 sectors, multi 1: LBA48 NCQ (depth 16/32)
+sd 0:0:0:0: [sda] Mode Sense: 00 3a 00 00
+ata2.00: configured for UDMA/133
+sd 0:0:0:0: [sda] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+scsi 1:0:0:0: Direct-Access     ATA      V Series SATA SS .3A  PQ: 0 ANSI: 5
+sd 0:0:0:0: [sda] Preferred minimum I/O size 512 bytes
+sd 1:0:0:0: Attached scsi generic sg1 type 0
+sd 1:0:0:0: [sdb] 488397168 512-byte logical blocks: (250 GB/233 GiB)
+sd 0:0:0:0: [sda] Attached SCSI disk
+sd 1:0:0:0: [sdb] Write Protect is off
+sd 1:0:0:0: [sdb] Mode Sense: 00 3a 00 00
+sd 1:0:0:0: [sdb] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+sd 1:0:0:0: [sdb] Preferred minimum I/O size 512 bytes
+sd 1:0:0:0: [sdb] Attached SCSI disk
+Waiting for root device PARTUUID=a1222013-02...
+usb 1-1.2: new low-speed USB device number 3 using fsl-ehci
+input: Logitech USB Keyboard as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.2/1-1.2:1.0/0003:046D:C31C.0001/input/input0
+hid-generic 0003:046D:C31C.0001: input: USB HID v1.10 Keyboard [Logitech USB Keyboard] on usb-fsl-ehci.0-1.2/input0
+input: Logitech USB Keyboard Consumer Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:046D:C31C.0002/input/input1
+input: Logitech USB Keyboard System Control as /devices/platform/soc@fffe00000/fffe22000.usb/fsl-ehci.0/usb1/1-1/1-1.2/1-1.2:1.1/0003:046D:C31C.0002/input/input2
+hid-generic 0003:046D:C31C.0002: input: USB HID v1.10 Device [Logitech USB Keyboard] on usb-fsl-ehci.0-1.2/input1
+usb 1-1.1: new high-speed USB device number 4 using fsl-ehci
+usb-storage 1-1.1:1.0: USB Mass Storage device detected
+scsi host2: usb-storage 1-1.1:1.0
+scsi 2:0:0:0: Direct-Access     PNY      USB 3.2.2 FD     PMAP PQ: 0 ANSI: 6
+sd 2:0:0:0: Attached scsi generic sg2 type 0
+sd 2:0:0:0: [sdc] 976773168 512-byte logical blocks: (500 GB/466 GiB)
+sd 2:0:0:0: [sdc] Write Protect is off
+sd 2:0:0:0: [sdc] Mode Sense: 5f 00 00 08
+sd 2:0:0:0: [sdc] Write cache: enabled, read cache: enabled, doesn't support DPO or FUA
+ sdc: sdc1 sdc2
+sd 2:0:0:0: [sdc] Attached SCSI disk
+EXT4-fs (sdc2): mounted filesystem 532a2b4c-213e-4024-b1ea-c55de3086dc0 r/w with ordered data mode. Quota mode: disabled.
+VFS: Mounted root (ext4 filesystem) on device 8:34.
+devtmpfs: mounted
+Freeing unused kernel image (initmem) memory: 3448K
+Run /init as init process
+  with arguments:
+    /init
+  with environment:
+    HOME=/
+    TERM=linux
+EXT4-fs (sdc2): re-mounted 532a2b4c-213e-4024-b1ea-c55de3086dc0.
+rcS: A1222 rescue root starting
+FAT-fs (sdc1): Volume was not properly unmounted. Some data may be corrupt. Please run fsck.
+fsl-gianfar soc@fffe00000:ethernet@b0000 eth0: Link is Up - 1Gbps/Full - flow control off
+udhcpc: eth0 192.168.0.151/24 via 192.168.0.1
+random: crng init done

@@ -1,0 +1,52 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -763,7 +763,8 @@
+ 	       (ring->funcs->type == AMDGPU_RING_TYPE_GFX ||
+ 		ring->funcs->type == AMDGPU_RING_TYPE_KIQ ||
+ 		ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE ||
+-		ring->funcs->type == AMDGPU_RING_TYPE_UVD_ENC);
++		ring->funcs->type == AMDGPU_RING_TYPE_UVD_ENC ||
++		ring->funcs->type == AMDGPU_RING_TYPE_VCE);
+ #else
+ 	return false;
+ #endif
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_vce.c
+@@ -426,6 +426,21 @@
+ 	}
+ }
+ 
++/*
++ * Polaris11 big-endian: VCE fetches its ring and IB memory little-endian
++ * (VCE_LMI_SWAP_CNTL/1 stay 0), so kernel-built VCE messages are stored LE,
++ * matching the ring words written through amdgpu_ring_write().
++ */
++static void amdgpu_vce_encode_ib(struct amdgpu_ring *ring, struct amdgpu_ib *ib)
++{
++	unsigned int i;
++
++	if (!amdgpu_ring_uses_sw_le(ring))
++		return;
++	for (i = 0; i < ib->length_dw; i++)
++		ib->ptr[i] = (__force u32)cpu_to_le32(ib->ptr[i]);
++}
++
+ /**
+  * amdgpu_vce_get_create_msg - generate a VCE create msg
+  *
+@@ -499,6 +514,7 @@
+ 	ib->ptr[ib->length_dw++] = addr;
+ 	ib->ptr[ib->length_dw++] = 0x00000001;
+ 
++	amdgpu_vce_encode_ib(ring, ib);
+ 	for (i = ib->length_dw; i < ib_size_dw; ++i)
+ 		ib->ptr[i] = 0x0;
+ 
+@@ -565,6 +581,7 @@
+ 	ib->ptr[ib->length_dw++] = 0x00000008; /* len */
+ 	ib->ptr[ib->length_dw++] = 0x02000001; /* destroy cmd */
+ 
++	amdgpu_vce_encode_ib(ring, ib);
+ 	for (i = ib->length_dw; i < ib_size_dw; ++i)
+ 		ib->ptr[i] = 0x0;
+ 
