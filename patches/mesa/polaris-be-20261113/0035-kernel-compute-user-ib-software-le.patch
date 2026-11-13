@@ -1,0 +1,24 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
+@@ -418,7 +418,8 @@
+ 	/* This option changes the fetch contract, not the command values. */
+ 	if (amdgpu_polaris11_le_user_ib &&
+ 	    p->adev->asic_type == CHIP_POLARIS11 &&
+-	    ring->funcs->type == AMDGPU_RING_TYPE_GFX)
++	    (ring->funcs->type == AMDGPU_RING_TYPE_GFX ||
++	     ring->funcs->type == AMDGPU_RING_TYPE_COMPUTE))
+ 		ib->is_le = true;
+ #endif
+ 	return 0;
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_drv.c
+@@ -163,7 +163,7 @@
+-/* Diagnostic only: callers must explicitly submit LE GFX IB bytes. */
++/* Diagnostic only: callers must explicitly submit LE GFX/COMPUTE IB bytes. */
+ bool amdgpu_polaris11_le_user_ib;
+ module_param_named(polaris11_le_user_ib, amdgpu_polaris11_le_user_ib, bool, 0444);
+-MODULE_PARM_DESC(polaris11_le_user_ib, "Polaris11 BE diagnostic: fetch explicit LE userspace GFX IBs without legacy hardware swapping (default off)");
++MODULE_PARM_DESC(polaris11_le_user_ib, "Polaris11 BE diagnostic: fetch explicit LE userspace GFX/COMPUTE IBs without legacy hardware swapping (default off)");
+ int amdgpu_exp_hw_support;
+ int amdgpu_dc = -1;
+ int amdgpu_sched_jobs = 32;

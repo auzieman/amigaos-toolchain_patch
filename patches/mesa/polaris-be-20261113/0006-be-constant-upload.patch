@@ -1,0 +1,14 @@
+--- a/src/gallium/drivers/radeonsi/si_get.c
++++ b/src/gallium/drivers/radeonsi/si_get.c
+@@ -1311,7 +1311,10 @@
+    caps->shader_atomic_int64 = true;
+    caps->frontend_noop = true;
+    caps->demote_to_helper_invocation = true;
+-   caps->prefer_real_buffer_in_constbuf0 = true;
++   /* Native BE constants must pass through si_upload_const_buffer, which
++    * serializes LE32. The state-tracker mapped-buffer shortcut copies native bytes.
++    */
++   caps->prefer_real_buffer_in_constbuf0 = !UTIL_ARCH_BIG_ENDIAN;
+    caps->compute_shader_derivatives = true;
+    caps->image_atomic_inc_wrap = true;
+    caps->image_store_formatted = true;

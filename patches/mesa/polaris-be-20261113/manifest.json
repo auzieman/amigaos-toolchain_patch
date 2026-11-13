@@ -1,0 +1,34 @@
+{
+  "checkpoint": "2026-11-13",
+  "mesa_version": "25.0.7",
+  "gcc": "14.2.0",
+  "kernel": "6.12.113-tabor-e2e-016",
+  "contributor_base_commit": "ac85909aff6e01b216ccbf40f4105e8d043b5902",
+  "mesa_incremental_patches": [
+    "0001-compute-user-ib-software-le.patch",
+    "0002-aco-native-constant-loads.patch",
+    "0003-aco-end-marker-publication.patch",
+    "0004-descriptor-report-endian.patch",
+    "0005-array-color-endian.patch",
+    "0006-be-constant-upload.patch"
+  ],
+  "kernel_incremental_patch": "0035-kernel-compute-user-ib-software-le.patch",
+  "sha256": {
+    "0035-kernel-compute-user-ib-software-le.patch": "09d3a43668ccd43858887afe6d9208984fc9eb4bed0d00a83bd943997a4a8110",
+    "0006-be-constant-upload.patch": "a1ee5b313556ead22a2b8d7474a0ab440ba2ef859826a97106aeda0d865d36ae",
+    "0002-aco-native-constant-loads.patch": "2da94c09e850a958389669414c32e1b5f09a2e36eba20b77cbb51050a6312ec3",
+    "0003-aco-end-marker-publication.patch": "09d965130a62305adf36add48cd5278cb8ffbefde0b82f23cafbd08ba57eb0b5",
+    "0001-compute-user-ib-software-le.patch": "5195f2049ab295caa62fd238707bc02490051d108ae753c5cf30fdb9df2d0b80",
+    "0005-array-color-endian.patch": "bad481e7b3d4338ac2aebaef767ec90c6c1c406c5f2ed31f3c80759f4a2e1204",
+    "0004-descriptor-report-endian.patch": "3bda250fd29dbc186a2fd8cead77945c4c09d0894eb6d3325d781ad52f40c2ba"
+  },
+  "runtime_libgallium_sha256": "33485cdb9d7f4610c24a1ade2c0d092ec82a789099ed0dc63cfb864d6edd2d31",
+  "kernel_module_sha256": "d015ad5edeae84f67239969d65cc743250a06cd9185ea76ab3c35cde6db5c74e",
+  "complete_distribution_build_recipe": false,
+  "limitations": [
+    "Incremental patches over the prior reviewed RadeonSI/native-vertex and kernel boundary candidates; not a pristine upstream series.",
+    "Physical visible cube requires AMD_DEBUG=vs,ps. Normal mode remains grey.",
+    "Existing standalone diagnostic helpers are not qualified GCC14 distribution packages.",
+    "X11/Enlightenment and complex models not validated."
+  ]
+}

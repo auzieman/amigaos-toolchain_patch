@@ -174,3 +174,5 @@ populate/check the archive cache, then `scripts/submit-debian-iteration.py` for
 the BKC CLI/core job. Each component/run gets a new source extraction with
 Debian patches followed by the ordered local series; source/object trees are
 never reused across iterations. See [iteration details](docs/debian-iterations.md).
+
+Current graphics/desktop checkpoint: [2026-11-13 handoff](docs/gpu-desktop-handoff-20261113.md), with incremental patches, measured60FPS debug-mode cube and explicit remaining desktop/image gates.

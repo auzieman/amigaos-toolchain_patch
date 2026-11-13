@@ -1,0 +1,104 @@
+--- a/src/amd/compiler/aco_interface.cpp
++++ b/src/amd/compiler/aco_interface.cpp
+@@ -7,6 +7,8 @@
+ #include "aco_interface.h"
+ 
+ #include "aco_ir.h"
++#include "nir_builder.h"
++#include "util/u_endian.h"
+ 
+ #include "util/memstream.h"
+ 
+@@ -18,6 +20,55 @@
+ using namespace aco;
+ 
+ namespace {
++
++#if UTIL_ARCH_BIG_ENDIAN
++/* NIR large-constant storage is host-native. Unlike executable words, it
++ * remains a byte section through ACO assembly and upload. Decode each loaded
++ * scalar at its declared width; a whole-blob dword swap would corrupt mixed
++ * 8/16/32/64-bit layouts.
++ */
++static nir_def*
++reverse_constant_dword(nir_builder* b, nir_def* value)
++{
++   nir_def* lo = nir_ior(b, nir_ishl_imm(b, value, 24),
++                       nir_ishl_imm(b, nir_iand_imm(b, value, 0xff00), 8));
++   nir_def* hi = nir_ior(b, nir_ushr_imm(b, value, 24),
++                       nir_ushr_imm(b, nir_iand_imm(b, value, 0xff0000), 8));
++   return nir_ior(b, lo, hi);
++}
++
++static bool
++decode_native_constant(nir_builder* b, nir_instr* instr, void*)
++{
++   if (instr->type != nir_instr_type_intrinsic)
++      return false;
++   nir_intrinsic_instr* load = nir_instr_as_intrinsic(instr);
++   if (load->intrinsic != nir_intrinsic_load_constant || load->def.bit_size <= 8)
++      return false;
++
++   b->cursor = nir_after_instr(instr);
++   nir_def* decoded[NIR_MAX_VEC_COMPONENTS];
++   for (unsigned i = 0; i < load->def.num_components; i++) {
++      nir_def* value = nir_channel(b, &load->def, i);
++      if (load->def.bit_size == 64) {
++         nir_def* lo = nir_unpack_64_2x32_split_x(b, value);
++         nir_def* hi = nir_unpack_64_2x32_split_y(b, value);
++         decoded[i] = nir_pack_64_2x32_split(b, reverse_constant_dword(b, hi),
++                                           reverse_constant_dword(b, lo));
++      } else if (load->def.bit_size == 16) {
++         value = nir_u2u32(b, value);
++         decoded[i] = nir_u2u16(b, nir_ior(b, nir_ishl_imm(b, value, 8),
++                                           nir_ushr_imm(b, value, 8)));
++      } else {
++         assert(load->def.bit_size == 32);
++         decoded[i] = reverse_constant_dword(b, value);
++      }
++   }
++   nir_def* result = nir_vec(b, decoded, load->def.num_components);
++   nir_def_rewrite_uses_after(&load->def, result, result->parent_instr);
++   return true;
++}
++#endif
+ 
+ static const std::array<aco_compiler_statistic_info, aco_num_statistics> statistic_infos = []()
+ {
+@@ -267,8 +318,26 @@
+    program->debug.func = options->debug.func;
+    program->debug.private_data = options->debug.private_data;
+ 
++   /* Do not mutate shared/cached NIR or apply a decode twice on variants. */
++#if UTIL_ARCH_BIG_ENDIAN
++   void* native_constant_ctx = ralloc_context(NULL);
++   std::vector<nir_shader*> decoded_shaders;
++   if (options->is_opengl) {
++      for (unsigned i = 0; i < shader_count; i++) {
++         nir_shader* nir = nir_shader_clone(native_constant_ctx, shaders[i]);
++         if (nir_shader_instructions_pass(nir, decode_native_constant,
++                                          nir_metadata_control_flow, NULL))
++            nir_divergence_analysis(nir);
++         decoded_shaders.push_back(nir);
++      }
++      shaders = decoded_shaders.data();
++   }
++#endif
+    /* Instruction Selection */
+    select_program(program.get(), shader_count, shaders, &config, options, info, args);
++#if UTIL_ARCH_BIG_ENDIAN
++   /* Cloned NIR remains alive until the binary has been constructed. */
++#endif
+ 
+    std::string llvm_ir = aco_postprocess_shader(options, program);
+ 
+@@ -296,6 +365,9 @@
+                    program->statistics, stats_size, exec_size, code.data(), code.size(),
+                    symbols.data(), symbols.size(), program->debug_info.data(),
+                    program->debug_info.size());
++#if UTIL_ARCH_BIG_ENDIAN
++   ralloc_free(native_constant_ctx);
++#endif
+ }
+ 
+ void

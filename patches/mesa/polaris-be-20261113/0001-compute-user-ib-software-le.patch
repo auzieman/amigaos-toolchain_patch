@@ -1,0 +1,32 @@
+--- a/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
++++ b/src/gallium/winsys/amdgpu/drm/amdgpu_cs.cpp
+@@ -28,12 +28,13 @@
+ 
+ /* Opt-in diagnostic paired with kernel polaris11_le_user_ib=1.
+  * Keep CPU construction and chain-size fixups native until publication.
+- * This does not touch descriptors, shader binaries, or other engines.
++ * Applies to GFX and auxiliary COMPUTE IBs. Referenced payloads keep their own layouts.
+  */
+ static bool tabor_explicit_le_gfx_ib(struct amdgpu_winsys *aws, enum amd_ip_type ip)
+ {
+ #if UTIL_ARCH_BIG_ENDIAN
+-   return ip == AMD_IP_GFX && aws->info.family == CHIP_POLARIS11 &&
++   return (ip == AMD_IP_GFX || ip == AMD_IP_COMPUTE) &&
++          aws->info.family == CHIP_POLARIS11 &&
+           debug_get_bool_option("TABOR_POLARIS11_LE_IB", false);
+ #else
+    return false;
+@@ -2225,11 +2226,12 @@
+        * each completed chunk once, including links patched by set_ib_size.
+        * Kernel chunk metadata remains native; only GPU IB memory is LE.
+        */
+-      const char *capture_dir = cs->ip_type == AMD_IP_GFX ? getenv("TABOR_IB_CAPTURE_DIR") : NULL;
++      const char *capture_dir = (cs->ip_type == AMD_IP_GFX || cs->ip_type == AMD_IP_COMPUTE) ? getenv("TABOR_IB_CAPTURE_DIR") : NULL;
+       static unsigned capture_serial;
+       unsigned capture_id = 0;
+       if (capture_dir) {
+          capture_id = p_atomic_inc_return(&capture_serial);
++         fprintf(stderr, "TABOR_IB_CAPTURE submit=%u ip=%u\n", capture_id, (unsigned)cs->ip_type);
+          for (unsigned i = 0; i < rcs->num_prev; i++)
+             tabor_capture_ib(capture_dir, capture_id, i, "canonical", rcs->prev[i].buf,
+                              rcs->prev[i].cdw, true);

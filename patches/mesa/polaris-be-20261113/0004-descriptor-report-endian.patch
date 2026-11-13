@@ -1,0 +1,29 @@
+--- a/src/gallium/drivers/radeonsi/si_debug.c
++++ b/src/gallium/drivers/radeonsi/si_debug.c
+@@ -12,6 +12,7 @@
+ #include "sid_tables.h"
+ #include "tgsi/tgsi_from_mesa.h"
+ #include "util/u_dump.h"
++#include "util/u_endian.h"
+ #include "util/u_log.h"
+ #include "util/u_memory.h"
+ #include "util/u_process.h"
+@@ -657,7 +658,17 @@
+       unsigned gpu_dw_offset = chunk->slot_remap(i) * chunk->element_dw_size;
+       const char *list_note = chunk->gpu_list ? "GPU list" : "CPU list";
+       uint32_t *cpu_list = chunk->list + cpu_dw_offset;
+-      uint32_t *gpu_list = chunk->gpu_list ? chunk->gpu_list + gpu_dw_offset : cpu_list;
++      /* GPU descriptors are serialized LE words; the CPU backup is native.
++       * Decode before register formatting and semantic comparison on BE hosts.
++       */
++      uint32_t decoded_gpu_list[16];
++      uint32_t *gpu_list = cpu_list;
++      assert(chunk->element_dw_size <= ARRAY_SIZE(decoded_gpu_list));
++      if (chunk->gpu_list) {
++         for (unsigned j = 0; j < chunk->element_dw_size; j++)
++            decoded_gpu_list[j] = util_le32_to_cpu(chunk->gpu_list[gpu_dw_offset + j]);
++         gpu_list = decoded_gpu_list;
++      }
+ 
+       fprintf(f, COLOR_GREEN "%s%s slot %u (%s):" COLOR_RESET "\n", chunk->shader_name,
+               chunk->elem_name, i, list_note);

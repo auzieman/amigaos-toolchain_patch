@@ -1,0 +1,27 @@
+--- a/src/gallium/drivers/radeonsi/si_shader.c
++++ b/src/gallium/drivers/radeonsi/si_shader.c
+@@ -1166,6 +1166,24 @@
+       unsigned data_size = bin[i]->code_size - bin[i]->exec_size;
+       if (data_size) {
+          memcpy(rx_ptr + data_offset, bin[i]->code_buffer + bin[i]->exec_size, data_size);
++#if UTIL_ARCH_BIG_ENDIAN
++         /* ACO puts five native s_code_end words after exec_size for full
++          * shaders with append_endpgm. They precede the raw constant bytes;
++          * the executable-prefix loop above does not cover them. Shader
++          * parts include their markers in exec_size and are already encoded.
++          */
++         struct si_shader *owner = bin[i] == &shader->binary ? shader : shader->previous_stage;
++         if (owner && bin[i] == &owner->binary &&
++             (owner->selector->stage != MESA_SHADER_FRAGMENT || owner->is_monolithic)) {
++            assert(data_size >= 5 * sizeof(uint32_t));
++            const uint32_t *native = (const uint32_t *)(bin[i]->code_buffer + bin[i]->exec_size);
++            uint32_t *gpu = (uint32_t *)(rx_ptr + data_offset);
++            for (unsigned j = 0; j < 5; j++) {
++               assert(native[j] == 0xbf9f0000u);
++               gpu[j] = util_cpu_to_le32(native[j]);
++            }
++         }
++#endif
+          data_offset += data_size;
+       }
+    }
