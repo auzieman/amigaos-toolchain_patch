@@ -84,8 +84,9 @@ try:
      expected_version=reviewed.get('source_patch',{}).get('version',expected_version)
      required_patch=reviewed.get('source_patch',{}).get('sha256')
      if required_patch and record.get('patched_source',{}).get('patch_sha256')!=required_patch:
-      r['historical_variants_not_indexed'].append({'file':name,'receipt':str(path.relative_to(a.base)),'reason':'superseded-source-patch','required_patch_sha256':required_patch})
-      continue
+      # A new same-version source patch does not invalidate previously built
+      # dependency providers. Worker reuse still requires matching patch evidence.
+      r.setdefault('historical_dependency_providers',[]).append({'file':name,'receipt':str(path.relative_to(a.base)),'reason':'different-source-patch; dependency-provider-only','selected_patch_sha256':required_patch})
     identity=Dsc(capture(['dpkg-deb','-f',f]).splitlines())
     source_field=identity.get('Source',source_name)
     binary_source_version=source_field.split('(',1)[1].rstrip(')') if '(' in source_field else identity['Version']

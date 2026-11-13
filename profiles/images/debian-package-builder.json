@@ -197,7 +197,29 @@
     "xft",
     "libdaemon",
     "libxpm",
-    "libxxf86vm"
+    "libxxf86vm",
+    "gtk+3.0",
+    "gtk4",
+    "apt",
+    "gnupg2",
+    "c-ares",
+    "libassuan",
+    "libksba",
+    "libpsl",
+    "libssh2",
+    "libusb-1.0",
+    "lm-sensors",
+    "nghttp2",
+    "nghttp3",
+    "ngtcp2",
+    "npth",
+    "publicsuffix",
+    "tcp-wrappers",
+    "cunit",
+    "jansson",
+    "libseccomp",
+    "libva",
+    "tpm2-tss"
   ],
   "notes": "One package build at a time; add packages only after source/recipe/dependency intake. Mesa/EFL diagnostic outputs are retained separately; no host libraries enter target packages.",
   "package_inputs": {
@@ -1237,6 +1259,94 @@
     "libxxf86vm": {
       "source_lock": "profiles/closure-prerequisite-sources.lock.json",
       "source_cache": "closure-source-cache-003"
+    },
+    "gtk+3.0": {
+      "source_lock": "profiles/workstation-gtk-sources-20261111.lock.json",
+      "source_cache": "workstation-source-cache-20261111"
+    },
+    "gtk4": {
+      "source_lock": "profiles/workstation-gtk-sources-20261111.lock.json",
+      "source_cache": "workstation-source-cache-20261111"
+    },
+    "apt": {
+      "source_lock": "profiles/apt-ssh-sources-20261111.lock.json",
+      "source_cache": "apt-ssh-source-cache-20261111"
+    },
+    "gnupg2": {
+      "source_lock": "profiles/apt-ssh-sources-20261111.lock.json",
+      "source_cache": "apt-ssh-source-cache-20261111"
+    },
+    "c-ares": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "libassuan": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "libksba": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "libpsl": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "libssh2": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "libusb-1.0": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "lm-sensors": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "nghttp2": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "nghttp3": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "ngtcp2": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "npth": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "publicsuffix": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "tcp-wrappers": {
+      "source_lock": "profiles/broad-core-sources-20261111.lock.json",
+      "source_cache": "broad-core-source-cache-20261111"
+    },
+    "cunit": {
+      "source_lock": "profiles/boot-media-sources-20261111.lock.json",
+      "source_cache": "boot-media-source-cache-20261111"
+    },
+    "jansson": {
+      "source_lock": "profiles/boot-media-sources-20261111.lock.json",
+      "source_cache": "boot-media-source-cache-20261111"
+    },
+    "libseccomp": {
+      "source_lock": "profiles/boot-media-sources-20261111.lock.json",
+      "source_cache": "boot-media-source-cache-20261111"
+    },
+    "libva": {
+      "source_lock": "profiles/boot-media-sources-20261111.lock.json",
+      "source_cache": "boot-media-source-cache-20261111"
+    },
+    "tpm2-tss": {
+      "source_lock": "profiles/boot-media-sources-20261111.lock.json",
+      "source_cache": "boot-media-source-cache-20261111"
     }
   },
   "tools_prefix": "/usr/lib/tabor-spe-toolchain",

@@ -10,6 +10,20 @@ PowerPC ports are references for packaging mechanics, not ABI substitutes.
 Route demonstrated compiler/runtime defects to tabor-spe-forward-port and
 board/kernel work to tabor-kernel-build.
 
+Current compiler requirement (user, 2026-11-11): GCC14 throughout the target
+SDK/runtimes, build roots and final compiled packages. Consult
+profiles/compiler-policy.json; keep consumer compilation stopped until that
+foundation is qualified. GCC8 receipts are retained bootstrap history, not
+acceptable final distribution outputs. Current GCC14 C++ runtime failure belongs
+to tabor-spe-forward-port; do not resume GCC8 packaging to work around it.
+
+Target is powerpcspe / powerpc-linux-gnuspe, P1022 e500v2, ELF32 big endian.
+Preserve the qualified ABI flags: -mcpu=8548 -mabi=spe -mspe
+-mfloat-gprs=double, and the qualified long-double ABI. Verify compiler defaults
+and resulting instructions; do not introduce AltiVec or classic FPR instructions.
+Do not apply userspace flags blindly to kernel compilation. Kernel SPE/context
+configuration belongs to the kernel workflow and its qualified configuration.
+
 Use Debian metadata and tooling as the authority: source Build-Depends,
 Build-Conflicts, architecture restrictions and profiles; dpkg architecture
 registration; dose installability; sbuild/apt installation and dpkg-buildpackage.
@@ -66,3 +80,22 @@ its dependency closure; QEMU client painting and physical CPU/RAM/Radeon tests
 are separate gates. Report new accepted source/binary outputs, root provenance,
 active jobs, grouped blockers and the next image/runtime gate. Never describe
 a submitted correction as deployed or a build as target-runtime validated.
+
+Cross-build failure checklist (adapted from the supplied pipeline example):
+- Start with sbuild --build=amd64 --host=powerpcspe --profiles=cross,nocheck.
+  Add nobiarch, nopython or pkg.<source>.* only when the selected source actually
+  implements the profile; record omitted outputs and required full rebuilds.
+- Distinguish executable build tools from target headers/libraries before
+  changing architecture qualifiers. Native generators run on amd64; target
+  development libraries stay SPE. In particular, Python generators and target
+  libpython development headers are separate requirements. Follow actual
+  Build-Depends/Multi-Arch semantics, not a blanket :native rewrite.
+- Publish inspected .deb outputs to the signed local archive, refresh apt
+  metadata in the appropriate build root, and let sbuild/apt install them.
+  Preserve the existing qualified archive/root mechanism; no parallel reprepro
+  service or sbuild-update requirement without an actual need.
+- For configure runtime tests or Meson introspection, use measured target cache
+  answers/properties or package-supported cross mechanisms. Never invent
+  ac_cv_* values just to pass configuration. Where target execution is needed
+  to establish an answer, retain separate QEMU/board evidence. Keep source,
+  toolchain and ABI provenance with the answer.

@@ -9,13 +9,18 @@ from pathlib import Path
 from apt_archive_cache import prepare as prepare_apt_cache, retain as retain_apt_cache, refresh as refresh_apt_cache, mapped_root_ids
 from native_archive_recovery import requests_for_failure
 from sbuild_local_repository import prepare as prepare_local_repository
-from shared_sdk_mount import ensure_read_only as ensure_read_only_sdk
+from shared_sdk_mount import require_read_only as require_read_only_sdk
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--project',type=Path,required=True)
 p.add_argument('--base',type=Path,required=True)
 p.add_argument('--spec',type=Path,required=True)
 p.add_argument('--output',type=Path,required=True)
 a=p.parse_args();spec=json.loads(a.spec.read_text())
+if not spec.get('prepare_only') and spec.get('host_architecture','powerpcspe') == 'powerpcspe':
+ policy=json.loads((a.project/'profiles/compiler-policy.json').read_text())
+ assert policy['required_gcc_major']==14 and policy['qualification_status']=='passed' and policy.get('qualified_sdk_receipt'), 'SPE compilation blocked pending qualified GCC14 SDK; GCC8 is not permitted'
+ assert policy.get('qualified_sdk_receipt_sha256') and spec.get('native_toolchain_inputs'), 'Qualified GCC14 compiler inputs required'
+ assert all(x['receipt_sha256']==policy['qualified_sdk_receipt_sha256'] for x in spec['native_toolchain_inputs']), 'Build spec selects an unqualified or obsolete SDK'
 base_lock=json.loads((a.project/spec['base_lock']).read_text())
 assert spec['uapi_version']==base_lock['target_foundation']['linux_uapi_local'], 'UAPI version differs from frozen base'
 assert a.output.resolve().is_relative_to((a.base/'work').resolve())
@@ -84,6 +89,8 @@ try:
    assert sha(src)==shared_sdk['package_sha256'] and sha(receipt)==shared_sdk['sdk_receipt_sha256']
   else:shutil.copyfile(src,extras/src.name)
   r['extra_package_inputs'].append({'file':src.name,'sha256':sha(src),'role':'shared read-only installed compiler' if shared_sdk else 'native SPE cross compiler','receipt_sha256':sha(receipt)})
+ if not spec.get('prepare_only') and spec.get('host_architecture','powerpcspe')=='powerpcspe':
+  r['compiler']={'gcc_major':14,'sdk_receipt_sha256':policy['qualified_sdk_receipt_sha256']}
  root_receipt=a.base/spec['native_root_receipt'];assert sha(root_receipt)==spec['native_root_receipt_sha256']
  root_record=json.loads(root_receipt.read_text());assert root_record['status']=='native-buildd-root-created'
  assert root_record.get('base_lock_sha256')==sha(a.project/spec['base_lock']), 'Root must match the frozen base lock'
@@ -170,7 +177,9 @@ try:
  uapi_version=spec['uapi_version']
  assert re.fullmatch(r'[0-9A-Za-z.+:~_-]+',uapi_version)
  core_version=spec.get('cross_core_version','1.0+spe2')
- assert core_version in ['1.0+spe2','1.0+spe3','1.0+spe4','1.0+spe5']
+ assert subprocess.run(['dpkg','--validate-version',core_version],stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL).returncode==0, 'Invalid cross-build core version'
+ core_packages=list(extras.glob('crossbuild-essential-powerpcspe_*.deb'))
+ assert any(subprocess.check_output(['dpkg-deb','-f',str(package),'Version'],text=True).strip()==core_version for package in core_packages), 'Pinned cross-build core package missing from verified inputs'
  config.write_text("$crossbuild_core_depends = { powerpcspe => ['crossbuild-essential-powerpcspe:native (= "+core_version+")'] };\n1;\n")
  with config.open('a') as f:
   f.write("$unshare_tmpdir_template = '"+str(build_tmp)+"/tmp.sbuild.XXXXXXXXXX';\n1;\n")
@@ -181,7 +190,7 @@ try:
   assert sdk_path.resolve().is_relative_to((a.base.parent.parent/'tabor-shared-sdk').resolve())
   assert shared_sdk['mountpoint']=='/usr/lib/tabor-spe-toolchain'
   assert sha(a.base/shared_sdk['manifest'])==shared_sdk['manifest_sha256']
-  ensure_read_only_sdk(sdk_path,json.loads((a.base/shared_sdk['manifest']).read_text()))
+  require_read_only_sdk(sdk_path)
   mount_options=subprocess.check_output(['findmnt','--noheadings','--output','VFS-OPTIONS','--target',sdk_path],text=True).strip().split(',')
   assert 'ro' in mount_options, 'Shared compiler must be a read-only mount before a build starts'
   r['shared_sdk']=shared_sdk;save()

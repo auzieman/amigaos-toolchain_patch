@@ -1,3 +1,29 @@
+## GCC14-only Tabor Linux Forge foundation — user direction 2026-11-11
+
+All new target compilation must use qualified GCC14/SPE, including target
+runtimes, package roots and image artifacts. GCC8 outputs remain historical
+bootstrap evidence; they do not qualify as final distribution packages.
+GCC8 queue026/controller and active package units were stopped. Compiler policy
+blocks new submissions and direct SPE package builds until GCC14 qualification
+and root migration are recorded. Next work is the candidate C++ runtime link
+failure, then ABI qualification and genuine SDK/runtime packaging.
+
+## Boot-media broad follow-up017 — 2026-11-11
+
+Plan: `profiles/sbuild/boot-media-workstation-20261111.json`; R730 run
+`work/port-boot-media-20261111-017`. Five exact frozen producer sources added;
+audit uses Debian-supported nopython bootstrap, with full rebuild retained.
+Next gate: refresh signed target archive, apt/dpkg base installation and QEMU
+shell/network/SSH validation before copying an accepted root onto PNY.
+
+## Incremental apt/SSH QEMU + PNY installation — 2026-11-11
+
+User-selected next milestone: genuine package-managed shell and SSH, then
+incremental software X/E on QEMU and PNY. Apt/signature-verifier source intake
+is pinned and cached; core follow-up includes zlib's accepted direct build and
+measured Kerberos configure fix, with normal dependency resolution required.
+See [staged goal](builds/manual-core-20261111/incremental-install-goal.md).
+
 ## Native vertex physical RGB trial: GFX timeout / recovery — 2026-11-09
 
 Single user-authorized standard offscreen RGB FBO trial reached actual candidate

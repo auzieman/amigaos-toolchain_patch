@@ -1,0 +1,54 @@
+{
+  "scope": "Frozen dependency producer source intake; candidates, not compiler/base upgrades or accepted builds",
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "components": {
+    "apt": {
+      "version": "3.0.3",
+      "dsc": "apt_3.0.3.dsc",
+      "files": [
+        {
+          "filename": "apt_3.0.3.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apt/apt_3.0.3.dsc",
+          "size": 3091,
+          "sha256": "ccf1666e5b268d76bf62aafb22db089a2fdae9c17d1d1c446546b3621768add7"
+        },
+        {
+          "filename": "apt_3.0.3.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/a/apt/apt_3.0.3.tar.xz",
+          "size": 2422096,
+          "sha256": "5b5f6f6d26121742a83aa80d4ed0eb0c6ce9bea259518db412edefd95760e4ef"
+        }
+      ]
+    },
+    "gnupg2": {
+      "version": "2.4.7-21+deb13u1",
+      "dsc": "gnupg2_2.4.7-21+deb13u1.dsc",
+      "files": [
+        {
+          "filename": "gnupg2_2.4.7-21+deb13u1.dsc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gnupg2/gnupg2_2.4.7-21+deb13u1.dsc",
+          "size": 4933,
+          "sha256": "30a96cd2d26a57f6796507bf8f083825734d4081e3c5f922d2b99bb2bf671212"
+        },
+        {
+          "filename": "gnupg2_2.4.7.orig.tar.bz2",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gnupg2/gnupg2_2.4.7.orig.tar.bz2",
+          "size": 8010244,
+          "sha256": "7b24706e4da7e0e3b06ca068231027401f238102c41c909631349dcc3b85eb46"
+        },
+        {
+          "filename": "gnupg2_2.4.7.orig.tar.bz2.asc",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gnupg2/gnupg2_2.4.7.orig.tar.bz2.asc",
+          "size": 390,
+          "sha256": "cec7da75dab60e3e2f6bf92ed1174126a1e5a1cc5e448f9e004a23be2dd227f6"
+        },
+        {
+          "filename": "gnupg2_2.4.7-21+deb13u1.debian.tar.xz",
+          "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/gnupg2/gnupg2_2.4.7-21+deb13u1.debian.tar.xz",
+          "size": 131264,
+          "sha256": "3941a8a537e258f6216ad1c1b9ecb255dfc286e5d03eb39805e536de4a448856"
+        }
+      ]
+    }
+  }
+}

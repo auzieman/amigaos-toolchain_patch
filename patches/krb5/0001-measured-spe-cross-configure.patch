@@ -7,7 +7,7 @@ as a package build step.
 
 --- a/debian/rules
 +++ b/debian/rules
-@@ -1,5 +1,14 @@
+@@ -1,5 +1,18 @@
  #!/usr/bin/make -f
  # Based on sample debian/rules that uses debhelper.
  # GNU copyright 1997 by Joey Hess.
@@ -18,6 +18,10 @@ as a package build step.
 +# Verified separately with the pinned compiler/glibc in e500v2 QEMU.
 +# Same cache predicate as Debian dpkg-cross's Kerberos configuration.
 +export krb5_cv_attr_constructor_destructor = yes,yes
++# Exact regcomp/regexec configure probe passed SPE QEMU with glibc2.41.
++export ac_cv_func_regcomp = yes
++# POSIX positional printf probe passed SPE QEMU with glibc2.41.
++export ac_cv_printf_positional = yes
 +endif
 +endif
  

@@ -27,6 +27,7 @@ version='8.5.0+tabor1';components={}
 with tarfile.open(archive) as upstream:
  licenses={n:upstream.extractfile('gcc-8.5.0/'+n).read() for n in ['COPYING3','COPYING3.LIB','COPYING.RUNTIME']}
 for mode in ['canonical','provider']:
+ version='8.5.0+tabor3' if mode=='canonical' else '8.5.0+tabor1'
  source='tabor-spe-libatomic-'+mode;tree=a.output/source;debian=tree/'debian';debian.mkdir(parents=True);runtime=tree/'runtime';runtime.mkdir()
  library='libatomic1' if mode=='canonical' else 'tabor-spe-libatomic1'
  shutil.copyfile(stage/'libatomic.so.1.2.0',runtime/'libatomic.so.1.2.0')
@@ -53,7 +54,7 @@ Description: Recorded GCC8.5 SPE atomic runtime
 Package: tabor-spe-libatomic-dev
 Architecture: powerpcspe
 Multi-Arch: same
-Depends: libatomic1 (= ${binary:Version}), ${misc:Depends}
+Depends: libatomic1 (>= 8.5.0+tabor1), ${misc:Depends}
 Description: Recorded SPE atomic development files
  Static library and linker symlink for the real GCC8.5 atomic runtime.
 '''
@@ -65,7 +66,7 @@ Description: Recorded SPE atomic development files
  (debian/(library+'.links')).write_text('usr/lib/powerpc-linux-gnuspe/libatomic.so.1.2.0 usr/lib/powerpc-linux-gnuspe/libatomic.so.1\n')
  if mode=='canonical':
   (debian/'tabor-spe-libatomic-dev.install').write_text('runtime/libatomic.a usr/lib/powerpc-linux-gnuspe/\n')
-  (debian/'tabor-spe-libatomic-dev.links').write_text('usr/lib/powerpc-linux-gnuspe/libatomic.so.1 usr/lib/powerpc-linux-gnuspe/libatomic.so\nusr/lib/powerpc-linux-gnuspe/libatomic.so.1 usr/lib/tabor-spe-toolchain/powerpc-linux-gnuspe/lib/libatomic.so\nusr/lib/powerpc-linux-gnuspe/libatomic.a usr/lib/tabor-spe-toolchain/powerpc-linux-gnuspe/lib/libatomic.a\n')
+  (debian/'tabor-spe-libatomic-dev.links').write_text('usr/lib/powerpc-linux-gnuspe/libatomic.so.1 usr/lib/powerpc-linux-gnuspe/libatomic.so\n')
  (debian/'changelog').write_text(f'{source} ({version}) UNRELEASED; urgency=medium\n\n  * Assemble recorded, provenance-checked SPE atomic runtime.\n\n -- Tabor SPE lab <root@localhost>  Tue, 03 Nov 2026 00:20:00 +0000\n')
  (debian/'source').mkdir();(debian/'source/format').write_text('3.0 (native)\n')
  docs=tree/'licenses';docs.mkdir()

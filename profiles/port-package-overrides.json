@@ -127,7 +127,10 @@
     },
     "libcap-ng": {
       "binary_nmu": 1,
-      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change.",
+      "bootstrap_profiles": "cross,nocheck,nopython",
+      "full_rebuild_required": true,
+      "purpose": "Use upstream-supported nopython bootstrap to expose C library/development outputs before target Python; retain normal bindings rebuild."
     },
     "acl": {
       "binary_nmu": 1,
@@ -135,7 +138,9 @@
     },
     "zlib": {
       "binary_nmu": 1,
-      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change."
+      "binary_nmu_reason": "Existing reviewed binary revision in image-builder package_inputs; reconcile with the standard runner registry. No inferred version or source/ABI change.",
+      "spec": "profiles/sbuild/zlib.json",
+      "purpose": "Pass target compiler and explicit build/host tuples to bundled minizip; prevent native objects linking SPE zlib."
     },
     "libpciaccess": {
       "binary_nmu": 3,
@@ -188,6 +193,28 @@
     "krb5": {
       "spec": "profiles/sbuild/krb5.json",
       "purpose": "Use Debian dpkg-cross Kerberos cache predicate measured against the pinned SPE compiler/glibc; feeds RPC/Python and audit/SSH dependencies"
+    },
+    "audit": {
+      "bootstrap_profiles": "cross,nocheck,nopython",
+      "full_rebuild_required": true,
+      "purpose": "Debian-supported nopython bootstrap supplies libaudit-dev for PAM, SSH, Xorg and systemd before target Python bindings; full bindings build remains required."
+    },
+    "xxhash": {
+      "spec": "profiles/sbuild/xxhash.json",
+      "purpose": "Pass target CC and AR explicitly to Debian install helper; plain-make install helper does not supply cross compiler automatically."
+    },
+    "grep": {
+      "spec": "profiles/sbuild/grep.json",
+      "purpose": "Debian stray-backslash patch declares directly after a label; insert a no-op statement for the accepted pre-C23 SPE compiler without changing warning behavior."
+    },
+    "ncurses": {
+      "spec": "profiles/sbuild/ncurses.json",
+      "purpose": "Recognize linux-gnuspe in upstream glibc feature-test selection, matching other GNU/Linux ABIs; restore wide-character declarations without suppressing diagnostics."
+    },
+    "libseccomp": {
+      "bootstrap_profiles": "cross,nocheck,nopython",
+      "full_rebuild_required": true,
+      "purpose": "Use Debian-supported nopython bootstrap to expose C library and libseccomp-dev for apt before target Python. Retain full Python binding rebuild."
     }
   }
 }

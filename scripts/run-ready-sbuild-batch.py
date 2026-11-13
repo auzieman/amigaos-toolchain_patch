@@ -139,7 +139,8 @@ try:
      acquisition=archive_failures(source_log)
      item['archive_diagnostics']=acquisition
      text='\n'.join(errors+acquisition)+journal
-     if re.search(r'oom-kill|OOM killer|Error creating chroot|Permission denied',text):category='infrastructure'
+     if not source_log.exists():category='pre-sbuild-setup'
+     elif re.search(r'oom-kill|OOM killer|Error creating chroot|Permission denied',text):category='infrastructure'
      elif re.search(r'Syntax error .*apt.conf|apt-utils.*not installed',text):category='build-root-configuration'
      elif acquisition:category='archive-acquisition'
      elif re.search(r'trying to overwrite|dpkg: error processing archive',text):category='package-coinstallation'
@@ -149,6 +150,7 @@ try:
      else:category='needs-review'
      item['failure_category']=category
     save()
+  assert not any(item.get('failure_category')=='pre-sbuild-setup' for item in r['items']), 'Wrapper failed before sbuild; stop the batch and repair shared setup before more consumers'
   # Recompute with Debian's solver after newly built artifacts become available.
   pending=[name for name in plan['packages'] if name not in attempted]
   if not pending:

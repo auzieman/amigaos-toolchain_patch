@@ -1,0 +1,65 @@
+{
+  "defaults": "profiles/sbuild/libx11.json",
+  "initial_audit": "work/debian-dependency-audit-009",
+  "initial_audit_sha256": "678525bec2be0407e4bbfce40b1c98f6faba80a5bf5ce5bd8fa6dffa65ccfc7c",
+  "concurrency": 4,
+  "run_prefix": "sbuild-ready-20261103-009",
+  "unit_prefix": "tabor-ready9-build",
+  "packages": [
+    "zlib"
+  ],
+  "configure_cache_sources": [
+    "libxext",
+    "libxrender",
+    "libxfixes",
+    "libxdamage",
+    "libxcomposite",
+    "libxi",
+    "libxinerama",
+    "libxcursor",
+    "libxrandr",
+    "libxtst",
+    "libxss",
+    "xorg-server",
+    "libxkbcommon",
+    "libxkbfile",
+    "libxfont",
+    "libice",
+    "libsm",
+    "libxt",
+    "libxaw",
+    "libxxf86vm"
+  ],
+  "scope": "Qualify corrected libatomic target development packaging in the real shared read-only SDK sbuild root before the workstation dependency batch.",
+  "patch_series": {
+    "openssl": {
+      "path": "patches/openssl/series.json",
+      "sha256": "1eb248487e90941e64ce9f3e6f1807e67a513f64d6ddf4943bf07136bd9c4e2d"
+    },
+    "fuse3": {
+      "path": "patches/fuse3/series.json",
+      "sha256": "462ed8c9e058d95872c3f8ded53622733ec97c7a9f3e858059104407090af69d"
+    }
+  },
+  "deferred_foundation_candidates": {
+    "gcc-14": "Frozen SPE compiler is GCC8.5; do not silently switch compiler/runtime base",
+    "gcc-defaults": "Requires GCC14 port; retain actual frozen SDK until reviewed compiler restoration",
+    "java-common": "No SPE OpenJDK runtime/default selection; retain failed build, native Java tools remain installed"
+  },
+  "deferred_scope_candidates": {
+    "apache2": "Not selected for the desktop image; appears through AppArmor Apache-module build requirements. Review the base library bootstrap before adding a target web server build.",
+    "apr": "Apache-module chain; not an independently selected base desktop library.",
+    "gem2deb": "Ruby packaging helper; review native role instead of automatically porting a Ruby toolchain.",
+    "ruby3.3": "No selected desktop runtime requires Ruby at this stage; base C libraries use their supported bootstrap profiles when necessary.",
+    "sphinx": "Native documentation helper is already provisioned; no further target documentation-tool port is selected.",
+    "gobject-introspection": "Review native generator versus required target library role before scheduling this chain.",
+    "systemtap": "Do not build a target tracing suite automatically; establish any required SDK/header-only output first."
+  },
+  "registry": "profiles/port-package-overrides.json",
+  "bootstrap_packages": [],
+  "force_full_rebuild": [
+    "zlib"
+  ],
+  "require_patched_sources": [],
+  "prefetch_frozen_native_archives": true
+}

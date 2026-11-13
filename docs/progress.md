@@ -1,3 +1,13 @@
+## 2026-11-11 — continuous Debian build foundation repair
+
+Moved SDK mount preparation to controller startup; package workers only verify
+one read-only mount. Four regression tests pass, and isolated recursive mount
+cleanup passed on R730. Controlled cleanup reduced32767 mounts to one, verified SDK contents and
+passed ten repeated checks without mount growth. No files/caches deleted.
+Four concurrent post-cleanup sbuild qualification jobs are running; acceptance
+remains pending.
+See [evidence](builds/workstation-recheck-20261111/README.md).
+
 ## Native vertex physical RGB trial: GFX timeout / recovery — 2026-11-09
 
 Single user-authorized standard offscreen RGB FBO trial reached actual candidate
@@ -1579,3 +1589,19 @@ are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/iss
 2026-11-09 physical014: clean first bind/hash/options/rootRO accepted. Single standard RGB emits ACO unsupported f2f32 and undefined position-export operand before408DW submission; GFX timeout1/2, automaticreset/VRAMloss, no pass/retry. Complete70DW kernel envelope decoded, IBaddress/length/swap correlate, pipeline fence expected1 equals precapturedecoded1. Focus offline on compiler/fetch lowering before another trial. Evidence builds/mesa-native-vertex-20261109/kernel014/physical-rgb-014-001/.
 
 2026-11-09 provisional-fetch correction: reproduced physical ACO error offline; actual producer raw90/log2 but provisional keyraw00/log0 hit unconditional native decoder, yielding8bitfloat->f2f32. Removed global consumer override; populated key still owns decoding. CleanSPEbuild andRGB/point compiler gatespass; oldloggatefails. Selected uploads unchanged vs prior runs, so this corrects ownpatch compiler fault but does not establish hangfix; no boardretry/deploy. Prior offlinequalification missed diagnostics. See builds/mesa-native-vertex-20261109/f2f-fix/.
+
+2026-11-11 boot-media follow-up017: reviewed broad016 fallout (ten new accepted source builds; grep/ncurses/xxhash compile failures retained). Authenticated frozen source intake cached libseccomp, jansson, cunit, tpm2-tss and libva without changing the baseline. Selected Debian audit nopython bootstrap from actual control/rules to unlock libaudit consumers; full Python bindings rebuild remains required. New 200-source boot-media plan reuses accepted builds and retains four-job limits. Submission is not target installation or boot acceptance.
+
+2026-11-11 pulse check:017 stopped before sbuild because controller dependency-audit output collided with source audit package output. No new accepted builds in017;80 unique sources reused before failure. Moved controller metadata under its own run directory, away from package outputs; syntax/path collision checks pass. Restarted as port-boot-media-20261111-018, foundation passed; real audit bootstrap compilation still pending. Server122GiB available RAM, data1 1.3TiB free, tmp empty.
+
+2026-11-11 core blocker hand-walk: audit nopython normal sbuild/payload inspection passed in018. Registered existing tracked grep/ncurses quilt fixes that were disconnected from active registry; corrected xxhash raw make install through dh_auto_install and normal DESTDIR. Actual Debian source preparation passes all three in handwalk-source-check-20261111-024; compilation remains pending. Follow-up024 queued after018; superseded pending snapshots stopped without builds. See builds/manual-core-20261111/handwalk-blockers.md.
+
+2026-11-11 Debian builder comparison: retained maintained ppc64el versus retired SPE ABI distinction; actual libseccomp nopython packaging reviewed and selected for bootstrap, xxhash explicit target CC/AR added after dh_auto_install alone failed. Submission now locally validates full selected inventory and locked-source presence before remote work.026 submitted; no complete service/image acceptance claimed. See builds/manual-core-20261111/debian-builder-comparison.md.
+
+2026-11-11 requested POWER8 control: clean standard ppc64el xxhash0.8.3-2 cross-build reproduces unmodified native-linker failure (EM21); explicit target CC/AR install correction passes exit0 with5debs/45seconds. Actual executable is ELF64 LE PowerPC64. Neither physical POWER8 execution nor SPE acceptance claimed. See builds/manual-core-20261111/power8-xxhash-control.md.
+
+2026-11-11 explicit GCC14-only correction: stopped old GCC8 controller/batch/apt job. User requires all target runtimes/packages/image output built with14; retained GCC8 receipts are historical only. Added pending compiler-policy and enforced local submission/direct SPE builder gate; negative submission test rejects before remote work. GCC14 qualification002 remains failed-not-promoted (SDK build0, C++ probe link failure); next priority is qualification/root migration, not further GCC8 packaging.
+
+2026-11-12 GCC14 resume after R730 reboot: exact unresolved strstream D1 destructor thunk symbols isolated in object before shared-library linking. Four one-file assembly reproductions (O2, noICF, O0, no-devirtualization) all emit thunk sections/body/reference without callable labels. No GCC8 job restarted, no full SDK rebuild or fix claimed. Evidence: builds/gcc14-sdk-20261108/thunk-review-20261112.md.
+
+2026-11-12 GCC14 thunk FIX VERIFIED: restored powerpcspe hook lacked GCC14-owned assemble_start/end_function calls. Patch0018, isolated compiler/full libstdc++ rebuild/install exit0, missingD1thunks nowdefined; C++link+all4QEMUchecks pass. C suite only directedrounding fails; source-backed QEMU10.0.13 spe_fscr versus vec_status synchronization gap retained as next control, not dismissed. Provenance guard/test blocks GCC8/unknown/stale compiler reuse. Desktop4 viewers reconnected. Larger package loop remains stopped pending runtime/SDK/root qualification. See builds/gcc14-sdk-20261108/thunk-fix-20261112.md.

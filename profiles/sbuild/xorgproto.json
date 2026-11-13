@@ -2,7 +2,19 @@
   "package": "xorgproto",
   "source_lock": "profiles/expanded-sources.lock.json",
   "source_cache": "x11-source-cache",
-  "extra_receipts": [],
+  "extra_receipts": [
+    {
+      "receipt": "work/sbuild-libatomic-provider-002/receipt.json",
+      "sha256": "2e62252e0fbb71fc7f92bfeb11f8b1d94d3cd92a5caa9b4ad89f883270c48f8d",
+      "packages": [
+        "tabor-spe-libatomic1"
+      ],
+      "files": [
+        "tabor-spe-libatomic1_8.5.0+tabor1_powerpcspe.deb"
+      ],
+      "build_root_only": true
+    }
+  ],
   "scope": "Normal Debian Architecture:all X11 protocol header/data packaging; strict dh_missing preserved",
   "native_root_receipt": "work/clean-cross-buildd-002/receipt.json",
   "native_root_receipt_sha256": "6b46d8eab205f291caa5440d9187d83eb23b3893111509e789b5e1c7c02c2584",
@@ -10,7 +22,7 @@
   "native_toolchain_inputs": [],
   "base_lock": "profiles/trixie-spe-base.lock.json",
   "uapi_version": "6.12.115-2+spe1",
-  "cross_core_version": "1.0+spe5",
+  "cross_core_version": "1.0+spe7",
   "indep_only": true,
   "build_profiles": "nocheck",
   "source_patch": {

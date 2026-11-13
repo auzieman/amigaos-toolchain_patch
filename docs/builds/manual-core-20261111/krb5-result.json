@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/srv/data1/tabor-build/linux-live-001/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/srv/data1/tabor-build/linux-live-001/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-static",
+    "/home/owner/krb5-regcomp-check-20261111-001/regcomp.c",
+    "-o",
+    "/home/owner/krb5-regcomp-check-20261111-001/regcomp"
+  ],
+  "exit": 0,
+  "stdout": "libc=2.41 result=0\n",
+  "stderr": ""
+}

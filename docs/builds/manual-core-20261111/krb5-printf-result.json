@@ -1,0 +1,20 @@
+{
+  "source_sha256": "623cb562843a32a730d70ee1cebad9f125736bd0e928fd3aa130e76ee6d25d5c",
+  "binary_sha256": "3ccb6bf306f1ba870fe4720ce5573eb548503c6a5f8fffdee9ab6909a6a28617",
+  "compile_command": [
+    "/srv/data1/tabor-build/linux-live-001/tools/gcc-unwind-003/bin/powerpc-linux-gnuspe-gcc",
+    "--sysroot=/srv/data1/tabor-build/linux-live-001/sysroot",
+    "-mcpu=8548",
+    "-mabi=spe",
+    "-mspe",
+    "-mfloat-gprs=double",
+    "-mlong-double-128",
+    "-static",
+    "/home/owner/krb5-printf-check-20261111-001/printf.c",
+    "-o",
+    "/home/owner/krb5-printf-check-20261111-001/printf"
+  ],
+  "exit": 0,
+  "stdout": "libc=2.41 actual=<200 100> expected=<200 100>\n",
+  "stderr": ""
+}

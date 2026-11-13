@@ -11,6 +11,8 @@ import subprocess
 import time
 from pathlib import Path
 from build_failure_evidence import archive_failures
+from compiler_provenance import matches_qualified_compiler
+from shared_sdk_mount import ensure_read_only, require_read_only
 
 p = argparse.ArgumentParser(description=__doc__)
 for name in ['project', 'base', 'plan', 'output', 'native-audit']:
@@ -78,6 +80,9 @@ def already_built(name, bootstrap):
             continue
         if record.get('status') != 'debian-packages-built-not-target-installed' or record.get('package') != name:
             continue
+        policy = json.loads((a.project / 'profiles/compiler-policy.json').read_text())
+        if not matches_qualified_compiler(record, policy):
+            continue
         if record.get('binary_nmu', 0) != options.get('binary_nmu', 0):
             continue
         if record.get('source_version') != version or record.get('host_architecture') != 'powerpcspe':
@@ -104,10 +109,21 @@ try:
             assert previous['status'] in ['running','waiting-for-prior-run'], 'Prior pipeline needs infrastructure review'
             assert time.monotonic()<deadline, 'Prior pipeline wait timed out'
             time.sleep(10)
+        if plan.get('require_clean_predecessor'):
+            assert previous['status']=='selected-build-stages-completed' and not previous.get('fallout'), 'Foundation qualification did not pass cleanly; broad build stays held'
         r['status']='running'
+    # Prepare shared infrastructure once, before any source/worker is dispatched.
+    root_receipt=json.loads((a.base/defaults['native_root_receipt']).read_text())
+    assert sha(a.base/defaults['native_root_receipt'])==defaults['native_root_receipt_sha256']
+    shared=root_receipt.get('shared_sdk')
+    if shared:
+        assert sha(a.base/shared['manifest'])==shared['manifest_sha256']
+        ensure_read_only(Path(shared['path']),json.loads((a.base/shared['manifest']).read_text()))
+        require_read_only(Path(shared['path']))
+    r['foundation_preflight']='passed';save()
     historical_failures = []
     r['prior_failure_receipts'] = []
-    for receipt in sorted((a.base / 'work').glob('port-pipeline-*/receipt.json')):
+    for receipt in sorted((a.base / 'work').glob('port-*/receipt.json')):
         if receipt == a.output / 'receipt.json':
             continue
         record = json.loads(receipt.read_text())
@@ -136,8 +152,9 @@ try:
                 'reason': 'Preserve the accepted patched foundation; do not submit the vanilla source for a required SPE restoration.'})
     # Prepare reviewed changes before checking dependencies: the solver sees
     # the actual resulting DSC, including changed Debian Build-Depends.
+    selected_sources=set(plan['packages']) | set(plan.get('bootstrap_packages', []))
     for name, options in registry.items():
-        if not options.get('spec') or name in excluded:
+        if name not in selected_sources or not options.get('spec') or name in excluded:
             continue
         spec = json.loads((a.project / options['spec']).read_text())
         spec.update(prepare_only=True, extra_receipts=[], native_toolchain_inputs=[],
@@ -173,7 +190,8 @@ try:
             r['stages'].append({'stage':stage,'status':'reused-no-pending-sources'})
             save()
             continue
-        audit = a.base / 'work' / (prefix + '-' + stage + '-audit')
+        # Keep controller metadata outside the per-package output namespace: audit is a source name.
+        audit = a.output / (stage + '-dependency-audit')
         cmd = ['python3', a.project / 'scripts/audit-sbuild-dependencies.py',
             '--project', a.project, '--base', a.base, '--output', audit,
             '--reuse-native-audit', previous_audit, '--registry', a.project / plan['registry'],

@@ -1,0 +1,11 @@
+--- a/debian/rules
++++ b/debian/rules
+@@ -13,7 +13,7 @@
+ 	dh $@
+ 
+ override_dh_auto_install:
+-	$(MAKE) PREFIX=$(CURDIR)/debian/tmp/usr LIBDIR=$(CURDIR)/debian/tmp/usr/lib/$(DEB_HOST_MULTIARCH) install
++	dh_auto_install -- CC=$(DEB_HOST_GNU_TYPE)-gcc AR=$(DEB_HOST_GNU_TYPE)-ar PREFIX=/usr LIBDIR=/usr/lib/$(DEB_HOST_MULTIARCH)
+ 	dh_install
+ 
+ # not to be run, removes compiled files

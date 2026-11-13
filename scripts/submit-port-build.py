@@ -27,6 +27,19 @@ def remote(args, root=False, **kwargs):
     return subprocess.run(['python3', str(helper / ('sudo.py' if root else 'remote.py')),
                            shlex.join(list(map(str, args)))], check=True, **kwargs)
 
+policy = json.loads((project / 'profiles/compiler-policy.json').read_text())
+assert policy['required_gcc_major'] == 14
+assert policy['qualification_status'] == 'passed' and policy.get('qualified_sdk_receipt'), 'Package compilation blocked: GCC14 SPE SDK qualification and build-root migration are pending; GCC8 is not permitted'
+
+plan = json.loads((project / a.plan).read_text())
+builder = json.loads((project / 'profiles/images/debian-package-builder.json').read_text())
+requested = set(plan['packages']) | set(plan.get('bootstrap_packages', []))
+assert requested <= set(builder['packages']), 'Plan sources absent from builder inventory: ' + str(sorted(requested - set(builder['packages'])))
+for name in requested:
+    settings = {**builder, **builder.get('package_inputs', {}).get(name, {})}
+    lock = json.loads((project / settings['source_lock']).read_text())
+    assert name in lock['components'], 'Missing pinned source input: ' + name
+
 submission_unit = 'tabor-port-pipeline-next' if a.after_run else 'tabor-port-pipeline'
 for unit in ['tabor-port-pipeline', 'tabor-port-pipeline-next', 'tabor-ready-batch', 'tabor-indep-batch',
              'tabor-sbuild-proof', 'tabor-xorgproto-proof']:
