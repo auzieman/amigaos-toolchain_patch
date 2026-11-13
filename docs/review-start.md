@@ -1,3 +1,24 @@
+# Review starting point
+
+Current checkpoint (2026-11-13): GCC14-only Trixie powerpcspe distribution work.
+The restored SPE thunk-emission bug is fixed; compiler/full libstdc++ rebuild,
+C++ linking and e500v2 QEMU C++ tests pass. Directed C rounding remains open,
+with an emulator status-path explanation awaiting its corrected control. No
+qualified SDK/root migration, larger GCC14 package loop or completed image yet.
+
+Start with [the current GCC14 evidence](builds/gcc14-sdk-20261108/thunk-fix-20261112.md),
+[task priorities](task.md), [Debian port skill](../.agents/skills/tabor-debian-port/SKILL.md)
+and [publication checklist](publication-readiness.md).
+
+Near-term deliverable: installed Debian base with bash, dpkg/apt, init/devices,
+networking and SSH. Then software X11/Enlightenment and utilities. Preserve 3D
+work for later integration. GCC8 results are historical bootstrap evidence.
+Build/runtime fixes stay here; Forge receives pinned, reviewed build exports.
+
+## Historical review notes
+
+The older notes below are retained as evidence, not current worker status.
+
 Current work (2026-11-08): [PowerPlay failure and source correction](builds/polaris-powerplay-20261108/README.md).
 Physical6.12 test passes graphics/control/all8 compute and both SDMA scratch
 tests, then PCIe/SSH fail during PowerPlay initialization. User was asked for
@@ -27,7 +48,7 @@ Provisioning is running; this is not new-image acceptance. See progress.md for
 the latest verified results rather than interpreting older running queues below
 as current worker status.
 
-Private working repository for Auzieman and invited collaborators. Current
+Development repository for the Tabor SPE port. Current
 implementation targets Linux/SPE on A1222/Tabor; AmigaOS SDK integration still
 needs its host/target/runtime contract. The repository name does not establish
 that Linux glibc can serve as an AmigaOS C runtime.

@@ -1,4 +1,17 @@
-Private Tabor SPE toolchain project. Read README.md and docs/task.md before changes. Keep Linux target, host tools and AmigaOS target ABIs separate. Preserve upstream license notices; vendor sample availability is not permission to relicense. Never import unreleased Hyperion source into a public repository. Pin exact source revisions and patch hashes before builds. Use isolated constrained lab jobs; retain source/toolchain/config/artifact hashes and logs. Build, emulator execution and real A1222 boot are separate acceptance gates. Do not overwrite existing Tabor sources, images or SDKs. No automatic remote publication or deployment.
+Tabor SPE toolchain development project. Read README.md and docs/task.md before changes. Keep Linux target, host tools and AmigaOS target ABIs separate. Preserve upstream license notices; vendor sample availability is not permission to relicense. Never import unreleased Hyperion source into a public repository. Pin exact source revisions and patch hashes before builds. Use isolated constrained lab jobs; retain source/toolchain/config/artifact hashes and logs. Build, emulator execution and real A1222 boot are separate acceptance gates. Do not overwrite existing Tabor sources, images or SDKs. No automatic remote publication or deployment.
+
+Current user direction: GCC14 is required for all new target compilation and
+final target runtimes/packages. Earlier GCC8 locks and receipts are historical
+bootstrap evidence; do not resume them as the distribution foundation. Consult
+profiles/compiler-policy.json and docs/task.md before any build submission.
+
+Public-source preparation: read docs/publication-readiness.md and
+.agents/prompts/publication-review.md. Preserve source/component notices. Do not
+commit passwords, private keys, tokens, password hashes or machine-local account
+configuration. Inject authentication outside version control; redact diagnostic
+reports before display or publication. Repository visibility/history changes and
+publication require the user's explicit authorization; preparation is not release
+acceptance. Include relevant .agents skills/prompts with reviewed exports.
 
 Project workflows: use .agents/skills/tabor-debian-port for ongoing Debian package/desktop work; tabor-source-intake, tabor-kernel-build and tabor-spe-forward-port cover source qualification, board/kernel builds and compiler/runtime defects respectively. Reusable task starters live in .agents/prompts. Read only the skill for the current slice. docs/kernel-build.md owns the executable kernel recipe.
 
@@ -51,7 +64,8 @@ docs/debian-workflow-audit-20261102.md and record actual acceptance before
 claiming the52-source gap or a new desktop image is complete.
 
 
-Frozen base (user direction, 2026-11-02): profiles/trixie-spe-base.lock.json pins
+Historical bootstrap base (2026-11-02; superseded for compiler selection by
+the GCC14-only direction above): profiles/trixie-spe-base.lock.json pins
 Linux6.12.115-2, glibc2.41-12+deb13u4, GCC8.5.0/SPE SDKtabor5 and the immutable
 20261102T220000Z Debian/debian-security snapshot. No automatic base refresh or
 live-mirror fallback. A mismatch fails and remains recorded; upgrades require

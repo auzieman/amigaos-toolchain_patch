@@ -1,3 +1,8 @@
+Current requirement: GCC14 throughout target compilation and final artifacts.
+Check profiles/compiler-policy.json first. Do not use GCC8 as a fallback or reuse
+its packages as compiler-qualified final output. Prioritize the installed Debian
+base (console, dpkg/apt, init/devices, network/SSH); software X/E follows.
+
 Use $tabor-debian-port. Continue the frozen Trixie powerpcspe workstation port
 on the R730. First reconcile the last completed round, active jobs, accepted
 artifacts and grouped blockers with the actual submitted input hashes. If the

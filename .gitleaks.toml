@@ -1,0 +1,21 @@
+title = "Tabor source publication secret checks"
+
+[extend]
+useDefault = true
+
+[[rules]]
+id = "tabor-literal-credential"
+description = "Quoted literal credential assignment; review placeholders without exposing values"
+regex = '''(?i)(?:password|passwd|pwd|passphrase|api[_-]?key|access[_-]?token|client[_-]?secret)["']?\s*[:=]\s*["']([^"'\r\n]{3,})["']'''
+secretGroup = 1
+
+[[rules]]
+id = "tabor-unquoted-credential"
+description = "Unquoted configuration credential; review possible placeholders"
+regex = '''(?im)^\s*(?:password|passwd|passphrase|api[_-]?key|access[_-]?token|client[_-]?secret)["']?\s*[:=]\s*([A-Za-z0-9][A-Za-z0-9!@#$%^&*_.+/=-]{3,})\s*$'''
+secretGroup = 1
+
+[[rules]]
+id = "tabor-unix-password-hash"
+description = "Unix password hashes are sensitive even when plaintext is absent"
+regex = '''\$(?:1|2[aby]|5|6|y)\$[^\s"':]{12,}'''

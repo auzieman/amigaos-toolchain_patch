@@ -1,4 +1,26 @@
-# A1222 / SPE toolchain patches — private development
+# A1222 / SPE toolchain patches
+
+Development toolchain and Linux enablement for the A1222/Tabor P1022 e500v2.
+This is the authoritative compiler/runtime/kernel patch project;
+[Tabor Linux Forge](https://github.com/auzieman/tabor-linux-forge) consumes reviewed
+exports to assemble the distribution.
+
+## Current baseline
+
+- Target: `powerpcspe` / `powerpc-linux-gnuspe`, ELF32 big endian, SPE GPR float.
+- Required distribution compiler: **GCC14**, with Trixie-era glibc2.41 and kernel6.12.
+- The GCC14 SPE thunk fix and full C++ rebuild/link/QEMU checks pass.
+- Directed rounding under the tested QEMU remains an open qualification gate;
+  SDK/runtime packaging and clean-root migration are not complete.
+- The next image milestone is a real apt/dpkg-managed Debian base with console,
+  networking, apt and SSH; software X11/Enlightenment follow. 3D is deferred.
+- Earlier GCC8 packages are preserved bootstrap evidence, not final GCC14 outputs.
+
+See [the GCC14 checkpoint](docs/builds/gcc14-sdk-20261108/thunk-fix-20261112.md),
+[active tasks](docs/task.md), and [publication review](docs/publication-readiness.md).
+No release-ready SDK or complete workstation image is claimed.
+
+## Contributor entry points
 
 Start with [review status and prompts](docs/review-start.md).
 
@@ -29,6 +51,11 @@ Earlier software prerequisite slice: [source-built zlib/PNG/Pixman with QEMU run
 
 Previous R730 increment: [tested shared SPE C++ runtime and pinned desktop sources](docs/desktop-foundation.md),
 preparing the VM132-style E desktop. E now boots under software Xvfb; physical Xorg/Mesa/Radeon remain unvalidated.
+
+## Historical development records
+
+The dated records below describe earlier checkpoints; use the current baseline
+and task log above for present acceptance.
 
 Verified milestone (2026-10-30): the Debian 6.12.113-1 Tabor kernel completed
 vmlinux/modules/dtbs cross-compilation. A separate minimal profile of the same
@@ -66,7 +93,7 @@ build workspace (2026-10-31): KVM x86 and PPC TCG shell smoke tests passed.
 The larger image build and physical A1222 boot remain pending.
 
 Modernize the A1222/Tabor e500v2/SPE toolchain and Linux userspace, with a
-separate future AmigaOS SDK integration track. Private collaboration repository:
+separate future AmigaOS SDK integration track. Development repository:
 https://github.com/auzieman/amigaos-toolchain_patch . No Hyperion source imported. Collaboration interest was reported by
 the user; no access, endorsement or SDK compatibility is inferred.
 

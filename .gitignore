@@ -10,3 +10,15 @@ __pycache__/
 # Generated BKC run manifests and collected build artifacts.
 pipeline/**/source.json
 pipeline/**/artifacts/
+
+# Local credentials and private audit outputs; ignores do not remove Git history.
+.publication-audit/
+secrets/
+.env
+.env.*
+!.env.example
+**/owner-login.json
+**/id_rsa
+**/id_ed25519
+*.p12
+*.pfx

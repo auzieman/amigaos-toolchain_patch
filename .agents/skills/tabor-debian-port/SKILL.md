@@ -14,8 +14,9 @@ Current compiler requirement (user, 2026-11-11): GCC14 throughout the target
 SDK/runtimes, build roots and final compiled packages. Consult
 profiles/compiler-policy.json; keep consumer compilation stopped until that
 foundation is qualified. GCC8 receipts are retained bootstrap history, not
-acceptable final distribution outputs. Current GCC14 C++ runtime failure belongs
-to tabor-spe-forward-port; do not resume GCC8 packaging to work around it.
+acceptable final distribution outputs. The GCC14 C++ thunk/runtime fix passes its recorded checks; directed rounding
+and SDK/root migration remain open. Route remaining compiler qualification to
+tabor-spe-forward-port; do not resume GCC8 packaging to work around it.
 
 Target is powerpcspe / powerpc-linux-gnuspe, P1022 e500v2, ELF32 big endian.
 Preserve the qualified ABI flags: -mcpu=8548 -mabi=spe -mspe
@@ -99,3 +100,7 @@ Cross-build failure checklist (adapted from the supplied pipeline example):
   ac_cv_* values just to pass configuration. Where target execution is needed
   to establish an answer, retain separate QEMU/board evidence. Keep source,
   toolchain and ABI provenance with the answer.
+
+For source exports, follow docs/publication-readiness.md and
+.agents/prompts/publication-review.md. Keep credentials and redacted audit reports
+outside the repository; include reviewed skills and prompts with the source.
