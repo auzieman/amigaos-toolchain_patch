@@ -1,0 +1,30 @@
+[46.97] kernel 6.12.113-tabor-e2e-016 taint 0
+EXT4-fs error (device sdc2): ext4_mark_recovery_complete:6254: comm mount: Orphan file not empty on read-only fs.
+[46.99] modprobe amdgpu polaris11_le_user_ib=1
+[56.38] modprobe rc=0
+[56.39] param polaris11_le_user_ib=Y
+[56.39] param cg_mask=18446744073709551615
+[56.40] param ppfeaturemask=0xfff7bfff
+[56.41] idle regs:
+56.42 GRBM_STATUS=00003028 GRBM_STATUS2=00000008 GRBM_SE0=00000006 CP_STAT=00000000 CP_BUSY=00000000 CPF=00000000 ME_HDR=c0044700 PFP_HDR=ffff1000 RB0_RPTR=00000600 RB0_WPTR=00000600 IB1_LO=0094e000 IB1_SZ=00000000 SRBM=20000240 VMC1_FAULT=00000000 VMC1_ADDR=00000000 RLC_CGCG=0001003f
+[56.66] fence before packet tests: Last signaled fence 0x00000001 Last emitted 0x00000001 
+[60.69] gfx-write le: GFX_NATIVE_WRITE=PASS
+[64.97] gfx-write le vram: GFX_NATIVE_WRITE=PASS
+[67.00] gfx-write le uswc: GFX_NATIVE_WRITE=PASS
+[67.02] fence before gltest: Last signaled fence 0x00000007 Last emitted 0x00000007 
+[67.03] gltest clear start
+[70.03] gltest clear rc=0
+GL_RENDERER=AMD Radeon RX 550 Series (radeonsi, polaris11, ACO, DRM 3.61, 6.12.113-tabor-e2e-016)
+CLEAR bad_pixels=0/4096 -> PASS
+RESULT=PASS
+[70.08] fence after gltest clear: Last signaled fence 0x00000008 Last emitted 0x00000008 
+[83.82] waves-1.txt: live_waves=0
+[83.83] waves-2.txt: live_waves=0
+[83.84] regs after:
+83.84 GRBM_STATUS=00003028 GRBM_STATUS2=00000008 GRBM_SE0=00000006 CP_STAT=00000000 CP_BUSY=00000000 CPF=00000000 ME_HDR=c0055000 PFP_HDR=ffff1000 RB0_RPTR=00000200 RB0_WPTR=00000200 IB1_LO=00200000 IB1_SZ=00000000 SRBM=20000040 VMC1_FAULT=00000000 VMC1_ADDR=00000000 RLC_CGCG=0001003f
+[83.98] gltest draw start
+[86.17] gltest draw rc=0
+DRAW bad_pixels=0/4096 -> PASS
+RESULT=PASS
+[86.20] fence after gltest draw: Last signaled fence 0x00000009 Last emitted 0x00000009 
+[86.20] taint 0 done

@@ -1,0 +1,242 @@
+SHADER KEY
+  source_blake3 = {0x3530b498, 0x0e0f1c55, 0x756a66b1, 0xfabf2ae7, 0x978f721c, 0x06008e16, 0x88e2f88c, 0xc7236695}
+  mono.instance_divisor_is_one = 0
+  mono.instance_divisor_is_fetched = 0
+  mono.vs.fetch_opencode = 0
+  mono.vs.fix_fetch = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}
+  as_es = 0
+  as_ls = 0
+  as_ngg = 0
+  mono.u.vs_export_prim_id = 0
+  mono.remove_streamout = 0x0
+  mono.write_pos_to_clipvertex = 0
+  opt.kill_outputs = 0x0
+  opt.kill_clip_distances = 0x0
+  opt.kill_pointsize = 0
+  opt.kill_layer = 0
+  opt.remove_streamout = 0
+  opt.ngg_culling = 0x0
+  opt.ngg_vs_streamout_num_verts_per_prim = 0
+  opt.prefer_mono = 0
+  opt.inline_uniforms = 0
+
+Vertex Shader as VS:
+Shader main disassembly:
+ Shader disassembly is not supported in the current configuration (LLVM not available), falling back to print_program.
+
+After lowering to hw instructions:
+ACO shader stage: SW (VS), HW (VERTEX_SHADER)
+BB0
+/* logical preds: / linear preds: / kind: uniform, top-level, export_end, */
+	s_setprio imm:3
+	 s1: %5:s[0],  s1: %30:scc = s_bfe_u32 %23:s[3], 0x100000
+	 s1: %8:s[1],  s1: %31:scc = s_bfe_u32 %22:s[2], 0x100000
+	 s2: %9:vcc = v_cmp_ge_u32 1, %26:v[0]
+	 s1: %11:s[2],  s1: %34:scc = s_lshr_b32 %22:s[2], 16
+	 s1: %12:s[3],  s1: %35:scc = s_lshr_b32 %23:s[3], 16
+	 v1: %0:v[5] = v_mov_b32 %24:s[4]
+	 v1: %0:v[6] = v_mov_b32 1.0
+	 v1: %0:v[2] = v_mov_b32 %5:s[0]
+	 v1: %0:v[1] = v_mov_b32 %8:s[1]
+	 v1: %0:v[3] = v_mov_b32 %11:s[2]
+	 v1: %0:v[4] = v_mov_b32 %12:s[3]
+	 v1: %10:v[2] = v_cndmask_b32 %33:v[2], %32:v[1], %9:vcc
+	 s2: %13:vcc = v_cmp_lg_i32 1, %26:v[0]
+	 v1: %17:v[2] = v_cvt_f32_u32 %10:v[2]
+	 v1: %14:v[4] = v_cndmask_b32 %37:v[4], %36:v[3], %13:vcc
+	 v1: %18:v[4] = v_cvt_f32_u32 %14:v[4]
+	exp %17:v[2], %18:v[4], %38:v[5], %39:v[6] done pos0
+	s_endpgm
+
+
+*** SHADER STATS ***
+SGPRS: 16
+VGPRS: 8
+Spilled SGPRs: 0
+Spilled VGPRs: 0
+Private memory VGPRs: 0
+Code Size: 88 bytes
+LDS: 0 bytes
+Scratch: 0 bytes per wave
+Max Waves: 8
+********************
+
+
+SHADER KEY
+  source_blake3 = {0x5d29ac73, 0xa2b06140, 0x0826444f, 0x7a81e796, 0xc0c15850, 0x0e5ce676, 0xb99d076c, 0x75b7a9cb}
+  prolog.color_two_side = 0
+  prolog.flatshade_colors = 0
+  prolog.poly_stipple = 0
+  prolog.force_persp_sample_interp = 0
+  prolog.force_linear_sample_interp = 0
+  prolog.force_persp_center_interp = 0
+  prolog.force_linear_center_interp = 0
+  prolog.bc_optimize_for_persp = 0
+  prolog.bc_optimize_for_linear = 0
+  prolog.samplemask_log_ps_iter = 0
+  prolog.force_samplemask_to_helper_invocation = 0
+  epilog.spi_shader_col_format = 0x4
+  epilog.color_is_int8 = 0x0
+  epilog.color_is_int10 = 0x0
+  epilog.alpha_func = 7
+  epilog.alpha_to_one = 0
+  epilog.alpha_to_coverage_via_mrtz = 0
+  epilog.clamp_color = 0
+  epilog.dual_src_blend = 0
+  epilog.rbplus_depth_only_opt = 0
+  epilog.kill_z = 0
+  epilog.kill_stencil = 0
+  epilog.kill_samplemask = 0
+  mono.poly_line_smoothing = 0
+  mono.point_smoothing = 0
+  mono.interpolate_at_sample_force_center = 0
+  mono.fbfetch_msaa = 0
+  mono.fbfetch_is_1D = 0
+  mono.fbfetch_layered = 0
+  opt.prefer_mono = 0
+  opt.inline_uniforms = 0
+
+Pixel Shader:
+Shader main disassembly:
+ Shader disassembly is not supported in the current configuration (LLVM not available), falling back to print_program.
+
+After lowering to hw instructions:
+ACO shader stage: SW (FS), HW (PIXEL_SHADER)
+BB0
+/* logical preds: / linear preds: / kind: uniform, top-level, end_with_regs, */
+	 s1: %0:s[0] = s_mov_b32 %50:s[2]
+	 s1: %0:s[1] = s_mov_b32 0
+	 s1: %0:s[2] = s_mov_b32 16
+	 s1: %0:s[3] = s_mov_b32 0x27fac
+	 s4: %7:s[0-3] = s_buffer_load_dwordx4 %6:s[0-3], 0
+	 s1: %0:s[4] = s_bfm_b32 8, 16
+	 s1: %0:s[5] = s_bfm_b32 8, 8
+	s_waitcnt lgkmcnt(0)
+	 s1: %9:s[7],  s1: %70:scc = s_lshl_b32 %66:s[0], 8
+	 s1: %10:s[7],  s1: %71:scc = s_and_b32 %9:s[7], %2:s[4]
+	 s1: %12:s[8],  s1: %72:scc = s_lshl_b32 %66:s[0], 24
+	 s1: %13:s[8],  s1: %73:scc = s_or_b32 %12:s[8], %10:s[7]
+	 s1: %14:s[9],  s1: %74:scc = s_lshr_b32 %66:s[0], 24
+	 s1: %15:s[0],  s1: %75:scc = s_lshr_b32 %66:s[0], 8
+	 s1: %17:s[0],  s1: %76:scc = s_and_b32 %15:s[0], %16:s[5]
+	 s1: %18:s[0],  s1: %77:scc = s_or_b32 %17:s[0], %14:s[9]
+	 s1: %19:s[8],  s1: %78:scc = s_or_b32 %13:s[8], %18:s[0]
+	 s1: %20:s[10],  s1: %79:scc = s_lshl_b32 %67:s[1], 8
+	 s1: %21:s[10],  s1: %80:scc = s_and_b32 %20:s[10], %2:s[4]
+	 s1: %22:s[11],  s1: %81:scc = s_lshl_b32 %67:s[1], 24
+	 s1: %23:s[11],  s1: %82:scc = s_or_b32 %22:s[11], %21:s[10]
+	 s1: %24:s[12],  s1: %83:scc = s_lshr_b32 %67:s[1], 24
+	 s1: %25:s[1],  s1: %84:scc = s_lshr_b32 %67:s[1], 8
+	 s1: %26:s[1],  s1: %85:scc = s_and_b32 %25:s[1], %16:s[5]
+	 s1: %27:s[1],  s1: %86:scc = s_or_b32 %26:s[1], %24:s[12]
+	 s1: %28:s[11],  s1: %87:scc = s_or_b32 %23:s[11], %27:s[1]
+	 s1: %29:s[13],  s1: %88:scc = s_lshl_b32 %68:s[2], 8
+	 s1: %30:s[13],  s1: %89:scc = s_and_b32 %29:s[13], %2:s[4]
+	 s1: %31:s[14],  s1: %90:scc = s_lshl_b32 %68:s[2], 24
+	 v1: %0:v[0] = v_mov_b32 %19:s[8]
+	 v1: %0:v[1] = v_mov_b32 %28:s[11]
+	 s1: %32:s[14],  s1: %91:scc = s_or_b32 %31:s[14], %30:s[13]
+	 s1: %33:s[15],  s1: %92:scc = s_lshr_b32 %68:s[2], 24
+	 s1: %34:s[2],  s1: %93:scc = s_lshr_b32 %68:s[2], 8
+	 s1: %35:s[2],  s1: %94:scc = s_and_b32 %34:s[2], %16:s[5]
+	 s1: %36:s[2],  s1: %95:scc = s_or_b32 %35:s[2], %33:s[15]
+	 s1: %37:s[14],  s1: %96:scc = s_or_b32 %32:s[14], %36:s[2]
+	 s1: %38:s[16],  s1: %97:scc = s_lshl_b32 %69:s[3], 8
+	 v1: %0:v[2] = v_mov_b32 %37:s[14]
+	 s1: %39:s[16],  s1: %98:scc = s_and_b32 %38:s[16], %2:s[4]
+	 s1: %40:s[17],  s1: %99:scc = s_lshl_b32 %69:s[3], 24
+	 s1: %41:s[17],  s1: %100:scc = s_or_b32 %40:s[17], %39:s[16]
+	 s1: %42:s[18],  s1: %101:scc = s_lshr_b32 %69:s[3], 24
+	 s1: %43:s[3],  s1: %102:scc = s_lshr_b32 %69:s[3], 8
+	 s1: %44:s[3],  s1: %103:scc = s_and_b32 %43:s[3], %16:s[5]
+	 s1: %45:s[3],  s1: %104:scc = s_or_b32 %44:s[3], %42:s[18]
+	 s1: %46:s[17],  s1: %105:scc = s_or_b32 %41:s[17], %45:s[3]
+	 v1: %0:v[3] = v_mov_b32 %46:s[17]
+	s_nop imm:1
+
+Shader epilog disassembly:
+ Shader disassembly is not supported in the current configuration (LLVM not available), falling back to print_program.
+
+After lowering to hw instructions:
+ACO shader stage: SW (FS), HW (PIXEL_SHADER)
+BB0
+/* logical preds: / linear preds: / kind: top-level, export_end, */
+	 v1: %13:v[0] = v_cvt_pkrtz_f16_f32_e64 %9:v[0], %10:v[1]
+	 v1: %14:v[2] = v_cvt_pkrtz_f16_f32_e64 %11:v[2], %12:v[3]
+	exp %13:v[0], %14:v[2],  v1: undef,  v1: undef compr done vm mrt0
+	s_endpgm
+
+
+*** SHADER CONFIG ***
+SPI_PS_INPUT_ADDR     = 0x9083
+SPI_PS_INPUT_ENA      = 0x0080
+  v[ 0: 1] =     PERSP_SAMPLE
+  v[ 2: 3] =     PERSP_CENTER
+  v 4      = LINE_STIPPLE_TEX  === initialized ===
+  v 5      =       FRONT_FACE
+  v 6      =     POS_FIXED_PT
+SPI_SHADER_Z_FORMAT   = 0x0
+SPI_SHADER_COL_FORMAT = 0x4
+  mrt0 = FP16_ABGR
+*** SHADER STATS ***
+SGPRS: 32
+VGPRS: 8
+Spilled SGPRs: 0
+Spilled VGPRs: 0
+Private memory VGPRs: 0
+Code Size: 232 bytes
+LDS: 0 bytes
+Scratch: 0 bytes per wave
+Max Waves: 8
+********************
+
+
+SHADER KEY
+  source_blake3 = {0x4893f1cc, 0x9574fbff, 0xba5a0156, 0x810e9613, 0xe68fba18, 0x336eddb7, 0x9c6d12d8, 0xce1755b4}
+  opt.prefer_mono = 0
+  opt.inline_uniforms = 0
+
+Compute Shader:
+Shader main disassembly:
+ Shader disassembly is not supported in the current configuration (LLVM not available), falling back to print_program.
+
+After lowering to hw instructions:
+ACO shader stage: SW (CS), HW (COMPUTE_SHADER)
+BB0
+/* logical preds: / linear preds: / kind: uniform, top-level, */
+	 s1: %0:s[0] = s_mov_b32 %39:s[3]
+	 s1: %0:s[1] = s_mov_b32 0
+	 s8: %32:s[24-31] = s_load_dwordx8 %31:s[0-1], 0x3c0 storage:buffer semantics:private,reorder
+	 s1: %7:s[0],  s1: %60:scc = s_and_b32 %40:s[4], 0x3ff
+	 s1: %10:s[4],  s1: %61:scc = s_bfe_u32 %40:s[4], 0xa000a
+	 s1: %16:s[1],  s1: %67:scc = s_lshr_b32 %41:s[5], 16
+	 s1: %18:s[2],  s1: %69:scc = s_lshr_b32 %42:s[6], 16
+	 s1: %21:s[5],  s1: %71:scc = s_bfe_u32 %41:s[5], 0x100000
+	 s1: %23:s[6],  s1: %73:scc = s_bfe_u32 %42:s[6], 0x100000
+	 s1: %8:s[16] = s_mul_i32 %46:s[16], (is16bit)%7:s[0]
+	 s1: %11:s[17] = s_mul_i32 (is16bit)%47:s[17], (is16bit)%10:s[4]
+	 v1: %12:v[0],  s2: %62:vcc = v_add_co_u32 %8:s[16], %49:v[0]
+	 v1: %13:v[1],  s2: %63:vcc = v_add_co_u32 %11:s[17], %50:v[1]
+	 v1: %17:v[2],  s2: %68:vcc = v_add_co_u32 %16:s[1], %12:v[0]
+	 v1: %19:v[3],  s2: %70:vcc = v_add_co_u32 %18:s[2], %13:v[1]
+	 v1: %22:v[4],  s2: %72:vcc = v_add_co_u32 %21:s[5], %12:v[0]
+	 v1: %24:v[5],  s2: %74:vcc = v_add_co_u32 %23:s[6], %13:v[1]
+	 v4: %29:v[4-7] = image_load %45:s[8-15],  s4: undef,  v1: undef, %84:v[4-5] 2d unrm storage:image
+	s_waitcnt lgkmcnt(0) vmcnt(0)
+	image_store %32:s[24-31],  s4: undef, %29:v[4-7], %98:v[2-3] 2d unrm storage:image
+	s_endpgm
+
+
+*** SHADER STATS ***
+SGPRS: 48
+VGPRS: 8
+Spilled SGPRs: 0
+Spilled VGPRs: 0
+Private memory VGPRs: 0
+Code Size: 112 bytes
+LDS: 0 bytes
+Scratch: 0 bytes per wave
+Max Waves: 8
+********************
+
+

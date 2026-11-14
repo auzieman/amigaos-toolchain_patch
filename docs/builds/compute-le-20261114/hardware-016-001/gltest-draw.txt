@@ -1,0 +1,8 @@
+EGL 1.5 vendor=Mesa Project
+GL_RENDERER=AMD Radeon RX 550 Series (radeonsi, polaris11, ACO, DRM 3.61, 6.12.113-tabor-e2e-016)
+GL_VERSION=OpenGL ES 3.2 Mesa 26.2.3
+DRAW glGetError=0x0
+DRAW (32,32) got 00ff00ff want 00ff00ff ok
+DRAW ( 1, 1) got 00ff00ff want 00ff00ff ok
+DRAW bad_pixels=0/4096 -> PASS
+RESULT=PASS

@@ -1610,3 +1610,5 @@ are tracked in [issue27](https://github.com/auzieman/amigaos-toolchain_patch/iss
 
 
 2026-11-13 GPU/desktop handoff: clear and uniform RGB probes pass; visible Polaris11 cube runs60.113460FPS with vs,ps debug flags (no check_vm). Normal mode grey remains unresolved. Reviewed incremental patch bundle and build pulse retained in [gpu-desktop-handoff-20261113.md](gpu-desktop-handoff-20261113.md). Desktop batch is idle/infrastructure-failed; stage records17+60 successes, no installed-image acceptance.
+
+2026-11-14 second A1222 confirms 0035 kernel half: kernel015 radeonsi clear hung with 64 compute waves (exec full) parked at VS exp pos0 at PC 0x60004c, past the 2 MB shader BO; BAR resize -22 forces CP DMA shader upload on the compute-only aux context, whose user IBs were still fetched swap 2, so shader code never reached VRAM. Kernel016 (015 + byte-identical amdgpu_cs.c hunk of 0035): gltest clear and VBO draw PASS 0/4096 bad, no timeout, taint0, with a separate BE Linux Mesa 26.2.3 radeonsi/ACO build. Offscreen only. See builds/compute-le-20261114/.
