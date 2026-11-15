@@ -18,6 +18,22 @@ try:
     with tarfile.open(a.archive) as t:
         t.extractall(a.work, filter='data')
     source = a.work.resolve()/('qemu-'+lock['version'])
+    # Ordered, hash-pinned target/ppc corrections (patches/qemu/series.json).
+    series = json.loads((project/'patches/qemu/series.json').read_text())
+    if series['version'] != lock['version']:
+        raise RuntimeError('QEMU patch series is for another version')
+    plain = [l for l in (project/'patches/qemu/series').read_text().splitlines()
+             if l and not l.startswith('#')]
+    if plain != [Path(x['path']).name for x in series['patches']]:
+        raise RuntimeError('QEMU series differs from series.json')
+    receipt['patches'] = []
+    for item in series['patches']:
+        patch = project/item['path']
+        if hashlib.sha256(patch.read_bytes()).hexdigest() != item['sha256']:
+            raise RuntimeError('QEMU patch hash mismatch: ' + item['path'])
+        subprocess.run(['patch', '-p1', '--batch', '--forward', '--no-backup-if-mismatch'],
+                       cwd=source, input=patch.read_bytes(), check=True)
+        receipt['patches'].append(item)
     dtc = source/'subprojects/dtc'
     subprocess.run(['git', 'init', str(dtc)], check=True)
     subprocess.run(['git', '-C', str(dtc), 'remote', 'add', 'origin', lock['dtc']['url']], check=True)

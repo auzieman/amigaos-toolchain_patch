@@ -1,0 +1,113 @@
+From: derfsss
+Subject: [PATCH] target/ppc: apply SPEFSCR[FRMC] to SPE arithmetic rounding
+
+SPE floating point (efs*/efd*/evfs*) rounds with env->vec_status, but
+mtspr SPEFSCR only stored env->spe_fscr, so directed rounding modes
+selected through SPEFSCR[FRMC] were ignored (the arithmetic always
+rounded to nearest). Add ppc_store_spefscr(), which stores SPEFSCR and
+sets the vec_status rounding mode from FRMC, and use it for mtspr
+(through a TCG helper), linux-user sigreturn, gdbstub and migration.
+
+--- a/target/ppc/cpu.c
++++ b/target/ppc/cpu.c
+@@ -240,6 +240,18 @@
+     set_float_rounding_mode(rnd_type, &env->fp_status);
+ }
+ 
++void ppc_store_spefscr(CPUPPCState *env, uint32_t val)
++{
++    /* SPEFSCR[FRMC]: 0 nearest, 1 toward zero, 2 toward +inf, 3 toward -inf. */
++    static const FloatRoundMode frmc[4] = {
++        float_round_nearest_even, float_round_to_zero,
++        float_round_up, float_round_down,
++    };
++
++    env->spe_fscr = val;
++    set_float_rounding_mode(frmc[val & 3], &env->vec_status);
++}
++
+ void ppc_store_fpscr(CPUPPCState *env, target_ulong val)
+ {
+     val &= FPSCR_MTFS_MASK;
+--- a/target/ppc/cpu.h
++++ b/target/ppc/cpu.h
+@@ -1710,6 +1710,7 @@
+ #endif
+ 
+ void ppc_store_fpscr(CPUPPCState *env, target_ulong val);
++void ppc_store_spefscr(CPUPPCState *env, uint32_t val);
+ void helper_hfscr_facility_check(CPUPPCState *env, uint32_t bit,
+                                  const char *caller, uint32_t cause);
+ 
+--- a/target/ppc/helper.h
++++ b/target/ppc/helper.h
+@@ -88,6 +88,7 @@
+ DEF_HELPER_1(reset_fpstatus, void, env)
+ DEF_HELPER_2(compute_fprf_float64, void, env, i64)
+ DEF_HELPER_3(store_fpscr, void, env, i64, i32)
++DEF_HELPER_2(store_spefscr, void, env, i32)
+ DEF_HELPER_2(fpscr_clrbit, void, env, i32)
+ DEF_HELPER_2(fpscr_setbit, void, env, i32)
+ DEF_HELPER_FLAGS_1(todouble, TCG_CALL_NO_RWG_SE, i64, i32)
+--- a/target/ppc/fpu_helper.c
++++ b/target/ppc/fpu_helper.c
+@@ -370,6 +370,11 @@
+     }
+ }
+ 
++void helper_store_spefscr(CPUPPCState *env, uint32_t val)
++{
++    ppc_store_spefscr(env, val);
++}
++
+ void helper_store_fpscr(CPUPPCState *env, uint64_t val, uint32_t nibbles)
+ {
+     target_ulong mask = 0;
+--- a/target/ppc/translate.c
++++ b/target/ppc/translate.c
+@@ -1055,7 +1055,7 @@
+ {
+     TCGv_i32 t0 = tcg_temp_new_i32();
+     tcg_gen_trunc_tl_i32(t0, cpu_gpr[gprn]);
+-    tcg_gen_st_i32(t0, tcg_env, offsetof(CPUPPCState, spe_fscr));
++    gen_helper_store_spefscr(tcg_env, t0);
+ }
+ 
+ #if !defined(CONFIG_USER_ONLY)
+--- a/target/ppc/gdbstub.c
++++ b/target/ppc/gdbstub.c
+@@ -457,7 +457,7 @@
+     }
+     if (n == 33) {
+         ppc_maybe_bswap_register(env, mem_buf, 4);
+-        env->spe_fscr = ldl_p(mem_buf);
++        ppc_store_spefscr(env, ldl_p(mem_buf));
+         return 4;
+     }
+     return 0;
+--- a/target/ppc/machine.c
++++ b/target/ppc/machine.c
+@@ -239,7 +239,7 @@
+ #if defined(TARGET_PPC64)
+     env->cfar = env->spr[SPR_CFAR];
+ #endif
+-    env->spe_fscr = env->spr[SPR_BOOKE_SPEFSCR];
++    ppc_store_spefscr(env, env->spr[SPR_BOOKE_SPEFSCR]);
+ 
+     for (i = 0; (i < 4) && (i < env->nb_BATs); i++) {
+         env->DBAT[0][i] = env->spr[SPR_DBAT0U + 2 * i];
+--- a/linux-user/ppc/signal.c
++++ b/linux-user/ppc/signal.c
+@@ -429,7 +429,11 @@
+         for (i = 0; i < ARRAY_SIZE(env->gprh); i++) {
+             __get_user(env->gprh[i], &frame->mc_vregs.spe[i]);
+         }
+-        __get_user(env->spe_fscr, &frame->mc_vregs.spe[32]);
++        {
++            uint32_t spefscr;
++            __get_user(spefscr, &frame->mc_vregs.spe[32]);
++            ppc_store_spefscr(env, spefscr);
++        }
+     }
+ #endif
+ }
