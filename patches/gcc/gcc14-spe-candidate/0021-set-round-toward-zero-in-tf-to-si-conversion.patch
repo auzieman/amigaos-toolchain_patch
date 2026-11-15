@@ -1,0 +1,13 @@
+--- a/gcc/config/powerpcspe/spe.md
++++ b/gcc/config/powerpcspe/spe.md
+@@ -2848,8 +2848,8 @@
+    (clobber (match_operand:SI 4 "gpc_reg_operand" "=&r"))]
+   "!TARGET_IEEEQUAD
+    && TARGET_HARD_FLOAT && TARGET_E500_DOUBLE && TARGET_LONG_DOUBLE_128"
+-  "mfspefscr %3\;rlwinm %4,%3,0,0,29\;ori %4,%4,1\;efdadd %2,%1,%L1\;mtspefscr %3\;efdctsiz %0, %2"
+-  [(set_attr "length" "24")])
++  "mfspefscr %3\;rlwinm %4,%3,0,0,29\;ori %4,%4,1\;mtspefscr %4\;efdadd %2,%1,%L1\;mtspefscr %3\;efdctsiz %0, %2"
++  [(set_attr "length" "28")])
+ 
+ (define_insn "spe_negtf2_internal"
+   [(set (match_operand:TF 0 "gpc_reg_operand" "=r")
