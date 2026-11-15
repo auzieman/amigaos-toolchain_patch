@@ -1,0 +1,94 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -26781,6 +26781,24 @@
+     emit_move_insn (orig_after, after);
+ }
+ 
++/* Return the REG_MODE piece at byte OFFSET of the MODE value X for
++   rs6000_split_multireg_move.  A MEM piece is the MEM itself, offset, as
++   GCC 8's simplify_subreg returned.  GCC 14's simplify_subreg refuses MEMs
++   aligned below REG_MODE on STRICT_ALIGNMENT targets, and Linux SPE
++   defaults to -mstrict-align, so an A32 TFmode stack slot split into
++   DFmode pieces would otherwise yield a null destination.  */
++
++static rtx
++rs6000_split_multireg_piece (machine_mode reg_mode, rtx x, machine_mode mode,
++			     int offset)
++{
++  if (MEM_P (x)
++      && !mode_dependent_address_p (XEXP (x, 0), MEM_ADDR_SPACE (x))
++      && (!MEM_VOLATILE_P (x) || !have_insn_for (SET, mode)))
++    return adjust_address_nv (x, reg_mode, offset);
++  return simplify_gen_subreg (reg_mode, x, mode, offset);
++}
++
+ /* Emit instructions to move SRC to DST.  Called by splitters for
+    multi-register moves.  It will emit at most one instruction for
+    each register that is accessed; that is, it won't emit li/lis pairs
+@@ -26834,13 +26852,13 @@
+ 	  if (REG_P (src) && FP_REGNO_P (REGNO (src)))
+ 	    p_src = gen_rtx_REG (reg_mode, REGNO (src) + nregs - 1 - i);
+ 	  else
+-	    p_src = simplify_gen_subreg (reg_mode, src, mode,
++	    p_src = rs6000_split_multireg_piece (reg_mode, src, mode,
+ 					 i * reg_mode_size);
+ 
+ 	  if (REG_P (dst) && FP_REGNO_P (REGNO (dst)))
+ 	    p_dst = gen_rtx_REG (reg_mode, REGNO (dst) + nregs - 1 - i);
+ 	  else
+-	    p_dst = simplify_gen_subreg (reg_mode, dst, mode,
++	    p_dst = rs6000_split_multireg_piece (reg_mode, dst, mode,
+ 					 i * reg_mode_size);
+ 
+ 	  emit_insn (gen_rtx_SET (p_dst, p_src));
+@@ -26855,9 +26873,9 @@
+ 	 overlap.  */
+       int i;
+       for (i = nregs - 1; i >= 0; i--)
+-	emit_insn (gen_rtx_SET (simplify_gen_subreg (reg_mode, dst, mode,
++	emit_insn (gen_rtx_SET (rs6000_split_multireg_piece (reg_mode, dst, mode,
+ 						     i * reg_mode_size),
+-				simplify_gen_subreg (reg_mode, src, mode,
++				rs6000_split_multireg_piece (reg_mode, src, mode,
+ 						     i * reg_mode_size)));
+     }
+   else
+@@ -26889,7 +26907,7 @@
+ 		  rtx basereg = XEXP (XEXP (src, 0), 0);
+ 		  if (TARGET_UPDATE)
+ 		    {
+-		      rtx ndst = simplify_gen_subreg (reg_mode, dst, mode, 0);
++		      rtx ndst = rs6000_split_multireg_piece (reg_mode, dst, mode, 0);
+ 		      emit_insn (gen_rtx_SET (ndst,
+ 					      gen_rtx_MEM (reg_mode,
+ 							   XEXP (src, 0))));
+@@ -26937,7 +26955,7 @@
+ 
+ 	      if (TARGET_UPDATE)
+ 		{
+-		  rtx nsrc = simplify_gen_subreg (reg_mode, src, mode, 0);
++		  rtx nsrc = rs6000_split_multireg_piece (reg_mode, src, mode, 0);
+ 		  emit_insn (TARGET_32BIT
+ 			     ? (TARGET_POWERPC64
+ 				? gen_movdi_si_update (breg, breg, delta_rtx, nsrc)
+@@ -26957,7 +26975,7 @@
+ 		  rtx basereg = XEXP (XEXP (dst, 0), 0);
+ 		  if (TARGET_UPDATE)
+ 		    {
+-		      rtx nsrc = simplify_gen_subreg (reg_mode, src, mode, 0);
++		      rtx nsrc = rs6000_split_multireg_piece (reg_mode, src, mode, 0);
+ 		      emit_insn (gen_rtx_SET (gen_rtx_MEM (reg_mode,
+ 							   XEXP (dst, 0)),
+ 					      nsrc));
+@@ -27003,9 +27021,9 @@
+ 	  if (j == 0 && used_update)
+ 	    continue;
+ 
+-	  emit_insn (gen_rtx_SET (simplify_gen_subreg (reg_mode, dst, mode,
++	  emit_insn (gen_rtx_SET (rs6000_split_multireg_piece (reg_mode, dst, mode,
+ 						       j * reg_mode_size),
+-				  simplify_gen_subreg (reg_mode, src, mode,
++				  rs6000_split_multireg_piece (reg_mode, src, mode,
+ 						       j * reg_mode_size)));
+ 	}
+       if (restore_basereg != NULL_RTX)
