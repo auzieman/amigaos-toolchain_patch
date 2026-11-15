@@ -1,0 +1,21 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -38758,6 +38758,18 @@
+   if (TARGET_ALTIVEC && testing_p)
+     return true;
+ 
++  /* GCC 14 passes constant operands (e.g. the zero vector of a whole-vector
++     shift) to this hook; the SPE evmerge patterns need registers.  */
++  if (op0)
++    {
++      rtx nop0 = force_reg (vmode, op0);
++      if (op0 == op1)
++	op1 = nop0;
++      op0 = nop0;
++    }
++  if (op1)
++    op1 = force_reg (vmode, op1);
++
+   /* Check for ps_merge*, evmerge* or xxperm* insns.  */
+   if ((vmode == V2SFmode && TARGET_PAIRED_FLOAT)
+       || (vmode == V2SImode && TARGET_SPE)
