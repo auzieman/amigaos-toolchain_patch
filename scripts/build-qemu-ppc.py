@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
-"""Build the locked PPC emulator in a fresh local directory; no system install."""
+"""Build the locked PPC emulator in a fresh local directory; no system install.
+
+Host (Debian trixie): build-essential python3 python3-venv python3-setuptools
+python3-wheel ninja-build pkg-config libglib2.0-dev libpixman-1-dev flex bison
+git ca-certificates patch. setuptools/wheel are needed because configure runs
+QEMU's mkvenv offline (--disable-download).
+"""
 import argparse, hashlib, json, subprocess, tarfile
 from pathlib import Path
 p = argparse.ArgumentParser(description=__doc__)
@@ -15,8 +21,21 @@ if a.work.exists():
 a.work.mkdir(parents=True)
 receipt = {'source': lock, 'status': 'started', 'commands': []}
 try:
+    # Python's 'data' filter, except that members under roms/ (firmware sources a
+    # ppc-softmmu build never uses) which it rejects are skipped and recorded
+    # (#37: QEMU 11.1.3 ships an absolute symlink in roms/edk2).
+    receipt['extraction_skipped'] = []
+    def extraction_filter(member, path):
+        try:
+            return tarfile.data_filter(member, path)
+        except tarfile.FilterError as e:
+            parts = Path(member.name).parts
+            if len(parts) > 2 and parts[1] == 'roms':
+                receipt['extraction_skipped'].append({'member': member.name, 'reason': type(e).__name__})
+                return None
+            raise
     with tarfile.open(a.archive) as t:
-        t.extractall(a.work, filter='data')
+        t.extractall(a.work, filter=extraction_filter)
     source = a.work.resolve()/('qemu-'+lock['version'])
     # Ordered, hash-pinned target/ppc corrections (patches/qemu/series.json).
     series = json.loads((project/'patches/qemu/series.json').read_text())
