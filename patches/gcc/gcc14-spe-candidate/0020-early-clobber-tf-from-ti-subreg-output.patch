@@ -1,0 +1,11 @@
+--- a/gcc/config/powerpcspe/spe.md
++++ b/gcc/config/powerpcspe/spe.md
+@@ -2314,7 +2314,7 @@
+ })
+ 
+ (define_insn "*frob_tf_ti"
+-  [(set (match_operand:TF 0 "gpc_reg_operand" "=r")
++  [(set (match_operand:TF 0 "gpc_reg_operand" "=&r")
+         (subreg:TF (match_operand:TI 1 "gpc_reg_operand" "r") 0))]
+   "TARGET_E500_DOUBLE"
+ {
