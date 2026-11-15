@@ -49,6 +49,8 @@ Candidate patch 0011 moved the restored `powerpcspe.cc` hook to the GCC 14 signa
 
 `scripts/check-gcc14-spe-candidate.py` gains `vector-reduction-regression`, which compiles the loop above at `-O3`. On the pre-0019 compiler it is the only failing check (22/23); with 0019 all 23 pass.
 
+Follow-up (same day): the regression check now lives in its own script, `scripts/check-spe-vec-perm-reduction.py`, and `check-gcc14-spe-candidate.py` is back to its original 22 checks. Each issue check is a separate small script.
+
 ## Validation
 
 Toolchain: `development` 866dc1c recipe plus 0019. That is Debian gcc-14 14.2.0-19 DFSG, the 147 GCC 8.5 powerpcspe imports, candidate 0001-0019, glibc 2.41-12+deb13u4 + glibc 0001-0007 and Linux 6.12.113 UAPI headers, built stage1 -> glibc -> final C/C++ as in `gcc14-sdk-20261108/build.sh`. Runs were on a physical A1222 (kernel 6.12.113-tabor-e2e-017), with static binaries.

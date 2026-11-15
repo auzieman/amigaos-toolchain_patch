@@ -53,13 +53,6 @@ def main():
                           "{ for (unsigned i=0; i<n; ++i) a[i] = b[i] + c[i]; }\n")
     run("vector-alias-regression", [compiler, *flags, "-O3", "-S", alias_loop,
                                     "-o", out / "vector-alias-regression.s"])
-    # Issue #29: the V2SI reduction epilogue passes a constant zero vector to the
-    # vec_perm_const hook; without forced registers -O3 ends in an ICE.
-    reduction_loop = out / "vector-reduction-regression.c"
-    reduction_loop.write_text("int sum(const int *p, int n)\n"
-                              "{ int s = 0; for (int i = 0; i < n; i++) s += p[i]; return s; }\n")
-    run("vector-reduction-regression", [compiler, *flags, "-O3", "-S", reduction_loop,
-                                        "-o", out / "vector-reduction-regression.s"])
     run("link", [args.binutils_prefix + "ld", "-static", "-e", "_start",
                  "--build-id=none", "-o", out / "probe", out / "probe.o", out / "vector-loop.o"])
     header = run("elf-header", [args.binutils_prefix + "readelf", "-h", out / "probe"])
