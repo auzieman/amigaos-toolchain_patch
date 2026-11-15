@@ -1,0 +1,15 @@
+# Build environment for scripts/build-gcc14-spe-sdk.sh (GCC14 powerpc-linux-gnuspe SDK).
+# Reviewed Debian trixie base, the same digest as Dockerfile.kernel; override only with
+# another reviewed digest. binutils are Debian's powerpc-linux-gnu-* (the SDK links them
+# under powerpc-linux-gnuspe-* names, issue #33).
+ARG BASE_IMAGE=debian@sha256:f6b08b09a05725f9431502d3b5714f5c4576e82c1a84fa1debe0c24a7e0c3ec4
+FROM ${BASE_IMAGE}
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential binutils-powerpc-linux-gnu libgmp-dev libmpfr-dev libmpc-dev \
+    python3 dpkg-dev gawk bison flex file patch rsync xz-utils ca-certificates \
+    && rm -rf /var/lib/apt/lists/*
+# Run with this repository mounted read-only at /recipe and a work volume at /work:
+#   docker run -v <repo>:/recipe:ro -v <vol>:/work -e WORK=/work/sdk -e CACHE=/work/cache <image>
+ENV RECIPE=/recipe
+WORKDIR /work
+ENTRYPOINT ["bash", "/recipe/scripts/build-gcc14-spe-sdk.sh"]
