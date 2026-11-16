@@ -1,37 +1,37 @@
 {
   "status": "debian-packages-built-not-target-installed",
-  "spec_sha256": "16354f0f74910962d6687dbc06e762906993b016b91b0dfa6e0143ffd2e60c15",
+  "spec_sha256": "6108dde09ec01ccbcd7ad82c0878078b9caf0789fab17c6200c5a82d604061ef",
   "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
   "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
   "build_architecture": "amd64",
   "host_architecture": "powerpcspe",
   "build_profiles": "cross,nocheck",
   "bootstrap": false,
-  "required_full_rebuild": false,
+  "required_full_rebuild": true,
   "target_execution": false,
   "target_installation": false,
   "boot_image_ready": false,
   "build_root_only": false,
   "bootstrap_assembly": false,
-  "binary_nmu": 0,
+  "binary_nmu": 1,
   "source_inputs": [
     {
-      "filename": "pkgconf_1.8.1-4.dsc",
-      "url": "https://deb.debian.org/debian/pool/main/p/pkgconf/pkgconf_1.8.1-4.dsc",
-      "sha256": "782a764448d1ecf39f80c7a1747c28fcbde1800b615eee6a46639a17e58b62f9",
-      "size": 2130
+      "filename": "zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "size": 2637,
+      "sha256": "ede2791e29c1d3b422f9208bdd7edf040c20445ea1e7453a72037576e64fa197"
     },
     {
-      "filename": "pkgconf_1.8.1.orig.tar.xz",
-      "url": "https://deb.debian.org/debian/pool/main/p/pkgconf/pkgconf_1.8.1.orig.tar.xz",
-      "sha256": "644361ada2942be05655d4452eb018791647c31bba429b287f1f68deb2dc6840",
-      "size": 302372
+      "filename": "zlib_1.3.dfsg+really1.3.1.orig.tar.gz",
+      "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1.orig.tar.gz",
+      "size": 1325737,
+      "sha256": "60dd315c07f616887caa029408308a018ace66e3d142726a97db164b3b8f69fb"
     },
     {
-      "filename": "pkgconf_1.8.1-4.debian.tar.xz",
-      "url": "https://deb.debian.org/debian/pool/main/p/pkgconf/pkgconf_1.8.1-4.debian.tar.xz",
-      "sha256": "e56c56a5f40eb0d57bebcb79983a755e16cf1e1595a6fec7f02b20bd58baa734",
-      "size": 17736
+      "filename": "zlib_1.3.dfsg+really1.3.1-1.debian.tar.xz",
+      "url": "https://deb.debian.org/debian/pool/main/z/zlib/zlib_1.3.dfsg+really1.3.1-1.debian.tar.xz",
+      "size": 16576,
+      "sha256": "9ed525955ce9fb0c1b39be8ff98f73450dbfc6305a9a27e6149c8972d38a0a9e"
     }
   ],
   "extra_package_inputs": [
@@ -84,12 +84,39 @@
   ],
   "commands": [
     [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/zlib_1.3.dfsg+really1.3.1-1.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/patched-source",
+      "apply",
+      "--check",
+      "/home/tabor/amigaos-toolchain_patch/patches/zlib/0001-cross-configure-minizip.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/patched-source",
+      "apply",
+      "/home/tabor/amigaos-toolchain_patch/patches/zlib/0001-cross-configure-minizip.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/patched-source"
+    ],
+    [
       "runuser",
       "-u",
       "owner",
       "--",
       "env",
-      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-pkgconf-gcc14-001/sbuild.conf",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sbuild.conf",
       "DEB_BUILD_OPTIONS=nocheck parallel=4",
       "sbuild",
       "--chroot-mode=unshare",
@@ -103,34 +130,45 @@
       "--no-run-lintian",
       "--nolog",
       "--jobs=4",
-      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-pkgconf-gcc14-001",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003",
+      "--maintainer=Tabor SPE lab <root@localhost>",
+      "--binNMU=1",
+      "--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.",
       "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
       "--no-arch-all",
       "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
-      "/srv/data1/tabor-build/linux-live-001/work/sbuild-pkgconf-gcc14-001/sources/pkgconf_1.8.1-4.dsc"
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/sources/debian-patched-output/zlib_1.3.dfsg+really1.3.1-1.dsc"
     ],
     [
       "python3",
       "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
       "--receipt",
-      "/srv/data1/tabor-build/linux-live-001/work/sbuild-pkgconf-gcc14-001/receipt.json",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/receipt.json",
       "--output",
-      "/srv/data1/tabor-build/linux-live-001/work/sbuild-pkgconf-gcc14-001/payload-inspection.json"
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-zlib-gcc14-003/payload-inspection.json"
     ]
   ],
-  "package": "pkgconf",
-  "source_version": "1.8.1-4",
+  "package": "zlib",
+  "source_version": "1:1.3.dfsg+really1.3.1-1",
   "compiler": {
     "gcc_major": 14,
     "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
   },
   "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
   "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "upstream_debian_source_version": "1:1.3.dfsg+really1.3.1-1",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/zlib_1.3.dfsg+really1.3.1-1.dsc",
+    "sha256": "7767bcabbf8abf91fa9914216eae58848cc47380054de730646be77465f167aa",
+    "patch_sha256": "8a8243c6a3d4a4a8af91fd7dacacd8141942009008e63e466de9d928c3009768",
+    "version": "1:1.3.dfsg+really1.3.1-1",
+    "preserve_debian_version": true
+  },
   "apt_archive_cache": {
-    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-pkgconf-gcc14-001",
-    "seeded_archives": 61,
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-zlib-gcc14-003",
+    "seeded_archives": 80,
     "promoted_archives": 0,
-    "retained_archives": 61
+    "retained_archives": 80
   },
   "local_repository": {
     "path": "/srv/data1/tabor-sbuild-repositories/6c58d9eeb236d5b4c8332d5f50945370ed4f0e98845275f4385b23e64732db5f",
@@ -151,30 +189,30 @@
   },
   "sbuild_exit": 0,
   "packages": {
-    "libpkgconf3_1.8.1-4_powerpcspe.deb": {
-      "sha256": "5c8f580748f9601b627ba2d5db4fba27ff619f0686dc24221b23355c1769075d",
-      "bytes": 32884
+    "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": {
+      "sha256": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "bytes": 78648
     },
-    "pkg-config_1.8.1-4_powerpcspe.deb": {
-      "sha256": "788ed9bb3d6a739c3c7a936364d0255f250ff3ce745221b753b11441699516cd",
-      "bytes": 13968
+    "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": {
+      "sha256": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "bytes": 43932
     },
-    "libpkgconf-dev_1.8.1-4_powerpcspe.deb": {
-      "sha256": "4364f8a02438283b9606c000b5d6ffcc4f0b922145a3c3875b45210888a212b9",
-      "bytes": 51576
+    "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": {
+      "sha256": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "bytes": 907352
     },
-    "pkgconf_1.8.1-4_powerpcspe.deb": {
-      "sha256": "ceff41e593d84dcab2cba14c3e04548008f4cff59870128fe9f8af2ce817384b",
-      "bytes": 26180
+    "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": {
+      "sha256": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "bytes": 60860
     },
-    "pkgconf-bin_1.8.1-4_powerpcspe.deb": {
-      "sha256": "f0be4f06c91139308a7a545a30c81619b4927c4bbfd60c3c94a5bd341281ea7c",
-      "bytes": 28900
+    "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": {
+      "sha256": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "bytes": 53028
     }
   },
   "build_metadata": {
-    "pkgconf_1.8.1-4_powerpcspe.buildinfo": "d06c211f0ae25b435256b66d0eb04658b78b41230ebca9ff0209bf45ed87bdc4",
-    "pkgconf_1.8.1-4_powerpcspe.changes": "09278a3967eedea34b7a97544d874bcae3191615450b3c1c17cf310e346b7871"
+    "zlib_1.3.dfsg+really1.3.1-1+b1_powerpcspe.buildinfo": "8448dfdca6b9a09171b87d3bc812479cd83740a25400f762a33c220cd45bb606",
+    "zlib_1.3.dfsg+really1.3.1-1+b1_powerpcspe.changes": "0ca8e2e258a1e74dc92906d7ea08fb0efc3b77f79c0dc6fc2053d459a653054a"
   },
-  "payload_inspection_sha256": "4bc899a124c6db1637c8aedf97bae80a44185f791a5f584551d1d9ef3705ef9b"
+  "payload_inspection_sha256": "c10b9b1d9b7ddfa61f6e296258115764b549de9c947c42193fffbc3e064e6440"
 }

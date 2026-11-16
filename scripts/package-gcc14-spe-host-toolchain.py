@@ -7,7 +7,7 @@ private sysroot. The bootstrap sysroot and libtool archives are left out. Builds
 .deb; target runtimes and libc are separate packages. Nothing is installed or executed
 for the target.
 """
-import argparse, hashlib, json, re, shutil, subprocess
+import argparse, datetime, hashlib, json, os, re, shutil, subprocess
 from pathlib import Path
 
 PREFIX = Path('/usr/lib/tabor-spe-toolchain')
@@ -77,7 +77,15 @@ Description: GCC 14.2 SPE cross compiler for powerpcspe (e500v2)
  are separate packages.
 ''')
 package = a.output / f'tabor-spe-toolchain_{a.version}_amd64.deb'
-subprocess.run(['dpkg-deb', '--root-owner-group', '-Zxz', '--build', str(root), str(package)], check=True)
+# Reproducible packaging: the same SDK tree gives the same .deb. Every mtime is
+# clamped to the GCC release date (gcc/DATESTAMP), which dpkg-deb also uses.
+stamp = (a.gcc_source / 'gcc/DATESTAMP').read_text().strip()
+epoch = str(int(datetime.datetime.strptime(stamp, '%Y%m%d')
+                .replace(tzinfo=datetime.timezone.utc).timestamp()))
+for f in [root, *root.rglob('*')]:
+    os.utime(f, (int(epoch), int(epoch)), follow_symlinks=False)
+subprocess.run(['dpkg-deb', '--root-owner-group', '-Zxz', '--build', str(root), str(package)],
+               check=True, env={**os.environ, 'SOURCE_DATE_EPOCH': epoch})
 receipt = {'status': 'native-toolchain-package-built-not-installed', 'version': a.version,
            'package': package.name, 'package_sha256': sha(package), 'bytes': package.stat().st_size,
            'recipe_sha256': sha(Path(__file__)), 'compiler_facts': facts, 'needed_libraries': sorted(needed),

@@ -48,14 +48,14 @@
       ]
     },
     {
-      "receipt": "work/sbuild-pkgconf-gcc14-001/receipt.json",
-      "sha256": "3536ae03c3452bc168fbb39a0bb78d5c5d2739e6809b9be4bc7a048b8a8dc407",
+      "receipt": "work/sbuild-pkgconf-gcc14-002/receipt.json",
+      "sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966",
       "packages": [
         "pkgconf"
       ]
     }
   ],
-  "scope": "GCC14 powerpcspe sbuild consumer (#27): Debian fuse3 with the pinned #23 patch series.",
+  "scope": "GCC14 powerpcspe sbuild consumer (#27): Debian fuse3 with the pinned #23 patch series. Built against the stage2 glibc 2.41: rebuild after the full glibc.",
   "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
   "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
   "host_architecture": "powerpcspe",
@@ -72,5 +72,6 @@
   "quilt_patch_series": {
     "path": "patches/fuse3/series.json",
     "sha256": "462ed8c9e058d95872c3f8ded53622733ec97c7a9f3e858059104407090af69d"
-  }
+  },
+  "required_full_rebuild": true
 }

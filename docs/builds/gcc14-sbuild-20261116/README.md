@@ -1,4 +1,4 @@
-# First GCC14 sbuild consumer: zlib (#27) — 2026-11-16
+# First GCC14 sbuild consumers: zlib, pkgconf, fuse3 (#27) — 2026-11-16
 
 With the GCC14 SDK qualified (`profiles/compiler-policy.json`, 8a18e48), the standard path (`run-sbuild-package.py`: mmdebstrap root, sbuild unshare, apt resolver) now builds powerpcspe packages from the GCC14 foundation only. Nothing from GCC8 was among the inputs.
 
@@ -12,7 +12,7 @@ Host: the Debian 13 WSL2 replica of the build host, laid out as on the R730 (`ow
 | UAPI | `run-sbuild-package.py`, spec = `profiles/sbuild/linux-uapi.json` with the local root | `linux-libc-dev_6.12.115-2+spe1_all.deb` |
 | cross core | `build-cross-core-metapackage.py` with `packaging/tabor-spe-cross-build-essential` 1.0+spe8 (this commit) | `crossbuild-essential-powerpcspe_1.0+spe8_all.deb` |
 | host helper | spec = `profiles/sbuild/dh-golang-host.json` with the local root | `dh-golang_1.63+spe1_all.deb` |
-| zlib | spec = `profiles/sbuild/zlib.json`, extra inputs replaced by the GCC14 set below | zlib1g, zlib1g-dev, libminizip1t64, libminizip-dev, minizip `1:1.3.dfsg+really1.3.1-1` powerpcspe |
+| zlib | spec = `profiles/sbuild/zlib.json`, extra inputs replaced by the GCC14 set below, `binary_nmu: 1` | zlib1g, zlib1g-dev, libminizip1t64, libminizip-dev, minizip `1:1.3.dfsg+really1.3.1-1+b1` powerpcspe (`sbuild-zlib-gcc14-003`) |
 
 zlib's inputs were:
 - `tabor-spe-toolchain 14.2.0+tabor1`, through `native_toolchain_inputs`. Its receipt sha256 `c6539872...` equals the policy's `qualified_sdk_receipt_sha256`, so the runner recorded `compiler: {gcc_major: 14, sdk_receipt_sha256: c6539872...}`.
@@ -20,13 +20,19 @@ zlib's inputs were:
 - The `tabor-spe-libgcc-s1`, `-libstdc++6` and `-libatomic1` runtimes, 14.2.0+tabor1.
 - `linux-libc-dev 6.12.115-2+spe1`, the cross core and dh-golang above.
 
+The final zlib, pkgconf and fuse3 specs set `required_full_rebuild: true`, because they link against the stage2 glibc. They must be rebuilt after the full glibc.
+
 The specs and receipts actually used are in `specs/` and `*.receipt.json`. Their `work/...` receipt paths and hashes refer to this replica, so they are evidence, not R730 profiles.
+
+## Multi-Arch versions
+
+The first zlib build (`sbuild-zlib-gcc14-001`, version `-1`) was not consumable. The frozen root's `zlib1g:amd64` is the binNMU `1:1.3.dfsg+really1.3.1-1+b1`, and dpkg refuses a Multi-Arch `same` pair at different versions: `zlib1g:powerpcspe (…-1) cannot be configured because zlib1g:amd64 is at a different version (…-1+b1)`. Rebuilding with the runner's `binary_nmu: 1` gives `-1+b1`, and `zlib1g:powerpcspe` plus `zlib1g-dev:powerpcspe` then install beside `zlib1g:amd64` in the frozen root. Every Multi-Arch `same` package built here was checked against the root's `installed-versions.json`: libc6, libc6-dev and zlib1g now match, and pkgconf's libpkgconf3 is 1.8.1-4 on both architectures.
 
 ## Checks
 
 - sbuild installed `tabor-spe-toolchain (14.2.0+tabor1)` and `crossbuild-essential-powerpcspe (1.0+spe8)`; configure ran `--host=powerpc-linux-gnuspe` with `CC=powerpc-linux-gnuspe-gcc`.
 - `libz.so.1`: ELF32 big-endian PowerPC, `Tag_GNU_Power_ABI_FP: hard float`; `zlib1g` `Depends: libc6 (>= 2.41)`.
-- Under `qemu-ppc -cpu e500v2` with only the packaged libc6 and zlib, `minizip -9` compressed 3.5 MB of random data plus text, and `miniunzip` restored it byte for byte. The host's Python `zipfile` also reads and verifies an archive written by the SPE minizip.
+- Under `qemu-ppc -cpu e500v2` with only the packaged libc6 and zlib (both builds), `minizip -9` compressed 3.5 MB of random data plus text, and `miniunzip` restored it byte for byte. The host's Python `zipfile` also reads and verifies an archive written by the SPE minizip.
 
 ## Changes in this commit
 
@@ -42,12 +48,21 @@ The specs and receipts actually used are in `specs/` and `*.receipt.json`. Their
 
 ## pkgconf and fuse3
 
-Meson consumers need `pkgconf:powerpcspe`, which is Multi-Arch `same` and provides the triplet `pkg-config`. So `pkgconf 1.8.1-4` was built first, through the same path and the same inputs (`sbuild-pkgconf-gcc14-001`). It then joined fuse3's extra inputs.
+Meson consumers need `pkgconf:powerpcspe`, which is Multi-Arch `same` and provides the triplet `pkg-config`. So `pkgconf 1.8.1-4` was built first, through the same path and the same inputs (`sbuild-pkgconf-gcc14-001`). It then joined fuse3's extra inputs (final: `sbuild-pkgconf-gcc14-002`).
 
 `fuse3 3.17.2-3` was built twice with GCC14:
 
-- **With the pinned #23 series** (`patches/fuse3/series.json`), as `sbuild-fuse3-gcc14-002`: it built fuse3, libfuse3-4, libfuse3-dev and fuse3-dbgsym, and the runner's payload inspection ran. The meson probe printed `Checking if "C++ 64-bit atomic operations" links: NO` and `Library atomic found: YES`, and memfs_ll linked with `-latomic` (`fuse3-atomic-probe.txt`). `libfuse3.so.3.17.2` is ELF32 PowerPC, NEEDED libc.so.6 only. Under qemu e500v2, `fusermount3 -V` prints `3.17.2` and `mount.fuse3` prints its usage.
+- **With the pinned #23 series** (`patches/fuse3/series.json`), as `sbuild-fuse3-gcc14-003`: it built fuse3, libfuse3-4, libfuse3-dev and fuse3-dbgsym, and the runner's payload inspection ran. The meson probe printed `Checking if "C++ 64-bit atomic operations" links: NO` and `Library atomic found: YES`, and memfs_ll linked with `-latomic` (`fuse3-atomic-probe.txt`). `libfuse3.so.3.17.2` is ELF32 PowerPC, NEEDED libc.so.6 only. Under qemu e500v2, `fusermount3 -V` prints `3.17.2` and `mount.fuse3` prints its usage.
 - **Without the patch** (control), as `sbuild-fuse3-gcc14-unpatched-001`: memfs_ll fails to link with an undefined `std::__atomic_base<unsigned long long>::fetch_add` (`fuse3-unpatched-failure.txt`). That is the same failure #23 recorded under GCC8, so the patch is still needed with GCC14. A 64-bit atomic on 32-bit PowerPC is a libatomic call with either compiler.
+
+## SDK digest and reproducibility
+
+The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
+
+- **Packaging.** Before this commit, repackaging the same SDK tree gave identical contents but different bytes, because 59 file mtimes differed. `package-gcc14-spe-host-toolchain.py` now clamps every mtime to the GCC release date (`gcc/DATESTAMP`, 20240801) and passes `SOURCE_DATE_EPOCH` to `dpkg-deb`. Two runs on the same tree now give the same `.deb` (`c851c0d3…`). The qualified `6d0923e3…` package predates this and stays as qualified.
+- **The SDK compile.** This was not tested. Unstripped target objects carry build paths, so a GCC14 SDK build on the R730 is unlikely to reproduce the digest. Until the binary is shared, or the qualification is re-pinned to an R730 build, the R730 cannot meet the policy.
+
+`profiles/trixie-spe-base.lock.json` still records `gcc: 8.5.0` and `sdk: 8.5.0+tabor5` under `target_foundation`. Changing it alters its hash and invalidates every root receipt, so it is left for the lock owner.
 
 ## Remaining (#27)
 
