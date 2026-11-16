@@ -202,6 +202,16 @@ Runtime checks under qemu e500v2, each compared with x86-64 Debian:
 
 coinstall over this group: 92 Multi-Arch `same` packages, no problems.
 
+## X extension libraries
+
+`specs/xchain.sh` built these in order, each with the earlier X jobs as inputs. It takes the binNMU and its timestamp from the snapshot's amd64 package (`specs/binnmu.sh`) and applies the reviewed X11 `malloc(0)` configure cache to every job:
+
+libxext (+b3), libxrender, libxfixes (+b4), libice, libsm, libxt (+b2, needs GLib), libxi, libxrandr (+b3), libxinerama (+b4), libxcursor, libxdamage (+b2), libxcomposite, libxxf86vm (+b4), libxshmfence, libxpm.
+
+`coinstall.sh`: 92 Multi-Arch `same` packages, all matching their amd64 counterparts.
+
+`xext.c` ran under qemu e500v2 against an Xvfb, built against these packages. It reported RandR 1.6, XFixes 6, Render 0.11, XInput2, Composite and Damage. An XRender fill of (0x1234, 0x5678, 0x9abc) read back `0x12569a`, an XPM parsed to 4x2, and Xcursor answered.
+
 ## Hardware bundle (prepared, not yet run)
 
 `hw/make-hw-bundle-27.sh` (replica-local paths) builds a self-contained bundle (`hw-bundle-27.tar.xz`, 43 MB, sha256 `7c24404b90e1c14b…`). It holds four test programs built with tabor2 (`t.cc` C++ threads/atomics/exceptions, `ffi.c`, `gtest.c`, `ft.c`) plus the packaged sqlite3, openssl, uconv and minizip, and the sbuild-built libraries. Each program has an expected output from the x86-64 build or a fixed reference. `run.sh` runs everything through the bundled `ld.so.1 --library-path`, so nothing is installed on the board, and it writes only under `/tmp`.

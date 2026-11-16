@@ -1,0 +1,273 @@
+{
+  "package": "libsm",
+  "source_lock": "profiles/port-dependency-sources.lock.json",
+  "source_cache": "bootstrap-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/gcc14-glibc-003/receipt.json",
+      "sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/gcc14-runtime-002/receipt.json",
+      "sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6",
+        "tabor-spe-libatomic1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-005/receipt.json",
+      "sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-dh-golang-host-001/receipt.json",
+      "sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49",
+      "packages": [
+        "dh-golang"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "712976c909bf259ad53e63f70fd95260b4c05d1a1ac93029e66026176f5397e8",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe9_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-pkgconf-gcc14-002/receipt.json",
+      "sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966",
+      "packages": [
+        "libpkgconf-dev",
+        "libpkgconf3",
+        "pkg-config",
+        "pkgconf",
+        "pkgconf-bin"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libx11-gcc14-001/receipt.json",
+      "sha256": "e445af8fd0be5799e97d527c3f23a0b982bab69a259758d1e815f47b7ea19f23",
+      "packages": [
+        "libx11-6",
+        "libx11-dev",
+        "libx11-xcb-dev",
+        "libx11-xcb1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxcb-gcc14-001/receipt.json",
+      "sha256": "5d3085d37671f778e7c20dd6fdbb54f6a4e58fde4f2002c589f52f196fb997d9",
+      "packages": [
+        "libxcb-composite0",
+        "libxcb-composite0-dev",
+        "libxcb-damage0",
+        "libxcb-damage0-dev",
+        "libxcb-dpms0",
+        "libxcb-dpms0-dev",
+        "libxcb-dri2-0",
+        "libxcb-dri2-0-dev",
+        "libxcb-dri3-0",
+        "libxcb-dri3-dev",
+        "libxcb-glx0",
+        "libxcb-glx0-dev",
+        "libxcb-present-dev",
+        "libxcb-present0",
+        "libxcb-randr0",
+        "libxcb-randr0-dev",
+        "libxcb-record0",
+        "libxcb-record0-dev",
+        "libxcb-render0",
+        "libxcb-render0-dev",
+        "libxcb-res0",
+        "libxcb-res0-dev",
+        "libxcb-screensaver0",
+        "libxcb-screensaver0-dev",
+        "libxcb-shape0",
+        "libxcb-shape0-dev",
+        "libxcb-shm0",
+        "libxcb-shm0-dev",
+        "libxcb-sync-dev",
+        "libxcb-sync1",
+        "libxcb-xf86dri0",
+        "libxcb-xf86dri0-dev",
+        "libxcb-xfixes0",
+        "libxcb-xfixes0-dev",
+        "libxcb-xinerama0",
+        "libxcb-xinerama0-dev",
+        "libxcb-xinput-dev",
+        "libxcb-xinput0",
+        "libxcb-xkb-dev",
+        "libxcb-xkb1",
+        "libxcb-xtest0",
+        "libxcb-xtest0-dev",
+        "libxcb-xv0",
+        "libxcb-xv0-dev",
+        "libxcb-xvmc0",
+        "libxcb-xvmc0-dev",
+        "libxcb1",
+        "libxcb1-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxau-gcc14-001/receipt.json",
+      "sha256": "9b69ea7392364dcf2b910f13cd3c41e3a1f2919147baff7a9185cd78eb30ff0e",
+      "packages": [
+        "libxau-dev",
+        "libxau6"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxdmcp-gcc14-001/receipt.json",
+      "sha256": "2a1f470b8b3e0e661e88dd2e3b11cd11e959301fd452860a08e6f9c352a55085",
+      "packages": [
+        "libxdmcp-dev",
+        "libxdmcp6"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libbsd-gcc14-001/receipt.json",
+      "sha256": "c6add625256074a4d9daa68bc0d5841ffd857875e091dc6607769bb83c83df6e",
+      "packages": [
+        "libbsd-dev",
+        "libbsd0"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libmd-gcc14-001/receipt.json",
+      "sha256": "85cd3b2fccd1d1f95560969292232b54ea4e74878405f7359e33a9423b1780db",
+      "packages": [
+        "libmd-dev",
+        "libmd0"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-util-linux-gcc14-001/receipt.json",
+      "sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868",
+      "packages": [
+        "fdisk",
+        "libblkid-dev",
+        "libblkid1",
+        "libfdisk-dev",
+        "libfdisk1",
+        "liblastlog2-2",
+        "liblastlog2-dev",
+        "libmount-dev",
+        "libmount1",
+        "libsmartcols-dev",
+        "libsmartcols1",
+        "libuuid1",
+        "uuid-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libselinux-gcc14-001/receipt.json",
+      "sha256": "5bc053d8100467e105b5a9b160e8145b765958d48aa9265f529ac00926c5de29",
+      "packages": [
+        "libselinux1",
+        "libselinux1-dev",
+        "selinux-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-pcre2-gcc14-001/receipt.json",
+      "sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732",
+      "packages": [
+        "libpcre2-16-0",
+        "libpcre2-32-0",
+        "libpcre2-8-0",
+        "libpcre2-dev",
+        "libpcre2-posix3",
+        "pcre2-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libsepol-gcc14-001/receipt.json",
+      "sha256": "afd3b578f3c3a628614ff6ad142c6fe5d23da59db33372364a0011d099c9f7fa",
+      "packages": [
+        "libsepol-dev",
+        "libsepol2",
+        "sepol-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxext-gcc14-002/receipt.json",
+      "sha256": "b9412e08ccbebc0808271293d683e41896e2574a8008e5ac800be8a182b96d14",
+      "packages": [
+        "libxext-dev",
+        "libxext6"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxrender-gcc14-002/receipt.json",
+      "sha256": "ae4a4ae0d6dc3a040341ceda1922ed927efb810ce86ea49ea0dd76076c9332bd",
+      "packages": [
+        "libxrender-dev",
+        "libxrender1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libxfixes-gcc14-002/receipt.json",
+      "sha256": "9b71c30ff52c5c361124f5280fd5aa8f7b6cde8686397a7421250dda4e7e7b2d",
+      "packages": [
+        "libxfixes-dev",
+        "libxfixes3"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libice-gcc14-002/receipt.json",
+      "sha256": "364b26054db4d74e9a090336fa327161de8dd8613791c809248c617ccc7eb178",
+      "packages": [
+        "libice-dev",
+        "libice6"
+      ]
+    }
+  ],
+  "scope": "GCC14 powerpcspe sbuild consumer (#27): Debian libsm. Built against the stage2 glibc 2.41: rebuild after the full glibc.",
+  "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/gcc14-toolchain-pkg-003/receipt.json",
+      "receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2",
+      "file": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe9",
+  "required_full_rebuild": true,
+  "build_profiles": "cross,nocheck,noudeb",
+  "configure_cache": {
+    "path": "profiles/x11-configure-cache.json",
+    "sha256": "60eaa7081ef4b4de5e8795cada9625caa17a9905a6e3caa3a5f64a57488ca124",
+    "evidence": [
+      {
+        "path": "bench/x11-alloc-check.c",
+        "sha256": "c1f9ba19bdf91c39feebeb6d49801a13c49013280fbf866ed5f7bd0493fc7298"
+      },
+      {
+        "path": "docs/builds/r730-x11-20261031/alloc-probe/receipt.json",
+        "sha256": "cc93142731a1c48c09b4ac84a72ca7c91a37bb71af1d52ca88f5b4029c7dfba5"
+      },
+      {
+        "path": "docs/builds/r730-x11-20261031/alloc-probe/guest.log",
+        "sha256": "6b9d39f4caaab042a40cacfd9de8d112c19e344bd08643f44aacf9d46d04c8f6"
+      }
+    ]
+  }
+}
