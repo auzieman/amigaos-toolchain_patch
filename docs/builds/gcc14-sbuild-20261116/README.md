@@ -225,11 +225,21 @@ libxext (+b3), libxrender, libxfixes (+b4), libice, libsm, libxt (+b2, needs GLi
 
 libgpg-error: when cross-compiling, `doc/Makefile` builds `yat2m-for-build` without the `-DPACKAGE_VERSION` that the native `yat2m` gets. The man pages then say `yat2m 1.1` instead of `yat2m 1.51`, so `libgpg-error-dev:powerpcspe` could not coinstall with amd64 (`gpgrt-config.1.gz` differs). The patch passes the same define and goes in as a quilt series, since it changes upstream files. `source_patch` mode cannot carry those: `dpkg-source -b` stops with "unexpected upstream changes". With the patch, the package coinstalls.
 
-## Hardware bundle (prepared, not yet run)
+## Hardware bundle
 
 `hw/make-hw-bundle-27.sh` (replica-local paths) builds a self-contained bundle (`hw-bundle-27.tar.xz`, 43 MB, sha256 `7c24404b90e1c14b…`). It holds four test programs built with tabor2 (`t.cc` C++ threads/atomics/exceptions, `ffi.c`, `gtest.c`, `ft.c`) plus the packaged sqlite3, openssl, uconv and minizip, and the sbuild-built libraries. Each program has an expected output from the x86-64 build or a fixed reference. `run.sh` runs everything through the bundled `ld.so.1 --library-path`, so nothing is installed on the board, and it writes only under `/tmp`.
 
-Dry run under the #3-patched qemu-ppc: 7 of 8 pass. sqlite fails only because qemu-user returns `EINVAL` for `PR_GET_FPEXC`: glibc's e500 `fegetenv` then leaves the saved environment unset, and a later `fesetenv` (from `sqrt`) writes a stale stack word (`0x0fed3bd0`) into SPEFSCR. That is #39, with reproducer `hw/qemu-fpexc-sqrt.c`. The real kernel implements those prctls, so on the A1222 all 8 are expected to pass.
+Dry run under the #3-patched qemu-ppc: 7 of 8 pass. sqlite fails only because qemu-user returns `EINVAL` for `PR_GET_FPEXC`: glibc's e500 `fegetenv` then leaves the saved environment unset, and a later `fesetenv` (from `sqrt`) writes a stale stack word (`0x0fed3bd0`) into SPEFSCR. That is #39, with reproducer `hw/qemu-fpexc-sqrt.c`. I expected all 8 to pass on the A1222, because the real kernel implements those prctls. They did not.
+
+**A1222 run (2026-11-16, kernel 017, e500v2; `hw/a1222-run.txt`): 7 of 8 pass.** The bundle was unpacked into a RAM tmpfs and its manifest verified, and nothing was installed. C++ unwind and atomics, libffi, GLib/GObject/GIO, FreeType with Fontconfig, openssl sha256, ICU `uconv` and minizip all match the x86-64 references.
+
+sqlite fails on the board just as it did under qemu: `cast('1e308' as real)*10` gives `1.79769313486232e+308` instead of `Inf`. So the cause is not only #39. The board narrows it down:
+
+- An overflow alone gives `Inf`.
+- After an inexact `sqrt(2.0)` or `1.0/3.0` *in the same statement*, it gives DBL_MAX.
+- After `exp`, `pow` or an exact `sqrt(4.0)`, or in a separate statement, it gives `Inf` again.
+
+Plain C probes built with tabor2 (`sqrt(2.0)` then `1e308*10`, and an underflow then an overflow) give `inf` on the board. The trigger is therefore inside sqlite's own floating-point path, and it is still open. The sqlite package is not counted as verified on hardware.
 
 ## SDK digest and reproducibility
 
