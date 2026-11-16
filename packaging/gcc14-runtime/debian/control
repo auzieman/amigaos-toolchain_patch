@@ -1,0 +1,31 @@
+Source: tabor-gcc14-runtime
+Section: libs
+Priority: optional
+Maintainer: Tabor lab <root@localhost>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Rules-Requires-Root: no
+
+Package: tabor-spe-libgcc-s1
+Architecture: powerpcspe
+Multi-Arch: same
+Provides: libgcc-s1 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GCC 14.2 SPE shared support library (libgcc_s)
+ Target runtime from the GCC14 powerpcspe candidate build (scripts/build-gcc14-spe-sdk.sh).
+
+Package: tabor-spe-libstdc++6
+Architecture: powerpcspe
+Multi-Arch: same
+Provides: libstdc++6 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GCC 14.2 SPE C++ standard library
+ Target runtime from the GCC14 powerpcspe candidate build (scripts/build-gcc14-spe-sdk.sh).
+
+Package: tabor-spe-libatomic1
+Architecture: powerpcspe
+Multi-Arch: same
+Provides: libatomic1 (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: GCC 14.2 SPE atomic operations library
+ Target runtime from the GCC14 powerpcspe candidate build (scripts/build-gcc14-spe-sdk.sh).

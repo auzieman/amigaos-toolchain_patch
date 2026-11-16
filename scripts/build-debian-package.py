@@ -103,7 +103,9 @@ if a.package_managed_root:
         '-f=${binary:Package}\t${Version}\t${Architecture}\t${db:Status-Status}\n'], text=True)
     r['installed_target_packages'] = [line for line in installed.splitlines()
         if '\tpowerpcspe\tinstalled' in line]
-    assert r['installed_target_packages'], 'Managed root has no configured target packages'
+    # glibc is the root of the target package graph: its bootstrap build has no target
+    # packages installed yet. Every other package needs the managed target root.
+    assert r['installed_target_packages'] or a.package == 'glibc', 'Managed root has no configured target packages'
     r['sysroot_libraries'] = {str(f.relative_to(a.sysroot)): sha(f)
         for f in sorted((a.sysroot / 'usr/lib/powerpc-linux-gnuspe').glob('*.so*')) if f.is_file()}
 def save():
@@ -181,7 +183,11 @@ with (a.work / 'build.log').open('w') as log:
         r['binary_version'] = version
         if a.package == 'glibc':
             # Debian generates its control from architecture-specific templates.
-            env['LINUX_SOURCE'] = str(a.sysroot / 'usr')
+            # A package-managed root takes the UAPI headers from the installed multiarch
+            # linux-libc-dev (/usr/include/$(DEB_HOST_MULTIARCH)); LINUX_SOURCE=/usr would
+            # select the build host's own asm headers.
+            if not a.package_managed_root:
+                env['LINUX_SOURCE'] = str(a.sysroot / 'usr')
             run(['dpkg-architecture', '-apowerpcspe', '-c',
                  'make -f debian/rules debian/control'], source)
         if a.check_dependencies_only:

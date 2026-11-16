@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_configure:
+
+override_dh_auto_build:
+	sha256sum -c runtime-files.sha256
+
+override_dh_auto_test:
+	# Packaging recorded cross-build output; target runtime testing is separate.
+
+override_dh_makeshlibs:
+	dh_makeshlibs -V

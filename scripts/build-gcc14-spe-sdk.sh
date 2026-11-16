@@ -17,9 +17,13 @@
 # PREFIX/powerpc-linux-gnuspe/bin/{ar,as,...} for GCC's own tool search and
 # PREFIX/bin/powerpc-linux-gnuspe-{ar,...} for autotools/meson $host-tool lookups.
 # Output: $WORK/out$PREFIX (compiler, runtimes, sysroot).
+# Package-managed compiler (Debian cross builds against libc6-dev:powerpcspe, as #14 did for
+# GCC8): PREFIX=/usr/lib/tabor-spe-toolchain INSTALLED_SYSROOT=/ MULTIARCH=1. The bootstrap
+# sysroot then serves only as --with-build-sysroot for the target runtimes.
 set -euo pipefail
 RECIPE=${RECIPE:-$(cd "$(dirname "$0")/.." && pwd)}
 WORK=${WORK:?WORK}; CACHE=${CACHE:?CACHE}; PREFIX=${PREFIX:-/opt/tabor-gcc14-spe}
+INSTALLED_SYSROOT=${INSTALLED_SYSROOT:-$PREFIX/sysroot}; MULTIARCH_OPT=${MULTIARCH:+--enable-multiarch}
 J=${JOBS:-$(nproc)}; OUT=$WORK/out; SR=$OUT$PREFIX/sysroot; T=powerpc-linux-gnuspe
 BIN=/usr/bin/powerpc-linux-gnu-; TOOLS="ar as ld nm ranlib readelf objcopy objdump strip"
 mkdir -p "$WORK" "$CACHE"
@@ -114,7 +118,7 @@ if ! done_ final; then
   rm -rf "$WORK/b-final" "$OUT$PREFIX/bin" "$OUT$PREFIX/lib" "$OUT$PREFIX/libexec" "$OUT$PREFIX/$T"
   mkdir -p "$WORK/b-final"; cd "$WORK/b-final"
   # shellcheck disable=SC2086
-  "$WORK/src/gcc14/configure" $COMMON --prefix="$PREFIX" --with-sysroot="$PREFIX/sysroot" \
+  "$WORK/src/gcc14/configure" $COMMON $MULTIARCH_OPT --prefix="$PREFIX" --with-sysroot="$INSTALLED_SYSROOT" \
     --with-build-sysroot="$SR" --enable-languages=c,c++ --enable-shared --enable-threads=posix \
     > "$WORK/final-configure.log" 2>&1
   make -j"$J" $BU all-gcc all-target-libgcc all-target-libstdc++-v3 all-target-libatomic > "$WORK/final-build.log" 2>&1
