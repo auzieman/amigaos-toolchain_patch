@@ -1,0 +1,19 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] debian/rules: fixperms when audispd-plugins is not built
+
+With the pkg.audit.noldap build profile audispd-plugins is not built, but
+override_dh_fixperms-arch still chmods debian/audispd-plugins/etc/audit and
+the build fails. Only touch that directory when it exists. Builds without
+the profile are unchanged.
+
+--- a/debian/rules
++++ b/debian/rules
+@@ -117,7 +117,7 @@
+ 	#chmod 750 debian/auditd/usr/sbin/audispd
+ 	chmod -R o-rwx debian/auditd/var/log/audit
+ 	chgrp adm debian/auditd/var/log/audit
+-	chmod -R o-rwx debian/auditd/etc/audit debian/audispd-plugins/etc/audit
++	chmod -R o-rwx debian/auditd/etc/audit $(wildcard debian/audispd-plugins/etc/audit)
+ 
+ get-orig-source:
+ 	-uscan --upstream-version 0

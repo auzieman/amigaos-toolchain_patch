@@ -165,6 +165,23 @@ Runtime checks under qemu e500v2:
 
 sbuild's `--make-binNMU` dates the binNMU changelog entry now, and debhelper takes `SOURCE_DATE_EPOCH` from it. libev's man page records that date, so `libev-dev:powerpcspe` failed to coinstall with amd64: `trying to overwrite shared '/usr/share/man/man3/ev.3.gz'`, with `.TH LIBEV 3 2026-11-16` against Debian's `2024-10-28`. `run-sbuild-package.py` now accepts an optional `binary_nmu_timestamp`, passed to sbuild as `--binNMU-timestamp`. The value is the Debian amd64 binNMU's own trailer date, taken from its `changelog.Debian.amd64.gz` (`Mon, 28 Oct 2024 22:40:46 +0000` for libev). With it, libev coinstalls. No other binNMU built here generates dated shared files: all of them pass `coinstall.sh`.
 
+## krb5 and audit: the full-glibc prerequisites are complete
+
+| job | version | note |
+|---|---|---|
+| `sbuild-architecture-properties-gcc14-001` | 0.2.6 | `cross-exe-wrapper:powerpcspe`, which girepository-tools (pulled in by libglib2.0-dev) depends on, as auzieman found for GCC8 |
+| `sbuild-libverto-gcc14-002` | 0.3.1-1.2+b2 | binNMU 2 with Debian's binNMU timestamp |
+| `sbuild-krb5-gcc14-002` | 1.21.3-5+deb13u1 | `stage1` (no LDAP/SASL); `patches/krb5/0001-measured-spe-cross-configure.patch` plus the new `0002-native-myhostname-for-cross-builds.patch` |
+| `sbuild-audit-gcc14-002` | 1:4.0.2-2+deb13u1 | `nopython,pkg.audit.noldap`; new `patches/audit/0001-noldap-fixperms-without-audispd-plugins.patch` |
+
+Two Debian packaging bugs were fixed on the way:
+- **krb5** build-depends on `libnss-myhostname` so the build can resolve its hostname (#1063648). The NSS module is loaded by the build tools' libc, so a cross build needs the build architecture's copy. Without `:native` it asks for `libnss-myhostname:powerpcspe`, which only systemd provides.
+- **audit's own `pkg.audit.noldap` profile** does not build `audispd-plugins`, but `override_dh_fixperms-arch` still chmods `debian/audispd-plugins/etc/audit` and fails. The patch uses `$(wildcard …)` for that path.
+
+`run-sbuild-package.py` gained an optional `source_patch.extra_patches` list. Each entry is pinned by sha256 and applied with `git apply` after the main patch, so krb5 keeps its reviewed 0001 and adds 0002.
+
+So `libaudit-dev`, `libcap-dev` and `libselinux1-dev` now exist for powerpcspe, which a full (non-stage2) glibc needs. `coinstall.sh` over this group (51 Multi-Arch `same` packages) found no problems.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
@@ -177,5 +194,5 @@ The policy pins the toolchain receipt `c6539872…`, and the runner checks the `
 ## Remaining (#27)
 
 - The rest of the workstation closure (libX* extensions, Mesa, the session), ideally through `run-port-build.py` once GCC14 defaults exist.
-- A full (non-stage2) glibc: libcap-dev and libselinux1-dev are done; libaudit-dev still needs the krb5 closure above.
+- A full (non-stage2) glibc: all three prerequisites (libaudit-dev, libcap-dev, libselinux1-dev) are built.
 - Physical A1222 runs of the dynamically linked packages.

@@ -1,0 +1,20 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] debian/control: take libnss-myhostname for the build architecture
+
+libnss-myhostname is a build dependency so the build can always resolve
+its hostname (Debian #1063648). The NSS module is loaded by the build
+tools' libc, which in a cross build is the build architecture's, so
+qualify it :native. A cross build otherwise needs libnss-myhostname for
+the host architecture, which is only built with systemd. Native builds
+are unchanged.
+--- a/debian/control
++++ b/debian/control
+@@ -9,7 +9,7 @@
+                libkeyutils-dev [linux-any],
+                libldap2-dev <!stage1>,
+                liblmdb-dev, 
+-               libnss-myhostname, 
++               libnss-myhostname:native, 
+                libsasl2-dev <!stage1>,
+                libssl-dev,
+                libverto-dev,

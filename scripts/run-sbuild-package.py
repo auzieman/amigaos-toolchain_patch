@@ -124,6 +124,11 @@ try:
   assert run(['dpkg-source','--no-check','-x',dsc,tree],'source-extract')==0
   assert run(['git','-C',tree,'apply','--check',patch],'source-patch-check')==0
   assert run(['git','-C',tree,'apply',patch],'source-patch')==0
+  # Further reviewed Debian packaging fixes, each pinned and applied in order.
+  for index,extra in enumerate(patch_spec.get('extra_patches',[])):
+   extra_patch=a.project/extra['path'];assert sha(extra_patch)==extra['sha256']
+   assert run(['git','-C',tree,'apply','--check',extra_patch],'source-patch-check-'+str(index+1))==0
+   assert run(['git','-C',tree,'apply',extra_patch],'source-patch-'+str(index+1))==0
   version=patch_spec['version']
   preserve=bool(patch_spec.get('preserve_debian_version'))
   assert version==component['version'] if preserve else version.startswith(component['version']+'+')
