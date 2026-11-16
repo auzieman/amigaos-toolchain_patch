@@ -1,7 +1,25 @@
 {
   "required_gcc_major": 14,
-  "qualification_status": "pending",
-  "qualified_sdk_receipt": null,
+  "qualification_status": "passed",
+  "qualified_sdk_receipt": "docs/builds/gcc14-sdk-packages-20261116/tabor-spe-toolchain-receipt.json",
   "scope": "User direction: all new powerpcspe distribution compilation uses qualified GCC14. GCC8 artifacts are retained historical bootstrap evidence only.",
-  "qualified_sdk_receipt_sha256": null
+  "qualified_sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019",
+  "qualified_sdk": {
+    "package": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+    "package_sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+    "candidate_series": "patches/gcc/gcc14-spe-candidate 0001-0022",
+    "decision": "Qualified 2026-11-16 at the board owner's direction, on the evidence listed here; reopen by setting qualification_status back to pending.",
+    "evidence": [
+      "Compiler fixes #29 (0019), #36 (0020), #31 (0021), #30 (0022): docs/builds/gcc14-spe-*-2026111[56]",
+      "GCC 14.2 gcc.c-torture execute+ieee on the A1222: SPE -O0/-O2/-O3 pass 1719/1720/1720, zero compile differences against Debian hard float (docs/builds/gcc14-spe-split-multireg-20261115)",
+      "Directed rounding 9/9 on the A1222; QEMU corrected (#3, docs/builds/qemu-spe-rounding-20261115)",
+      "bench/ ABI and C++ probes on the A1222 and QEMU; check-gcc14-spe-candidate.py 22/22 and the four check-spe-* scripts",
+      "Packaged toolchain, glibc 2.41 and runtimes install through apt; a dynamically linked C++ test runs under qemu-ppc e500v2 (docs/builds/gcc14-sdk-packages-20261116)"
+    ],
+    "open": [
+      "Physical A1222 run of dynamically linked packaged binaries",
+      "Full (non-stage2) glibc rebuild",
+      "Workstation closure through sbuild"
+    ]
+  }
 }
