@@ -218,7 +218,7 @@ libxext (+b3), libxrender, libxfixes (+b4), libice, libsm, libxt (+b2, needs GLi
 |---|---|---|
 | `sbuild-attr-gcc14-001`, `sbuild-acl-gcc14-001` | 1:2.5.2-3, 2.3.2-2+b1 | |
 | `sbuild-libgpg-error-gcc14-003` | 1.51-4 | new `patches/libgpg-error/0001-yat2m-for-build-package-version.patch` (below) |
-| `sbuild-libgcrypt20-gcc14-001`, `sbuild-kmod-gcc14-001` | 1.11.0-7+deb13u*, 34.2-2 | libgcrypt20 was built against libgpg-error-001, which differs only in that man page |
+| `sbuild-libgcrypt20-gcc14-001`, `sbuild-kmod-gcc14-001` | 1.11.0-7+deb13u1, 34.2-2 | libgcrypt20 was built against libgpg-error-001, which differs only in that man page |
 | `sbuild-systemd-gcc14-001` | 257.13-1~deb13u1 | `stage1,noinsttest`: libsystemd0/-dev, libudev1/-dev, udev, systemd, libnss-*; libseccomp is excluded for powerpcspe by Debian's own arch list. `udevadm --version` runs under qemu |
 | `sbuild-libpciaccess-gcc14-001` | 0.17-3+b3 | |
 | `sbuild-libdrm-gcc14-001` | 2.4.124-2 | including libdrm-amdgpu1 for the GPU stack |
