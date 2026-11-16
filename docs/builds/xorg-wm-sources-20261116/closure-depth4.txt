@@ -1,0 +1,45 @@
+html2text                    TOOL?    <- python3-defaults
+pkg-config                   TOOL?    <- libepoxy libglvnd libxaw libxfont libxkbfile libxml2 libxmu libxres libxv twm xcb-util-image xinit
+pkgconf                      TOOL?    <- apparmor dbus libevdev libfontenc libva libvdpau libxtst lm-sensors mesa mtdev pixman wayland xcb-util xcb-util-keysyms xcb-util-renderutil xcb-util-wm xorg-server xserver-xorg-input-evdev
+valgrind-if-available        TOOL?    <- dbus
+apache2                      locked   <- apparmor
+apparmor                     locked   <- dbus
+apr                          locked   <- apache2
+apr-util                     NEW      <- apache2
+curl                         locked   <- apache2
+dbus                         locked   <- xorg-server
+gmp                          locked   <- nettle
+jansson                      locked   <- apache2
+libepoxy                     NEW      <- xorg-server
+libevdev                     locked   <- xserver-xorg-input-evdev
+libfontenc                   locked   <- libxfont
+libglvnd                     NEW      <- libepoxy libva mesa xorg-server
+libunwind                    NEW      <- xorg-server
+libutempter                  NEW      <- xterm
+libva                        locked   <- mesa
+libvdpau                     NEW      <- mesa
+libxaw                       locked   <- xorg-server xterm
+libxcvt                      locked   <- xorg-server
+libxfont                     locked   <- xorg-server
+libxkbfile                   locked   <- xorg-server xserver-xorg-input-evdev xterm
+libxml2                      locked   <- apache2 wayland
+libxmu                       locked   <- libxaw twm xorg-server
+libxres                      NEW      <- xorg-server
+libxtst                      locked   <- xorg-server
+libxv                        NEW      <- xorg-server
+lm-sensors                   locked   <- mesa
+lua5.4                       NEW      <- apache2
+mesa                         locked   <- xorg-server
+mtdev                        locked   <- xserver-xorg-input-evdev
+nettle                       locked   <- xorg-server
+nghttp2                      locked   <- apache2
+pixman                       locked   <- xorg-server
+python3-defaults             locked   <- apparmor libxml2
+wayland                      locked   <- libva mesa
+xcb-util                     locked   <- xcb-util-image xorg-server
+xcb-util-image               locked   <- xorg-server
+xcb-util-keysyms             locked   <- xorg-server
+xcb-util-renderutil          NEW      <- xorg-server
+xcb-util-wm                  NEW      <- xorg-server
+xft                          locked   <- xterm
+xorg-server                  locked   <- xserver-xorg-input-evdev
