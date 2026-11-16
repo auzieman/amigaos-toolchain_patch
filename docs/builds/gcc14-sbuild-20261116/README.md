@@ -100,6 +100,29 @@ The upstream `patches/{pcre2,libsepol,libcap-ng,libmd}` only change behaviour wh
 
 Still missing for `libaudit-dev`: audit build-depends on libkrb5-dev, libwrap0-dev and libcap-ng-dev. krb5 needs comerr/ss (e2fsprogs, `+b12`), keyutils, lmdb, openssl and libverto. libverto needs libev and glib2.0, and e2fsprogs needs util-linux's libblkid/uuid. udev, systemd, cron, swig, byacc and docbook-to-man are Multi-Arch `foreign`, so the build can use amd64 for those.
 
+## Terminal and ICU libraries
+
+These are on the way to util-linux (libblkid/uuid for e2fsprogs) and sqlite3:
+
+| job | version | note |
+|---|---|---|
+| `sbuild-gpm-gcc14-002` | 1.20.7-11+b2 | binNMU 2 |
+| `sbuild-ncurses-gcc14-002` | 6.5+20250216-2 | `patches/ncurses/series.json` |
+| `sbuild-readline-gcc14-001` | 8.2-6 | |
+| `sbuild-tcl8.6-gcc14-001` | 8.6.16+dfsg-1 | |
+| `sbuild-icu-gcc14-004` | 76.1-4 | `patches/icu/series.json` (new, below) |
+
+### ICU data broken by cross-endian packaging (fixed)
+
+The first ICU build (`sbuild-icu-gcc14-002`) compiled and packaged normally. But on the target every ICU program failed with `can not initialize ICU. status = U_INVALID_FORMAT_ERROR`. The ICU data header inside libicudata read `27da0090 00000014 00020000 446e6d43`. That is little-endian ICU data (`headerSize 0x0090, magic da27, isBigEndian 0, "CmnD"`) with every 32-bit word byte-swapped. ICU's Makefile converts the data to big-endian correctly (`icupkg -tb`). Two host-order assumptions after that undo it:
+
+- `pkgdata` repackages the items with `writePackageDatFile(..., U_IS_BIG_ENDIAN ? 'b' : 'l')`, which converts them back to the host's order.
+- `genccode -a gcc` prints each 32-bit word, read in host order, as `.long`, and the assembler stores it in target order.
+
+`patches/icu/0001-cross-endian-data-library.patch` fixes both. pkgdata takes the type letter from the data package name (`icudt76b`, as `U_ICUDATA_NAME` defines it). genccode swaps the words when the data header's `isBigEndian` differs from the host's. Native builds are unchanged. With it (`sbuild-icu-gcc14-004`) the header reads `0090da27 00140000 01000200 436d6e44` (big-endian, `CmnD`). Under qemu e500v2, `uconv` round-trips UTF-8 → UTF-16BE → UTF-8, its UTF-16BE output matches the host's iconv, and `uconv -x 'Any-Latin; Latin-ASCII'` turns `Grüße, 東京, Ελλάδα, ñandú` into `Grusse, dong jing, Ellada, nandu`.
+
+`scripts/check-icu-data-byte-order.py` (new) checks a libicudata's header against its ELF byte order. It fails on icu-002 and passes on icu-004.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:

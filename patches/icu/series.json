@@ -1,0 +1,11 @@
+{
+  "package": "icu",
+  "version": "76.1-4",
+  "purpose": "Cross-endian ICU data library (LE build host -> BE powerpcspe): pkgdata keeps the target byte order; genccode emits words in the data byte order",
+  "patches": [
+    {
+      "path": "patches/icu/0001-cross-endian-data-library.patch",
+      "sha256": "94af5c4dad14eb07adbf49acad54d1b53b43cc8832befb98c4c4f3d509d4938c"
+    }
+  ]
+}

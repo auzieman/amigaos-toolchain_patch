@@ -1,0 +1,75 @@
+Description: keep ICU data in the target byte order when cross-building
+ Cross-building from a little-endian host for a big-endian target (powerpcspe)
+ produced an unusable libicudata: every ICU program failed with
+ U_INVALID_FORMAT_ERROR. Two host-order assumptions caused it:
+ .
+  * pkgdata repackaged the items (already converted by icupkg -tb) in the
+    host byte order. It now takes the type letter from the data package name
+    (icudt76b), as U_ICUDATA_NAME defines it.
+  * genccode printed each 32-bit word, read in host order, as .long, and the
+    assembler stores that in target order. It now swaps the words when the
+    data header's isBigEndian differs from the host's.
+ .
+ Native builds are unchanged: the type letter and isBigEndian then equal the
+ host's.
+Author: Tabor SPE lab <root@localhost>
+Forwarded: no
+
+--- a/source/tools/pkgdata/pkgdata.cpp	2024-10-24 19:24:00.000000000 +0100
++++ b/source/tools/pkgdata/pkgdata.cpp	2026-11-16 03:57:07.471443558 +0000
+@@ -613,7 +613,18 @@
+         if(o->verbose) {
+           fprintf(stdout, "# Writing package file %s ..\n", datFileNamePath);
+         }
+-        result = writePackageDatFile(datFileNamePath, o->comment, o->srcDir, o->fileListFiles->str, nullptr, U_CHARSET_FAMILY ? 'e' :  U_IS_BIG_ENDIAN ? 'b' : 'l');
++        /* The data package name carries the target's type letter (icudt76b, icudt76l):
++         * keep the items in that byte order instead of converting them back to the
++         * host's, which breaks cross builds between endiannesses. */
++        char outType = U_CHARSET_FAMILY ? 'e' :  U_IS_BIG_ENDIAN ? 'b' : 'l';
++        size_t shortNameLength = uprv_strlen(o->shortName);
++        if (shortNameLength > 5 && uprv_strncmp(o->shortName, "icudt", 5) == 0) {
++            char typeLetter = o->shortName[shortNameLength - 1];
++            if (typeLetter == 'b' || typeLetter == 'l' || typeLetter == 'e') {
++                outType = typeLetter;
++            }
++        }
++        result = writePackageDatFile(datFileNamePath, o->comment, o->srcDir, o->fileListFiles->str, nullptr, outType);
+         if (result != 0) {
+             fprintf(stderr,"Error writing package dat file.\n");
+             return result;
+--- a/source/tools/toolutil/pkg_genc.cpp	2024-10-24 19:24:00.000000000 +0100
++++ b/source/tools/toolutil/pkg_genc.cpp	2026-11-16 03:49:11.868112053 +0000
+@@ -400,15 +400,32 @@
+     T_FileStream_writeLine(out, buffer.chars);
+     T_FileStream_writeLine(out, assemblyHeader[assemblyHeaderIndex].beginLine);
+ 
++    /* The assembler stores each .long in the target's byte order, but the words are
++     * read here in the host's. ICU data is already in the target's byte order (pkgdata
++     * runs icupkg -t first), so when the data header's isBigEndian differs from the
++     * host's, swap each word so the emitted bytes equal the file's bytes. Without this a
++     * little-endian host cross-building for a big-endian target emits unusable data. */
++    UBool firstBlock = true, swapWords = false;
+     for(;;) {
+         memset(buffer.uint32s, 0, sizeof(buffer.uint32s));
+         length=T_FileStream_read(in, buffer.uint32s, sizeof(buffer.uint32s));
+         if(length==0) {
+             break;
+         }
++        if (firstBlock) {
++            const uint8_t *header = reinterpret_cast<const uint8_t *>(buffer.uint32s);
++            firstBlock = false;
++            if (length >= 12 && header[2] == 0xda && header[3] == 0x27) {
++                swapWords = (header[8] != 0) != (U_IS_BIG_ENDIAN != 0);
++            }
++        }
+         for(i=0; i<(length/sizeof(buffer.uint32s[0])); i++) {
+             // TODO: What if the last read sees length not as a multiple of 4?
+-            column = write32(out, buffer.uint32s[i], column);
++            uint32_t word = buffer.uint32s[i];
++            if (swapWords) {
++                word = (word >> 24) | ((word >> 8) & 0xff00) | ((word << 8) & 0xff0000) | (word << 24);
++            }
++            column = write32(out, word, column);
+         }
+     }
+ 
