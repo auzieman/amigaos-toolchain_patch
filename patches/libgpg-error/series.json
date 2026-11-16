@@ -1,0 +1,11 @@
+{
+  "package": "libgpg-error",
+  "version": "1.51-4",
+  "purpose": "Cross builds: yat2m-for-build gets the package version so Multi-Arch same man pages match native",
+  "patches": [
+    {
+      "path": "patches/libgpg-error/0001-yat2m-for-build-package-version.patch",
+      "sha256": "faadd4fc01883e9de5aa394871c00bba47b42891bb0b5f7172b382684b7eb87b"
+    }
+  ]
+}

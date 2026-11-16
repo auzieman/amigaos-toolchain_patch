@@ -1,0 +1,31 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] doc: give yat2m-for-build the package version
+
+When cross-compiling, doc/Makefile builds yat2m for the build machine
+without -DPACKAGE_VERSION, which the native yat2m gets, so the man pages
+say "yat2m 1.1" instead of the package version. gpgrt-config.1.gz in the
+Multi-Arch: same libgpg-error-dev then differs from the native build and
+cannot be coinstalled. Pass the same define. Native builds are unchanged.
+
+--- a/doc/Makefile.am
++++ b/doc/Makefile.am
+@@ -48,7 +48,7 @@
+ 
+ yat2m-for-build$(EXEEXT_FOR_BUILD): yat2m.c
+ 	$(CC_FOR_BUILD) $(CFLAGS_FOR_BUILD) $(LDFLAGS_FOR_BUILD) \
+-	$(CPPFLAGS_FOR_BUILD) -o $@ $(srcdir)/yat2m.c
++	$(CPPFLAGS_FOR_BUILD) -DPACKAGE_VERSION="\"$(PACKAGE_VERSION)\"" -o $@ $(srcdir)/yat2m.c
+ else
+ YAT2M_CMD = ./yat2m$(EXEEXT)
+ YAT2M_DEP = yat2m$(EXEEXT)
+--- a/doc/Makefile.in
++++ b/doc/Makefile.in
+@@ -1131,7 +1131,7 @@
+ 
+ @CROSS_COMPILING_TRUE@yat2m-for-build$(EXEEXT_FOR_BUILD): yat2m.c
+ @CROSS_COMPILING_TRUE@	$(CC_FOR_BUILD) $(CFLAGS_FOR_BUILD) $(LDFLAGS_FOR_BUILD) \
+-@CROSS_COMPILING_TRUE@	$(CPPFLAGS_FOR_BUILD) -o $@ $(srcdir)/yat2m.c
++@CROSS_COMPILING_TRUE@	$(CPPFLAGS_FOR_BUILD) -DPACKAGE_VERSION="\"$(PACKAGE_VERSION)\"" -o $@ $(srcdir)/yat2m.c
+ 
+ yat2m-stamp: $(myman_sources) $(srcdir)/version.texi
+ 	@rm -f yat2m-stamp.tmp

@@ -212,6 +212,19 @@ libxext (+b3), libxrender, libxfixes (+b4), libice, libsm, libxt (+b2, needs GLi
 
 `xext.c` ran under qemu e500v2 against an Xvfb, built against these packages. It reported RandR 1.6, XFixes 6, Render 0.11, XInput2, Composite and Damage. An XRender fill of (0x1234, 0x5678, 0x9abc) read back `0x12569a`, an XPM parsed to 4x2, and Xcursor answered.
 
+## systemd stage1 and libdrm
+
+| job | version | note |
+|---|---|---|
+| `sbuild-attr-gcc14-001`, `sbuild-acl-gcc14-001` | 1:2.5.2-3, 2.3.2-2+b1 | |
+| `sbuild-libgpg-error-gcc14-003` | 1.51-4 | new `patches/libgpg-error/0001-yat2m-for-build-package-version.patch` (below) |
+| `sbuild-libgcrypt20-gcc14-001`, `sbuild-kmod-gcc14-001` | 1.11.0-7+deb13u*, 34.2-2 | libgcrypt20 was built against libgpg-error-001, which differs only in that man page |
+| `sbuild-systemd-gcc14-001` | 257.13-1~deb13u1 | `stage1,noinsttest`: libsystemd0/-dev, libudev1/-dev, udev, systemd, libnss-*; libseccomp is excluded for powerpcspe by Debian's own arch list. `udevadm --version` runs under qemu |
+| `sbuild-libpciaccess-gcc14-001` | 0.17-3+b3 | |
+| `sbuild-libdrm-gcc14-001` | 2.4.124-2 | including libdrm-amdgpu1 for the GPU stack |
+
+libgpg-error: when cross-compiling, `doc/Makefile` builds `yat2m-for-build` without the `-DPACKAGE_VERSION` that the native `yat2m` gets. The man pages then say `yat2m 1.1` instead of `yat2m 1.51`, so `libgpg-error-dev:powerpcspe` could not coinstall with amd64 (`gpgrt-config.1.gz` differs). The patch passes the same define and goes in as a quilt series, since it changes upstream files. `source_patch` mode cannot carry those: `dpkg-source -b` stops with "unexpected upstream changes". With the patch, the package coinstalls.
+
 ## Hardware bundle (prepared, not yet run)
 
 `hw/make-hw-bundle-27.sh` (replica-local paths) builds a self-contained bundle (`hw-bundle-27.tar.xz`, 43 MB, sha256 `7c24404b90e1c14b…`). It holds four test programs built with tabor2 (`t.cc` C++ threads/atomics/exceptions, `ffi.c`, `gtest.c`, `ft.c`) plus the packaged sqlite3, openssl, uconv and minizip, and the sbuild-built libraries. Each program has an expected output from the x86-64 build or a fixed reference. `run.sh` runs everything through the bundled `ld.so.1 --library-path`, so nothing is installed on the board, and it writes only under `/tmp`.
