@@ -1,0 +1,19 @@
+From: Tabor SPE port maintainers
+Subject: [PATCH] debian/control: take javahelper for the build architecture
+
+javahelper is Architecture: all without Multi-Arch: foreign, so a cross
+build cannot satisfy it for the host architecture. It runs on the build
+machine (like default-jdk:native and nasm:native in 0001), so qualify it
+:native. Native builds are unchanged.
+
+--- a/debian/control
++++ b/debian/control
+@@ -7,7 +7,7 @@
+                debhelper-compat (= 13),
+                default-jdk:native [!hppa !hurd-any !powerpc !powerpcspe],
+                help2man,
+-               javahelper,
++               javahelper:native,
+                nasm:native,
+                libjpeg-turbo-progs:native (= 1:2.1.5-4) <cross>,
+ Rules-Requires-Root: no

@@ -182,6 +182,26 @@ Two Debian packaging bugs were fixed on the way:
 
 So `libaudit-dev`, `libcap-dev` and `libselinux1-dev` now exist for powerpcspe, which a full (non-stage2) glibc needs. `coinstall.sh` over this group (51 Multi-Arch `same` packages) found no problems.
 
+## Image and font libraries
+
+| job | version | note |
+|---|---|---|
+| `sbuild-libpng1.6-gcc14-001` | 1.6.48-1+deb13u6 | |
+| `sbuild-libjpeg-turbo-gcc14-004` | 1:2.1.5-4 | `patches/libjpeg-turbo` 0001-0003 plus the new 0004 (`javahelper:native`), applied as `source_patch` plus `extra_patches` |
+| `sbuild-expat-gcc14-001` | 2.9.0-1~deb13u1 | |
+| `sbuild-brotli-gcc14-002` | 1.1.0-2+deb13u1 | `nopython` |
+| `sbuild-freetype-gcc14-001` | 2.13.3+dfsg-1+deb13u1 | demos built against the SPE libX11 |
+| `sbuild-fontconfig-gcc14-001` | 2.15.0-2.3 | |
+
+The runner's `quilt_patch_series` mode cannot carry patches that edit `debian/`. `dpkg-source -b` re-applies them over the already patched `debian/control` and fails, which is what happened with the libjpeg-turbo series and with glibc. Such series are now given as `source_patch` plus `extra_patches` (`git apply`; `specs/series2patch.py`). libjpeg-turbo's existing 0001 qualifies nasm and default-jdk `:native`. The new 0004 does the same for `javahelper`, which is Arch: all without Multi-Arch foreign and so unsatisfiable for the host architecture.
+
+Runtime checks under qemu e500v2, each compared with x86-64 Debian:
+- `cjpeg -quality 50/90 -optimize` and `djpeg` give byte-identical output.
+- `pngfix --optimize` gives byte-identical output.
+- `ft.c` renders 14 code points (Latin, Ä, Ω, Ж) at five pixel sizes with DejaVu Sans, hashes every bitmap and advance, and asks fontconfig for `DejaVu Sans:bold`. The hash, ink total and match are identical: `068a90f517b162b6`, `ink=2069295`, `DejaVu Sans/Bold`.
+
+coinstall over this group: 92 Multi-Arch `same` packages, no problems.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
