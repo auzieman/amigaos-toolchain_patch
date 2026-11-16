@@ -8,12 +8,12 @@
     "package": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb",
     "package_sha256": "24b4f16c4649d35583b96abd5ede3f9a2ab361c869aaa012a04753fbf953b4af",
     "candidate_series": "patches/gcc/gcc14-spe-candidate 0001-0023",
-    "decision": "Qualified 2026-11-16 at the board owner's direction (tabor1, 0001-0022); re-pinned the same day to tabor2, which adds only 0023 (#38): its assembly is identical to tabor1 on all 4296 GCC torture compiles at -O0/-O2/-O3, its target runtimes disassemble identically, and the candidate and per-issue checks pass. Reopen by setting qualification_status back to pending.",
+    "decision": "Qualified 2026-11-16 at the board owner's direction (tabor1, 0001-0022); re-pinned the same day to tabor2, which adds only 0023 (#38): its assembly is identical to tabor1 on all 4641 GCC torture execute and 204 ieee compiles at -O0/-O2/-O3, its target runtimes disassemble identically, and the candidate and per-issue checks pass. Reopen by setting qualification_status back to pending.",
     "evidence": [
       "Compiler fixes #29 (0019), #36 (0020), #31 (0021), #30 (0022): docs/builds/gcc14-spe-*-2026111[56]",
       "GCC 14.2 gcc.c-torture execute+ieee on the A1222: SPE -O0/-O2/-O3 pass 1719/1720/1720, zero compile differences against Debian hard float (docs/builds/gcc14-spe-split-multireg-20261115)",
       "Directed rounding 9/9 on the A1222; QEMU corrected (#3, docs/builds/qemu-spe-rounding-20261115)",
-      "bench/ ABI and C++ probes on the A1222 and QEMU; check-gcc14-spe-candidate.py 22/22 and the four check-spe-* scripts",
+      "bench/ ABI and C++ probes on the A1222 and QEMU; check-gcc14-spe-candidate.py 22/22 (with --qemu, tabor1 and tabor2) and the four check-spe-* scripts",
       "Packaged toolchain, glibc 2.41 and runtimes install through apt; a dynamically linked C++ test runs under qemu-ppc e500v2 (docs/builds/gcc14-sdk-packages-20261116)",
       "#38 (0023) -fzero-call-used-regs: scripts/check-spe-zero-call-used-regs.py; runtime matrix under qemu e500v2; torture assembly identical to tabor1 (docs/builds/gcc14-spe-zero-call-used-regs-20261116)"
     ],
