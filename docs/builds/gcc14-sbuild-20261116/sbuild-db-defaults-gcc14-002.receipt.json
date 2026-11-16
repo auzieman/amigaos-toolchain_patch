@@ -1,0 +1,194 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "73d19baa8bf1b7eb9eb8e282595e69a2fdd5e9ae13b47e3d16ffd23e143f738e",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "db-defaults_5.3.4.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db-defaults/db-defaults_5.3.4.dsc",
+      "size": 1585,
+      "sha256": "0709e552cc31edcad465fc057bb04fcfd9f0467637125374bed81432fb922bef"
+    },
+    {
+      "filename": "db-defaults_5.3.4.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/db-defaults/db-defaults_5.3.4.tar.xz",
+      "size": 2600,
+      "sha256": "1774d9974b0afba1d8fc02186ed05e38287a97f94623b440b5e7606831e9c442"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    },
+    {
+      "file": "db5.3-util_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "a91bf8bffc3da820a951f9267f91115cb33bba7f7a7944e007eccde240de5be0",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "libdb5.3++t64_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "afede1930bf889dd1ef1d2427a29193c2795092f0afe8730dd492dfebc674ba7",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "libdb5.3t64_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "253b0ca0c918899966f2c742159d581bc70e6db45b4afc430764aee530f1bac0",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "libdb5.3-dbg_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "a48d4d9bb7684a2578aadba222b87e596a276219e603d774f4da0732f3fe6737",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "libdb5.3-dev_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "ad2365fc86a9f211bef045bed585a7908ee2a109be51e6729ab0aeda7d4bdbbe",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "libdb5.3++-dev_5.3.28+dfsg2-9_powerpcspe.deb",
+      "sha256": "aff54dc4d712e59d9f7cec568af78c358896757476189814ad41dd86586b73a5",
+      "receipt_sha256": "8f380eae78088d15e4ec22e1bfcf3f020f025cb0714a0bc39ad96d7c2326a384"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+      "sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-db-defaults-gcc14-002/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-db-defaults-gcc14-002",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-db-defaults-gcc14-002/sources/db-defaults_5.3.4.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-db-defaults-gcc14-002/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-db-defaults-gcc14-002/payload-inspection.json"
+    ]
+  ],
+  "package": "db-defaults",
+  "source_version": "5.3.4",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-db-defaults-gcc14-002",
+    "seeded_archives": 120,
+    "promoted_archives": 0,
+    "retained_archives": 120
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/90e9d0ec376ce1b6e8f7e48caf3c38c5cf287d412f47b1cf16506748616db806",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "db5.3-util_5.3.28+dfsg2-9_powerpcspe.deb": "a91bf8bffc3da820a951f9267f91115cb33bba7f7a7944e007eccde240de5be0",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "libdb5.3++-dev_5.3.28+dfsg2-9_powerpcspe.deb": "aff54dc4d712e59d9f7cec568af78c358896757476189814ad41dd86586b73a5",
+      "libdb5.3++t64_5.3.28+dfsg2-9_powerpcspe.deb": "afede1930bf889dd1ef1d2427a29193c2795092f0afe8730dd492dfebc674ba7",
+      "libdb5.3-dbg_5.3.28+dfsg2-9_powerpcspe.deb": "a48d4d9bb7684a2578aadba222b87e596a276219e603d774f4da0732f3fe6737",
+      "libdb5.3-dev_5.3.28+dfsg2-9_powerpcspe.deb": "ad2365fc86a9f211bef045bed585a7908ee2a109be51e6729ab0aeda7d4bdbbe",
+      "libdb5.3t64_5.3.28+dfsg2-9_powerpcspe.deb": "253b0ca0c918899966f2c742159d581bc70e6db45b4afc430764aee530f1bac0",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69"
+    },
+    "packages_sha256": "df334f74ac80aba662d051058e826d081dcd308ee1dba81336f73c66b87f1714",
+    "identity": "90e9d0ec376ce1b6e8f7e48caf3c38c5cf287d412f47b1cf16506748616db806",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libdb-dev_5.3.4_powerpcspe.deb": {
+      "sha256": "890583b0914a93339003521b804facc6981520956d23b9e2bc23e2d146a500f2",
+      "bytes": 2080
+    }
+  },
+  "build_metadata": {
+    "db-defaults_5.3.4_powerpcspe.buildinfo": "07432242b3ce50b7b9cf140c377c8a0db97fc5704fead57b7f3353db9f83abae",
+    "db-defaults_5.3.4_powerpcspe.changes": "c2268de38aa51d4d0a3369ee15b0aa66350350bdc09bc1eff1fe7bb45abdd33e"
+  },
+  "payload_inspection_sha256": "8296bfa5b98ab9dc53ac51a906d60c9cbbf5da1ec8614b343fe6a54d803efeed"
+}

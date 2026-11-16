@@ -1,0 +1,175 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "51e179426608edfa1e99b11b7a8eda7b55802f32d28aace02a0defb0b69fc96a",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 4,
+  "source_inputs": [
+    {
+      "filename": "flex_2.6.4-8.2.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/flex/flex_2.6.4-8.2.dsc",
+      "size": 2107,
+      "sha256": "5c77d8dda81631d43361e6cf29f5901bcaf0c20935f0a2c9a21bffa7a8666e22"
+    },
+    {
+      "filename": "flex_2.6.4.orig.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/flex/flex_2.6.4.orig.tar.gz",
+      "size": 1419096,
+      "sha256": "e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995"
+    },
+    {
+      "filename": "flex_2.6.4-8.2.diff.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/f/flex/flex_2.6.4-8.2.diff.gz",
+      "size": 60738,
+      "sha256": "c2ee0c631289f8a4f945a4c62ac05b7fe4abee9c72be1ab5604b9cc44a3d8678"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+      "sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-flex-gcc14-003/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-flex-gcc14-003",
+      "--maintainer=Tabor SPE lab <root@localhost>",
+      "--binNMU=4",
+      "--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-flex-gcc14-003/sources/flex_2.6.4-8.2.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-flex-gcc14-003/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-flex-gcc14-003/payload-inspection.json"
+    ]
+  ],
+  "package": "flex",
+  "source_version": "2.6.4-8.2",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-flex-gcc14-003",
+    "seeded_archives": 120,
+    "promoted_archives": 0,
+    "retained_archives": 120
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/6c58d9eeb236d5b4c8332d5f50945370ed4f0e98845275f4385b23e64732db5f",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69"
+    },
+    "packages_sha256": "99909ccab35c139db522f9c132456fef0eea9c53545bc69f198bcd7937651adb",
+    "identity": "6c58d9eeb236d5b4c8332d5f50945370ed4f0e98845275f4385b23e64732db5f",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libfl-dev_2.6.4-8.2+b4_powerpcspe.deb": {
+      "sha256": "ba20061b04b0e5b1d14b3d73da4fb5d8c816add93b1fb76eb0c38b601cf55071",
+      "bytes": 85444
+    },
+    "libfl2_2.6.4-8.2+b4_powerpcspe.deb": {
+      "sha256": "53f7796e8302268cd27e41af4210ae2cfbe005328d0e98e5e391ce9787f7bf5c",
+      "bytes": 84072
+    },
+    "flex_2.6.4-8.2+b4_powerpcspe.deb": {
+      "sha256": "2a22e452a205ab6d1a3361c643dc98c7e60295ee573e439c0d251f7df95dee05",
+      "bytes": 398688
+    }
+  },
+  "build_metadata": {
+    "flex_2.6.4-8.2+b4_powerpcspe.buildinfo": "67d908a537c8e4ed6c9af804b88a962bf1fea73680db5982ce889e3994cc545d",
+    "flex_2.6.4-8.2+b4_powerpcspe.changes": "c99430e8c22d9c91ded1d812cc2fb03a57ffcfeead74d9f0ccee536acdaf98ac"
+  },
+  "payload_inspection_sha256": "46ddded9b976e5bcd592fa3bfe75f004cc25faf57aaa48264345de22ce4c4897"
+}

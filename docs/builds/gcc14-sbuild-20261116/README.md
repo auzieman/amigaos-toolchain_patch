@@ -76,6 +76,30 @@ Runtime check: `bench/x11-xvfb-roundtrip.c` (new) was built against the packaged
 
 `specs/mkspec.py` and `specs/runspec.sh` are the replica-local helpers that derived these specs from the zlib one and ran them. They are evidence, not project scripts.
 
+## Full-glibc prerequisites
+
+Debian's full glibc build-depends on `libaudit-dev`, `libcap-dev` and `libselinux1-dev` for the host architecture. Built so far:
+
+| job | version | profiles / note |
+|---|---|---|
+| `sbuild-pcre2-gcc14-001` | 10.46-1~deb13u3 | Debian's rules already disable JIT on powerpcspe; sljit's PowerPC backend uses FPU instructions e500 lacks |
+| `sbuild-libsepol-gcc14-001` | 3.8.1-1 | |
+| `sbuild-libselinux-gcc14-001` | 3.8.1-1 | `nopython,noruby` |
+| `sbuild-libcap-ng-gcc14-001` | 0.8.5-4+b1 | `nopython`, binNMU 1 |
+| `sbuild-libxcrypt-gcc14-002` | 1:4.4.38-1 | |
+| `sbuild-flex-gcc14-003` | 2.6.4-8.2+b4 | binNMU 4 (`libfl-dev` must equal `flex`) |
+| `sbuild-db5.3-gcc14-003`, `sbuild-db-defaults-gcc14-002` | 5.3.28+dfsg2-9, 5.3.4 | `pkg.db5.3.notcl` |
+| `sbuild-pam-gcc14-003` | 1.7.0-5 | `stage1` (no audit/systemd) |
+| `sbuild-libcap2-gcc14-001` | 1:2.75-10+deb13u1+b3 | binNMU 3 |
+
+The upstream `patches/{pcre2,libsepol,libcap-ng,libmd}` only change behaviour when `TABOR_SYSROOT` is set, so the standard builds don't use them.
+
+`nodoc` must not be used for Multi-Arch `same` packages. The first libxcrypt was built with `nodoc`, and its man pages came out as `.so` stubs where Debian's amd64 package has full pages. pam's dependency install then failed with `trying to overwrite shared '/usr/share/man/man3/crypt_gensalt_ra.3.gz', which is different from other instances of package libcrypt-dev:powerpcspe` (`pam-nodoc-multiarch-clash.txt`). libxcrypt, flex, db5.3 and db-defaults were rebuilt without `nodoc`.
+
+`specs/coinstall.sh` (replica-local) installs each Multi-Arch `same` powerpcspe package beside its amd64 counterpart from the snapshot, so dpkg checks both the versions and the shared files. Across all 94 such packages built so far, against 91 amd64 counterparts, it found no problems.
+
+Still missing for `libaudit-dev`: audit build-depends on libkrb5-dev, libwrap0-dev and libcap-ng-dev. krb5 needs comerr/ss (e2fsprogs, `+b12`), keyutils, lmdb, openssl and libverto. libverto needs libev and glib2.0, and e2fsprogs needs util-linux's libblkid/uuid. udev, systemd, cron, swig, byacc and docbook-to-man are Multi-Arch `foreign`, so the build can use amd64 for those.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
@@ -88,5 +112,5 @@ The policy pins the toolchain receipt `c6539872…`, and the runner checks the `
 ## Remaining (#27)
 
 - The rest of the workstation closure (libX* extensions, Mesa, the session), ideally through `run-port-build.py` once GCC14 defaults exist.
-- A full (non-stage2) glibc.
+- A full (non-stage2) glibc: libcap-dev and libselinux1-dev are done; libaudit-dev still needs the krb5 closure above.
 - Physical A1222 runs of the dynamically linked packages.
