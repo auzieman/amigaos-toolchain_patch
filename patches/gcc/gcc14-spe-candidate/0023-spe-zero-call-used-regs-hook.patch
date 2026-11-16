@@ -1,0 +1,74 @@
+--- a/gcc/config/powerpcspe/powerpcspe.cc
++++ b/gcc/config/powerpcspe/powerpcspe.cc
+@@ -1971,6 +1971,10 @@
+ #undef TARGET_HARD_REGNO_MODE_OK
+ #define TARGET_HARD_REGNO_MODE_OK rs6000_hard_regno_mode_ok
+ 
++static HARD_REG_SET rs6000_zero_call_used_regs (HARD_REG_SET);
++#undef TARGET_ZERO_CALL_USED_REGS
++#define TARGET_ZERO_CALL_USED_REGS rs6000_zero_call_used_regs
++
+ #undef TARGET_MODES_TIEABLE_P
+ #define TARGET_MODES_TIEABLE_P rs6000_modes_tieable_p
+ 
+@@ -26799,6 +26803,60 @@
+   return simplify_gen_subreg (reg_mode, x, mode, offset);
+ }
+ 
++/* Implement TARGET_ZERO_CALL_USED_REGS.  With SPE the GPRs are 64 bits
++   wide and their raw mode is a 64-bit mode, so the default zeroing moves a
++   64-bit constant zero into each GPR after reload, which goes through the
++   constant pool and asserts in change_address_1.  Zero each SPE GPR as a
++   V2SImode zero vector instead (the zero alternative of movv2si_internal),
++   clearing both halves.  Zero any other register (CR fields, CTR, LR)
++   directly if a move from zero is valid, else by copying a zeroed GPR, as
++   the default does.  SPE_ACC and SPEFSCR are fixed, so they are never
++   asked for, and the rounding mode is preserved.  */
++
++static HARD_REG_SET
++rs6000_zero_call_used_regs (HARD_REG_SET need_zeroed_hardregs)
++{
++  if (!TARGET_SPE)
++    return default_zero_call_used_regs (need_zeroed_hardregs);
++
++  HARD_REG_SET zeroed_hardregs;
++  CLEAR_HARD_REG_SET (zeroed_hardregs);
++  int zero_gpr = -1;
++  for (unsigned int regno = FIRST_GPR_REGNO; regno <= LAST_GPR_REGNO; regno++)
++    if (TEST_HARD_REG_BIT (need_zeroed_hardregs, regno))
++      {
++	emit_move_insn (gen_rtx_REG (V2SImode, regno), CONST0_RTX (V2SImode));
++	SET_HARD_REG_BIT (zeroed_hardregs, regno);
++	if (zero_gpr < 0)
++	  zero_gpr = regno;
++      }
++
++  for (unsigned int regno = 0; regno < FIRST_PSEUDO_REGISTER; regno++)
++    if (TEST_HARD_REG_BIT (need_zeroed_hardregs, regno)
++	&& !TEST_HARD_REG_BIT (zeroed_hardregs, regno))
++      {
++	rtx reg = regno_reg_rtx[regno];
++	machine_mode mode = GET_MODE (reg);
++	if (!targetm.hard_regno_mode_ok (regno, mode))
++	  continue;
++	rtx_insn *last = get_last_insn ();
++	if (valid_insn_p (emit_move_insn (reg, CONST0_RTX (mode))))
++	  {
++	    SET_HARD_REG_BIT (zeroed_hardregs, regno);
++	    continue;
++	  }
++	delete_insns_since (last);
++	if (zero_gpr >= 0
++	    && targetm.hard_regno_mode_ok (zero_gpr, mode)
++	    && hard_regno_nregs (zero_gpr, mode) == 1
++	    && valid_insn_p (emit_move_insn (reg, gen_rtx_REG (mode, zero_gpr))))
++	  SET_HARD_REG_BIT (zeroed_hardregs, regno);
++	else
++	  delete_insns_since (last);
++      }
++  return zeroed_hardregs;
++}
++
+ /* Emit instructions to move SRC to DST.  Called by splitters for
+    multi-register moves.  It will emit at most one instruction for
+    each register that is accessed; that is, it won't emit li/lis pairs

@@ -1,0 +1,110 @@
+{
+  "issue": 38,
+  "compiles": {
+    "used-gpr -O0": 1,
+    "used-gpr -O2": 1,
+    "used -O0": 1,
+    "used -O2": 1,
+    "all-gpr -O0": 1,
+    "all-gpr -O2": 1,
+    "all -O0": 1,
+    "all -O2": 1,
+    "used-gpr-arg -O0": 1,
+    "used-gpr-arg -O2": 1,
+    "used-arg -O0": 1,
+    "used-arg -O2": 1,
+    "all-arg -O0": 1,
+    "all-arg -O2": 1
+  },
+  "failures": [
+    {
+      "mode": "used-gpr",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used-gpr",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all-gpr",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all-gpr",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used-gpr-arg",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used-gpr-arg",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:5:57: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used-arg",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "used-arg",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:5:57: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all-arg",
+      "opt": "-O0",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    },
+    {
+      "mode": "all-arg",
+      "opt": "-O2",
+      "error": "/work/work/zcur/chk-old/zcur.c:3:36: internal compiler error: in change_address_1, at emit-rtl.cc:2299"
+    }
+  ],
+  "used_gpr_O2": {
+    "call": {
+      "cleared_gprs": [],
+      "clears_return_reg": false
+    },
+    "dcall": {
+      "cleared_gprs": [],
+      "clears_return_reg": false
+    },
+    "leaf": {
+      "cleared_gprs": [],
+      "clears_return_reg": false
+    },
+    "loop": {
+      "cleared_gprs": [],
+      "clears_return_reg": false
+    }
+  },
+  "passed": false
+}

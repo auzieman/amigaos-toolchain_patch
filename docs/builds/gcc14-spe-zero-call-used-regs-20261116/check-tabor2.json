@@ -1,0 +1,59 @@
+{
+  "issue": 38,
+  "compiles": {
+    "used-gpr -O0": 0,
+    "used-gpr -O2": 0,
+    "used -O0": 0,
+    "used -O2": 0,
+    "all-gpr -O0": 0,
+    "all-gpr -O2": 0,
+    "all -O0": 0,
+    "all -O2": 0,
+    "used-gpr-arg -O0": 0,
+    "used-gpr-arg -O2": 0,
+    "used-arg -O0": 0,
+    "used-arg -O2": 0,
+    "all-arg -O0": 0,
+    "all-arg -O2": 0
+  },
+  "failures": [],
+  "used_gpr_O2": {
+    "call": {
+      "cleared_gprs": [
+        0
+      ],
+      "clears_return_reg": false
+    },
+    "dcall": {
+      "cleared_gprs": [
+        0,
+        5,
+        6,
+        9,
+        10,
+        11
+      ],
+      "clears_return_reg": false
+    },
+    "leaf": {
+      "cleared_gprs": [
+        5,
+        6,
+        8,
+        9,
+        10
+      ],
+      "clears_return_reg": false
+    },
+    "loop": {
+      "cleared_gprs": [
+        4,
+        8,
+        9,
+        10
+      ],
+      "clears_return_reg": false
+    }
+  },
+  "passed": true
+}
