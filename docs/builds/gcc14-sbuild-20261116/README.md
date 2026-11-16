@@ -2,7 +2,7 @@
 
 With the GCC14 SDK qualified (`profiles/compiler-policy.json`, 8a18e48), the standard path (`run-sbuild-package.py`: mmdebstrap root, sbuild unshare, apt resolver) now builds powerpcspe packages from the GCC14 foundation only. Nothing from GCC8 was among the inputs.
 
-Host: the Debian 13 WSL2 replica of the build host, laid out as on the R730 (`owner` account with subuid 165536+65536; base `/srv/data1/tabor-build/linux-live-001`; `tabor-{apt-cache,sbuild-repositories,sbuild-tmp}` beside it). `run-sbuild-package.py` and `build-frozen-buildd-root.py` ran unmodified.
+Host: the Debian 13 WSL2 replica of the build host, laid out as on the R730 (`owner` account with subuid 165536+65536; base `/srv/data1/tabor-build/linux-live-001`; `tabor-{apt-cache,sbuild-repositories,sbuild-tmp}` beside it). `build-frozen-buildd-root.py` ran unmodified. `run-sbuild-package.py` ran unmodified up to libev-001. From libev-002 it has two optional, backward-compatible additions from this work: `binary_nmu_timestamp` and `source_patch.extra_patches`.
 
 ## Chain
 
@@ -187,7 +187,7 @@ So `libaudit-dev`, `libcap-dev` and `libselinux1-dev` now exist for powerpcspe, 
 | job | version | note |
 |---|---|---|
 | `sbuild-libpng1.6-gcc14-001` | 1.6.48-1+deb13u6 | |
-| `sbuild-libjpeg-turbo-gcc14-004` | 1:2.1.5-4 | `patches/libjpeg-turbo` 0001-0003 plus the new 0004 (`javahelper:native`), applied as `source_patch` plus `extra_patches` |
+| `sbuild-libjpeg-turbo-gcc14-004` | 1:2.1.5-4 | `patches/libjpeg-turbo/series.json` (0001-0003, unchanged; older build records pin its hash) plus the new `0004-qualify-javahelper-native.patch`, all applied as `source_patch` plus `extra_patches` |
 | `sbuild-expat-gcc14-001` | 2.9.0-1~deb13u1 | |
 | `sbuild-brotli-gcc14-002` | 1.1.0-2+deb13u1 | `nopython` |
 | `sbuild-freetype-gcc14-001` | 2.13.3+dfsg-1+deb13u1 | demos built against the SPE libX11 |
