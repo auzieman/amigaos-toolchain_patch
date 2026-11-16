@@ -123,6 +123,21 @@ The first ICU build (`sbuild-icu-gcc14-002`) compiled and packaged normally. But
 
 `scripts/check-icu-data-byte-order.py` (new) checks a libicudata's header against its ELF byte order. It fails on icu-002 and passes on icu-004.
 
+## sqlite3, util-linux, e2fsprogs
+
+| job | version | note |
+|---|---|---|
+| `sbuild-sqlite3-gcc14-001` | 3.46.1-7+deb13u2 | readline, tcl8.6, icu |
+| `sbuild-util-linux-gcc14-001` | 2.41.5-0+deb13u1 | `stage1,pkg.util-linux.noverity`, `patches/util-linux/0001-disable-pam-tools-in-stage1.patch`. Stage1 builds the libraries and fdisk only. |
+| `sbuild-e2fsprogs-gcc14-002` | 1.47.2-3+b12 | binNMU 12; fuse2fs against the GCC14 fuse3 |
+
+Runtime checks under qemu e500v2, each compared with the x86-64 Debian tool:
+- **sqlite3:** a SQL script with 20,000 REAL rows (sum, avg, min of an expression), exp, sqrt, pow, `round(2.675, 2)`, overflow to Inf, `printf('%.17g')` and text ordering. Its output is byte-identical to x86-64 sqlite3, so SPE double arithmetic and formatting agree.
+- **sfdisk:** writing a two-partition GPT with fixed label and partition UUIDs gives an image byte-identical to x86-64 sfdisk, including both CRC32s. That exercises libfdisk, libblkid, libuuid and libsmartcols.
+- **e2fsprogs:** the SPE `mke2fs -t ext4` image (metadata_csum, 64bit, orphan_file) passes the host's `e2fsck -fn`. The SPE `e2fsck -fn` passes a host-made ext4 (exit 0).
+
+`coinstall.sh` on these together with their inputs: 47 Multi-Arch `same` packages, 44 amd64 counterparts, no dpkg problems.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:

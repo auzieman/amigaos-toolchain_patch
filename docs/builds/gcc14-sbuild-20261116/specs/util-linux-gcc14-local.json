@@ -1,0 +1,186 @@
+{
+  "package": "util-linux",
+  "source_lock": "profiles/port-dependency-sources.lock.json",
+  "source_cache": "bootstrap-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/gcc14-glibc-003/receipt.json",
+      "sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/gcc14-runtime-002/receipt.json",
+      "sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6",
+        "tabor-spe-libatomic1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-005/receipt.json",
+      "sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-dh-golang-host-001/receipt.json",
+      "sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49",
+      "packages": [
+        "dh-golang"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/cross-core-metapackage-001/receipt.json",
+      "sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe8_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-pkgconf-gcc14-002/receipt.json",
+      "sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966",
+      "packages": [
+        "libpkgconf-dev",
+        "libpkgconf3",
+        "pkg-config",
+        "pkgconf",
+        "pkgconf-bin"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-readline-gcc14-001/receipt.json",
+      "sha256": "17753651b0fb39436bdd454f7b907c0a0f22ad2d77266c8abf41aac0234f6536",
+      "packages": [
+        "libreadline-dev",
+        "libreadline8t64"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-ncurses-gcc14-002/receipt.json",
+      "sha256": "336f77d4eee1bbecc81404a0fbd6726b74d34fb2b9b2524952731284c24025f5",
+      "packages": [
+        "libncurses-dev",
+        "libncurses6",
+        "libncursesw6",
+        "libtinfo6",
+        "ncurses-bin",
+        "ncurses-examples"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-gpm-gcc14-002/receipt.json",
+      "sha256": "b6c1ec3637e7efa773462471d79bd3daa7d1b9011d3364bbd88f6ed0bfc66cf6",
+      "packages": [
+        "gpm",
+        "libgpm-dev",
+        "libgpm2"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-sqlite3-gcc14-001/receipt.json",
+      "sha256": "7bf6c3161d14d3db53c96f787968ce460944e07d2c44e8a6b55cc63717ba057b",
+      "packages": [
+        "lemon",
+        "libsqlite3-0",
+        "libsqlite3-dev",
+        "libsqlite3-ext-csv",
+        "libsqlite3-ext-icu",
+        "libsqlite3-tcl",
+        "sqlite3",
+        "sqlite3-tools"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-zlib-gcc14-003/receipt.json",
+      "sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01",
+      "packages": [
+        "libminizip-dev",
+        "libminizip1t64",
+        "minizip",
+        "zlib1g",
+        "zlib1g-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libselinux-gcc14-001/receipt.json",
+      "sha256": "5bc053d8100467e105b5a9b160e8145b765958d48aa9265f529ac00926c5de29",
+      "packages": [
+        "libselinux1",
+        "libselinux1-dev",
+        "selinux-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-pcre2-gcc14-001/receipt.json",
+      "sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732",
+      "packages": [
+        "libpcre2-16-0",
+        "libpcre2-32-0",
+        "libpcre2-8-0",
+        "libpcre2-dev",
+        "libpcre2-posix3",
+        "pcre2-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libsepol-gcc14-001/receipt.json",
+      "sha256": "afd3b578f3c3a628614ff6ad142c6fe5d23da59db33372364a0011d099c9f7fa",
+      "packages": [
+        "libsepol-dev",
+        "libsepol2",
+        "sepol-utils"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-icu-gcc14-004/receipt.json",
+      "sha256": "d8de9b4a5e653282cdf7a452aed09ca4080be9f1b3ab2615655eeab302a11c24",
+      "packages": [
+        "icu-devtools",
+        "libicu-dev",
+        "libicu76"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-tcl8.6-gcc14-001/receipt.json",
+      "sha256": "63b6a9cf5eff2d37d83278c13f29c27debb5edbe91d43656aa94f39d4e622f1e",
+      "packages": [
+        "libtcl8.6",
+        "tcl8.6",
+        "tcl8.6-dev"
+      ]
+    }
+  ],
+  "scope": "GCC14 powerpcspe sbuild consumer (#27): Debian util-linux. Built against the stage2 glibc 2.41: rebuild after the full glibc.",
+  "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/gcc14-toolchain-pkg-002/receipt.json",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019",
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe8",
+  "required_full_rebuild": true,
+  "build_profiles": "cross,nocheck,noudeb,stage1,pkg.util-linux.noverity",
+  "source_patch": {
+    "path": "patches/util-linux/0001-disable-pam-tools-in-stage1.patch",
+    "sha256": "69c615b1c0d6d7ea8a784a3d5b8fe281a0168dbceac51ac1243509b104d691e4",
+    "version": "2.41.5-0+deb13u1",
+    "preserve_debian_version": true
+  }
+}
