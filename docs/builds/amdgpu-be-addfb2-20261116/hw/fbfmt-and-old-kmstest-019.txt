@@ -1,0 +1,12 @@
+# kernel 6.12.113-tabor-e2e-019, power-cycled boot, modprobe amdgpu polaris11_le_user_ib=1 (sysfs Y).
+# ./fbfmt 15, then the OLD kmstest (registers the BGRX8888 BO as XRGB8888) ./kmstest 15 120.
+# On screen: fbfmt cases 1-3 correct; old kmstest bars cyan, magenta, white, blue (wrong), cube colours off.
+connector 54 crtc 41 mode 1920x2160@60
+1 legacy ADDFB 32/24 host words    ok, kernel format BX24 (0x34325842)
+2 ADDFB2 BGRX8888 host words       ok, kernel format BX24 (0x34325842)
+3 ADDFB2 XRGB8888 LE bytes         ok, kernel format XR24 (0x34325258)
+DONE: 0 ioctl failure(s); compare the three screens by eye
+BARS on screen for 15 s: expect top-left RED, top-right GREEN, bottom-left BLUE, bottom-right WHITE
+CUBE frames=120 seconds=2.030 fps=59.13 flips=120 flip_errors=0
+RESULT DONE (GL readback ok)
+0

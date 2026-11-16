@@ -1,0 +1,9 @@
+# kernel 6.12.113-tabor-e2e-017 (hard-float build), uptime ~13.5 h, amdgpu loaded since an earlier
+# session (after the full GLES3 dEQP run; not a fresh power cycle). ./fbfmt 3
+connector 54 crtc 41 mode 3840x2160@30
+1 legacy ADDFB 32/24 host words    ok, kernel format XR24 (0x34325258)
+2 ADDFB2 BGRX8888 host words       ioctl FAILED: Operation not supported
+3 ADDFB2 XRGB8888 LE bytes         ioctl FAILED: Operation not supported
+FAIL: 2 ioctl failure(s); compare the three screens by eye
+rc=1
+tainted=0
