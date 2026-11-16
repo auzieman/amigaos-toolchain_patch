@@ -1,4 +1,4 @@
-# First GCC14 sbuild consumers: zlib, pkgconf, fuse3 (#27) — 2026-11-16
+# First GCC14 sbuild consumers: zlib, pkgconf, fuse3, X11 chain (#27) — 2026-11-16
 
 With the GCC14 SDK qualified (`profiles/compiler-policy.json`, 8a18e48), the standard path (`run-sbuild-package.py`: mmdebstrap root, sbuild unshare, apt resolver) now builds powerpcspe packages from the GCC14 foundation only. Nothing from GCC8 was among the inputs.
 
@@ -55,6 +55,27 @@ Meson consumers need `pkgconf:powerpcspe`, which is Multi-Arch `same` and provid
 - **With the pinned #23 series** (`patches/fuse3/series.json`), as `sbuild-fuse3-gcc14-003`: it built fuse3, libfuse3-4, libfuse3-dev and fuse3-dbgsym, and the runner's payload inspection ran. The meson probe printed `Checking if "C++ 64-bit atomic operations" links: NO` and `Library atomic found: YES`, and memfs_ll linked with `-latomic` (`fuse3-atomic-probe.txt`). `libfuse3.so.3.17.2` is ELF32 PowerPC, NEEDED libc.so.6 only. Under qemu e500v2, `fusermount3 -V` prints `3.17.2` and `mount.fuse3` prints its usage.
 - **Without the patch** (control), as `sbuild-fuse3-gcc14-unpatched-001`: memfs_ll fails to link with an undefined `std::__atomic_base<unsigned long long>::fetch_add` (`fuse3-unpatched-failure.txt`). That is the same failure #23 recorded under GCC8, so the patch is still needed with GCC14. A 64-bit atomic on 32-bit PowerPC is a libatomic call with either compiler.
 
+## X11 chain
+
+Built in order through the same runner and inputs, each with the previous jobs' powerpcspe packages as pinned inputs. All have `required_full_rebuild`.
+
+| job | version | note |
+|---|---|---|
+| `sbuild-libxau-gcc14-001` | 1:1.0.11-1 | |
+| `sbuild-libmd-gcc14-001` | 1.1.0-2+b1 | `binary_nmu: 1`, matching the snapshot's libmd0:amd64. `patches/libmd` only applies to the old `TABOR_SYSROOT` mode, so it was not used. |
+| `sbuild-libbsd-gcc14-001` | 0.12.2-2 | |
+| `sbuild-libxdmcp-gcc14-001` | 1:1.1.5-1 | |
+| `sbuild-libxcb-gcc14-001` | 1.17.0-2+b1 | `binary_nmu: 1`, matching the snapshot's libxcb1:amd64; all 48 binary packages |
+| `sbuild-libx11-gcc14-001` | 2:1.8.12-1 | the reviewed `profiles/x11-configure-cache.json` |
+
+Every Multi-Arch `same` runtime matches the snapshot's amd64 version.
+
+The configure cache value `xorg_cv_malloc0_returns_null=yes` was first measured on the GCC8 stack. It was re-measured here: `bench/x11-alloc-check.c`, built with the packaged GCC14 toolchain and run on glibc-003 under qemu e500v2, printed `malloc_null=0 realloc_null=1 calloc_null=0 xorg_cv_malloc0_returns_null=yes`.
+
+Runtime check: `bench/x11-xvfb-roundtrip.c` (new) was built against the packaged libx11-dev and run under `qemu-ppc -cpu e500v2` against an Xvfb on the build host. It needs only `libX11.so.6` and `libc.so.6`. It printed `vendor=The X.Org Foundation release=12101016 screen=800x600 depth=24 atom=TABOR_SPE_TEST name=spe-gcc14 pixel=ffffff`, then `X11 roundtrip ok`. That exercises the SPE libX11, libxcb, libXau and libXdmcp over the real X protocol.
+
+`specs/mkspec.py` and `specs/runspec.sh` are the replica-local helpers that derived these specs from the zlib one and ran them. They are evidence, not project scripts.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
@@ -66,6 +87,6 @@ The policy pins the toolchain receipt `c6539872…`, and the runner checks the `
 
 ## Remaining (#27)
 
-- Larger consumers through this path (the libx11 and xcb sequence).
+- The rest of the workstation closure (libX* extensions, Mesa, the session), ideally through `run-port-build.py` once GCC14 defaults exist.
 - A full (non-stage2) glibc.
 - Physical A1222 runs of the dynamically linked packages.
