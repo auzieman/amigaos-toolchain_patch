@@ -1,0 +1,141 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "7f356606c34c0f89643d48c84c5a4207c561e57bf926b5345d52f125e1dc7c44",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "amd64",
+  "build_profiles": "nocheck",
+  "bootstrap": false,
+  "required_full_rebuild": false,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "dh-golang_1.63.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/dh-golang/dh-golang_1.63.dsc",
+      "size": 1842,
+      "sha256": "27c02bfef1a3f3c93aa2ab019417c698b07594e37416831887a86ade904f3033"
+    },
+    {
+      "filename": "dh-golang_1.63.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/d/dh-golang/dh-golang_1.63.tar.xz",
+      "size": 20044,
+      "sha256": "e4fab36b69bfb9e7b8a2e46d157bfd01055019fd0d325135304f92edf429a7ad"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/dh-golang_1.63.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source",
+      "apply",
+      "--check",
+      "/home/tabor/amigaos-toolchain_patch/patches/dh-golang/0001-defer-go-environment-until-backend-selected.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source",
+      "apply",
+      "/home/tabor/amigaos-toolchain_patch/patches/dh-golang/0001-defer-go-environment-until-backend-selected.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/patched-source"
+    ],
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=amd64",
+      "--dist=trixie",
+      "--profiles=nocheck",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--arch-all",
+      "--no-arch-any",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/sources/dh-golang_1.63+spe1.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-dh-golang-host-001/payload-inspection.json"
+    ]
+  ],
+  "package": "dh-golang",
+  "source_version": "1.63+spe1",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "upstream_debian_source_version": "1.63",
+  "patched_source": {
+    "dsc": "sources/dh-golang_1.63+spe1.dsc",
+    "sha256": "4bab327344b673566f0bed84167bb20f1555075203268483f16aeb701012e9a5",
+    "patch_sha256": "320afc5a3ccfa7d9b73340624f4bdfbd37a1443fc2b7c5bfa3a4c8e2d9105b95",
+    "version": "1.63+spe1",
+    "preserve_debian_version": false
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-dh-golang-host-001",
+    "seeded_archives": 53,
+    "promoted_archives": 4,
+    "retained_archives": 57
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/7ca3faf2c2a0416ef85a96e3d27f61e86d270c9a9b58ae5a1aa2d8a54a504f73",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905"
+    },
+    "packages_sha256": "d420d1bd34a15a51bbcadacc7da45c53b96c235cc6497e7fdfa74ea549687ed4",
+    "identity": "7ca3faf2c2a0416ef85a96e3d27f61e86d270c9a9b58ae5a1aa2d8a54a504f73",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "dh-golang_1.63+spe1_all.deb": {
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "bytes": 24540
+    }
+  },
+  "build_metadata": {
+    "dh-golang_1.63+spe1_all.buildinfo": "d71ccde5c940fe12ed4db73373e9a51566d9996b92790f1c043f1045b9ee1299",
+    "dh-golang_1.63+spe1_all.changes": "c140b87c61a8863fcc9902439a7c04347ba722d44bd1c882ef57d41c09576194"
+  },
+  "payload_inspection_sha256": "15d697377dcbd05babf97cdb0664b91130bf0757b1fdaba81b48a25a87981035"
+}

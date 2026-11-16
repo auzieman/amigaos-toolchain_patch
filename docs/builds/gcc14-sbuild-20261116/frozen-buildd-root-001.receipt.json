@@ -1,0 +1,20 @@
+{
+  "status": "native-buildd-root-created",
+  "command": [
+    "mmdebstrap",
+    "--variant=buildd",
+    "--architectures=amd64",
+    "--include=ca-certificates,apt-utils",
+    "--format=tar",
+    "trixie",
+    "/srv/data1/tabor-build/work/buildd-root-001/trixie-amd64.tar",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261102T220000Z/ trixie main",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian/20261102T220000Z/ trixie-updates main",
+    "deb [check-valid-until=no] https://snapshot.debian.org/archive/debian-security/20261102T220000Z/ trixie-security main"
+  ],
+  "base_lock_sha256": "4424724a6c264ac7333550c95aeb5bc3070360a1a778daee7581eaff1cbcff73",
+  "target_execution": false,
+  "exit": 0,
+  "sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "installed_versions_sha256": "e6594841c39f1ae5afc06e177476652c3df83fb66031b6906a43702388bd1d7a"
+}

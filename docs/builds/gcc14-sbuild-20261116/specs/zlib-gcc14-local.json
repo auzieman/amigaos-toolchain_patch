@@ -1,0 +1,71 @@
+{
+  "package": "zlib",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "desktop-base-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/gcc14-glibc-003/receipt.json",
+      "sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/gcc14-runtime-002/receipt.json",
+      "sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6",
+        "tabor-spe-libatomic1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-005/receipt.json",
+      "sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-dh-golang-host-001/receipt.json",
+      "sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49",
+      "packages": [
+        "dh-golang"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/cross-core-metapackage-001/receipt.json",
+      "sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe8_all.deb"
+      ]
+    }
+  ],
+  "scope": "First GCC14 powerpcspe sbuild consumer (#27): standard Debian zlib cross build against the packaged GCC14 foundation only.",
+  "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/gcc14-toolchain-pkg-002/receipt.json",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019",
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe8",
+  "source_patch": {
+    "path": "patches/zlib/0001-cross-configure-minizip.patch",
+    "sha256": "8a8243c6a3d4a4a8af91fd7dacacd8141942009008e63e466de9d928c3009768",
+    "version": "1:1.3.dfsg+really1.3.1-1",
+    "preserve_debian_version": true
+  }
+}

@@ -58,6 +58,6 @@ for deb in sorted(a.output.glob('*.deb')):
     packages[deb.name] = {'sha256': sha(deb), **fields}
 assert len(packages) == 3, packages
 (a.output / 'receipt.json').write_text(json.dumps({
-    'status': 'target-runtime-packages-built-not-installed', 'version': a.version,
+    'status': 'debian-packages-built-not-target-installed', 'version': a.version,
     'recipe_sha256': sha(Path(__file__)), 'libraries': checked, 'packages': packages}, indent=2) + '\n')
 print('\n'.join(packages))

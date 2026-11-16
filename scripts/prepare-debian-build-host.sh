@@ -18,7 +18,8 @@ apt-get install -y --no-install-recommends \
  libglib2.0-dev libpixman-1-dev libfdt-dev zlib1g-dev bison flex bc \
  libssl-dev libelf-dev libncurses-dev cpio xz-utils bzip2 file jq pciutils \
  smartmontools device-tree-compiler u-boot-tools binutils-powerpc-linux-gnu \
- gcc-powerpc-linux-gnu python3-venv python3-yaml
+ gcc-powerpc-linux-gnu python3-venv python3-yaml \
+ mmdebstrap sbuild uidmap debhelper quilt kernel-wedge python3-dacite python3-jinja2 python3-debian
 usermod -aG kvm,libvirt "$build_user"
 # Docker remains root-managed: docker-group membership grants root privileges.
 install -d -o "$build_user" -g "$(id -gn "$build_user")" -m 0750 \

@@ -1,0 +1,33 @@
+{
+  "package": "linux",
+  "source_lock": "profiles/current-uapi-sources.lock.json",
+  "source_cache": "current-uapi-source-cache-20261102",
+  "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "host_architecture": "amd64",
+  "indep_only": true,
+  "build_profiles": "nocheck,nodoc,pkg.linux.nokernel,pkg.linux.notools,pkg.linux.nosource",
+  "source_patch": {
+    "path": "patches/linux/headers/0002-register-spe-uapi-tuple.patch",
+    "sha256": "1014172f8c4313db841da7e7bac1d6710b4cde2b79ece5d2c2e848975240ab2c",
+    "version": "6.12.115-2+spe1",
+    "prepare_debian_control": true
+  },
+  "extra_receipts": [
+    {
+      "receipt": "work/cross-core-metapackage-001/receipt.json",
+      "sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe8_all.deb"
+      ]
+    }
+  ],
+  "scope": "Standard Debian source/profile build of universal Architecture:all UAPI data with SPE tuple registration; not another compiled architecture or target execution",
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe8"
+}
