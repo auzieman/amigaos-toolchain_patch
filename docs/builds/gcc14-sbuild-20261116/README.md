@@ -138,6 +138,33 @@ Runtime checks under qemu e500v2, each compared with the x86-64 Debian tool:
 
 `coinstall.sh` on these together with their inputs: 47 Multi-Arch `same` packages, 44 amd64 counterparts, no dpkg problems.
 
+## Compression, crypto and GLib
+
+| job | version | note |
+|---|---|---|
+| `sbuild-keyutils-gcc14-001`, `sbuild-lmdb-gcc14-001`, `sbuild-tcp-wrappers-gcc14-001` | 1.6.3-6, 0.9.31-1+b2, 7.6.q-36 | lmdb binNMU 2 |
+| `sbuild-libev-gcc14-002` | 1:4.33-2.1+b1 | binNMU 1 with `binary_nmu_timestamp` (below) |
+| `sbuild-xz-utils-gcc14-001`, `sbuild-bzip2-gcc14-001` | 5.8.1-1+deb13u2, 1.0.8-6 | |
+| `sbuild-xxhash-gcc14-002`, `sbuild-lz4-gcc14-002`, `sbuild-libzstd-gcc14-001` | 0.8.3-2, 1.10.0-4, 1.5.7+dfsg-1 | xxhash with `patches/xxhash/0001-cross-install.patch` (Debian's install step used plain `cc`) |
+| `sbuild-openssl-gcc14-003` | 3.5.7-1~deb13u3 | needed the #38 compiler fix, see `docs/builds/gcc14-spe-zero-call-used-regs-20261116` |
+| `sbuild-libtool-gcc14-002`, `sbuild-libffi-gcc14-002` | 2.5.4-4, 3.4.8-2 | the repo's libtool and libffi patches |
+| `sbuild-elfutils-gcc14-002` | 0.192-4 | `pkg.elfutils.nodebuginfod`; needs `libc6-dbg:powerpcspe` |
+| `sbuild-glib2.0-gcc14-001` | 2.84.4-3~deb13u5 | `noinsttest,nogir` |
+
+From openssl on, consumers use `tabor-spe-toolchain 14.2.0+tabor2` and `crossbuild-essential-powerpcspe 1.0+spe9`. The `specs/zlib-gcc14-binnmu-local.json` template was switched. Its tabor1 form is kept as `specs/template-tabor1.json`.
+
+Runtime checks under qemu e500v2:
+- **libffi** (`ffi.c`): an `ffi_call` with nine mixed int/double/long long/float arguments equals the direct call bit for bit, and a closure returns the right value. The SPE ABI holds in libffi.
+- **GLib** (`gtest.c`): the output is identical to the same program built against x86-64 GLib 2.84.4 (`glib-roundtrip-spe.out`). It covers:
+  - GVariant print and little-endian serialisation hash;
+  - a GObject signal with double/int64/string arguments through the libffi generic marshaller;
+  - GRegex (PCRE2), GDateTime, `g_ascii_dtostr`/`formatd`/`strtod`;
+  - UTF-8 case mapping, GHashTable, GKeyFile, a GMainLoop timeout, GIO file write/read.
+
+### binNMU timestamps and Multi-Arch
+
+sbuild's `--make-binNMU` dates the binNMU changelog entry now, and debhelper takes `SOURCE_DATE_EPOCH` from it. libev's man page records that date, so `libev-dev:powerpcspe` failed to coinstall with amd64: `trying to overwrite shared '/usr/share/man/man3/ev.3.gz'`, with `.TH LIBEV 3 2026-11-16` against Debian's `2024-10-28`. `run-sbuild-package.py` now accepts an optional `binary_nmu_timestamp`, passed to sbuild as `--binNMU-timestamp`. The value is the Debian amd64 binNMU's own trailer date, taken from its `changelog.Debian.amd64.gz` (`Mon, 28 Oct 2024 22:40:46 +0000` for libev). With it, libev coinstalls. No other binNMU built here generates dated shared files: all of them pass `coinstall.sh`.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:

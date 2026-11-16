@@ -37,14 +37,14 @@
       "allow_arch_all": true
     },
     {
-      "receipt": "work/cross-core-metapackage-001/receipt.json",
-      "sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3",
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "712976c909bf259ad53e63f70fd95260b4c05d1a1ac93029e66026176f5397e8",
       "packages": [
         "crossbuild-essential-powerpcspe"
       ],
       "allow_arch_all": true,
       "files": [
-        "crossbuild-essential-powerpcspe_1.0+spe8_all.deb"
+        "crossbuild-essential-powerpcspe_1.0+spe9_all.deb"
       ]
     }
   ],
@@ -54,14 +54,14 @@
   "host_architecture": "powerpcspe",
   "native_toolchain_inputs": [
     {
-      "receipt": "work/gcc14-toolchain-pkg-002/receipt.json",
-      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019",
-      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb"
+      "receipt": "work/gcc14-toolchain-pkg-003/receipt.json",
+      "receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2",
+      "file": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb"
     }
   ],
   "base_lock": "profiles/trixie-spe-base.lock.json",
   "uapi_version": "6.12.115-2+spe1",
-  "cross_core_version": "1.0+spe8",
+  "cross_core_version": "1.0+spe9",
   "source_patch": {
     "path": "patches/zlib/0001-cross-configure-minizip.patch",
     "sha256": "8a8243c6a3d4a4a8af91fd7dacacd8141942009008e63e466de9d928c3009768",

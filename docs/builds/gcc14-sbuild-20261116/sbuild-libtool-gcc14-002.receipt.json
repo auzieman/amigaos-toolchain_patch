@@ -1,0 +1,237 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "dcd78b49d4fb58aa834d32ccf4672de38235228d98252185a069644281172725",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "libtool_2.5.4-4.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.dsc",
+      "size": 2232,
+      "sha256": "37d98d7c45d1c12c0b7bd55fb6a90fa05aff8aa9ab2bbd9617ce7a6233b1965e"
+    },
+    {
+      "filename": "libtool_2.5.4.orig.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4.orig.tar.xz",
+      "size": 1069572,
+      "sha256": "d9189031edeaa6aa74695b2aeb80a8c26df50b29d8b72c991667e01adecea42c"
+    },
+    {
+      "filename": "libtool_2.5.4-4.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/libt/libtool/libtool_2.5.4-4.debian.tar.xz",
+      "size": 37504,
+      "sha256": "93e8e286db1322a4f17e3120654ec2664a721e6684c017cb37d471daeb380f8e"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+      "sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/libtool_2.5.4-4.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/patched-source",
+      "apply",
+      "--check",
+      "/home/tabor/amigaos-toolchain_patch/patches/libtool/0001-limit-fortran-test-dependency-to-check-builds.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/patched-source",
+      "apply",
+      "/home/tabor/amigaos-toolchain_patch/patches/libtool/0001-limit-fortran-test-dependency-to-check-builds.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/patched-source"
+    ],
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/sources/debian-patched-output/libtool_2.5.4-4.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libtool-gcc14-002/payload-inspection.json"
+    ]
+  ],
+  "package": "libtool",
+  "source_version": "2.5.4-4",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "upstream_debian_source_version": "2.5.4-4",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/libtool_2.5.4-4.dsc",
+    "sha256": "a8ec5f38d29e4c552eddb9b92ebee9220b664caee1d3bea56dafbc26efa5d4e1",
+    "patch_sha256": "771163e0d24c75b922fac56ebabf6ed25e6ca656ff65cf9c6811f8171639a64d",
+    "version": "2.5.4-4",
+    "preserve_debian_version": true
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-libtool-gcc14-002",
+    "seeded_archives": 200,
+    "promoted_archives": 1,
+    "retained_archives": 201
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/a6e1d46d973a37a2f62f1c4b167af79717858a3efe240103af36648b9be047ec",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677"
+    },
+    "packages_sha256": "7214e7580c01cc3a0e45137e4c2273807e4b42afec2740ad5cabbcdf8abd10e4",
+    "identity": "a6e1d46d973a37a2f62f1c4b167af79717858a3efe240103af36648b9be047ec",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libtool-bin_2.5.4-4_powerpcspe.deb": {
+      "sha256": "bf126b5feef4cdf82a2ade53dee4c05a40d3499d0f51277bd5a41fb4b7d6d9cb",
+      "bytes": 457504
+    },
+    "libltdl7_2.5.4-4_powerpcspe.deb": {
+      "sha256": "4bbfde7b2e61edabf65e03b71e16518e934c96e2c66eb313d6075c787e1e9904",
+      "bytes": 412972
+    },
+    "libltdl-dev_2.5.4-4_powerpcspe.deb": {
+      "sha256": "5c1aa51ce7c55566d3f25542780936101081066151c9f2bbe4308b70c7dbdbb4",
+      "bytes": 165420
+    }
+  },
+  "build_metadata": {
+    "libtool_2.5.4-4_powerpcspe.buildinfo": "b9e2a5037458246ac0ec3e0a4227e9388594a83762a60e6d43ec65d944921015",
+    "libtool_2.5.4-4_powerpcspe.changes": "c15d26a512d8aaf51ec94e126bf6db0317ca52a8ac9b0d5a3e49e19787a61e91"
+  },
+  "payload_inspection_sha256": "dc4a3c9add912447997cea5571c96dfba93aad8f737a21da776f4d9beca07362"
+}

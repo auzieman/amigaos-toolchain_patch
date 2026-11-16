@@ -222,6 +222,11 @@ try:
  if spec.get('binary_nmu'):
   assert not spec.get('indep_only') and 0<int(spec['binary_nmu'])<1000
   cmd[-1:-1]=['--maintainer=Tabor SPE lab <root@localhost>', '--binNMU='+str(spec['binary_nmu']), '--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.']
+  # Multi-Arch same: files generated from SOURCE_DATE_EPOCH (man page dates) must equal the
+  # native binNMU's, so the binNMU entry can carry the Debian binNMU's own timestamp.
+  if spec.get('binary_nmu_timestamp'):
+   assert re.fullmatch(r'[A-Z][a-z]{2}, \d{2} [A-Z][a-z]{2} \d{4} \d{2}:\d{2}:\d{2} [+-]\d{4}',spec['binary_nmu_timestamp'])
+   cmd[-1:-1]=['--binNMU-timestamp='+spec['binary_nmu_timestamp']]
  # Standard apt acquisition policy inside this disposable sbuild root.
  # Keep signed snapshot indexes and ordinary dependency/setup semantics.
  cmd[-1:-1]=["--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries"]

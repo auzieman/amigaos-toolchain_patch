@@ -1,0 +1,278 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "7fc33d688192155c9ffb445cf98eea47381a8f4acd4aca9cc9209cf000dbcb4b",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "openssl_3.5.7-1~deb13u3.dsc",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7-1~deb13u3.dsc",
+      "size": 2710,
+      "sha256": "9cdb0d9daf0773ca5c0f3f5ea1fc59b1106a99e005a5c048948b826e8d3b47e1"
+    },
+    {
+      "filename": "openssl_3.5.7.orig.tar.gz",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7.orig.tar.gz",
+      "size": 53153930,
+      "sha256": "a8c0d28a529ca480f9f36cf5792e2cd21984552a3c8e4aa11a24aa31aeac98e8"
+    },
+    {
+      "filename": "openssl_3.5.7.orig.tar.gz.asc",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7.orig.tar.gz.asc",
+      "size": 833,
+      "sha256": "d3d082bee3f658c31db53af625eceecf29d777c7010394bed5787ebcc98abdf2"
+    },
+    {
+      "filename": "openssl_3.5.7-1~deb13u3.debian.tar.xz",
+      "url": "https://security.debian.org/debian-security/pool/updates/main/o/openssl/openssl_3.5.7-1~deb13u3.debian.tar.xz",
+      "size": 147344,
+      "sha256": "0a427fdc3e773f4119a7dd5b36d1f0903a163cf4ea15d812bb823b251ff1cbc5"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe9_all.deb",
+      "sha256": "3b128756469d924acfa49b24fc129659fa03b3aa698043c38667b8895df8d18c",
+      "receipt_sha256": "712976c909bf259ad53e63f70fd95260b4c05d1a1ac93029e66026176f5397e8"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "0f95f7222e965bdacec0f9fb38226d2549e32a4dbe131009cbf88cd52c7abd68",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "f2be5bb37d6769a5d44c3d8a4e5f0a986b80b5ffb1594fb81db4e529af4f7a1d",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "zstd_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "a4ddd728209a83c5989104731d3b3be744905bc5ecc780ccdd829c6de532080d",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb",
+      "sha256": "24b4f16c4649d35583b96abd5ede3f9a2ab361c869aaa012a04753fbf953b4af",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sources/openssl_3.5.7-1~deb13u3.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sources/quilt-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sources/quilt-source",
+      "apply",
+      "--check",
+      "/home/tabor/amigaos-toolchain_patch/patches/openssl/0001-probe-register-clearing-with-target-compiler.patch"
+    ],
+    [
+      "quilt",
+      "push"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sources/quilt-source"
+    ],
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/sources/patched-output/openssl_3.5.7-1~deb13u3.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-openssl-gcc14-003/payload-inspection.json"
+    ]
+  ],
+  "package": "openssl",
+  "source_version": "3.5.7-1~deb13u3",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "patched_source": {
+    "dsc": "sources/patched-output/openssl_3.5.7-1~deb13u3.dsc",
+    "sha256": "825cba63e250f036a03aa11f1246837423aa8a8fe9b1a4476cb4446d04e16b22",
+    "version": "3.5.7-1~deb13u3",
+    "quilt_series": {
+      "path": "patches/openssl/series.json",
+      "sha256": "3316c798d9f341879dd51abf8ae756ea27bb212f50dec319b54af2e54b643e3b"
+    },
+    "patches": [
+      {
+        "path": "patches/openssl/0001-probe-register-clearing-with-target-compiler.patch",
+        "sha256": "6f2617cc93c02682009f6e1f1db4bf5b5514310a3549796ac12e670967ea50fb"
+      }
+    ],
+    "preserve_debian_version": true
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-openssl-gcc14-003",
+    "seeded_archives": 204,
+    "promoted_archives": 0,
+    "retained_archives": 204
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/eeaddf31bb76c2b055f34529358ee118e4e9805073ae6ae057806c156b9f6d77",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe9_all.deb": "3b128756469d924acfa49b24fc129659fa03b3aa698043c38667b8895df8d18c",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb": "f2be5bb37d6769a5d44c3d8a4e5f0a986b80b5ffb1594fb81db4e529af4f7a1d",
+      "libzstd1_1.5.7+dfsg-1_powerpcspe.deb": "0f95f7222e965bdacec0f9fb38226d2549e32a4dbe131009cbf88cd52c7abd68",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb": "24b4f16c4649d35583b96abd5ede3f9a2ab361c869aaa012a04753fbf953b4af",
+      "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "zstd_1.5.7+dfsg-1_powerpcspe.deb": "a4ddd728209a83c5989104731d3b3be744905bc5ecc780ccdd829c6de532080d"
+    },
+    "packages_sha256": "ee3899e4274707999e28be1d536895c5d83b1f6dfb2e7183361e5c98aa4cff1c",
+    "identity": "eeaddf31bb76c2b055f34529358ee118e4e9805073ae6ae057806c156b9f6d77",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libssl-dev_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "8560f5b348484032f76ab37fa587a139d993e800d444dccd49011ef3f74a4f63",
+      "bytes": 2325036
+    },
+    "openssl-provider-fips_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "d2288b76a57e246c96157385aaf4506a13cf265e27aa42da4d09802d0eeef36b",
+      "bytes": 737068
+    },
+    "libssl3t64_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "7b2893904ab7f910501876ba1a4e4a37f6232dde5c8984111936cb1f15508cf0",
+      "bytes": 1826896
+    },
+    "libssl3t64-dbgsym_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "3c4a501a2ee82f00755c13ecbce6b5ca1d232bcd63fa92f2698d260f36738e64",
+      "bytes": 31088
+    },
+    "openssl_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "d272fb5a4688e69d5d8cde84d46cdd4606a7950dd43863bc664c97c13ac6bb04",
+      "bytes": 1446760
+    },
+    "openssl-provider-legacy_3.5.7-1~deb13u3_powerpcspe.deb": {
+      "sha256": "f7d07bb6ff97305edb6f2005f08ca59c48f7fd5d377d8f096da3810b46952598",
+      "bytes": 310900
+    }
+  },
+  "build_metadata": {
+    "openssl_3.5.7-1~deb13u3_powerpcspe.buildinfo": "77646d3a577d0dae33fc674864f35fdb860e9f32fc173b2cbe07760d38780530",
+    "openssl_3.5.7-1~deb13u3_powerpcspe.changes": "f951a6c7f2320b755e8d4217d4986f88a83939a0944aad8aff354eebef13db24"
+  },
+  "payload_inspection_sha256": "7412013907c4e255c4dfeef0f24dafbd5bf1f6dbbab1693f17138048ebab056f"
+}

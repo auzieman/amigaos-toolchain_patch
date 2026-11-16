@@ -1,0 +1,179 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "4e0066518f618913e35979d1c257376c4d2d5e9a4710dac3d5be24340f8ddfd6",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 2,
+  "source_inputs": [
+    {
+      "filename": "lmdb_0.9.31-1.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/l/lmdb/lmdb_0.9.31-1.dsc",
+      "size": 2030,
+      "sha256": "76262c17115458e3ab423cc7eeb7d16cee46d5ca76a660a8f2bdbab93473457b"
+    },
+    {
+      "filename": "lmdb_0.9.31.orig.tar.gz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/l/lmdb/lmdb_0.9.31.orig.tar.gz",
+      "size": 145086,
+      "sha256": "d35d4f6f46313d62fd342c9dcbf574432919ce5e802d2b6cbe2ebd549821e5c4"
+    },
+    {
+      "filename": "lmdb_0.9.31-1.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/l/lmdb/lmdb_0.9.31-1.debian.tar.xz",
+      "size": 6460,
+      "sha256": "926309e655186f7107c70b7b2d5020215aefd08b0902b1c8282e123c9584080a"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+      "sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-lmdb-gcc14-001/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-lmdb-gcc14-001",
+      "--maintainer=Tabor SPE lab <root@localhost>",
+      "--binNMU=2",
+      "--make-binNMU=Rebuild for the SPE port at the frozen native library binary revision.",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-lmdb-gcc14-001/sources/lmdb_0.9.31-1.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-lmdb-gcc14-001/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-lmdb-gcc14-001/payload-inspection.json"
+    ]
+  ],
+  "package": "lmdb",
+  "source_version": "0.9.31-1",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-lmdb-gcc14-001",
+    "seeded_archives": 171,
+    "promoted_archives": 8,
+    "retained_archives": 179
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/6c58d9eeb236d5b4c8332d5f50945370ed4f0e98845275f4385b23e64732db5f",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69"
+    },
+    "packages_sha256": "99909ccab35c139db522f9c132456fef0eea9c53545bc69f198bcd7937651adb",
+    "identity": "6c58d9eeb236d5b4c8332d5f50945370ed4f0e98845275f4385b23e64732db5f",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "lmdb-utils-dbgsym_0.9.31-1+b2_powerpcspe.deb": {
+      "sha256": "d5981deda63a15c31b1095908c50dc3af5b3436c32c48531d92d9198b9ff948b",
+      "bytes": 16140
+    },
+    "lmdb-utils_0.9.31-1+b2_powerpcspe.deb": {
+      "sha256": "f7ce50207ceb8af61888ace244c819d6ed32fc651a0f7c9e98453dab1dd055c7",
+      "bytes": 56128
+    },
+    "liblmdb-dev_0.9.31-1+b2_powerpcspe.deb": {
+      "sha256": "f71d25f342373f89caf6d0becd6e8983b35d47b39a123ed7014afb88122352d9",
+      "bytes": 57660
+    },
+    "liblmdb0_0.9.31-1+b2_powerpcspe.deb": {
+      "sha256": "c94896c47c82b9c06b8e1cc64826bbe65b5dbbb6c47c06e1ace58edef108567b",
+      "bytes": 41192
+    }
+  },
+  "build_metadata": {
+    "lmdb_0.9.31-1+b2_powerpcspe.buildinfo": "730f110b44b1513f95c355e93cd36609b6e1a11bde77ab362ab0ea2305fd3caa",
+    "lmdb_0.9.31-1+b2_powerpcspe.changes": "418aa90b4177e25f61106ea23865eb2c34ee5a385e4ed6d8a27df44b2e370a8a"
+  },
+  "payload_inspection_sha256": "2795e45b674e54cb6435406b34891f11288b33ea63cc30d06840059aa75cbc2d"
+}

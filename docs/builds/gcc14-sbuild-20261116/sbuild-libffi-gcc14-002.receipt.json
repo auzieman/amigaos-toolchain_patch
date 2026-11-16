@@ -1,0 +1,221 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "b16f874f75d9216b0c0dba53d418a7f1941d6479028dd0eb3cbcb735a5e92815",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "libffi_3.4.8-2.dsc",
+      "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8-2.dsc",
+      "size": 1948,
+      "sha256": "4424defe3f37c0084f062e03330b2ba3d3f927367c33be455cfacf7f85a78161"
+    },
+    {
+      "filename": "libffi_3.4.8.orig.tar.gz",
+      "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8.orig.tar.gz",
+      "size": 595051,
+      "sha256": "cbb7f0b3b095dc506387ec1e35b891bfb4891d05b90a495bc69a10f2293f80ff"
+    },
+    {
+      "filename": "libffi_3.4.8-2.debian.tar.xz",
+      "url": "https://deb.debian.org/debian/pool/main/libf/libffi/libffi_3.4.8-2.debian.tar.xz",
+      "size": 11220,
+      "sha256": "f23ac79a19895ebb6bbb539263d0d945ebc2d3e91217a597f5819777f08b401c"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe8_all.deb",
+      "sha256": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "receipt_sha256": "1565b2505897637745cb9ff0c174a0ed4a7a97a3a8f08c9cbd03264cf6fdc7b3"
+    },
+    {
+      "file": "libtool-bin_2.5.4-4_powerpcspe.deb",
+      "sha256": "bf126b5feef4cdf82a2ade53dee4c05a40d3499d0f51277bd5a41fb4b7d6d9cb",
+      "receipt_sha256": "a7546fbfa23ac6014a53433abe0f5d87acee3dcce33668d46b4330c7c0f9009e"
+    },
+    {
+      "file": "libltdl7_2.5.4-4_powerpcspe.deb",
+      "sha256": "4bbfde7b2e61edabf65e03b71e16518e934c96e2c66eb313d6075c787e1e9904",
+      "receipt_sha256": "a7546fbfa23ac6014a53433abe0f5d87acee3dcce33668d46b4330c7c0f9009e"
+    },
+    {
+      "file": "libltdl-dev_2.5.4-4_powerpcspe.deb",
+      "sha256": "5c1aa51ce7c55566d3f25542780936101081066151c9f2bbe4308b70c7dbdbb4",
+      "receipt_sha256": "a7546fbfa23ac6014a53433abe0f5d87acee3dcce33668d46b4330c7c0f9009e"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb",
+      "sha256": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+    }
+  ],
+  "commands": [
+    [
+      "dpkg-source",
+      "--no-check",
+      "-x",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/libffi_3.4.8-2.dsc",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/patched-source"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/patched-source",
+      "apply",
+      "--check",
+      "/home/tabor/amigaos-toolchain_patch/patches/libffi/0001-register-spe-complex-symbol-availability.patch"
+    ],
+    [
+      "git",
+      "-C",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/patched-source",
+      "apply",
+      "/home/tabor/amigaos-toolchain_patch/patches/libffi/0001-register-spe-complex-symbol-availability.patch"
+    ],
+    [
+      "dpkg-source",
+      "-b",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/patched-source"
+    ],
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/sources/debian-patched-output/libffi_3.4.8-2.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-libffi-gcc14-002/payload-inspection.json"
+    ]
+  ],
+  "package": "libffi",
+  "source_version": "3.4.8-2",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "c65398725c746650b71cf81e08f01ba8ec5ff0f34f4b39fedc70819280d69019"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "upstream_debian_source_version": "3.4.8-2",
+  "patched_source": {
+    "dsc": "sources/debian-patched-output/libffi_3.4.8-2.dsc",
+    "sha256": "8f6ea218f1babd39690950c5741937c6df858778ac4e607d37ab34fa48bb4548",
+    "patch_sha256": "cb0b4b1863e5d890b887cd6b6c80cc51b16339bcbc61016ef028c0f370c3e9c4",
+    "version": "3.4.8-2",
+    "preserve_debian_version": true
+  },
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-libffi-gcc14-002",
+    "seeded_archives": 201,
+    "promoted_archives": 3,
+    "retained_archives": 204
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/792b59ca8e18bf41fd922aa909b199fba5eadc465410210876f42796ddba4eda",
+    "inputs": {
+      "crossbuild-essential-powerpcspe_1.0+spe8_all.deb": "bf01b401af270402d0cf30675d0b3a27da9ac7af69cd098ea23f1f4ca6b00905",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "libltdl-dev_2.5.4-4_powerpcspe.deb": "5c1aa51ce7c55566d3f25542780936101081066151c9f2bbe4308b70c7dbdbb4",
+      "libltdl7_2.5.4-4_powerpcspe.deb": "4bbfde7b2e61edabf65e03b71e16518e934c96e2c66eb313d6075c787e1e9904",
+      "libtool-bin_2.5.4-4_powerpcspe.deb": "bf126b5feef4cdf82a2ade53dee4c05a40d3499d0f51277bd5a41fb4b7d6d9cb",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor1_amd64.deb": "6d0923e39b2cad7499ce1e716cb8e40584006632c22564e7e1489db66e1f6c69"
+    },
+    "packages_sha256": "20b7c991d4b1f047a7ed121f936f7f4e7b3440ede5a7f4ae85135aa990f77344",
+    "identity": "792b59ca8e18bf41fd922aa909b199fba5eadc465410210876f42796ddba4eda",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libffi8_3.4.8-2_powerpcspe.deb": {
+      "sha256": "b3d77e86d8a904699409f76b7bcc921b86cc7a993c36d4ae043f21b5f9400428",
+      "bytes": 20268
+    },
+    "libffi-dev_3.4.8-2_powerpcspe.deb": {
+      "sha256": "fd56c9b216d878d01a90d500129519ccb30bf4a12c169ee3dedf8aae93f72869",
+      "bytes": 62336
+    }
+  },
+  "build_metadata": {
+    "libffi_3.4.8-2_powerpcspe.buildinfo": "72bf61a18ab08c4f330547f8fe1594c0b864ed0bad1f357c40635efb394be64b",
+    "libffi_3.4.8-2_powerpcspe.changes": "c1179b6a48f7d2a596c5cce94ca4f0b484fe08e65f078e6dc60e40854f5e4b1b"
+  },
+  "payload_inspection_sha256": "e240a5ee2839bc93dff59d3c797a6944f683e96a5c3c6bb6938ebf9da5afde18"
+}

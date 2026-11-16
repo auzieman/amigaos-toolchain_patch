@@ -1,0 +1,91 @@
+{
+  "package": "openssl",
+  "source_lock": "profiles/expanded-sources.lock.json",
+  "source_cache": "bootstrap-source-cache",
+  "extra_receipts": [
+    {
+      "receipt": "work/gcc14-glibc-003/receipt.json",
+      "sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322",
+      "packages": [
+        "libc6",
+        "libc6-dev"
+      ]
+    },
+    {
+      "receipt": "work/gcc14-runtime-002/receipt.json",
+      "sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4",
+      "packages": [
+        "tabor-spe-libgcc-s1",
+        "tabor-spe-libstdc++6",
+        "tabor-spe-libatomic1"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-linux-uapi-005/receipt.json",
+      "sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5",
+      "packages": [
+        "linux-libc-dev"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/sbuild-dh-golang-host-001/receipt.json",
+      "sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49",
+      "packages": [
+        "dh-golang"
+      ],
+      "allow_arch_all": true
+    },
+    {
+      "receipt": "work/cross-core-metapackage-002/receipt.json",
+      "sha256": "712976c909bf259ad53e63f70fd95260b4c05d1a1ac93029e66026176f5397e8",
+      "packages": [
+        "crossbuild-essential-powerpcspe"
+      ],
+      "allow_arch_all": true,
+      "files": [
+        "crossbuild-essential-powerpcspe_1.0+spe9_all.deb"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-zlib-gcc14-003/receipt.json",
+      "sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01",
+      "packages": [
+        "libminizip-dev",
+        "libminizip1t64",
+        "minizip",
+        "zlib1g",
+        "zlib1g-dev"
+      ]
+    },
+    {
+      "receipt": "work/sbuild-libzstd-gcc14-001/receipt.json",
+      "sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133",
+      "packages": [
+        "libzstd-dev",
+        "libzstd1",
+        "zstd"
+      ]
+    }
+  ],
+  "scope": "GCC14 powerpcspe sbuild consumer (#27): Debian openssl. Built against the stage2 glibc 2.41: rebuild after the full glibc.",
+  "native_root_receipt": "work/frozen-buildd-root-001/receipt.json",
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "host_architecture": "powerpcspe",
+  "native_toolchain_inputs": [
+    {
+      "receipt": "work/gcc14-toolchain-pkg-003/receipt.json",
+      "receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2",
+      "file": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb"
+    }
+  ],
+  "base_lock": "profiles/trixie-spe-base.lock.json",
+  "uapi_version": "6.12.115-2+spe1",
+  "cross_core_version": "1.0+spe9",
+  "required_full_rebuild": true,
+  "build_profiles": "cross,nocheck,noudeb",
+  "quilt_patch_series": {
+    "path": "patches/openssl/series.json",
+    "sha256": "3316c798d9f341879dd51abf8ae756ea27bb212f50dec319b54af2e54b643e3b"
+  }
+}

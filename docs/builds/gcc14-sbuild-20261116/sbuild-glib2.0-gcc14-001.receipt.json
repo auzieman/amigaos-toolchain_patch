@@ -1,0 +1,578 @@
+{
+  "status": "debian-packages-built-not-target-installed",
+  "spec_sha256": "bb076d0972f13dc12a56186bc6245628b1659d50bd670a869ec8d10d27a81aee",
+  "recipe_sha256": "47ffcf0f373d4afb8a3fd1ceb0e96e623d12fa0823a3dbcc8db1f5dfd2cfd192",
+  "method": "Debian mmdebstrap buildd root and sbuild unshare apt resolver",
+  "build_architecture": "amd64",
+  "host_architecture": "powerpcspe",
+  "build_profiles": "cross,nocheck,noudeb,noinsttest,nogir",
+  "bootstrap": false,
+  "required_full_rebuild": true,
+  "target_execution": false,
+  "target_installation": false,
+  "boot_image_ready": false,
+  "build_root_only": false,
+  "bootstrap_assembly": false,
+  "binary_nmu": 0,
+  "source_inputs": [
+    {
+      "filename": "glib2.0_2.84.4-3~deb13u5.dsc",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4-3~deb13u5.dsc",
+      "size": 5294,
+      "sha256": "2587beb2f5b90511d0c88a7595c1d3b3ea7a5b7e6582713ecae3713864012858"
+    },
+    {
+      "filename": "glib2.0_2.84.4.orig-unicode-data.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4.orig-unicode-data.tar.xz",
+      "size": 660708,
+      "sha256": "c1742461e8c0e9673a3453a3127671169de9cb0138493e5c916f1b989530efcd"
+    },
+    {
+      "filename": "glib2.0_2.84.4.orig.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4.orig.tar.xz",
+      "size": 5618200,
+      "sha256": "8a9ea10943c36fc117e253f80c91e477b673525ae45762942858aef57631bb90"
+    },
+    {
+      "filename": "glib2.0_2.84.4-3~deb13u5.debian.tar.xz",
+      "url": "https://snapshot.debian.org/archive/debian/20261102T220000Z/pool/main/g/glib2.0/glib2.0_2.84.4-3~deb13u5.debian.tar.xz",
+      "size": 172260,
+      "sha256": "d8e3603c3780d2cc883d762cf81db9199d8c4c492a82a1a791c117a6d402dbeb"
+    }
+  ],
+  "extra_package_inputs": [
+    {
+      "file": "libc6-dev_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "libc6_2.41-12+deb13u4_powerpcspe.deb",
+      "sha256": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "receipt_sha256": "b9335b8caf251924169a1195b586743257b97151258f7a2d02dae9c0f41d4322"
+    },
+    {
+      "file": "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb",
+      "sha256": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "receipt_sha256": "963e52ec2513ff48daaf13699839c3cab7cb8c410013b5f66fd353c5717671e4"
+    },
+    {
+      "file": "linux-libc-dev_6.12.115-2+spe1_all.deb",
+      "sha256": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "receipt_sha256": "f23fdea818382239cb5784348dcc88b5b91038bea168a567c8d18a165a8afdb5"
+    },
+    {
+      "file": "dh-golang_1.63+spe1_all.deb",
+      "sha256": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "receipt_sha256": "01a7e0f34353302c3f43fb9c5a414f6741d4fa1a8ace1d828bdb771b78a3ea49"
+    },
+    {
+      "file": "crossbuild-essential-powerpcspe_1.0+spe9_all.deb",
+      "sha256": "3b128756469d924acfa49b24fc129659fa03b3aa698043c38667b8895df8d18c",
+      "receipt_sha256": "712976c909bf259ad53e63f70fd95260b4c05d1a1ac93029e66026176f5397e8"
+    },
+    {
+      "file": "libpkgconf3_1.8.1-4_powerpcspe.deb",
+      "sha256": "5c8f580748f9601b627ba2d5db4fba27ff619f0686dc24221b23355c1769075d",
+      "receipt_sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966"
+    },
+    {
+      "file": "pkg-config_1.8.1-4_powerpcspe.deb",
+      "sha256": "788ed9bb3d6a739c3c7a936364d0255f250ff3ce745221b753b11441699516cd",
+      "receipt_sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966"
+    },
+    {
+      "file": "libpkgconf-dev_1.8.1-4_powerpcspe.deb",
+      "sha256": "4364f8a02438283b9606c000b5d6ffcc4f0b922145a3c3875b45210888a212b9",
+      "receipt_sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966"
+    },
+    {
+      "file": "pkgconf_1.8.1-4_powerpcspe.deb",
+      "sha256": "ceff41e593d84dcab2cba14c3e04548008f4cff59870128fe9f8af2ce817384b",
+      "receipt_sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966"
+    },
+    {
+      "file": "pkgconf-bin_1.8.1-4_powerpcspe.deb",
+      "sha256": "f0be4f06c91139308a7a545a30c81619b4927c4bbfd60c3c94a5bd341281ea7c",
+      "receipt_sha256": "84aa5c741d5d67bdcd6bc3d75fd37bcea1e428c39516c080fee7b55edbc14966"
+    },
+    {
+      "file": "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb",
+      "sha256": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "receipt_sha256": "757fc8a21748458ab251a978c4608147e1d9b616462aee3cb68778eb24144a01"
+    },
+    {
+      "file": "libelf1t64_0.192-4_powerpcspe.deb",
+      "sha256": "09979c30b781cbdd7349241fa50029f8627b6772282a05a457aea7892a4cd4d6",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libelf-dev_0.192-4_powerpcspe.deb",
+      "sha256": "9029a17b3d8de1e5f0c80b0812093ebaa6dc7136297221df84b51380340dc704",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libdw1t64_0.192-4_powerpcspe.deb",
+      "sha256": "0b4205be916134da4569faf1833b23594f66a11f086f3e9402bf02f1b0fb15fe",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libdw-dev_0.192-4_powerpcspe.deb",
+      "sha256": "0728900cc0bff72bfcbf7c1fcb716364bc601d69bbfd24d7b6a808ba41d8c0c2",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "elfutils_0.192-4_powerpcspe.deb",
+      "sha256": "90d65717b165cc0ff88980fec42eb170ab07e23818e4e841949514a4774af71f",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libasm-dev_0.192-4_powerpcspe.deb",
+      "sha256": "67c7bc7e38383a3e040979010d4c103d6d110219c559a29fe2b158c54cd1932e",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libasm1t64_0.192-4_powerpcspe.deb",
+      "sha256": "8ffacd788f1a4b016ca097fda545f3744fa26a1d93e5c622dc2d4042c8b726f0",
+      "receipt_sha256": "f89825dd97b36e4019c08f2f48194caa47be6e6c564a0cf085fc78238b192eb3"
+    },
+    {
+      "file": "libffi8_3.4.8-2_powerpcspe.deb",
+      "sha256": "b3d77e86d8a904699409f76b7bcc921b86cc7a993c36d4ae043f21b5f9400428",
+      "receipt_sha256": "12e856697e4db11ba94de24a381516955364a42cd916eacd178a7d059d39919d"
+    },
+    {
+      "file": "libffi-dev_3.4.8-2_powerpcspe.deb",
+      "sha256": "fd56c9b216d878d01a90d500129519ccb30bf4a12c169ee3dedf8aae93f72869",
+      "receipt_sha256": "12e856697e4db11ba94de24a381516955364a42cd916eacd178a7d059d39919d"
+    },
+    {
+      "file": "libmount-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "ea8d67d2524a1c25f8df3c6c4da879e945478ac1d396349784d998aef3b11a93",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libsmartcols1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "d9b84814d153d88a5426f3fd87f31ad4c4bb3c6c99b295b0f1a304e5892ed774",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libmount1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "14e4eadf7557d7e7fc7331095865a888d273f464574bad2d920c4dac1bfa3c73",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "fdisk_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "70aa6d194306c3d7ca936941895d5065bcd46d72b7624ea95e484c62125dc3ac",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libblkid1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "f68fddf3c31bba1e4e189655b0c4de66658d6ca6286d83d186bf8333c23cb5ba",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libfdisk-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "7b3b6abd163870671ad51bc1f56004d1e5b4eba650e37e60f0d35bcab67d9659",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "liblastlog2-2_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "dc58d4ddd93f002ba12e71b17c159da1112dcf7df84c7a6261bc3c866f0ed4ef",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libfdisk1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "2ba6b3353ed2770011572383946bb99b41450b44faa190fc3d8f809c1cccaa37",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libblkid-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "5e02a9651cd43ec18a29b58cd5ab01bdb224d9a403b46795f45614aa4fef2d07",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "uuid-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "eed81c2ac343948971d2fabe357abe2b28b3096f8d7a1a19fd370a835af8f8cf",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "liblastlog2-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "569b45129505a6923556491c2f406c0c13e819603c43093058fe60ce063bcec5",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libsmartcols-dev_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "4dceb4c53bc1b9885053b8f2e6582f3d9437b62fb0411f540b45a43be1b8953c",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libuuid1_2.41.5-0+deb13u1_powerpcspe.deb",
+      "sha256": "faf1fe6ef027194348283db96fce4b7d50475c02dae840c830a595c23c955446",
+      "receipt_sha256": "1c2be667131b514f7d2c5309d71cae08c20a5022463379283653516cd6721868"
+    },
+    {
+      "file": "libpcre2-dev_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "ef4c68e1d35460305effdaee64f0a801c97708baadc9086f9e7fb7e9d590f1a6",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "libpcre2-32-0_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "339f2763d3d7e262820295d01cb0a52df70a0de8ca07843a92435576c0f8b329",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "pcre2-utils_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "f3c2f4a297cda0b1ba5c4cb5c0a5b7788d918e4ef7e4f924a4d1dbfb8cbad9ea",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "libpcre2-posix3_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "cdc07fd21d80a2a4b413e5d7e57f12fbeaa144c10575fa172f6a5d3469a142a5",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "libpcre2-8-0_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "f43507a75d8d12b9f70e7995a38af551476fed6fe50b49dbc507ed851aa78c9e",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "libpcre2-16-0_10.46-1~deb13u3_powerpcspe.deb",
+      "sha256": "f2ee149d69fb25af9c00d7f83bcefb1cec693c6149f10b4775ae65309e204f1c",
+      "receipt_sha256": "877f1291c38e94da70bfe7ae69705074b1b32c57ae3166afe67d3858b10d6732"
+    },
+    {
+      "file": "libselinux1_3.8.1-1_powerpcspe.deb",
+      "sha256": "4666afd8ec4806796eba762cee611a5800553ab49bdb2d5acb3de169f15f23f8",
+      "receipt_sha256": "5bc053d8100467e105b5a9b160e8145b765958d48aa9265f529ac00926c5de29"
+    },
+    {
+      "file": "selinux-utils_3.8.1-1_powerpcspe.deb",
+      "sha256": "8d5d82202506f0566b2162c0628ff9d8aaacba95cf44d0b1a60b3e5ac0998072",
+      "receipt_sha256": "5bc053d8100467e105b5a9b160e8145b765958d48aa9265f529ac00926c5de29"
+    },
+    {
+      "file": "libselinux1-dev_3.8.1-1_powerpcspe.deb",
+      "sha256": "2218ea8899c18457eca02bab31495148a71ef978d771579c4a9ddcf3d60e7023",
+      "receipt_sha256": "5bc053d8100467e105b5a9b160e8145b765958d48aa9265f529ac00926c5de29"
+    },
+    {
+      "file": "sepol-utils_3.8.1-1_powerpcspe.deb",
+      "sha256": "0d2e1f613a4b01d0356de9491cd4e9ae057ff1c6142b3e1ad7fcc28fd0c9bfae",
+      "receipt_sha256": "afd3b578f3c3a628614ff6ad142c6fe5d23da59db33372364a0011d099c9f7fa"
+    },
+    {
+      "file": "libsepol2_3.8.1-1_powerpcspe.deb",
+      "sha256": "98f51c473614e19ad7b891a7ef75d0f8720358049f097893143406e9673302af",
+      "receipt_sha256": "afd3b578f3c3a628614ff6ad142c6fe5d23da59db33372364a0011d099c9f7fa"
+    },
+    {
+      "file": "libsepol-dev_3.8.1-1_powerpcspe.deb",
+      "sha256": "ce7c8a080c48d1cabe305e1c214f79dc5e9d79a728e1c6ea3e22947a4cd39cff",
+      "receipt_sha256": "afd3b578f3c3a628614ff6ad142c6fe5d23da59db33372364a0011d099c9f7fa"
+    },
+    {
+      "file": "libbz2-1.0_1.0.8-6_powerpcspe.deb",
+      "sha256": "26dd3bb061e037d41b2013a738084cbcd97f41033e188149b3fe1d67878dea0f",
+      "receipt_sha256": "6798865a1db3e591e8eb4b0ce7a2d052bfd4044795eb900d859d538b7d19cf6f"
+    },
+    {
+      "file": "bzip2_1.0.8-6_powerpcspe.deb",
+      "sha256": "f83fba819ff420cc2c331832674bb00c245807c930af0b6ca61abde313774f18",
+      "receipt_sha256": "6798865a1db3e591e8eb4b0ce7a2d052bfd4044795eb900d859d538b7d19cf6f"
+    },
+    {
+      "file": "libbz2-dev_1.0.8-6_powerpcspe.deb",
+      "sha256": "b5f49c5c363f80fd6288c258d769c9312ae2753040fb09ebe5929d37bc27481b",
+      "receipt_sha256": "6798865a1db3e591e8eb4b0ce7a2d052bfd4044795eb900d859d538b7d19cf6f"
+    },
+    {
+      "file": "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "6c5cee1778e72b0d92f06b880f08365b32614bd599bcc09737eb8cbb5a13e7e3",
+      "receipt_sha256": "81a4be31ca4d9acc66bd5b0cf03bd3a297f6fed20450825fbcad82eed25cf39e"
+    },
+    {
+      "file": "liblzma-dev_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "d9c0a5660878dadaca9cea70a54377ebe8a40372741fd0fe0ea54285a13f6c07",
+      "receipt_sha256": "81a4be31ca4d9acc66bd5b0cf03bd3a297f6fed20450825fbcad82eed25cf39e"
+    },
+    {
+      "file": "xzdec_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "dc233e022d4d3787718648861d34cde0657ddf2de015402daf8c77259c5f6731",
+      "receipt_sha256": "81a4be31ca4d9acc66bd5b0cf03bd3a297f6fed20450825fbcad82eed25cf39e"
+    },
+    {
+      "file": "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb",
+      "sha256": "e0385e2a41fd0fa3682c3923aa120cbe16a2145abbcbac259795cd8f901c0528",
+      "receipt_sha256": "81a4be31ca4d9acc66bd5b0cf03bd3a297f6fed20450825fbcad82eed25cf39e"
+    },
+    {
+      "file": "libzstd1_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "0f95f7222e965bdacec0f9fb38226d2549e32a4dbe131009cbf88cd52c7abd68",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "f2be5bb37d6769a5d44c3d8a4e5f0a986b80b5ffb1594fb81db4e529af4f7a1d",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "zstd_1.5.7+dfsg-1_powerpcspe.deb",
+      "sha256": "a4ddd728209a83c5989104731d3b3be744905bc5ecc780ccdd829c6de532080d",
+      "receipt_sha256": "c1da2420d724b04a0c6170f2f8e35b02557e01e46c3828ddb4eef0428f660133"
+    },
+    {
+      "file": "lz4_1.10.0-4_powerpcspe.deb",
+      "sha256": "ec11bd4a0cf34d22d640d55bb74464a96d5a0d49cea90025803a406924c4f9c6",
+      "receipt_sha256": "3b7b3546c212d91ca4c8ff0df94960e946259c5823ff832a635fb7490f8df3e9"
+    },
+    {
+      "file": "liblz4-dev_1.10.0-4_powerpcspe.deb",
+      "sha256": "550a21a89e5e16a74880f32c3a955998dc31bfeacec9a6ac9bdb06cf7dd844ec",
+      "receipt_sha256": "3b7b3546c212d91ca4c8ff0df94960e946259c5823ff832a635fb7490f8df3e9"
+    },
+    {
+      "file": "liblz4-1_1.10.0-4_powerpcspe.deb",
+      "sha256": "6292fbf89a2f3ed6cb81ab10dd43e08a001aff54bedf278645a1cc795fe80ffb",
+      "receipt_sha256": "3b7b3546c212d91ca4c8ff0df94960e946259c5823ff832a635fb7490f8df3e9"
+    },
+    {
+      "file": "libxxhash-dev_0.8.3-2_powerpcspe.deb",
+      "sha256": "a11bafdba5859a707977d84cde5e8e5c096f6b33036beb3ffad8ef3b71cb3076",
+      "receipt_sha256": "e06c98600b5c2afd64d576852ab9ffafcf7bfeece2415449e867bb9231e66664"
+    },
+    {
+      "file": "xxhash_0.8.3-2_powerpcspe.deb",
+      "sha256": "47778f9850cad24b84b55ba4cbc3ffa7d882b4d360f587cbb690f6594fb0048d",
+      "receipt_sha256": "e06c98600b5c2afd64d576852ab9ffafcf7bfeece2415449e867bb9231e66664"
+    },
+    {
+      "file": "libxxhash0_0.8.3-2_powerpcspe.deb",
+      "sha256": "234970c9b964c3d089ddeae0bea31ad592d72507c64f75a3b998f9ca918000d0",
+      "receipt_sha256": "e06c98600b5c2afd64d576852ab9ffafcf7bfeece2415449e867bb9231e66664"
+    },
+    {
+      "file": "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb",
+      "sha256": "24b4f16c4649d35583b96abd5ede3f9a2ab361c869aaa012a04753fbf953b4af",
+      "role": "native SPE cross compiler",
+      "receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2"
+    }
+  ],
+  "commands": [
+    [
+      "runuser",
+      "-u",
+      "owner",
+      "--",
+      "env",
+      "SBUILD_CONFIG=/srv/data1/tabor-build/linux-live-001/work/sbuild-glib2.0-gcc14-001/sbuild.conf",
+      "DEB_BUILD_OPTIONS=nocheck parallel=4",
+      "sbuild",
+      "--chroot-mode=unshare",
+      "--chroot=/srv/data1/tabor-build/linux-live-001/work/frozen-buildd-root-001/trixie-amd64.tar",
+      "--build=amd64",
+      "--host=powerpcspe",
+      "--dist=trixie",
+      "--profiles=cross,nocheck,noudeb,noinsttest,nogir",
+      "--build-dep-resolver=apt",
+      "--no-apt-clean",
+      "--no-run-lintian",
+      "--nolog",
+      "--jobs=4",
+      "--build-dir=/srv/data1/tabor-build/linux-live-001/work/sbuild-glib2.0-gcc14-001",
+      "--chroot-setup-commands=echo 'Acquire::Retries \"5\";' > /etc/apt/apt.conf.d/80tabor-download-retries",
+      "--no-arch-all",
+      "--extra-repository=deb [trusted=yes] file:/srv/tabor-extra-packages ./",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-glib2.0-gcc14-001/sources/glib2.0_2.84.4-3~deb13u5.dsc"
+    ],
+    [
+      "python3",
+      "/home/tabor/amigaos-toolchain_patch/scripts/inspect-spe-package-payloads.py",
+      "--receipt",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-glib2.0-gcc14-001/receipt.json",
+      "--output",
+      "/srv/data1/tabor-build/linux-live-001/work/sbuild-glib2.0-gcc14-001/payload-inspection.json"
+    ]
+  ],
+  "package": "glib2.0",
+  "source_version": "2.84.4-3~deb13u5",
+  "compiler": {
+    "gcc_major": 14,
+    "sdk_receipt_sha256": "cb5f2277d90eaf40b11efb9664177b694b48346a56694cfd1600964a40381fd2"
+  },
+  "native_root_receipt_sha256": "cfcff7cbf52738c15aa5df9020b31e3c808daed0836e54fdaf0014fdee84ebd1",
+  "native_root_sha256": "af29a74a910dae6e658c7ec9b83c8ff45881e678a2609bbb9406811243a5d485",
+  "apt_archive_cache": {
+    "path": "/srv/data1/tabor-apt-cache/workers/sbuild-glib2.0-gcc14-001",
+    "seeded_archives": 207,
+    "promoted_archives": 6,
+    "retained_archives": 213
+  },
+  "local_repository": {
+    "path": "/srv/data1/tabor-sbuild-repositories/6c16a6232ab8877955bb5a68ce12fc91e3aa27b0ddb443bdb41435a373b3ce56",
+    "inputs": {
+      "bzip2_1.0.8-6_powerpcspe.deb": "f83fba819ff420cc2c331832674bb00c245807c930af0b6ca61abde313774f18",
+      "crossbuild-essential-powerpcspe_1.0+spe9_all.deb": "3b128756469d924acfa49b24fc129659fa03b3aa698043c38667b8895df8d18c",
+      "dh-golang_1.63+spe1_all.deb": "af8afaba13860285041299d126f30b62d054ab1664e556366700f84cd744ec34",
+      "elfutils_0.192-4_powerpcspe.deb": "90d65717b165cc0ff88980fec42eb170ab07e23818e4e841949514a4774af71f",
+      "fdisk_2.41.5-0+deb13u1_powerpcspe.deb": "70aa6d194306c3d7ca936941895d5065bcd46d72b7624ea95e484c62125dc3ac",
+      "libasm-dev_0.192-4_powerpcspe.deb": "67c7bc7e38383a3e040979010d4c103d6d110219c559a29fe2b158c54cd1932e",
+      "libasm1t64_0.192-4_powerpcspe.deb": "8ffacd788f1a4b016ca097fda545f3744fa26a1d93e5c622dc2d4042c8b726f0",
+      "libblkid-dev_2.41.5-0+deb13u1_powerpcspe.deb": "5e02a9651cd43ec18a29b58cd5ab01bdb224d9a403b46795f45614aa4fef2d07",
+      "libblkid1_2.41.5-0+deb13u1_powerpcspe.deb": "f68fddf3c31bba1e4e189655b0c4de66658d6ca6286d83d186bf8333c23cb5ba",
+      "libbz2-1.0_1.0.8-6_powerpcspe.deb": "26dd3bb061e037d41b2013a738084cbcd97f41033e188149b3fe1d67878dea0f",
+      "libbz2-dev_1.0.8-6_powerpcspe.deb": "b5f49c5c363f80fd6288c258d769c9312ae2753040fb09ebe5929d37bc27481b",
+      "libc6-dev_2.41-12+deb13u4_powerpcspe.deb": "72e0779b5ffa77e0ae9e9e90d6bf399a140f17c204220e71c77b29be410eee66",
+      "libc6_2.41-12+deb13u4_powerpcspe.deb": "06ecebab0446f9b9ae9a25232637c9be754708b22cca91950ec0db75c09ba206",
+      "libdw-dev_0.192-4_powerpcspe.deb": "0728900cc0bff72bfcbf7c1fcb716364bc601d69bbfd24d7b6a808ba41d8c0c2",
+      "libdw1t64_0.192-4_powerpcspe.deb": "0b4205be916134da4569faf1833b23594f66a11f086f3e9402bf02f1b0fb15fe",
+      "libelf-dev_0.192-4_powerpcspe.deb": "9029a17b3d8de1e5f0c80b0812093ebaa6dc7136297221df84b51380340dc704",
+      "libelf1t64_0.192-4_powerpcspe.deb": "09979c30b781cbdd7349241fa50029f8627b6772282a05a457aea7892a4cd4d6",
+      "libfdisk-dev_2.41.5-0+deb13u1_powerpcspe.deb": "7b3b6abd163870671ad51bc1f56004d1e5b4eba650e37e60f0d35bcab67d9659",
+      "libfdisk1_2.41.5-0+deb13u1_powerpcspe.deb": "2ba6b3353ed2770011572383946bb99b41450b44faa190fc3d8f809c1cccaa37",
+      "libffi-dev_3.4.8-2_powerpcspe.deb": "fd56c9b216d878d01a90d500129519ccb30bf4a12c169ee3dedf8aae93f72869",
+      "libffi8_3.4.8-2_powerpcspe.deb": "b3d77e86d8a904699409f76b7bcc921b86cc7a993c36d4ae043f21b5f9400428",
+      "liblastlog2-2_2.41.5-0+deb13u1_powerpcspe.deb": "dc58d4ddd93f002ba12e71b17c159da1112dcf7df84c7a6261bc3c866f0ed4ef",
+      "liblastlog2-dev_2.41.5-0+deb13u1_powerpcspe.deb": "569b45129505a6923556491c2f406c0c13e819603c43093058fe60ce063bcec5",
+      "liblz4-1_1.10.0-4_powerpcspe.deb": "6292fbf89a2f3ed6cb81ab10dd43e08a001aff54bedf278645a1cc795fe80ffb",
+      "liblz4-dev_1.10.0-4_powerpcspe.deb": "550a21a89e5e16a74880f32c3a955998dc31bfeacec9a6ac9bdb06cf7dd844ec",
+      "liblzma-dev_5.8.1-1+deb13u2_powerpcspe.deb": "d9c0a5660878dadaca9cea70a54377ebe8a40372741fd0fe0ea54285a13f6c07",
+      "liblzma5_5.8.1-1+deb13u2_powerpcspe.deb": "6c5cee1778e72b0d92f06b880f08365b32614bd599bcc09737eb8cbb5a13e7e3",
+      "libminizip-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "ed93690dac28e79acef6f38b37d225752847d87b0761301a86dd0767dc09db38",
+      "libminizip1t64_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "81da40a15709dd2a85c8ef01241cc8870912e2e8b16cd5127b8c88cf7cae5d3a",
+      "libmount-dev_2.41.5-0+deb13u1_powerpcspe.deb": "ea8d67d2524a1c25f8df3c6c4da879e945478ac1d396349784d998aef3b11a93",
+      "libmount1_2.41.5-0+deb13u1_powerpcspe.deb": "14e4eadf7557d7e7fc7331095865a888d273f464574bad2d920c4dac1bfa3c73",
+      "libpcre2-16-0_10.46-1~deb13u3_powerpcspe.deb": "f2ee149d69fb25af9c00d7f83bcefb1cec693c6149f10b4775ae65309e204f1c",
+      "libpcre2-32-0_10.46-1~deb13u3_powerpcspe.deb": "339f2763d3d7e262820295d01cb0a52df70a0de8ca07843a92435576c0f8b329",
+      "libpcre2-8-0_10.46-1~deb13u3_powerpcspe.deb": "f43507a75d8d12b9f70e7995a38af551476fed6fe50b49dbc507ed851aa78c9e",
+      "libpcre2-dev_10.46-1~deb13u3_powerpcspe.deb": "ef4c68e1d35460305effdaee64f0a801c97708baadc9086f9e7fb7e9d590f1a6",
+      "libpcre2-posix3_10.46-1~deb13u3_powerpcspe.deb": "cdc07fd21d80a2a4b413e5d7e57f12fbeaa144c10575fa172f6a5d3469a142a5",
+      "libpkgconf-dev_1.8.1-4_powerpcspe.deb": "4364f8a02438283b9606c000b5d6ffcc4f0b922145a3c3875b45210888a212b9",
+      "libpkgconf3_1.8.1-4_powerpcspe.deb": "5c8f580748f9601b627ba2d5db4fba27ff619f0686dc24221b23355c1769075d",
+      "libselinux1-dev_3.8.1-1_powerpcspe.deb": "2218ea8899c18457eca02bab31495148a71ef978d771579c4a9ddcf3d60e7023",
+      "libselinux1_3.8.1-1_powerpcspe.deb": "4666afd8ec4806796eba762cee611a5800553ab49bdb2d5acb3de169f15f23f8",
+      "libsepol-dev_3.8.1-1_powerpcspe.deb": "ce7c8a080c48d1cabe305e1c214f79dc5e9d79a728e1c6ea3e22947a4cd39cff",
+      "libsepol2_3.8.1-1_powerpcspe.deb": "98f51c473614e19ad7b891a7ef75d0f8720358049f097893143406e9673302af",
+      "libsmartcols-dev_2.41.5-0+deb13u1_powerpcspe.deb": "4dceb4c53bc1b9885053b8f2e6582f3d9437b62fb0411f540b45a43be1b8953c",
+      "libsmartcols1_2.41.5-0+deb13u1_powerpcspe.deb": "d9b84814d153d88a5426f3fd87f31ad4c4bb3c6c99b295b0f1a304e5892ed774",
+      "libuuid1_2.41.5-0+deb13u1_powerpcspe.deb": "faf1fe6ef027194348283db96fce4b7d50475c02dae840c830a595c23c955446",
+      "libxxhash-dev_0.8.3-2_powerpcspe.deb": "a11bafdba5859a707977d84cde5e8e5c096f6b33036beb3ffad8ef3b71cb3076",
+      "libxxhash0_0.8.3-2_powerpcspe.deb": "234970c9b964c3d089ddeae0bea31ad592d72507c64f75a3b998f9ca918000d0",
+      "libzstd-dev_1.5.7+dfsg-1_powerpcspe.deb": "f2be5bb37d6769a5d44c3d8a4e5f0a986b80b5ffb1594fb81db4e529af4f7a1d",
+      "libzstd1_1.5.7+dfsg-1_powerpcspe.deb": "0f95f7222e965bdacec0f9fb38226d2549e32a4dbe131009cbf88cd52c7abd68",
+      "linux-libc-dev_6.12.115-2+spe1_all.deb": "9df0ab2e3f4d6559a521a3346f114cacfe923e963a3fd1946f2f02e365d4885b",
+      "lz4_1.10.0-4_powerpcspe.deb": "ec11bd4a0cf34d22d640d55bb74464a96d5a0d49cea90025803a406924c4f9c6",
+      "minizip_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "7b2e82386e037a234c007b261160cbbe0fd233f882b954031197aa0e5387e922",
+      "pcre2-utils_10.46-1~deb13u3_powerpcspe.deb": "f3c2f4a297cda0b1ba5c4cb5c0a5b7788d918e4ef7e4f924a4d1dbfb8cbad9ea",
+      "pkg-config_1.8.1-4_powerpcspe.deb": "788ed9bb3d6a739c3c7a936364d0255f250ff3ce745221b753b11441699516cd",
+      "pkgconf-bin_1.8.1-4_powerpcspe.deb": "f0be4f06c91139308a7a545a30c81619b4927c4bbfd60c3c94a5bd341281ea7c",
+      "pkgconf_1.8.1-4_powerpcspe.deb": "ceff41e593d84dcab2cba14c3e04548008f4cff59870128fe9f8af2ce817384b",
+      "selinux-utils_3.8.1-1_powerpcspe.deb": "8d5d82202506f0566b2162c0628ff9d8aaacba95cf44d0b1a60b3e5ac0998072",
+      "sepol-utils_3.8.1-1_powerpcspe.deb": "0d2e1f613a4b01d0356de9491cd4e9ae057ff1c6142b3e1ad7fcc28fd0c9bfae",
+      "tabor-spe-libatomic1_14.2.0+tabor1_powerpcspe.deb": "64e94a58ae511c83e4e772be8a614a2e9296809820de3fdc490f2a401e5c48d3",
+      "tabor-spe-libgcc-s1_14.2.0+tabor1_powerpcspe.deb": "30617ce178196d0d8b8ac040edaaa3567056135309775695fc3f19427552199e",
+      "tabor-spe-libstdc++6_14.2.0+tabor1_powerpcspe.deb": "1ce2c56fe392c25afc2bcb24ef8e4d3b67c069d242df57de1d979ee4802590bd",
+      "tabor-spe-toolchain_14.2.0+tabor2_amd64.deb": "24b4f16c4649d35583b96abd5ede3f9a2ab361c869aaa012a04753fbf953b4af",
+      "uuid-dev_2.41.5-0+deb13u1_powerpcspe.deb": "eed81c2ac343948971d2fabe357abe2b28b3096f8d7a1a19fd370a835af8f8cf",
+      "xxhash_0.8.3-2_powerpcspe.deb": "47778f9850cad24b84b55ba4cbc3ffa7d882b4d360f587cbb690f6594fb0048d",
+      "xz-utils_5.8.1-1+deb13u2_powerpcspe.deb": "e0385e2a41fd0fa3682c3923aa120cbe16a2145abbcbac259795cd8f901c0528",
+      "xzdec_5.8.1-1+deb13u2_powerpcspe.deb": "dc233e022d4d3787718648861d34cde0657ddf2de015402daf8c77259c5f6731",
+      "zlib1g-dev_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "be84adda7b68347ddf8d565fbceeeb1ed0ce6980476d44d5798831f571c7e6db",
+      "zlib1g_1.3.dfsg+really1.3.1-1+b1_powerpcspe.deb": "632d4f2131a9ac97537e0d36c36f78e51e469e500a9e38f10470073437d6b677",
+      "zstd_1.5.7+dfsg-1_powerpcspe.deb": "a4ddd728209a83c5989104731d3b3be744905bc5ecc780ccdd829c6de532080d"
+    },
+    "packages_sha256": "338eb42455828be611f414defeb9499e134b9dc856902f8221a1d07624f75a9c",
+    "identity": "6c16a6232ab8877955bb5a68ce12fc91e3aa27b0ddb443bdb41435a373b3ce56",
+    "method": "dpkg-scanpackages --multiversion; standard apt flat repository"
+  },
+  "sbuild_exit": 0,
+  "packages": {
+    "libgio-2.0-dev-bin-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "0e493c6772d6873fd465f82674a632d6e29209997b6dc026a1ca4bc7b8ffafa4",
+      "bytes": 3680
+    },
+    "libglib2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "6055a30ff87f5c4e274513189b4e752faee00f7f6e3f928ef08aa5bbb20bb967",
+      "bytes": 57740
+    },
+    "libglib2.0-0t64-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "ddcae0c90cdf27183039a1d57070d73d0175336933a4f8301a44fa9b2ca4e19d",
+      "bytes": 39332
+    },
+    "libglib2.0-0t64_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "ae244ac8a65175547b6b0d52eba716d872dfafc366d9ba426ab4f6efc314edc9",
+      "bytes": 1295788
+    },
+    "libglib2.0-bin-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "8217cba3bb86dd4070deac82c50fdfe9c07b545de23bde07812a96f316bba0d7",
+      "bytes": 7964
+    },
+    "libgio-2.0-dev-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "de811b975a1165c0617ae87d409bf95e1a617b7390a6610c8bd07867edf522ad",
+      "bytes": 165660
+    },
+    "libglib2.0-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "76ba1ca0f5f1579aa7c3538e1714710488e762792ca6160e67d779f3b0a7a040",
+      "bytes": 123908
+    },
+    "libgio-2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "d95bfd11377a833353fa88851a0ee40382305bf2d817f6ff6066dfa722c75373",
+      "bytes": 1430312
+    },
+    "girepository-tools_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "d60674a88c62b6e7a860963c5733db2e6e363bbc0249bd52aa10370174376495",
+      "bytes": 136592
+    },
+    "girepository-tools-dbgsym_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "ff621a57e051bf58953db517ff49ee0cc73c27755060d8658395941f37539091",
+      "bytes": 5420
+    },
+    "libgirepository-2.0-dev_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "b5f176d437686079a877881e01589276bef57e4519ba8bbc9791ceed4d4d5920",
+      "bytes": 188788
+    },
+    "libglib2.0-dev-bin_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "a6d5d18d96acc2bc460003ffe1c7929cf32a99f3c2199a4478ff1ed7472e861f",
+      "bytes": 56948
+    },
+    "libgirepository-2.0-0_2.84.4-3~deb13u5_powerpcspe.deb": {
+      "sha256": "382d2959bde0971236215d0f82fd97ec8f0d68297d7a85ceae17fc3badc8f4da",
+      "bytes": 130324
+    }
+  },
+  "build_metadata": {
+    "glib2.0_2.84.4-3~deb13u5_powerpcspe.buildinfo": "1fca882dce636875254797b109608696280b93d896e82a62620fb1ea2c66ed05",
+    "glib2.0_2.84.4-3~deb13u5_powerpcspe.changes": "ecc81abc74a0b07ceb5c111b631d426af480daa0e3e72362ec86734ef51f855b"
+  },
+  "payload_inspection_sha256": "cc2f88ddf8dcca78e93dbca43a22ccb4ee4c3baeecb6368ece6318b79d86a062"
+}
