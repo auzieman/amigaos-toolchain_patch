@@ -45,6 +45,6 @@ SPE_ACC and SPEFSCR are fixed registers, so they are never requested, and the ro
 
 Not checked here: `patches/openssl/0001` probes the option by compiling `/dev/null`. That probe would pass even on a compiler that ICEs on real functions.
 
-## Hardware bundle (prepared, not yet run)
+## Hardware bundle
 
-`hw/make-hw-bundle-38.sh` builds `hw-bundle-38.tar.xz` (3.2 MB, sha256 `13bc9d89eba3b006…`): `run.c` for all 8 valid modes × -O0/-O1/-O2/-O3/-Os, and `fe.c` for all 8 modes, with libc6 and the runtimes. `run.sh` uses the bundled loader only. Under the #3-patched qemu-ppc it passes 48/48. Under stock qemu the 8 rounding checks fail (#3).
+`hw/make-hw-bundle-38.sh` builds `hw-bundle-38.tar.xz` (3.2 MB, sha256 `13bc9d89eba3b006…`): `run.c` for all 8 valid modes × -O0/-O1/-O2/-O3/-Os, and `fe.c` for all 8 modes, with libc6 and the runtimes. `run.sh` uses the bundled loader only. Under the #3-patched qemu-ppc it passes 48/48. Under stock qemu the 8 rounding checks fail (#3). **On the A1222 (2026-11-16, kernel 017, e500v2) it passes 48/48** (`hw/a1222-run.txt`). It was run from a RAM tmpfs with its manifest verified, and nothing was installed.
