@@ -40,8 +40,17 @@ The specs and receipts actually used are in `specs/` and `*.receipt.json`. Their
 - sbuild runs as `owner`, so the runner must be started from a directory `owner` can enter. Starting it inside a private checkout fails with `BUILD_DIR directory ... does not exist`.
 - `owner` must be able to write the cross-core output directory, since `dpkg-source` runs as `owner`.
 
+## pkgconf and fuse3
+
+Meson consumers need `pkgconf:powerpcspe`, which is Multi-Arch `same` and provides the triplet `pkg-config`. So `pkgconf 1.8.1-4` was built first, through the same path and the same inputs (`sbuild-pkgconf-gcc14-001`). It then joined fuse3's extra inputs.
+
+`fuse3 3.17.2-3` was built twice with GCC14:
+
+- **With the pinned #23 series** (`patches/fuse3/series.json`), as `sbuild-fuse3-gcc14-002`: it built fuse3, libfuse3-4, libfuse3-dev and fuse3-dbgsym, and the runner's payload inspection ran. The meson probe printed `Checking if "C++ 64-bit atomic operations" links: NO` and `Library atomic found: YES`, and memfs_ll linked with `-latomic` (`fuse3-atomic-probe.txt`). `libfuse3.so.3.17.2` is ELF32 PowerPC, NEEDED libc.so.6 only. Under qemu e500v2, `fusermount3 -V` prints `3.17.2` and `mount.fuse3` prints its usage.
+- **Without the patch** (control), as `sbuild-fuse3-gcc14-unpatched-001`: memfs_ll fails to link with an undefined `std::__atomic_base<unsigned long long>::fetch_add` (`fuse3-unpatched-failure.txt`). That is the same failure #23 recorded under GCC8, so the patch is still needed with GCC14. A 64-bit atomic on 32-bit PowerPC is a libatomic call with either compiler.
+
 ## Remaining (#27)
 
-- Representative larger consumers through this path (fuse3 for #23; the libx11 and xcb sequence).
+- Larger consumers through this path (the libx11 and xcb sequence).
 - A full (non-stage2) glibc.
 - Physical A1222 runs of the dynamically linked packages.

@@ -1,0 +1,6 @@
+[79/82] /usr/bin/powerpc-linux-gnuspe-g++ -Iexample/memfs_ll.p -Iexample -I../example -Iinclude -I../include -Ilib -I../lib -I. -I.. -fdiagnostics-color=always -D_GLIBCXX_ASSERTIONS=1 -Wall -Winvalid-pch -Wextra -std=c++17 -D_REENTRANT -DHAVE_LIBFUSE_PRIVATE_C
+[80/82] /usr/bin/powerpc-linux-gnuspe-g++  -o example/memfs_ll example/memfs_ll.p/memfs_ll.cc.o -Wl,--as-needed -Wl,--no-undefined -g -O2 -ffile-prefix-map=/build/reproducible-path/fuse3-3.17.2=. -specs=/usr/share/dpkg/pie-compile.specs -fstack-protector-stron
+FAILED: example/memfs_ll
+/usr/bin/powerpc-linux-gnuspe-g++  -o example/memfs_ll example/memfs_ll.p/memfs_ll.cc.o -Wl,--as-needed -Wl,--no-undefined -g -O2 -ffile-prefix-map=/build/reproducible-path/fuse3-3.17.2=. -specs=/usr/share/dpkg/pie-compile.specs -fstack-protector-strong -Wform
+/usr/bin/powerpc-linux-gnu-ld: example/memfs_ll.p/memfs_ll.cc.o: in function `std::__atomic_base<unsigned long long>::fetch_add(unsigned long long, std::memory_order)':
+/usr/lib/tabor-spe-toolchain/powerpc-linux-gnuspe/include/c++/14.2.0/bits/atomic_base.h:631:(.text._ZN6Inodes6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbj[_ZN6Inodes6createERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbj]+0x98): und

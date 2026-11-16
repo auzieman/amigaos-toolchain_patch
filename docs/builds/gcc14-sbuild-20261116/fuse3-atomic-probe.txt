@@ -1,0 +1,4 @@
+Checking if "C++ 64-bit atomic operations" links: NO
+Library atomic found: YES
+[79/82] /usr/bin/powerpc-linux-gnuspe-g++ -Iexample/memfs_ll.p -Iexample -I../example -Iinclude -I../include -Ilib -I../lib -I. -I.. -fdiagnostics-color=always
+[80/82] /usr/bin/powerpc-linux-gnuspe-g++  -o example/memfs_ll example/memfs_ll.p/memfs_ll.cc.o -Wl,--as-needed -Wl,--no-undefined -g -O2 -ffile-prefix-map=/bui
