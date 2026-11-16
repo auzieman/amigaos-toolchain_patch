@@ -44,3 +44,7 @@ SPE_ACC and SPEFSCR are fixed registers, so they are never requested, and the ro
 `scripts/build-gcc14-spe-sdk.sh`, run package-managed (`PREFIX=/usr/lib/tabor-spe-toolchain INSTALLED_SYSROOT=/ MULTIARCH=1`) with 0001-0023, then `package-gcc14-spe-host-toolchain.py --version 14.2.0+tabor2`, produces `tabor-spe-toolchain_14.2.0+tabor2_amd64.deb`, sha256 `24b4f16c4649d355…` (`tabor-spe-toolchain-receipt.json`). `profiles/compiler-policy.json` is re-pinned to it, and tabor1 is recorded as superseded. `crossbuild-essential-powerpcspe 1.0+spe9` selects it.
 
 Not checked here: `patches/openssl/0001` probes the option by compiling `/dev/null`. That probe would pass even on a compiler that ICEs on real functions.
+
+## Hardware bundle (prepared, not yet run)
+
+`hw/make-hw-bundle-38.sh` builds `hw-bundle-38.tar.xz` (3.2 MB, sha256 `13bc9d89eba3b006…`): `run.c` for all 8 valid modes × -O0/-O1/-O2/-O3/-Os, and `fe.c` for all 8 modes, with libc6 and the runtimes. `run.sh` uses the bundled loader only. Under the #3-patched qemu-ppc it passes 48/48. Under stock qemu the 8 rounding checks fail (#3).

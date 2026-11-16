@@ -202,6 +202,12 @@ Runtime checks under qemu e500v2, each compared with x86-64 Debian:
 
 coinstall over this group: 92 Multi-Arch `same` packages, no problems.
 
+## Hardware bundle (prepared, not yet run)
+
+`hw/make-hw-bundle-27.sh` (replica-local paths) builds a self-contained bundle (`hw-bundle-27.tar.xz`, 43 MB, sha256 `7c24404b90e1c14b…`). It holds four test programs built with tabor2 (`t.cc` C++ threads/atomics/exceptions, `ffi.c`, `gtest.c`, `ft.c`) plus the packaged sqlite3, openssl, uconv and minizip, and the sbuild-built libraries. Each program has an expected output from the x86-64 build or a fixed reference. `run.sh` runs everything through the bundled `ld.so.1 --library-path`, so nothing is installed on the board, and it writes only under `/tmp`.
+
+Dry run under the #3-patched qemu-ppc: 7 of 8 pass. sqlite fails only because qemu-user returns `EINVAL` for `PR_GET_FPEXC`: glibc's e500 `fegetenv` then leaves the saved environment unset, and a later `fesetenv` (from `sqrt`) writes a stale stack word (`0x0fed3bd0`) into SPEFSCR. That is #39, with reproducer `hw/qemu-fpexc-sqrt.c`. The real kernel implements those prctls, so on the A1222 all 8 are expected to pass.
+
 ## SDK digest and reproducibility
 
 The policy pins the toolchain receipt `c6539872…`, and the runner checks the `.deb` against that receipt's `package_sha256` (`6d0923e3…`). That `.deb` exists only on this replica. Two things decide whether another build host can produce it:
