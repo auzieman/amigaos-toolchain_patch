@@ -22,7 +22,7 @@ Does the same stack build and work when compiled for SPE with the policy-pinned 
 |---|---|---|
 | gltest, softpipe | clear and draw pass, 0/4096 bad pixels | not run on the board |
 | gltest, radeonsi (`AMD Radeon RX 550 Series (radeonsi, polaris11, ACO, DRM 3.61)`) | clear and draw pass, 0/4096 bad pixels | pass |
-| kmstest (GBM + EGL + GLES2 on KMS, legacy ADDFB) | GL readback of all four quadrants correct; cube 600 frames at 59.72 fps, 0 flip errors | 59.63 fps |
+| kmstest (GBM + EGL + GLES2 on KMS, legacy ADDFB) | GL readback of all four quadrants correct, and the user confirmed the HDMI picture by eye (red, green, white, blue clockwise from top-left, as drawn); cube 600 frames at 59.72 and 59.80 fps in two runs, 0 flip errors | 59.63 fps |
 | dEQP GLES2 mustpass, 17,165 cases | 17,041 Pass, 111 NotSupported, 10 QualityWarning, 3 CompatibilityWarning, **0 Fail** | 17,040 Pass, 1 Fail, the same 111/10/3 |
 | dEQP wall time | **1,959 s** in one pass, watchdog on | 60,617 s plus a 15,226 s rerun of 769 cases with the watchdog off |
 | kernel taint, GPU timeouts or faults | 0, none | 0, none |
