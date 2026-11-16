@@ -54,6 +54,30 @@ This kernel was not booted. The board ran the hard-float-built kernel 017.
 
 ## Limits
 
-- GLES2 only. GLES3 dEQP, desktop GL and X/E clients were not run.
+- Desktop GL and X/E clients were not run. GLES3 is below.
 - The SPE run used the same dEQP patches as the hard-float one. dEQP's own reference rendering is now SPE code too, so an SPE floating-point error common to both sides could hide in a comparison. None of the results differ.
 - #41 (an SPE overflow that sometimes saturates instead of becoming Inf) did not show up here.
+
+## GLES3 (added the same day)
+
+The GLES3 mustpass (44,768 cases) found a compiler defect in tabor2, GCC PR116997 (#46). Unmodified Mesa and dEQP built with tabor2 crashed in 21 chunks and failed every ASTC case. The full run below uses the same Mesa tree and dEQP rebuilt with **tabor3** (candidate 0024, PR #47): bundle `/opt/a1222-gl-spe3`, kernel 017, `polaris11_le_user_ib=1`.
+
+It ran in three parts, because dEQP's CPU reference arithmetic in `builtin_functions.precision.*` takes minutes per case on the e500v2 and tripped the 30 s watchdog and the 600 s chunk timeout:
+- the first 19,324 cases;
+- the 24,965 non-precision cases left (6,522 s);
+- the 479 precision cases left, with the watchdog off and a 3,600 s chunk timeout (4,262 s).
+
+Per-chunk timelines are in `deqp-gles3-tabor3-summaries.txt`, and every non-Pass result is in `deqp-gles3-tabor3-non-pass.txt`. The complete results list has sha256 `4960bf88ac8e3b75…`.
+
+| result | count | cause |
+|---|---|---|
+| Pass | 42,983 | |
+| Fail | 1,288 | `texture.{wrap,compressed}.astc*`, which fails identically with the hard-float bundle: a big-endian Mesa ASTC issue (Mesa-os4 #456) |
+| Fail | 25 | MSAA depth/stencil, MSAA blit with invalidate, `renderbuffer_resize`, and transform feedback state queries; all 25 fail identically with the hard-float bundle (Mesa-os4 #457) |
+| Fail | 8 | `common.fract` highp; passes with the hard-float bundle, from the SPE single-precision sign of an exact zero (#48) |
+| QualityWarning | 274 | `builtin_functions.precision.*`; passes with the hard-float bundle, an SPE CPU-reference effect (#48) |
+| QualityWarning | 15 | line interpolation (AMD major-axis, as on GLES2) and one `fbo.completeness.samples` |
+| NotSupported | 171 | |
+| CompatibilityWarning | 4 | wide lines in multisample FBOs |
+
+There were no crashes, no GPU timeouts or faults, and kernel taint stayed 0. No GPU-path failure depends on the compiler: every Fail that remains with tabor3 is either identical on hard float (Mesa big-endian) or comes from dEQP's SPE CPU reference.
