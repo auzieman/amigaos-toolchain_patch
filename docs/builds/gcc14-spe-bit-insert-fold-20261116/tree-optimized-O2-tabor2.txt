@@ -1,0 +1,4 @@
+# tabor2 -O2 -fdump-tree-optimized of aco-operand-bits.cpp, main(), undefined Operand construction (control_ is the second 16-bit element)
+_ifc__120 = BIT_INSERT_EXPR <_ifc__119, 0, 0 (24 bits)>;
+_ifc__118 = BIT_INSERT_EXPR <_ifc__120, 1, 24 (8 bits)>;
+MEM <vector(2) short unsigned int> [(void *)&D.3644 + 4B] = { 512, 38 };
