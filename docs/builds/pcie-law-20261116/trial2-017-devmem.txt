@@ -1,0 +1,11 @@
+LAW3 0x00800000 0x80200020
+POW3 0x00100000 0x00000000 0x00800000 0x80044020
+RP pref:  01 00 f1 0f 01 00 00 00 01 00 00 00
+GPU cmd before:  07 00
+GPU BAR0:  0c 00 00 00 01 00 00 00  cmd:  07 04
+0
+Bus error
+read >4G:  rc=0
+taint 144
+note: busybox[476] exited with irqs disabled
+done

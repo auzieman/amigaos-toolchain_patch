@@ -1,0 +1,146 @@
+--- a/arch/powerpc/boot/dts/fsl/tabor-a1222.dts
++++ b/arch/powerpc/boot/dts/fsl/tabor-a1222.dts
+@@ -73,7 +73,10 @@
+ 	};
+ 
+ 	pci1: pcie@fffe0a000 {
++		/* 64-bit prefetchable 8 GB window for a resizable GPU BAR0 (#34);
++		 * its LAW is opened by tabor_open_pcie_laws(). */
+ 		ranges = <0x2000000 0x0 0xe0000000 0xc 0x40000000 0x0 0x20000000
++			  0x43000000 0x1 0x00000000 0x8 0x00000000 0x2 0x00000000
+ 			  0x1000000 0x0 0x00000000 0xf 0xffc20000 0x0 0x10000>;
+ 		reg = <0xf 0xffe0a000 0 0x1000>;
+ 		pcie@0 {
+@@ -81,6 +84,10 @@
+ 				  0x2000000 0x0 0xe0000000
+ 				  0x0 0x20000000
+ 
++				  0x43000000 0x1 0x00000000
++				  0x43000000 0x1 0x00000000
++				  0x2 0x00000000
++
+ 				  0x1000000 0x0 0x0
+ 				  0x1000000 0x0 0x0
+ 				  0x0 0x100000>;
+--- a/arch/powerpc/platforms/85xx/tabor.c
++++ b/arch/powerpc/platforms/85xx/tabor.c
+@@ -17,6 +17,7 @@
+ #include <linux/pci.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
++#include <linux/log2.h>
+ #include <asm/div64.h>
+ #include <asm/mpic.h>
+ #include <asm/swiotlb.h>
+@@ -28,6 +29,103 @@
+ 
+ #include "mpc85xx.h"
+ 
++/*
++ * Local Access Windows (e500v2/P1022 layout): LAWBARn at CCSR+0xC08 + n*0x20
++ * (physical address >> 12), LAWARn at +0xC10 (EN, TRGT_ID[11:15], SIZE[26:31]
++ * with window = 2^(SIZE+1) bytes).
++ */
++#define TABOR_LAW_COUNT		12
++#define TABOR_LAWBAR(n)		(0xc08 + (n) * 0x20)
++#define TABOR_LAWAR(n)		(0xc10 + (n) * 0x20)
++#define TABOR_LAWAR_EN		0x80000000u
++#define TABOR_LAWAR_TGT(ar)	(((ar) >> 20) & 0x1f)
++#define TABOR_LAWAR_SIZE(ar)	((ar) & 0x3f)
++
++static bool __init tabor_law_covers(u32 bar, u32 ar, u64 start, u64 size)
++{
++	u64 base = (u64)bar << 12;
++	u64 len = 1ULL << (TABOR_LAWAR_SIZE(ar) + 1);
++
++	return (ar & TABOR_LAWAR_EN) && start >= base && start + size <= base + len;
++}
++
++/*
++ * U-Boot opens only a 512 MB LAW per PCIe controller. Linux programs the
++ * outbound ATMUs from the device tree but not the LAWs, so a larger window
++ * in `ranges` would be unreachable. For each host-bridge memory window that
++ * no enabled LAW covers, take the target ID of the LAW that routes another
++ * window of the same controller and open a free LAW for it. A window that is
++ * not a naturally aligned power of two, or has no routed sibling, is skipped.
++ */
++static void __init tabor_open_pcie_laws(void)
++{
++	struct device_node *np;
++	void __iomem *law;
++
++	law = ioremap(get_immrbase(), 0x1000);
++	if (!law) {
++		pr_warn("Tabor: cannot map CCSR for LAW setup\n");
++		return;
++	}
++
++	for_each_node_by_type(np, "pci") {
++		struct of_pci_range_parser parser;
++		struct of_pci_range range;
++		u64 want[4], want_size[4];
++		int nwant = 0, tgt = -1, i, k;
++
++		if (np->parent != of_root || !of_device_is_available(np) ||
++		    of_pci_range_parser_init(&parser, np))
++			continue;
++
++		for_each_of_pci_range(&parser, &range) {
++			bool covered = false;
++
++			if (!(range.flags & IORESOURCE_MEM))
++				continue;
++			for (i = 0; i < TABOR_LAW_COUNT; i++) {
++				u32 bar = in_be32(law + TABOR_LAWBAR(i));
++				u32 ar = in_be32(law + TABOR_LAWAR(i));
++
++				if (tabor_law_covers(bar, ar, range.cpu_addr, range.size)) {
++					covered = true;
++					tgt = TABOR_LAWAR_TGT(ar);
++				}
++			}
++			if (!covered && nwant < ARRAY_SIZE(want)) {
++				want[nwant] = range.cpu_addr;
++				want_size[nwant++] = range.size;
++			}
++		}
++
++		for (k = 0; k < nwant; k++) {
++			u64 start = want[k], size = want_size[k];
++			int bits = ilog2(size);
++
++			if (tgt < 0 || !size || (size & (size - 1)) || bits < 12 ||
++			    (start & (size - 1))) {
++				pr_warn("Tabor: %pOF: window 0x%llx+0x%llx not opened\n",
++					np, start, size);
++				continue;
++			}
++			for (i = 0; i < TABOR_LAW_COUNT; i++)
++				if (!(in_be32(law + TABOR_LAWAR(i)) & TABOR_LAWAR_EN))
++					break;
++			if (i == TABOR_LAW_COUNT) {
++				pr_warn("Tabor: no free LAW for %pOF\n", np);
++				break;
++			}
++			out_be32(law + TABOR_LAWBAR(i), (u32)(start >> 12));
++			out_be32(law + TABOR_LAWAR(i), TABOR_LAWAR_EN |
++				 ((u32)tgt << 20) | (u32)(bits - 1));
++			in_be32(law + TABOR_LAWAR(i));
++			pr_info("Tabor: LAW%d 0x%09llx size 0x%llx -> target 0x%02x for %pOF\n",
++				i, start, size, tgt, np);
++		}
++	}
++	iounmap(law);
++}
++
+ 
+ static void __init tabor_pic_init(void)
+ {
+@@ -49,6 +147,7 @@
+ 
+ 	mpc85xx_smp_init();
+ 
++	tabor_open_pcie_laws();
+ 	fsl_pci_assign_primary();
+ 
+ 	swiotlb_detect_4g();

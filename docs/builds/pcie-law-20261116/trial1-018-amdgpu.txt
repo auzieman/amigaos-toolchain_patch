@@ -1,0 +1,54 @@
+amdgpu 0001:01:00.0: BAR 2 [mem 0xc50000000-0xc501fffff 64bit pref]: releasing
+amdgpu 0001:01:00.0: BAR 0 [mem 0xc40000000-0xc4fffffff 64bit pref]: releasing
+amdgpu 0001:01:00.0: BAR 0 [mem 0x800000000-0x80fffffff 64bit pref]: assigned
+amdgpu 0001:01:00.0: BAR 2 [mem 0x810000000-0x8101fffff 64bit pref]: assigned
+amdgpu 0001:01:00.0: amdgpu: VRAM: 4096M 0x000000F400000000 - 0x000000F4FFFFFFFF (4096M used)
+Machine check in kernel mode.
+Caused by (from MCSR=8): Bus - Read Data Bus Error
+Oops: Machine check, sig: 7 [#1]
+NIP:  c025ee08 LR: c025ee08 CTR: 00000000
+NIP [c025ee08] free_vmap_area_noflush+0xd4/0x1dc
+LR [c025ee08] free_vmap_area_noflush+0xd4/0x1dc
+Call Trace:
+NIP:  101e5bc0 LR: 10123394 CTR: 00000000
+NIP [101e5bc0] 0x101e5bc0
+LR [10123394] 0x10123394
+---
+no setpci
+pow c20=0x000E0000
+pow c24=0x00000000
+pow c28=0x00C40000
+pow c30=0x8004401C
+pow c40=0x00100000
+pow c44=0x00000000
+pow c48=0x00800000
+pow c50=0x90044020
+pow c60=0x00000000
+pow c64=0x00000000
+pow c68=0x00FFFC20
+pow c70=0x8008800F
+hexdump: invalid number '0x18'
+0x0000000000000000 0x000000000000ffff 0x0000000000000100
+0x0000000c40000000 0x0000000c5fffffff 0x0000000000000200
+0x0000000800000000 0x00000009ffffffff 0x0000000000102201
+00000000-d9ffffff : System RAM
+800000000-9ffffffff : pcie@fffe0a000
+  800000000-9ffffffff : PCI Bus 0001:01
+    800000000-80fffffff : 0001:01:00.0
+    810000000-8101fffff : 0001:01:00.0
+c40000000-c5fffffff : pcie@fffe0a000
+  c40000000-c5fffffff : PCI Bus 0001:01
+    c50200000-c5023ffff : 0001:01:00.0
+    c50240000-c50243fff : 0001:01:00.1
+000020 00e0f0ff 0100f1ff 01000000 02000000
+000030
+000010 0c000000 01000000
+000018
+000004 0704
+000006
+000004 0601
+000006
+piw@da0 tar=0x00000000 tear=0x00000000 bar=0x00000000 bear=0x00000000 ar=0x00000000
+piw@dc0 tar=0x00000000 tear=0x00000000 bar=0x01000000 bear=0x00000000 ar=0x00000000
+piw@de0 tar=0x00000000 tear=0x00000000 bar=0x00000000 bear=0x00000000 ar=0xA0F5501F
+pexcsrbar? 0x00000000
