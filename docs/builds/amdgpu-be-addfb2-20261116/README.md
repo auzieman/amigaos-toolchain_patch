@@ -99,7 +99,9 @@ timed-out chunk, and taint stayed 0 throughout:
   That is 42012 Pass, with 1321 Fail. The Fails are the known ASTC, MSAA/transform-feedback
   and `fract` cases.
 
-So neither the SPE-compiled kernel nor 0037 changes any GL result.
+So the SPE-compiled kernel and its amdgpu change no offscreen GL result. dEQP runs on the EGL
+surfaceless platform and never creates a KMS framebuffer, so these runs do not exercise 0037;
+the fbfmt and kmstest results above do.
 
 ### Behaviour change for clients
 
@@ -123,7 +125,9 @@ labelling for a big-endian host-order buffer is `BGRX8888`, or plain legacy ADDF
   by eye.
 - `hw/kmstest-fixed-019.txt` — the fixed kmstest on 019, colours checked by eye.
 
-Still open for #35: Mesa's GBM/EGL offers no `XRGB8888` visual on big-endian. Clients
-like Xorg modesetting/glamor, which ask for one, still need to accept `BGRX8888`. The
-acceptance items with Xorg or a Wayland compositor, mode switch and VT switch, are not
-tested here.
+Still open for #35:
+
+- **Mesa:** stock Mesa's GBM/EGL offers no `XRGB8888` visual on big-endian, so clients like
+  Xorg modesetting/glamor that ask for one still need to accept `BGRX8888`. The cause and a
+  tested fix are described in the #35 comments; the fix is not in this repository.
+- **Not tested here:** Xorg or a Wayland compositor, mode switch and VT switch.
