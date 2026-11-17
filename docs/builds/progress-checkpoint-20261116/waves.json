@@ -1,0 +1,628 @@
+{
+  "observed_at_utc": "2026-11-17T00:44:34.301364+00:00",
+  "release_accepted": false,
+  "runs": {
+    "desktop-full-20261116-001-desktop-services": {
+      "receipt_sha256": "df4639db38df06ea0883406bf3e5f9365984ed08fa21d33c0d7e30180d7909ce",
+      "status": "running",
+      "error": null,
+      "items": [
+        {
+          "package": "aalib",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "7506da7de0cbc642604469287bd62c9df5a337f6e19176459b05870888b3198e"
+        },
+        {
+          "package": "abseil",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "960a338e05708468780533d9dd7352783ac34051c4e3f760a7f14d98c64b1305"
+        },
+        {
+          "package": "acpi-support",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "arch-check",
+          "failure_category": "needs-review"
+        },
+        {
+          "package": "acpid",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "5ad6bb29182b88cab1136df719f8f8a9a75fb275bbfc17680c55f7cf9f6fc875"
+        },
+        {
+          "package": "alsa-lib",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "8601f96020399cb38f53fd545690b62db40c10e9919fab435ca57d825fc3d971"
+        },
+        {
+          "package": "apr",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "source-build"
+        },
+        {
+          "package": "bc",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "source-build"
+        },
+        {
+          "package": "bubblewrap",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "23e16be24bb0ddc82040dfbdc5a72b6e3a52d9d99f3e12a4cf64250a189ceb15"
+        },
+        {
+          "package": "busybox",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "f46f18fb0b38a0e168a6fe86253e6aafdda712e29ceac4e520910bd997bc1842"
+        },
+        {
+          "package": "cairo",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "819a9d1453eb8bb2250fab9e7ef08ad5edb7fb97a925dcb8f34a4af9d10a535b"
+        },
+        {
+          "package": "cdparanoia",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "b78fcb61008617cd041907a28dad7a9d4227b5bee257404c8276a32a1596a8e2"
+        },
+        {
+          "package": "check",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "03319f935f001674c0b10c8215b7575071becd4fafd174a2db4d48032c0dd964"
+        },
+        {
+          "package": "cppunit",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "48c73e0fb4c4f94a69506c32243a19f9ff17587b5af1f9dc76f617e4b6bcbc4d"
+        },
+        {
+          "package": "cpputest",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "e6940d3e85335fbd4449a5de267319d7964b08842fc82e183be84170d54f1e39"
+        },
+        {
+          "package": "diffstat",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "562a8739074c09375443a9aaf655a4c2e9b3fc0ef707bf23ca68faeece1a6442"
+        },
+        {
+          "package": "dosfstools",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a385290229dd5745427174fb357d4704fb07032f1f777a752f9874485cc5f640"
+        },
+        {
+          "package": "exfatprogs",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "f51726fa10750bb5f3446f2c0ca7ce1a947142d0aba324e39b5b803eafd76ddc"
+        },
+        {
+          "package": "googletest",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a5e53667b04bc2e2fde1453f3997224cb970e345a5aa4df426cbb1ce679fa520"
+        },
+        {
+          "package": "graphite2",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9bc67ec50b56aef238eb39cb215a2e1aa204e7f0399a4b536c80c146e64e7de2"
+        },
+        {
+          "package": "heimdal",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "explain-bd-uninstallable",
+          "failure_category": "needs-review"
+        },
+        {
+          "package": "i2c-tools",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "039d2566341477e07036a10751438783dee024a33047b091fae17f6ee7f2abd0"
+        },
+        {
+          "package": "ijs",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "b5c2812006ebd5cfa972abecd54cb8f58590841e3df5fcfc7f189c2b9bf3bafe"
+        },
+        {
+          "package": "isl",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "c50ab0b7874a660a437252b543161b89f87bcfaa8464cd5075361e673516b9ee"
+        },
+        {
+          "package": "java-common",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "packaging"
+        },
+        {
+          "package": "jbig2dec",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a7e67039cb76f508785ae00608d278635728aae43f7f968c8c3fb2b8e099d307"
+        },
+        {
+          "package": "jbigkit",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "source-build"
+        },
+        {
+          "package": "libasyncns",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9101c4fe5d6225e2a83c7f621f4ffd745529a8f028c64990ead653dc2bdf8366"
+        },
+        {
+          "package": "libatasmart",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "d8e7f10bbd0c2958ded68d1bb99f6f3701be13bdbda6cc1a91d6f6f713fdc0d7"
+        },
+        {
+          "package": "libconfig",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "926d5f9f87f559ee0775794b99f78087dc839a89bd9e01b74a2dfa8ec3d0b843"
+        },
+        {
+          "package": "libdatrie",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "c449ecd4d08f4b15375733eeb50bffd1e945549ea4ca4b75c8d714897b25ef08"
+        },
+        {
+          "package": "libdeflate",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "c360dd8331b1f08faf285faca8b07bdfcf8f146d30c409d5fd64a035e7f02491"
+        },
+        {
+          "package": "libdv",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "400a306f5284f179682891679064f335e2d67ca1010348b626bba98bc88df8dc"
+        },
+        {
+          "package": "libebur128",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "24afc5a81ef41a0559f2a2e7c66c49adc0b0ec382d03f7c16548bff9cf2fd7cd"
+        },
+        {
+          "package": "libglu",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a22a788998d2867cefefab0d7a9b066d68cab97b402cfce80cd8cd1f8f0fbac4"
+        },
+        {
+          "package": "libiberty",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "7cce9de03066d091ebc989e1cc8920f9998efd72ed21b4f29556edff9db063db"
+        },
+        {
+          "package": "libidn",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "ab711972fc911ebed4021a36c556859df3c76d28ee51fe60de7db77010ea0578"
+        },
+        {
+          "package": "libmysofa",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "bfffdd04c0c5478e086822fbbb0bb536087e36fca9fc73a7b25e8abf2355bbea"
+        },
+        {
+          "package": "libnvme",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "install-deps",
+          "failure_category": "dependency-installation"
+        },
+        {
+          "package": "libogg",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "f670baffab8ec801bbbf9abc880971dde6513408bd7815329d9f80cf24cd6fcc"
+        },
+        {
+          "package": "libpipeline",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "e970948836332c47be8f57787c46e16575c606dffbc4dd5dab8dd5f76b0b1143"
+        },
+        {
+          "package": "libraw1394",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "54a2ecc92a2e87913aa3d78ad69134327812684332615c08e29efddcfb3081a7"
+        },
+        {
+          "package": "libsigc++-2.0",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "bfdda2b14125561c2a83c9cf86eae5e702f088098bfe0851722eaa9059468afc"
+        },
+        {
+          "package": "libtext-iconv-perl",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "0fd66459f8723bfc557535ad97aa2adb29f15080a8ef0bc57b9b4d07c1898261"
+        },
+        {
+          "package": "libuv1",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "b0357e1e979b056fe2d0f7af0a84409aa1df51adf517535580d5aa0b605e104b"
+        },
+        {
+          "package": "libvpx",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "775ba55f05f16b1a7c88abee7f7582a091839f510d0ab5810423c23e9ec8b7d3"
+        },
+        {
+          "package": "libwebm",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "explain-bd-uninstallable",
+          "failure_category": "needs-review"
+        },
+        {
+          "package": "libxvmc",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "source-build"
+        },
+        {
+          "package": "libxxf86dga",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "build",
+          "failure_category": "source-build"
+        },
+        {
+          "package": "libyaml",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "8a6a825c3ac2f6e6d4ffc44874296c353f28ddbfdd897e79400bfe6e16d251b4"
+        },
+        {
+          "package": "lua5.4",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9721abb96f5bc1f6adf73a1acc07705120b3f46bb4e45da6da59b86b9069d4f4"
+        },
+        {
+          "package": "luit",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "2687204fa35606e5d9533e5d87d90f49faffeafc138f5d16ef6faabe772ba197"
+        },
+        {
+          "package": "man-db",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "84c58ad03bfb027325b6c4718e1777994e8e7557f3ed84499bcd399e02ead202"
+        },
+        {
+          "package": "mpfr4",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "4b169070043f42a76987dc64b56984a33610f02cc5edfee97ba3a45125be07a0"
+        },
+        {
+          "package": "mysql-defaults",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a012b8adef89c73c7ae93848fc56b2c3995a5e3f432cbd1c0d795fe9055ae005"
+        },
+        {
+          "package": "nas",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "0b584911a509ed5c75ea2913d2dd99940170bf49c4f555c3ed1c83600ccfdf24"
+        },
+        {
+          "package": "ntfs-3g",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "06ff5c00fd9a77e5cc081a1acc53a94f114bc06210b0e803e5f6d20a5ce24da3"
+        },
+        {
+          "package": "opencore-amr",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "bfa123136022b992405f7388f676b83bf7ff75894e2cab4b1dd5c4d5bb3e0a9c"
+        },
+        {
+          "package": "openfec",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "0ca163749e6932912adbbad147be2ebd780f34f0c2640bd5e128dc9c5319e0d9"
+        },
+        {
+          "package": "opus",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "e19001162193617454ad5fcd70411b1e35919ad476d5a17c9825132c2538cc8e"
+        },
+        {
+          "package": "orc",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "504114d4e629f51381c58bb7b76d168fc85ce5925cb491350d0460e87bf15ea2"
+        },
+        {
+          "package": "parted",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "8f93b54122c05788dc853f3b54637633a84d467db3f69c8f7e095cb1f2f13921"
+        },
+        {
+          "package": "python3-stdlib-extensions",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "b42efed8dc3d855d5d639099197b27b7001aba568a25e1fec7084f55535983b9"
+        },
+        {
+          "package": "rtkit",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "2fee6942d1756d041b17dbb373b457f22946f196732d23f5b2a9b39c1383d863"
+        },
+        {
+          "package": "serd",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "1debb47b3d6a60f33fb76d2777b44ae620c1dcafe62694356b45525611936b60"
+        },
+        {
+          "package": "snowball",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a39adf046647a0ae5b294c762c1344d9a406c41080057c7b65b2a2b679014e88"
+        },
+        {
+          "package": "speexdsp",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "a74b2fc229800fa442499f4194d723981c4a7c07c6d5a2b28d015a0a4b127a16"
+        },
+        {
+          "package": "subunit",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "install-deps",
+          "failure_category": "dependency-installation"
+        },
+        {
+          "package": "taglib",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "63660e5364ce017558ead72b12fec5d1b22f6fa36de41c386da60131088657ac"
+        },
+        {
+          "package": "uchardet",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9f6685e50db79402d9b0a5f550d6d9a42b25ad3ead037eb394747c72f3a5d8f0"
+        },
+        {
+          "package": "usbutils",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "70c969a8b6b090225a942a389713145d36e9419d0a89574214e55d18cb2c3c99"
+        },
+        {
+          "package": "vulkan-loader",
+          "status": "failed-see-retained-log",
+          "wave": 1,
+          "failure_stage": "explain-bd-uninstallable",
+          "failure_category": "needs-review"
+        },
+        {
+          "package": "wavpack",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "473daaee29b4c2fb35d2127240dafa31fc79bd2b8594c5937f493dfd6b31a98b"
+        },
+        {
+          "package": "x11-utils",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "50e2da1e433706e775302ba7a70de409264d481a60bd288a163e0ef620bfa0ee"
+        },
+        {
+          "package": "xf86-input-wacom",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "6c94db710b33dc9fc513c8b4c95358f0cd8440513e68e3d0bceb2745b095a4f3"
+        },
+        {
+          "package": "xserver-xorg-video-amdgpu",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "88d09f91661958faf41cc0f9f5a6d64c7304a3f63287921dbad6887ab5e8e3f5"
+        },
+        {
+          "package": "xserver-xorg-video-ati",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "474ca2e0c8afa377c549c55bbeeeb3fb985199f0d3021c93759f8ca35fee51b1"
+        },
+        {
+          "package": "xserver-xorg-video-fbdev",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9e6d392188d3b69569ae7fb8a2c1c646f4c09fac0a36f18c5994ebd29f5947bb"
+        },
+        {
+          "package": "xserver-xorg-video-nouveau",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "9ca7b972ae814797937e5605ba4433edf98c49eb303accb41ce05c723f15a7ef"
+        },
+        {
+          "package": "xserver-xorg-video-qxl",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "ca3ab03e58a47718c90272e94978ddd3b08f68251dabbef30986fdd460cdd3cd"
+        },
+        {
+          "package": "zix",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "c5d3fcb227b0c583109fa5be507d5b4c32f4b59b366161b866f5d1bf5abdc6b3"
+        },
+        {
+          "package": "avahi",
+          "status": "failed-see-retained-log",
+          "wave": 2,
+          "failure_stage": "install-deps",
+          "failure_category": "dependency-installation"
+        },
+        {
+          "package": "ddcutil",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "2527ba91c26b89297b12895eded7bfbddcb4a5ed2a0c5e67529c6043816fa6a2"
+        },
+        {
+          "package": "flac",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "e891de11ca3eb947e4f72cdc74553d1dca173bd92b542c77323947f25a0e9a8e"
+        },
+        {
+          "package": "fltk1.3",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "edb848480e4370708e538e7c70b07f104d719d09fb15da040901b36a9b7aff99"
+        },
+        {
+          "package": "freeglut",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "4b7c956b9b8f504f81b5c3af153779fd6a913d2ec93a7c8693d5d5c1b1e6eaae"
+        },
+        {
+          "package": "highway",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "32d6bf5d4d4554895dee7322abcd77425b04bb96bcf44b512ad811bb8e2b6d37"
+        },
+        {
+          "package": "libavc1394",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "f162a9c887b36495470152125af76cd86fdb4c9fed832e1fab4ef808037bf2dc"
+        },
+        {
+          "package": "libbytesize",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "24e7dcaad8c465a99f16995ad6676b495580b0e47cd54191d60dc0d3d21e0d53"
+        },
+        {
+          "package": "libiec61883",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "ce082c45d429e86a43d9e7be87dbe434ae539748329d21968469b0c2f55f67fa"
+        },
+        {
+          "package": "libpaper",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "3d759d0d26949c2950f5158723e427f627ce164594443e9c9171a7ad57e8c176"
+        },
+        {
+          "package": "libthai",
+          "status": "failed-see-retained-log",
+          "wave": 2,
+          "failure_stage": "install-deps",
+          "failure_category": "dependency-installation"
+        },
+        {
+          "package": "libvorbis",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "4c78a601d17e22eea749417bd6d459ba91e08fca5022f5fe59d9e57693cc241d"
+        },
+        {
+          "package": "mpclib3",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "e5c587c7882b151ffc122fe2ce97ce9aeb54f22c7a370dc089ffd94af3176663"
+        },
+        {
+          "package": "sord",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "008af7dfcc82ea7aa228529c0c7caff2173233ac57d80522bd574fbc5e0c0f88"
+        },
+        {
+          "package": "speex",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "85d3895fba8793bd2fb005b658f717f9dd8a92e087feb0bc63c31dc8432ceee5"
+        },
+        {
+          "package": "webrtc-audio-processing",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 2,
+          "receipt_sha256": "051211840ce2a0aedad400ff3be350d3e4f11438a58d03bfe328b38e0f705d9c"
+        }
+      ]
+    },
+    "efl-wrapper-prerequisite-20261116-001-desktop-services": {
+      "receipt_sha256": "c14f7fb7ef79d4cd4d900734d595ab8fa9573ce6d033e8334c312fdf0bede9c1",
+      "status": "completed",
+      "error": null,
+      "items": [
+        {
+          "package": "architecture-properties",
+          "status": "debian-packages-built-not-target-installed",
+          "wave": 1,
+          "receipt_sha256": "3787b71ad73674cd15de0b87a204e7f5dec70abbf9fc84987b85806318c51d11"
+        }
+      ]
+    },
+    "efl-wrapper-full-20261116-001-desktop-services": {
+      "receipt_sha256": "eff92a1b77b16c1671a972e1688afcf2ea8398c6e2174cabb66e93edac85e73b",
+      "status": "interrupted-or-infrastructure-failed",
+      "error": "Native cache integrity/provenance check failed",
+      "items": [
+        {
+          "package": "glib2.0",
+          "status": "queued",
+          "wave": 1
+        }
+      ]
+    }
+  }
+}

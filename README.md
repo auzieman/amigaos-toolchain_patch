@@ -1,5 +1,14 @@
 # A1222 / SPE toolchain patches
 
+## Progress checkpoint — 2026-11-16
+
+See the [current build waves and target status](docs/builds/progress-checkpoint-20261116/README.md)
+and [receipt inventory](docs/builds/progress-checkpoint-20261116/waves.json).
+Physical Xorg/xterm and Enlightenment menus work; native EFL client rendering
+remains unresolved. The dated checkpoint supersedes older status statements below.
+This tag records progress, not a release-ready desktop or complete source export.
+
+
 Development toolchain and Linux enablement for the A1222/Tabor P1022 e500v2.
 This is the authoritative compiler/runtime/kernel patch project;
 [Tabor Linux Forge](https://github.com/auzieman/tabor-linux-forge) consumes reviewed
