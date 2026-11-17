@@ -1,0 +1,23 @@
+# dEQP on kernel 019 (power-cycled boot, amdgpu polaris11_le_user_ib=1), tabor3 SPE GL bundle, DEQP_WATCHDOG=disable, chunks of 25.
+# 1) GLES2 mustpass, bundle unchanged:
+elapsed 1849 s
+CompatibilityWarning 3
+NotSupported 111
+Pass 17041
+QualityWarning 10
+# 2) GLES2 mustpass, bundle with libEGL and libgallium rebuilt for the big-endian XRGB8888 GBM visual (Mesa side of #35):
+elapsed 1834 s
+CompatibilityWarning 3
+NotSupported 111
+Pass 17041
+QualityWarning 10
+#    per-case diff against 1): 0 lines
+# 3) GLES3 mustpass minus dEQP-GLES3.functional.shaders.builtin_functions.precision.* (CPU-bound on SPE, #48), same libraries as 2):
+elapsed 8392 s
+CompatibilityWarning 4
+Fail 1321
+NotSupported 171
+Pass 42012
+QualityWarning 15
+#    per-case diff against the tabor3 GLES3 run on kernel 017 (PR #45), same 43523 cases: 0 lines
+#    bad chunks (rc 134/137/139/143): 0 in all three runs; kernel taint 0 throughout

@@ -85,6 +85,22 @@ The other GL tests also passed on 019:
   the format Mesa's big-endian GBM config reports. The bars were correct on screen, and the
   page-flipped cube gave 900 flips at 59.9 FPS with no flip errors.
 
+### dEQP regression on 019
+
+`hw/deqp-019.txt` holds three runs on the same boot as the tests above. None had a crashed or
+timed-out chunk, and taint stayed 0 throughout:
+
+- **GLES2 mustpass, unchanged bundle:** 17041 Pass and 0 Fail in 1849 s. This is the same
+  result as the SPE bundle on kernel 017.
+- **GLES2 again, with `libEGL` and `libgallium` rebuilt to offer an `XRGB8888` GBM visual on
+  big-endian (the Mesa side of #35):** identical per case.
+- **GLES3 mustpass minus the CPU-bound `builtin_functions.precision` group (#48), with the same
+  libraries:** 43523 cases, identical per case to the tabor3 GLES3 run on kernel 017 (#45).
+  That is 42012 Pass, with 1321 Fail. The Fails are the known ASTC, MSAA/transform-feedback
+  and `fract` cases.
+
+So neither the SPE-compiled kernel nor 0037 changes any GL result.
+
 ### Behaviour change for clients
 
 A client that labelled a host-order buffer as `XRGB8888` worked only by accident, and it
