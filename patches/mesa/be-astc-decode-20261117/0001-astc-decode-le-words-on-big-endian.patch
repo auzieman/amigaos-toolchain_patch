@@ -1,0 +1,30 @@
+mesa: decode ASTC blocks as little-endian words on big-endian hosts
+
+Decoder::decode copies the 16-byte block into uint32_t data[4], and
+InputBitVector::get_bits() takes bit n from data[n / 32] bit n % 32, so it
+reads the block as a little-endian 128-bit number. On a big-endian host
+every word is byte-reversed and every block decodes wrong. Load each word
+with util_le32_to_cpu after the copy; on little-endian hosts that is a no-op.
+
+Against Debian mesa 25.0.7 with debian/patches/series applied.
+
+--- a/src/mesa/main/texcompress_astc.cpp
++++ b/src/mesa/main/texcompress_astc.cpp
+@@ -36,6 +36,7 @@
+ #include "texcompress_astc.h"
+ #include "macros.h"
+ #include "util/half_float.h"
++#include "util/u_math.h"
+ #include <stdio.h>
+ #include <cstdlib>  // for abort() on windows
+ 
+@@ -642,6 +643,9 @@
+    Block blk;
+    InputBitVector in_vec;
+    memcpy(&in_vec.data, in, 16);
++   /* InputBitVector reads the block as little-endian 32-bit words. */
++   for (int i = 0; i < 4; ++i)
++      in_vec.data[i] = util_le32_to_cpu(in_vec.data[i]);
+    decode_error::type err = blk.decode(*this, in_vec);
+    if (err == decode_error::ok) {
+       blk.write_decoded(*this, output);
