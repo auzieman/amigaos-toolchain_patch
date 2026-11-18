@@ -1,0 +1,37 @@
+000cbe60 <fmaf>:
+   cbe60:	94 21 ff a0 	stwu    r1,-96(r1)
+   cbe64:	10 80 22 ef 	efdcfs  r4,r4
+   cbe68:	11 25 02 c6 	efsneg  r9,r5
+   cbe6c:	7c 08 02 a6 	mflr    r0
+   cbe70:	11 20 4a ef 	efdcfs  r9,r9
+   cbe74:	13 a1 4b 21 	evstdd  r29,72(r1)
+   cbe78:	13 a0 1a ef 	efdcfs  r29,r3
+   cbe7c:	13 e1 5b 21 	evstdd  r31,88(r1)
+   cbe80:	7c bf 2b 78 	mr      r31,r5
+   cbe84:	90 01 00 64 	stw     r0,100(r1)
+   cbe88:	13 61 3b 21 	evstdd  r27,56(r1)
+   cbe8c:	13 81 43 21 	evstdd  r28,64(r1)
+   cbe90:	13 bd 22 e8 	efdmul  r29,r29,r4
+   cbe94:	13 c1 53 21 	evstdd  r30,80(r1)
+   cbe98:	13 89 ea ee 	efdcmpeq cr7,r9,r29
+   cbe9c:	81 42 8f f8 	lwz     r10,-28680(r2)
+   cbea0:	91 41 00 2c 	stw     r10,44(r1)
+   cbea4:	39 40 00 00 	li      r10,0
+   cbea8:	40 9d 00 48 	ble-    cr7,cbef0 <fmaf+0x90>
+   cbeac:	10 60 2a ef 	efdcfs  r3,r5
+   cbeb0:	10 63 ea e0 	efdadd  r3,r3,r29
+   cbeb4:	10 60 1a cf 	efscfd  r3,r3
+   cbeb8:	81 41 00 2c 	lwz     r10,44(r1)
+   cbebc:	81 22 8f f8 	lwz     r9,-28680(r2)
+   cbec0:	7d 4a 4a 79 	xor.    r10,r10,r9
+   cbec4:	39 20 00 00 	li      r9,0
+   cbec8:	40 82 00 c8 	bne-    cbf90 <fmaf+0x130>
+   cbecc:	80 01 00 64 	lwz     r0,100(r1)
+   cbed0:	13 61 3b 01 	evldd   r27,56(r1)
+   cbed4:	13 81 43 01 	evldd   r28,64(r1)
+   cbed8:	13 a1 4b 01 	evldd   r29,72(r1)
+   cbedc:	7c 08 03 a6 	mtlr    r0
+   cbee0:	13 c1 53 01 	evldd   r30,80(r1)
+   cbee4:	13 e1 5b 01 	evldd   r31,88(r1)
+   cbee8:	38 21 00 60 	addi    r1,r1,96
+   cbeec:	4e 80 00 20 	blr

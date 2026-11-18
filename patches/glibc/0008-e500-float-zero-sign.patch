@@ -1,0 +1,39 @@
+On e500v2, single-precision addition (efsadd) gives (-0) + (-0) as +0 and an
+exact cancellation the sign of its first operand, and raises no SPE exception,
+so no kernel fix-up runs. fmaf's exact-zero path, (float) temp + z, and the
+ldexp template's value + value for a zero then return +0 where IEEE 754 and
+C require -0: fmaf (-2, 1, 2) gave -0, ldexpf (-0.0, n) and asinf (-0.0),
+which uses fmaf for tiny arguments, gave +0. Form the fmaf sum in double
+(e500v2 double precision follows IEEE) and return a zero from ldexp as it is.
+Both give the same values on an IEEE host.
+
+--- a/sysdeps/ieee754/dbl-64/s_fmaf.c
++++ b/sysdeps/ieee754/dbl-64/s_fmaf.c
+@@ -44,9 +44,11 @@
+   double temp = (double) x * (double) y;
+ 
+   /* Ensure correct sign of an exact zero result by performing the
+-     addition in the original rounding mode in that case.  */
++     addition in the original rounding mode in that case.  The sum is
++     formed in double: e500v2 single-precision addition gives
++     (-0) + (-0) as +0 and a cancellation the first operand's sign.  */
+   if (temp == -z)
+-    return (float) temp + z;
++    return (float) (temp + z);
+ 
+   union ieee754_double u;
+ 
+--- a/math/s_ldexp_template.c
++++ b/math/s_ldexp_template.c
+@@ -20,7 +20,10 @@
+ FLOAT
+ M_SUF (__ldexp) (FLOAT value, int exp)
+ {
+-	if(!isfinite(value)||value==0) return value + value;
++	/* A zero is returned as it is: e500v2 single-precision addition
++	   gives (-0) + (-0) as +0.  */
++	if(value==0) return value;
++	if(!isfinite(value)) return value + value;
+ 	value = M_SCALBN(value,exp);
+ 	if(!isfinite(value)||value==0) __set_errno (ERANGE);
+ 	return value;
