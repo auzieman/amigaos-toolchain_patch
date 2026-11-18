@@ -1,0 +1,20 @@
+# kernel 6.12.113-tabor-e2e-020
+ppc
+cpu		: e500v2
+PASS cxx-dyn.out
+PASS ffi.out
+PASS glib.out
+PASS ft.out
+PASS sqlite.out
+PASS sha256.out
+PASS uconv.out
+PASS minizip
+hw27: 8 passed, 0 failed
+[plain] select 1e308*10; -> Inf
+[plain] select sqrt(2.0), 1e308*10; -> 1.4142135623731|Inf
+[plain] select 1.0/3.0, 1e308*10; -> 0.333333333333333|Inf
+[plain] select exp(1.0), 1e308*10; -> 2.71828182845905|Inf
+[/tmp/spe-execwith 0] select 1e308*10; -> Inf
+[/tmp/spe-execwith 0] select sqrt(2.0), 1e308*10; -> 1.4142135623731|Inf
+[/tmp/spe-execwith 0] select 1.0/3.0, 1e308*10; -> 0.333333333333333|Inf
+[/tmp/spe-execwith 0] select exp(1.0), 1e308*10; -> 2.71828182845905|Inf
