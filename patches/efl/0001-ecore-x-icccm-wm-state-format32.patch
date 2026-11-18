@@ -1,0 +1,25 @@
+--- a/src/lib/ecore_x/ecore_x_icccm.c
++++ b/src/lib/ecore_x/ecore_x_icccm.c
+@@ -60,13 +60,18 @@
+                       &type_ret, &format_ret, &num_ret, &bytes_after,
+                       &prop_ret);
+    if (_ecore_xlib_sync) ecore_x_sync();
+-   if ((prop_ret) && (num_ret == 2))
++   if ((prop_ret) && (num_ret == 2) && (format_ret == 32))
+      {
+-        if (prop_ret[0] == WithdrawnState)
++        /* Format-32 property data is an array of long (Xlib). Compare the
++         * element, not its first byte: on a big-endian host the first byte
++         * of NormalState (1) is 0, which reads as WithdrawnState. */
++        long state = ((long *)prop_ret)[0];
++
++        if (state == WithdrawnState)
+           hint = ECORE_X_WINDOW_STATE_HINT_WITHDRAWN;
+-        else if (prop_ret[0] == NormalState)
++        else if (state == NormalState)
+           hint = ECORE_X_WINDOW_STATE_HINT_NORMAL;
+-        else if (prop_ret[0] == IconicState)
++        else if (state == IconicState)
+           hint = ECORE_X_WINDOW_STATE_HINT_ICONIC;
+      }
+ 

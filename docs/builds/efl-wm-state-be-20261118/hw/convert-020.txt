@@ -1,0 +1,24 @@
+ERR<8487>:eina_safety ../efl-source/src/lib/eina/eina_convert.c:297 eina_convert_dtoa() safety check failed: !isnan(d) && !isinf(d) is false
+0                      dtoa=0x0p+0                     atod=0                      m=0 e=0 eet d=0                      f=0              ok
+-0                     dtoa=0x0p+0                     atod=0                      m=0 e=0 eet d=0                      f=0              MISMATCH
+1                      dtoa=0x1p+0                     atod=1                      m=1 e=0 eet d=1                      f=1              ok
+-1                     dtoa=-0x1p+0                    atod=-1                     m=-1 e=0 eet d=-1                     f=-1             ok
+0.5                    dtoa=0x0.8p+0                   atod=0.5                    m=8 e=-4 eet d=0.5                    f=0.5            ok
+0.25                   dtoa=0x1p-2                     atod=0.25                   m=1 e=-2 eet d=0.25                   f=0.25           ok
+0.10000000000000001    dtoa=0x1.999999999999ap-4       atod=0.10000000000000001    m=7205759403792794 e=-56 eet d=0.10000000000000001    f=0.100000001    ok
+2                      dtoa=0x1p+1                     atod=2                      m=1 e=1 eet d=2                      f=2              ok
+3                      dtoa=0x1.8p+1                   atod=3                      m=24 e=-3 eet d=3                      f=3              ok
+10                     dtoa=0x1.4p+3                   atod=10                     m=20 e=-1 eet d=10                     f=10             ok
+0.75                   dtoa=0x0.cp+0                   atod=0.75                   m=12 e=-4 eet d=0.75                   f=0.75           ok
+1.5                    dtoa=0x1.8p+0                   atod=1.5                    m=24 e=-4 eet d=1.5                    f=1.5            ok
+255                    dtoa=0x1.fep+7                  atod=255                    m=510 e=-1 eet d=255                    f=255            ok
+123.456                dtoa=0x1.edd2f1a9fbe77p+6       atod=123.456                m=8687443681197687 e=-46 eet d=123.456                f=123.456001     ok
+0.001                  dtoa=0x1.0624dd2f1a9fcp-10      atod=0.001                  m=4611686018427388 e=-62 eet d=0.001                  f=0.00100000005  ok
+1e-10                  dtoa=0x1.b7cdfd9d7bdbbp-34      atod=1e-10                  m=7737125245533627 e=-86 eet d=1e-10                  f=1.00000001e-10 ok
+65536                  dtoa=0x1p+16                    atod=65536                  m=1 e=16 eet d=65536                  f=65536          ok
+4294967296             dtoa=0x1p+32                    atod=4294967296             m=1 e=32 eet d=4294967296             f=4.2949673e+09  ok
+9007199254740992       dtoa=0x1p+53                    atod=9007199254740992       m=1 e=53 eet d=9007199254740992       f=9.00719925e+15 ok
+0.33333333333300003    dtoa=0x1.5555555553de1p-2       atod=0.33333333333300003    m=6004799503154657 e=-54 eet d=0.33333333333300003    f=0.333333343    ok
+1.0000000000000001e+300 dtoa=0x1.7e43c8800759cp+996     atod=1.0000000000000001e+300 m=6724873095247260 e=944 eet d=1.0000000000000001e+300 f=0              MISMATCH
+1e-300                 dtoa=0x1.56e1fc2f8f359p-997     atod=1e-300                 m=6032057205060441 e=-1049 eet d=1e-300                 f=0              ok
+RESULT FAIL (2)

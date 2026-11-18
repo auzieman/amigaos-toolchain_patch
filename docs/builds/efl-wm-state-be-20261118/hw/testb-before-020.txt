@@ -1,0 +1,57 @@
+== 1 control: clients without E
+no window manager client list; top-level windows: 6
+WINDOW 0x200002 "" 480x490+0+0 depth 24: black 100.0% mean 0/0/0
+WINDOW 0x400002 "" 482x290+0+0 depth 24: black 100.0% mean 0/0/0
+saved /tmp/b/shot1-noe.ppm 1280x720
+== 2 E session
+clients (_NET_CLIENT_LIST): 12
+WINDOW 0x2000af "" 482x145+480+278 depth 32: black 32.1% mean 7/20/30
+WINDOW 0x2000bd "" 476x145+480+278 depth 32: black 31.2% mean 7/20/30
+WINDOW 0x2000cb "" 471x145+480+278 depth 32: black 30.5% mean 7/20/31
+WINDOW 0x2000e8 "" 485x145+480+278 depth 32: black 32.5% mean 6/20/30
+WINDOW 0x2000f6 "" 477x145+480+278 depth 32: black 31.4% mean 7/20/30
+WINDOW 0x200104 "" 468x145+480+278 depth 32: black 30.1% mean 7/20/31
+WINDOW 0x200112 "" 468x145+480+278 depth 32: black 30.1% mean 7/20/31
+WINDOW 0x200120 "" 505x145+480+278 depth 32: black 35.2% mean 6/19/29
+WINDOW 0x20012e "" 465x145+480+278 depth 32: black 29.6% mean 7/21/31
+WINDOW 0x20013c "" 502x145+480+278 depth 32: black 34.8% mean 6/19/29
+WINDOW 0x2001ea "" 374x125+480+278 depth 32: black 0.0% mean 10/30/44
+saved /tmp/b/shot2-e.ppm 1280x720
+clients (_NET_CLIENT_LIST): 14
+WINDOW 0x2000af "" 482x145+480+278 depth 32: black 32.1% mean 7/20/30
+WINDOW 0x2000bd "" 476x145+480+278 depth 32: black 31.2% mean 7/20/30
+WINDOW 0x2000cb "" 471x145+480+278 depth 32: black 30.5% mean 7/21/31
+WINDOW 0x2000e8 "" 485x145+480+278 depth 32: black 32.5% mean 7/20/30
+WINDOW 0x2000f6 "" 477x145+480+278 depth 32: black 31.4% mean 7/20/30
+WINDOW 0x200104 "" 468x145+480+278 depth 32: black 30.1% mean 7/21/31
+WINDOW 0x200112 "" 468x145+480+278 depth 32: black 30.1% mean 7/21/31
+WINDOW 0x200120 "" 505x145+480+278 depth 32: black 35.2% mean 6/19/29
+WINDOW 0x20012e "" 465x145+480+278 depth 32: black 29.6% mean 7/21/31
+WINDOW 0x20013c "" 502x145+480+278 depth 32: black 34.8% mean 6/19/29
+WINDOW 0x2001ea "" 374x125+480+278 depth 32: black 0.0% mean 10/30/45
+WINDOW 0x600002 "" 482x290+0+385 depth 24: black 0.0% mean 15/33/46
+WINDOW 0x400002 "" 480x490+0+23 depth 24: black 0.0% mean 13/31/45
+saved /tmp/b/shot3-e-clients.ppm 1280x720
+== E log (selected)
+     10 /home/tabor/.e-log.log:MODULE ERR: [Error loading Module]
+      9 /home/tabor/.e-log.log:SCRSV: someone else messed with screen dpms timeouts!
+      3 /home/tabor/.e-log.log:ERR<8295>:eldbus ../efl-source/src/lib/eldbus/eldbus_core.c:1062 _connection_get() Error connecting to bus of type 2. error name: org.freedesktop.DBus.Error.FileNotFound error message: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+      3 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1126 eldbus_connection_get() safety check failed: conn == NULL
+      2 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:663 eldbus_proxy_signal_handler_add() safety check failed: proxy == NULL
+      2 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_object.c:192 eldbus_object_get() safety check failed: conn == NULL
+      1 /home/tabor/.e-log.log:E_SUID_ERR: Root homedir /root does not resolve
+      1 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_proxy.c:212 eldbus_proxy_get() safety check failed: obj == NULL
+      1 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_freedesktop.c:28 eldbus_name_owner_get() safety check failed: conn == NULL
+      1 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eldbus/eldbus_core.c:1437 eldbus_name_owner_changed_callback_del() safety check failed: conn == NULL
+      1 /home/tabor/.e-log.log:ERR<8295>:eina_safety ../efl-source/src/lib/eina/eina_convert.c:297 eina_convert_dtoa() safety check failed: !isnan(d) && !isinf(d) is false
+      1 /home/tabor/.e-log.log:ERR<8295>:ecore_system_upower ../efl-source/src/modules/ecore/system/upower/ecore_system_upower.c:445 _ecore_system_upower_init() could not get object name=org.freedesktop.UPower, path=/org/freedesktop/UPower
+      1 /home/tabor/.e-log.log:ERR<8295>:ecore_con ../efl-source/src/lib/ecore_con/efl_net_server_fd.c:385 _efl_net_server_fd_reuse_port_set() setsockopt(37, SOL_SOCKET, SO_REUSEPORT, 1): Operation not supported
+== processes
+ 8265 root      0:01 Xvfb :2 -screen 0 1280x720x24 -nolisten tcp -ac -noreset -fp built-ins
+ 8291 tabor     0:00 dbus-run-session -- enlightenment_start -nopause
+ 8294 tabor     0:00 enlightenment_start -nopause
+ 8295 tabor     0:08 /usr/bin/enlightenment -nopause
+ 8306 tabor     0:00 /usr/lib/enlightenment/utils/enlightenment_fm
+ 8324 tabor     0:00 terminology
+ 8325 tabor     0:04 elementary_test
+taint=0

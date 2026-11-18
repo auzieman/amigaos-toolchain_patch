@@ -57,8 +57,8 @@ try:
     file=a.cache/f['filename'];assert file.stat().st_size==f['size'] and sha(file)==f['sha256'],file
    src=a.work/(name+'-source');run(['dpkg-source','--no-check','-x',a.cache/comp['dsc'],src],a.work)
    notice=src/'debian/copyright';assert notice.is_file();shutil.copy2(notice,a.work/(name+'-copyright'))
-   if name=='e17':
-    series=json.loads((a.project/'patches/e17/series.json').read_text());assert series['version']==comp['version']
+   if name in ('e17','efl'):
+    series=json.loads((a.project/'patches'/name/'series.json').read_text());assert series['version']==comp['version']
     for item in series['patches']:
      patch=a.project/item['path'];assert sha(patch)==item['sha256']
      run(['git','apply','--check',patch],src);run(['git','apply',patch],src);r.setdefault('patches',[]).append(item)
