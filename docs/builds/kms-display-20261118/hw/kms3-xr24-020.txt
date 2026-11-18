@@ -1,0 +1,26 @@
+client cap universal planes: ok, atomic: Operation not supported
+connector 54 crtc 41 mode 1920x2160 1920x2160@60
+gbm backend drm
+EGL configs: 256 total
+EGL configs matching rgb888/depth16/window/es2: 192
+surface format XR24
+EGL 1.5 GL_RENDERER=AMD Radeon RX 550 Series (radeonsi, polaris11, ACO, DRM 3.61, 6.12.113-tabor-e2e-020)
+BARS GL readback top-left RED       rgba=ff0000ff ok
+BARS GL readback top-right GREEN    rgba=00ff00ff ok
+BARS GL readback bottom-left BLUE   rgba=0000ffff ok
+BARS GL readback bottom-right WHITE rgba=ffffffff ok
+BO stride 7680 format 0x34325258 fb format 0x34325258 modifier 0xffffffffffffff
+BARS BO bytes     top-left RED       00 00 ff 00
+BARS BO bytes     top-right GREEN    00 ff 00 00
+BARS BO bytes     bottom-left BLUE   ff 00 00 00
+BARS BO bytes     bottom-right WHITE ff ff ff 00
+BARS on screen for 3 s: expect top-left RED, top-right GREEN, bottom-left BLUE, bottom-right WHITE
+CUBE frames=300 seconds=5.045 fps=59.47 flips=300 flip_errors=0
+RESULT DONE (GL readback ok)
+rc=0
+amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 enter
+amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x145 response=0x1
+amdgpu: PWR_TRACE smu_msg=0x146 parameter=0x6
+amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 enter
+amdgpu 0001:01:00.0: amdgpu: PWR_TRACE smu_msg=0x146 response=0x1
+taint=0
