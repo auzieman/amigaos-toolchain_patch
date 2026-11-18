@@ -1,0 +1,62 @@
+== scene (top-level objects, top first)
+edje 0,0 0x0 vis=0 rgba=255,255,255,255 clip=-1x-1+0+0 a-1
+  rectangle -100000,-100000 200000x200000 vis=0 rgba=255,255,255,255 clip=-1x-1+0+0 a-1
+  rectangle -21,-21 42x42 vis=1 rgba=0,0,0,128 clip=42x42+-21+-21 a255
+  rectangle -21,-21 42x42 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle -21,-21 42x14 vis=1 rgba=255,255,255,255 clip=42x42+-21+-21 a128
+  rectangle -21,-7 42x28 vis=1 rgba=255,255,255,255 clip=42x42+-21+-21 a128
+  rectangle -21,-7 21x0 vis=1 rgba=255,255,255,255 clip=42x42+-21+-21 a128
+  rectangle 0,-7 21x0 vis=1 rgba=255,255,255,255 clip=42x42+-21+-21 a128
+  image -21,-21 42x42 vis=1 rgba=255,255,255,255 clip=42x14+-21+-21 a255
+  image -21,-21 42x42 vis=1 rgba=255,255,255,255 clip=42x28+-21+-7 a255
+  image -21,-21 42x42 vis=1 rgba=255,255,255,255 clip=21x0+-21+-7 a255
+  image -21,-21 42x42 vis=1 rgba=255,255,255,255 clip=21x0+0+-7 a255
+  rectangle 0,-5 0x0 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-5 0x0 vis=1 rgba=64,64,64,255 clip=0x0+0+-5 a255
+  rectangle 0,-5 0x0 vis=1 rgba=0,0,0,0 clip=0x0+0+-5 a255
+  rectangle 0,0 0x0 vis=0 rgba=64,64,64,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-5 0x1 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-5 0x0 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-5 0x0 vis=1 rgba=0,0,0,0 clip=0x0+0+-5 a255
+  edje 0,-5 0x0 vis=1 rgba=255,255,255,255 clip=0x0+0+-5 a255
+    rectangle -100000,-100000 200000x200000 vis=1 rgba=255,255,255,255 clip=0x0+0+-5 a255
+    rectangle 0,-5 0x0 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+    rectangle 0,-6 0x20 vis=1 rgba=0,0,0,0 clip=0x0+0+-5 a255
+    rectangle -29,-29 59x48 vis=1 rgba=0,0,0,0 clip=0x0+0+-5 a255
+    Evas_Object_Box -29,-29 59x48 vis=1 rgba=255,255,255,255 clip=0x0+0+-5 a255
+      rectangle -100000,-100000 200000x200000 vis=1 rgba=255,255,255,255 clip=0x0+0+-5 a255
+      elm_box -29,-29 59x48 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,0 0x0 vis=0 rgba=48,48,48,192 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,0 0x0 vis=0 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-4 0x0 vis=1 rgba=64,64,64,255 clip=0x0+0+0 a255
+  text 0,-3 0x16 vis=1 rgba=160,160,160,255 clip=0x0+0+0 a255
+  rectangle 0,-4 1x1 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  elm_icon 0,-4 1x1 vis=1 rgba=255,255,255,255 clip=0x0+0+0 a255
+  rectangle 0,-4 0x0 vis=1 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,0 0x0 vis=0 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  image -7,-11 15x15 vis=1 rgba=160,160,160,255 clip=0x0+0+-4 a255
+  image -7,-11 15x15 vis=1 rgba=160,160,160,255 clip=0x0+0+-4 a255
+  image -7,-11 15x15 vis=1 rgba=160,160,160,255 clip=0x0+0+-4 a255
+  image -7,-11 15x15 vis=1 rgba=255,255,255,255 clip=0x0+0+0 a255
+  image -7,-11 15x15 vis=1 rgba=255,255,255,255 clip=0x0+0+0 a255
+  image -7,-11 15x15 vis=1 rgba=255,255,255,255 clip=0x0+0+0 a255
+  rectangle 0,-4 0x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-4 1x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-4 0x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-4 0x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-4 0x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,0 0x0 vis=0 rgba=255,255,255,255 clip=0x0+0+0 a255
+  rectangle -12,-10 44x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  rectangle 0,-10 0x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  rectangle -32,-10 44x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  rectangle 0,-7 0x0 vis=1 rgba=0,0,0,0 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,0 0x0 vis=0 rgba=255,255,255,255 clip=200000x200000+-100000+-100000 a255
+  rectangle 0,-7 0x1 vis=1 rgba=64,64,64,255 clip=0x0+0+0 a255
+  rectangle -12,-7 44x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  rectangle 0,-7 0x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  recERR<8552>:evas_main ../efl-source/src/lib/evas/canvas/evas_object_smart.c:151 evas_object_smart_data_get() calling smart object API on non-smart object!
+tangle -32,-7 44x10 vis=1 rgba=0,0,0,0 clip=0x0+0+0 a255
+  rectangle 0,-4 0x0 vis=1 rgba=148,23,45,255 clip=0x0+0+-5 a255
+  rectangle 0,-4 0x0 vis=1 rgba=0,0,0,0 clip=0x0+0+-5 a255
+elm_win 0,0 300x200 vis=1 rgba=0,0,0,0 clip=-1x-1+0+0 a-1
+== X readback: window 0x200002 black 100.0% centre 000000 scale 1.000 engine -

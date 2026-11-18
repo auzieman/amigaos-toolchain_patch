@@ -1,0 +1,11 @@
+{
+  "source": "Debian efl 1.28.1-1 after its supplied patches",
+  "version": "1.28.1-1",
+  "scope": "Big-endian: read ICCCM WM_STATE as the long Xlib returns, so a mapped window is not taken as withdrawn (#8)",
+  "patches": [
+    {
+      "path": "patches/efl/0001-ecore-x-icccm-wm-state-format32.patch",
+      "sha256": "4fa9ca374829e636d5dfe44d38b3f0839d41a8192f8f4565ff13872b5de1c3b8"
+    }
+  ]
+}
