@@ -47,7 +47,7 @@ fix-up or SIGFPE delivery for the mode to steer. CPUs without SPE keep `EINVAL`.
 | set `0xff0080`, get | `0x1f0080` | - | `0x1f0080` |
 | set `2`, get / set `4` | `0x2` / `EINVAL` | - | `0x2` / `EINVAL` |
 | `fegetenv` mode word | `0x3` | not written (`0x5a5a5a5a`) | `0x3` |
-| SPEFSCR after `sqrt` (`qemu-fpexc-sqrt.c`) | - | `0xd135c3` | `0` |
+| SPEFSCR after `sqrt` (`docs/builds/gcc14-sbuild-20261116/hw/qemu-fpexc-sqrt.c`) | - | `0xd135c3` | `0` |
 | `1e308*10` after `sqrt` | `inf` | `1.79769e+308` | `inf` |
 
 `hw/board-fpexc-020.txt` has the A1222 run. `hw/qemu-fpexc-before-after.txt` has both qemu
