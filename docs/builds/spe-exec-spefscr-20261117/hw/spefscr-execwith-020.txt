@@ -1,0 +1,35 @@
+# kernel 6.12.113-tabor-e2e-020
+--- spe-execwith 3c /tmp/spe-thread
+main                   tid=765 spefscr=0000083c f2d(inf)=7ff0000000000000
+child thread           tid=766 spefscr=0000083c f2d(inf)=7ff0000000000000
+child (parent idle)    tid=767 spefscr=0022083c f2d(inf)=7ff0000000000000
+forked child           tid=768 spefscr=0022083c f2d(inf)=7ff0000000000000
+main end               tid=765 spefscr=0022083c f2d(inf)=7ff0000000000000
+--- spe-execwith 0 /tmp/spe-thread
+main                   tid=769 spefscr=0000083c f2d(inf)=7ff0000000000000
+child thread           tid=770 spefscr=0000083c f2d(inf)=7ff0000000000000
+child (parent idle)    tid=771 spefscr=0022083c f2d(inf)=7ff0000000000000
+forked child           tid=772 spefscr=0022083c f2d(inf)=7ff0000000000000
+main end               tid=769 spefscr=0022083c f2d(inf)=7ff0000000000000
+--- spe-execwith 00100800 /tmp/spe-thread
+main                   tid=773 spefscr=0000083c f2d(inf)=7ff0000000000000
+child thread           tid=774 spefscr=0000083c f2d(inf)=7ff0000000000000
+child (parent idle)    tid=775 spefscr=0022083c f2d(inf)=7ff0000000000000
+forked child           tid=776 spefscr=0022083c f2d(inf)=7ff0000000000000
+main end               tid=773 spefscr=0022083c f2d(inf)=7ff0000000000000
+--- spe-execwith 2c /tmp/spe-thread
+main                   tid=779 spefscr=0000083c f2d(inf)=7ff0000000000000
+child thread           tid=780 spefscr=0000083c f2d(inf)=7ff0000000000000
+child (parent idle)    tid=781 spefscr=0022083c f2d(inf)=7ff0000000000000
+forked child           tid=782 spefscr=0022083c f2d(inf)=7ff0000000000000
+main end               tid=779 spefscr=0022083c f2d(inf)=7ff0000000000000
+--- spe-execwith 0 /tmp/spe-infconv
+start                      spefscr=0000003c fpexc=00000003 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fesetround(UPWARD)         spefscr=0000083e fpexc=00000003 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fesetround(DOWNWARD)       spefscr=0000083f fpexc=00000003 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fesetround(TONEAREST)      spefscr=0000083c fpexc=00000003 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fegetenv                   spefscr=0000083c fpexc=00000003 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fesetenv(saved)            spefscr=0000083c fpexc=00000080 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+fesetenv(FE_DFL_ENV)       spefscr=0000003c fpexc=00000080 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+feholdexcept               spefscr=0000003c fpexc=00000080 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000
+feupdateenv                spefscr=0000083c fpexc=00000080 | f2d(inf)=7ff0000000000000 f2d(-inf)=fff0000000000000 f2d(nan)=7ff8000000000000 | -1*inf=ff800000

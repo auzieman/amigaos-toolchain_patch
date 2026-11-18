@@ -1,0 +1,35 @@
+# kernel 6.12.113-tabor-e2e-019, 2026-11-17 13:09-13:19 UTC. Copied from the session's terminal output.
+
+--- spe-mainwatch.so ctor/dtor in a dEQP precision case started from a fresh ssh session
+[mainwatch] ctor spefscr=00100800 enables=00 f2d(inf)=7fefffffffffffff
+  Warnings:      1/1 (100.0%)
+[mainwatch] dtor spefscr=00320800 enables=00 f2d(inf)=7fefffffffffffff
+--- the same shim in /tmp/spe-thread run second in the same session
+[mainwatch] ctor spefscr=0000083c enables=3c f2d(inf)=7ff0000000000000
+main                   tid=1727 spefscr=0000083c f2d(inf)=7ff0000000000000
+main end               tid=1727 spefscr=0022083c f2d(inf)=7ff0000000000000
+[mainwatch] dtor spefscr=0022083c enables=3c f2d(inf)=7ff0000000000000
+
+--- /tmp/spe-execwith <value> /tmp/spe-thread (first line)
+set 3c -> main                   tid=1776 spefscr=0000083c f2d(inf)=7ff0000000000000
+set 0 -> main                   tid=1783 spefscr=00100800 f2d(inf)=7fefffffffffffff
+set 00100800 -> main                   tid=1790 spefscr=00100800 f2d(inf)=7fefffffffffffff
+set 2c -> main                   tid=1797 spefscr=0000082c f2d(inf)=7ff0000000000000
+
+--- 20 fresh ssh sessions, 2026-11-17 13:18 UTC; per session the SPEFSCR "main" line of
+--- /tmp/spe-thread run twice (first command, second command), then sort | uniq -c
+      1 0000083c 0000083c
+     19 00100800 0000083c
+
+--- dEQP-GLES3.functional.shaders.builtin_functions.precision.add.highp_vertex.scalar
+--- launched through /tmp/spe-execwith <value> ./deqp-gles3-0034, 2026-11-17 13:18 UTC
+ Passed: 1/1 (100.0%)  Warnings: 0/1 (0.0%)  <- launched with 3c
+ Passed: 0/1 (0.0%)  Warnings: 1/1 (100.0%)  <- launched with 0
+
+--- #27 bundle sqlite3 :memory: launched through /tmp/spe-execwith <value>, 2026-11-17 13:19 UTC
+launch 3c | select 1e308*10; -> Inf
+launch 3c | select sqrt(2.0), 1e308*10; -> 1.4142135623731|Inf
+launch 3c | select 1.0/3.0, 1e308*10; -> 0.333333333333333|Inf
+launch 0 | select 1e308*10; -> 1.79769313486232e+308
+launch 0 | select sqrt(2.0), 1e308*10; -> 1.4142135623731|1.79769313486232e+308
+launch 0 | select 1.0/3.0, 1e308*10; -> 0.333333333333333|1.79769313486232e+308
