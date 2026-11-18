@@ -1,0 +1,23 @@
+built 0001-only
+rebuilt 0001+0002
+1
+== qemu-ppc-0001
+before: round=0 spefscr=0 mul=inf third=0x1.5555555555555p-2
+sqrt=0x1.6a09e667f3bcdp+0
+after:  round=3 spefscr=0xd135c3 mul=1.79769e+308 third=0x1.5555555555555p-2
+reset:  round=0 spefscr=0xd135c0 mul=inf
+start: PR_GET_FPEXC                rc=-1 errno=22 val=0xdeadbeef
+PR_SET_FPEXC 0x20080               rc=-1 errno=22
+after SW_ENABLE|OVF                rc=-1 errno=22 val=0xdeadbeef
+fegetenv rc=-1 env words 0x5a5a5a5a 0x5a5a5a5a spefscr=0
+sqrt=0x1.6a09e667f3bcdp+0 spefscr before=0 after=0xc057ac big*ten=inf
+== qemu-ppc
+before: round=0 spefscr=0 mul=inf third=0x1.5555555555555p-2
+sqrt=0x1.6a09e667f3bcdp+0
+after:  round=0 spefscr=0 mul=inf third=0x1.5555555555555p-2
+reset:  round=0 spefscr=0 mul=inf
+start: PR_GET_FPEXC                rc=0 errno=0  val=0x3
+PR_SET_FPEXC 0x20080               rc=0 errno=0
+after SW_ENABLE|OVF                rc=0 errno=0  val=0x20080
+fegetenv rc=0 env words 0x3 0 spefscr=0
+sqrt=0x1.6a09e667f3bcdp+0 spefscr before=0 after=0 big*ten=inf

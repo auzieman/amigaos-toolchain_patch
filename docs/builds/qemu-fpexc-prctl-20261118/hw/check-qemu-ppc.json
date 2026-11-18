@@ -1,0 +1,19 @@
+{
+  "issue": 39,
+  "compile_exit": 0,
+  "checks": {
+    "start: PR_GET_FPEXC": true,
+    "PR_SET_FPEXC 0x20080": true,
+    "after SW_ENABLE|OVF": true,
+    "thread: PR_GET_FPEXC": true,
+    "PR_SET_FPEXC 0xff0080": true,
+    "after SW_ENABLE|0xff0000 (masked)": true,
+    "PR_SET_FPEXC 0x2": true,
+    "after classic 2": true,
+    "PR_SET_FPEXC 0x4": true,
+    "after invalid 4": true,
+    "fegetenv mode word": true,
+    "overflow after sqrt": true
+  },
+  "passed": true
+}
