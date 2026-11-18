@@ -27,7 +27,7 @@ both show it.
 ## Patch
 
 `patches/efl/0001-ecore-x-icccm-wm-state-format32.patch` against Debian efl 1.28.1-1 (with
-`patches/efl/series.json`) reads the element: `long state = ((long *)prop_ret)[0];`, and also
+`patches/efl/series.json`; patch 0002 is the second instance, see the sweep below) reads the element: `long state = ((long *)prop_ret)[0];`, and also
 requires `format_ret == 32`. `scripts/build-efl-session.py` now applies `patches/<name>/series.json`
 for `efl` as it already did for `e17`. The seven `profiles/sbuild` batch plans that build `efl`
 now name the series under `patch_series`, which is how `run-ready-sbuild-batch.py` hands a reviewed
@@ -78,6 +78,58 @@ SysV IPC.
 
 The before/after logs are `hw/testb-before-020.txt`, `hw/testb-ecorex-fix-020.txt` and
 `hw/testb-efl002-020.txt`. Kernel taint stayed 0 throughout. The unpatched library is `935d0824...`.
+
+## Sweep for the same defect (format-32 X properties read by byte)
+
+Only `ecore_x` calls Xlib's property functions directly in EFL 1.28.1 and E 0.27.1, so the audit
+covered two groups.
+
+The first group is the 26 raw `XGetWindowProperty`/`XChangeProperty` sites in five files:
+`ecore_x_window_prop.c`, `ecore_x_keygrab.c`, `ecore_x_window.c`, `ecore_x_netwm.c` and
+`ecore_x_icccm.c`. Apart from `WM_STATE`, they read through `unsigned long *`, or write `long`,
+`int` or `CARD32` buffers, which are all 4 bytes on PPC32, or real format-8 strings.
+
+The second group is the callers of `ecore_x_window_prop_property_get`/`_set`. The helper converts
+format-32 data to and from `unsigned int` arrays in host order.
+
+| caller | reads/writes format-32 data as | verdict |
+|---|---|---|
+| `ecore_x_icccm.c:65` `ecore_x_icccm_state_get` (`WM_STATE`, raw) | first byte | **defect, patch 0001** |
+| `ecore_x_dnd.c:185` `ecore_x_dnd_version_get` (`XdndAware`) | `(int)*prop_data`, first byte | **defect, patch 0002** |
+| `ecore_x_dnd.c` type/action lists, `ecore_x_events.c` XDND types, E `xwayland/dnd.c` | `Ecore_X_Atom *` | correct |
+| `ecore_x_mwm.c` Motif hints | `MWMHints` of `CARD32` | correct |
+| `ecore_x_icccm.c` `WM_COLORMAP_WINDOWS` | `Window *` (4 bytes on PPC32) | correct here |
+| `ecore_x_e.c` profiles and rotation lists | `Ecore_X_Atom *`, `int *` | correct |
+| `ecore_x_events.c` selection targets, `_ecore_x_selection_parser_targets` | `int *` | correct |
+| E `e_comp_x.c` `_GTK_FRAME_EXTENTS`, `e_backlight.c` `XFree86_has_VT` | `int *` | correct |
+| setters: `ecore_x_dnd.c`, `ecore_x_mwm.c`, `ecore_x_icccm.c`, `ecore_x_e.c`, `ecore_evas_x.c` | `int`, `unsigned int` or `Ecore_X_Atom` arrays | correct |
+
+No ClientMessage handler reads 32-bit data through `data.b[]`. E's XSETTINGS blob is format 8 and
+writes its byte-order marker from `__BYTE_ORDER` (`e_xsettings.c:350`).
+
+**Effect of 0002.** On big-endian, `ecore_x_dnd_version_get` returned 0 for every XDND-aware window.
+Its two callers treat 0 as "not aware":
+- the drag source walks past every drop target (`ecore_x_dnd.c:674`);
+- an incoming drag's source is rejected (`ecore_x_dnd.c:435`).
+
+So drag and drop between X windows could not work. `probes/x8-dnd.c` marks a window XDND-aware and
+reads the version back; `hw/xdnd-version-020.txt` and `hw/xdnd-version-efl003-020.txt` hold the
+results:
+
+| `libecore_x` | raw `XdndAware` | `ecore_x_dnd_version_get` |
+|---|---|---|
+| unpatched (`935d0824`) | 5 | 0 |
+| 0001 (`921b6ffd`) | 5 | 0 |
+| 0001 + 0002, rebuilt through `build-efl-session.py` (`1fd8e3fa`) | 5 | 5 |
+
+With 0001 + 0002 the E session is unchanged from 0001 alone: every client and dialog is 0% black
+(`hw/testb-efl003-020.txt`). Both patches pass `git apply --check` and `quilt push --fuzz=0` on a
+fresh `efl_1.28.1-1` source. An actual drag between two windows was not performed.
+
+Outside this class: `ecore_x_image_is_argb32_get` (`ecore_x_image.c:461`) checks `BitmapBitOrder`
+where the pixel layout follows `ImageByteOrder`. The two agree when client and server have the
+same byte order, so it can only matter across endianness (for example a big-endian client on a
+little-endian X server over the network). It was not changed.
 
 ## Ruled out along the way
 
