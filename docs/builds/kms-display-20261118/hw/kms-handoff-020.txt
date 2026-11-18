@@ -1,0 +1,11 @@
+before: crtc 41 fb 57 size (1920x2160)
+CUBE frames=60 seconds=1.023 fps=58.64 flips=60 flip_errors=0
+CRTC left as set (KMS_NORESTORE)
+after exit without restore: crtc 41 fb 57 size (1920x2160)
+after SIGKILL while flipping: crtc 41 fb 57 size (1920x2160) | 58 log lines
+CUBE frames=60 seconds=1.024 fps=58.62 flips=60 flip_errors=0
+CRTC left as set (KMS_NORESTORE)
+after 1280x720 exit without restore: crtc 41 fb 57 size (1920x2160)
+1920,2160 U:1920x2160p-0 
+taint=0
+DONE

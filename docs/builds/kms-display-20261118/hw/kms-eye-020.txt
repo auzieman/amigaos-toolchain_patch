@@ -1,0 +1,25 @@
+== XR24 (showing now)
+surface format XR24
+BARS BO bytes     top-left RED       00 00 ff 00
+BARS BO bytes     top-right GREEN    00 ff 00 00
+BARS BO bytes     bottom-left BLUE   ff 00 00 00
+BARS BO bytes     bottom-right WHITE ff ff ff 00
+CUBE frames=300 seconds=5.028 fps=59.66 flips=300 flip_errors=0
+RESULT DONE (GL readback ok)
+== AR24 (showing now)
+surface format AR24
+BARS BO bytes     top-left RED       00 00 ff ff
+BARS BO bytes     top-right GREEN    00 ff 00 ff
+BARS BO bytes     bottom-left BLUE   ff 00 00 ff
+BARS BO bytes     bottom-right WHITE ff ff ff ff
+CUBE frames=300 seconds=5.029 fps=59.65 flips=300 flip_errors=0
+RESULT DONE (GL readback ok)
+== BX24 (showing now)
+surface format BX24
+BARS BO bytes     top-left RED       00 ff 00 00
+BARS BO bytes     top-right GREEN    00 00 ff 00
+BARS BO bytes     bottom-left BLUE   00 00 00 ff
+BARS BO bytes     bottom-right WHITE 00 ff ff ff
+CUBE frames=300 seconds=5.034 fps=59.59 flips=300 flip_errors=0
+RESULT DONE (GL readback ok)
+taint=0
