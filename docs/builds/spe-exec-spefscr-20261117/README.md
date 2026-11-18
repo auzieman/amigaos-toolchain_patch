@@ -94,9 +94,32 @@ All 274 precision cases pass. What is left is not this defect:
   `spe-execwith 3c`, so SPEFSCR does not cause them.
 
 The precision cases are now slower, and dEQP's system time (9120 s at case 162) is higher than
-its user time (8194 s). The likely reason is that the kernel's SPE exception fix-ups now run,
-where with the enables clear the hardware returned saturated values instead. Per-case times
-for 019 were not kept, so that is not measured.
+its user time (8194 s). That is the kernel's SPE exception fix-ups, which now run where the
+hardware returned saturated values before, and it is confined to dEQP's CPU reference.
+
+`spe-execwith 0` cannot clear the enables on 020, because 0038 sets SPEFSCR at exec. So
+`spe-cost.sh` clears them inside the process: `probes/spe-setfscr.c` is an `LD_PRELOAD` shim
+whose constructor writes `$SPE_SETFSCR`, and threads created later inherit it. Each dEQP group
+ran twice on the same boot (`hw/spe-cost-020.txt`):
+
+| group | 0x3c (020): real / user / sys, s | enables clear: real / user / sys, s |
+|---|---|---|
+| `shaders.matrix.add.*` (324) | 29.50 / 29.98 / 1.12 | 29.89 / 30.52 / 0.89 |
+| `texture.format.sized.2d.*` (112) | 6.89 / 6.53 / 0.32 | 6.87 / 6.46 / 0.39 |
+| `texture.format.unsized.*` (64) | 6.30 / 5.57 / 0.67 | 6.30 / 5.60 / 0.63 |
+| `fbo.blit.conversion.*` (437) | 54.34 / 52.06 / 1.57 | 54.36 / 52.02 / 1.62 |
+| `rasterization.primitives.*` (10) | 2.84 / 2.65 / 0.17 | 2.84 / 2.64 / 0.19 |
+| `precision.add.highp_vertex.*` (4) | 20.99 / 11.91 / 9.03, 4 Pass | 5.57 / 5.44 / 0.12, 4 QualityWarning |
+
+Mesa's own CPU work (shader compiles, texture uploads, blits) costs the same either way. Only the
+precision reference slows down, by 3.8x. With the enables clear its results are wrong again
+(QualityWarning), which also shows that the shim took effect.
+
+One fix-up costs about 0.93 us for a double operation and 0.56 us for a single one, against
+3 ns for the same add without a trap (`probes/spe-trapcost.c`, `hw/trapcost-020.txt`). At that
+rate, the 8.9 s of extra system time is about 10 million fix-ups for 4 cases. That is consistent
+with interval arithmetic that carries Inf bounds through every operation. The SPE handlers call
+no `PPC_WARN_EMULATED`, so no perf counter counts them directly.
 
 ## Files
 
@@ -105,5 +128,7 @@ for 019 were not kept, so that is not measured.
 - `qw48.txt`, `qw48-plain.sh`: the 301-case list and the plain run on the board.
 - `probes/`: `spe-thread.c` (SPEFSCR in main, a thread and a fork child), `spe-execwith.c`
   (set SPEFSCR, then exec), `spe-infconv.c` (conversions across the fenv calls),
-  `spe-mainwatch.c` (LD_PRELOAD shim reporting SPEFSCR before main and at exit).
+  `spe-mainwatch.c` (LD_PRELOAD shim reporting SPEFSCR before main and at exit), `spe-setfscr.c`
+  (LD_PRELOAD shim setting SPEFSCR), `spe-trapcost.c` (the cost of one fix-up).
+- `spe-cost.sh`, `build-shim.sh`: the fix-up cost runs and the shim build.
 - `hw/`: board output for 019 and 020.
