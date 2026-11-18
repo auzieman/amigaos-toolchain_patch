@@ -29,7 +29,10 @@ both show it.
 `patches/efl/0001-ecore-x-icccm-wm-state-format32.patch` against Debian efl 1.28.1-1 (with
 `patches/efl/series.json`) reads the element: `long state = ((long *)prop_ret)[0];`, and also
 requires `format_ret == 32`. `scripts/build-efl-session.py` now applies `patches/<name>/series.json`
-for `efl` as it already did for `e17`. Nothing changes on little-endian.
+for `efl` as it already did for `e17`. The seven `profiles/sbuild` batch plans that build `efl`
+now name the series under `patch_series`, which is how `run-ready-sbuild-batch.py` hands a reviewed
+quilt series to `run-sbuild-package.py`; on a fresh `efl_1.28.1-1` source the patch applies with
+`quilt push` at `--fuzz=0` after Debian's own patches. Nothing changes on little-endian.
 
 ## How it was found (A1222, kernel 020)
 
