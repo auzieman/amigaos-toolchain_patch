@@ -66,3 +66,23 @@ untouched.
 Rollback at the U-Boot prompt: `fatload usb 0:1 0x09000000 /boot-016.scr; source 0x09000000`
 (use `usb 1:1` if the PNY is usb 0). From Linux: copy `boot.scr.pre-021` over `boot.scr` on
 the SanDisk FAT.
+
+## A1222 boot (2026-11-23 20:22 UTC)
+
+Booted 6.12.113-tabor-e2e-021 from the new boot.scr, with both sticks inserted.
+
+| Check | 016 (2026-11-20 boot) | 021 |
+|---|---|---|
+| systemd-analyze | 6.281 s kernel + 21.168 s userspace | 5.622 s + 15.905 s (ifupdown-pre wait-for-end0 drop-in; settle gone) |
+| Slowest unit | ifupdown-pre 13.0 s | systemd-journal-flush 9.7 s (journal on the SanDisk) |
+| Kernel log lines this boot | 148,681 over 3.8 days (traces every ~16 s) | 430; 0 INIT/PWR/SMU trace lines |
+| amdgpu | loaded, polaris11_le_user_ib=1 | same, no fault/reset, swiotlb 0/32768 used at idle |
+| SPEFSCR (`spe-thread`, built with tabor-spe-toolchain 14.2.0+spe5) | 19/20 sessions start with 00100800 (Derf, 019) | main and threads 0000083c, f2d(Inf) 7ff0000000000000, also as user nobody |
+
+This boot, Linux enumerated the PNY first (sdb) and the SanDisk second (sdc). Root is mounted
+by PARTUUID, so that does not matter. `/srv/build` missed its 5 s device timeout (PNY appeared
+late), so the fstab timeout went to 60 s (`nofail`, so boot does not wait). Backup in
+`/etc/fstab.pre-021`.
+
+The desktop is unchanged: Xorg still runs `AccelMethod none` with ShadowFB, because glamor
+faulted on 016 (compute ring VM fault, 2026-11-23 19:11 UTC). Kernel 021 does not address that.
