@@ -1,0 +1,40 @@
+mesa: fill boolean custom glGet values through value_bool
+
+find_custom_value filled GL_TRANSFORM_FEEDBACK_ACTIVE/PAUSED and
+GL_DEBUG_OUTPUT/GL_DEBUG_OUTPUT_SYNCHRONOUS, all TYPE_BOOLEAN, through
+v->value_int. The readers take the union's first byte as a GLboolean, which
+is the high byte of the GLint on a big-endian host, so all four always read
+GL_FALSE there. Store them in v->value_bool.
+
+Against Debian mesa 25.0.7 with debian/patches/series applied.
+
+--- a/src/mesa/main/get.c
++++ b/src/mesa/main/get.c
+@@ -1096,11 +1096,15 @@
+       v->value_int = ctx->TransformFeedback.CurrentBuffer ?
+                         ctx->TransformFeedback.CurrentBuffer->Name : 0;
+       break;
++   /* These two are TYPE_BOOLEAN: the reader takes the first byte of the
++    * union as a GLboolean, which is the high byte of value_int on a
++    * big-endian host.
++    */
+    case GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED:
+-      v->value_int = ctx->TransformFeedback.CurrentObject->Paused;
++      v->value_bool = ctx->TransformFeedback.CurrentObject->Paused;
+       break;
+    case GL_TRANSFORM_FEEDBACK_BUFFER_ACTIVE:
+-      v->value_int = ctx->TransformFeedback.CurrentObject->Active;
++      v->value_bool = ctx->TransformFeedback.CurrentObject->Active;
+       break;
+    case GL_TRANSFORM_FEEDBACK_BINDING:
+       v->value_int = ctx->TransformFeedback.CurrentObject->Name;
+@@ -1217,6 +1221,9 @@
+    /* GL_KHR_DEBUG */
+    case GL_DEBUG_OUTPUT:
+    case GL_DEBUG_OUTPUT_SYNCHRONOUS:
++      /* TYPE_BOOLEAN: see GL_TRANSFORM_FEEDBACK_BUFFER_PAUSED. */
++      v->value_bool = _mesa_get_debug_state_int(ctx, d->pname) != 0;
++      break;
+    case GL_DEBUG_LOGGED_MESSAGES:
+    case GL_DEBUG_NEXT_LOGGED_MESSAGE_LENGTH:
+    case GL_DEBUG_GROUP_STACK_DEPTH:
