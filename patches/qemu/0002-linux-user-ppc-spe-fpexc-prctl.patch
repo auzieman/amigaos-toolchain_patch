@@ -1,0 +1,155 @@
+From: derfsss
+Subject: [PATCH] linux-user/ppc: implement PR_GET_FPEXC/PR_SET_FPEXC for SPE
+
+qemu-user answered PR_GET_FPEXC and PR_SET_FPEXC with EINVAL. glibc's
+e500 fegetenv saves the environment as the prctl mode word plus
+SPEFSCR, and returns -1 without writing it when the prctl fails, so a
+later fesetenv (libm's sqrt saves and restores the environment) loaded
+an uninitialised stack word into SPEFSCR: stray rounding-mode and
+exception-enable bits that changed later results.
+
+Keep a per-thread mode as arch/powerpc/kernel/process.c keeps
+thread.fpexc_mode: MSR_FE0 | MSR_FE1 at start on 32-bit (PR_GET_FPEXC
+gives 3), PR_FP_EXC_SW_ENABLE plus the enabled exceptions when set with
+SW_ENABLE, the classic FE0/FE1 mode otherwise, EINVAL above
+PR_FP_EXC_PRECISE, copied to new threads. Only the mode is kept: qemu's
+SPE arithmetic gives IEEE results itself, so there is no kernel fix-up
+or SIGFPE delivery for it to steer. CPUs without SPE keep EINVAL.
+
+diff -ruN a/linux-user/main.c b/linux-user/main.c
+--- a/linux-user/main.c
++++ b/linux-user/main.c
+@@ -212,6 +212,10 @@
+     struct timespec bt;
+ 
+     ts->used = 1;
++#if defined(TARGET_PPC) && !defined(TARGET_PPC64)
++    /* The 32-bit kernel's INIT_THREAD: MSR_FE0 | MSR_FE1, PR_GET_FPEXC gives 3. */
++    ts->ppc_fpexc_mode = (1u << MSR_FE0) | (1u << MSR_FE1);
++#endif
+     ts->sigaltstack_used = (struct target_sigaltstack) {
+         .ss_sp = 0,
+         .ss_size = 0,
+diff -ruN a/linux-user/ppc/target_prctl.h b/linux-user/ppc/target_prctl.h
+--- a/linux-user/ppc/target_prctl.h
++++ b/linux-user/ppc/target_prctl.h
+@@ -1 +1,65 @@
+-/* No special prctl support required. */
++/*
++ * PowerPC specific prctl functions for linux-user
++ *
++ * SPDX-License-Identifier: GPL-2.0-or-later
++ */
++#ifndef PPC_TARGET_PRCTL_H
++#define PPC_TARGET_PRCTL_H
++
++/*
++ * PR_GET_FPEXC/PR_SET_FPEXC as arch/powerpc/kernel/process.c implements them on an SPE
++ * CPU. glibc's e500 fenv code saves and restores the environment through them. Only the
++ * mode is kept: qemu's SPE arithmetic gives IEEE results directly, so there are no kernel
++ * fix-ups or SIGFPE deliveries for the mode to steer. Other CPUs keep the old EINVAL.
++ */
++#define PPC_PR_FP_ALL_EXCEPT (PR_FP_EXC_DIV | PR_FP_EXC_OVF | PR_FP_EXC_UND | \
++                              PR_FP_EXC_RES | PR_FP_EXC_INV)
++
++static uint32_t ppc_pack_fe01(uint32_t mode)
++{
++    return ((mode << 10) & (1u << MSR_FE0)) | ((mode << 8) & (1u << MSR_FE1));
++}
++
++static uint32_t ppc_unpack_fe01(uint32_t bits)
++{
++    return ((bits & (1u << MSR_FE0)) >> 10) | ((bits & (1u << MSR_FE1)) >> 8);
++}
++
++static abi_long do_prctl_get_fpexc(CPUArchState *env, abi_long arg2)
++{
++    TaskState *ts = get_task_state(env_cpu(env));
++    uint32_t val;
++
++    if (!(env->insns_flags & PPC_SPE)) {
++        return -TARGET_EINVAL;
++    }
++    if (ts->ppc_fpexc_mode & PR_FP_EXC_SW_ENABLE) {
++        val = ts->ppc_fpexc_mode;
++    } else {
++        val = ppc_unpack_fe01(ts->ppc_fpexc_mode);
++    }
++    return put_user_u32(val, arg2);
++}
++#define do_prctl_get_fpexc do_prctl_get_fpexc
++
++static abi_long do_prctl_set_fpexc(CPUArchState *env, abi_long arg2)
++{
++    TaskState *ts = get_task_state(env_cpu(env));
++    uint32_t val = arg2;
++
++    if (!(env->insns_flags & PPC_SPE)) {
++        return -TARGET_EINVAL;
++    }
++    if (val & PR_FP_EXC_SW_ENABLE) {
++        ts->ppc_fpexc_mode = val & (PR_FP_EXC_SW_ENABLE | PPC_PR_FP_ALL_EXCEPT);
++        return 0;
++    }
++    if (val > PR_FP_EXC_PRECISE) {
++        return -TARGET_EINVAL;
++    }
++    ts->ppc_fpexc_mode = ppc_pack_fe01(val);
++    return 0;
++}
++#define do_prctl_set_fpexc do_prctl_set_fpexc
++
++#endif /* PPC_TARGET_PRCTL_H */
+diff -ruN a/linux-user/qemu.h b/linux-user/qemu.h
+--- a/linux-user/qemu.h
++++ b/linux-user/qemu.h
+@@ -123,6 +123,10 @@
+     target_ulong orig_ax;
+ #endif
+     abi_ulong child_tidptr;
++#ifdef TARGET_PPC
++    /* PR_SET_FPEXC mode, kept as the kernel keeps thread.fpexc_mode. */
++    uint32_t ppc_fpexc_mode;
++#endif
+ #ifdef TARGET_M68K
+     abi_ulong tp_value;
+ #endif
+diff -ruN a/linux-user/syscall.c b/linux-user/syscall.c
+--- a/linux-user/syscall.c
++++ b/linux-user/syscall.c
+@@ -6581,6 +6581,12 @@
+ #ifndef do_prctl_get_fp_mode
+ #define do_prctl_get_fp_mode do_prctl_inval0
+ #endif
++#ifndef do_prctl_get_fpexc
++#define do_prctl_get_fpexc do_prctl_inval1
++#endif
++#ifndef do_prctl_set_fpexc
++#define do_prctl_set_fpexc do_prctl_inval1
++#endif
+ #ifndef do_prctl_set_fp_mode
+ #define do_prctl_set_fp_mode do_prctl_inval1
+ #endif
+@@ -6839,9 +6845,9 @@
+         }
+ 
+     case PR_GET_FPEXC:
++        return do_prctl_get_fpexc(env, arg2);
+     case PR_SET_FPEXC:
+-        /* Was used for SPE on PowerPC. */
+-        return -TARGET_EINVAL;
++        return do_prctl_set_fpexc(env, arg2);
+ 
+     case PR_GET_ENDIAN:
+     case PR_SET_ENDIAN:
+@@ -7007,6 +7013,10 @@
+ 
+         ts = g_new0(TaskState, 1);
+         init_task_state(ts);
++#ifdef TARGET_PPC
++        /* The kernel copies thread.fpexc_mode to the new thread. */
++        ts->ppc_fpexc_mode = parent_ts->ppc_fpexc_mode;
++#endif
+ 
+ #ifdef TARGET_AARCH64
+         /*

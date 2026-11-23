@@ -1,0 +1,14 @@
+== A1222 6.12.113-tabor-e2e-020
+start: PR_GET_FPEXC                rc=0 errno=0  val=0x3
+PR_SET_FPEXC 0x20080               rc=0 errno=0
+after SW_ENABLE|OVF                rc=0 errno=0  val=0x20080
+thread: PR_GET_FPEXC               rc=0 errno=0  val=0x20080
+PR_SET_FPEXC 0xff0080              rc=0 errno=0
+after SW_ENABLE|0xff0000 (masked)  rc=0 errno=0  val=0x1f0080
+PR_SET_FPEXC 0x2                   rc=0 errno=0
+after classic 2                    rc=0 errno=0  val=0x2
+PR_SET_FPEXC 0x4                   rc=-1 errno=22
+after invalid 4                    rc=0 errno=0  val=0x2
+PR_SET_FPEXC 0x3                   rc=0 errno=0
+fegetenv rc=0 env words 0x3 0x3c spefscr=0x3c
+sqrt=0x1.6a09e667f3bcdp+0 spefscr before=0x3c after=0x20103c big*ten=inf
