@@ -1,0 +1,15 @@
+{
+  "target": "glibc 2.41 after patches 1-7",
+  "reason": "e500v2 efsadd zero sign: fmaf exact-zero result and ldexpf of -0",
+  "status": "experimental; libm rebuilt and measured on the A1222",
+  "files": {
+    "sysdeps/ieee754/dbl-64/s_fmaf.c": {
+      "baseline_sha256": "91e8defd7f80ea650e053467a95edd0e2423eecc9b32a188c9de5a60f2d4fe1c",
+      "patched_sha256": "edf05d3a0ae846350de1ce1639fe340720f9cd722a8d4a0d26bd4de821631a5f"
+    },
+    "math/s_ldexp_template.c": {
+      "baseline_sha256": "b3ec2f097ff1ac945aec5f980027a2ef711d6329a8906194c12847ed9c9b8a19",
+      "patched_sha256": "c7ffef493983e3f1f1790eed4fe92041c4b4d31b33f3a4c29bb22081c4b59aa0"
+    }
+  }
+}
