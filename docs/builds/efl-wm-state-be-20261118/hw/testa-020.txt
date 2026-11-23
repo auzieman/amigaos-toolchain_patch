@@ -1,0 +1,35 @@
+server The X.Org Foundation 12101016, ImageByteOrder=MSB BitmapBitOrder=MSB, Composite 0.4, MIT-SHM yes
+default visual: visual 0x21 depth 24
+  XGetImage window       byte_order=MSB bpp=32 depth=24 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=00ff0000 want=00ff0000 bytes=00 ff 00 00 ok
+    green (fill)      pixel=0000ff00 want=0000ff00 bytes=00 00 ff 00 ok
+    blue (fill)       pixel=000000ff want=000000ff bytes=00 00 00 ff ok
+    white (PutImage)  pixel=00ffffff want=00ffffff bytes=00 ff ff ff ok
+  XGetImage pixmap       byte_order=MSB bpp=32 depth=24 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=00ff0000 want=00ff0000 bytes=00 ff 00 00 ok
+    green (fill)      pixel=0000ff00 want=0000ff00 bytes=00 00 ff 00 ok
+    blue (fill)       pixel=000000ff want=000000ff bytes=00 00 00 ff ok
+    white (PutImage)  pixel=00ffffff want=00ffffff bytes=00 ff ff ff ok
+  XShmGetImage pixmap    byte_order=MSB bpp=32 depth=24 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=00ff0000 want=00ff0000 bytes=00 ff 00 00 ok
+    green (fill)      pixel=0000ff00 want=0000ff00 bytes=00 00 ff 00 ok
+    blue (fill)       pixel=000000ff want=000000ff bytes=00 00 00 ff ok
+    white (PutImage)  pixel=00ffffff want=00ffffff bytes=00 ff ff ff ok
+ARGB visual: visual 0x40 depth 32
+  XGetImage window       byte_order=MSB bpp=32 depth=32 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=ffff0000 want=ffff0000 bytes=ff ff 00 00 ok
+    green (fill)      pixel=ff00ff00 want=ff00ff00 bytes=ff 00 ff 00 ok
+    blue (fill)       pixel=ff0000ff want=ff0000ff bytes=ff 00 00 ff ok
+    white (PutImage)  pixel=ffffffff want=ffffffff bytes=ff ff ff ff ok
+  XGetImage pixmap       byte_order=MSB bpp=32 depth=32 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=ffff0000 want=ffff0000 bytes=ff ff 00 00 ok
+    green (fill)      pixel=ff00ff00 want=ff00ff00 bytes=ff 00 ff 00 ok
+    blue (fill)       pixel=ff0000ff want=ff0000ff bytes=ff 00 00 ff ok
+    white (PutImage)  pixel=ffffffff want=ffffffff bytes=ff ff ff ff ok
+  XShmGetImage pixmap    byte_order=MSB bpp=32 depth=32 masks=ff0000/00ff00/0000ff
+    red (fill)        pixel=ffff0000 want=ffff0000 bytes=ff ff 00 00 ok
+    green (fill)      pixel=ff00ff00 want=ff00ff00 bytes=ff 00 ff 00 ok
+    blue (fill)       pixel=ff0000ff want=ff0000ff bytes=ff 00 00 ff ok
+    white (PutImage)  pixel=ffffffff want=ffffffff bytes=ff ff ff ff ok
+RESULT PASS (0 mismatches)
+rc=0

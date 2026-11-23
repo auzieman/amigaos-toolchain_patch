@@ -1,0 +1,10 @@
+== 0001 only 921b6ffda0bf09af
+Xlib:  extension "DPMS" missing on display ":2".
+XdndAware raw: format 32 items 1 value 5 | ecore_x_dnd_version_get 0 (want 5) MISMATCH
+== 0001+0002 e223138b83353ef9
+Xlib:  extension "DPMS" missing on display ":2".
+XdndAware raw: format 32 items 1 value 5 | ecore_x_dnd_version_get 5 (want 5) ok
+== unpatched 935d0824dc20487a
+Xlib:  extension "DPMS" missing on display ":2".
+XdndAware raw: format 32 items 1 value 5 | ecore_x_dnd_version_get 0 (want 5) MISMATCH
+left in place: e223138b83353ef9

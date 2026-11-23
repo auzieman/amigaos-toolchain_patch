@@ -1,0 +1,15 @@
+{
+  "source": "Debian efl 1.28.1-1 after its supplied patches",
+  "version": "1.28.1-1",
+  "scope": "Big-endian: read format-32 X properties as their element, not the first byte: ICCCM WM_STATE (windows taken as withdrawn, never rendered) and XdndAware version (every XDND-aware window looked unaware) (#8)",
+  "patches": [
+    {
+      "path": "patches/efl/0001-ecore-x-icccm-wm-state-format32.patch",
+      "sha256": "4fa9ca374829e636d5dfe44d38b3f0839d41a8192f8f4565ff13872b5de1c3b8"
+    },
+    {
+      "path": "patches/efl/0002-ecore-x-dnd-xdnd-aware-version-format32.patch",
+      "sha256": "c3696fb97be83265792d22566b7f937854e1c203d0d2687509195c239ccf33fd"
+    }
+  ]
+}
