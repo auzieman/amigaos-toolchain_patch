@@ -1,0 +1,7 @@
+# kernel 019, same boot. Fixed kmstest (BGRX8888 BO registered as BGRX8888 via ADDFB2): ./kmstest2 20 900
+# On screen: bars red, green, white, blue clockwise from top-left; cube colours normal.
+BO stride 7680 format 0x34325842 fb format 0x34325842 modifier 0xffffffffffffff
+BARS on screen for 20 s: expect top-left RED, top-right GREEN, bottom-left BLUE, bottom-right WHITE
+CUBE frames=900 seconds=15.030 fps=59.88 flips=900 flip_errors=0
+RESULT DONE (GL readback ok)
+0

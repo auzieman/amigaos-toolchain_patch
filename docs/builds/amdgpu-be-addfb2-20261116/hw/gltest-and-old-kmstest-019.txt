@@ -1,0 +1,23 @@
+# kernel 019, power-cycled boot, first GL run after modprobe (screen not watched for this run).
+# ./gltest | tail -4 ; old ./kmstest 5 300 (BGRX8888 BO registered as XRGB8888 through ADDFB2)
+DRAW (32,32) got 00ff00ff want 00ff00ff ok
+DRAW ( 1, 1) got 00ff00ff want 00ff00ff ok
+DRAW bad_pixels=0/4096 -> PASS
+RESULT=PASS
+gltest=0
+  match 23 visual AR30 (0x30335241) r10 a2 depth 32
+surface format BX24 (XRGB8888 not offered by EGL)
+EGL 1.5 GL_RENDERER=AMD Radeon RX 550 Series (radeonsi, polaris11, ACO, DRM 3.61, 6.12.113-tabor-e2e-019)
+BARS GL readback top-left RED       rgba=ff0000ff ok
+BARS GL readback top-right GREEN    rgba=00ff00ff ok
+BARS GL readback bottom-left BLUE   rgba=0000ffff ok
+BARS GL readback bottom-right WHITE rgba=ffffffff ok
+BO stride 7680 format 0x34325842 fb format 0x34325258 modifier 0xffffffffffffff
+BARS BO bytes     top-left RED       00 ff 00 00
+BARS BO bytes     top-right GREEN    00 00 ff 00
+BARS BO bytes     bottom-left BLUE   00 00 00 ff
+BARS BO bytes     bottom-right WHITE 00 ff ff ff
+BARS on screen for 5 s: expect top-left RED, top-right GREEN, bottom-left BLUE, bottom-right WHITE
+CUBE frames=300 seconds=5.047 fps=59.44 flips=300 flip_errors=0
+RESULT DONE (GL readback ok)
+tainted=0
