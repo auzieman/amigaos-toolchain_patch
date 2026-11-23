@@ -1,0 +1,174 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_ring.c
+@@ -646,11 +646,11 @@
+ 	int r;
+ 
+ 	if (adev->asic_type == CHIP_POLARIS11)
+-		dev_info(adev->dev, "INIT_TRACE ring=%s type=%u enter\n",
++		dev_dbg(adev->dev, "INIT_TRACE ring=%s type=%u enter\n",
+ 			 ring->name, ring->funcs->type);
+ 	r = amdgpu_ring_test_ring(ring);
+ 	if (adev->asic_type == CHIP_POLARIS11)
+-		dev_info(adev->dev, "INIT_TRACE ring=%s result=%d\n",
++		dev_dbg(adev->dev, "INIT_TRACE ring=%s result=%d\n",
+ 			 ring->name, r);
+ 	if (r)
+ 		DRM_DEV_ERROR(adev->dev, "ring %s test failed (%d)\n",
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_device.c
+@@ -2791,11 +2791,11 @@
+ 		if (adev->ip_blocks[i].status.hw)
+ 			continue;
+ 		if (adev->asic_type == CHIP_POLARIS11)
+-			dev_info(adev->dev, "INIT_TRACE hw_init=%s enter\n",
++			dev_dbg(adev->dev, "INIT_TRACE hw_init=%s enter\n",
+ 				 adev->ip_blocks[i].version->funcs->name);
+ 		r = adev->ip_blocks[i].version->funcs->hw_init(adev);
+ 		if (adev->asic_type == CHIP_POLARIS11)
+-			dev_info(adev->dev, "INIT_TRACE hw_init=%s result=%d\n",
++			dev_dbg(adev->dev, "INIT_TRACE hw_init=%s result=%d\n",
+ 				 adev->ip_blocks[i].version->funcs->name, r);
+ 		if (r) {
+ 			DRM_ERROR("hw_init of IP block <%s> failed %d\n",
+--- a/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/gfx_v8_0.c
+@@ -5060,10 +5060,10 @@
+ 		return r;
+ 
+ 	if (adev->asic_type == CHIP_POLARIS11)
+-		dev_info(adev->dev, "INIT_TRACE gfx8_gui_idle enable\n");
++		dev_dbg(adev->dev, "INIT_TRACE gfx8_gui_idle enable\n");
+ 	gfx_v8_0_enable_gui_idle_interrupt(adev, true);
+ 	if (adev->asic_type == CHIP_POLARIS11)
+-		dev_info(adev->dev, "INIT_TRACE gfx8_gui_idle enabled\n");
++		dev_dbg(adev->dev, "INIT_TRACE gfx8_gui_idle enabled\n");
+ 
+ 	return 0;
+ }
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cgs.c
+@@ -414,7 +414,7 @@
+ 				return -EINVAL;
+ 			}
+ 
+-			dev_info(adev->dev, "SMU_DIAG firmware=%s\n", fw_name);
++			dev_dbg(adev->dev, "SMU_DIAG firmware=%s\n", fw_name);
+ 			err = amdgpu_ucode_request(adev, &adev->pm.fw, "%s", fw_name);
+ 			if (err) {
+ 				DRM_ERROR("Failed to load firmware \"%s\"", fw_name);
+@@ -444,7 +444,7 @@
+ 		info->image_size = ucode_size;
+ 		info->ucode_start_address = ucode_start_address;
+ 		info->kptr = (void *)src;
+-		dev_info(adev->dev, "SMU_DIAG version=%08x bytes=%u offset=%u start=%08x\n",
++		dev_dbg(adev->dev, "SMU_DIAG version=%08x bytes=%u offset=%u start=%08x\n",
+ 			 info->version, info->image_size,
+ 			 le32_to_cpu(hdr->header.ucode_array_offset_bytes),
+ 			 info->ucode_start_address);
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/smu7_smumgr.c
+@@ -169,7 +169,7 @@
+ 	int ret;
+ 
+ 	if (hwmgr->chip_id == CHIP_POLARIS11)
+-		dev_info(adev->dev, "PWR_TRACE smu_msg=%#x enter\n", msg);
++		dev_dbg(adev->dev, "PWR_TRACE smu_msg=%#x enter\n", msg);
+ 
+ 	PHM_WAIT_FIELD_UNEQUAL(hwmgr, SMC_RESP_0, SMC_RESP, 0);
+ 
+@@ -181,7 +181,7 @@
+ 	ret = PHM_READ_FIELD(hwmgr->device, SMC_RESP_0, SMC_RESP);
+ 
+ 	if (hwmgr->chip_id == CHIP_POLARIS11)
+-		dev_info(adev->dev, "PWR_TRACE smu_msg=%#x response=%#x\n", msg, ret);
++		dev_dbg(adev->dev, "PWR_TRACE smu_msg=%#x response=%#x\n", msg, ret);
+ 
+ 	switch (ret) {
+ 	case 1:
+@@ -198,7 +198,7 @@
+ int smu7_send_msg_to_smc_with_parameter(struct pp_hwmgr *hwmgr, uint16_t msg, uint32_t parameter)
+ {
+ 	if (hwmgr->chip_id == CHIP_POLARIS11)
+-		pr_info("PWR_TRACE smu_msg=%#x parameter=%#x\n", msg, parameter);
++		pr_debug("PWR_TRACE smu_msg=%#x parameter=%#x\n", msg, parameter);
+ 
+ 	PHM_WAIT_FIELD_UNEQUAL(hwmgr, SMC_RESP_0, SMC_RESP, 0);
+ 
+@@ -538,7 +538,7 @@
+ 		pr_err("SMU_DIAG firmware lookup failed: %d\n", result);
+ 		return result;
+ 	}
+-	pr_info("SMU_DIAG upload security=%u version=%08x bytes=%u first_native=%08x first_le=%08x\n",
++	pr_debug("SMU_DIAG upload security=%u version=%08x bytes=%u first_native=%08x first_le=%08x\n",
+ 		smu_data->security_hard_key, info.version, info.image_size,
+ 		info.image_size >= 4 ? *(const u32 *)info.kptr : 0,
+ 		info.image_size >= 4 ? le32_to_cpu(*(const __le32 *)info.kptr) : 0);
+--- a/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/smumgr/polaris10_smumgr.c
+@@ -177,7 +177,7 @@
+ {
+ 	struct smu7_smumgr *smu_data = (struct smu7_smumgr *)(hwmgr->smu_backend);
+ 
+-	pr_info("SMU_CALIB avfs_supported=%u btc=%u\n",
++	pr_debug("SMU_CALIB avfs_supported=%u btc=%u\n",
+ 		hwmgr->avfs_supported, smu_data->avfs_btc_param);
+ 	if (!hwmgr->avfs_supported)
+ 		return 0;
+@@ -202,7 +202,7 @@
+ 
+ static void polaris10_smu_trace(struct pp_hwmgr *hwmgr, const char *stage)
+ {
+-	pr_info("SMU_DIAG %s pc=%08x status=%08x events=%08x flags=%08x resp=%08x\n",
++	pr_debug("SMU_DIAG %s pc=%08x status=%08x events=%08x flags=%08x resp=%08x\n",
+ 		stage,
+ 		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMC_PC_C),
+ 		cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMU_STATUS),
+@@ -315,13 +315,13 @@
+ 
+ 	bool smc_running = smu7_is_smc_ram_running(hwmgr);
+ 
+-	pr_info("SMU_CALIB smc_running=%u not_vf=%u\n", smc_running, hwmgr->not_vf);
++	pr_debug("SMU_CALIB smc_running=%u not_vf=%u\n", smc_running, hwmgr->not_vf);
+ 	/* Only start SMC if SMC RAM is not running */
+ 	if (!smc_running && hwmgr->not_vf) {
+ 		smu_data->protected_mode = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_MODE));
+ 		smu_data->smu7_data.security_hard_key = (uint8_t) (PHM_READ_VFPF_INDIRECT_FIELD(hwmgr->device, CGS_IND_REG__SMC, SMU_FIRMWARE, SMU_SEL));
+ 
+-		pr_info("SMU_DIAG protected=%u security=%u\n",
++		pr_debug("SMU_DIAG protected=%u security=%u\n",
+ 			smu_data->protected_mode, smu_data->smu7_data.security_hard_key);
+ 		polaris10_smu_trace(hwmgr, "before-start");
+ 
+@@ -335,7 +335,7 @@
+ 			PP_ASSERT_WITH_CODE(0, "Failed to load SMU ucode.", return result);
+ 
+ 		result = polaris10_avfs_event_mgr(hwmgr);
+-		pr_info("SMU_CALIB event_result=%d\n", result);
++		pr_debug("SMU_CALIB event_result=%d\n", result);
+ 	}
+ 
+ 	/* Setup SoftRegsStart here for register lookup in case DummyBackEnd is used and ProcessFirmwareHeader is not executed */
+@@ -352,7 +352,7 @@
+ 	uint32_t efuse;
+ 
+ 	efuse = cgs_read_ind_register(hwmgr->device, CGS_IND_REG__SMC, ixSMU_EFUSE_0 + (49*4));
+-	pr_info("SMU_CALIB efuse49=%08x feature_mask=%08x\n",
++	pr_debug("SMU_CALIB efuse49=%08x feature_mask=%08x\n",
+ 		efuse, hwmgr->feature_mask);
+ 	efuse &= 0x00000001;
+ 	if (efuse)
+--- a/drivers/gpu/drm/amd/pm/powerplay/inc/pp_debug.h
++++ b/drivers/gpu/drm/amd/pm/powerplay/inc/pp_debug.h
+@@ -39,10 +39,10 @@
+ #define PP_INIT_CALL(hwmgr, call) ({ \
+     int __pp_init_result; \
+     if ((hwmgr)->chip_id == CHIP_POLARIS11) \
+-        pr_info("PWR_TRACE %s enter\n", #call); \
++        pr_debug("PWR_TRACE %s enter\n", #call); \
+     __pp_init_result = (call); \
+     if ((hwmgr)->chip_id == CHIP_POLARIS11) \
+-        pr_info("PWR_TRACE %s result=%d\n", #call, __pp_init_result); \
++        pr_debug("PWR_TRACE %s result=%d\n", #call, __pp_init_result); \
+     __pp_init_result; \
+ })
+ 
