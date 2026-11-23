@@ -1,0 +1,73 @@
+mesa: offer XRGB8888/ARGB8888 GBM visuals on big-endian hosts
+
+On a big-endian host the DRI config formats PIPE_FORMAT_BGRA8888/BGRX8888
+are word-order aliases for A8R8G8B8/X8R8G8B8 (memory A,R,G,B), which GBM
+calls BGRA8888/BGRX8888. No config has the memory B,G,R,A order of
+GBM_FORMAT_ARGB8888/XRGB8888 (B8G8R8A8/B8G8R8X8 in gbm_dri_visuals_table),
+so EGL on GBM offers no XRGB8888 visual.
+
+dri_screen.c appends B8G8R8A8/B8G8R8X8 after every existing format, so no
+existing config moves. dri2_match_config keeps DRM-platform configs apart by
+native visual: both channel orders have identical EGL attributes, and
+without that the second is merged into the first and dropped. Both changes
+are under UTIL_ARCH_BIG_ENDIAN.
+
+Scanning out a little-endian XRGB8888 framebuffer also needs the kernel to
+accept it through ADDFB2 (amdgpu on big-endian: #35, kernel patch in #49).
+
+Against Debian mesa 25.0.7 with debian/patches/series applied.
+
+--- a/src/gallium/frontends/dri/dri_screen.c
++++ b/src/gallium/frontends/dri/dri_screen.c
+@@ -33,6 +33,7 @@
+ #include "dri_context.h"
+ #include "dri_helpers.h"
+ 
++#include "util/u_endian.h"
+ #include "util/u_inlines.h"
+ #include "pipe/p_screen.h"
+ #include "util/format/u_formats.h"
+@@ -337,6 +338,15 @@
+       PIPE_FORMAT_R5G5B5A1_UNORM,
+       PIPE_FORMAT_B4G4R4A4_UNORM,
+       PIPE_FORMAT_R4G4B4A4_UNORM,
++#if UTIL_ARCH_BIG_ENDIAN
++      /* BGRA8888/BGRX8888 above are word-order aliases: on a big-endian host
++       * they are A8R8G8B8/X8R8G8B8 (memory A,R,G,B), GBM's BGRA8888/BGRX8888.
++       * GBM_FORMAT_ARGB8888/XRGB8888 are memory B,G,R,A, which no config
++       * above has, so EGL offered no XRGB8888 visual. Appended last so every
++       * config that existed keeps its place. */
++      PIPE_FORMAT_B8G8R8A8_UNORM,
++      PIPE_FORMAT_B8G8R8X8_UNORM,
++#endif
+    };
+    struct dri_config **configs = NULL;
+    enum pipe_format zs_formats[5];
+--- a/src/egl/drivers/dri2/egl_dri2.c
++++ b/src/egl/drivers/dri2/egl_dri2.c
+@@ -70,6 +70,7 @@
+ #include "util/os_file.h"
+ #include "util/u_atomic.h"
+ #include "util/u_call_once.h"
++#include "util/u_endian.h"
+ #include "util/u_math.h"
+ #include "util/u_vector.h"
+ #include "egl_dri2.h"
+@@ -296,6 +297,17 @@
+        conf->NativeVisualID != criteria->NativeVisualID)
+       return EGL_FALSE;
+ #endif
++
++#if UTIL_ARCH_BIG_ENDIAN
++   /* On a big-endian host the DRI configs carry both 8-bit channel orders
++    * (dri_screen.c: A8R8G8B8/X8R8G8B8 and B8G8R8A8/B8G8R8X8), which GBM
++    * names BGRA8888/BGRX8888 and ARGB8888/XRGB8888. Their EGL attributes
++    * are identical, so without this the second order is merged into the
++    * first config and dropped, and no XRGB8888 visual is offered. */
++   if (conf->Display->Platform == _EGL_PLATFORM_DRM &&
++       conf->NativeVisualID != criteria->NativeVisualID)
++      return EGL_FALSE;
++#endif
+ 
+    if (_eglCompareConfigs(conf, criteria, NULL, EGL_FALSE) != 0)
+       return EGL_FALSE;
