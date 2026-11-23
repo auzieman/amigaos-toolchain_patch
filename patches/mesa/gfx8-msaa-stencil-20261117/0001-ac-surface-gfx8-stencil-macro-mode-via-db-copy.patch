@@ -1,0 +1,40 @@
+radeonsi/ac: sample GFX7-8 stencil through the DB copy when its macro tile mode differs from depth's
+
+On GFX7-8 the DB applies the depth plane's macro tile mode (bank width, bank
+height, macro tile aspect, from DB_DEPTH_INFO) to both planes, while the
+texture unit derives the stencil plane's macro tile mode from the stencil
+tiling index. matchStencilTileCfg keeps the two equal only for mipmapped
+Z/S and Stoney. With TC-compatible HTILE on MSAA, depth takes a tile split
+that no stencil tiling index matches (Polaris11, 4x Z24S8: depth macro mode
+4, stencil macro mode 1), so sampled stencil reads back scrambled.
+
+Set stencil_adjusted when the two macro tile modes differ. That clears
+radeonsi's can_sample_s, so stencil sampling goes through the DB->CB copy;
+TC-compatible HTILE and the surface layout are unchanged. Not specific to
+big-endian hosts.
+
+Against Debian mesa 25.0.7 with debian/patches/series applied.
+
+--- a/src/amd/common/ac_surface.c
++++ b/src/amd/common/ac_surface.c
+@@ -1633,6 +1633,20 @@
+             if (AddrSurfInfoOut.tileMode >= ADDR_TM_2D_TILED_THIN1) {
+                surf->u.legacy.stencil_tile_split = AddrSurfInfoOut.pTileInfo->tileSplitBytes;
+             }
++
++            /* On GFX7-8 the DB applies the depth plane's macro tile mode
++             * (bank width, bank height, macro tile aspect) to both planes,
++             * while the texture unit derives the stencil plane's from the
++             * stencil tiling index. TC-compatible HTILE on MSAA gives depth
++             * a tile split that no stencil tiling index matches, so sampled
++             * stencil read back what the DB wrote with other bank parameters.
++             * When the two macro tile modes differ, sample stencil through
++             * the DB->CB copy instead.
++             */
++            if (info->gfx_level >= GFX7 && !only_stencil &&
++                AddrSurfInfoOut.tileMode >= ADDR_TM_2D_TILED_THIN1 &&
++                AddrSurfInfoOut.macroModeIndex != surf->u.legacy.macro_tile_index)
++               surf->u.legacy.stencil_adjusted = true;
+          }
+       }
+    }
