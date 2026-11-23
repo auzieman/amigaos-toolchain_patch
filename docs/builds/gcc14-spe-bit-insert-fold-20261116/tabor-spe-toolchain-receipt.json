@@ -1,0 +1,92 @@
+{
+  "status": "native-toolchain-package-built-not-installed",
+  "version": "14.2.0+tabor3",
+  "package": "tabor-spe-toolchain_14.2.0+tabor3_amd64.deb",
+  "package_sha256": "a7283c9c6cab16af875c9bae663584ba342b8ca411133b6049fc114864fca7ec",
+  "bytes": 55933620,
+  "recipe_sha256": "c11bdbd83a0edbd85cf73ce9ef61fa53617b35b0426506897c153852a50d0a07",
+  "compiler_facts": {
+    "version": "14.2.0",
+    "machine": "powerpc-linux-gnuspe",
+    "sysroot": "/",
+    "multiarch": "powerpc-linux-gnuspe"
+  },
+  "needed_libraries": [
+    "ld-linux-x86-64.so.2",
+    "libc.so.6",
+    "libgmp.so.10",
+    "libm.so.6",
+    "libmpc.so.3",
+    "libmpfr.so.6"
+  ],
+  "removed_libtool_archives": [
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/liblto_plugin.la",
+    "powerpc-linux-gnuspe/lib/libatomic.la",
+    "powerpc-linux-gnuspe/lib/libstdc++.la",
+    "powerpc-linux-gnuspe/lib/libstdc++exp.la",
+    "powerpc-linux-gnuspe/lib/libstdc++fs.la",
+    "powerpc-linux-gnuspe/lib/libsupc++.la"
+  ],
+  "stripped_host_executables": [
+    "bin/powerpc-linux-gnuspe-c++",
+    "bin/powerpc-linux-gnuspe-cpp",
+    "bin/powerpc-linux-gnuspe-g++",
+    "bin/powerpc-linux-gnuspe-gcc",
+    "bin/powerpc-linux-gnuspe-gcc-14.2.0",
+    "bin/powerpc-linux-gnuspe-gcc-ar",
+    "bin/powerpc-linux-gnuspe-gcc-nm",
+    "bin/powerpc-linux-gnuspe-gcc-ranlib",
+    "bin/powerpc-linux-gnuspe-gcov",
+    "bin/powerpc-linux-gnuspe-gcov-dump",
+    "bin/powerpc-linux-gnuspe-gcov-tool",
+    "bin/powerpc-linux-gnuspe-lto-dump",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/cc1",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/cc1plus",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/collect2",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/install-tools/fixincl",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/liblto_plugin.so",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/lto-wrapper",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/lto1",
+    "libexec/gcc/powerpc-linux-gnuspe/14.2.0/plugin/gengtype"
+  ],
+  "provenance": {
+    "gcc": "Debian gcc-14 14.2.0-19 DFSG + GCC 8.5 powerpcspe imports",
+    "candidate_series": [
+      "0001-register-linux-powerpcspe.patch",
+      "0002-option-url-metadata.patch",
+      "0003-modern-debug-interface.patch",
+      "0004-remove-obsolete-extern-c-switch.patch",
+      "0005-qualify-machine-mode-iterators.patch",
+      "0006-retain-options-without-report-metadata.patch",
+      "0007-modern-symbol-register-and-cpp-interfaces.patch",
+      "0008-preserve-tuning-defaults-through-modern-options.patch",
+      "0009-match-modern-vector-expand-contract.patch",
+      "0010-preserve-conditional-spe-register-usage.patch",
+      "0011-modern-option-state-and-rtl-interfaces.patch",
+      "0012-modern-alignment-records.patch",
+      "0013-adapt-spe-argument-hooks.patch",
+      "0014-complete-modern-hook-signatures.patch",
+      "0015-preserve-vector-costs-in-modern-analysis-interface.patch",
+      "0016-bind-vector-costs-to-current-analysis.patch",
+      "0017-reload-spe-subreg-conversions-through-registers.patch",
+      "0018-thunk-function-labels.patch",
+      "0019-force-vec-perm-const-operands-to-registers.patch",
+      "0020-early-clobber-tf-from-ti-subreg-output.patch",
+      "0021-set-round-toward-zero-in-tf-to-si-conversion.patch",
+      "0022-split-multireg-mem-pieces-without-strict-align-subreg.patch",
+      "0023-spe-zero-call-used-regs-hook.patch",
+      "0024-fold-bit-insert-expr-big-endian-pr116997.patch"
+    ],
+    "manifest_sha256": "a0b5d395681ea841466dd300a9967574d4b6a8c3ff66e4b4e4a9025219346c8c",
+    "recipe": "scripts/build-gcc14-spe-sdk.sh",
+    "recipe_sha256": "e9fc7a47158a39f66a1c93b444b685c4c2ffee52402c22c8293a5fb85151a070",
+    "compiler_facts": {
+      "version": "14.2.0",
+      "machine": "powerpc-linux-gnuspe",
+      "sysroot": "/",
+      "multiarch": "powerpc-linux-gnuspe"
+    },
+    "cc1_sha256": "f26686e8a12eff803d083e023136417e5ef829bded448fe9831ec1a5e8b3a3cd",
+    "gcc_sha256": "a8bf05372d39b2595c167b5e8841bb1479136002915cd193a779319dc48c8f2d"
+  }
+}
