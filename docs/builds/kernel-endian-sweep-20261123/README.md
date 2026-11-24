@@ -167,3 +167,25 @@ Checked clean:
 - the UVD decode CS parser (`amdgpu_ib_get_value`)
 
 `amdgpu_ucode_hdr_version` compares u16 LE fields raw, but only gfx11 calls it (not Polaris).
+
+### Upstream and AMD DKMS comparison (2026-11-24)
+
+References on the R730 in /home/owner/upstream:
+- mainline through v7.4-rc4: a sparse clone of drivers/gpu/drm/amd;
+- AMD amdgpu-dkms 7.2.3-2428518 (repo.radeon.com).
+
+**Post-IB compute path:** `gfx_v8_0_ring_emit_fence_compute`, `_emit_pipeline_sync` and
+`_emit_vm_flush` are identical in 021 and DKMS. `_emit_ib_compute` differs only in our `is_le`
+swap select. HDP flush is refactored, with the same packets. Of the 256 mainline commits since
+v6.12 on the GFX8 and shared scheduling files, none fixes a fence or ring packet running under
+a user VMID.
+
+**Backported as 0042:** mainline 63a59637517 (`amdgpu_cs_patch_ibs` ignored the mapping
+`offset_in_bo` for CPU-parsed rings: UVD and VCE here). It builds clean.
+
+Reviewed, not applicable:
+- 566ed98e48b (TLB-invalidate fence across combined unmap/map): user-VM faults, but no VMID
+  mis-tagging;
+- 91cf34bc5a5 (MQD fairness);
+- 6e54e467973 (compute COND_EXEC for soft reset);
+- cb1e657ccac, 0e4ef0ead60, 47cd3118509 (fence and flush refactor follow-ups).

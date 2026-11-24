@@ -1,0 +1,11 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_cs.c
+@@ -1094,7 +1094,7 @@
+ 		if (r)
+ 			return r;
+ 
+-		kptr += va_start - (m->start * AMDGPU_GPU_PAGE_SIZE);
++		kptr += va_start - (m->start * AMDGPU_GPU_PAGE_SIZE) + m->offset;
+ 
+ 		if (ring->funcs->parse_cs) {
+ 			memcpy(ib->ptr, kptr, ib->length_dw * 4);
