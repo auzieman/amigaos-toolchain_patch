@@ -1,0 +1,147 @@
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/ppatomctrl.c
+@@ -24,6 +24,7 @@
+ #include <linux/module.h>
+ #include <linux/slab.h>
+ #include <linux/delay.h>
++#include <linux/unaligned.h>
+ #include "atom.h"
+ #include "ppatomctrl.h"
+ #include "atombios.h"
+@@ -756,7 +757,7 @@
+ 	 *GETTING MULTI-STEP PARAMETERS RELATED TO CURRENT DPM LEVEL
+ 	 *-----------------------------------------------------------
+ 	 */
+-	fRLL_LoadLine = Divide(getASICProfilingInfo->ulLoadLineSlop, 1000);
++	fRLL_LoadLine = Divide(le32_to_cpu(getASICProfilingInfo->ulLoadLineSlop), 1000);
+ 
+ 	switch (dpm_level) {
+ 	case 1:
+@@ -928,7 +929,7 @@
+ 	 * ulEfuseLogisticAlpha=13
+ 	 */
+ 
+-	sInput_FuseValues.usEfuseIndex = getASICProfilingInfo->usLkgEuseIndex;
++	sInput_FuseValues.usEfuseIndex = le16_to_cpu(getASICProfilingInfo->usLkgEuseIndex);
+ 	sInput_FuseValues.ucBitShift = getASICProfilingInfo->ucLkgEfuseBitLSB;
+ 	sInput_FuseValues.ucBitLength = getASICProfilingInfo->ucLkgEfuseLength;
+ 
+@@ -1200,7 +1201,7 @@
+ 
+ 	get_voltage_info_param_space.ucVoltageType = VOLTAGE_TYPE_VDDC;
+ 	get_voltage_info_param_space.ucVoltageMode = ATOM_GET_VOLTAGE_EVV_VOLTAGE;
+-	get_voltage_info_param_space.usVoltageLevel = virtual_voltage_id;
++	get_voltage_info_param_space.usVoltageLevel = cpu_to_le16(virtual_voltage_id);
+ 	get_voltage_info_param_space.ulSCLKFreq =
+ 		cpu_to_le32(hwmgr->dyn_state.vddc_dependency_on_sclk->entries[entry_id].clk);
+ 
+@@ -1537,7 +1538,7 @@
+ 
+ 	*svd_gpio_id = voltage_object->asSVID2Obj.ucSVDGpioId;
+ 	*svc_gpio_id = voltage_object->asSVID2Obj.ucSVCGpioId;
+-	*load_line = voltage_object->asSVID2Obj.usLoadLine_PSI;
++	*load_line = le16_to_cpu(voltage_object->asSVID2Obj.usLoadLine_PSI);
+ 
+ 	return 0;
+ }
+@@ -1556,7 +1557,7 @@
+ 			GetIndexIntoMasterTable(COMMAND, SetVoltage),
+ 			(uint32_t *)voltage_parameters, sizeof(*voltage_parameters)));
+ 
+-	*virtual_voltage_id = voltage_parameters->usVoltageLevel;
++	*virtual_voltage_id = le16_to_cpu(voltage_parameters->usVoltageLevel);
+ 
+ 	return result;
+ }
+@@ -1585,16 +1586,16 @@
+ 
+ 	if ((profile->asHeader.ucTableFormatRevision >= 2) &&
+ 		(profile->asHeader.ucTableContentRevision >= 1) &&
+-		(profile->asHeader.usStructureSize >= sizeof(ATOM_ASIC_PROFILING_INFO_V2_1))) {
+-		leakage_bin = (u16 *)((char *)profile + profile->usLeakageBinArrayOffset);
+-		vddc_id_buf = (u16 *)((char *)profile + profile->usElbVDDC_IdArrayOffset);
+-		vddc_buf = (u16 *)((char *)profile + profile->usElbVDDC_LevelArrayOffset);
++		(le16_to_cpu(profile->asHeader.usStructureSize) >= sizeof(ATOM_ASIC_PROFILING_INFO_V2_1))) {
++		leakage_bin = (u16 *)((char *)profile + le16_to_cpu(profile->usLeakageBinArrayOffset));
++		vddc_id_buf = (u16 *)((char *)profile + le16_to_cpu(profile->usElbVDDC_IdArrayOffset));
++		vddc_buf = (u16 *)((char *)profile + le16_to_cpu(profile->usElbVDDC_LevelArrayOffset));
+ 		if (profile->ucElbVDDC_Num > 0) {
+ 			for (i = 0; i < profile->ucElbVDDC_Num; i++) {
+-				if (vddc_id_buf[i] == virtual_voltage_id) {
++				if (get_unaligned_le16(&vddc_id_buf[i]) == virtual_voltage_id) {
+ 					for (j = 0; j < profile->ucLeakageBinNum; j++) {
+-						if (efuse_voltage_id <= leakage_bin[j]) {
+-							*vddc = vddc_buf[j * profile->ucElbVDDC_Num + i];
++						if (efuse_voltage_id <= get_unaligned_le16(&leakage_bin[j])) {
++							*vddc = get_unaligned_le16(&vddc_buf[j * profile->ucElbVDDC_Num + i]);
+ 							break;
+ 						}
+ 					}
+@@ -1603,14 +1604,14 @@
+ 			}
+ 		}
+ 
+-		vddci_id_buf = (u16 *)((char *)profile + profile->usElbVDDCI_IdArrayOffset);
+-		vddci_buf   = (u16 *)((char *)profile + profile->usElbVDDCI_LevelArrayOffset);
++		vddci_id_buf = (u16 *)((char *)profile + le16_to_cpu(profile->usElbVDDCI_IdArrayOffset));
++		vddci_buf   = (u16 *)((char *)profile + le16_to_cpu(profile->usElbVDDCI_LevelArrayOffset));
+ 		if (profile->ucElbVDDCI_Num > 0) {
+ 			for (i = 0; i < profile->ucElbVDDCI_Num; i++) {
+-				if (vddci_id_buf[i] == virtual_voltage_id) {
++				if (get_unaligned_le16(&vddci_id_buf[i]) == virtual_voltage_id) {
+ 					for (j = 0; j < profile->ucLeakageBinNum; j++) {
+-						if (efuse_voltage_id <= leakage_bin[j]) {
+-							*vddci = vddci_buf[j * profile->ucElbVDDCI_Num + i];
++						if (efuse_voltage_id <= get_unaligned_le16(&leakage_bin[j])) {
++							*vddci = get_unaligned_le16(&vddci_buf[j * profile->ucElbVDDCI_Num + i]);
+ 							break;
+ 						}
+ 					}
+@@ -1662,9 +1663,9 @@
+ 	if (!gfxinfo)
+ 		return -ENOENT;
+ 
+-	table->usHiLoLeakageThreshold = gfxinfo->usHiLoLeakageThreshold;
+-	table->usEdcDidtLoDpm7TableOffset = gfxinfo->usEdcDidtLoDpm7TableOffset;
+-	table->usEdcDidtHiDpm7TableOffset = gfxinfo->usEdcDidtHiDpm7TableOffset;
++	table->usHiLoLeakageThreshold = le16_to_cpu(gfxinfo->usHiLoLeakageThreshold);
++	table->usEdcDidtLoDpm7TableOffset = le16_to_cpu(gfxinfo->usEdcDidtLoDpm7TableOffset);
++	table->usEdcDidtHiDpm7TableOffset = le16_to_cpu(gfxinfo->usEdcDidtHiDpm7TableOffset);
+ 
+ 	return 0;
+ }
+--- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/process_pptables_v1_0.c
++++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/process_pptables_v1_0.c
+@@ -701,7 +701,7 @@
+ 		tdp_table->ucVr_I2C_Line = polaristable->ucVr_I2C_Line;
+ 		tdp_table->ucPlx_I2C_address = polaristable->ucPlx_I2C_address;
+ 		tdp_table->ucPlx_I2C_Line = polaristable->ucPlx_I2C_Line;
+-		tdp_table->usBoostPowerLimit = polaristable->usBoostPowerLimit;
++		tdp_table->usBoostPowerLimit = le16_to_cpu(polaristable->usBoostPowerLimit);
+ 		tdp_table->ucCKS_LDO_REFSEL = polaristable->ucCKS_LDO_REFSEL;
+ 		tdp_table->ucHotSpotOnly = polaristable->ucHotSpotOnly;
+ 	}
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_atombios.c
+@@ -1659,8 +1659,8 @@
+ 			  le32_to_cpu(firmware_usage->asFirmwareVramReserveInfo[0].ulStartAddrUsedByFirmware),
+ 			  le16_to_cpu(firmware_usage->asFirmwareVramReserveInfo[0].usFirmwareUseInKb));
+ 
+-		start_addr = firmware_usage->asFirmwareVramReserveInfo[0].ulStartAddrUsedByFirmware;
+-		size = firmware_usage->asFirmwareVramReserveInfo[0].usFirmwareUseInKb;
++		start_addr = le32_to_cpu(firmware_usage->asFirmwareVramReserveInfo[0].ulStartAddrUsedByFirmware);
++		size = le16_to_cpu(firmware_usage->asFirmwareVramReserveInfo[0].usFirmwareUseInKb);
+ 
+ 		if ((uint32_t)(start_addr & ATOM_VRAM_OPERATION_FLAGS_MASK) ==
+ 			(uint32_t)(ATOM_VRAM_BLOCK_SRIOV_MSG_SHARE_RESERVATION <<
+--- a/drivers/gpu/drm/amd/amdgpu/atom.c
++++ b/drivers/gpu/drm/amd/amdgpu/atom.c
+@@ -1549,7 +1549,7 @@
+ 		if (master_table->ListOfDataTables.FirmwareInfo != 0) {
+ 			atom_fw_info = (struct _ATOM_FIRMWARE_INFO *)
+ 					CSTR(master_table->ListOfDataTables.FirmwareInfo);
+-			ctx->version = atom_fw_info->ulFirmwareRevision;
++			ctx->version = le32_to_cpu(atom_fw_info->ulFirmwareRevision);
+ 		}
+ 	}
+ 

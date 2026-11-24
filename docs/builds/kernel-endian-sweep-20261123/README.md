@@ -65,3 +65,47 @@ Fix: a mechanical `le16_to_cpu`/`le32_to_cpu` at each read (`get_unaligned_le16`
 u16 arrays reached by vbios offsets), as patch 0040. These are power and clock values
 (voltages, limits, VRAM reserve). They are part of the "is the card running at its real
 clocks" question, not the glamor fault.
+
+### Patch 0040: build result (2026-11-24)
+
+`patches/linux/experiments/0040-atom-table-field-byte-order.patch` covers every site in the
+table above, plus two more:
+- ppatomctrl.c 1203 (`atomctrl_get_voltage_evv`): `usVoltageLevel` was stored raw into the
+  GetVoltageInfo parameter space. Its sibling at 1157 uses `cpu_to_le16`.
+- atom.c 1551: `ctx->version` from `ulFirmwareRevision` (coredump print only).
+
+On the R730 the patch went into a hardlinked copy of the 021 tree (`source-0040`, with build
+output in `out-0040`) and was built with the kernel image (`powerpc-linux-gnu-`, the 021
+`.config`, `make drivers/gpu/drm/amd/amdgpu/`). The build exits 0 with no warnings and
+no errors. The patch has not been run on the board yet.
+
+### Encode side: `atomscan.py --write`
+
+`--write` flags stores into `ul`/`us` fields from a non-constant value with no `cpu_to_le*` in
+the statement. Over amdgpu + pm + DC bios it gives 83 hits. Polaris-reachable triage:
+- Native driver structs (`hwmgr->thermal_controller`, `cac_dtp_table`, `avfs_params`, which go
+  to the SMC through `PP_HOST_TO_SMC_*`): fine.
+- ppatomctrl.c 794-900 `usEfuseIndex = sXxx_fuse.usEfuseIndex`: an LE-to-LE copy, fine.
+- ppatomctrl.c 1203: a real bug, now in 0040.
+- The rest are Vega/atomfirmware (`ppatomfwctrl.c`, `vega*_processpptables.c`), which Polaris
+  does not run.
+
+Multi-byte ATOM bitfields (`ULONG x:24`, `USHORT x:1`) on the legacy path all go through
+whole-word helpers (`amdgpu_atom_set_clock_word`, `le16_to_cpu(usEncoderCap)`,
+`ulDispEngClkFreq = cpu_to_le32(crtc << 24 | clk)`). The legacy path is clean.
+
+### DC (display core): the same class, inactive
+
+The 021 config has `CONFIG_DRM_AMD_DC` off, so the board runs `dce_v11_0` + `atombios_*.c`.
+DC has the same missing-LE pattern. Fix these if DC is ever enabled:
+- command_table.c 327-363 `encoder_control_digx_v5`: `ulPixelClock` stored raw. v3/v4
+  convert.
+- command_table.c 890-915 `transmitter_control_v1_6`: `ulSymClock` (32-bit) stored raw,
+  then scaled with `le16` helpers.
+- command_table.c 1149/1168 `set_pixel_clock_v6`: `cpu_to_le32` into the
+  `ulPixelClock:24` bitfield. The fix is `amdgpu_atom_set_clock_word` (patch 0020/0022 class).
+- bios_parser.c 1556-1559: `usHBR2En`/`usHDMI6GEn`/`usHBR3En` read as BE bitfields of the LE
+  `usEncoderCap`. These read bits 9-11, which disables DP HBR2 and HDMI 6G. The legacy
+  path does `le16_to_cpu(usEncoderCap)`.
+- bios_parser.c 2966 `usMasterDataTableOffset`, 2766-2809 bracket-layout offsets and ids,
+  1262 panel mm size: raw reads.
