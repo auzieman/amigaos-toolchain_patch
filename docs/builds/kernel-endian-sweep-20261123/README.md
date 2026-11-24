@@ -109,3 +109,61 @@ DC has the same missing-LE pattern. Fix these if DC is ever enabled:
   path does `le16_to_cpu(usEncoderCap)`.
 - bios_parser.c 2966 `usMasterDataTableOffset`, 2766-2809 bracket-layout offsets and ids,
   1262 panel mm size: raw reads.
+
+### Re-review of 0040 and pass 2 (2026-11-24)
+
+**Corrected in 0040:**
+- Reverted the `usLkgEuseIndex` hunk. `sInput_FuseValues` is the LE *input* to the
+  ReadEfuseValue command table, so the raw VBIOS-to-param copy was already correct (like the
+  other six efuse copies). The read scan cannot see that the destination is an ATOM parameter.
+  Triage rule: an ATOM field copied into an ATOM parameter stays raw. An ATOM field read into
+  driver state is decoded.
+
+**Added to 0040:**
+- ppatomctrl.c `atomctrl_get_edc_leakage_table`: `DIDT_REG[]` was copied raw from the VBIOS,
+  then written to the DIDT registers by `smu7_program_edc_didt_registers`. Now `le32_to_cpu`.
+  The name scan missed it because the field is not Hungarian (found by `biosptr.py`).
+- atom.c `usMasterDataTableOffset` / `ListOfDataTables.FirmwareInfo`: raw offsets that lead to
+  the `ulFirmwareRevision` read. The whole chain is now decoded.
+
+**Not the endian class:** `get_edc_leakage_table` adds `offset` to `table_address` but returns
+`temp` (the GFX_Info base). This is an upstream logic bug and is left as is.
+
+**New scanner, `biosptr.py`:** taints pointers that come from a VBIOS source
+(`smu_atom_get_data_table`, `ctx->bios +`, `GET_IMAGE`, `CSTR`) and ATOM-typed
+parameters and locals. It flags any multi-byte field or index read through them without an LE helper.
+Over the Polaris powerplay and legacy display files it gives 69 hits. Everything left over is a zero
+test, a byte field, address-of, v0-only `processpptables.c`, or atom.c's own context struct.
+The VBIOS side is closed for Polaris.
+
+### Pass 2: kernel CPU accesses to GPU-visible memory (patch 0041)
+
+Contract:
+- Kernel IBs default to `is_le=false` and are fetched by CP with `INDIRECT_BUFFER` swap=2,
+  so native `ib->ptr[]` is correct for gfx/compute kernel IBs.
+- SDMA v3 has hardware swap.
+- User IBs are `is_le=true`, and `amdgpu_ib_get/set_value` honour that.
+- VCE encodes kernel IBs (`amdgpu_vce_encode_ib`).
+
+The grep of `ptr[]/cpu_addr[]/msg[]/wb[]` accesses without helpers over 39 Polaris files gives
+198 hits, almost all IB building under that contract. Two real gaps:
+- **amdgpu_uvd.c message parser:** `msg[1]` (type), `msg[2]` (handle), and the width, height,
+  dpb, pitch and `msg[61]` fields were read raw. The UVD message is LE: the kernel's own create
+  message uses `cpu_to_le32`, MP_SWAP_CNTL is 0, and `msg[59]` is already decoded. On BE a
+  decode message (type 1) reads as 0x01000000 and is rejected as an illegal type, and handles
+  are stored swapped (the kernel destroy message then names the wrong handle). Now
+  `le32_to_cpu`.
+- **uvd_v6_0.c encoder create/destroy IBs:** patch 0023 made the UVD_ENC *ring* software LE,
+  but the kernel-built encoder IBs stayed native. The 0023 README calls this out ("referenced
+  IB payloads are separate objects") and leaves IB execution open. Added
+  `uvd_v6_0_enc_encode_ib`, mirroring VCE.
+
+The 0040 and 0041 tree builds clean (exit 0, no warnings).
+
+Checked clean:
+- Firmware header and ucode parsing (gfx/SDMA/UVD/VCE/MC/SMU)
+- the MQD publish (`writel`)
+- the VM SDMA PTEs (`__le64`)
+- the UVD decode CS parser (`amdgpu_ib_get_value`)
+
+`amdgpu_ucode_hdr_version` compares u16 LE fields raw, but only gfx11 calls it (not Polaris).

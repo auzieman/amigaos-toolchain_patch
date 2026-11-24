@@ -1,0 +1,87 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_uvd.c
+@@ -641,11 +641,11 @@
+ static int amdgpu_uvd_cs_msg_decode(struct amdgpu_device *adev, uint32_t *msg,
+ 	unsigned int buf_sizes[])
+ {
+-	unsigned int stream_type = msg[4];
+-	unsigned int width = msg[6];
+-	unsigned int height = msg[7];
+-	unsigned int dpb_size = msg[9];
+-	unsigned int pitch = msg[28];
++	unsigned int stream_type = le32_to_cpu(msg[4]);
++	unsigned int width = le32_to_cpu(msg[6]);
++	unsigned int height = le32_to_cpu(msg[7]);
++	unsigned int dpb_size = le32_to_cpu(msg[9]);
++	unsigned int pitch = le32_to_cpu(msg[28]);
+ 
+ 	unsigned int width_in_mb = width / 16;
+ 	unsigned int height_in_mb = ALIGN(height / 16, 2);
+@@ -667,7 +667,7 @@
+ 
+ 	switch (stream_type) {
+ 	case 0: /* H264 */
+-		num_dpb_buffer = ((msg[61] >> 16) & 0xff) + 1;
++		num_dpb_buffer = ((le32_to_cpu(msg[61]) >> 16) & 0xff) + 1;
+ 		if (num_dpb_buffer > 17)
+ 			return -EINVAL;
+ 
+@@ -719,7 +719,7 @@
+ 		break;
+ 
+ 	case 7: /* H264 Perf */
+-		num_dpb_buffer = ((msg[61] >> 16) & 0xff) + 1;
++		num_dpb_buffer = ((le32_to_cpu(msg[61]) >> 16) & 0xff) + 1;
+ 		if (num_dpb_buffer > 17)
+ 			return -EINVAL;
+ 
+@@ -813,8 +813,8 @@
+ 
+ 	msg = ptr + offset;
+ 
+-	msg_type = msg[1];
+-	handle = msg[2];
++	msg_type = le32_to_cpu(msg[1]);
++	handle = le32_to_cpu(msg[2]);
+ 
+ 	if (handle == 0) {
+ 		amdgpu_bo_kunmap(bo);
+--- a/drivers/gpu/drm/amd/amdgpu/uvd_v6_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/uvd_v6_0.c
+@@ -195,6 +195,20 @@
+ 	return r;
+ }
+ 
++/*
++ * Polaris11 big-endian: the UVD encoder ring is software LE (patch 0023) and the
++ * engine fetches IBs LE, so kernel-built encoder messages are stored LE, as VCE does.
++ */
++static void uvd_v6_0_enc_encode_ib(struct amdgpu_ring *ring, struct amdgpu_ib *ib)
++{
++	unsigned int i;
++
++	if (!amdgpu_ring_uses_sw_le(ring))
++		return;
++	for (i = 0; i < ib->length_dw; i++)
++		ib->ptr[i] = (__force u32)cpu_to_le32(ib->ptr[i]);
++}
++
+ /**
+  * uvd_v6_0_enc_get_create_msg - generate a UVD ENC create msg
+  *
+@@ -244,6 +258,7 @@
+ 
+ 	for (i = ib->length_dw; i < ib_size_dw; ++i)
+ 		ib->ptr[i] = 0x0;
++	uvd_v6_0_enc_encode_ib(ring, ib);
+ 
+ 	r = amdgpu_job_submit_direct(job, ring, &f);
+ 	if (r)
+@@ -309,6 +324,7 @@
+ 
+ 	for (i = ib->length_dw; i < ib_size_dw; ++i)
+ 		ib->ptr[i] = 0x0;
++	uvd_v6_0_enc_encode_ib(ring, ib);
+ 
+ 	r = amdgpu_job_submit_direct(job, ring, &f);
+ 	if (r)

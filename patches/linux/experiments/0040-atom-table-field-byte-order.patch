@@ -17,15 +17,6 @@
  
  	switch (dpm_level) {
  	case 1:
-@@ -928,7 +929,7 @@
- 	 * ulEfuseLogisticAlpha=13
- 	 */
- 
--	sInput_FuseValues.usEfuseIndex = getASICProfilingInfo->usLkgEuseIndex;
-+	sInput_FuseValues.usEfuseIndex = le16_to_cpu(getASICProfilingInfo->usLkgEuseIndex);
- 	sInput_FuseValues.ucBitShift = getASICProfilingInfo->ucLkgEfuseBitLSB;
- 	sInput_FuseValues.ucBitLength = getASICProfilingInfo->ucLkgEfuseLength;
- 
 @@ -1200,7 +1201,7 @@
  
  	get_voltage_info_param_space.ucVoltageType = VOLTAGE_TYPE_VDDC;
@@ -110,6 +101,15 @@
  
  	return 0;
  }
+@@ -1701,7 +1702,7 @@
+ 	length = sizeof(leakage_table->DIDT_REG) /
+ 		 sizeof(leakage_table->DIDT_REG[0]);
+ 	for (i = 0; i < length; i++)
+-		table->DIDT_REG[i] = leakage_table->DIDT_REG[i];
++		table->DIDT_REG[i] = le32_to_cpu(leakage_table->DIDT_REG[i]);
+ 
+ 	return 0;
+ }
 --- a/drivers/gpu/drm/amd/pm/powerplay/hwmgr/process_pptables_v1_0.c
 +++ b/drivers/gpu/drm/amd/pm/powerplay/hwmgr/process_pptables_v1_0.c
 @@ -701,7 +701,7 @@
@@ -136,11 +136,20 @@
  			(uint32_t)(ATOM_VRAM_BLOCK_SRIOV_MSG_SHARE_RESERVATION <<
 --- a/drivers/gpu/drm/amd/amdgpu/atom.c
 +++ b/drivers/gpu/drm/amd/amdgpu/atom.c
-@@ -1549,7 +1549,7 @@
+@@ -1543,13 +1543,13 @@
+ 	}
+ 
+ 	atom_rom_header = (struct _ATOM_ROM_HEADER *)CSTR(base);
+-	if (atom_rom_header->usMasterDataTableOffset != 0) {
++	if (le16_to_cpu(atom_rom_header->usMasterDataTableOffset) != 0) {
+ 		master_table = (struct _ATOM_MASTER_DATA_TABLE *)
+-				CSTR(atom_rom_header->usMasterDataTableOffset);
++				CSTR(le16_to_cpu(atom_rom_header->usMasterDataTableOffset));
  		if (master_table->ListOfDataTables.FirmwareInfo != 0) {
  			atom_fw_info = (struct _ATOM_FIRMWARE_INFO *)
- 					CSTR(master_table->ListOfDataTables.FirmwareInfo);
+-					CSTR(master_table->ListOfDataTables.FirmwareInfo);
 -			ctx->version = atom_fw_info->ulFirmwareRevision;
++					CSTR(le16_to_cpu(master_table->ListOfDataTables.FirmwareInfo));
 +			ctx->version = le32_to_cpu(atom_fw_info->ulFirmwareRevision);
  		}
  	}
