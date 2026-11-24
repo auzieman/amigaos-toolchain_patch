@@ -36,3 +36,32 @@ hits per file.
 Conclusion: the 016 chain keeps the live Polaris kernel path consistent. The glamor fault is
 on the Mesa side. Next kernel candidates for re-typing are the MQDs (`vi_mqd`), CPU-updated
 page tables (`amdgpu_vm_cpu`) and the firmware/atom table structs.
+
+## ATOM/vbios field sweep (patch 0019-0024 class, 2026-11-24)
+
+Pattern from patches 0019, 0020, 0022 and 0024: vbios/ATOM tables are LE, and their
+Hungarian-named fields (`ulXxx`, `usXxx`) are read raw as native values, or written through
+native bitfields. `atomscan.py` scans statement by statement for `ul`/`us` reads used as
+values without `le16/le32_to_cpu`, the SMC macros or the unaligned helpers. It skips zero
+tests (safe either way). The raw hits are in `atomscan-021.txt` (101 hits; most are copies
+between already-converted native structs).
+
+Confirmed sites (raw ATOM read, value used natively), Polaris path:
+
+| Site | Field | Effect on BE |
+|---|---|---|
+| ppatomctrl.c 1588-1606 (`atomctrl_get_leakage_vddc_base_on_leakage`) | `usLeakageBinArrayOffset`, `usElbVDDC*/VDDCI*ArrayOffset`, and the u16 arrays `leakage_bin[]`, `vddc_id_buf[]`, `vddc_buf[]`, `vddci_*` | wrong offsets and leakage voltages: VDDC/VDDCI per DPM level |
+| ppatomctrl.c 753, 918 (ASIC profiling) | `ulLoadLineSlop`, `usLkgEuseIndex` | wrong AVFS load line, wrong leakage efuse index |
+| ppatomctrl.c 1539, 1557 | `asSVID2Obj.usLoadLine_PSI`, `usVoltageLevel` (atom exec output) | wrong SVI2 load line / virtual voltage id |
+| ppatomctrl.c 1663-1666 (`atomctrl_get_edc_hilo_leakage_offset_table`) | `usHiLoLeakageThreshold`, `usEdcDidt{Lo,Hi}Dpm7TableOffset` | wrong EDC leakage table choice (smu7_hwmgr 1482, 2970-2976) |
+| process_pptables_v1_0.c 703 | `polaristable->usBoostPowerLimit` | wrong boost power limit (its neighbours are converted) |
+| amdgpu_atombios.c 1660-1662 | `ulStartAddrUsedByFirmware`, `usFirmwareUseInKb` | wrong firmware VRAM reservation |
+
+Not reached on Polaris: smu7_hwmgr 3934-3962 (PP_TABLE_V0 state callback), atombios_encoders
+2088 (LVDS). Verified converted (false positives): the sclk range table, the AI engine PLL
+dividers, the AVFS information copy, and every `amdgpu_atom_*clock_word` call.
+
+Fix: a mechanical `le16_to_cpu`/`le32_to_cpu` at each read (`get_unaligned_le16` for the
+u16 arrays reached by vbios offsets), as patch 0040. These are power and clock values
+(voltages, limits, VRAM reserve). They are part of the "is the card running at its real
+clocks" question, not the glamor fault.

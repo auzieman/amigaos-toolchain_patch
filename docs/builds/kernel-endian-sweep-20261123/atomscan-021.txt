@@ -1,0 +1,101 @@
+pm/powerplay/hwmgr/smu7_hwmgr.c:1482: if (!data->disable_edc_leakage_controller && data->edc_hilo_leakage_offset_from_vbios.usEdcDidtLoDpm7TableOffset && data->edc_hilo_leakage_offset_from
+pm/powerplay/hwmgr/smu7_hwmgr.c:1937: if ((hwmgr->pp_table_version != PP_TABLE_V0) && (hwmgr->feature_mask & PP_CLOCK_STRETCH_MASK) && (table_info->cac_dtp_table->usClockStretchAmount != 0
+pm/powerplay/hwmgr/smu7_hwmgr.c:2594: if (table_info->cac_dtp_table->usDefaultTargetOperatingTemp != 0 && hwmgr->thermal_controller.advanceFanControlParameters.ucFanControlMode) {
+pm/powerplay/hwmgr/smu7_hwmgr.c:2599: hwmgr->thermal_controller.advanceFanControlParameters.usFanPWMMaxLimit = (uint16_t)hwmgr->thermal_controller.advanceFanControlParameters.usDefaultMaxF
+pm/powerplay/hwmgr/smu7_hwmgr.c:2611: table_info->cac_dtp_table->usDefaultTargetOperatingTemp = (table_info->cac_dtp_table->usDefaultTargetOperatingTemp >= 50) ? (table_info->cac_dtp_table
+pm/powerplay/hwmgr/smu7_hwmgr.c:2614: table_info->cac_dtp_table->usOperatingTempMaxLimit = table_info->cac_dtp_table->usDefaultTargetOperatingTemp;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2618: hwmgr->thermal_controller.advanceFanControlParameters.usMaxFanPWM = hwmgr->thermal_controller.advanceFanControlParameters.usDefaultMaxFanPWM;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2621: hwmgr->thermal_controller.advanceFanControlParameters.usMaxFanRPM = hwmgr->thermal_controller.advanceFanControlParameters.usDefaultMaxFanRPM;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2624: hwmgr->dyn_state.cac_dtp_table->usOperatingTempMinLimit = table_info->cac_dtp_table->usOperatingTempMinLimit;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2627: hwmgr->dyn_state.cac_dtp_table->usOperatingTempMaxLimit = table_info->cac_dtp_table->usOperatingTempMaxLimit;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2630: hwmgr->dyn_state.cac_dtp_table->usDefaultTargetOperatingTemp = table_info->cac_dtp_table->usDefaultTargetOperatingTemp;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2633: hwmgr->dyn_state.cac_dtp_table->usOperatingTempStep = table_info->cac_dtp_table->usOperatingTempStep;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2636: hwmgr->dyn_state.cac_dtp_table->usTargetOperatingTemp = table_info->cac_dtp_table->usTargetOperatingTemp;
+pm/powerplay/hwmgr/smu7_hwmgr.c:2970: if (data->edc_hilo_leakage_offset_from_vbios.usEdcDidtLoDpm7TableOffset && data->edc_hilo_leakage_offset_from_vbios.usEdcDidtHiDpm7TableOffset) {
+pm/powerplay/hwmgr/smu7_hwmgr.c:2974: if (efuse < data->edc_hilo_leakage_offset_from_vbios.usHiLoLeakageThreshold) offset = data->edc_hilo_leakage_offset_from_vbios.usEdcDidtLoDpm7TableOff
+pm/powerplay/hwmgr/smu7_hwmgr.c:2976: else offset = data->edc_hilo_leakage_offset_from_vbios.usEdcDidtHiDpm7TableOffset;
+pm/powerplay/hwmgr/smu7_hwmgr.c:3934: engine_clock = visland_clk_info->ucEngineClockHigh << 16 | visland_clk_info->usEngineClockLow;
+pm/powerplay/hwmgr/smu7_hwmgr.c:3936: memory_clock = visland_clk_info->ucMemoryClockHigh << 16 | visland_clk_info->usMemoryClockLow;
+pm/powerplay/hwmgr/smu7_hwmgr.c:3962: performance_level->pcie_lane = get_pcie_lane_support(data->pcie_lane_cap, visland_clk_info->usPCIELane);
+pm/powerplay/hwmgr/smu7_hwmgr.c:5575: if (hwmgr->pp_table_version == PP_TABLE_V1) thermal_data->max = table_info->cac_dtp_table->usSoftwareShutdownTemp * PP_TEMPERATURE_UNITS_PER_CENTIGRAD
+pm/powerplay/hwmgr/process_pptables_v1_0.c:275: if (0 != powerplay_table->usVddcLookupTableOffset) {
+pm/powerplay/hwmgr/process_pptables_v1_0.c:284: if (0 != powerplay_table->usVddgfxLookupTableOffset) {
+pm/powerplay/hwmgr/process_pptables_v1_0.c:298: if (0 != powerplay_table->usPPMTableOffset) {
+pm/powerplay/hwmgr/process_pptables_v1_0.c:703: tdp_table->usBoostPowerLimit = polaristable->usBoostPowerLimit;
+pm/powerplay/hwmgr/process_pptables_v1_0.c:826: if (result == 0 && powerplay_table->usPowerTuneTableOffset != 0) result = get_cac_tdp_table(hwmgr, &pp_table_information->cac_dtp_table, pPowerTuneTab
+pm/powerplay/hwmgr/process_pptables_v1_0.c:830: if (result == 0 && powerplay_table->usSclkDependencyTableOffset != 0) result = get_sclk_voltage_dependency_table(hwmgr, &pp_table_information->vdd_dep
+pm/powerplay/hwmgr/process_pptables_v1_0.c:834: if (result == 0 && powerplay_table->usMclkDependencyTableOffset != 0) result = get_mclk_voltage_dependency_table(hwmgr, &pp_table_information->vdd_dep
+pm/powerplay/hwmgr/process_pptables_v1_0.c:838: if (result == 0 && powerplay_table->usPCIETableOffset != 0) result = get_pcie_table(hwmgr, &pp_table_information->pcie_table, pcie_table);
+pm/powerplay/hwmgr/process_pptables_v1_0.c:842: if (result == 0 && powerplay_table->usHardLimitTableOffset != 0) result = get_hard_limits(hwmgr, &pp_table_information->max_clock_voltage_on_dc, pHard
+pm/powerplay/hwmgr/process_pptables_v1_0.c:918: PP_ASSERT_WITH_CODE((0 != powerplay_table->usThermalControllerOffset), "Thermal controller table not set!", return -1);
+pm/powerplay/hwmgr/process_pptables_v1_0.c:942: if (0 == powerplay_table->usFanTableOffset) {
+pm/powerplay/hwmgr/process_pptables_v1_0.c:951: PP_ASSERT_WITH_CODE((0 != powerplay_table->usFanTableOffset), "Fan table not set!", return -1);
+pm/powerplay/hwmgr/process_pptables_v1_0.c:1128: PP_ASSERT_WITH_CODE((0 != powerplay_table->usStateArrayOffset), "State table is not set!", return -1);
+pm/powerplay/hwmgr/process_pptables_v1_0.c:1130: PP_ASSERT_WITH_CODE((0 < powerplay_table->sHeader.usStructureSize), "Invalid PowerPlay Table!", return -1);
+pm/powerplay/hwmgr/process_pptables_v1_0.c:1384: PP_ASSERT_WITH_CODE((0 < pp_table->usStateArrayOffset), "Invalid PowerPlay Table State Array Offset.", return -1);
+pm/powerplay/hwmgr/ppatomctrl.c:357: amdgpu_atom_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);
+pm/powerplay/hwmgr/ppatomctrl.c:363: if (!result) mpll_param->mpll_post_divider = (uint32_t)amdgpu_atom_clock_word_flags(&mpll_parameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:378: amdgpu_atom_set_clock_word(&mpll_parameters.ulClock, clock_value, 0);
+pm/powerplay/hwmgr/ppatomctrl.c:393: mpll_param->ulClock = amdgpu_atom_clock_word_frequency(&mpll_parameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:395: mpll_param->ulPostDiv = amdgpu_atom_clock_word_flags(&mpll_parameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:431: amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value, COMPUTE_GPUCLK_INPUT_FLAG_SCLK);
+pm/powerplay/hwmgr/ppatomctrl.c:440: dividers->pll_post_divider = amdgpu_atom_clock_word_flags(&pll_patameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:442: dividers->real_clock = amdgpu_atom_clock_word_frequency(&pll_patameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:468: amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value, COMPUTE_GPUCLK_INPUT_FLAG_SCLK);
+pm/powerplay/hwmgr/ppatomctrl.c:509: amdgpu_atom_set_clock_word(&pll_patameters.ulClock, clock_value, COMPUTE_GPUCLK_INPUT_FLAG_DEFAULT_GPUCLK);
+pm/powerplay/hwmgr/ppatomctrl.c:522: dividers->pll_post_divider = amdgpu_atom_clock_word_flags(&pll_patameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:524: dividers->real_clock = amdgpu_atom_clock_word_frequency(&pll_patameters.ulClock);
+pm/powerplay/hwmgr/ppatomctrl.c:753: fRLL_LoadLine = Divide(getASICProfilingInfo->ulLoadLineSlop, 1000);
+pm/powerplay/hwmgr/ppatomctrl.c:793: sInput_FuseValues.usEfuseIndex = sRO_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:814: sInput_FuseValues.usEfuseIndex = sCACm_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:835: sInput_FuseValues.usEfuseIndex = sCACb_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:855: sInput_FuseValues.usEfuseIndex = sKt_Beta_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:877: sInput_FuseValues.usEfuseIndex = sKv_m_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:899: sInput_FuseValues.usEfuseIndex = sKv_b_fuse.usEfuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:918: sInput_FuseValues.usEfuseIndex = getASICProfilingInfo->usLkgEuseIndex;
+pm/powerplay/hwmgr/ppatomctrl.c:1400: amdgpu_atom_set_clock_word(&memory_clock_parameters.asDPMMCReg.ulClock, memory_clock & SET_CLOCK_FREQ_MASK, ADJUST_MC_SETTING_PARAM);
+pm/powerplay/hwmgr/ppatomctrl.c:1539: *load_line = voltage_object->asSVID2Obj.usLoadLine_PSI;
+pm/powerplay/hwmgr/ppatomctrl.c:1557: *virtual_voltage_id = voltage_parameters->usVoltageLevel;
+pm/powerplay/hwmgr/ppatomctrl.c:1588: leakage_bin = (u16 *)((char *)profile + profile->usLeakageBinArrayOffset);
+pm/powerplay/hwmgr/ppatomctrl.c:1589: vddc_id_buf = (u16 *)((char *)profile + profile->usElbVDDC_IdArrayOffset);
+pm/powerplay/hwmgr/ppatomctrl.c:1590: vddc_buf = (u16 *)((char *)profile + profile->usElbVDDC_LevelArrayOffset);
+pm/powerplay/hwmgr/ppatomctrl.c:1604: vddci_id_buf = (u16 *)((char *)profile + profile->usElbVDDCI_IdArrayOffset);
+pm/powerplay/hwmgr/ppatomctrl.c:1606: vddci_buf = (u16 *)((char *)profile + profile->usElbVDDCI_LevelArrayOffset);
+pm/powerplay/hwmgr/ppatomctrl.c:1663: table->usHiLoLeakageThreshold = gfxinfo->usHiLoLeakageThreshold;
+pm/powerplay/hwmgr/ppatomctrl.c:1665: table->usEdcDidtLoDpm7TableOffset = gfxinfo->usEdcDidtLoDpm7TableOffset;
+pm/powerplay/hwmgr/ppatomctrl.c:1666: table->usEdcDidtHiDpm7TableOffset = gfxinfo->usEdcDidtHiDpm7TableOffset;
+pm/powerplay/hwmgr/smu7_powertune.c:1180: hwmgr->default_power_limit = hwmgr->power_limit = cac_table->usMaximumPowerDeliveryLimit;
+pm/powerplay/hwmgr/smu7_powertune.c:1255: if (hwmgr->chip_id > CHIP_TONGA) target_tdp = ((100 + adjust_percent) * (int)(cac_table->usTDP * 256)) / 100;
+pm/powerplay/hwmgr/smu7_powertune.c:1258: else target_tdp = ((100 + adjust_percent) * (int)(cac_table->usConfigurableTDP * 256)) / 100;
+pm/powerplay/smumgr/polaris10_smumgr.c:472: PP_ASSERT_WITH_CODE(cac_dtp_table->usTargetOperatingTemp <= 255, "Target Operating Temp is out of Range!", );
+pm/powerplay/smumgr/polaris10_smumgr.c:538: tdc_limit = (uint16_t)(table_info->cac_dtp_table->usTDC * 128);
+pm/powerplay/smumgr/polaris10_smumgr.c:588: if ((hwmgr->thermal_controller.advanceFanControlParameters.usFanOutputSensitivity & (1 << 15)) || 0 == hwmgr->thermal_controller.advanceFanControlPara
+pm/powerplay/smumgr/polaris10_smumgr.c:620: hi_sidd = (uint16_t)(cac_table->usHighCACLeakage / 100 * 256);
+pm/powerplay/smumgr/polaris10_smumgr.c:622: lo_sidd = (uint16_t)(cac_table->usLowCACLeakage / 100 * 256);
+pm/powerplay/smumgr/polaris10_smumgr.c:889: table->SclkFcwRangeTable[i].fcw_pcc = range_table_from_vbios.entry[i].usFcw_pcc;
+pm/powerplay/smumgr/polaris10_smumgr.c:890: table->SclkFcwRangeTable[i].fcw_trans_upper = range_table_from_vbios.entry[i].usFcw_trans_upper;
+pm/powerplay/smumgr/polaris10_smumgr.c:892: table->SclkFcwRangeTable[i].fcw_trans_lower = range_table_from_vbios.entry[i].usRcw_trans_lower;
+pm/powerplay/smumgr/polaris10_smumgr.c:934: sclk_setting->Fcw_int = dividers.usSclk_fcw_int;
+pm/powerplay/smumgr/polaris10_smumgr.c:935: sclk_setting->Fcw_frac = dividers.usSclk_fcw_frac;
+pm/powerplay/smumgr/polaris10_smumgr.c:936: sclk_setting->Pcc_fcw_int = dividers.usPcc_fcw_int;
+pm/powerplay/smumgr/polaris10_smumgr.c:939: sclk_setting->Pcc_up_slew_rate = dividers.usPcc_fcw_slew_frac;
+pm/powerplay/smumgr/polaris10_smumgr.c:942: sclk_setting->Fcw1_int = dividers.usSsc_fcw1_int;
+pm/powerplay/smumgr/polaris10_smumgr.c:943: sclk_setting->Fcw1_frac = dividers.usSsc_fcw1_frac;
+pm/powerplay/smumgr/polaris10_smumgr.c:944: sclk_setting->Sclk_ss_slew_rate = dividers.usSsc_fcw_slew_frac;
+pm/powerplay/smumgr/polaris10_smumgr.c:1688: stretch_amount = (uint8_t)table_info->cac_dtp_table->usClockStretchAmount;
+pm/powerplay/smumgr/polaris10_smumgr.c:1834: if ((avfs_params.ulGB_VDROOP_TABLE_CKSOFF_a0 == 0xEA522DD3) && (avfs_params.ulGB_VDROOP_TABLE_CKSOFF_a1 == 0x5645A) && (avfs_params.ulGB_VDROOP_TABLE_
+pm/powerplay/smumgr/polaris10_smumgr.c:1929: if (table_info && table_info->cac_dtp_table->usPowerTuneDataSetID <= POWERTUNE_DEFAULT_SET_MAX && table_info->cac_dtp_table->usPowerTuneDataSetID) smu
+pm/powerplay/smumgr/polaris10_smumgr.c:2047: table->TemperatureLimitHigh = table_info->cac_dtp_table->usTargetOperatingTemp * SMU7_Q88_FORMAT_CONVERSION_UNIT;
+pm/powerplay/smumgr/polaris10_smumgr.c:2050: table->TemperatureLimitLow = (table_info->cac_dtp_table->usTargetOperatingTemp - 1) * SMU7_Q88_FORMAT_CONVERSION_UNIT;
+pm/powerplay/smumgr/polaris10_smumgr.c:2235: t_diff1 = hwmgr->thermal_controller.advanceFanControlParameters.usTMed - hwmgr->thermal_controller.advanceFanControlParameters.usTMin;
+pm/powerplay/smumgr/polaris10_smumgr.c:2238: t_diff2 = hwmgr->thermal_controller.advanceFanControlParameters.usTHigh - hwmgr->thermal_controller.advanceFanControlParameters.usTMed;
+pm/powerplay/smumgr/polaris10_smumgr.c:2240: pwm_diff1 = hwmgr->thermal_controller.advanceFanControlParameters.usPWMMed - hwmgr->thermal_controller.advanceFanControlParameters.usPWMMin;
+pm/powerplay/smumgr/polaris10_smumgr.c:2243: pwm_diff2 = hwmgr->thermal_controller.advanceFanControlParameters.usPWMHigh - hwmgr->thermal_controller.advanceFanControlParameters.usPWMMed;
+pm/powerplay/smumgr/polaris10_smumgr.c:2293: if (!res && hwmgr->thermal_controller. advanceFanControlParameters.ulMinFanSCLKAcousticLimit) res = smum_send_msg_to_smc_with_parameter(hwmgr, PPSMC_M
+amdgpu/amdgpu_atombios.c:1070: case 6: amdgpu_atom_set_clock_word(&args.v6_in.ulClock, clock, clock_type);
+amdgpu/amdgpu_atombios.c:1084: dividers->real_clock = amdgpu_atom_clock_word_frequency(&args.v6_out.ulClock);
+amdgpu/amdgpu_atombios.c:1085: dividers->post_divider = amdgpu_atom_clock_word_flags(&args.v6_out.ulClock);
+amdgpu/amdgpu_atombios.c:1660: start_addr = firmware_usage->asFirmwareVramReserveInfo[0].ulStartAddrUsedByFirmware;
+amdgpu/amdgpu_atombios.c:1662: size = firmware_usage->asFirmwareVramReserveInfo[0].usFirmwareUseInKb;
+amdgpu/atombios_encoders.c:2088: lvds->native_mode.width_mm = panel_res_record->usHSize;
+amdgpu/atombios_encoders.c:2089: lvds->native_mode.height_mm = panel_res_record->usVSize;
