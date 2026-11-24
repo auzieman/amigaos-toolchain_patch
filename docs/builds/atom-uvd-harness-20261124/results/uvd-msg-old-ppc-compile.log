@@ -1,0 +1,16 @@
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c: In function ‘amdgpu_uvd_cs_msg_decode’:
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c:80:76: warning: right-hand operand of comma expression has no effect [-Wunused-value]
+   80 | #define dev_WARN_ONCE(d, c, ...) ((c) ? printf("  [WARN] " __VA_ARGS__), 1 : 0)
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c:130:17: note: in expansion of macro ‘dev_WARN_ONCE’
+  130 |                 dev_WARN_ONCE(adev->dev, 1,
+      |                 ^~~~~~~~~~~~~
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c: In function ‘amdgpu_uvd_cs_msg’:
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c:311:52: warning: pointer targets in passing argument 2 of ‘amdgpu_uvd_cs_msg_decode’ differ in signedness [-Wpointer-sign]
+  311 |                 r = amdgpu_uvd_cs_msg_decode(adev, msg, ctx->buf_sizes);
+      |                                                    ^~~
+      |                                                    |
+      |                                                    int32_t * {aka int *}
+/home/owner/kernel-021-20261123-001/harness-0040/uvd-msg-old.c:113:75: note: expected ‘uint32_t *’ {aka ‘unsigned int *’} but argument is of type ‘int32_t *’ {aka ‘int *’}
+  113 | static int amdgpu_uvd_cs_msg_decode(struct amdgpu_device *adev, uint32_t *msg,
+      |                                                                 ~~~~~~~~~~^~~

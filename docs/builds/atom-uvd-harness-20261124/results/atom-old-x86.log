@@ -1,0 +1,11 @@
+leakage id=ff01 efuse=50: r=0 vddc=900 vddci=800
+leakage id=ff01 efuse=150: r=0 vddc=920 vddci=820
+leakage id=ff01 efuse=250: r=0 vddc=940 vddci=840
+leakage id=ff02 efuse=50: r=0 vddc=910 vddci=810
+leakage id=ff02 efuse=150: r=0 vddc=930 vddci=830
+leakage id=ff02 efuse=250: r=0 vddc=950 vddci=850
+leakage_id_from_efuse: r=0 id=0x0123
+voltage_evv(0xff01): r=0 mv=1150
+  GetVoltageInfo params as seen by VBIOS: 010901ff 50c30000
+edc_hilo: r=0 threshold=0x1234 lo=0x0040 hi=0x0080
+edc_leakage: r=0 DIDT_REG (values written to DIDT registers): 18110a03 342d261f 5049423b 00401234 88810080 a49d968f c0b9b2ab dcd5cec7 f8f1eae3 140d06ff 3029221b 4c453e37 68615a53 847d766f a099928b bcb5aea7 d8d1cac3 f4ede6df 100902fb 2c251e17 48413a33 645d564f 8079726b 9c958e87
