@@ -1,0 +1,26 @@
+--- a/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
++++ b/drivers/gpu/drm/amd/amdgpu/amdgpu_gfx.c
+@@ -1095,7 +1095,7 @@
+ 		goto failed_kiq_read;
+ 
+ 	mb();
+-	value = adev->wb.wb[reg_val_offs];
++	value = le32_to_cpu(adev->wb.wb[reg_val_offs]);
+ 	amdgpu_device_wb_free(adev, reg_val_offs);
+ 	return value;
+ 
+--- a/drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
++++ b/drivers/gpu/drm/amd/amdgpu/sdma_v3_0.c
+@@ -715,6 +715,12 @@
+ 			wptr_poll_cntl = REG_SET_FIELD(wptr_poll_cntl,
+ 						       SDMA0_GFX_RB_WPTR_POLL_CNTL,
+ 						       ENABLE, 1);
++#ifdef __BIG_ENDIAN
++			/* the CPU stores the polled wptr natively, as it does the ring */
++			wptr_poll_cntl = REG_SET_FIELD(wptr_poll_cntl,
++						       SDMA0_GFX_RB_WPTR_POLL_CNTL,
++						       SWAP_ENABLE, 1);
++#endif
+ 		} else {
+ 			wptr_poll_cntl = REG_SET_FIELD(wptr_poll_cntl,
+ 						       SDMA0_GFX_RB_WPTR_POLL_CNTL,

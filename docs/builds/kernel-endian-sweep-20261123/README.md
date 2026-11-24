@@ -189,3 +189,27 @@ Reviewed, not applicable:
 - 91cf34bc5a5 (MQD fairness);
 - 6e54e467973 (compute COND_EXEC for soft reset);
 - cb1e657ccac, 0e4ef0ead60, 47cd3118509 (fence and flush refactor follow-ups).
+
+### Sweep of the files our series never touched (2026-11-24)
+
+Upstream is LE-only, so "unchanged from upstream" means "never BE-checked", not "verified".
+The VM page-table oracle shows it: vanilla `amdgpu_vm_sdma.c` byte-reverses every GTT PTE on
+ppc. Direct GPU-word accesses in the unchanged files (fence, IH, irq, gmc_v8, gmc, sdma_v3, vi,
+vm, ids, job, gfx, gart, device) give 86 sites:
+- **Already LE upstream:** the fence read, IH wptr/IV decode (tonga_ih, amdgpu_ih), SDMA
+  rptr/wptr (hardware RB/rptr swap), the GART PTE `writeq` and the SDMA ring-test wb.
+- **Latent gaps, now patch 0043:** the `amdgpu_kiq_rreg` wb read (raw) and the SDMA
+  `use_pollmem` wptr poll without SWAP_ENABLE. Both are SR-IOV/VF paths, not reached here.
+  It builds clean.
+
+**Hardware swap-control inventory** (every `*SWAP*`/`*ENDIAN*` field of GFX8 CP and RLC in
+gfx_8_0_sh_mask.h):
+- `CP_RB0_CNTL.BUF_SWAP`, `CP_HQD_PQ_CONTROL.ENDIAN_SWAP` and the IB swap bits follow our
+  software-LE policy.
+- `CP_ENDIAN_SWAP` is written 0.
+- `CP_RB*_RPTR_ADDR.RB_RPTR_SWAP` is 0 (the low address bits), so rptr is written LE, matching
+  the LE decode.
+- `CP_DMA_*_COMMAND` SRC/DST_SWAP come from the user's DMA_DATA (Mesa: 0).
+- The semaphore swap fields are unused.
+- **`RLC_MC_CNTL.RDREQ_SWAP/WRREQ_SWAP` are never programmed on GFX8** (gfx6 and gfx7 write 0).
+  Read the register on the board.
